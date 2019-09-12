@@ -1,0 +1,190 @@
+
+<!DOCTYPE html>
+<html lang="en-US" class="no-touch"><head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+
+<link rel="shortcut icon" href="http://www.rightstufanime.com/c.546372/shopflow/img/favicon.ico"/>
+<script>
+/* declare SC namespace here and the LOAD_FILEs objects */
+var SC = window.SC = {
+	ENVIRONMENT: {
+		jsEnvironment: (typeof nsglobal === 'undefined') ? 'browser' : 'server'
+	}
+,	isCrossOrigin: function()
+	{
+		return 'www.rightstufanime.com' !== document.location.hostname;
+	}
+,	isPageGenerator: function()
+	{
+		return typeof nsglobal !== 'undefined';
+	}
+,	getSessionInfo: function(key)
+	{
+		var session = SC.SESSION || SC.DEFAULT_SESSION || {};
+		return (key) ? session[key] : session;
+	}
+,	blurInitialHTML: false
+};
+if (SC.isPageGenerator())
+{
+	var metas = document.head.getElementsByTagName('meta');
+	for (var i = 0; i < metas.length; i++)
+	{
+		if (metas[i].getAttribute('content') === 'nofollow')
+		{
+			document.head.removeChild(metas[i]);
+		}
+	}
+}
+if (!history.pushState && SC.ENVIRONMENT.jsEnvironment === 'browser' && (location.pathname !== "/" || location.search !== "") && location.hash === '')
+{
+	if (location.pathname === "/")
+	{
+		var hash = (RegExp('fragment=' + '(.+?)(&|$)').exec(location.search)||[,null])[1];
+		location.replace(location.pathname + location.search + '/#' + unescape(hash || ''));
+	}
+	else
+	{
+		location.replace('/#' + location.pathname + location.search);
+	}
+	document.write("");
+}
+
+</script>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<title></title>
+<script>
+
+/* if not in SEO we execute the html5 shiv. This code is copy and paste but characters '' were replaced with '\' because of the SSP renderer */
+if (!SC.isPageGenerator())
+{
+	/**
+	* @preserve HTML5 Shiv 3.7.1 | @afarkas @jdalton @jon_neal @rem | MIT/GPL2 Licensed
+	*/
+	!function(a,b){function c(a,b){var c=a.createElement("p"),d=a.getElementsByTagName("head")[0]||a.documentElement;return c.innerHTML="x<style>"+b+"</style>",d.insertBefore(c.lastChild,d.firstChild)}function d(){var a=s.elements;return"string"==typeof a?a.split(" "):a}function e(a){var b=r[a[p]];return b||(b={},q++,a[p]=q,r[q]=b),b}function f(a,c,d){if(c||(c=b),k)return c.createElement(a);d||(d=e(c));var f;return f=d.cache[a]?d.cache[a].cloneNode():o.test(a)?(d.cache[a]=d.createElem(a)).cloneNode():d.createElem(a),!f.canHaveChildren||n.test(a)||f.tagUrn?f:d.frag.appendChild(f)}function g(a,c){if(a||(a=b),k)return a.createDocumentFragment();c=c||e(a);for(var f=c.frag.cloneNode(),g=0,h=d(),i=h.length;i>g;g++)f.createElement(h[g]);return f}function h(a,b){b.cache||(b.cache={},b.createElem=a.createElement,b.createFrag=a.createDocumentFragment,b.frag=b.createFrag()),a.createElement=function(c){return s.shivMethods?f(c,a,b):b.createElem(c)},a.createDocumentFragment=Function("h,f","return function(){var n=f.cloneNode(),c=n.createElement;h.shivMethods&&("+d().join().replace(/[\w\-:]+/g,function(a){return b.createElem(a),b.frag.createElement(a),'c("'+a+'")'})+");return n}")(s,b.frag)}function i(a){a||(a=b);var d=e(a);return!s.shivCSS||j||d.hasCSS||(d.hasCSS=!!c(a,"article,aside,dialog,figcaption,figure,footer,header,hgroup,main,nav,section{display:block}mark{background:#FF0;color:#000}template{display:none}")),k||h(a,d),a}var j,k,l="3.7.1",m=a.html5||{},n=/^<|^(?:button|map|select|textarea|object|iframe|option|optgroup)$/i,o=/^(?:a|b|code|div|fieldset|h1|h2|h3|h4|h5|h6|i|label|li|ol|p|q|span|strong|style|table|tbody|td|th|tr|ul)$/i,p="_html5shiv",q=0,r={};!function(){try{var a=b.createElement("a");a.innerHTML="<xyz></xyz>",j="hidden"in a,k=1==a.childNodes.length||function(){b.createElement("a");var a=b.createDocumentFragment();return"undefined"==typeof a.cloneNode||"undefined"==typeof a.createDocumentFragment||"undefined"==typeof a.createElement}()}catch(c){j=!0,k=!0}}();var s={elements:m.elements||"abbr article aside audio bdi canvas data datalist details dialog figcaption figure footer header hgroup main mark meter nav output picture progress section summary template time video",version:l,shivCSS:m.shivCSS!==!1,supportsUnknownElements:k,shivMethods:m.shivMethods!==!1,type:"default",shivDocument:i,createElement:f,createDocumentFragment:g};a.html5=s,i(b)}(this,document);
+}
+
+/* function loadScript - sources  libs/LoadScript.js*/
+(function(){var pendingScripts=[],firstScriptTag=!SC.isPageGenerator()&&document.getElementsByTagName("script")[0];window.loadScript=function loadScript(scripts){var src,script;var typeof_scripts=typeof scripts;scripts=(typeof_scripts==="string"||(typeof_scripts==="object"&&!scripts.length))?[scripts]:scripts;if(!SC.isCrossOrigin()){while(src=scripts.shift()){src=(typeof src==="string")?{url:src}:src;if(SC.isPageGenerator()){script=document.createElement("script");script.src=src.url;script.type="text/javascript";var seo_remove_element=document.createElement("div");seo_remove_element.className="seo-remove";seo_remove_element.appendChild(script);document.write(seo_remove_element.outerHTML)}else{if("async" in firstScriptTag){script=document.createElement("script");script.async=!!src.async;script.src=src.url;script.type="text/javascript";firstScriptTag.parentNode.insertBefore(script,firstScriptTag)}else{if(firstScriptTag.readyState){script=document.createElement("script");script.type="text/javascript";script.async=!!src.async;if(!src.async){pendingScripts.push(script);script.onreadystatechange=function(){var pendingScript;while(pendingScripts[0]&&pendingScripts[0].readyState=="loaded"){pendingScript=pendingScripts.shift();pendingScript.onreadystatechange=null;firstScriptTag.parentNode.insertBefore(pendingScript,firstScriptTag)}}}script.src=src.url;if(src.async){firstScriptTag.parentNode.insertBefore(script,firstScriptTag)}}else{if(src.async){script=document.createElement("script");script.src=src.url;script.type="text/javascript";firstScriptTag.parentNode.insertBefore(script,firstScriptTag)}else{document.write('<script src="'+src.url+'" defer></'+'script>')}}}}}}}})();
+
+/* create link rel dns-prefetch and prefetch */
+if (!SC.isPageGenerator())
+{
+	
+	var prefetch_url = 'https://checkout.rightstufanime.com';
+	document.write('<link rel="prefetch" href="' + prefetch_url + '">');
+	document.write('<link rel="dns-prefetch" href="' + prefetch_url + '">');
+}
+</script>
+
+<link rel="canonical" href="http://www.rightstufanime.com/privacy-policy"/><meta name="keywords" content=""/><meta name="description" content=""/></head>
+
+<body class="seo-support">
+
+<svg style="float: left; height: 0;">
+  <filter id="svg-blur" x="-5%" y="-5%" width="110%" height="110%">
+    <fegaussianblur in="SourceGraphic" stdDeviation="5"></fegaussianblur>
+  </filter>
+</svg>
+
+<div id="scripts-placeholder"></div>
+
+<noscript>
+	<div class="container">
+		<div class="alert alert-error alert-noscript">
+			<strong>Javascript is disabled on your browser.</strong><br/>
+			To view this site, you must enable JavaScript or upgrade to a JavaScript-capable browser.
+		</div>
+	</div>
+</noscript>
+
+<div id="main" class="main"><noscript><div><div id="layout" class="layout"><header id="site-header" class="site-header"><nav class="navbar navbar-static-top site-header-top-nav site-header-main-nav"><div class="navbar-inner"><div class="container"><div id="contact-header" class="pull-left"><a id="phone" href="tel:+18003386827" data-navigation="ignore-click">1-800-338-6827</a><ul class="help-nav"><li class="dropdown"><a href="#" class="tab help-tab" data-hashtag="#" data-keep-options="display"> Help <b class="caret"></b></a><ul class="dropdown-menu"><li><a target="_blank" class="tab live-help-tab" data-keep-options="display"> Live Help </a></li><li><a href="/contact" class="tab contact-us-tab" data-touchpoint="home" data-hashtag="#contact" data-keep-options="display"> Contact Us </a></li></ul></li></ul></div><ul class="header-shop-main-nav pull-right"><li><a href="/Right-Stuf-Catalog" class="tab print-catalog-tab" data-touchpoint="home" data-hashtag="#Right-Stuf-Catalog"> Print Catalog </a></li><li><a href="/gift-certificate/true" class="tab gift-certificates-tab" data-touchpoint="home" data-hashtag="#gift-certificate/true"> Gift Certificates </a></li><li><a href="/clearance/0.50to0.99" class="tab clearance-tab" data-touchpoint="home" data-hashtag="#clearance/0.50to0.99"> Clearance </a></li></ul></div></div></nav><div class="container"><div data-type="message-placeholder"></div><div class="row-fluid site-branding"><a href="#" class="btn-navbar visible-phone" data-toggle="collapse" data-target=".main-nav"><span></span><span></span><span></span></a><div id="site-logo" class="site-logo content-banner"><a href="/" data-touchpoint="home" data-hashtag=""> Right Stuf </a></div><a href="#" data-touchpoint="home" data-hashtag="#cart" class="mini-cart-summary visible-phone"><i class="icon-shopping-cart-cust"></i><span class="item-count loading"><span class="cart_ellipsis"></span></span></a><nav class="navbar collapse visible-phone main-nav site-header-main-nav nav-mobile"><div class="navbar-inner"><ul class="nav"><li><a href="/Got-Anime" class="tab search-tab" data-touchpoint="home" data-hashtag="#Got-Anime" data-keep-options="display"> Membership </a></li></ul><ul class="nav mobile-profile"><li><a href="#" data-touchpoint="login" data-hashtag="login-register">Sign In</a></li></ul></div></nav><div class="span6 header-banner"><div id="banner-header-top" class="content-banner banner-header-top"></div></div><div id="site-search-container" class="site-search-container"><form class="form-search site-search" method="GET" action="/search"><div class="input-append"><input class="input-medium search-query" placeholder="Search for products" type="search" name="keywords" autocomplete="off" maxlength="40"/><button type="submit" class="btn"> Go </button></div></form></div></div><nav class="navbar hidden-phone main-nav site-header-main-nav"><div class="navbar-inner"><ul class="nav"><li><a href="#" data-touchpoint="login" data-hashtag="login-register">Sign In</a></li><li><a href="/Got-Anime" class="tab search-tab" data-touchpoint="home" data-hashtag="#Got-Anime" data-keep-options="display"> Membership </a></li><li id="mini-cart-container" class="dropdown mini-cart-container"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-shopping-cart-cust"></i><span class="item-count loading"><span class="cart_ellipsis"></span></span><b class="caret"></b></a><div class="dropdown-menu"><ul class="items mini-cart-empty"><li><a href="#" data-touchpoint="home" data-hashtag="#cart"> Your cart is loading </a></li></ul></div></li></ul></div></nav><div id="banner-header-bottom" class="content-banner banner-header-bottom"></div></div><nav class="navbar site-header-bottom-nav site-header-main-nav navbar-static-top"><div class="navbar-inner"><div class="container"><ul class="cart-nav visible-phone"><li><a href="#" data-touchpoint="login" data-hashtag="login-register">Sign In</a></li></ul><ul class="category-nav clearfix"><li class="dropdown"><a class="visible-phone" href="#">Browse <b class="caret"></b></a><ul class="dropdown-menu"><li class="hidden-phone">Browse <b class="caret"></b></li><li class="list-video"><a href="/category/Blu~ray,DVD" liclass="list-video" class="tab cat-video" data-touchpoint="home" data-hashtag="#category/Blu~ray,DVD"> Anime &amp; Videos </a></li><li class="list-books"><a href="/category/Manga,Novels,Art-Books,How-To,Specialty-Books-and-Magazines" liclass="list-books" class="tab cat-books" data-touchpoint="home" data-hashtag="#category/Manga,Novels,Art-Books,How-To,Specialty-Books-and-Magazines"> Manga &amp; Books </a></li><li class="list-merchandise"><a href="/category/Blankets,Clocks,Drinkware,Lunch-Boxes,Office-Supplies,Magnets,Pillows,Plushes,Towels,Wall-Art" liclass="list-merchandise" class="tab cat-merchandise" data-touchpoint="home" data-hashtag="#category/Blankets,Clocks,Drinkware,Lunch-Boxes,Office-Supplies,Magnets,Pillows,Plushes,Towels,Wall-Art"> Merchandise </a></li><li class="list-collectibles"><a href="/category/Figures,Model-Kits" liclass="list-collectibles" class="tab cat-collectibles" data-touchpoint="home" data-hashtag="#category/Figures,Model-Kits"> Figures &amp; Collectibles </a></li><li class="list-apparel"><a href="/category/Clothing,Bags,Hats,Jewelry,Keychains,Lighters,Patches-Pins-and-Buttons,Tech-Accessories,Wallets" liclass="list-apparel" class="tab cat-apparel" data-touchpoint="home" data-hashtag="#category/Clothing,Bags,Hats,Jewelry,Keychains,Lighters,Patches-Pins-and-Buttons,Tech-Accessories,Wallets"> Apparel </a></li><li class="list-audio"><a href="/category/Music-CD" liclass="list-audio" class="tab cat-audio" data-touchpoint="home" data-hashtag="#category/Music-CD"> Audio </a></li><li class="list-games"><a href="/category/Cards,Computer-Games" liclass="list-games" class="tab cat-games" data-touchpoint="home" data-hashtag="#category/Cards,Computer-Games"> Games </a></li><li class="list-all"><a href="/all-categories" liclass="list-all" class="tab cat-all" data-touchpoint="home" data-hashtag="#all-categories"> All Categories </a></li></ul></li></ul></div></div></nav></header><div id="content" class="container content"><div id="landing-page" class="landing-page"><div class="view-header"><div id="banner-breadcrumb-top" class="content-banner banner-breadcrumb-top"></div><ul class="breadcrumb hidden-phone" itemprop="breadcrumb"><li><a href="/">Home</a><span class="divider">/</span></li><li class="active"></li></ul><div id="banner-breadcrumb-bottom" class="content-banner banner-breadcrumb-bottom"></div><div id="main-banner" class="main-banner"></div></div><div id="landing-page-content" class="view-body landing-page-content"><h1>Privacy Policy and Terms of Use</h1><p>By using this site (RightStufAnime.com), and any of its affiliated sites and/or subdomains, you agree to our Terms of Use &amp; Privacy Policy as each are posted on this site.</p><p>Right Stuf, Inc. reserves the right, at the its sole discretion, to change, modify, alter or update the Terms of Use &amp; Privacy Policy, in part or in whole, at any time. By using RightStuf.com and/or its affiliated sites and/or subdomains after notice of such modifications, alterations or updates, you agree to be bound by the revised terms.</p><p>If you have any questions regarding the Terms of Use &amp; Privacy Policy for this site, please contact our Customer Care Team by e-mail (<a href="mailto:info@rightstuf.com">info@rightstuf.com</a>), mail or fax:<br/><br/><br/><br/> Right Stuf, Inc. <br/><br/> Customer Relations <br/><br/>512 NE Main St. <br/><br/>Grimes, IA 50111-2188 USA <br/><br/><br/><br/>Our fax number is 515-986-1129</p><h2>Copyright &amp; Trademarks</h2><p>The contents of all material available on this Internet site – including, but not limited to, text, graphics, logos, icons, images, audio and/or video clips, digital downloads, data compilations, the compilation of materials on this site and software -- are copyrighted by Right Stuf, Inc., unless otherwise indicated. These materials may not be reproduced, copied, distributed, displayed, published, transmitted, adapted, edited or downloaded in any way without the express written permission of Right Stuf, Inc.</p><p>Copyright is not claimed on any trademarks, characters, images, likenesses or designs created, owned, or reserved by third-party illustrators, cartoonists, designers, producers, vendors or companies which have been either used in their original form or which have been customized or enhanced for use on this Internet Site.</p><p>Permission and licensing has been obtained for the use and display of the images, likenesses, and characters portrayed in the videos, cells, t-shirts and other merchandise contained within this site, or can be considered fair use under US copyright law.</p><p>Permission to use elements – such as product information, press releases, announcements, news, FAQs and banner ads downloaded in order to link to RightStufAnime.com - from this Site is granted, provided that (1) the copyright notice at the bottom of the Terms of Use &amp; Privacy Policy appears in all copies and Right Stuf, Inc. is credited as the source of the elements used, (2) any other copyright notices (i.e., copyright notices that do not reference Right Stuf, Inc.) appearing in the text are also included, (3) the use of these elements is strictly for informational and non-commercial or personal use only and will not be copied or posted on any network computer, broadcast in any media or otherwise published unless expressly and explicitly authorized by Right Stuf, Inc. and (4) no modifications of any elements are made. Right Stuf, Inc. may withdraw its license at any time for any reason.</p><p>All other rights are reserved by Right Stuf, Inc. Copyright infringement is a violation of federal law subject to criminal and civil penalties.</p><h2>Product Availability &amp; Pricing</h2><p>All products offered for sale on this site are subject to availability from the manufacturer. Right Stuf, Inc. cannot be responsible for changes to products that may not be communicated to us, nor cancellations due to restricted availability or cancellation of items at the manufacturer level. The fulfillment of orders placed is strictly subject to such availability. Additionally, any orders placed through this site are not considered fulfilled or accepted until the actual shipment of the product from our warehouse.</p><p>Except where noted otherwise, the retail price (&quot;Retail Price&quot;) displayed for products on our site represents the full retail price listed on the product itself, suggested by the manufacturer or supplier, according to industry standard.</p><p>Right Stuf Inc. exercises due diligence with regard to making sure all items available through our catalog are priced correctly. However, occasionally, a small number of items in our catalog may be mispriced. No adjustments are made in cases where prices are changed in the normal course of business at Right Stuf. If we do discover a mispricing before your item has shipped (and your payment has been processed), we will do the following:</p><ul><li>If the item&apos;s correct, actual price is lower than the stated price, we will adjust the customer&apos;s charge to the lower price and automatically ship.</li><li>If the item&apos;s correct, actual price is higher than the stated price, we will contact the customer and offer the customer the choice of being charged the correct price and shipping the order out or canceling/revising the order.</li></ul><p><b>Please note that it is our policy that credit card payments for merchandise will not be billed to your card until your merchandise is ready to ship.</b></p><h2>Links to Third Party Sites</h2><p>Our site contains links and references to other organizations and sites on the Internet, including web sites that are not under our control. We cannot be responsible for the content or practices of other Web sites. Please consult the privacy policies of those sites directly for information about their use of your information.</p><h2>Disclaimer of Warranties &amp; Liability</h2><p>All materials on RightStufAnime.com, and any of its affiliated sites and/or subdomains, are provided &quot;as is&quot; and without warranties of any kind, express or implied, unless such warranties are legally incapable of exclusion. Neither Right Stuf, Inc., nor any person associated with the creation, production, delivery or maintenance of its sites, are liable for any damages that may result from your use of these sites. (This includes direct, incidental, consequential, indirect or punitive damages and attorneys&apos; fees resulting from your access to and use of the sites, including but not limited to challenges or actions for infringement, libel and slander.) Right Stuf, Inc. does not warrant or make any representations regarding the use or the results of the use of the materials on the site in terms of their correctness, accuracy, reliability or otherwise. You expressly agree that use of RightStufAnime.com and its associated sites and subdomains is at your sole risk.</p><p>Thank you for your patronage!</p><h2>Right Stuf - Privacy Statement</h2><p>Right Stuf, Inc. is posting this privacy statement to inform our customers of our policies with regards to privacy. The information provided here gives our policy regarding gathering and dissemination of information for our website.</p><p><b>Any personal information (email address, home address, etc.) which we obtain from visitors/customers will not be sold or shared with any third party.</b> All information gathered is used for internal purposes only. You may exercise the right to not receive future mailings, and information on removing yourself from our e-mail lists is given below.</p><p>In some situations, we may be legally obligated to disclose information about you to the government or other third parties. If asked or required by law, we may release information about you to law enforcement, government or officers of the court if we believe it is necessary or appropriate to investigate or resolve potential problems or inquiries.</p><p>Right Stuf, Inc. gathers information about its visitors in the following ways:</p><ul><li>Site statistics, including, but not limited to, the capture of IP addresses, browser type, operating system used, and Internet cookies, that provide both aggregated non-personally identifiable information, as well as information that may allow us to identify you personally.</li><li>Contest and Registration forms.</li><li>Newsletters and mailing lists.</li><li>Orders placed for products and services via www.rightstufanime.com.</li></ul><p>We capture your IP address when you enter our ordering system to assist with the diagnosis of problems with our server and to traceback fraudulent credit card usage. Your IP address is used to help match you and your shopping cart.</p><p>Our site uses cookies to keep track of your shopping cart so that you can go in and out of the ordering system without losing your order.</p><p>Browser type and operating system type data is collected as part of our analytics processes. We may also use the services of reputable third parties to provide us with data collection, reporting, ad response measurement, and site analytics in a non-personally identifiable manner.</p><p>Contest and Registration forms on our site require users to give us contact information including addresses and email addresses. Customer contact information from the registration forms may be used to send information about our company and its products. This information is also used to contact you if necessary.</p><p>Mailing list communications from Right Stuf Inc. are sent only to those requesting an opt-in subscription and are used to notify readers of site updates, promotions, and other business communications. You may exercise the right to not receive future mailings, and information on removing yourself from our e-mail lists is given below.</p><p>On-line ordering is available on our website for customers to purchase products and services. We collect contact information and financial payment information, including credit card numbers. This information is used to send product and services orders, and this information may also be used to send other information to you regarding our products and services. We may also use the contact information to get in touch with you if necessary. Financial payment information that is collected is used to verify account ownership and bill you for products and services purchased. You may remove yourself from our mailing list and/or e-mailing list at any time; information on removing yourself is given below.</p><p>You may choose to add interactivity to our content through the use of third-party social networking sites, such as Facebook or Twitter, or through other third-party plug-ins and applications. When doing so, access may be provided in both directions from and to your personal social media profile. It is also possible that non-personally identifiable information can be provided from your interaction with our content. By utilizing our site in coordination with such third-party social networking sites, plug-ins, or applications, you consent to the use of such information by us in accordance with our privacy policy. In addition, Right Stuf, Inc. cannot control how such information is used by these third parties, plug-ins, and applications, and it is possible that that information may be publicly viewed by other users of these social networking sites, plug-ins, and applications.</p><p>Social networking sites, plug-ins, and applications generally have their own privacy settings where you can control what data is shared. We recommend you consult their privacy policies and terms of use.</p><p>The information we collect in connection with our online forums is used to provide an interactive experience with the forum members. We use this information to facilitate participation in these online forums and, from time to time, to offer you products, programs, or services.</p><h2>Children</h2><p>Right Stuf Inc. does not knowingly collect personal information, including contact information, from children under the age of 13. When subscribing to newsletters and entering contests, individuals are made aware of the age requirement. By submitting the subscription or entry form, they are attesting they meet the age requirement.</p><p>If you feel a minor has inappropriately submitted information, or subscribed to any of our e-mail mailing lists or publications, please contact us at <a href="mailto:info@rightstuf.com">info@rightstuf.com</a> – or via the mail or fax options listed below, and the minor&apos;s information will be removed.</p><p>The site does not sell products for purchase by children, and if you are under 18, you may make purchases on the site only with the involvement of a parent or guardian.</p><h2>Removal From Our Mailing Lists</h2><p>To remove yourself from our email lists, please visit the unsubscribe links below corresponding to the mailing list you want to unsubscribe from.</p><p></p><ul><li><a href="http://rightstuf.us9.list-manage.com/unsubscribe?u=436c9f219aedbd730be7e74e2&amp;id=20f4f39d79" target="_blank">Right Stuf News</a></li><li><a href="http://rightstuf.us9.list-manage.com/unsubscribe?u=436c9f219aedbd730be7e74e2&amp;id=5501c21caf" target="_blank">Right Stuf Press</a></li></ul><p></p><p>If you have any issues or questions about our use of your private information, the website, problems obtaining information or with this website, please feel free to contact our Customer Care Team by <a href="mailto:info@rightstuf.com">email</a>, mail or fax:<br/><br/><br/><br/> Right Stuf, Inc. <br/><br/>Customer Relations <br/><br/>512 NE Main St. <br/><br/>Grimes, IA 50111-2188 USA <br/><br/><br/><br/>Our fax number is 515-986-1129. <br/><br/><br/><br/>Thank you for your patronage!</p><p>The last update to these policies was March, 2011. We encourage you to periodically check back and review these policies, so that you always will know what information we collect, how we use it, and with whom we share it.</p><h2>Google Adwords Retargeting</h2><p>This website uses the Google AdWords remarketing service to advertise on third party websites (including Google) to previous visitors to our site. It could mean that we advertise to previous visitors who haven’t completed a task on our site, for example using the contact form to make an inquiry. This could be in the form of an advertisement on the Google search results page, or a site in the Google Display Network. Third-party vendors, including Google, use cookies to serve ads based on someone’s past visits to the Right Stuf website. Of course, any data collected will be used in accordance with our own privacy policy and Google’s privacy policy.</p><p>You can set preferences for how Google advertises to you using the <a href="http://www.google.com/settings/ads/onweb/" target="_blank">Google Ad Preferences page</a>, and if you want to you can <a href="http://www.google.com/settings/ads/onweb/" target="_blank">opt out of interest-based advertising entirely by cookie settings</a> or <a href="http://www.google.com/ads/preferences/html/intl/en/plugin/" target="_blank">permanently using a browser plugin</a>.</p></div> </div></div><footer id="site-footer" class="site-footer"><div class="container"><ul class="site-footer-main-nav"><li class="header"><h3>Account</h3></li><li><a href="/" class="tab register-tab" data-touchpoint="login" data-hashtag="#login-register"> Register </a></li><li><a href="/" class="tab login-tab" data-touchpoint="login" data-hashtag="#login-register"> Log In </a></li><li><a href="/" class="tab settings-tab" data-touchpoint="customercenter" data-hashtag="#profileinformation"> Settings </a></li><li><a href="/" class="tab orderhistory-tab" data-touchpoint="customercenter" data-hashtag="#ordershistory"> Order History </a></li><li><a href="/" class="tab faq-tab" data-touchpoint="home" data-hashtag="#cart"> Cart </a></li><li><a href="/" class="tab wishlist-tab" data-touchpoint="customercenter" data-hashtag="#productlists"> Wishlists </a></li></ul><ul class="site-footer-main-nav"><li class="header"><h3>Help</h3></li><li><a href="/about-us" class="tab about-tab" data-touchpoint="home" data-hashtag="#about-us"> About Us </a></li><li><a href="/contact" class="tab contact-tab" data-touchpoint="home" data-hashtag="#contact"> Contact Us </a></li><li><a href="/policies" class="tab policies-tab" data-touchpoint="home" data-hashtag="#policies"> Policies </a></li><li><a href="/faq" class="tab faq-tab" data-touchpoint="home" data-hashtag="#faq"> Anime FAQ </a></li><li><a href="/anime-resources" class="tab resources-tab" data-touchpoint="home" data-hashtag="#anime-resources"> Anime Resources </a></li><li><a href="/community/anime-clubs" class="tab clubs-tab" data-touchpoint="home" data-hashtag="#community/anime-clubs"> Anime Clubs </a></li><li><a href="/catalog" class="tab catalog-tab" data-touchpoint="home" data-hashtag="#catalog"> Print Catalog </a></li></ul><ul class="site-footer-main-nav"><li class="header"><h3>Popular</h3></li><li><a href="/new-items/" class="tab newitems-tab"> Newly Added Items </a></li><li><a href="http://rightstufanime.tumblr.com/" class="tab home-tab"> News </a></li><li><a href="/community/contests" class="tab conests-tab" data-touchpoint="home" data-hashtag="#community/contests"> Contests </a></li><li><a href="/community/newsletters" class="tab howtoorder-tab" data-touchpoint="home" data-hashtag="#community/newsletters"> Newsletters </a></li><li><a href="/Got-Anime" class="tab gotanime-tab"> Got Anime </a></li><li><a href="http://www.animenation.net/forums/" class="tab forum-tab"> Forums </a></li><li><a href="http://www.nozomientertainment.com/" class="tab studio-tab"> Nozomi Entertainment </a></li></ul><ul class="site-footer-social-nav"><li class="facebook"><a href="http://stuf.it/facebookstuf" class="facebook"> Facebook </a></li><li class="twitter"><a href="http://stuf.it/twitterstuf" class="twitter"> Twitter </a></li><li class="youtube"><a href="http://stuf.it/youtubestuf" class="youtube"> Youtube </a></li><li class="tumblr"><a href="http://rightstufanime.tumblr.com/" class="tumblr"> Tumblr </a></li><li class="instagram"><a href="http://instagram.com/rightstufanime/" class="instagram"> Instagram </a></li><li class="pinterest"><a href="http://stuf.it/pintereststuf" class="pinterest"> Pinterest </a></li></ul><div id="mc_embed_signup"><form action="//rightstuf.us9.list-manage.com/subscribe/post?u=436c9f219aedbd730be7e74e2&amp;id=20f4f39d79" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate=""><div id="mc_embed_signup_scroll"><h3>Subscribe to Our Mailing List</h3><div class="mc-field-group"><label for="mce-EMAIL">Email Address </label><input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL"/></div><div id="mce-responses" class="clear"><div class="response" id="mce-error-response" style="display:none"></div><div class="response" id="mce-success-response" style="display:none"></div></div><div style="position: absolute; left: -5000px;"><input type="text" name="b_436c9f219aedbd730be7e74e2_20f4f39d79" tabindex="-1" value=""/></div><div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"/></div></div></form></div></div><div class="copyright-container"><div class="container"><p class="copyright"><a href="/" class="alt-logo" data-touchpoint="home" data-hashtag="">Right Stuf Anime</a> © 1997 - 2016 Right Stuf, Inc. (800) 338-6827. All Rights Reserved.</p><div class="payment"><span class="paypal payment-icon">PayPal</span><span class="visa payment-icon">Visa</span><span class="master payment-icon">MasterCard</span><span class="discover payment-icon">Discover</span><span class="american payment-icon">American Express</span><span class="jcb payment-icon">JCB</span></div></div></div><div id="back-to-top" class="text-center back-to-top"><a href="#" data-action="back-to-top"><i class="icon-arrow-up"></i> Top </a></div></footer></div> </div></noscript></div>
+
+<script>
+
+// manage blurred effect on first load
+if (!SC.isPageGenerator() && SC.blurInitialHTML)
+{
+	var main_div = document.getElementById('main')
+	,	user_agent=(window.navigator&&navigator.userAgent)||'';
+
+	main_div.style.display = 'none';
+
+	// avoid blurring on ie since it is not supported
+	if(navigator.appName==='Microsoft Internet Explorer'||(/�Trident�/).test(user_agent))
+	{
+		// add a class to hide page generator output without blur effect
+		main_div.className += ' ie';
+	}
+	else
+	{
+		main_div.className += ' blurred';
+		main_div.style.filter = 'url(#svg-blur)';
+	}
+}
+
+/*
+ Minimizes flickery of the 1st page load!
+ */
+if (!SC.isCrossOrigin() && !SC.blurInitialHTML)
+{
+	// performance: comment to enable quick blurred rendering of the SEO output.
+	document.getElementById("main").innerHTML = '';
+}
+</script>
+
+<script>
+if (!SC.isCrossOrigin())
+{
+	// Do we have SEO Support
+	if (SC.isPageGenerator())
+	{
+		document.body.className = document.body.className + ' seo-support';
+	}
+	SC.ENVIRONMENT.seoSupport = !!~document.body.className.indexOf("seo-support");
+
+	/* load language and sc.environment.ssp */
+	loadScript([
+		'/c.546372/shopflow/sc.environment.ssp?lang=en_US&cur=USD'
+	,	'/c.546372/shopflow/languages/en_US.js'
+	]);
+
+	if (SC.isPageGenerator())
+	{
+		SC.ENVIRONMENT.PROFILE = {};
+	}
+
+	// Loads the application files, if you need to have a less agresive cacheing you can move them
+	// to the sc.environment.ssp (Moderate cacheing) or to the sc.user.environment.ssp (No cache but less performant)
+	loadScript([
+		'/c.546372/shopflow/js/libs/Libraries-015319f9b48e.js'
+	,	'/c.546372/shopflow/templates/Templates-0153c78cfab9.js'
+	,	'/c.546372/shopflow/js/Application-0155a175e39d.js'
+	// ,	'/cms/1/cms.js'
+	]);
+
+	if (SC.ENVIRONMENT.jsEnvironment == 'browser')
+	{
+		loadScript({
+			url: '/c.546372/shopflow/sc.user.environment.ssp?lang=en_US&cur=USD&t=' + new Date().getTime()
+		,	async: true
+		});
+	}
+}
+</script>
+<link rel="stylesheet" href="http://www.rightstufanime.com/c.546372/shopflow/skins/standard/Styles-0153582895f9.css"/>
+
+<!-- {"name":"Reference Shopping","bundle_id":"65035","baselabel":"ShopFlow","version":"1.06.0","datelabel":"2015.02.19","buildno":"3"} -->
+
+
+
+
+
+
+
+</body></html>
+<!-- 336 s: 39% #85 co: 0% #0 cache: 8% #236 -->
+<!-- [ sh.j10046.bos ] [ 2016.1.0.101 ]-->
+<!-- [ 546372 ] [ /s.nl ] [ Fri Jul 01 03:56:34 PDT 2016 ] -->
+<!-- Not logging slowest SQL -->

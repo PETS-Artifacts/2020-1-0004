@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o||n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({1:[function(e,n,t){function r(){}function o(e,n,t){return function(){return i(e,[c.now()].concat(u(arguments)),n?null:this,t),n?void 0:this}}var i=e("handle"),a=e(2),u=e(3),f=e("ee").get("tracer"),c=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,n){s[n]=o(d+n,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,o="function"==typeof n;return i(l+"tracer",[c.now(),e,t],r),function(){if(f.emit((o?"":"no-")+"fn-start",[c.now(),r,o],t),o)try{return n.apply(this,arguments)}finally{f.emit("fn-end",[c.now()],t)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=o(l+n)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,c.now()])}},{}],2:[function(e,n,t){function r(e,n){var t=[],r="",i=0;for(r in e)o.call(e,r)&&(t[i]=n(r,e[r]),i+=1);return t}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],3:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(o<0?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=r},{}],4:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function o(e){function n(e){return e&&e instanceof r?e:e?f(e,u,i):i()}function t(t,r,o,i){if(!d.aborted||i){e&&e(t,r,o);for(var a=n(o),u=m(t),f=u.length,c=0;c<f;c++)u[c].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function l(e,n){v[e]=m(e).concat(n)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(t)}function g(e,n){c(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var v={},y={},b={on:l,emit:t,get:w,listeners:m,context:n,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",f=e("gos"),c=e(2),s={},p={},d=n.exports=o();d.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(o.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){o.buffer([e],r),o.emit(e,n,t)}var o=e("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!x++){var e=h.info=NREUM.info,n=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();c(y,function(n,t){e[n]||(e[n]=t)}),f("mark",["onload",a()+h.offset],null,"api");var t=d.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function o(){"complete"===d.readyState&&i()}function i(){f("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),f=e("handle"),c=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1026.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=n.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),f("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<meta name="description" content="Pissed Consumer is committed to providing a safe website for all users. The company is dedicated to protecting personal infromation. Pissed Consumer Privacy Policy aims to explain privacy practices and inform users about them.">
+    <meta name="theme-color" content="#4b64a6">
+    <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+    <link rel="apple-touch-icon" sizes="57x57" href="/images/favicons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/images/favicons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/favicons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/images/favicons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/favicons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/images/favicons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/favicons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/favicons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/images/favicons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/images/favicons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicons/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="msapplication-TileColor" content="#fff">
+    <meta name="msapplication-TileImage" content="/images/favicons/ms-icon-144x144.png">
+    <meta name="theme-color" content="#fff">
+            <title>Pissed Consumer Privacy Policy @ Pissed Consumer</title>
+    <meta name="robots" content="index,follow">
+    <meta prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
+    <meta property="og:image" content="https://www.pissedconsumer.com/themes/foundation/images/sharing-logo.png"/>
+    <meta property="og:title" content="Pissed Consumer Privacy Policy @ Pissed Consumer"/>
+    <meta property="og:site_name" content="Pissed Consumer">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="/static/privacy-policy.html"/>
+    <meta property="fb:app_id" content="210676762454801"/>
+    <meta property="og:description" content="Pissed Consumer is committed to providing a safe website for all users. The company is dedicated to protecting personal infromation. Pissed Consumer Privacy Policy aims to explain privacy practices and inform users about them."/>
+    <meta itemprop="url" content="https://www.pissedconsumer.com"/>
+    <link rel="image_src" href="https://www.pissedconsumer.com/themes/foundation/images/sharing-logo.png"/>
+                <style>
+.lightbox{width:0;height:0;overflow:auto}html{margin-top:0 !important}body{font-family:sans-serif;color:#333;background:#f0f0f0}h1,h2,h3,h4,h5,h6{font-family:'Times New Roman', serif}.show-more-outer{display:none}*{margin:0;padding:0;box-sizing:border-box}*:before,*:after{box-sizing:border-box}.header{position:relative;background:#fff;padding:16px 0}@media only screen and (max-width: 1279px){.header{padding:16px 0}}@media only screen and (max-width: 767px){.header{font-size:12px}}@media only screen and (max-width: 480px){.header{padding:8px 0 7px}}.header>.row{float:none}.header>.row>*:not(.search-form){transition:all 0.3s ease}.header .submit-review{margin-right:48px}@media only screen and (max-width: 1279px){.header .submit-review{margin-right:24px}}@media only screen and (max-width: 767px){.header .submit-review{padding:6px 10px 6px;margin-top:5px;font-size:12px}}@media only screen and (max-width: 479px){.header .submit-review{margin-right:16px}}.header .logo,.header .submit-review,.header .main-menu{float:left}.header .tt-dropdown-menu{max-height:none}.logo{margin:-3px 96px -3px 0;overflow:hidden}@media only screen and (max-width: 1279px){.logo{margin-right:48px}}@media only screen and (max-width: 1023px){.logo{margin-right:24px}}@media only screen and (max-width: 767px){.logo{width:37px}}@media only screen and (max-width: 479px){.logo{margin-right:16px}}.logo img{display:block}.user-panel{float:right;position:relative;z-index:10;text-align:left}@media only screen and (max-width: 479px){.user-panel{right:0}}.user-panel .user-panel-opener{display:none}.user-panel .action-element,.user-panel a{color:#333}.user-panel .action-element:hover,.user-panel a:hover{color:#d33128}.user-panel ul li{float:left;margin:0 0 0 48px;color:#333;white-space:nowrap}.user-panel ul li:last-child span:after{content:'Login'}@media only screen and (max-width: 1279px){.user-panel ul li{margin:0 0 0 24px}}@media only screen and (max-width: 768px){.user-panel ul li{display:block;float:none}}@media only screen and (max-width: 1023px){.user-panel ul li{margin:0}.user-panel ul li:first-child{display:none}.user-panel ul li:last-child span{display:block}.user-panel ul li:last-child span:before{content:"";display:block;position:relative;top:-2px;height:32px;line-height:32px;font-size:30px;font-family:"Linearicons-Custom"}.user-panel ul li:last-child span:after{display:none}}.user-panel .user-name{display:block;position:relative;max-width:130px;padding-right:14px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.user-panel .user-name:before{content:attr(data-name)}.user-panel .user-name:after{content:'\25BE';position:absolute;right:0}.user-panel .dropdown-user-menu{display:none}.user-panel.opened .dropdown-user-menu{display:block}@media only screen and (max-width: 1023px){.user-panel .user-name{height:32px;padding-right:0}.user-panel .user-name:before{content:"";font-family:"Linearicons-Custom";font-size:24px}.user-panel .user-name:after{display:none}.user-panel .dropdown-user-menu li{margin-bottom:8px}.user-panel .dropdown-user-menu li:first-child{display:block}}.search-form{position:relative}.search-form.default-search{overflow:hidden;margin:0 0 49px}.search-form.default-search .input-search{float:left;padding:14px 8px;width:calc(100% - 64px);background:#fff;margin:0}.search-form.default-search .submit{float:right;padding:16px 16px 13px;font-size:19px}.search-form.small-search{float:left;max-width:320px;width:100%}.search-form.small-search .form{display:block;position:relative;width:100%}.search-form.small-search .input-search{float:left;position:relative;z-index:5;margin-bottom:0;padding:4px 33px 4px 12px;font-size:16px}.search-form.small-search .submit{position:absolute;top:8px;right:8px}.search-form.small-search .search-opener,.search-form.small-search .close-search{cursor:pointer;font-size:24px}.search-form.small-search .search-opener{display:none}.search-form.small-search .tt-dropdown-menu{top:48px !important;left:0;right:0 !important}.search-form.small-search .twitter-typeahead{max-width:320px}@media only screen and (max-width: 1279px){.search-form.small-search{max-width:280px}}@media only screen and (max-width: 1023px){.search-form.small-search{max-width:186px}}@media only screen and (max-width: 767px){.search-form.small-search{position:absolute;left:390px;max-width:24px;overflow:hidden}.search-form.small-search .input-search{opacity:0;height:1px;padding:0;border:0;box-shadow:none}.search-form.small-search .twitter-typeahead{max-width:440px}.search-form.small-search .tt-dropdown-menu{top:48px !important;left:-25px !important;right:-16px !important;max-width:480px}.search-form.small-search .submit{display:none}}@media only screen and (max-width: 480px){.search-form.small-search .twitter-typeahead{max-width:400px;width:calc(100% - 52px)}.search-form.small-search .tt-dropdown-menu{top:39px !important;right:-26px !important}}@media only screen and (max-width: 479px){.search-form.small-search{left:248px}}.filter-component .facets{position:relative;margin-bottom:24px;padding:24px;border-radius:5px;background:#f7f7f7;box-shadow:0 1px 2px 0 rgba(0,0,0,0.25)}@media only screen and (max-width: 767px){.filter-component .facets{margin-bottom:12px}}.filter-component .checkbox-btns{display:inline-block}.filter-component .filter-categories{display:none}.filter-component .toggle-filter{position:absolute;top:25px;right:24px;font-size:14px;cursor:pointer;color:#4b64a6;z-index:15}.filter-component .toggle-filter:hover{color:#d33128}[data-is-mobile="1"] .filter-component .toggle-filter{color:#4b64a6}.filter-component .toggle-filter:before{content:'More '}.filter-component .filter-component-dropdown{display:inline-block}.f-component-item{display:-webkit-flex;display:-ms-flexbox;display:flex;position:relative;margin-bottom:24px;background:#fff;border-radius:5px;box-shadow:0 1px 2px 0 rgba(0,0,0,0.3)}.f-component-item:after{content:"";display:table;clear:both}.f-component-item:before{content:'';position:absolute;z-index:3;top:0;right:0;background:#f7f7f7;width:33.3%;height:100%}.f-component-info{position:relative;width:66.6%;padding:48px}@media only screen and (max-width: 767px){.f-component-info{padding:24px}}.f-component-info .show-on-mobile{display:none}.f-component-info-additional{position:relative;z-index:4;padding:24px;width:33.3%}.f-component-info-additional .f-component-info-row{margin:0 0 16px}.f-component-info-additional .f-component-info-row .f-component-info-row:last-child{margin-bottom:0}.f-component-info-additional .f-component-info-row.with-border{padding-top:16px;border-top:1px solid #d9d9d9}.f-component-info-additional .action-element-w-icon{position:absolute;bottom:24px;font-size:14px}textarea,select,input{display:block;padding:8px 12px;margin:0 0 24px;width:100%;border:1px solid #d9d9d9;font-family:inherit;font-size:16px;line-height:19px}textarea::-webkit-input-placeholder,select::-webkit-input-placeholder,input::-webkit-input-placeholder{font:italic 16px "OpenSans-Italic",Helvetica,Arial,sans-serif;color:#a2a2a2}textarea:-moz-placeholder,select:-moz-placeholder,input:-moz-placeholder{font:italic 16px "OpenSans-Italic",Helvetica,Arial,sans-serif;color:#a2a2a2}textarea::-moz-placeholder,select::-moz-placeholder,input::-moz-placeholder{font:italic 16px "OpenSans-Italic",Helvetica,Arial,sans-serif;color:#a2a2a2}textarea:-ms-input-placeholder,select:-ms-input-placeholder,input:-ms-input-placeholder{font:italic 16px "OpenSans-Italic",Helvetica,Arial,sans-serif;color:#a2a2a2}.form-row{display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;margin:0 -24px 24px}.form-row-w-hint{display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;margin-bottom:24px}@media only screen and (max-width: 767px){.form-row-w-hint{margin-bottom:12px}}.form-row-w-hint .field-column{width:50%;margin-right:24px;padding-right:24px}.form-row-w-hint .hint-column{padding-top:24px;width:calc(50% - 24px)}.infopanel-component{overflow:hidden;margin-bottom:24px;background:#fff;border-radius:5px;box-shadow:0 1px 3px rgba(0,0,0,0.2)}.infopanel-component.single-most-helpful .most-helpful{max-width:500px}.infopanel-component.short-panel .infopanel-main-info .most-helpful{-webkit-flex-basis:100%;-ms-flex-preferred-size:100%;flex-basis:100%}.infopanel-component.short-panel .infopanel-main-info .most-helpful li{display:inline-block;margin-right:24px}.infopanel-component.short-panel .infopanel-main-info .most-helpful li:last-child{margin-right:0}.infopanel-component.short-panel .infopanel-content.infopanel-company .link-like-textarea{display:none}.infopanel-component .infopanel-top{padding:12px 24px;background:#f7f7f7}.infopanel-component .infopanel-top .help-info{margin-right:12px;font:14px "OpenSans-Bold",Helvetica,Arial,sans-serif}.infopanel-component .infopanel-top .button{margin-right:12px}.infopanel-component .infopanel-content{padding:24px;background:#fff}.infopanel-component .infopanel-content:after{content:"";display:table;clear:both}.infopanel-component .infopanel-content .infopanel-content-inner{display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap}.infopanel-component .infopanel-content .infopanel-content-inner:after{content:"";display:table;clear:both}.infopanel-component .infopanel-content.infopanel-product .infopanel-main-info{width:calc(100% - 144px)}.infopanel-component .infopanel-content.infopanel-product .infopanel-additional-info{width:144px}.infopanel-component .infopanel-content.infopanel-product .infopanel-media{width:100%}.infopanel-component .infopanel-content.infopanel-product .count{display:inline-block;margin-top:7px;color:#a2a2a2;font-size:11px}.infopanel-component .infopanel-content.infopanel-company .infopanel-additional-info{display:none}.infopanel-component .infopanel-content.infopanel-company .infopanel-main-info{padding-left:0;width:100%}.infopanel-component .infopanel-content.infopanel-company .infopanel-main-info .flex-item{border:0}.infopanel-component .infopanel-content.infopanel-company .infopanel-main-info .emotion-block{-webkit-flex-basis:calc(19% - 12px);-ms-flex-preferred-size:calc(19% - 12px);flex-basis:calc(19% - 12px)}.infopanel-component .infopanel-content.infopanel-company .infopanel-main-info .most-helpful{-webkit-flex-basis:calc(35% - 12px);-ms-flex-preferred-size:calc(35% - 12px);flex-basis:calc(35% - 12px)}.infopanel-component .infopanel-content.infopanel-company .infopanel-stat{border-bottom:0}.infopanel-component .infopanel-content.infopanel-company .emotion-block .reasons-block li .reason-value:after{content:attr(data-counter);margin-left:4px;color:#a2a2a2;font-size:12px}.infopanel-component .infopanel-content.infopanel-company .link-like-textarea{display:block;min-height:124px;padding:12px;margin-bottom:12px;border:1px solid #d9d9d9;color:#a2a2a2;cursor:text;font:14px "OpenSans-Italic",Helvetica,Arial,sans-serif}.infopanel-component .infopanel-content.infopanel-company .link-like-textarea:hover{color:#a2a2a2}.infopanel-component .infopanel-additional-info{padding-right:24px;width:120px;text-align:center;border-right:1px solid #e5e5e5}.infopanel-component .infopanel-additional-info .overflow-img{margin-bottom:12px}.infopanel-component .infopanel-additional-info .overflow-img,.infopanel-component .infopanel-additional-info .infopanel-img{box-shadow:0 1px 2px 0 rgba(0,0,0,0.2)}.infopanel-component .infopanel-additional-info img{display:block;max-width:100%}.infopanel-component .infopanel-additional-info .star-rating>div:after{content:"";display:table;clear:both}.infopanel-component .infopanel-additional-info .rating-title{padding-top:0;width:100%;font-size:24px}.infopanel-component .infopanel-additional-info .stars:before,.infopanel-component .infopanel-additional-info .stars-active:before{font-size:16px}.infopanel-component .infopanel-additional-info .count{font-size:11px;color:#a2a2a2}.infopanel-component .infopanel-main-info{display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;padding-left:24px;width:calc(100% - 120px)}.infopanel-component .infopanel-main-info .flex-item{-webkit-flex-basis:calc(24% - 12px);-ms-flex-preferred-size:calc(24% - 12px);flex-basis:calc(24% - 12px);padding-right:24px;margin-right:24px;border-right:1px solid #e5e5e5}.infopanel-component .infopanel-main-info .flex-item:last-child{margin-right:0;padding-right:0;border-right:0}.infopanel-component .infopanel-main-info .flex-item.most-helpful .hide-for-desktop-show-on-mobile{display:none}@media only screen and (max-width: 768px){.infopanel-component .infopanel-main-info .flex-item.most-helpful .hide-for-desktop-show-on-mobile{display:inline-block}}.infopanel-component .infopanel-main-info .star-rating.small .stars{margin-right:0}.infopanel-component .infopanel-main-info .star-rating.small .rating-title{margin-right:18px;width:calc(100% - 94px)}.infopanel-component .infopanel-main-info .star-rating .star-rating-row:last-child{margin-bottom:0}.infopanel-component .infopanel-stat{display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-align-items:center;-ms-flex-align:center;align-items:center;width:100%;margin-bottom:12px;border-bottom:1px solid #e5e5e5}.infopanel-component .infopanel-stat .infopanel-stat-item{padding:0 48px 12px 0}.infopanel-component .infopanel-stat .infopanel-stat-item:after{content:"";display:table;clear:both}.infopanel-component .infopanel-stat .infopanel-stat-item .counter{float:left;margin-right:4px;font-size:24px}.infopanel-component .infopanel-stat .infopanel-stat-item .title{float:left;color:#a2a2a2;font-size:11px;text-transform:uppercase}.infopanel-component .infopanel-stat .infopanel-stat-item .title span{display:block}.infopanel-component .infopanel-media{max-width:120px;margin-right:48px;text-align:center}.infopanel-component .infopanel-media .infopanel-img{display:block;margin-bottom:8px}.infopanel-component .infopanel-media .infopanel-media-counter{font-size:12px;color:#a2a2a2}@media only screen and (max-width: 1024px){.infopanel-component.short-panel .infopanel-main-info .flex-item.most-helpful{margin-top:0;padding-top:0;border-top:0}.infopanel-component.short-panel .infopanel-content.infopanel-company .infopanel-main-info .flex-item.most-helpful{margin-bottom:0}.infopanel-component .infopanel-stat .infopanel-stat-item{padding-right:24px}.infopanel-component .infopanel-content.infopanel-company .infopanel-main-info .flex-item.most-helpful{-webkit-flex-basis:100%;-ms-flex-preferred-size:100%;flex-basis:100%;margin:0 0 24px 0;padding:0}.infopanel-component .infopanel-content.infopanel-company .infopanel-main-info .emotion-block{-webkit-flex-basis:calc(33% - 12px);-ms-flex-preferred-size:calc(33% - 12px);flex-basis:calc(33% - 12px)}.infopanel-component .infopanel-content.infopanel-company .link-like-textarea{max-width:402px}.infopanel-component .infopanel-content.infopanel-product .infopanel-main-info .flex-item:nth-child(3){margin-right:0;padding-right:0;border-right:0}.infopanel-component .infopanel-main-info .flex-item{-webkit-flex-basis:calc(33% - 15px);-ms-flex-preferred-size:calc(33% - 15px);flex-basis:calc(33% - 15px)}.infopanel-component .infopanel-main-info .flex-item:nth-child(4){margin-right:0;padding-right:0;border-right:0}.infopanel-component .infopanel-main-info .flex-item.most-helpful{-webkit-flex-basis:calc(100%);-ms-flex-preferred-size:calc(100%);flex-basis:calc(100%);margin-top:12px;padding-top:12px;border-top:1px solid #e5e5e5}.infopanel-component .emotion-block .reasons-block .like-title,.infopanel-component .emotion-block .reasons-block .dislike-title{white-space:normal}}@media only screen and (max-width: 1023px){.infopanel-component .infopanel-main-info .star-rating.small .rating-title{width:100%;margin-right:0}}@media only screen and (max-width: 767px){.infopanel-component.short-panel .infopanel-content{max-height:100%;padding-bottom:24px}.infopanel-component.short-panel .infopanel-content.infopanel-company .infopanel-main-info .flex-item.most-helpful{display:block}.infopanel-component.short-panel .infopanel-additional-info{padding:0;margin:0;border:0}.infopanel-component.short-panel .infopanel-main-info .flex-item.most-helpful{display:block}.infopanel-component.short-panel .infopanel-main-info .flex-item.most-helpful li{display:block;margin-bottom:12px}.infopanel-component.short-panel .infopanel-main-info .flex-item.most-helpful li:last-child{margin-bottom:0}.infopanel-component.short-panel .show-more-outer{display:none}.infopanel-component.fix-like-dislike .infopanel-content{margin-bottom:24px}.infopanel-component.fix-like-dislike .show-more-outer{display:none}.infopanel-component.fix-without-rating .infopanel-content.infopanel-product .infopanel-main-info .emotion-block{display:none}.infopanel-component.fix-without-rating.toggled .infopanel-content.infopanel-product .infopanel-main-info .emotion-block{display:block}.infopanel-component.toggled .infopanel-content{max-height:900px}.infopanel-component.toggled .infopanel-content.infopanel-product{max-height:900px}.infopanel-component.toggled .infopanel-content.infopanel-company .infopanel-stat{margin-bottom:0}.infopanel-component.toggled .infopanel-content.infopanel-company .infopanel-main-info .flex-item{display:block}.infopanel-component.toggled .infopanel-content.infopanel-company+.show-more-outer{margin-top:0;border-top:0}.infopanel-component.toggled .infopanel-main-info .flex-item{-webkit-flex-basis:100%;-ms-flex-preferred-size:100%;flex-basis:100%;margin:0 0 12px 0;padding:0 0 12px 0;border-bottom:1px solid #e5e5e5;border-right:0}.infopanel-component.toggled .infopanel-main-info .flex-item.most-helpful{margin-bottom:0;padding-bottom:0;border-bottom:0}.infopanel-component.toggled .infopanel-main-info .flex-item.most-helpful li{display:block;margin-bottom:12px}.infopanel-component.toggled .infopanel-main-info .flex-item.most-helpful li:last-child{margin-bottom:0}.infopanel-component.toggled .show-more-outer{padding-top:12px;margin-top:12px;border-top:1px solid #e5e5e5}.infopanel-component .infopanel-top{padding:12px}.infopanel-component .infopanel-top .help-info{display:none}.infopanel-component .infopanel-content{max-height:400px;overflow:hidden;transition:all 0.2s ease;padding-bottom:0}.infopanel-component .infopanel-content.infopanel-company .infopanel-main-info .flex-item{-webkit-flex-basis:100%;-ms-flex-preferred-size:100%;flex-basis:100%;margin:12px 0 0 0;padding-right:0;border-right:0}.infopanel-component .infopanel-content.infopanel-company .infopanel-main-info .flex-item:first-child{margin-top:0}.infopanel-component .infopanel-content.infopanel-company .infopanel-main-info .flex-item.most-helpful{margin-bottom:12px}.infopanel-component .infopanel-content.infopanel-product{max-height:220px}.infopanel-component .infopanel-content.infopanel-product .infopanel-additional-info{display:none}.infopanel-component .infopanel-content.infopanel-product .infopanel-main-info{width:100%}.infopanel-component .infopanel-content.infopanel-product .infopanel-main-info .flex-item{border-right:0;-webkit-flex-basis:100%;-ms-flex-preferred-size:100%;flex-basis:100%;margin:0 0 12px 0;padding:0 0 12px 0;border-bottom:1px solid #e5e5e5}.infopanel-component .infopanel-content.infopanel-product .infopanel-main-info .flex-item.most-helpful{padding-bottom:0;margin-bottom:0;border-bottom:0}.infopanel-component .infopanel-content.infopanel-product .infopanel-main-info .flex-item.most-helpful li{display:block}.infopanel-component .infopanel-content.infopanel-product .evaluations.evaluations-primary .star-rating .star-rating-row.average{padding-bottom:12px;margin-bottom:12px;border-bottom:1px solid #e5e5e5}.infopanel-component .infopanel-content .infopanel-media{max-width:220px;margin-bottom:16px}.infopanel-component .infopanel-content .infopanel-media figure a{float:left;margin-right:12px}.infopanel-component .infopanel-content .infopanel-media .infopanel-media-counter{float:left}.infopanel-component .infopanel-stat .infopanel-stat-item{display:none}.infopanel-component .infopanel-stat .infopanel-stat-item:nth-child(1),.infopanel-component .infopanel-stat .infopanel-stat-item:nth-child(2){display:block}.infopanel-component .infopanel-additional-info,.infopanel-component .infopanel-main-info{width:100%}.infopanel-component .infopanel-additional-info{display:-webkit-flex;display:-ms-flexbox;display:flex;padding:0 0 12px 0;margin-bottom:12px;border-right:0;border-bottom:1px solid #e5e5e5}.infopanel-component .infopanel-additional-info .star-rating{display:-webkit-flex;display:-ms-flexbox;display:flex}.infopanel-component .infopanel-additional-info .stars{-webkit-order:1;-ms-flex-order:1;order:1;margin:2px 8px 0 0}.infopanel-component .infopanel-additional-info .rating-title{-webkit-order:2;-ms-flex-order:2;order:2;width:auto;font-size:20px}.infopanel-component .infopanel-additional-info .count{-webkit-order:3;-ms-flex-order:3;order:3;margin:5px 0 0 12px}.infopanel-component .infopanel-main-info{padding-left:0}.infopanel-component .infopanel-main-info .flex-item.most-helpful{margin-top:0;padding-top:0;border-top:0;display:block}.infopanel-component .infopanel-main-info .flex-item.most-helpful li{display:none;margin-bottom:0}.infopanel-component .infopanel-main-info .flex-item.most-helpful li:nth-child(2){display:block}.infopanel-component .company-img{display:none}.infopanel-component .show-more-outer{display:block;margin:0 24px 24px}.infopanel-component .show-more-outer:before{top:-38px}}.related-companies{display:none}.title-section{margin-bottom:24px}.title-section .title-section-h1{margin-bottom:0;font-size:40px}.title-section .title-section-h1.success em{position:relative;top:2px;float:left;margin-right:10px;color:#008f01}.title-section .title-section-h1.success span{display:block;overflow:hidden}.title-section .title-section-sub-header{display:block;font-size:20px;line-height:1.2;color:#a2a2a2}.title-section .title-section-sub-header.up{margin-bottom:8px}.title-section .title-section-sub-header.down{margin-top:8px}.title-section .title-section-sub-header:before{content:'\21b3';margin-right:4px}.title-section .title-section-holder{font-size:24px}.title-section .title-section-holder p{margin-bottom:0}.title-section .title-tag{font-family:"OpenSans-Regular",Helvetica,Arial,sans-serif;white-space:nowrap}@media only screen and (max-width: 1279px){.title-section .title-section-h1{font-size:32px}.title-section .title-section-holder{font-size:20px}}@media only screen and (max-width: 767px){.title-section .title-section-h1{font-size:20px}.title-section .title-section-holder{font-size:16px}.title-section .title-tag{font-size:16px}.title-section .title-section-sub-header{font-size:14px}.title-section .title-section-sub-header.up{margin-bottom:4px}.title-section .title-section-sub-header.down{margin-top:4px}}@media only screen and (max-width: 480px){.title-section{margin-bottom:12px}}.pager{padding:24px 0 0}@media only screen and (max-width: 767px){.pager{text-align:center}}.pager ul,.pager .pagination{display:block;text-align:center;font-size:0}.pager ul li,.pager .pagination li{display:inline}.pager ul li.first,.pager .pagination li.first{margin-right:8px}.pager ul li.last,.pager .pagination li.last{margin-left:8px}.pager ul li.page,.pager .pagination li.page{margin:0 6px}.pager ul li.gap span,.pager .pagination li.gap span{padding-left:0 !important;padding-right:0 !important;background:transparent;border:none;box-shadow:none}.pager ul li.gap span:hover,.pager .pagination li.gap span:hover{box-shadow:none}.pager ul li.current a,.pager ul li.current span,.pager .pagination li.current a,.pager .pagination li.current span{padding:10px 16px 12px !important;color:#fff !important;background:#4b64a6;box-shadow:inset 0 2px 4px 0 rgba(0,0,0,0.8)}.pager ul li.current a:hover,.pager ul li.current span:hover,.pager .pagination li.current a:hover,.pager .pagination li.current span:hover{color:#fff;background:#4b64a6;box-shadow:inset 0 2px 4px 0 rgba(0,0,0,0.8)}.pager ul li .show-for-medium-only,.pager .pagination li .show-for-medium-only{display:none}.pager ul li span,.pager ul li a,.pager .pagination li span,.pager .pagination li a{display:inline-block;padding:11px 16px 13px !important;margin-bottom:4px;font:16px "RobotoSlab-Bold","Times New Roman",Times,serif;line-height:1;background:#fff;color:#4b64a6 !important;box-shadow:inset 0 -3px 0 0 #a3afcc,inset 0 0 0 1px #a3afcc;border-radius:3px;border:0 !important}.pager ul li span:hover,.pager ul li a:hover,.pager .pagination li span:hover,.pager .pagination li a:hover{text-decoration:none;box-shadow:inset 0 -3px 0 0 #8292ba,inset 0 0 0 1px #8292ba}.pager ul li.previous,.pager ul li.next,.pager .pagination li.previous,.pager .pagination li.next{margin:0 48px}.pager ul li.previous a,.pager ul li.previous span,.pager ul li.next a,.pager ul li.next span,.pager .pagination li.previous a,.pager .pagination li.previous span,.pager .pagination li.next a,.pager .pagination li.next span{position:relative}.pager ul li.previous a:before,.pager ul li.previous a:after,.pager ul li.previous span:before,.pager ul li.previous span:after,.pager ul li.next a:before,.pager ul li.next a:after,.pager ul li.next span:before,.pager ul li.next span:after,.pager .pagination li.previous a:before,.pager .pagination li.previous a:after,.pager .pagination li.previous span:before,.pager .pagination li.previous span:after,.pager .pagination li.next a:before,.pager .pagination li.next a:after,.pager .pagination li.next span:before,.pager .pagination li.next span:after{font-family:"Linearicons-Custom";font-size:9px;position:absolute;top:50%;margin-top:-4px}.pager ul li.previous,.pager .pagination li.previous{margin-left:0}.pager ul li.previous a,.pager ul li.previous span,.pager .pagination li.previous a,.pager .pagination li.previous span{padding-left:25px !important}.pager ul li.previous a:before,.pager ul li.previous span:before,.pager .pagination li.previous a:before,.pager .pagination li.previous span:before{content:"";left:13px}.pager ul li.next,.pager .pagination li.next{margin-right:0}.pager ul li.next a,.pager ul li.next span,.pager .pagination li.next a,.pager .pagination li.next span{padding-right:25px !important}.pager ul li.next a:after,.pager ul li.next span:after,.pager .pagination li.next a:after,.pager .pagination li.next span:after{content:"";right:13px}.pager ul li.selected span,.pager ul li.selected a,.pager .pagination li.selected span,.pager .pagination li.selected a{padding:10px 16px 12px !important;color:#fff !important;background:#4b64a6;box-shadow:inset 0 2px 4px 0 rgba(0,0,0,0.8)}.pager ul li.hidden,.pager .pagination li.hidden{opacity:.5;cursor:not-allowed}.pager ul li.hidden a,.pager .pagination li.hidden a{color:#4b64a6;background:#fff}.pager ul li em,.pager .pagination li em{font-size:9px}.pager ul li em:before,.pager .pagination li em:before{position:relative;top:-2px}@media only screen and (max-width: 767px){.pager ul li.page,.pager .pagination li.page{display:none}.pager ul li.current,.pager .pagination li.current{display:inline-block}.pager ul li.current a,.pager ul li.current span,.pager ul li.current .bold,.pager .pagination li.current a,.pager .pagination li.current span,.pager .pagination li.current .bold{padding:0 !important;margin:0 4px;font-family:"OpenSans-Bold",Helvetica,Arial,sans-serif;font-size:14px;line-height:1.4;color:#000 !important;box-shadow:none;background:none}.pager ul li.current a:hover,.pager ul li.current span:hover,.pager ul li.current .bold:hover,.pager .pagination li.current a:hover,.pager .pagination li.current span:hover,.pager .pagination li.current .bold:hover{box-shadow:none;background:none;color:#000}.pager ul li .show-for-medium-only,.pager .pagination li .show-for-medium-only{display:inline-block}.pager ul li span,.pager ul li a,.pager .pagination li span,.pager .pagination li a{font-size:14px}.pager ul li.first,.pager ul li.last,.pager .pagination li.first,.pager .pagination li.last{display:none}.pager ul li.previous,.pager ul li.next,.pager .pagination li.previous,.pager .pagination li.next{margin:0 12px}.pager ul li.previous a,.pager ul li.previous span,.pager ul li.next a,.pager ul li.next span,.pager .pagination li.previous a,.pager .pagination li.previous span,.pager .pagination li.next a,.pager .pagination li.next span{font-size:14px;padding:9px 12px 11px !important}.pager ul li.previous a:before,.pager ul li.previous a:after,.pager ul li.previous span:before,.pager ul li.previous span:after,.pager ul li.next a:before,.pager ul li.next a:after,.pager ul li.next span:before,.pager ul li.next span:after,.pager .pagination li.previous a:before,.pager .pagination li.previous a:after,.pager .pagination li.previous span:before,.pager .pagination li.previous span:after,.pager .pagination li.next a:before,.pager .pagination li.next a:after,.pager .pagination li.next span:before,.pager .pagination li.next span:after{font-size:8px}.pager ul li.previous a,.pager ul li.previous span,.pager .pagination li.previous a,.pager .pagination li.previous span{padding-left:20px !important}.pager ul li.previous a:before,.pager ul li.previous span:before,.pager .pagination li.previous a:before,.pager .pagination li.previous span:before{left:10px}.pager ul li.next a,.pager ul li.next span,.pager .pagination li.next a,.pager .pagination li.next span{padding-right:20px !important}.pager ul li.next a:after,.pager ul li.next span:after,.pager .pagination li.next a:after,.pager .pagination li.next span:after{right:10px}}.pagination-secondary{display:-webkit-flex;display:-ms-flexbox;display:flex}.pagination-secondary li{margin-right:0}.pagination-secondary li.hidden a,.pagination-secondary li.hidden span{opacity:.5;cursor:not-allowed}.pagination-secondary li.disabled{padding-top:12px;padding-bottom:12px;opacity:.5;cursor:default}.pagination-secondary li.disabled span{cursor:default}.pagination-secondary li.disabled .hint{display:block}.pagination-secondary li.disabled .hint:hover{color:#4b64a6}.pagination-secondary li.disabled .link-title{color:#4b64a6}.pagination-secondary li.disabled.previous{padding-right:24px}.pagination-secondary li.disabled.next{padding-left:24px}.pagination-secondary li.previous,.pagination-secondary li.next{width:50%;position:relative}.pagination-secondary li.previous:after,.pagination-secondary li.next:after{content:'';position:absolute;top:0;right:0;width:1px;height:100%;background:#ccc}.pagination-secondary li.previous a,.pagination-secondary li.next a{padding-top:12px;padding-bottom:12px}.pagination-secondary li.previous .link-title,.pagination-secondary li.next .link-title{display:block;margin-bottom:4px;font:14px "OpenSans-Bold",Helvetica,Arial,sans-serif}.pagination-secondary li.previous .review-title,.pagination-secondary li.next .review-title{display:block;color:#333;font-size:14px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.pagination-secondary li.previous{text-align:right}.pagination-secondary li.previous a{padding-right:24px}.pagination-secondary li.previous .link-title:before{content:'‹';margin-right:2px}.pagination-secondary li.previous .review-title{padding-left:24px}.pagination-secondary li.next{text-align:left}.pagination-secondary li.next:after{left:0}.pagination-secondary li.next a{padding-left:24px}.pagination-secondary li.next .link-title:after{content:'›';margin-left:2px}.pagination-secondary li.next .review-title{padding-right:24px}@media only screen and (max-width: 767px){.pagination-secondary li.disabled{padding-top:16px;padding-bottom:16px}.pagination-secondary li.disabled .hint{display:none}.pagination-secondary li.disabled.previous{padding-right:16px}.pagination-secondary li.disabled.next{padding-left:16px}.pagination-secondary li.previous a,.pagination-secondary li.next a{padding-top:16px;padding-bottom:16px}.pagination-secondary li.previous .review-title,.pagination-secondary li.previous .hint,.pagination-secondary li.next .review-title,.pagination-secondary li.next .hint{display:none}.pagination-secondary li.previous .link-title,.pagination-secondary li.next .link-title{margin-bottom:0}.pagination-secondary li.previous a{padding-right:16px}.pagination-secondary li.next a{padding-left:16px}}.pager-secondary{padding:0}.pager-secondary .pagination-secondary li{margin:0}@media only screen and (max-width: 1024px){.pager-secondary.show{z-index:53}}.breadcrumbs-component{position:relative;z-index:2;margin-bottom:12px}.breadcrumbs-component ul:after{content:"";display:table;clear:both}.breadcrumbs{display:inline-block}.breadcrumbs li,.breadcrumbs .item{float:left;position:relative;padding-right:12px;margin-right:8px;font-size:14px}.breadcrumbs li a:after,.breadcrumbs .item a:after{content:'\203A';position:absolute;top:0;right:0;color:#a2a2a2}.breadcrumbs li:last-child:after,.breadcrumbs .item:last-child:after{content:'';position:absolute;z-index:3;top:0;width:100%;height:100%}.breadcrumbs li:last-child a,.breadcrumbs .item:last-child a{position:relative;z-index:2;color:#333}.breadcrumbs li:last-child a:after,.breadcrumbs .item:last-child a:after{display:none}.breadcrumbs li .counter,.breadcrumbs .item .counter{font-size:12px;color:#a2a2a2}@media only screen and (max-width: 767px){.breadcrumbs{margin-bottom:-4px}.breadcrumbs li,.breadcrumbs .item{margin-bottom:4px}}.main-menu{font-size:0;line-height:0}.main-menu li{float:left;position:relative;margin:0 48px 0 0;font-size:16px;line-height:32px}.main-menu li .scripted-link,.main-menu li a{color:#333}.main-menu li .scripted-link:hover,.main-menu li a:hover{color:#d33128}@media only screen and (max-width: 1279px){.main-menu li{margin:0 32px 0 0}}@media only screen and (max-width: 1023px){.main-menu li{margin-right:24px}}@media only screen and (max-width: 767px){.main-menu li{font-size:12px}}@media only screen and (max-width: 479px){.main-menu li{margin-right:16px}.main-menu .menu-for-business{display:none}}.nav-component{position:relative;padding:24px 0;margin-bottom:24px;background:#e5e5e5}.nav-component.nav-client{background:#d6e5f1}.nav-component.nav-client .navigation-request{max-width:210px}.nav-component>.row{display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;-webkit-align-items:center;-ms-flex-align:center;align-items:center}.nav-component>.row:after{display:none}.nav-component .nav-company-info{display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-ms-flex-align:center;align-items:center}.nav-component .nav-company-info .company-img{max-width:32px;margin-right:12px}.nav-component .nav-company-info .company-img img{max-width:100%}.nav-component .nav-company-info .company-name-outer{margin-right:12px}.nav-component .nav-company-info .company-name-outer .company-name{display:block;max-width:200px;word-break:break-word;font-family:"OpenSans-Bold",Helvetica,Arial,sans-serif}.nav-component .nav-company-info .company-name-outer .client-hint{font-size:11px}.nav-component .nav-company-info .star-rating:after{content:"";display:table;clear:both}.nav-component .nav-company-info .star-rating .stars:before,.nav-component .nav-company-info .star-rating .stars-active:before{font-size:14px}.nav-component .nav-company-info .star-rating .rating-title{width:auto;padding-top:0}.nav-component .navigation-request{text-align:right;font-size:14px;line-height:1.2}.nav-component .navigation-request a{white-space:nowrap;font-size:14px}@media only screen and (max-width: 768px){.nav-component.nav-client .navigation-request{max-width:145px}}@media only screen and (max-width: 767px){.nav-component{padding:16px 0 12px}.nav-component.nav-client .navigation-request{display:none}.nav-component.nav-client .nav-company-info{margin-bottom:0}.nav-component.nav-client .nav-company-info .company-name-outer .company-name{max-width:100%}.nav-component .star-rating{display:none}.nav-component .nav-company-info,.nav-component .navigation-request{position:relative;z-index:2}.nav-component .nav-company-info .company-img{max-width:24px}.nav-component .nav-company-info .company-name-outer .company-name{font-size:14px}.nav-component .navigation-request{font-size:11px}.nav-component .navigation-request a{font-size:12px}}.nav-bottom{display:none}.social-links{margin-bottom:28px}.social-links li{display:inline-block;margin:0 12px}.social-links li .lnr-facebook-2{position:relative;top:7px;left:5px}.social-links li a{display:block;width:40px;height:40px;overflow:hidden;font-size:36px;border-radius:5px;text-align:center}.social-links li a.fb:hover{background:#2f457b}.social-links li a.pr:hover{background:#b0141a}.social-links li a.gp:hover{background:#bd2d22}.social-links li a.ig:hover{background:#633511}.social-links li a.tw:hover{background:#0095cf}.social-links li a.yt:hover{background:#932420}.social-links li a.in:hover{background:#015787}.social-links.inverted li:first-child{margin-left:0}.social-links.inverted li a{color:#fff}.social-links.inverted li a.fb{background:#3b5998}.social-links.inverted li a.pr{background:#c92228}.social-links.inverted li a.gp{background:#dd4b39}.social-links.inverted li a.ig{background:#80441f}.social-links.inverted li a.tw{background:#00acee}.social-links.inverted li a.yt{background:#af2b26}.social-links.inverted li a.in{background:#0976b4}.social-links.small li{margin:0 12px 0 0}.social-links.small li a{width:32px;height:32px;font-size:29px}@media only screen and (max-width: 767px){.social-links li{margin:0 2px}.social-links li a{width:32px;height:32px;font-size:28px}}.nav-holder{background:#fff;border-radius:5px;box-shadow:0 1px 3px rgba(0,0,0,0.2);border-radius:0}.fixed-nav .nav-holder{position:fixed;top:0;left:0;right:0;z-index:16}.fixed-nav .nav-holder+.row{margin-top:87px}.nav-holder .navigation-links{position:relative;width:100%}.nav-holder .navigation-links .item{float:left}.nav-holder .navigation-links .item.new a:after{content:'new';display:inline-block;color:#d33128;font-size:10px;text-transform:uppercase;-webkit-transform:translateY(-8px);transform:translateY(-8px)}.nav-holder .navigation-links a:not(.button){display:inline-block;padding:14px 16px 15px;font-family:"OpenSans-Bold",Helvetica,Arial,sans-serif;cursor:pointer;color:#4b64a6}.nav-holder .navigation-links a:not(.button):hover{color:#d33128}[data-is-mobile="1"] .nav-holder .navigation-links a:not(.button){color:#4b64a6}.nav-holder .navigation-links .active{color:#000;background-color:#f7f7f7;box-shadow:inset 0 3px 0 0 #4b64a6}.nav-holder .navigation-links .button{margin-top:8px}@media only screen and (max-width: 768px){.nav-holder .navigation-links{height:40px;overflow:hidden}.nav-holder .navigation-links:before,.nav-holder .navigation-links:after{position:absolute;top:0;bottom:0;width:48px;z-index:1;background:linear-gradient(to right, rgba(255,255,255,0.5), #fff)}.nav-holder .navigation-links:before{content:'';right:0}.nav-holder .navigation-links.not-right-position:after{display:block;left:0;background:linear-gradient(to left, rgba(255,255,255,0.5), #fff)}.nav-holder .navigation-links a:not(.button){padding:12px;font-size:14px}}.dropdown .dropdown-content{display:none}.button,.button-secondary,.button-warning,.button-secondary-warning,.button-success,.button-success-2,.button-google,.button-twitter,.button-facebook,input[type="button"],input[type="reset"]{display:inline-block;padding:9px 16px;width:auto;font:14px "RobotoSlab-Bold","Times New Roman",Times,serif;line-height:1 !important}.button{background:#4b64a6;color:#fff;box-shadow:inset 0 -2px 0 0 #2e3d66}.button-secondary{background:#fff;color:#4b64a6;box-shadow:inset 0 -2px 0 0 #a3afcc,inset 0 0 0 1px #a3afcc}.badge{display:inline-block;position:relative;padding:0;color:#999;white-space:nowrap;font:bold 12px "OpenSans-Bold",Helvetica,Arial,sans-serif;line-height:1;text-transform:uppercase;letter-spacing:1px}.stars:before,.stars-active:before{content:'\e906 \e906 \e906 \e906 \e906';font-family:"Linearicons-Custom";font-size:18px;letter-spacing:2px;text-shadow:0 -1px rgba(0,0,0,0.3)}.stars-active{position:absolute;top:0;overflow:hidden;width:0}.stars-active:before{color:#f5c002}.stars{position:relative;float:left;margin-right:12px}.stars:before{color:#d9d9d9}.col-left{float:left !important}.col-right{float:right}.clear-b{clear:both}.hide{display:none !important}.inline-block{display:inline-block}.a-center{text-align:center !important}.a-left{text-align:left !important}.a-right{text-align:right !important}.color-list{list-style:none}.color-list li{counter-increment:step-counter}.color-list li:nth-child(1):before{color:#d33128}.color-list li:nth-child(2):before{color:#da4921}.color-list li:nth-child(3):before{color:#e1611a}.color-list li:nth-child(4):before{color:#e77913}.color-list li:nth-child(5):before{color:#ee910c}.color-list li:before{content:counter(step-counter)}.clearfix:after{content:"";display:table;clear:both}.img-responsive{max-width:100%;height:auto}.box{padding:24px;background:#fff;border-radius:5px;box-shadow:0 1px 3px rgba(0,0,0,0.2);margin:0 0 24px}.box-sub{margin-bottom:24px}.holder{width:100%;overflow:hidden}.middle-holder{max-width:816px;width:100%}.middle-holder:after{content:"";display:table;clear:both}.blur{opacity:0;position:fixed;z-index:9;top:0;bottom:0;left:0;right:0;background:rgba(0,0,0,0.5);visibility:hidden;width:100%;height:100%}.blur.active{opacity:1;visibility:visible}.mark{color:#d33128}.autocomplete-accented{font-weight:bold}.section-small{margin-bottom:26px}.overflow-media{position:relative;padding-bottom:56.25%;height:0}.overflow-media iframe{position:absolute;top:0;left:0;width:100%;height:100%}.ratio-sixteen-nine{position:relative;padding-bottom:56.25%}.ratio-sixteen-nine img,.ratio-sixteen-nine video,.ratio-sixteen-nine iframe,.ratio-sixteen-nine object,.ratio-sixteen-nine embed{position:absolute;top:0;bottom:0;left:0;right:0;width:100%;height:100%}.ratio-four-three{position:relative;padding-bottom:75%}.ratio-four-three img,.ratio-four-three video,.ratio-four-three iframe,.ratio-four-three object,.ratio-four-three embed{position:absolute;top:0;bottom:0;left:0;right:0;width:100%;height:100%}.ratio-square{background:url("themes/pc2/images/logo-preview.png") no-repeat center #f0f0f0;background-size:32px;position:relative;padding-bottom:100%}.ratio-square img,.ratio-square video,.ratio-square iframe,.ratio-square object,.ratio-square embed{position:absolute;top:0;bottom:0;left:0;right:0;width:100%;height:100%}.overflow-b img{display:block;max-width:100%}.box-tile,.box-tile-item,.box-tile-w-m{padding:48px;background:#fff;border-radius:5px;box-shadow:0 1px 2px 0 rgba(0,0,0,0.2)}@media only screen and (max-width: 480px){.box-tile,.box-tile-item,.box-tile-w-m{padding:24px}}.box-tile:after{content:"";display:table;clear:both}.box-tile-w-m{margin-bottom:24px}@media only screen and (max-width: 767px){.box-tile-w-m{margin-bottom:12px}}.tile-highlight{padding:24px;background:#f7f7f7;box-shadow:0 1px 2px 0 rgba(0,0,0,0.3);border-radius:5px}.tile-highlight .tile-highlight-title{margin-bottom:12px;font:20px "RobotoSlab-Bold","Times New Roman",Times,serif}.tile-highlight .propose{display:inline-block;margin:0 16px 12px 0}@media only screen and (max-width: 767px){.tile-highlight{padding:12px}.tile-highlight .tile-highlight-title{font-size:16px}.tile-highlight .propose,.tile-highlight .action-element{font-size:14px}}@media only screen and (max-width: 480px){.tile-highlight .propose{margin-right:12px}}.overflow-img{display:block;position:relative;overflow:hidden}.overflow-img img{top:0;bottom:0;left:0;right:0;z-index:5;width:100%;margin:auto}.overflow-img span{display:block;margin-bottom:8px;cursor:pointer}.overflow-img span img{display:block}.alert-wrapper{position:fixed;top:33%;left:50%;background:rgba(0,0,0,0.65);border-radius:4px;z-index:1000;-webkit-transform:translateX(-50%);transform:translateX(-50%)}.alert-wrapper .alert-box{padding:24px;font:20px/19px "OpenSans-Regular",Helvetica,Arial,sans-serif;color:#fff}.flash-notification{display:none;position:fixed;top:33%;left:50%;padding:24px;background:rgba(0,0,0,0.65);border-radius:4px;z-index:1000;-webkit-transform:translateX(-50%);transform:translateX(-50%)}.flash-notification .message{font:20px/19px "OpenSans-Regular",Helvetica,Arial,sans-serif;color:#fff}.divider{width:100%;border-top:1px solid #e5e5e5}.text-divider{display:block;position:relative;margin-bottom:12px;font-size:14px;text-transform:uppercase;text-align:center;color:#a2a2a2}.text-divider:before,.text-divider:after{content:'';position:absolute;top:50%;width:calc(50% - 20px);height:1px;background:#e5e5e5}.text-divider:before{left:0}.text-divider:after{right:0}.offset-bottom-primary{margin-bottom:24px}@media only screen and (max-width: 767px){.offset-bottom-primary{margin-bottom:12px}}.p0px{padding:0 !important}.pl0px{padding-left:0 !important}.pb0px{padding-bottom:0 !important}.pr0px{padding-right:0 !important}.mt3px{margin-top:3px !important}.mt20px{margin-top:20px}.mb0px{margin-bottom:0 !important}.mb4px{margin-bottom:4px !important}.mb8px{margin-bottom:8px}.mb12px{margin-bottom:12px}.mb16px{margin-bottom:16px}.mb24px{margin-bottom:24px}@media only screen and (max-width: 767px){.mb24px{margin-bottom:12px}}.mb48px{margin-bottom:48px}@media only screen and (max-width: 768px){.mb48px{margin-bottom:24px}}.ml0px{margin-left:0 !important}.wrapper:after{content:"";display:table;clear:both}.inline{display:inline-block;vertical-align:top}.divider-right{border-right:1px solid #d9d9d9}.show-more-outer{display:none;position:relative;margin-top:12px}.show-more-outer:before{content:'';position:absolute;width:100%;height:40px;top:-52px;left:0;background:linear-gradient(to bottom, rgba(255,255,255,0), #fff)}@media only screen and (max-width: 767px){.show-more-outer{display:block}}.show-more-button{position:relative;padding-right:20px;margin-top:12px;cursor:pointer;color:#4b64a6}.show-more-button:hover{color:#d33128}[data-is-mobile="1"] .show-more-button{color:#4b64a6}.show-more-button:before{content:"";position:absolute;top:2px;right:0;font-family:"Linearicons-Custom";-webkit-transform:rotate(0deg);transform:rotate(0deg)}.show-more-button:after{content:' more'}@media only screen and (max-width: 767px){.show-more-button{font-size:14px}}.toggled .show-more-outer:before{display:none}.toggled .show-more-button:before{-webkit-transform:rotate(180deg);transform:rotate(180deg)}.toggled .show-more-button:after{content:' less'}html{height:100%}html.active body{overflow:hidden}.primary-section{padding:24px 0}.primary-section.with-bg{background:#e5e5e5}.primary-section>div:last-child{margin-bottom:0}@media only screen and (max-width: 768px){.primary-section{padding:12px 0}}.primary-section+.main-content{padding-top:0}.main-content{padding:24px 0 96px}@media only screen and (max-width: 480px){.main-content{padding:12px 0 48px}}.fixed-nav .nav-holder{position:fixed;top:0;left:0;right:0;z-index:16}.fixed-nav .primary-section{margin-bottom:48px}@media only screen and (max-width: 768px){.fixed-nav .primary-section{margin-bottom:40px}}.main-content-outer:before{content:'';position:absolute;top:0;opacity:0;background:url("themes/pc2/images/blur-bg.png") center;transition:all 0.2s ease}.actualProducts_product .primary-section+.main-content{padding-top:24px}@media only screen and (max-width: 480px){.newCompanies_company .main-content{padding-top:24px}}.static{display:none}.information-panel{padding:12px 48px;text-align:center;background:#fdf3cd;line-height:1.2}.information-panel b,.information-panel strong,.information-panel a{font-family:"OpenSans-Bold",Helvetica,Arial,sans-serif}@media only screen and (max-width: 1279px){.information-panel{padding:12px 24px}}@media only screen and (max-width: 767px){.information-panel{padding:12px;font-size:14px}}.information-panel .accented{font-family:"OpenSans-Bold",Helvetica,Arial,sans-serif}.information-panel p{margin:0}.information-panel.additional{background:#d6e5f1}.newReview_review .breadcrumbs-component{margin-top:24px}@media only screen and (max-width: 767px){.newReview_review .breadcrumbs-component{margin-top:12px}}.plan-columns{display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;margin:0 0 48px}.plan-columns .plan-column{padding:48px;margin:0 24px;width:100%;background:#fff;border-radius:5px;box-shadow:0 1px 2px 0 rgba(0,0,0,0.2)}.plan-columns .plan-column:first-child{margin-left:0}.plan-columns .plan-column:last-child{margin-right:0}.plan-columns .plan-column .plan-columns-header{padding-bottom:24px;text-align:center;border-bottom:1px solid #e5e5e5}.plan-columns .plan-column .plan-columns-content{padding:24px 0}.plan-columns .plan-column .plan-columns-footer{padding-top:24px;border-top:1px solid #e5e5e5}.plan-columns .plan-column .plan-column-title{margin-bottom:4px;font:32px "RobotoSlab-Bold","Times New Roman",Times,serif;color:#d33128}.front-review-component{display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;padding:48px;margin-bottom:24px;background:#fff;border-radius:5px;box-shadow:0 1px 3px rgba(0,0,0,0.2)}.company-main-title .company-img{float:left;margin-right:24px;width:96px;height:96px}.company-main-title .company-img img{display:block;max-width:100%}@media only screen and (max-width: 767px){.company-main-title .company-img{width:48px;height:48px;margin-right:8px}}@font-face{font-family:"Linearicons-Custom";src:url("/themes/pc2/fonts/Linearicons-Custom.woff") format("woff"),url("/themes/pc2/fonts/Linearicons-Custom.svg") format("svg")}@font-face{font-family:"OpenSans-Regular";src:url("/themes/pc2/fonts/OpenSans-Regular.woff") format("woff")}@font-face{font-family:"OpenSans-Italic";src:url("/themes/pc2/fonts/OpenSans-Italic.woff") format("woff")}@font-face{font-family:"OpenSans-Bold";src:url("/themes/pc2/fonts/OpenSans-Bold.woff") format("woff")}@font-face{font-family:"RobotoSlab-Light";src:url("/themes/pc2/fonts/RobotoSlab-Light.woff") format("woff")}@font-face{font-family:"RobotoSlab-Regular";src:url("/themes/pc2/fonts/RobotoSlab-Regular.woff") format("woff")}@font-face{font-family:"RobotoSlab-Bold";src:url("/themes/pc2/fonts/RobotoSlab-Bold.woff") format("woff")}.fonts-loaded body{font:16px "OpenSans-Regular", Helvetica, Arial, sans-serif}.fonts-loaded h1,.fonts-loaded h2,.fonts-loaded h3,.fonts-loaded h4,.fonts-loaded h5,.fonts-loaded h6{font-family:"RobotoSlab-Bold","Times New Roman",Times,serif}ul{list-style:none}a{text-decoration:none;color:#4b64a6}a:hover{color:#d33128}.checkbox-btns .checkbox-item{display:inline-block}footer{opacity:0}.twitter-typeahead{width:100%}.row{width:100%;max-width:1440px;margin:0 auto;padding:0 48px}.row:after{content:"";display:table;clear:both}.row .row{margin-right:-24px;margin-left:-24px;width:auto;max-width:none;padding:0}@media only screen and (max-width: 1280px){.row{padding:0 24px}.row .row{margin-right:-12px;margin-left:-12px}}@media only screen and (max-width: 480px){.row{padding:0 12px}}.column{position:relative;padding-left:1.25rem;padding-right:1.25rem;float:left}.xlarge-1{position:relative;width:8.33333%}.xlarge-2{position:relative;width:16.66667%}.xlarge-3{position:relative;width:25%}.xlarge-4{position:relative;width:33.33333%}.xlarge-5{position:relative;width:41.66667%}.xlarge-6{position:relative;width:50%}.xlarge-7{position:relative;width:58.33333%}.xlarge-8{position:relative;width:66.66667%}.xlarge-9{position:relative;width:75%}.xlarge-10{position:relative;width:83.33333%}.xlarge-11{position:relative;width:91.66667%}.xlarge-12{position:relative;width:100%}.a-center,.text-center{text-align:center !important}
+
+</style>    <script>
+        !function(a){"use strict";var b=function(b,c,d){function e(a){return h.body?a():void setTimeout(function(){e(a)})}function f(){i.addEventListener&&i.removeEventListener("load",f),i.media=d||"all"}var g,h=a.document,i=h.createElement("link");if(c)g=c;else{var j=(h.body||h.getElementsByTagName("head")[0]).childNodes;g=j[j.length-1]}var k=h.styleSheets;i.rel="stylesheet",i.href=b,i.media="only x",e(function(){g.parentNode.insertBefore(i,c?g:g.nextSibling)});var l=function(a){for(var b=i.href,c=k.length;c--;)if(k[c].href===b)return a();setTimeout(function(){l(a)})};return i.addEventListener&&i.addEventListener("load",f),i.onloadcssdefined=l,l(f),i};"undefined"!=typeof exports?exports.loadCSS=b:a.loadCSS=b}("undefined"!=typeof global?global:this);
+        !function(a){if(a.loadCSS){var b=loadCSS.relpreload={};if(b.support=function(){try{return a.document.createElement("link").relList.supports("preload")}catch(b){return!1}},b.poly=function(){for(var b=a.document.getElementsByTagName("link"),c=0;c<b.length;c++){var d=b[c];"preload"===d.rel&&"style"===d.getAttribute("as")&&(a.loadCSS(d.href,d,d.getAttribute("media")),d.rel=null)}},!b.support()){b.poly();var c=a.setInterval(b.poly,300);a.addEventListener&&a.addEventListener("load",function(){b.poly(),a.clearInterval(c)}),a.attachEvent&&a.attachEvent("onload",function(){a.clearInterval(c)})}}}(this);
+
+        (function(){function m(a,b){document.addEventListener?a.addEventListener("scroll",b,!1):a.attachEvent("scroll",b)}function n(a){document.body?a():document.addEventListener?document.addEventListener("DOMContentLoaded",function c(){document.removeEventListener("DOMContentLoaded",c);a()}):document.attachEvent("onreadystatechange",function l(){if("interactive"==document.readyState||"complete"==document.readyState)document.detachEvent("onreadystatechange",l),a()})};function t(a){this.a=document.createElement("div");this.a.setAttribute("aria-hidden","true");this.a.appendChild(document.createTextNode(a));this.b=document.createElement("span");this.c=document.createElement("span");this.h=document.createElement("span");this.f=document.createElement("span");this.g=-1;this.b.style.cssText="max-width:none;display:inline-block;position:absolute;height:100%;width:100%;overflow:scroll;font-size:16px;";this.c.style.cssText="max-width:none;display:inline-block;position:absolute;height:100%;width:100%;overflow:scroll;font-size:16px;";
+            this.f.style.cssText="max-width:none;display:inline-block;position:absolute;height:100%;width:100%;overflow:scroll;font-size:16px;";this.h.style.cssText="display:inline-block;width:200%;height:200%;font-size:16px;max-width:none;";this.b.appendChild(this.h);this.c.appendChild(this.f);this.a.appendChild(this.b);this.a.appendChild(this.c)}
+            function x(a,b){a.a.style.cssText="max-width:none;min-width:20px;min-height:20px;display:inline-block;overflow:hidden;position:absolute;width:auto;margin:0;padding:0;top:-999px;left:-999px;white-space:nowrap;font:"+b+";"}function y(a){var b=a.a.offsetWidth,c=b+100;a.f.style.width=c+"px";a.c.scrollLeft=c;a.b.scrollLeft=a.b.scrollWidth+100;return a.g!==b?(a.g=b,!0):!1}function z(a,b){function c(){var a=l;y(a)&&a.a.parentNode&&b(a.g)}var l=a;m(a.b,c);m(a.c,c);y(a)};function A(a,b){var c=b||{};this.family=a;this.style=c.style||"normal";this.weight=c.weight||"normal";this.stretch=c.stretch||"normal"}var B=null,C=null,E=null,F=null;function I(){if(null===E){var a=document.createElement("div");try{a.style.font="condensed 100px sans-serif"}catch(b){}E=""!==a.style.font}return E}function J(a,b){return[a.style,a.weight,I()?a.stretch:"","100px",b].join(" ")}
+            A.prototype.load=function(a,b){var c=this,l=a||"BESbswy",r=0,D=b||3E3,G=(new Date).getTime();return new Promise(function(a,b){var e;null===F&&(F=!!document.fonts);if(e=F)null===C&&(C=/OS X.*Version\/10\..*Safari/.test(navigator.userAgent)&&/Apple/.test(navigator.vendor)),e=!C;if(e){e=new Promise(function(a,b){function f(){(new Date).getTime()-G>=D?b():document.fonts.load(J(c,'"'+c.family+'"'),l).then(function(c){1<=c.length?a():setTimeout(f,25)},function(){b()})}f()});var K=new Promise(function(a,
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                c){r=setTimeout(c,D)});Promise.race([K,e]).then(function(){clearTimeout(r);a(c)},function(){b(c)})}else n(function(){function e(){var b;if(b=-1!=g&&-1!=h||-1!=g&&-1!=k||-1!=h&&-1!=k)(b=g!=h&&g!=k&&h!=k)||(null===B&&(b=/AppleWebKit\/([0-9]+)(?:\.([0-9]+))/.exec(window.navigator.userAgent),B=!!b&&(536>parseInt(b[1],10)||536===parseInt(b[1],10)&&11>=parseInt(b[2],10))),b=B&&(g==u&&h==u&&k==u||g==v&&h==v&&k==v||g==w&&h==w&&k==w)),b=!b;b&&(d.parentNode&&d.parentNode.removeChild(d),clearTimeout(r),a(c))}
+                function H(){if((new Date).getTime()-G>=D)d.parentNode&&d.parentNode.removeChild(d),b(c);else{var a=document.hidden;if(!0===a||void 0===a)g=f.a.offsetWidth,h=p.a.offsetWidth,k=q.a.offsetWidth,e();r=setTimeout(H,50)}}var f=new t(l),p=new t(l),q=new t(l),g=-1,h=-1,k=-1,u=-1,v=-1,w=-1,d=document.createElement("div");d.dir="ltr";x(f,J(c,"sans-serif"));x(p,J(c,"serif"));x(q,J(c,"monospace"));d.appendChild(f.a);d.appendChild(p.a);d.appendChild(q.a);document.body.appendChild(d);u=f.a.offsetWidth;v=p.a.offsetWidth;
+                w=q.a.offsetWidth;H();z(f,function(a){g=a;e()});x(f,J(c,'"'+c.family+'",sans-serif'));z(p,function(a){h=a;e()});x(p,J(c,'"'+c.family+'",serif'));z(q,function(a){k=a;e()});x(q,J(c,'"'+c.family+'",monospace'))})})};"undefined"!==typeof module?module.exports=A:(window.FontFaceObserver=A,window.FontFaceObserver.prototype.load=A.prototype.load);}());
+
+        var fontLinear = new FontFaceObserver('Linearicons-Custom'),
+        fontOpenSans = new FontFaceObserver('OpenSans-Regular');
+        fontRobotoBold = new FontFaceObserver('RobotoSlab-Bold');
+
+        Promise.all([fontLinear.load(), fontOpenSans.load(), fontRobotoBold.load()]).then(function () {
+            document.documentElement.className += " fonts-loaded";
+        }).catch(function () {});
+    </script>
+    <link rel="preload" href="/themes/pc2/css/lego.css" as="style" onload="this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="/themes/pc2/css/small.css">
+        <link rel="stylesheet" href="/themes/pc2/css/lego.css">
+    </noscript>
+    <script>
+    var googletag = googletag || {};
+    googletag.cmd = googletag.cmd || [];
+    (function () {
+        var gads = document.createElement('script');
+        gads.async = true;
+        gads.type = 'text/javascript';
+        var useSSL = 'https:' == document.location.protocol;
+        gads.src = (useSSL ? 'https:' : 'http:') +
+                '//www.googletagservices.com/tag/js/gpt.js';
+        var node = document.getElementsByTagName('script')[0];
+        node.parentNode.insertBefore(gads, node);
+    })();
+    googletag.cmd.push(function () {
+        googletag.defineSlot('/2134234/PissedConsumer_300х600_BTF', [300, 600], 'div-gpt-ad-1448611141004-0').addService(googletag.pubads());
+        googletag.defineSlot('/2134234/PissedConsumer_300х250_ATF', [300, 250], 'div-gpt-ad-1448611141004-1').addService(googletag.pubads());
+        googletag.pubads().enableSingleRequest();
+        googletag.enableServices();
+    });
+</script>    <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-1938061-1']);
+    _gaq.push(['_setDomainName', 'pissedconsumer.com']);    _gaq.push(['_trackPageview']);    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+</script>            <script>
+            (function () {
+        if (window.top != window.self) {
+            document.querySelectorAll("a").setAttribute("target", "_blank");
+        }
+    })();
+    </script></head><body class="pages_show"
+      data-is-mobile="0"
+      data-debug="0"
+      data-host="pissedconsumer.com"
+      data-hide-static="1"
+      id="page-top"
+      browse-log-scope="0">
+<!-- Google Tag Manager -->
+<noscript>
+    <iframe src="//www.googletagmanager.com/ns.html?id=GTM-P3W4N7" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
+<script>
+    (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({
+            'gtm.start': new Date().getTime(), event: 'gtm.js'
+        });
+        var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src =
+            '//www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-P3W4N7');
+</script>
+<!-- End Google Tag Manager -->
+<!--start header section-->
+<header class="header">
+    <div class="row">
+                    <a class="logo" href="https://www.pissedconsumer.com"><img width="108" height="38" src="/themes/pc2/images/logo.png" alt="Pissed Consumer" /></a>                            <a class="button submit-review ga_event"
+               href="https://www.pissedconsumer.com/post-complaint.html"
+               data-category="Submit Complaint"
+               data-action="Submit Complaint Sources"
+               data-label="By Button in Header">Submit review</a>
+                <nav class="main-menu">
+            <ul>
+                                    <li><a class="link" rel="" href="https://www.pissedconsumer.com/browse-reviews.html">Reviews</a></li>
+                                <li class="menu-for-business">
+                    <a class="googleAnaliticsForBusines" rel="" href="https://www.pissedconsumer.com/business-solutions.html">For Business</a>                </li>
+            </ul>
+        </nav>
+        <div class="search-form small-search">
+            <form id="header-search" class="form" action="https://www.pissedconsumer.com/browse-reviews.html"
+                  method="get">
+                <input type="hidden" name="redirect" value="1"/>
+                <span class="close-search"><em class="lnr-cross"></em></span>
+                <div class="search-wrapper">
+                    <span class="search-opener lnr-magnifier"></span>
+                    <input id="SearchForm_q" class="input-search search-typeahead" type="search" autocomplete="off"
+                           placeholder="Company name or keyword" name="query"
+                           data-container="#header-search"
+                           data-companies="/search/autocompleteCompany.html?term=__QUERY__"
+                           data-cities="/search/autocompleteCity.html?term=__QUERY__"
+                           data-categories="/search/autocompleteCategory.html?term=__QUERY__"
+                           data-products="/search/autocompleteProduct.html?term=__QUERY__"
+                    />
+                    <button type="submit" class="submit lnr-magnifier"></button>
+                </div>
+            </form>
+        </div>
+                        <div class="lightbox s-small login-lbx" id="login-lbx">
+    <div class="frame">
+        <div class="holder">
+            <div class="content">
+                <form class="form2" id="loginForm" action="https://www.pissedconsumer.com" method="post">                <span class="close lnr-cross"></span>
+                <h2 class="lightbox-title">Login</h2>
+                <div class="lbx-content-section">
+                    <ul class="authorize-social">
+            <li class="auth-service google_oauth">
+                        <a href="https://www.pissedconsumer.com/site/login.html?service=google_oauth"
+               class="m-large button-google">Google</a>
+        </li>
+            <li class="auth-service twitter">
+                        <a href="https://www.pissedconsumer.com/site/login.html?service=twitter"
+               class="m-large button-twitter">Twitter</a>
+        </li>
+            <li class="auth-service facebook">
+                        <a href="https://www.pissedconsumer.com/site/login.html?service=facebook"
+               class="m-large button-facebook">Facebook</a>
+        </li>
+    </ul>                    <span class="text-divider">or</span>
+                    <div class="item-field">
+                        <label for="LoginForm_email" class="required">Email Address or Username  <span class="required">*</span></label>                        <input class="text-field" name="LoginForm[email]" id="LoginForm_email" type="text" />                        <div class="error-text" id="LoginForm_email_em_" style="display:none"></div>                    </div>
+                    <div class="item-field">
+                        <label for="LoginForm_password" class="required">Your Password <span class="required">*</span></label>                        <input class="text-field" name="LoginForm[password]" id="LoginForm_password" type="password" />                        <div class="error-text" id="LoginForm_password_em_" style="display:none"></div>                    </div>
+                    <div class="clearfix">
+                        <div class="item-field checkbox-btns col-left">
+                            <div class="checkbox-item large">
+                                <input id="ytLoginForm_rememberMe" type="hidden" value="0" name="LoginForm[rememberMe]" /><input name="LoginForm[rememberMe]" id="LoginForm_rememberMe" value="1" checked="checked" type="checkbox" />                                <label for="LoginForm_rememberMe">Remember me</label>                            </div>
+                        </div>
+                        <div class="col-right">
+                            <a rel="nofollow" href="https://www.pissedconsumer.com/user/resetPassword.html" class="link">Forgot
+                                password?</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="btn-holder">
+                    <button class="button m-large submit_login_form" data-url="/site/ajaxLogin.html">Login</button>
+                    <span class="button-clear m-large cancel">Cancel</span>
+                </div>
+                <hr class="divider mb24px">
+                <div class="btn-holder register-field">
+                    <span class="bold-text">Not registered yet?</span>
+                    <span class="button-secondary m-large col-left" data-lbx="sign-up-lbx">Sign up</span>
+                </div>
+                </form>            </div>
+        </div>
+    </div>
+</div>
+    <div class="lightbox s-small sign-up-lbx" id="sign-up-lbx">
+    <div class="frame">
+        <div class="holder">
+            <div class="content">
+                <form id="yw1" action="/user/signUpPc2.html" method="post">                <span class="close lnr-cross"></span>
+                <h2 class="lightbox-title">Sign Up</h2>
+                <div class="lbx-content-section">
+                    <ul class="authorize-social">
+            <li class="auth-service google_oauth">
+                        <a href="https://www.pissedconsumer.com/site/login.html?service=google_oauth"
+               class="m-large button-google">Google</a>
+        </li>
+            <li class="auth-service twitter">
+                        <a href="https://www.pissedconsumer.com/site/login.html?service=twitter"
+               class="m-large button-twitter">Twitter</a>
+        </li>
+            <li class="auth-service facebook">
+                        <a href="https://www.pissedconsumer.com/site/login.html?service=facebook"
+               class="m-large button-facebook">Facebook</a>
+        </li>
+    </ul>                    <span class="text-divider">or</span>
+                    <div class="item-field">
+                        <label class="required" for="SignupPc2Form_username">Username</label>                        <input name="SignupPc2Form[username]" id="SignupPc2Form_username" type="text" maxlength="25" />                        <div class="error-text" id="SignupPc2Form_username_em_" style="display:none"></div>                    </div>
+                    <div class="nickname_suggestions radio-btns" style="display: none">
+                        <div class="radio-item">
+                            <input id="suggestion_1" name="suggestion" type="radio" value="1">
+                            <label for="suggestion_1"></label>
+                        </div>
+                        <div class="radio-item">
+                            <input id="suggestion_2" name="suggestion" type="radio" value="2">
+                            <label for="suggestion_2"></label>
+                        </div>
+                        <div class="radio-item">
+                            <input id="suggestion_3" name="suggestion" type="radio" value="3">
+                            <label for="suggestion_3"></label>
+                        </div>
+                    </div>
+                    <div class="item-field">
+                        <label class="required" for="SignupPc2Form_email">Email</label>                        <input name="SignupPc2Form[email]" id="SignupPc2Form_email" type="email" />                        <div class="error-text" id="SignupPc2Form_email_em_" style="display:none"></div>                    </div>
+                    <div class="item-field">
+                        <label class="required" for="SignupPc2Form_password">Password</label>                        <input name="SignupPc2Form[password]" id="SignupPc2Form_password" type="password" maxlength="40" />                        <div class="error-text" id="SignupPc2Form_password_em_" style="display:none"></div>                    </div>
+                    <div class="item-field">
+                        <label for="phone">Phone</label>
+                        <span class="hint">Please use international format for Phone entry.</span>
+                        <input id="phone" class="phone-intlTel" type="tel">
+                        <input class="phone-field" name="SignupPc2Form[phone]" id="SignupPc2Form_phone" type="hidden" />                        <div class="error-text" id="SignupPc2Form_phone_em_" style="display:none"></div>                    </div>
+                    <div class="item-field">
+                        <div class="checkbox-item standalone">
+                            <input id="ytSignupPc2Form_termsOfService" type="hidden" value="0" name="SignupPc2Form[termsOfService]" /><input name="SignupPc2Form[termsOfService]" id="SignupPc2Form_termsOfService" value="1" type="checkbox" />                            <label for="SignupPc2Form_termsOfService"><span>I have read and agree to the Pissed Consumer</span></label>
+                            <span class="action-element-third tos-element" rel-lightbox="tos-lbx" data-lightbox-keep-other="1">Terms of Service</span>
+                            <div class="error-text" id="SignupPc2Form_termsOfService_em_" style="display:none"></div>                        </div>
+                    </div>
+                    <div class="security-holder security-holder-signup">
+                        <div class="captcha-input">
+                            <label class="required" for="SignupPc2Form_signupCaptcha">Code</label>                            <input autocomplete="off" name="SignupPc2Form[signupCaptcha]" id="SignupPc2Form_signupCaptcha" type="text" />                        </div>
+                        <span class="reload">
+                            <img id="captchaImage" class="captcha-img" captchaAction="site/captcha" src="https://www.pissedconsumer.com/site/captcha.html?v=58cc9b98b063b" alt="CAPTCHA" /><a class="reload-captcha-button" rel="nofollow" href="/site/captcha.html?refresh=1"><em class="lnr-undo"></em></a>                        </span>
+                        <div class="error-text" id="SignupPc2Form_signupCaptcha_em_" style="display:none"></div>                    </div>
+                </div>
+                <div class="btn-holder">
+                    <button class="button m-large submit_sign_up_form">Sign up</button>
+                    <span class="button-clear m-large cancel">Cancel</span>
+                </div>
+                <hr class="divider mb24px">
+                <div class="btn-holder register-field">
+                    <span class="bold-text">Already registered?</span>
+                    <span class="button-secondary m-large col-left" rel-lightbox="login-lbx">Login</span>
+                </div>
+                </form>            </div>
+        </div>
+    </div>
+</div>    <div class="user-panel">
+        <span class="user-panel-opener"><em class="lnr-lock"></em></span>
+        <ul class="clearfix">
+            <li><span class="lb-opener action-element" rel-lightbox="sign-up-lbx">Sign Up</span></li>
+            <li><span class="lb-opener action-element" rel-lightbox="login-lbx"></span></li>
+        </ul>
+    </div>
+
+    <div class="lightbox s-small sign-up-lbx" id="simple-signup-form"
+        data-load-url="/user/simpleSignup.html?new_theme=1">
+        <div class="frame">
+            <div class="holder">
+                <div class="content">
+                </div>
+            </div>
+        </div>
+    </div>
+            </div>
+</header>
+<!--end header section--><div class="flash-notification">
+        </div>
+<div class="alert-wrapper"></div><div itemscope itemtype="http://schema.org/WebSite" class="main-content-outer">
+            <div class="primary-section">
+                            <div class="breadcrumbs-component">
+    <div class="row">
+        <ul class="breadcrumbs">
+                            <li itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+            <a itemprop="url" href="https://www.pissedconsumer.com">
+            <span itemprop="title">Home</span>
+            </a>
+        </li>                            <li itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+            <a itemprop="url" href="https://www.pissedconsumer.com/static/privacy-policy.html">
+            <span itemprop="title">Privacy Policy</span>
+            </a>
+        </li>                    </ul>
+    </div>
+</div>
+                                                    <div class="title-section">
+                    <div class="row">
+                        <h1 class="title-section-h1">Privacy Policy</h1>
+                    </div>
+                </div>
+                    </div>
+        <div id="content" class="main-content">
+            <div class="row">
+                <div class="row">
+                    <div class="small-12 tablet-12 xlarge-8 column content">
+                        <div class="content-page page-alias-privacy-policy ">
+    <div class="box-tile"><time class="notification page-modified">Last Modified: September 20, 2016</time>
+
+<div class="section-content">
+<h2>Scope and Consent</h2>
+
+<p>This Privacy Policy (the &ldquo;Policy&rdquo;) describes PissedConsumer.com&rsquo;s collection, use, and protection of the information posters (&ldquo;You&rdquo;, &ldquo;Your&rdquo;) provide when using PissedConsumer.com (the &ldquo;Site&rdquo;, &ldquo;We&rdquo;, &ldquo;Us&rdquo;, &ldquo;Our&rdquo;). By creating an account on the Site, posting content on the Site, or using any other service on the Site, You consent to Our collection, use, and disclosure of Your information as described in this Policy. If You do not consent to have Your information used as described in this Policy, You must discontinue use of the Site immediately. This Policy incorporates all defined terms and conditions set forth in Our <a href="www.pissedconsumer.com/static/terms-of-use.html">Terms of Service Agreement</a>&nbsp;(the &ldquo;Agreement&rdquo;). Any terms that are not defined in this Policy shall have the meaning given in the Agreement.</p>
+
+<p>This Policy is intended to explain Our privacy practices and to inform You as to:</p>
+
+<p>Kinds of personally identifiable information (&quot;Personal Information&quot;) We collect from visitors of the Site.</p>
+
+<ul>
+	<li>How Personal Information is collected.</li>
+	<li>How we use Personal Information.</li>
+	<li>The circumstances under which we disclose Personal Information to third parties.</li>
+	<li>How You can access, update or delete any Personal Information collected about You by Us.</li>
+	<li>The mechanisms We have implemented to protect Your Personal Information.</li>
+</ul>
+
+<p>As We continue offering Our visitors new and different types of content and services, this Policy is subject to change at any time. However, We will treat all Personal information We collect in accordance with the Privacy Policy in effect at the time the information is collected. Your continued use of the Site following the posting of changes shall mean that You accept and agree to the changes.</p>
+</div>
+
+<div class="section-content">
+<h2>The Information We Collect</h2>
+
+<p>At PissedConsumer.com We only collect Personal Information during registration and post complaint processes. Visitors are required to be 14 years or older to create a complaint. During the registration We collect Your full names and Your valid e-mail address. When a new complaint is created, We may collect additional information, including, but not limited to</p>
+
+<p>Your full name, e-mail address, mailing address, telephone number, gender, date of birth, and certain computer information (see below). We may also ask additional questions regarding Your experience with the company You complain about and regarding Your personal preferences on a number of topics. For certain advanced services, We may also collect billing information provided by PayPal. Additionally, when You come to our Site, We automatically collect some non-personally identifiable computer information (&ldquo;Computer Information&rdquo;), such as information about Your computer operating system (e.g., Windows XP, Mac OS), Your IP address, information about Your web browser (e.g., Internet Explorer, Google Chrome) being used, information collected through the use of cookies (see below) and information regarding Your Internet service provider. This non-personally identifiable information may be shared with third parties to provide more relevant services and/or advertisements. Users&rsquo; IP addresses are recorded for security and monitoring purposes.</p>
+</div>
+
+<div class="section-content">
+<h2>How We Use the Information</h2>
+
+<p>We use the complaint information for Our internal statistical purposes including research and development and for rebuttals. Complaint information including pictures and sign-in names are displayed to people in order to facilitate user interaction and comments in the PissedConsumer.com community. We may also share public information contained in a complaint with third parties at Our own discretion. We will share a user&#39;s e-mail address or other Personal Information with such third parties (including, but not limited to journalists, reporters and other media representatives) in the event We have been expressly authorized by the user. Upon visitor&#39;s consent, We may disclose visitor&#39;s information, including Personal Information, to the companies participating in Our Business Solutions Program.</p>
+
+<p>We may disclose information about Our visitors, including Personal Information (e.g., e-mail address, phone number), at the request of Third Party Neutrals (please see Our <a href="www.pissedconsumer.com/static/legitimacy-verification-program-rules-and-conditions.html" target="_blank">Legitimacy Verification Program Rules and Conditions</a>), when legally required to do so, at the request of governmental authorities conducting an investigation, to verify or enforce compliance with the policies governing our Site and applicable laws, or to protect against misuse or unauthorized use of the Site. We may also disclose user information whenever We believe disclosure is necessary to limit Our legal liability; to protect or defend Our rights or property; or protect the safety, rights, or property of Our visitors or others.</p>
+
+<p>Information that You provided during the review submission process for the company to contact You may be shared with verified representative(s) of that company.</p>
+
+<p>In the event You decide to become a registered user of the Site, i.e. to create an account on the Site, you must remember that We do not delete users&rsquo; accounts and, thus, do not delete any Personal Information provided to Us in connection with such accounts.</p>
+
+<p>We may use visitors&#39; Personal Information for Our internal purposes of enabling visitors to enter one of Our online contests or sweepstakes, to subscribe to Our online newsletter or to inform visitors of upcoming events and special announcements. Each e-mail contains instructions on how to be removed from the subscription list.</p>
+
+<p>We may use information about visitors, such as age, gender and interests for improving Our reporting on aggregate basis and for targeting service tailored to specific visitors&rsquo; requirements. We also use it for market analysis. We may use this information to provide visitors with the most helpful products and services and to respond to inquiries.</p>
+
+<p>We also use visitors&#39; Computer Information to track usage, improve the design of the Site, offer products and services, to personalize Our visitors&rsquo; experiences, save visitors&rsquo; passwords in password-protected areas, and to ensure visitors are following the Site&#39;s Agreement. Additionally, in the event that all or most of Opinion Corp.&#39;s stock and/or assets are transferred or sold to another entity, Opinion Corp. may transfer such information and information collected to the acquiring entity.</p>
+</div>
+
+<div class="section-content">
+<h2>Contests and Sweepstakes</h2>
+
+<p>PissedConsumer.com may occasionally offer contests and sweepstakes, which may be entered online. All the information collected by PissedConsumer.com is securely maintained and used only for the purpose of conducting and fulfillment of the contest or sweepstakes. Once the contest or sweepstakes if finished, We reserve the right to remove any Personal Information collected. The information collected through PissedConsumer.com sweepstakes may be passed to a fulfillment house which may use the information to help run the contest or sweepstakes. Any such fulfillment house may not use the information for any other purposes and must agree to maintain the confidentiality of the information.</p>
+</div>
+
+<div class="section-content">
+<h2>Collection of Information by Third-Party Sites and Affiliates</h2>
+
+<p>Our Site contains links to other sites, including those of affiliates, advertisers and survey companies. Visitors should consult the other sites&#39; privacy policies, since our Privacy Policy does not cover those sites. PissedConsumer.com does not share visitors&rsquo; e-mail addresses or any other Personal Information with such third parties.</p>
+
+<p>Please use the following links to review privacy policies of Our major advertisers and traffic analysis companies:</p>
+
+<ul class="list-vertical">
+	<li><a href="http://www.google.com/policies/privacy/#utm_source=aso&amp;utm_campaign=ww-ww-et-ashp&amp;utm_medium=link" rel="nofollow" target="_blank">Google</a></li>
+	<li><a href="http://www.burstmedia.com/privacy.html" rel="nofollow" target="_blank">BurstMedia</a></li>
+	<li><a href="http://www.careonecredit.com/about-us/privacy-policy.aspx" rel="nofollow" target="_blank">CareOneCredit</a></li>
+	<li><a href="http://about.shopzilla.com/privacy-policy" rel="nofollow" target="_blank">Shopzilla</a></li>
+	<li><a href="http://www.media.net/" rel="nofollow" target="_blank">Media.net</a></li>
+</ul>
+</div>
+
+<div class="section-content">
+<h2>Cookies</h2>
+
+<p>PissedConsumer.com uses a software technology called &quot;cookies.&quot; Cookies are small text files that We and certain third parties place in visitors&#39; computer browsers to store their preferences. Cookies, by themselves, do not tell Us Your e-mail address or other Personal Information unless You choose to provide this information to Us by, for example, registering at Our Site. However, once You choose to furnish the Site with Personal Information, this information may be linked to the data stored in the cookie.</p>
+
+<p>We may also use small pieces of code called &quot;web beacons&quot; or &quot;clear gifs&quot; to collect anonymous and aggregate advertising metrics, including, but not limited to counting page views, promotion views and advertising responses. These &quot;web beacons&quot; may be used to deliver cookies that conform to Our cookie policy.</p>
+
+<p>We use ads provided by third-party advertisers to support the Site. Some of these advertisers may use technology such as cookies and web beacons when they advertise on Our Site, which will also send these advertisers (such as Google through the Google AdSense program) information including Your IP address, Your ISP, the browser You used to visit Our Site, and in some cases, whether You have Flash installed. This is generally used for geotargeting purposes (showing New York real estate ads to someone in New York, for example) or showing certain ads based on specific sites visited (such as showing real estate ads to someone who frequents realty sites).</p>
+
+<p>You may adjust your browser to reject cookies from Us or from any other website. Please consult the &quot;Help&quot; section of Your browser for more information. However, certain areas of Our Site can only be accessed in conjunction with cookies or similar identifiers and You should be aware that disabling cookies or similar identifiers might prevent You from accessing some of Our content.</p>
+
+<p>In addition to cookies, We also utilize MD5 hashing algorithms at the stages of registration and complaint posting. In the event a user decides to post a complaint on Our Site and chooses to provide his/her e-mail address, such a user receives a thank-you e-mail containing a link to the complaint. This link includes a hash which, provided that a user follows it, ensures that such a user has an option to log in and/or register automatically by utilizing data stored on Our server from such user&rsquo;s initial visit. Thus, We make your experience of using Our Site more convenient.</p>
+</div>
+
+<div class="section-content">
+<h2>Session Video Recording</h2>
+
+<p>PissedConsumer.com uses a software technology called Webvisor to make video recordings of some visitor sessions. Webvisor is a Yandex.Metrica tool, and We use it in a strict compliance with <a href="https://yandex.com/legal/metrica_termsofuse/" rel="nofollow" target="_blank">Yandex.Metrica Terms of Use</a> and <a href="https://yandex.com/legal/confidential/" rel="nofollow" target="_blank">Yandex.Metrica Privacy Policy</a>. Webvisor provided Us with a piece of Javascript code to copy paste in the Site. After installation, We can monitor Our Site&rsquo;s visitors in real time. PissedConsumer.com may install this code to record visitor activities on any of the Site pages at its own discretion. Webvisor&rsquo;s screen capture is a component of the code that works by recording all the events that take place in web browser such as keystrokes, mouse movements, scrolling, and clicking. As PissedConsumer.com only collects Personal Information during the registration and review submission process, same information may be collected during session video recording process. PissedConsumer.com does not store any video recordings on its servers; all of the recordings are stored by Webvisor. We use session video recordings for Our internal statistical purposes, market analysis, for the purposes of web analytics, and for the purposes of the site improvement in accordance with specific visitors&rsquo; requirements. PissedConsumer.com reserves the right to use any other similar software technology(s) for similar purposes at its own discretion.</p>
+</div>
+
+<div class="section-content">
+<h2>Making a Recorded Call to Customer Service</h2>
+
+<p>PissedConsumer.com offers You a possibility to make a recorded call to a&nbsp;representative of a company of your choice, provided that such a company has review(s) on the Site and that We have a corresponding telephone number to make such a call. You must have an account on PissedConsumer.com, as this functionality is available to <em>registered users only</em>. To operate this functionality, We use a cloud communications platform called Twilio. It is a third-party tool, and We use it in a strict compliance with <a href="https://www.twilio.com/legal/tos" rel="nofollow" target="_blank">Twilio Terms of Service</a> and <a href="https://www.twilio.com/legal/privacy" rel="nofollow" target="_blank">Twilio Privacy Policy</a>.&nbsp;As a caller making a recorded call, You are responsible for notifying the other party You are calling about the fact that the call is being recorded. The recording of this call will be emailed to You. Periodic &ldquo;beep&rdquo; tone will be played periodically to all parties in the call, indicating that call recording is turned on.</p>
+</div>
+
+<div class="section-content">
+<h2>Security</h2>
+
+<p>We have adopted appropriate physical, electronic, and managerial procedures to safeguard and help prevent unauthorized access, maintain data security, and correctly use the information We collect online.</p>
+
+<p>You recognize and acknowledge that despite Our security measures, no data transmission over the Internet can be guaranteed to be completely secure, and no data is completely secure from an unauthorized third-party access.</p>
+
+<p>Phishing: Phishing attacks attempt to steal consumers&#39; personal identifiable information and financial accounts credentials. &quot;Phishers&quot; use &#39;spoofed&#39; e-mails leading consumers to counterfeit websites designed to trick recipients into divulging Sensitive Personal Information such as credit card numbers, account numbers, usernames, passwords, and social security numbers. WE DO NOT SEND EMAILS ASKING YOU TO PROVIDE OR CONFIRM SENSITIVE PERSONAL INFORMATION OR YOUR USERNAME OR PASSWORD!</p>
+
+<p>If You receive such email communications, please forward them immediately to Our Privacy Administrator at privacy@pissedconsumer.com and then immediately delete the fraudulent email from Your computer.</p>
+
+<p>If You have any questions about Our privacy practices, please e-mail or write to Us using the contact information provided below. If You believe that Our Site has collected incorrect information or if You would like to dispute any information, please contact Us using the same address below.</p>
+</div>
+
+<div>
+<h2 class="inline-block">Email:</h2>
+<a href="mailto:privacy@pissedconsumer.com">privacy@pissedconsumer.com</a>
+
+<h2>Address:</h2>
+
+<address class="address-primary"><span>Consumer Opinion LLC</span> <span>Media Relations</span> <span>1930 Village Center Circle #3-6853</span> <span>Las Vegas, NV 89134</span></address>
+</div>
+</div>
+</div>                    </div>
+                                            <aside class="xlarge-4 column"><div data-min-height="0" class="widget aside-block auto-hide hot-topic-widget">
+        <h3>Hot Topics</h3>
+        <ul class="list-links-block">
+                                            <li class="topic topic-color">
+                                        <a  itemprop="discussionUrl" href="https://offerup.pissedconsumer.com/stopped-working-201702281014897.html" class="hot-topic-item">
+                        <span class="topic-name" itemprop="name">
+                            Offerup - Stopped working                        </span>
+                    </a>
+                    <div class="counter"> 31 comments</div>
+                </li>
+                                            <li class="topic topic-color">
+                                        <a  itemprop="discussionUrl" href="https://www.pissedconsumer.com/company/minute-clinic/minute-clinic-family-practice-doctor-review-201703041016649.html" class="hot-topic-item">
+                        <span class="topic-name" itemprop="name">
+                            Minute Clinic Family Practice Doctor Review                        </span>
+                    </a>
+                    <div class="counter"> 24 comments</div>
+                </li>
+                                            <li class="topic topic-color">
+                                        <a  itemprop="discussionUrl" href="https://www.pissedconsumer.com/company/money-network/i-have-money-in-my-account-but-my-card-is-declining-20161202965797.html" class="hot-topic-item">
+                        <span class="topic-name" itemprop="name">
+                            Money Network - I have money in my account but my card is declining                         </span>
+                    </a>
+                    <div class="counter"> 24 comments</div>
+                </li>
+                                            <li class="topic topic-color">
+                                        <a  itemprop="discussionUrl" href="https://www.pissedconsumer.com/company/dun-and-bradstreet/grossly-inaccurate-business-credit-reporting-procedures-201702131007504.html" class="hot-topic-item">
+                        <span class="topic-name" itemprop="name">
+                            Dun And Bradstreet - GROSSLY INACCURATE BUSINESS CREDIT REPORTING PROCEDURES                        </span>
+                    </a>
+                    <div class="counter"> 0 comments</div>
+                </li>
+                                            <li class="topic topic-color">
+                                        <a  itemprop="discussionUrl" href="https://www.pissedconsumer.com/company/resumes-planet/suspicious-website-20161103948264.html" class="hot-topic-item">
+                        <span class="topic-name" itemprop="name">
+                            Resumes Planet - Suspicious website!                        </span>
+                    </a>
+                    <div class="counter"> 0 comments</div>
+                </li>
+                    </ul>
+    </div><div class="widget aside-block recently-discussed-widget" id="overall-and-industry-recently-discussed">
+        <h3><span>Recently Discussed Reviews</span></h3>
+                    <ul class="list-links-block">
+                                                        <li>
+                                                <a  class="demi-bordered alt bordered-hover" href="https://trugreen.pissedconsumer.com/trugreen-lies-and-poisons-20090619150190.html"
+                           data-tm-event="CompanyPage-Widget-RecentlyDiscussed">
+                            <span class="company_name">TruGreen Lies and Poisons</span>
+                        </a>
+                        <div class="counter">less than a minute ago</div>
+                    </li>
+                                                        <li>
+                        <span class="badges-group horizontal"><span class="badge full-100">100% full</span></span>                        <a  class="demi-bordered alt bordered-hover" href="https://www.pissedconsumer.com/company/alside-window/warranty-not-honored-20161101947021.html"
+                           data-tm-event="CompanyPage-Widget-RecentlyDiscussed">
+                            <span class="company_name">Warranty not honored </span>
+                        </a>
+                        <div class="counter">16 minutes ago</div>
+                    </li>
+                                                        <li>
+                                                <a  class="demi-bordered alt bordered-hover" href="https://www.pissedconsumer.com/company/bullseye-automotive/review-about-bullseye-automotive-staff-from-weatherford-texas-20150702659702.html"
+                           data-tm-event="CompanyPage-Widget-RecentlyDiscussed">
+                            <span class="company_name">Review about Bullseye Automotive Staff from Weatherford, Texas</span>
+                        </a>
+                        <div class="counter">21 minutes ago</div>
+                    </li>
+                                                        <li>
+                                                <a  class="demi-bordered alt bordered-hover" href="https://www.pissedconsumer.com/company/rodan-and-fields/rodan-and-fields-review-in-cosmetics-and-toiletries-category-201702181010285.html"
+                           data-tm-event="CompanyPage-Widget-RecentlyDiscussed">
+                            <span class="company_name">Rodan and Fields - Review in Cosmetics and Toiletries category</span>
+                        </a>
+                        <div class="counter">28 minutes ago</div>
+                    </li>
+                                                        <li>
+                                                <a  class="demi-bordered alt bordered-hover" href="https://www.pissedconsumer.com/company/tds/tds-is-awful-20160506842830.html"
+                           data-tm-event="CompanyPage-Widget-RecentlyDiscussed">
+                            <span class="company_name">TDS is awful</span>
+                        </a>
+                        <div class="counter">33 minutes ago</div>
+                    </li>
+                            </ul>
+            </div><div data-min-height="0" class="widget auto-hide latest-reviews-widget">
+    <h3><span>Latest Reviews</span></h3>
+    <ul class="list-links-block">
+                                <li>
+                                <a  href="https://www.pissedconsumer.com/company/saia/definitely-avoid-saia-201703171022246.html">Definitely avoid Saia</a>
+            </li>
+                                <li>
+                                <a  href="https://ups.pissedconsumer.com/continuous-delay-multiple-emergencies-claimed-by-ups-201703171022244.html">Continuous Delay - multiple emergencies claimed by Ups</a>
+            </li>
+                                <li>
+                                <a  href="https://www.pissedconsumer.com/company/abf-freight-system/lying-truck-driver-201703171022243.html">ABF Freight System - Lying Truck driver</a>
+            </li>
+                                <li>
+                                <a  href="https://www.pissedconsumer.com/company/united-healthcare/united-healthcare-all-medications-and-co-payments-review-201703171022240.html">United Healthcare All Medications And Co Payments Review</a>
+            </li>
+                                <li>
+                                <a  href="https://www.pissedconsumer.com/company/beautederm/took-my-money-without-consent-201703171022239.html">Beautederm - Took my money without consent </a>
+            </li>
+            </ul>
+</div></aside>                                    </div>
+            </div>
+                    </div>
+</div>
+<!--start footer section-->
+<footer>
+    <div class="row">
+        <div class="search-form">
+            <form class="form" action="https://www.pissedconsumer.com/browse-reviews.html" method="get" target="_top">
+                <input type="hidden" name="redirect" value="1"/>
+                <div class="search-wrapper">
+                    <input class="input-search search-typeahead" type="search" autocomplete="off"
+                           placeholder="Company or keyword" name="query"
+                           data-container="#header-search"
+                           data-companies="/search/autocompleteCompany.html?term=__QUERY__"
+                           data-cities="/search/autocompleteCity.html?term=__QUERY__"
+                           data-categories="/search/autocompleteCategory.html?term=__QUERY__"
+                           data-products="/search/autocompleteProduct.html?term=__QUERY__"
+                    />
+                    <button type="submit" class="submit button m-large">
+                        <em class="lnr-magnifier"></em>
+                    </button>
+                </div>
+            </form>
+        </div>
+                    <div class="footer-submit-link a-center">
+                <a class="button button-secondary m-large ga_event"
+                   href="https://www.pissedconsumer.com/post-complaint.html"
+                   data-category="Submit Complaint"
+                   data-action="Submit Complaint Sources"
+                   data-label="By Button in Footer">Submit review</a>
+            </div>
+                <div class="footer-columns">
+            <a class="business-link" href="https://www.pissedconsumer.com/business-solutions.html">Business Solutions</a>
+            <div class="column-item">
+                <h3 class="footer-title">About Us</h3>
+                <ul class="footer-list-links" id="yw3">
+<li><a href="https://www.pissedconsumer.com/static/about-us.html">About Us</a></li>
+<li><a href="https://www.pissedconsumer.com/static/latest-news.html">News</a></li>
+<li><a href="https://www.pissedconsumer.com/we-in-press.html">We In Press</a></li>
+<li><a href="https://www.pissedconsumer.com/blog/">Blog</a></li>
+<li><a href="https://www.pissedconsumer.com/static/publications/pissed-consumer-questions-and-answers-faq-2.html">FAQ</a></li>
+<li><a href="https://www.pissedconsumer.com/static/privacy-policy.html">Privacy Policy</a></li>
+<li><a href="https://www.pissedconsumer.com/static/terms-of-use.html">Terms Of Use</a></li>
+<li><a href="https://www.pissedconsumer.com/static/legal-information.html">Legal Information</a></li>
+<li><a href="https://www.pissedconsumer.com/contact.html">Contact Us</a></li>
+</ul>            </div>
+            <div class="column-item">
+                <h3 class="footer-title">Browse</h3>
+                <ul class="footer-list-links" id="yw4">
+<li><a href="https://www.pissedconsumer.com/search-companies.html">Companies</a></li>
+<li><a href="https://www.pissedconsumer.com/browse-reviews.html">Reviews</a></li>
+<li><a href="https://www.pissedconsumer.com/featured-reviews.html">Featured Reviews</a></li>
+<li><a href="https://www.pissedconsumer.com/all-categories.html">Categories</a></li>
+<li><a href="https://www.pissedconsumer.com/most-complained-companies.html">Most Complained About Companies</a></li>
+</ul>            </div>
+            <div class="column-item">
+                <h3 class="footer-title">Service</h3>
+                <ul class="footer-list-links footer-services" id="yw5">
+<li><a href="https://www.pissedconsumer.com/business-solutions.html">Business Solutions</a></li>
+<li><a href="https://www.pissedconsumer.com/static/publications.html">Our Research</a></li>
+<li><a href="https://www.pissedconsumer.com/static/legitimacy-verification-program-rules-and-conditions.html">Dispute Resolution (LVP Program)</a></li>
+</ul>            </div>
+            <div class="column-item">
+                <h3 class="footer-title">Tips and Samples</h3>
+                <ul class="footer-list-links" id="yw6">
+<li><a href="https://www.pissedconsumer.com/static/consumer-tips.html">Consumer Tips</a></li>
+<li><a href="https://www.pissedconsumer.com/static/consumer-resources.html">Consumer Resources</a></li>
+<li><a href="https://www.pissedconsumer.com/static/consumer-resources/complaint-letters-sample.html">Complaint Letter Sample</a></li>
+<li><a href="https://www.pissedconsumer.com/static/class-action-lawsuit-questions-and-answers.html">Class Actions</a></li>
+</ul>            </div>
+        </div>
+        <span class="more footer-opener"></span>
+        <ul class="social-links ">
+    <li><a target="_blank" class="fb" href="https://www.facebook.com/PissedConsumerCom"><em class="lnr-facebook-2"></em></a></li>
+    <li><a target="_blank" class="pr" href="https://pinterest.com/pissedconsumer"><em class="lnr-pinterest"></em></a></li>
+    <li><a target="_blank" class="gp" href="https://plus.google.com/+Pissedconsumercom"><em class="lnr-google-plus-2"></em></a></li>
+    <li><a target="_blank" class="ig" href="https://instagram.com/pissedconsumer"><em class="lnr-instagram"></em></a></li>
+    <li><a target="_blank" class="tw" href="https://twitter.com/pissedconsumer"><em class="lnr-twitter-2"></em></a></li>
+    <li><a target="_blank" class="yt last" href="https://www.youtube.com/user/PissedConsumerCom"><em class="lnr-youtube"></em></a></li>
+</ul>        <div class="copyright">
+            Pissed Consumer © 2017 All
+            Rights Reserved
+        </div>
+    </div>
+    </footer>
+<!--end footer section--><div class="lightbox tos-lbx middle" id="tos-lbx" data-cross="1" data-contentHolder="tos-text"  data-url="https://www.pissedconsumer.com/static/terms-of-use.html?aj=1">
+    <div class="frame">
+        <div class="holder">
+            <div class="content">
+                <span class="close lnr-cross"></span>
+                <h2 class="lightbox-title">Terms of Service</h2>
+                <div class="tos-text">
+                </div>
+                <div class="btn-holder">
+                    <span class="button-clear m-large alone-element cancel">Cancel</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--[if lte IE 9]>
+<script>
+    var ieBody = '<div class="ie-warning"><h4>Your Browser Is Not Supported!</h4><p>Please upgrade to <a href="http://getfirefox.com">FireFox</a>, <a href="http://www.apple.com/safari/">Safari</a> or <a href="https://www.google.com/chrome/">Chrome</a>.</p></div>';
+    document.body.innerHTML = ieBody;
+</script>
+<![endif]-->
+<div id="fb-root"></div>
+<script>
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=210676762454801&version=v2.0";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+
+
+<a href="#page-top" class="lnr-chevron-up back-to-top"></a>
+<script type="text/javascript" src="//js-cdn.pissedconsumer.com/min/serve.html?g=614d9f9136a31911bdbbfb3c418f0c49&amp;amp;lm=1489762086"></script>
+<script type="text/javascript">
+/*<![CDATA[*/
+jQuery(function($) {
+$(".auth-service.google_oauth a").eauth({"popup":{"width":500,"height":450},"id":"google_oauth"});
+$(".auth-service.twitter a").eauth({"popup":{"width":900,"height":550},"id":"twitter"});
+$(".auth-service.facebook a").eauth({"popup":{"width":585,"height":290},"id":"facebook"});
+
+jQuery('#loginForm').yiiactiveform({'validateOnSubmit':true,'validateOnType':false,'validateOnChange':false,'attributes':[{'id':'LoginForm_email','inputID':'LoginForm_email','errorID':'LoginForm_email_em_','model':'LoginForm','name':'email','enableAjaxValidation':true,'clientValidation':function(value, messages, attribute) {
+
+if(jQuery.trim(value)=='') {
+	messages.push("Email Address or Username  cannot be blank.");
+}
+
+}},{'id':'LoginForm_password','inputID':'LoginForm_password','errorID':'LoginForm_password_em_','model':'LoginForm','name':'password','enableAjaxValidation':true,'clientValidation':function(value, messages, attribute) {
+
+if(jQuery.trim(value)=='') {
+	messages.push("Your Password cannot be blank.");
+}
+
+}}],'errorCss':'error'});
+jQuery('#yw1').yiiactiveform({'validateOnSubmit':false,'attributes':[{'id':'SignupPc2Form_username','inputID':'SignupPc2Form_username','errorID':'SignupPc2Form_username_em_','model':'SignupPc2Form','name':'username','enableAjaxValidation':false,'clientValidation':function(value, messages, attribute) {
+
+if(jQuery.trim(value)=='') {
+	messages.push("Username cannot be blank.");
+}
+
+
+if(jQuery.trim(value)!='' && !value.match(/^[a-z0-9][a-z0-9-_.]*[a-z0-9]$/i)) {
+	messages.push("Username must be more than 2 characters and contain letters a-z, the numbers 0-9, hyphens (-), underscores (_), and periods (.)");
+}
+
+
+if(jQuery.trim(value)!='') {
+	
+if(value.length<2) {
+	messages.push("Username is too short (minimum is 2 characters).");
+}
+
+if(value.length>25) {
+	messages.push("Username is too long (maximum is 25 characters).");
+}
+
+}
+
+}},{'id':'SignupPc2Form_email','inputID':'SignupPc2Form_email','errorID':'SignupPc2Form_email_em_','model':'SignupPc2Form','name':'email','enableAjaxValidation':false,'clientValidation':function(value, messages, attribute) {
+
+if(jQuery.trim(value)=='') {
+	messages.push("Email cannot be blank.");
+}
+
+
+
+if(jQuery.trim(value)!='' && !value.match(/^[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?$/)) {
+	messages.push("Email is not a valid email address.");
+}
+
+}},{'id':'SignupPc2Form_password','inputID':'SignupPc2Form_password','errorID':'SignupPc2Form_password_em_','model':'SignupPc2Form','name':'password','enableAjaxValidation':false,'clientValidation':function(value, messages, attribute) {
+
+if(jQuery.trim(value)=='') {
+	messages.push("Password cannot be blank.");
+}
+
+
+if(jQuery.trim(value)!='') {
+	
+if(value.length<6) {
+	messages.push("Password is too short (minimum is 6 characters).");
+}
+
+if(value.length>40) {
+	messages.push("Password is too long (maximum is 40 characters).");
+}
+
+}
+
+}},{'id':'SignupPc2Form_phone','inputID':'SignupPc2Form_phone','errorID':'SignupPc2Form_phone_em_','model':'SignupPc2Form','name':'phone','enableAjaxValidation':false},{'id':'SignupPc2Form_termsOfService','inputID':'SignupPc2Form_termsOfService','errorID':'SignupPc2Form_termsOfService_em_','model':'SignupPc2Form','name':'termsOfService','enableAjaxValidation':false,'clientValidation':function(value, messages, attribute) {
+
+if(jQuery.trim(value)=='') {
+	messages.push("Terms Of Service cannot be blank.");
+}
+
+}},{'id':'SignupPc2Form_signupCaptcha','inputID':'SignupPc2Form_signupCaptcha','errorID':'SignupPc2Form_signupCaptcha_em_','model':'SignupPc2Form','name':'signupCaptcha','enableAjaxValidation':false,'clientValidation':function(value, messages, attribute) {
+
+var hash = jQuery('body').data('captcha.hash');
+if (hash == null)
+	hash = 781;
+else
+	hash = hash[1];
+for(var i=value.length-1, h=0; i >= 0; --i) h+=value.toLowerCase().charCodeAt(i);
+if(h != hash) {
+	messages.push("The verification code is incorrect.");
+}
+
+}}],'errorCss':'error'});
+});
+/*]]>*/
+</script>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"f390b4c5ca","applicationID":"24017470","transactionName":"M1RSMUQEChdTVUcMXQoecQZCDAsKHWZSAlcXcl8LQhcLCF5TQUpBDF5H","queueTime":0,"applicationTime":135,"atts":"HxNRRwweGRk=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>

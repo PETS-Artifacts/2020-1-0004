@@ -1,0 +1,544 @@
+    <!DOCTYPE html>
+    <!--[if lt IE 7]>
+    <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+    <!--[if IE 7]>
+    <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+    <!--[if IE 8]>
+    <html class="no-js lt-ie9"> <![endif]-->
+    <!--[if gt IE 8]><!-->
+    <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var o=t[n]={exports:{}};e[n][0].call(o.exports,function(t){var o=e[n][1][t];return r(o||t)},o,o.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(e,t,n){function r(){}function o(e,t,n){return function(){return i(e,[(new Date).getTime()].concat(u(arguments)),t?null:this,n),t?void 0:this}}var i=e("handle"),a=e(2),u=e(3),c=e("ee").get("tracer"),f=NREUM;"undefined"==typeof window.newrelic&&(newrelic=f);var s=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit"],l="api-",p=l+"ixn-";a(s,function(e,t){f[t]=o(l+t,!0,"api")}),f.addPageAction=o(l+"addPageAction",!0),f.setCurrentRouteName=o(l+"routeName",!0),t.exports=newrelic,f.interaction=function(){return(new r).get()};var d=r.prototype={createTracer:function(e,t){var n={},r=this,o="function"==typeof t;return i(p+"tracer",[Date.now(),e,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[Date.now(),r,o],n),o)try{return t.apply(this,arguments)}finally{c.emit("fn-end",[Date.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){d[t]=o(p+t)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,(new Date).getTime()])}},{}],2:[function(e,t,n){function r(e,t){var n=[],r="",i=0;for(r in e)o.call(e,r)&&(n[i]=t(r,e[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],3:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,o=n-t||0,i=Array(o<0?0:o);++r<o;)i[r]=e[t+r];return i}t.exports=r},{}],ee:[function(e,t,n){function r(){}function o(e){function t(e){return e&&e instanceof r?e:e?c(e,u,i):i()}function n(n,r,o){if(!p.aborted){e&&e(n,r,o);for(var i=t(o),a=v(n),u=a.length,c=0;c<u;c++)a[c].apply(i,r);var f=s[w[n]];return f&&f.push([y,n,r,i]),i}}function d(e,t){b[e]=v(e).concat(t)}function v(e){return b[e]||[]}function g(e){return l[e]=l[e]||o(n)}function m(e,t){f(e,function(e,n){t=t||"feature",w[n]=t,t in s||(s[t]=[])})}var b={},w={},y={on:d,emit:n,get:g,listeners:v,context:t,buffer:m,abort:a,aborted:!1};return y}function i(){return new r}function a(){(s.api||s.feature)&&(p.aborted=!0,s=p.backlog={})}var u="nr@context",c=e("gos"),f=e(2),s={},l={},p=t.exports=o();p.backlog=s},{}],gos:[function(e,t,n){function r(e,t,n){if(o.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[t]=r,r}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){o.buffer([e],r),o.emit(e,t,n)}var o=e("ee").get("handle");t.exports=r,r.ee=o},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!h++){var e=y.info=NREUM.info,t=l.getElementsByTagName("script")[0];if(setTimeout(f.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return f.abort();c(b,function(t,n){e[t]||(e[t]=n)}),u("mark",["onload",a()],null,"api");var n=l.createElement("script");n.src="https://"+e.agent,t.parentNode.insertBefore(n,t)}}function o(){"complete"===l.readyState&&i()}function i(){u("mark",["domContent",a()],null,"api")}function a(){return(new Date).getTime()}var u=e("handle"),c=e(2),f=e("ee"),s=window,l=s.document,p="addEventListener",d="attachEvent",v=s.XMLHttpRequest,g=v&&v.prototype;NREUM.o={ST:setTimeout,CT:clearTimeout,XHR:v,REQ:s.Request,EV:s.Event,PR:s.Promise,MO:s.MutationObserver},e(1);var m=""+location,b={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-998.min.js"},w=v&&g&&g[p]&&!/CriOS/.test(navigator.userAgent),y=t.exports={offset:a(),origin:m,features:{},xhrWrappable:w};l[p]?(l[p]("DOMContentLoaded",i,!1),s[p]("load",r,!1)):(l[d]("onreadystatechange",o),s[d]("onload",r)),u("mark",["firstbyte",a()],null,"api");var h=0},{}]},{},["loader"]);</script>
+
+        
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <meta property="og:image" content="PROTOCOL://futurelearn.com/apple-touch-icon-144x144-precomposed.png">
+        <meta property="fb:app_id" content="253534938366453"/>
+
+        <link rel="shortcut icon" href="/favicon.ico?v=3">
+        <link rel="apple-itouch-icon" href="/favicon.png?v=3">
+        <link rel="stylesheet" media="screen, projection" href="https://cdn.futurelearn.com/assets/fonts/europa-ee7781719b24468086877c63ff79a3c621ee568c0a8d998d87f7fba4e5678039.css?NFETqG1LpPXQXOkyiApk5WGL_uxJBRGsasND_h3yuuHd9OP8TyRWC2zFEW-rstuk73NxnWOz5OjG" />
+        <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+        <link rel="stylesheet" type="text/css" href="/css/jquery-ui-1.10.3.custom.min.css">
+        <link rel="stylesheet" type="text/css" href="/css/style.css?v=1.2.2" type="text/css" media="screen"/>
+        <link rel="stylesheet" type="text/css" href="/css/footer.css?v=1.2" type="text/css" media="screen"/>
+        <link rel="stylesheet" type="text/css" href="/css/media.css" type="text/css" media="screen"/>
+        <link rel="stylesheet" type="text/css" href="/css/pygments.css" type="text/css" media="screen"/>
+        <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="https://about.futurelearn.com/feed/"/>
+       <script src="/js/vendor/modernizr-2.6.2.min.js"></script>
+
+
+        
+<!-- This site is optimized with the Yoast SEO plugin v3.7.0 - https://yoast.com/wordpress/plugins/seo/ -->
+<title>Privacy policy - FutureLearn</title>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="https://about.futurelearn.com/terms/privacy-policy/" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Privacy policy - FutureLearn" />
+<meta property="og:description" content="FutureLearn Privacy Policy Welcome to FutureLearn! We respect your right to privacy. This Privacy Policy sets out details of the information that we may collect from you and how we may use that information. This Privacy Policy should be read alongside, and in addition to, the Terms and the Cookies Policy. Please read this Privacy Policy..." />
+<meta property="og:url" content="https://about.futurelearn.com/terms/privacy-policy/" />
+<meta property="og:site_name" content="FutureLearn" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="FutureLearn Privacy Policy Welcome to FutureLearn! We respect your right to privacy. This Privacy Policy sets out details of the information that we may collect from you and how we may use that information. This Privacy Policy should be read alongside, and in addition to, the Terms and the Cookies Policy. Please read this Privacy Policy..." />
+<meta name="twitter:title" content="Privacy policy - FutureLearn" />
+<meta name="twitter:site" content="@futurelearn" />
+<meta name="twitter:creator" content="@futurelearn" />
+<!-- / Yoast SEO plugin. -->
+
+<link rel='dns-prefetch' href='//s.w.org' />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/about.futurelearn.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.6.1"}};
+			!function(a,b,c){function d(a){var c,d,e,f,g,h=b.createElement("canvas"),i=h.getContext&&h.getContext("2d"),j=String.fromCharCode;if(!i||!i.fillText)return!1;switch(i.textBaseline="top",i.font="600 32px Arial",a){case"flag":return i.fillText(j(55356,56806,55356,56826),0,0),!(h.toDataURL().length<3e3)&&(i.clearRect(0,0,h.width,h.height),i.fillText(j(55356,57331,65039,8205,55356,57096),0,0),c=h.toDataURL(),i.clearRect(0,0,h.width,h.height),i.fillText(j(55356,57331,55356,57096),0,0),d=h.toDataURL(),c!==d);case"diversity":return i.fillText(j(55356,57221),0,0),e=i.getImageData(16,16,1,1).data,f=e[0]+","+e[1]+","+e[2]+","+e[3],i.fillText(j(55356,57221,55356,57343),0,0),e=i.getImageData(16,16,1,1).data,g=e[0]+","+e[1]+","+e[2]+","+e[3],f!==g;case"simple":return i.fillText(j(55357,56835),0,0),0!==i.getImageData(16,16,1,1).data[0];case"unicode8":return i.fillText(j(55356,57135),0,0),0!==i.getImageData(16,16,1,1).data[0];case"unicode9":return i.fillText(j(55358,56631),0,0),0!==i.getImageData(16,16,1,1).data[0]}return!1}function e(a){var c=b.createElement("script");c.src=a,c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i;for(i=Array("simple","flag","unicode8","diversity","unicode9"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='mailchimpSF_main_css-css'  href='https://about.futurelearn.com/?mcsf_action=main_css&#038;ver=4.6.1' type='text/css' media='all' />
+<!--[if IE]>
+<link rel='stylesheet' id='mailchimpSF_ie_css-css'  href='https://about.futurelearn.com/wp-content/plugins/mailchimp/css/ie.css?ver=4.6.1' type='text/css' media='all' />
+<![endif]-->
+<link rel='stylesheet' id='selection-sharer-css'  href='https://about.futurelearn.com/wp-content/plugins/selection-sharer/css/selection-sharer.css?ver=0.1' type='text/css' media='all' />
+<!-- This site uses the Google Analytics by MonsterInsights plugin v5.5.3 - Universal enabled - https://www.monsterinsights.com/ -->
+<script type="text/javascript">
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','__gaTracker');
+
+	__gaTracker('create', 'UA-38511558-1', 'auto');
+	__gaTracker('set', 'forceSSL', true);
+	__gaTracker('send','pageview');
+
+</script>
+<!-- / Google Analytics by MonsterInsights -->
+<script type='text/javascript' src='https://about.futurelearn.com/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+<script type='text/javascript' src='https://about.futurelearn.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<script type='text/javascript' src='https://about.futurelearn.com/wp-content/plugins/mailchimp/js/scrollTo.js?ver=1.5.2'></script>
+<script type='text/javascript' src='https://about.futurelearn.com/wp-includes/js/jquery/jquery.form.min.js?ver=3.37.0'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var mailchimpSF = {"ajax_url":"https:\/\/about.futurelearn.com\/"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://about.futurelearn.com/wp-content/plugins/mailchimp/js/mailchimp.js?ver=1.5.2'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var SafeCommentsAjax = {"ajaxurl":"https:\/\/about.futurelearn.com\/wp-admin\/admin-ajax.php"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://about.futurelearn.com/wp-content/plugins/safe-report-comments/js/ajax.js?ver=4.6.1'></script>
+<link rel='https://api.w.org/' href='https://about.futurelearn.com/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://about.futurelearn.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://about.futurelearn.com/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 4.6.1" />
+<link rel='shortlink' href='https://about.futurelearn.com/?p=772' />
+<link rel="alternate" type="application/json+oembed" href="https://about.futurelearn.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fabout.futurelearn.com%2Fterms%2Fprivacy-policy%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://about.futurelearn.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fabout.futurelearn.com%2Fterms%2Fprivacy-policy%2F&#038;format=xml" />
+<!-- Facebook Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+
+fbq('init', '923003487763431');
+fbq('track', "PageView");</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=923003487763431&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Facebook Pixel Code -->            </head>
+
+<body class="page page-id-772 page-child parent-pageid-885 page-template-default desktop">
+
+<!--[if lt IE 7]>
+<p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+<![endif]-->
+
+<!--<a href="#" class="feedback_button" title="Send us a feedback"></a>-->
+
+<div id="wrapper">
+<header class="new-menu">
+    <a href="https://about.futurelearn.com" id="futurelearn_logo"></a>
+    <div class="nav-container">
+        <button aria-label="Close this panel" class="m-filter__close">
+            <i data-icon="¥" aria-hidden="true"></i>
+        </button>
+                    <ul class="navigation">
+                                    <li class="nav-item ">
+                        <a href="https://www.futurelearn.com/courses">
+                            <div>Courses</div>
+                            <div>Browse all individual online courses</div>
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+
+                                        <li class="nav-item ">
+                        <a href="https://www.futurelearn.com/programs">
+                            <div>Programs</div>
+                            <div>Master a specific subject in depth</div>
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+
+                                        <li class="nav-item visible-xs">
+                        <a href="https://www.futurelearn.com/courses/collections">
+                            <div>Collections</div>
+                            <div>Courses grouped by specific topics</div>
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+
+                                        <li class="nav-item ">
+                        <a href="https://www.futurelearn.com/courses/categories">
+                            <div>Categories</div>
+                            <div>Courses grouped by subjects</div>
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+
+                                </ul>
+                        <div class="m-brackets-large__block">
+                    <a class="a-block-button"  href="https://www.futurelearn.com/about/how-it-works" >Using&nbsp;FutureLearn</a>
+                </div>
+                            <div class="m-brackets-large__block">
+                    <a class="a-block-button"  href="https://www.futurelearn.com/about" >About&nbsp;FutureLearn</a>
+                </div>
+                            <div class="m-brackets-large__block">
+                    <a class="a-block-button"  href="https://www.futurelearn.com/workplace-learning" >Learning at&nbsp;work</a>
+                </div>
+                            <div class="m-brackets-large__block">
+                    <a class="a-block-button"  href="https://www.futurelearn.com/partners" >Partners</a>
+                </div>
+                            <div class="m-brackets-large__block">
+                    <a class="a-block-button"  href="https://about.futurelearn.com/about/faq" >FAQ</a>
+                </div>
+                            <div class="m-brackets-large__block">
+                    <a class="a-block-button"  href="https://about.futurelearn.com/blog" >Blog</a>
+                </div>
+                </div>
+    <a href="#" class="hamburger_menu" data-icon="†"></a>
+    <div id="header-signin">
+        <a href="http://www.futurelearn.com/sign-in">Sign In</a>
+    </div>
+</header><div class="header" style="background-image: url('https://ugc-about.futurelearn.com/wp-content/uploads/tc-background1.jpg')">
+    <h1>Terms and&nbsp;conditions</h1>
+</div>
+<div class="sub-navigation">
+    <div class="heading">
+        <div>
+            Show me FutureLearn's <a href="#" rel="nofollow">Privacy&nbsp;policy <span class="m-filter-status__handle">
+                  <svg height="12px" viewBox="0 0 19 12" width="19px">
+                    <g fill-rule="evenodd" fill="none" stroke-width="0" stroke="none">
+                      <path d="M1.12903424,3.03411193 C0.505485848,2.39248335 0.509109926,1.36071532 1.13746364,0.729257071 L0.72567172,1.14308355 C1.35387554,0.511775938 2.36226637,0.511817716 2.98942807,1.15492037 L9.84227633,8.18195159 L16.6951221,1.15492037 C17.3171562,0.51707546 18.3211398,0.511625303 18.9483776,1.15379962 L18.5232428,0.718540997 C19.1456474,1.35576693 19.1503453,2.38849629 18.5251117,3.03411193 L9.84227633,12 L1.12903424,3.03411193 Z" fill="#4A4D55" id="arrow-down"></path>
+                    </g>
+                  </svg>
+                </span></a>
+        </div>
+    </div>
+    <div class="content">
+        <div class="mobile-title">
+            <p>Choose one of these categories to explore</p>
+            <button aria-label="Close this panel" class="m-filter__close">
+                <i data-icon="¥" aria-hidden="true"></i>
+            </button>
+        </div>
+                    <ul>
+                <li><a href="https://about.futurelearn.com/terms/" >Terms and&nbsp;conditions</a></li>
+                                    <li><a href="https://about.futurelearn.com/terms/accessibility-policy/" >Accessibility and inclusion&nbsp;policy</a></li>
+                                        <li><a href="https://about.futurelearn.com/terms/code-of-conduct/" >Code of&nbsp;conduct</a></li>
+                                        <li><a href="https://about.futurelearn.com/terms/cookie-policy/" >Cookie&nbsp;policy</a></li>
+                                        <li><a href="https://about.futurelearn.com/terms/data-protection-policy/" >Data protection&nbsp;policy</a></li>
+                                        <li><a href="https://about.futurelearn.com/terms/delivery-policy/" >Delivery&nbsp;policy</a></li>
+                                        <li><a href="https://about.futurelearn.com/terms/openness/" >Openness&nbsp;principles</a></li>
+                                        <li><a href="https://about.futurelearn.com/terms/privacy-policy/" class="active">Privacy&nbsp;policy</a></li>
+                                        <li><a href="https://about.futurelearn.com/terms/refund-policy/" >Refund&nbsp;policy</a></li>
+                                        <li><a href="https://about.futurelearn.com/terms/research-ethics-for-futurelearn/" >Research&nbsp;ethics</a></li>
+                                        <li><a href="https://about.futurelearn.com/terms/business/" >Terms of&nbsp;Business</a></li>
+                                </ul>
+                </div>
+
+</div>
+
+
+
+<div id="main">
+
+	<div id="content_center">
+
+		
+
+
+
+
+<h1>Privacy&nbsp;policy</h1>
+
+
+
+<div id="page-content">
+    <h2>FutureLearn Privacy Policy</h2>
+<p>Welcome to FutureLearn!</p>
+<p>We respect your right to privacy. This Privacy Policy sets out details of the information that we may collect from you and how we may use that information. This Privacy Policy should be read alongside, and in addition to, the <a title="Terms and Conditions" href="/terms">Terms</a> and the <a href="/terms/cookie-policy">Cookies Policy</a>.</p>
+<p>Please read this Privacy Policy carefully – by using the Website and the Online Courses and Content (whether as a Visitor or a Learner), you agree to its terms (including as amended from time to time). If, for any reason, you do not agree to the terms of this Privacy Policy, please stop using the Website and the Online Courses and Content immediately.</p>
+<p>Unless otherwise defined in this Privacy Policy, terms used have the same meaning as in the Terms.</p>
+<h3>1          About Us</h3>
+<p>1.1       In this Privacy Policy, references to &#8220;we&#8221; or &#8220;us&#8221; are to FutureLearn Limited, a company incorporated in England and Wales (registered number 8324083) whose registered office is at PO Box 77, Chambers Building, Walton Hall, Milton Keynes, MK7 6BT.</p>
+<p>1.2       If you have any questions about how we collect, store and use your information, please click on &#8220;feedback&#8221; and select &#8220;contact support”.</p>
+<p>&nbsp;</p>
+<p><b>2          </b><b>Use of the Website and Online Courses </b><b>and Content</b></p>
+<p>This Privacy Policy applies only to your use of the Website and Online Courses and Content.  We are not responsible for any information gathered by Partner Institutions who provide the Online Courses and Content or other linking sites found on the Website and you should consult those other parties&#8217; privacy policies as appropriate and applicable.</p>
+<p>&nbsp;</p>
+<h3>3          Legal Notice</h3>
+<p>We will at all times only collect and process your personal information in accordance with the Data Protection Act 1998, the Privacy and Electronic Communications (EC Directive) Regulations 2003 and any other applicable data protection legislation.</p>
+<h3></h3>
+<h3>4          Collection of Information</h3>
+<p>4.1       When you access the Website via any means, use the Online Courses and Content, register or post notes, assignments or other material or provide comments via the feedback tab, we may collect, store and use certain personal information that you voluntarily disclose to us. We may also ask you for information when you report a problem with the Website or the Online Courses and Content.</p>
+<p>4.2       When registering we ask for your name and email address. As part of your Learner profile you may also provide your location, gender and any educational history or qualifications, plus other information that will help other learners get to know you and help us to tailor the service to suit you. We will also store the results of your assessments relating to Online Courses and Content.  When you purchase a paid service, we will also collect your credit card or other payment details. If you contact us, we may also keep a record of that correspondence.</p>
+<p>4.3       We may also collect data relating to your visits to the Website that cannot identify you but records your use of our Website and Online Courses and Content including, for example, details of how long you have used the Website and the Online Courses and Content for.</p>
+<p>4.4       We may also collect your computer&#8217;s IP address in order to help us tailor the service to your location.</p>
+<p>4.5       If you elect to verify your identity through our Website, we will receive, process and store your personal information. In completing the verification process, your information and identity documentation will be shared with the third party identity verification provider who may store your information for a maximum of 5 days for the sole purpose of resolving user support issues. Upon successful verification of your identity, we will store only the name given on your identification documentation; if you participate in a credit bearing course or Program, we may share that information with the relevant course provider or accrediting organisation to allow you to receive credit.</p>
+<p>4.6        Finally, we may receive information about you from third parties (such as credit reference agencies) who are legally entitled to disclose that information.</p>
+<p><b>5          Use of Your Information</b></p>
+<p>5.1       By accessing the Website, using the Online Courses and Content, posting notes, replies, assignments and other materials, you agree that your information may be used by us and/or our other partners, and course and content providers chosen by us for any of the following purposes:</p>
+<p>(a)        to provide, maintain, protect and improve the quality of the Website and the Online Courses and Content we offer, including by conducting anonymised market research, and to protect us and our users;</p>
+<p>(b)        to provide you with a personalised browsing experience when using the Website;</p>
+<p>(c)        to fulfil any contractual agreements between you and us (for example, when you register as a Learner in relation to the Online Courses and Content);</p>
+<p>(d)        to send you details of other products and services which we think may interest you including via relevant social media channels, unless you opt out via your personal settings;</p>
+<p>(e)        to sell sponsorship on the Website;</p>
+<p>(f)         to manage your Learner account that you hold with us;</p>
+<p>(g)        to allow you to use some features of our Website or Online Courses and Content ;</p>
+<p>(h)        to send you email notifications and updates about the Website or Online Courses and Content you are enrolled on; and</p>
+<p>(i)         to comply with legal and regulatory requirements.</p>
+<p>(j)         to contact you occasionally in order to invite you to share your opinions and experiences of FutureLearn with us.</p>
+<p>5.2       We may use your email address to send you course notices and updates about our services.</p>
+<p>5.3       If you do not want us to use your information in these ways, please edit your email preferences on the <a href="https://www.futurelearn.com/settings">settings page</a>.</p>
+<p>&nbsp;</p>
+<p><b>6          Storage of Information</b></p>
+<p>6.1       All information is stored on our secure servers. When you register, we will ask you to choose a password which enables you to access the Online Courses and Content. You are responsible for keeping this password confidential. We ask you not to share this password with anyone.</p>
+<p>6.2       In addition, we (or third parties acting on our behalf) may also store or process information that we collect about you in countries outside the European Economic Area, which may have lower standards of data protection. We have put in place technical and organisational security measures to prevent the loss or unauthorised access of your personal information. However, whilst we have used our best efforts to ensure the security of your data, please be aware that we cannot guarantee the security of information transmitted over the Internet.</p>
+<p>&nbsp;</p>
+<p><b>7          Disclosure of Your Information</b></p>
+<p>7.1       We may disclose your information to any member of our group, which means our subsidiaries, our ultimate holding company and its subsidiaries, as defined in section 1159 of the UK Companies Act 2006.</p>
+<p>7.2       We may disclose your personal information to third parties:</p>
+<p>(a)        with your consent;</p>
+<p>(b)        if we sell or buy any business or assets, in which case we may disclose your information to the prospective seller or buyer of such business or assets, provided that they continue to use your information substantially in accordance with the terms of this Privacy Policy;</p>
+<p>(c)        if all, or substantially all of our assets, are acquired by a third party provided that they continue to use your information substantially in accordance with the terms of this Privacy Policy, in which case information held by us will be one of the transferred assets; and</p>
+<p>(d)        if we are under a duty to disclose or share your information in order to comply with any legal obligation, or in order to enforce or apply our Terms and other agreements; or to protect our rights, property, or safety, our users, or others. This includes exchanging information with other companies and organisations for the purposes of fraud protection and credit risk reduction.</p>
+<p>7.3       When you register as a Learner for a particular Online Course or Content, you agree that your personal data may be shared with the specific Partner Institution providing such Online Courses or Content.</p>
+<p>7.4       When you place an order through us for products or services to be fulfilled by third parties in connection with a Course (such as externally administered assessments) any information you provide to us in connection with your order may be shared with the third party provider, for the purpose of processing and fulfilling your order.</p>
+<p>&nbsp;</p>
+<p><b>8          Your Rights</b></p>
+<p>8.1       You have the right to contact us in order to find out what information we hold about you (please note that a £10 fee will be payable) or to access, cancel or correct any information that we hold about you.</p>
+<p>8.2       If you do not wish to receive emails from us, you can turn these off on your settings page</p>
+<p>8.3       You can edit your personal details via your profile page whenever you wish.  We maintain a procedure in order to help you confirm that your personal information remains correct and up-to-date or choose whether or not you wish to receive material from us or some of our partners.</p>
+<p>8.4       You may unsubscribe from certain email communications by following the Unsubscribe link in the email communication itself. You may also update your personal information by logging into the Website and visiting your Learner account page. You may also email us at feedback@futurelearn.com in order to delete or update your personal information on our systems. We try to answer every email promptly, but may not always be able to do so. Please keep in mind, however, that there will be residual information that will remain within our databases, access logs and other records, which may or may not contain your personal information.</p>
+<p>8.5       If you have any privacy-related questions or unresolved problems, you may contact us using the information provided at paragraph 12 below.</p>
+<p>8.6       The Website may, from time to time, contain links to and from the websites of third parties. If you follow a link to any of these websites, please note that these websites have their own privacy policies and that we do not accept responsibility or liability of any of these policies. Please check these policies before you submit any personal information to these websites.</p>
+<p>&nbsp;</p>
+<h3>9          Children</h3>
+<p>We strongly believe in protecting the privacy of children. In line with this belief, we do not knowingly collect or maintain personal information from persons under 13 years of age, and no part of the Website is directed to persons under 13 years of age. If you are under 13 years of age, then please do not use or access the Website at any time or in any manner. We will take appropriate steps to delete any personal information of persons less than 13 years of age that has been collected on the Website without verified parental consent upon learning of the existence of such personal information.</p>
+<h3>10        Cookies</h3>
+<p>10.1     The Website uses cookies. Cookies are small files stored on your computer&#8217;s hard drive which are used to collect your personal information. You may choose to refuse cookies but, if you do so, some of the functionality of the Website or Online Courses may no longer be available to you.</p>
+<p>10.2     For more information about cookies, including further details as to what they are and how to refuse them, please see our <a href="/cookie-policy">Cookies Policy</a>.</p>
+<p>&nbsp;</p>
+<h3>11        Updating this Privacy Policy</h3>
+<p>We may update or amend this Privacy Policy from time to time, to comply with law or to meet our changing business requirements, without notice to you. Any updates or amendments will be posted on the Website. By continuing to access the Website, using the Online Courses and Content or providing content in connection with the Online Courses and Content, you agree to be bound by the terms of these updates and amendments.</p>
+<p>&nbsp;</p>
+<p><b>12        Contacting FutureLearn</b></p>
+<p>If you have any questions, comments or complaints about this Privacy Policy, please contact us using the details below:</p>
+<p>FutureLearn Limited</p>
+<p>Data Protection Coordinator</p>
+<p>PO Box 77</p>
+<p>Chambers Building, Walton Hall</p>
+<p>Milton Keynes MK7 6BT</p>
+<p>United Kingdom</p>
+<p>E-mail: <a href="mailto:feedback@futurelearn.com">feedback@futurelearn.com</a></p>
+<p>&nbsp;</p>
+
+</div>
+
+
+
+	</div>
+
+</div>
+
+<footer>
+
+    <section class="m-page-footer__primary-nav">
+        <div class="m-pocket-belt">
+            <div class="m-pocket-belt__content">
+                                    <div class="m-pocket-belt__pocket">
+
+                        <a class="m-pocket-belt__pocket-link js-ga-track" href="https://www.futurelearn.com/courses">
+                            <div class="m-pocket-belt__pocket-label">Courses</div>
+                            <p class="m-pocket-belt__pocket-subtitle">Browse all individual online courses</p>
+                        </a>
+                    </div>
+                                    <div class="m-pocket-belt__pocket">
+
+                        <a class="m-pocket-belt__pocket-link js-ga-track" href="https://www.futurelearn.com/programs">
+                            <div class="m-pocket-belt__pocket-label">Programs</div>
+                            <p class="m-pocket-belt__pocket-subtitle">Master a specific subject in depth</p>
+                        </a>
+                    </div>
+                                    <div class="m-pocket-belt__pocket">
+
+                        <a class="m-pocket-belt__pocket-link js-ga-track" href="https://www.futurelearn.com/courses/collections">
+                            <div class="m-pocket-belt__pocket-label">Collections</div>
+                            <p class="m-pocket-belt__pocket-subtitle">Courses grouped by specific topics</p>
+                        </a>
+                    </div>
+                                    <div class="m-pocket-belt__pocket">
+
+                        <a class="m-pocket-belt__pocket-link js-ga-track" href="https://www.futurelearn.com/courses/categories">
+                            <div class="m-pocket-belt__pocket-label">Categories</div>
+                            <p class="m-pocket-belt__pocket-subtitle">Courses grouped by subjects</p>
+                        </a>
+                    </div>
+                            </div>
+        </div>
+    </section>
+    <div class="a-section m-page-footer__secondary-nav">
+        <div class="m-brackets-large m-brackets-large--discovery">
+            <div class="m-brackets-large__row">
+                                        <div class="m-brackets-large__block">
+                            <h3 class="m-brackets-large__block__heading">
+                                <a class="a-block-button" href="https://www.futurelearn.com/about/how-it-works" >Using&nbsp;FutureLearn</a>
+                            </h3>
+                                                            <div class="m-brackets-large__block__content">
+                                    <ul class="m-menu m-menu--discovery">
+                                                                                    <li class="m-menu__item">
+                                                <a class="a-block-button" href="https://www.futurelearn.com/about/why-it-works" >Why it&nbsp;works</a>
+                                            </li>
+                                                                                    <li class="m-menu__item">
+                                                <a class="a-block-button" href="https://www.futurelearn.com/proof-of-learning/certificate-of-achievement" >Proving your&nbsp;learning</a>
+                                            </li>
+                                                                                    <li class="m-menu__item">
+                                                <a class="a-block-button" href="https://www.futurelearn.com/learning-guide" >Learning&nbsp;guide</a>
+                                            </li>
+                                                                                    <li class="m-menu__item">
+                                                <a class="a-block-button" href="https://www.futurelearn.com/about/our-learners" >Learner&nbsp;stories</a>
+                                            </li>
+                                                                                    <li class="m-menu__item">
+                                                <a class="a-block-button" href="https://about.futurelearn.com/about/faq/child-safety" >Child&nbsp;safety</a>
+                                            </li>
+                                                                                    <li class="m-menu__item">
+                                                <a class="a-block-button" href="https://www.futurelearn.com/schools" >With&nbsp;students</a>
+                                            </li>
+                                        
+                                    </ul>
+                                </div>
+                                                    </div>
+                                            <div class="m-brackets-large__block">
+                            <h3 class="m-brackets-large__block__heading">
+                                <a class="a-block-button" href="https://www.futurelearn.com/about" >About&nbsp;FutureLearn</a>
+                            </h3>
+                                                            <div class="m-brackets-large__block__content">
+                                    <ul class="m-menu m-menu--discovery">
+                                                                                    <li class="m-menu__item">
+                                                <a class="a-block-button" href="https://www.futurelearn.com/about/team" >Our&nbsp;team</a>
+                                            </li>
+                                                                                    <li class="m-menu__item">
+                                                <a class="a-block-button" href="https://www.futurelearn.com/about/our-principles" >Our&nbsp;principles</a>
+                                            </li>
+                                                                                    <li class="m-menu__item">
+                                                <a class="a-block-button" href="https://about.futurelearn.com/press" >Press</a>
+                                            </li>
+                                        
+                                    </ul>
+                                </div>
+                                                    </div>
+                                            <div class="m-brackets-large__block">
+                            <h3 class="m-brackets-large__block__heading">
+                                <a class="a-block-button" href="https://www.futurelearn.com/workplace-learning" >Learning at&nbsp;work</a>
+                            </h3>
+                                                            <div class="m-brackets-large__block__content">
+                                    <ul class="m-menu m-menu--discovery">
+                                                                                    <li class="m-menu__item">
+                                                <a class="a-block-button" href="https://www.futurelearn.com/healthcare-training" >For&nbsp;healthcare</a>
+                                            </li>
+                                        
+                                    </ul>
+                                </div>
+                                                    </div>
+                                            <div class="m-brackets-large__block">
+                            <h3 class="m-brackets-large__block__heading">
+                                <a class="a-block-button" href="https://www.futurelearn.com/partners" >Partners</a>
+                            </h3>
+                                                            <div class="m-brackets-large__block__content">
+                                    <ul class="m-menu m-menu--discovery">
+                                                                                    <li class="m-menu__item">
+                                                <a class="a-block-button" href="https://www.futurelearn.com/partners/become-a-partner" >Become a&nbsp;partner</a>
+                                            </li>
+                                        
+                                    </ul>
+                                </div>
+                                                    </div>
+                                            <div class="m-brackets-large__block">
+                            <h3 class="m-brackets-large__block__heading">
+                                <a class="a-block-button" href="https://about.futurelearn.com/about/faq" >FAQ</a>
+                            </h3>
+                                                    </div>
+                                            <div class="m-brackets-large__block">
+                            <h3 class="m-brackets-large__block__heading">
+                                <a class="a-block-button" href="https://about.futurelearn.com/blog" >Blog</a>
+                            </h3>
+                                                    </div>
+                    
+            </div>
+
+        </div>
+    </div>
+    <div class="a-section a-section--inverse m-page-footer__core">
+        <div class="m-core-page-footer">
+            <div aria-label="Mission statement" class="m-core-page-footer__mission-statement">
+                <p>
+                    FutureLearn aims to pioneer the best social learning experiences for everyone, anywhere.                 </p>
+            </div>
+            <nav aria-label="Footer" class="m-core-page-footer__bottom-nav">
+                <div class="m-core-page-footer__social">
+                    <ul class="m-sharing-links m-sharing-links--inverse m-sharing-links--spaced">
+                        <li class="m-sharing-links__item">
+                            <a href="https://twitter.com/FutureLearn" target="_blank" title="@futurelearn on Twitter">
+                                <span class="is-visually-hidden">Twitter</span>
+                                <i aria-hidden="" class="m-sharing-links__icon" data-icon="8"></i>
+                            </a>
+                        </li>
+                        <li class="m-sharing-links__item">
+                            <a href="https://www.facebook.com/FutureLearn" target="_blank" title="FutureLearn on Facebook">
+                                <span class="is-visually-hidden">Facebook</span>
+                                <i aria-hidden="" class="m-sharing-links__icon" data-icon="2"></i>
+                            </a>
+                        </li>
+                        <li class="m-sharing-links__item">
+                            <a href="https://plus.google.com/+futurelearn" target="_blank" title="FutureLearn on Google+">
+                                <span class="is-visually-hidden">Google+</span>
+                                <i aria-hidden="" class="m-sharing-links__icon" data-icon="4"></i>
+                            </a>
+                        </li>
+                        <li class="m-sharing-links__item">
+                            <a href="http://www.linkedin.com/company/futurelearn" target="_blank" title="FutureLearn on LinkedIn">
+                                <span class="is-visually-hidden">LinkedIn</span>
+                                <i aria-hidden="" class="m-sharing-links__icon" data-icon="6"></i>
+                            </a>
+                        </li>
+                        <li class="m-sharing-links__item">
+                            <a href="http://www.youtube.com/channel/UC3i5AS_kCaFppoMwULYb99g" target="_blank" title="FutureLearn on YouTube">
+                                <span class="is-visually-hidden">YouTube</span>
+                                <i aria-hidden="" class="m-sharing-links__icon" data-icon="9"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <nav aria-label="Footer (menu)" class="m-core-page-footer__menu">
+                    <ul class="m-menu m-menu--footer">
+                        <li class="m-menu__item">
+                            <a class="a-block-button js-ga-track" data-analytics-action="https://about.futurelearn.com/terms" data-analytics-category="core-footer-click" data-analytics-label="click 'terms' core footer link" href="https://about.futurelearn.com/terms">Terms</a>
+                        </li>
+                        <li class="m-menu__item">
+                            <a class="a-block-button js-ga-track" data-analytics-action="https://about.futurelearn.com/terms/cookie-policy" data-analytics-category="core-footer-click" data-analytics-label="click 'cookies' core footer link" href="https://about.futurelearn.com/terms/cookie-policy">Cookies</a>
+                        </li>
+                        <li class="m-menu__item">
+                            <a class="a-block-button js-ga-track" data-analytics-action="https://about.futurelearn.com/jobs" data-analytics-category="core-footer-click" data-analytics-label="click 'jobs' core footer link" href="https://about.futurelearn.com/jobs">Jobs</a>
+                        </li>
+                        <li class="m-menu__item">
+                            <a class="a-block-button js-ga-track" data-analytics-action="https://about.futurelearn.com/contact" data-analytics-category="core-footer-click" data-analytics-label="click 'contact' core footer link" href="https://about.futurelearn.com/contact">Contact</a>
+                        </li>
+                        <li class="m-menu__item">
+                            <a class="a-block-button js-ga-track" data-analytics-action="http://shop.futurelearn.com" data-analytics-category="core-footer-click" data-analytics-label="click 'shop' core footer link" href="http://shop.futurelearn.com">Shop</a>
+                        </li>
+                    </ul>
+                </nav>
+            </nav>
+        </div>
+    </div>
+</footer>
+</div>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="/js/vendor/jquery-1.8.3.min.js"><\/script>')</script>
+        <script src="/js/vendor/jquery-ui-1.10.3.custom.min.js"></script>
+        <script src="/js/plugins.js"></script>
+        <script src="/js/main.js"></script>
+
+<script>jQuery(document).ready(function ($) { $('p').selectionSharer();});</script><script type='text/javascript' src='https://about.futurelearn.com/wp-includes/js/wp-embed.min.js?ver=4.6.1'></script>
+<script type='text/javascript' src='https://about.futurelearn.com/wp-content/plugins/selection-sharer/js/selection-sharer.js?ver=0.1'></script>
+
+    <script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"cc7d50ed04","applicationID":"22294581","transactionName":"YwRSMkoCC0YFBRFeWVpOcQVMCgpbSxYEUFMZEUIPTgIGTEkWCltfVxg=","queueTime":0,"applicationTime":856,"atts":"T0NRRAIYGEg=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>

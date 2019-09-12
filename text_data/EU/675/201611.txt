@@ -1,0 +1,1977 @@
+
+
+
+
+
+  
+
+
+
+
+    html, body {
+      min-width: 480px;
+    }
+  
+
+    function effectiveDeviceWidth() {
+        var deviceWidth = 0
+        if((window.orientation == 0) || (typeof window.orientation == 'undefined')) {
+          deviceWidth = window.screen.width;
+        }
+        else {
+          deviceWidth = window.screen.height;
+        }
+
+        if (navigator.userAgent.indexOf('Android') >= 0 && window.devicePixelRatio) {
+            deviceWidth = deviceWidth / window.devicePixelRatio;
+        }
+        return deviceWidth;
+    }
+    
+    var siteMinWidth = 480;
+    var vpWidth  = effectiveDeviceWidth();
+
+    if(vpWidth > siteMinWidth) {
+      var mvp = document.getElementById('metaVpID');
+      mvp.setAttribute('content','width=' + vpWidth + ', initial-scale=1.0');
+    }
+    
+    addMultipleListeners(window,
+                     ['resize','orientationchange']);
+    
+    function addMultipleListeners(el, events){
+      vpWidth  = effectiveDeviceWidth();
+      if(vpWidth > siteMinWidth) {
+        var mvp = document.getElementById('metaVpID');
+        mvp.setAttribute('content','width=' + vpWidth + ', initial-scale=1.0');
+      }
+    }
+    
+  
+
+Privacy Policy - FC-Moto English
+
+
+
+
+
+
+
+(function(require){
+
+function config(a,b){config._(config.c[a]||(config.c[a]={}),b)}config.c=require.config=require.config||{};config._=function(a,b){for(var c in b)b[c]instanceof Object?config._(a[c]||(a[c]={}),b[c]):a[c]=b[c]};
+
+
+config("jquery/canvas/canvastext", {
+  fontRoot: ["", "WebRoot", "FCMotoDB", "45F8", "AE52", "2E16", "03A8", "A375", "51A9", "90B2", "CBA2"].join("/")
+});
+
+config("ep", {
+  baseUrl: ["http:", "", "www.fc-moto.de", "epages", "fcm.sf", "en_GB", ""].join("/"),
+  canonicalUrl: 'http://www.fc-moto.de/Privacy-Policy',
+  objectId: '3757784',
+  viewAction: 'View',
+  storeFrontUrl: ["http:", "", "www.fc-moto.de", "epages", "fcm.sf"].join("/"),
+  requestProtocolAndServer: '',
+  webUrj: ["http:", "", "www.fc-moto.de", "epages", "fcm.sf", "?ObjectPath=", "Shops", "10207048", "Categories", "PrivacyPolicy"].join("/"),
+  webUrlSsl: ["https:", "", "www.fc-moto.de", "epages", "fcm.sf", "?ObjectPath=", "Shops", "10207048", "Categories", "PrivacyPolicy"].join("/")
+});
+
+}(require));
+
+
+
+
+var jq = jQuery.noConflict();
+require(["jquery/metaparse", "de_epages/design/inc/sf-initialize", "de_epages/externalcontent/dojogadgetfix"]);
+
+
+require(["ep/sslswitch"], function(){
+  
+});
+
+<!--
+var WebGains = {
+
+  gup: function(name) {
+    name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+
+    regexS = "[\\?&]"+name+"=([^&#]*)";
+    regex = new RegExp(regexS);
+    results = regex.exec(location.href);
+
+    if (results == null) {
+      return "";
+    } else {
+      return results[1];
+    }
+  }
+};
+
+jQuery.ready({
+  plugin: ['jQuery.cookie'],
+  DOM: true
+}, function($) {
+  var source = WebGains.gup("source");
+  var source2 = WebGains.gup("Source");
+  if (source.indexOf("webgains") >= 0) {
+    jq.cookie('AffiliateSource', source, { expires: 30, path: '/'});
+  }
+  
+  if (source.indexOf("CON") >= 0) {
+    jq.cookie('AffiliateSource', source, { expires: 30, path: '/'});
+  }
+  if (source2.indexOf("CON") >= 0) {
+    jq.cookie('AffiliateSource', source2, { expires: 30, path: '/'});
+  }
+});
+//-->
+(function(a){var d=document,c=d.createElement("script");c.async=!0,c.defer=!0,c.src=a,d.getElementsByTagName("head")[0].appendChild(c)})((iatDev=(window.location.href.indexOf("iatDev=1")>-1||document.cookie.indexOf("iatDev=1")>-1),"//"+(window.location.protocol=="http:"&&!iatDev?"h":"")+"fp.gdmdigital.com/391579.js?r="+Math.random()*1e16+"&m=992&a=391579"+(iatDev?"&d=1":"")))
+
+require([
+  "jquery",
+  "ep/sslswitch",
+  "util/base64",
+  'util/storage'
+], function($, ep, base64, storage){
+
+  var stored = storage.localStorage('Catalog::ProductLastViewed.list') || {},
+    get =  '' ;
+
+  if( get ){
+    stored = $.extend(
+      stored,
+      base64.decode(get)
+    );
+  }
+
+
+
+  
+
+  var tstampMap = [],
+    tstampHash = {},
+    image =  undefined;
+
+  
+
+
+  for( var i in stored ){
+    var tstamp = stored[i].tstamp;
+    tstampMap.push( tstamp );
+    tstampHash[ tstamp ] = stored[i];
+  }
+
+  tstampMap = tstampMap.sort().reverse(); // sort timestamp array;
+  var store = {};
+  for( var i=0,iLength=Math.min(tstampMap.length,10) ; i<iLength ; i++ ) {
+    var product = tstampHash[ tstampMap[i] ];
+    store[ product.id ] = product;
+  }
+
+  $(window)
+    .on( 'beforeunload', function(){      // register new item on unload
+      storage.localStorage( 'Catalog::ProductLastViewed.list', store );
+    });
+
+  // attach stored data on switch to ssl mode
+  ep.sslSwitch.addHandle(function( event, form ){
+    $('<input type="hidden">')
+      .attr({
+        name: 'ProductLastViewed',
+        value: base64.encode(store)
+      })
+      .appendTo(form);
+  });
+});
+<!--
+var ZanoxAG = {
+
+  gup: function(name) {
+    name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+
+    regexS = "[\\?&]"+name+"=([^&#]*)";
+    regex = new RegExp(regexS);
+    results = regex.exec(location.href);
+
+    if (results == null) {
+      return "";
+    } else {
+      return results[1];
+    }
+  }
+};
+//-->
+
+
+window.offscreenBuffering = true;
+try{
+  window.onerrorbak = window.onerror;
+  window.onerror = function(){
+    return true;
+  };
+}
+catch(e){
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  var ICPHoverOptions = {
+    'activMinWidth':1200,   // minimum viewport width where the hover is available | 0 = disabled
+    'activMaxWidth':0,      // maximum viewport width where the hover is available | 0 = disabled
+    'delay': 1000,           // delay in milliseconds while you have to stay with the mouse cursor above the item
+    'paddingSide': 0,       // size-offset of the hover-box left and right
+    'paddingTop': 0,        // size-offset of the hover-box top
+    //'initHeight': 444,      // inital height for the container | overwritten after the content was loaded | 0 = auto
+    'initHeight': 404, //WP_4838 
+    'refreshPrice': 0,      // determines whether the Script should return the variation price [0;1]
+    'onLoad': showVariationProducts
+  }
+
+  function showVariationProducts() {
+    // do something with the result
+    var anchorNode = jq('#ICPListHoverAnchorID');
+    var anchorWrap = jq('#ICPListHoverWrapID');
+    var productID  = jq('.ICProductHoverContent',anchorWrap).attr('pid');
+    var VarLeftArea = jq('#ICVariationAreaLeft',anchorWrap);
+    var VarRightArea = jq('#ICVariationAreaRight',anchorWrap);
+    var InfoArea = jq('.InfoArea',anchorWrap);
+
+    // => implementation of the javascript from Super-Product-Presentation-Cartridge
+    if((typeof ICPAttrSuperArray != 'undefined') && (ICPAttrSuperArray != null) && (typeof productID != 'undefined') && (typeof productID != null)) {
+      var superArrayVal = ICPAttrSuperArray['PID_' + productID];
+      
+      // disable all buttons except for the first attribute
+      var tmpAttributeHTMLObjects = null;
+      
+      if(superArrayVal.AttributeIDs.length === 1) {
+        disableAttributeInputs(superArrayVal.AttributeIDs[0], false);
+      }
+      else {
+        for (i = 1;  i < superArrayVal.AttributeIDs.length;  i++) {
+          disableAttributeInputs(superArrayVal.AttributeIDs[i], false);
+        }
+      }
+      
+      // make basket button nice :)
+      jq('#basketForm_ICHover button').metaparse();
+      
+      //enabled default sub
+      if(superArrayVal.IsSubProduct) {
+        for (i = 0;  i < superArrayVal.AttributeIDs.length;  i++) {
+          if(superArrayVal.AttributeIDs.length > 1) {
+            var SelectedParentValue = getSelectedValue(superArrayVal.AttributeIDs[i-1]);
+          }
+
+          for (j = 0;  j < superArrayVal.SubProducts.length;  j++) {
+            if(superArrayVal.SubProducts[j].IsAvailable === 1) {
+              var possibleSub = false;
+  
+              if(superArrayVal.AttributeIDs.length > 1) {
+                //check child/parent-combinations only if we have more than one attribute
+                for (var key in superArrayVal.SubProducts[j].AttributeValues) {
+                  if(superArrayVal.SubProducts[j].AttributeValues[key] === SelectedParentValue) {
+                    possibleSub = true;
+                    break;
+                  }
+                }
+              }
+              else {
+                possibleSub = true;
+              }
+              
+              if(possibleSub === true) {
+                tmpAttributeHTMLObjects = jq('.icattribute[predefattrid='+superArrayVal.AttributeIDs[i]+']');
+                  
+                if((tmpAttributeHTMLObjects.length == 1) && (tmpAttributeHTMLObjects.prop('nodeName') === 'SELECT')){
+                  jq('option[predefvalueid='+superArrayVal.SubProducts[j].AttributeValues[superArrayVal.AttributeIDs[i]]+']',tmpAttributeHTMLObjects).removeAttr('disabled');
+                }
+                else {
+                  jq(tmpAttributeHTMLObjects).each( function() {
+                    var elem = jq(this);
+                    if(elem.attr('predefvalueid') == superArrayVal.SubProducts[j].AttributeValues[superArrayVal.AttributeIDs[i]]) {
+                      elem.removeAttr('disabled').removeClass('disabled');
+                    }
+                  });
+                }
+              }
+            }
+          }
+        }
+      }
+      else {
+        if(superArrayVal.AttributeIDs.length > 0) {
+          for (i = 0;  i < superArrayVal.AttributeIDs.length;  i++) {
+            for (j = 0;  j < superArrayVal.SubProducts.length;  j++) {
+              if(superArrayVal.SubProducts[j].IsAvailable === 1) {
+                jq('.icattribute[predefvalueid=' + superArrayVal.SubProducts[j].AttributeValues[superArrayVal.AttributeIDs[i]] + ']').removeClass('disabled');
+                jq('.icattribute[predefvalueid=' + superArrayVal.SubProducts[j].AttributeValues[superArrayVal.AttributeIDs[i]] + ']').parent().removeClass('disabled');
+              }
+            }
+          }
+        }
+      }
+      
+      jq('button.icattribute,img.icattribute,span.icattribute').click( function() {
+        if(!jq(this).hasClass('disabled')) {
+          //no more ajax reload wanted by the customer
+          //initEvents(jq(this),false,doAjaxReload);
+          //console.log(jq(this));
+          initEvents(jq(this),true);
+        }
+      });
+      jq('select.icattribute').change( function() {
+        initEvents(jq(this),false);
+      });
+    }    
+
+    if(anchorWrap.height() > (anchorNode.height() + ICPHoverOptions.paddingTop)) {
+      anchorNode.css({
+        'height': anchorWrap.height()
+      });
+    }
+    else {
+      anchorWrap.css({
+        'height': anchorNode.height()
+      });      
+    }
+
+    //determine position for variation areas
+    var offsetLeft = placeVariationItems(VarLeftArea,anchorWrap,'left');
+    var offsetRight = placeVariationItems(VarRightArea,anchorWrap,'right');
+
+    //place hover correctly
+    InfoArea.css({
+      'position':'absolute',
+      'width':anchorNode.width(),
+      'left':offsetLeft,
+    });
+
+    VarLeftArea.css({
+      'width': offsetLeft,
+      'left': 0
+    });
+
+    VarRightArea.css({
+      'width': offsetRight,
+      'right': 0
+    });
+
+    anchorNode.css({
+      'width':(InfoArea.width() + offsetLeft + offsetRight),
+      'left':(parseInt(anchorNode.css('left')) - offsetLeft + 1)
+    });
+    
+    // old positioning
+    
+    /*if(anchorWrap.height() > (anchorNode.height() + ICPHoverOptions.paddingTop)) {
+      anchorNode.animate({
+        height: anchorWrap.height()
+      });
+    }*/
+    
+    // enable image hovering
+    
+    switchProductImage(anchorNode);
+  }
+  
+  
+  // this function calculates the positions of each li and each ul inside the variation area
+  function placeVariationItems(jqSelector,anchorWrap,direction) {
+    var colOffset = 0;     // col-offset is the return value of the complete left or right variation area
+    var prevColWidth = 0;  // the previous col-width is the width of the previous ul to place the current ul at the right position
+    
+    jq('ul',jqSelector).each( function() {
+      var $col = jq(this);
+      var colWidth = $col.outerWidth();
+      var wBorder = (parseInt($col.css('border-left-width')) + parseInt($col.css('border-right-width')));
+      var items = jq('li',$col);
+      var itemCount = items.length;
+      
+      var currentHeight = 0;
+      var finalColWidth = colWidth;
+      var itemTop = 0;
+      var itemLeft = 0;
+      jq(items).each(function(){
+        jq(this).css({
+          'left':itemLeft,
+          'top':itemTop,
+          'position':'absolute',
+          'width':(colWidth - wBorder)
+        });
+
+        itemTop = itemTop + jq(this).outerHeight();
+
+        if(itemTop > anchorWrap.height()) {
+          finalColWidth = finalColWidth + colWidth;
+          itemLeft = itemLeft + colWidth;
+          itemTop = 0;
+          
+          jq(this).css({
+            'left':itemLeft,
+            'top':itemTop,
+          });
+          
+          itemTop = itemTop + jq(this).outerHeight();
+        }
+      });
+      
+      $col.css({
+        'width':(finalColWidth - wBorder),
+        'position':'absolute',
+        'left' : prevColWidth
+      });
+      
+      prevColWidth = finalColWidth;
+      
+      if(direction === 'left') {
+        jqSelector.css('left',0);
+      }
+      else {
+        jqSelector.css('right',0);
+      }
+      
+      colOffset = colOffset + finalColWidth;
+    });
+    
+    return colOffset;
+  }
+  
+  function doAjaxReload(clickedButton,FinalPath) {
+    var LocalProduct = null;
+    var $anchorNode  = jq('#ICPListHoverAnchorID');
+    var $anchorWrap  = jq('#ICPListHoverWrapID');
+    var productID    = $anchorWrap.attr('pid');
+    
+    var postUrl      = epConfig.baseUrl;
+    var postData     = {};
+        postData['ViewObjectPath'] = FinalPath;
+        postData['ViewAction'] = 'ICGetProductHover';
+    
+    jq('.ICProductHoverContent',$anchorWrap).remove();
+    
+    //reset the hover size
+    $anchorWrap.css({
+      'width':jq.data(anchorNode,'origItemW'),
+      'height':jq.data(anchorNode,'origItemH')
+    });
+    
+    $anchorNode.css({
+      'width':jq.data(anchorNode,'origItemW'),
+      'height':jq.data(anchorNode,'origItemH'),
+      'top':jq.data(anchorNode,'origItemT'),
+      'left':jq.data(anchorNode,'origItemL')
+    });
+    
+    //reload the hover content if variation is finally selected
+    jq.ajax({
+      type: 'GET',
+      url: postUrl,
+      cache: false,
+      dataType: 'html',
+      data: postData,
+      success: function(response) {
+        response = response.replace(/<\!--(.*)-->/g, '');
+        response = response.replace(/\t/g, '');
+        response = response.replace(/\n/g, '');
+
+        $anchorWrap.html(response);
+        eval(jq('#ICAjaxScriptBlock').html());
+        
+        if(typeof ICPHoverOptions.onLoad === 'function') {
+          setTimeout(ICPHoverOptions.onLoad, 0);
+        }
+      },
+      error: function(response) {
+        anchorNode.hide();
+        console.log(response);
+      }
+    });
+  }
+  
+  function switchProductImage(anchorNode) {
+    var $ICHotDealImage = jq('#ICHoverImageHT');
+    
+    
+    jq('li.imageBtn',anchorNode).mouseover( function(ev) {
+      var imgSrc = jq('img',jq(this)).attr('src');
+      
+      if((typeof imgSrc !== 'undefined') && (imgSrc !== '')) {
+        $ICHotDealImage.attr('src',imgSrc);
+      }
+    });
+  }
+  
+  jq(window).load( function() {
+    jq('.ListItemProduct.ICHover').productHover().done( function() {
+      //call back after creation
+    });
+  });
+
+
+  jQuery(window).load(function() {
+    /* cache the objects */
+    var slideContainer = jQuery('.flexslider');
+
+    jQuery(slideContainer).each( function() {
+        
+      initSlider(jQuery(this));
+    });
+          
+  });
+  /**
+    function getGridSize(SliderWrapper) {
+
+      if(jQuery(SliderWrapper).hasClass("ManufacturerSlider")) { console.log("MANUFACTURER");
+        // (Slider padding-left + Slider padding-right) - Kacheln*(ProduktKachel padding-left + ProduktKachel padding-right) - (Kacheln*ProduktKachel Breite) < x ? 
+        // Bsp. (10 + 20) - 6*(10 + 10) - (6*200) < 1460
+        return (jQuery(".ContentAreaInner").innerWidth() < 470) ? 3 :
+               (jQuery(".ContentAreaInner").innerWidth() < 690) ? 4 :
+               (jQuery(".ContentAreaInner").innerWidth() < 910) ? 5 : 
+               (jQuery(".ContentAreaInner").innerWidth() < 1130) ? 6 :
+               (jQuery(".ContentAreaInner").innerWidth() < 1350) ? 7 : 8;
+      } else if(jQuery(SliderWrapper).hasClass("AdvancedLinkSlider")) { console.log("ADVANCED");
+          return 1;
+      } else {
+        // (Slider padding-left + Slider padding-right) - Kacheln*(ProduktKachel padding-left + ProduktKachel padding-right) - (Kacheln*ProduktKachel Breite) < x ? 
+        // Bsp. (10 + 20) - 6*(10 + 10) - (6*200) < 1460
+        return (jQuery(".ContentAreaInner").innerWidth() < 470) ? 2 :
+               (jQuery(".ContentAreaInner").innerWidth() < 690) ? 3 :
+               (jQuery(".ContentAreaInner").innerWidth() < 910) ? 4 : 
+               (jQuery(".ContentAreaInner").innerWidth() < 1130) ? 5 :
+               (jQuery(".ContentAreaInner").innerWidth() < 1350) ? 6 : 7;
+      }
+    } */
+    
+    function initSlider(slider) {
+       var parentSlider = slider.parent(".ICDesignSlider");
+       var sliderWidth = 230,
+           itemsMax = 0;
+       
+       if(parentSlider.parent().hasClass("ManufacturerSlider")) {
+           sliderWidth = 200; 
+       } else if(parentSlider.parent().hasClass("AdvancedLinkSlider") || parentSlider.parent().hasClass("Slider")) {
+           itemsMax = 1;
+           sliderWidth = '100%';
+       } else if(parentSlider.parent().hasClass("AccessorySlider")) {
+           itemsMax = 2;
+           sliderWidth = 400;
+       }
+
+      /* load the slider */
+      slider.flexslider({
+        slideshow: (slider.attr('slideshow') === 'true') ? true : false,
+        touch: true,
+        animation: (slider.attr('animation') === 'slide') ? 'slide' : 'fade',
+        animationLoop: (slider.attr('animationloop') === 'false') ? false : true,
+        itemWidth: sliderWidth,
+        maxItems: itemsMax,
+        move: 1,
+        controlNav: (slider.attr('controlnav') === 'false') ? false : true,
+        start: function() {
+          var maxWidthSlideWrapper = slider.find('ul.slides li').size() * sliderWidth;
+          slider.closest('.ICSliderWrapper').css('max-width', maxWidthSlideWrapper);
+          //slider.find('ul.slides').css('max-width', maxWidthSlideWrapper);
+          if(maxWidthSlideWrapper < jQuery('.ContentArea').width()) {
+              slider.find('.flex-direction-nav li a').addClass('flex-disabled');
+          }
+        }
+      });
+    }
+
+
+  
+  function GetPixiDeliveryPeriod(ProductID, WebPath, ProductDeliveryPeriod, ManufacturerDeliveryPeriod, StockLevelAlert, MinOrder, ShopStockLevel, AvaibilyText, ProductIsAvailable){
+    //var BaseURL         = "https://www.fc-moto.de";
+    var BaseURL           = "http://www.fc-moto.de";
+    var AjaxURL           = BaseURL + WebPath + "/stockstate_" + ProductID + ".json?PreventCache=" + Date.now();
+    var LowOnStockAction  = 0;
+    
+    if(ShopStockLevel > 0) { 
+      ChangeMicroDataAvailability(ProductID, ShopStockLevel, StockLevelAlert, MinOrder, LowOnStockAction);
+      return; 
+    }
+    if(ManufacturerDeliveryPeriod == ''){ return; } 
+    if(ProductDeliveryPeriod == ''){ return; }
+    if(AvaibilyText == ''){ return; }
+    
+    jQuery.ajax({      
+      type: 'GET',
+      async: false,
+      url: AjaxURL,
+      dataType: 'json',
+      success: function(data) {
+        if(data.InternalStock <= 0 && data.ExternalStock > 0){
+          ChangeDeliveryPeriod(ProductID, ProductDeliveryPeriod, ManufacturerDeliveryPeriod, AvaibilyText);        
+        }
+
+        var TrafficLight = ChangeTrafficLight(ProductID, data.AvailableStock, StockLevelAlert, MinOrder);        
+
+        ChangeMicroDataAvailability(ProductID, data.AvailableStock, StockLevelAlert, MinOrder, LowOnStockAction);
+        
+        if(LowOnStockAction == 2 && TrafficLight == "ProductOutStockIcon" && ProductIsAvailable) {
+          ChangeBasketButton(ProductID, 0);        
+        }else{
+          ChangeBasketButton(ProductID, 1);        
+        }
+      }
+    });
+  
+    return;
+  }
+  
+  function ChangeMicroDataAvailability(ProductID, ProductStock, StockLevelAlert, MinOrder, LowOnStockAction)
+  {
+    var $MContainer  = jq('#MicroDataAvailability_' + ProductID);
+    var Link        = 'http://schema.org/';
+    
+    if(ProductStock < MinOrder){
+      if(LowOnStockAction == '3'){
+        Link = Link + 'OutOfStock';
+      }else if(LowOnStockAction == '2'){
+        Link = Link + 'OutOfStock';
+      }else if(LowOnStockAction == '1'){
+        Link = Link + 'PreOrder';        
+      }else{
+        Link = Link + 'PreOrder';
+      }
+    }else if(StockLevelAlert != -1 && ProductStock < StockLevelAlert){
+      Link = Link + 'InStock';    
+    }else{
+      Link = Link + 'InStock';    
+    }
+    
+    var $LinkObj = jq('<link>');
+    $LinkObj.attr('itemprop', 'availability');
+    $LinkObj.attr('href', Link);
+
+    $LinkObj.appendTo($MContainer);
+  
+    return;  
+  }
+
+
+  function ChangeBasketButton(ProductID, State){
+    var BContainer  = jq('#BasketLink_' + ProductID);
+    
+    if(State == 0){
+      BContainer.addClass('HideElement');      
+    }else{
+      BContainer.removeClass('HideElement');     
+    }
+    
+    return;  
+  }
+  
+  function ChangeTrafficLight(ProductID, ProductStock, StockLevelAlert, MinOrder){
+    var TraficLight = "";
+    var IContainer  = jq('#DeliverPeriodDisplay_' + ProductID + ' p i'); 
+    
+    if(ProductStock < MinOrder){ 
+      TraficLight = "ProductOutStockIcon"; 
+    }else if(StockLevelAlert != -1 && ProductStock < StockLevelAlert){
+      TraficLight = "ProductWarnStockIcon";    
+    }else{
+      TraficLight = "ProductOnStockIcon";          
+    } 
+    
+    IContainer.removeClass("ProductOutStockIcon");
+    IContainer.removeClass("ProductWarnStockIcon"); 
+    IContainer.removeClass("ProductOnStockIcon");
+    IContainer.addClass(TraficLight);
+    
+    return TraficLight;
+  }  
+  
+  function ChangeDeliveryPeriod(ProductID, ProductDeliveryPeriod, ManufacturerDeliveryPeriod, AvaibilyText){
+    var PContainer      = jq('#DeliverPeriodDisplay_' + ProductID + ' p');
+ 
+    if(ProductDeliveryPeriod.length > 0 && ManufacturerDeliveryPeriod.length > 0 && AvaibilyText.length > 1){
+      AvaibilyText = AvaibilyText.replace(ProductDeliveryPeriod, ManufacturerDeliveryPeriod);
+      AvaibilyText = '<i class="Icon"></i> ' + AvaibilyText;
+      
+      PContainer.html(AvaibilyText);          
+    }    
+    
+    return;  
+  }
+
+
+
+   
+jq( document ).ready(function() {
+    transformFilterList();
+    
+    jq('.ICFilter').on("click",function(){
+        setFilter(jq(this));
+    });
+});
+
+
+
+/**
+* -------------------------------------------------------------------
+*
+* Ajax Reload Product Information
+*
+* @author LK
+* -------------------------------------------------------------------
+*/
+function getSubProduct(ProductID) {
+    jQuery.ajax({
+            url: epConfig.baseUrl+'?ViewAction=JSONGetSubProductPartially&ProductID='+ProductID+'&Currency=GBP',
+            contentType: "text/plain",
+            //preventCache: true,
+            success: function (data) {
+              var obj = JSON.parse(data),
+                  el                = jq('.ic_Product .ProductDetails'),
+                  ProductOrderArea  = el.find('.ICProductOrderArea'),
+                  ProductGallery    = el.find('#ICProductGallery'),
+                  AdditionalLinks   = el.find('.PriceAndOrderBox .AdditionalLinks li'),
+                  DisplayPrice      = obj['displayprice'],
+                  PriceSavings      = obj['pricesavings'],
+                  ManufacturerPrice = obj['manufacturerprice'];
+
+
+              //Product PriceSavings
+              if (PriceSavings != "0") {
+                  if(el.find('#ICProductGallery .HotPrice').length >= 1) {
+                      el.find('#ICProductGallery .HotPrice').html("-" + PriceSavings);
+                  } else {
+                      jq('<span class="HotPrice">-' + PriceSavings + '</span>').appendTo(el.find('#ICProductGallery .ICEyeCatcher'));
+                  }
+                  ProductOrderArea.find('.HotPriceNoImg span').html(PriceSavings);
+                  ProductOrderArea.find('.HotPriceNoImg').css({'display':'block'});
+              } else {
+                  ProductGallery.find('.ICEyeCatcher .HotPrice').remove();
+                  ProductOrderArea.find('.HotPriceNoImg').css({'display':'none'});
+              }
+
+              //Product Prices
+              el.find('.PriceAndOrderBox .PriceArea .Price span:not(.VariationPriceFromText)').html(DisplayPrice);
+              el.find('.PriceAndOrderBox .PriceArea.InsteadOf .LineThrough').html(ManufacturerPrice);
+
+              //New Icon
+              if (obj['new']) {
+                  if(ProductGallery.find('.NewProduct').length < 1) {
+                      jq('<span class="NewProduct">New</span>').prependTo(el.find('#ICProductGallery .ICEyeCatcher'));
+                  }
+              } else {
+                  if(ProductGallery.find('.NewProduct').length > 1) {
+                      ProductGallery.find('.ICEyeCatcher .NewProduct').remove();
+                  }
+              }
+
+              //Product Functions
+              AdditionalLinks.find('.LinkProductSeenCheaper').attr('href', 'https://www.fc-moto.de/epages/fcm.sf/en_GB/?ObjectPath=' + obj['productpath'] + '&ViewAction=ViewSeenCheaper');
+              AdditionalLinks.find('.LinkProductInquiry').attr('href', 'https://www.fc-moto.de/epages/fcm.sf/en_GB/?ObjectPath=' + obj['productpath'] + '&ViewAction=ViewInquiry');
+              AdditionalLinks.find('.LinkProductRecommendation').attr('href', 'https://www.fc-moto.de/epages/fcm.sf/en_GB/?ObjectPath=' + obj['productpath'] + '&ViewAction=ViewRecommendation');
+              AdditionalLinks.find('form[name="LinkAddShoppingList"] input[name="RefObjectID"]').attr('value', ProductID);
+              var Shopping = AdditionalLinks.find('.LinkAddShoppingList');
+              if(Shopping.length > 0) {
+                  AdditionalLinks.find('.LinkAddShoppingList').attr('href', 'https://www.fc-moto.de/epages/fcm.sf/en_GB/?ObjectID=' + ProductID + '&ViewAction=ViewAddToShoppingList&RefObjectID=' + ProductID);
+              } else {
+                  jq('<li><a class="Link LinkIcon LinkAddShoppingList" rel="nofollow" href="https://www.fc-moto.de/epages/fcm.sf/en_GB/?ObjectID=' + ProductID + '&ViewAction=ViewAddToShoppingList&RefObjectID=' + ProductID + '">Add to shopping list</li>').prependTo(el.find('.PriceAndOrderBox .AdditionalLinks:not(.BonusCampaign)'));
+              }
+              jq('form[id^=ShoppingListAssignProductsForm] input[name=ProductID]').val(ProductID);
+              
+              
+              
+              
+              AdditionalLinks.find('.LinkCompareProduct').productcomparisonUiComparelink({productID:ProductID});
+
+              //Basket Button
+              el.find('#basketForm_standalone input[name="LastProductObjectID"], #basketForm_standalone input[name="ChangeObjectID"], #basketForm_standalone input[name="ViewObjectID"]').attr('value', ProductID);
+              if(obj['available']) {
+                  el.find('button[name="AddToBasket"]').removeClass('Disabled');
+              } else {
+                  el.find('button[name="AddToBasket"]').addClass('Disabled');
+              }
+              el.find('button[name="AddToBasket"]').attr('data-productid', ProductID).metaparse();
+
+              //Shipping
+              jQuery.ajax({
+                      url: epConfig.baseUrl+'?ViewAction=ICPixiStockLevel&ProductID='+ProductID,
+                      contentType: "text/plain",
+                      //preventCache: true,
+                      success: function (data) {
+                        data = data.replace(/<\!--(.*)-->/g, '');            
+                        data = data.replace(/\t/g, '');
+                        data = data.replace(/\n/g, '');
+                        data = jQuery.trim(data);
+                              el.find('.PriceAndOrderBox .DeliveryPeriod').addClass('Hidden');
+                              if(el.find('.PriceAndOrderBox .DeliveryPeriod').length > 0) {
+                                  el.find('.PriceAndOrderBox .DeliveryPeriod').html(data);
+                              } else {
+                                  jq('.PriceAndOrderBox .DeliveryPeriod').remove();
+                                  jq(data).appendTo('.PriceAndOrderBox .PriceArea:not(.InsteadOf)');
+                              }
+                              el.find('.PriceAndOrderBox .DeliveryPeriod').delay(500).removeClass('Hidden');
+                      },
+                      error: function(data) {
+                              console.log(data);
+                      }
+              });
+
+              //ListPrices and Discounts
+              jQuery.ajax({
+                      url: epConfig.baseUrl+'?ViewAction=ICSpecialPrices&ProductID='+ProductID+'&Currency=GBP',
+                      contentType: "text/plain",
+                      //preventCache: true,
+                      success: function (data) {
+                        data = data.replace(/<\!--(.*)-->/g, '');            
+                        data = data.replace(/\t/g, '');
+                        data = data.replace(/\n/g, '');
+                        data = jQuery.trim(data);
+                              jq('.ic_Product #ProductInfoTabs #tab-product-specialprices #Prices').replaceWith(data);
+                              if (jq('.ic_Product #ProductInfoTabs #tab-product-specialprices #Prices .SpecialPricesPage').html()) {
+                                 jq('.ic_Product #ProductInfoTabs li[aria-controls="tab-product-specialprices"]').removeClass('Hidden');
+                              } else {
+                                 jq('.ic_Product #ProductInfoTabs li[aria-controls="tab-product-specialprices"]').addClass('Hidden');
+                                 if(jq('#tab-product-specialprices').attr('aria-hidden') === 'false') {
+                                     jq(this).css({'display':'none'});
+                                     jq('#ProductInfoTabs div.ui-tabs-panel:first-of-type').css({'display':'block'});
+                                     jq('#ProductInfoTabs ul.ui-tabs-nav  li:first-of-type a').addClass('ui-tabs-active');
+                                 }
+                              }
+
+                      },
+                      error: function(data) {
+                              console.log(data);
+                      }
+              });
+
+            },
+            error: function(data) {
+                    console.log(data);
+            }
+    });
+}
+
+/**
+* -------------------------------------------------------------------
+*
+* Show Filter in mobile Version only after clicking special Button
+* @param {object} el clickedButton
+* 
+* @author LK
+* -------------------------------------------------------------------
+*/
+function setFilter(el) {
+      var nbl = jq('.NavBarLeft'),
+          width = jq(window).width(),
+          TriggerRes = 743;
+
+        // Mobile Version
+        if (width < TriggerRes && jq('.RemoteSearchFacet').size() > 0) {
+            if (nbl.hasClass('ShowJS')) {
+                nbl.removeClass('ShowJS');
+                jq('.ICFilter').html('Show Filter');
+                jq('.ICFilter.Remove').remove();
+            } else {
+                nbl.addClass('ShowJS');
+                el.html('Hide Filter');
+                jq("<span class='ICFilter Remove'>Hide Filter</span>").appendTo(nbl);
+                jq('.ICFilter.Remove').on("click",function(){
+                    setFilter(jq(this));
+                });
+            }
+        // Desktop Version
+        } else {
+            nbl.removeClass('ShowJS');
+            jq('.ICFilter').html('Show Filter');
+            jq('.ICFilter.Remove').remove();
+        }
+}
+
+
+/** 
+ * show only x Elements in FilterList for Manufacturer and Size
+ */
+function transformFilterList() {
+    var ShowAll = 'show all',
+        size = 0,
+        showElements = 6;
+
+    size = jq('.RemoteSearchFacet.Manufacturer li').size();
+    jq('.Middle .RemoteSearchFacetSelect.Manufacturer li.ManufacturerFilter').css({'margin-left':'0px'});
+    
+    if(size > showElements) {
+        while (size > showElements) {
+            jq(".RemoteSearchFacet.Manufacturer li:nth-child("+size+")").hide();
+            size = size - 1;
+        }
+        jq('.RemoteSearchFacet.Manufacturer ul').append("<li class='ManufacturerFilter'><a href='#' onclick=showAllManufaturer(event)>"+ShowAll+"</a></li>");
+    }
+
+    size = jq(".RemoteSearchFacet.Size li").size(); 
+    
+    if(size > showElements) {
+        while (size > showElements) {
+            jq(".RemoteSearchFacet.Size li:nth-child("+size+")").hide();
+            size = size - 1;
+        }
+        jq('.RemoteSearchFacet.Size ul').append("<li class='SizeFilter'><a href='#' onclick=showAllSizes(event)>"+ShowAll+"</a></li>");
+    }
+}
+
+/** 
+ * show all Elements in FilterList for Manufacturer
+ */
+function showAllManufaturer(ev) {
+    ev.preventDefault();
+    jq(".RemoteSearchFacet.Manufacturer li").each(function() {
+        jq(this).show();
+    });
+    jq(".ManufacturerFilter").hide();
+    jq(".RemoteSearchFacet.Manufacturer .scrollbar").css({"overflow-y":"scroll"});
+    jq('.ManufacturerFilter').prev('li').css({'margin-left':'21px'});
+}
+
+/** 
+ * show only x Elements in FilterList for Size
+ */
+function showAllSizes(ev) {
+    ev.preventDefault();
+    jq(".RemoteSearchFacet.Size li").each(function() {
+        jq(this).show();
+    });
+    jq(".SizeFilter").hide();
+    jq(".RemoteSearchFacet.Size .scrollbar").css({"overflow-y":"scroll"});
+}
+
+
+  html .ICCollagePlus {
+    
+  }
+  
+  html .ICCollagePlus img{
+    vertical-align:bottom;
+    /*opacity:0;*/
+  }
+  
+  html .ICCollagePlus > div {
+    opacity:0;
+  }
+  
+
+
+
+
+
+      /* if IE 10 */
+      @import url('/WebRoot/StoreTypes/6.16.1/Store/lib/de_epages/design/style-ie.css') screen and (-ms-high-contrast: active), (-ms-high-contrast: none);
+    
+
+  var ICPAttrSuperArray = new Object();
+  var DisabledBasketToolTip = 'Please select another property to add the product to the basket.';
+
+
+#janolaw-paragraph {
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    margin: 25px 4px 4px 8px;
+}
+
+#janolaw-adress {
+    font-size: 12px;
+    margin: 8px 4px 4px 8px;
+}
+
+#janolaw-block {
+    font-size: 12px;
+    margin: 8px 4px 4px 8px;
+}
+
+#janolaw-footer {
+    font-size: 12px;
+    margin: 25px 4px 4px 8px;
+}
+
+.janolaw-absatz {
+    font-size: 12px;
+    margin: 8px 4px 4px 8px;        
+}
+
+.janolaw-text {
+    font-size: 12px;
+    margin: 8px 4px 4px 8px;
+}
+
+
+try{
+  window.onerror = window.onerrorbak;
+}
+catch(e){
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+
+fbq('init', '1184287151581300');
+fbq('track', "PageView");
+fbq('track', 'ViewContent');
+fbq('track', 'AddToCart');
+fbq('track', 'InitiateCheckout');
+fbq('track', 'CompleteRegistration');
+
+
+
+
+
+
+(function(win){
+  if( !jQuery.fn.jquerysdk ){
+    jQuery.noConflict(true);
+
+    var $ = jQuery,
+      noConflict = $.config.noConflict;
+
+    if( !noConflict ){
+      win.$ = $;
+    }
+    else if( typeof noConflict == 'string' ){
+      win[ noConflict ] = $;
+    }
+  }
+  
+    try{
+      win.onerror = function() {
+        return true;
+      };
+    }
+    catch(e){
+    }
+  
+})(window);
+
+
+
+
+
+
+
+
+
+
+
+
+BLACK FRIDAY -  10% DISCOUNT   Code: FCMOTO10         CONTACT
+
+
+
+
+
+        GBP
+
+
+
+EUR
+
+
+USD
+
+
+JPY
+
+
+AUD
+
+
+CAD
+
+
+CHF
+
+
+SEK
+
+
+NZD
+
+
+DKK
+
+
+NOK
+
+
+ARS
+
+
+BRL
+
+
+MXN
+
+
+RUB
+
+
+CNY
+
+
+CZK
+
+
+INR
+
+
+PLN
+
+
+TRY
+
+
+BYR
+
+
+BGN
+
+
+HKD
+
+
+ISK
+
+
+RON
+
+
+IDR
+
+
+LVL
+
+
+LTL
+
+
+MYR
+
+
+ILS
+
+
+TWD
+
+
+SGD
+
+
+UAH
+
+
+KRW
+
+
+
+
+
+  function switchLocale(locale) {
+    var currentURL = '../de_DE/?Locale=de_DE&ViewObjectPath=/Shops/10207048/Categories/PrivacyPolicy';
+    window.location.href = currentURL.replace(/de_DE/g, locale);
+  }
+
+
+
+
+
+
+Deutschland
+Suisse / Schweiz
+Österreich
+Luxembourg
+
+              var Text = "<img src='/WebRoot/StoreTypes/6.16.1/Store/SF/Locales/en_GB.gif' width='16' height='16' /><span class='ICLocaleCountry'>United Kingdom</span><i class='ArrowSmall Icon'></i>";
+              jQuery(".LocaleBox .ContextBoxHead").html(Text);
+            
+Ireland
+Australia
+New Zealand
+United States
+Canada
+Nederland
+Belgique / België
+France
+Belgique / België
+España
+Argentina
+México
+Bolivia
+Colombia
+España
+Danmark
+Italia
+Norge
+Portugal
+Brasil
+Suomi
+Sverige
+Česká republika
+Россия
+Україна
+Polska
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        jQuery.ready("de_epages.remotesearch.ui.suggest",function($){
+          de_epages("#RemoteSearchSuggest1")
+            .remotesearchUiSuggest({
+              required: true,
+              suggestUrl : "/rs/product/FCMotoDB/459DB3A3-3EFD-5C90-20EE-51A990B2C47B/suggest/jsonp?lang=en",
+              showError: false
+            });
+        });
+        
+
+
+
+
+
+
+
+
+
+Account
+
+
+
+
+
+
+
+
+
+
+
+
+
+Email address
+
+
+
+
+
+
+Password
+
+
+
+
+
+
+Sign in
+
+
+
+
+Registration
+
+
+
+ Forgot your password?
+
+
+
+
+
+
+
+
+
+
+
+Wish list
+
+
+
+
+
+
+
+
+ 0
+
+
+
+
+html  .HorizontalNavBar div.ContextBoxP.ICMiniBasket.ICPortrait{ 
+    display: inline-block !important;
+    left: auto;
+    position: relative;
+    top: 8px;
+    margin-left: 5px;
+}
+html .HorizontalNavBar div.ContextBoxP.ICMiniBasket.ICPortrait.HE{ display: none !important}
+html .HorizontalNavBar div.ICMiniBasket.ICMiniBasketFull.HE{ display: none !important;}
+
+
+
+jq(document).ready( function() {
+  setTimeout('fixDoubleTap()', 3000);
+  
+});
+function fixDoubleTap(){
+    var HoverAreaSep    = jq('.ICMiniBasket.ICMiniBasketFull .MiniBasket > .BasketSeperator ');
+    if(HoverAreaSep.is(":hidden")) {
+      jq('.ICMiniBasket.ICPortrait').removeClass('HE');
+      jq('.ICMiniBasket.ICMiniBasketFull').addClass('HE');
+    }
+  }
+
+
+
+
+
+
+              
+                 0
+                
+              
+            
+
+
+
+
+
+
+
+
+
+Click here to show the navigationMotorcycleHelmets & AccessoriesFull FaceFlip UpModularJetCross / EnduroTrialVisorsAccessoriesSpare PartsGogglesGogglesMX / OffroadSunglassesAccessories / Spare Partsshow all...CommunicationCamerasshow all...ClothingSuits1 Piece2 Pieceshow all...JacketsLeatherTextileshow all...VestsPantsLeatherTextileshow all...GlovesRainwear1 Piece2 PieceJacketsPantsRain Cover BootsRain Cover GlovesHeated Underwearshow all...Functional Underwear1 PieceJacketsShirtsGlovesPantsNeck / HeadSocksHeatedshow all...Accessories / Spare PartsCleanershow all...MotocrossHelmetsJacketsPantsGlovesBootsJerseysProtectionGogglesGogglesAccessories / Spare Partsshow all...WomenKidsshow all...Women’s ClothingSuitsJacketsLeatherTextileshow all...PantsLeatherTextilshow all...GlovesBootsFunctional UnderwearProtectorsshow all...Kids ClothingHelmetsSuitsJacketsJerseysPantsBootsProtectorsGlovesGogglesClothingshow all...BootsSportTouringChopper / CruiserCity / UrbanEnduro / MXShoesAccessories / Spare PartsCleanerSocksshow all...ProtectorsJacketsVestsBackKidney BeltsShoulderKneeChestMotocrossElbowNeckShortsPantsHipshow all...PartsExhaust SystemsTurn SignalsDisc CoverRear SetHandguardsHandlesLuggage RacksTank FuelHandlebarsLicense Plate HolderSeat CowlTaillightRearview MirrorsHeadlightsSeatsshow all...AccessoriesCoversAlarm SystemsBattery ChargersHeated GripsMaintenance / CareOils / LubricantsSecurity / LocksStickerSafety / First AidGiftsTank PadsToolsshow all...Bags / BackpacksTank BagsBagsBackpacksWaist PackChopper BagsSaddlebagsTail BagsSide Case / Top CaseLuggage Accessoriesshow all...ElectronicsNavigationCommunicationCamerasshow all...show all...BicycleHelmetsDownhillMTBBMXRoadCityKidsshow all...ClothingJacketsJerseysPantsGlovesShoesSocksshow all...GogglesGogglesSunglassesAccessoriesshow all...ProtectionJacketsShirtsVestsBackKidney BeltsPantsKneeElbowNeckAccessoriesOthershow all...Backpacks and Bagsshow all...SnowmobileClothingSuitsJacketsPantsGlovesBootsFunctional UnderwearUndersuitsJacketsShirtsPantsSocksGlovesshow all...Heated Underwearshow all...HelmetsAccessoriesshow all...CasualClothingCaps / HatsJacketsHoodies / PulloverShirtsLong ShirtsT-ShirtsTank TopsPantsShortsShoes / BootsFlip FlopsSocksSwimwearshow all...SunglassesGiftsWalletsBeltAccessoriesKey ChainsTowelsshow all...OutdoorClothingJacketsVestsPullovers / HoodiesShirtsLongsleevesShirts / TopsPantsFunctional UnderwearHeated UnderwearShoes / BootsGlovesOverallsHeadwearKidsshow all...Backpacks / BagsSleeping BagsTentsAccessoriesshow all...SkiClothingJacketsMidlayerPantsGlovesCapsUnderwearHeated Underwearshow all...HelmetsGogglesProtectionsshow all...BrandsSALE %MotorcycleSuits1 Piece2 Pieceshow all...HelmetsFull FaceFlip UpJetMX / Enduroshow all...BootsRacingCross / EnduroTouringCityChopperShoesshow all...JacketsTextileTouringRacingCityEnduroshow all...LeatherClassicRacingTouringshow all...show all...VestsPantsLeatherTextileshow all...GlovesRacingWinterTouringMX / EnduroStreetshow all...ProtectorsJacketsVestsBackKneeChestElbowNeckShortsshow all...MX / EnduroHelmetsGlovesJacketsBootsJerseysPantsProtectorsshow all...BagsBagsTank BagsBack PacksChopper BagsHip BagsSaddlebagsHard CasesTail Bagsshow all...Women’s ClothingSuitsJacketsTextileLeathershow all...BootsPantsLeatherTextileshow all...Glovesshow all...GogglesMotocrossTouring / ChopperCasualshow all...show all...Casual ClothingJacketsT-ShirtsLong ShirtsPantsShortsHoodiesPulloverShoesSunglassesFlip Flopsshow all...BicycleHelmetsDownhill HelmetsMTB HelmetsBMX HelmetsRoad Helmetsshow all...ClothingJacketsJerseysPantsGlovesShoesSocksshow all...GogglesGogglesSunglassesAccessoriesshow all...ProtectionProtection JacketsProtection ShirtsProtection VestsBack ProtectorsKidney BeltsProtection PantsKnee ProtectorsEllbow ProtectorsNeck BracesAccessoriesOthershow all...Bagsshow all...OutdoorClothingJacketsWestsPullovers / HoodiesShirtsLongsleevesShirts / TopsFunctional UnderwearPantsHeated UnderwearShoesGlovesOverallsHeadwearKidsshow all...Backpacks & BagsSleeping BagsTentsAccessoriesshow all...SkiHelmetsClothingJacketsMidlayerPantsGlovesCapsUnderwearHeated Underwearshow all...GogglesProtectorsshow all...show all...
+
+  jq('document').ready( function() {
+    var params = {
+      'OpenDelay':375,
+      'MinHeight':446,
+      'BottomMargin':30,
+      'UseOffCanvas':1,
+      'OffCanvasIconObj':jq('.Icon.ICOffScreenIcon'),
+      'OffCanvasResolution':-1,
+      'MenuType':'ThumbMenu'
+    };
+    
+    var ICNavi = jq('.ICNavigation').ICMegaMenu('',params).done( function() {
+      //call back after creation
+    });
+  });
+
+
+
+
+
+
+
+
+
+
+Home
+
+
+
+Privacy Policy
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  Thematic areas
+
+Motorcycle
+
+Motocross
+
+Casual
+
+Bicycle
+
+Outdoor
+
+Ski
+  
+
+
+
+
+  Service 
+
+Contact
+
+FAQ
+
+Ordering Information
+
+Sizes chart
+
+Gift Coupons
+
+Privacy Policy
+  
+
+	 
+
+
+
+
+  FC Moto 
+
+About us
+
+Dealer
+
+Partner Programs
+
+Terms & conditions
+
+Imprint
+  
+
+	 
+
+
+
+
+
+Newslettersubscribe
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Newsletter sign up & secure attractive benefits:
+	- Exclusive promotions, new products and trends
+	- Attractive Discounts, Deals & Coupons
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+				Large range of products with more than 300,000 products and   top rating on Trustpilot, Idealo, ...
+
+
+
+
+
+Large range
+
+	 
+
+Top brands
+
+More than 100 brands
+
+Products
+
+Huge assortment of more than 300,000 items
+
+Best price guarantee
+
+Always current market prices and attractive offers
+
+	 
+
+	 
+
+FC-Moto reviews
+
+	 
+        
+
+	 
+
+	 
+
+
+
+	 
+
+
+
+
+
+
+
+
+
+
+
+				Worldwide shipping - Free shipping over £50.00 UK & 50€ Ireland - 30 days return policy and guarantee for reimbursement
+
+
+
+
+
+Wolrdwide Shipping
+
+	 
+
+We ship worldwide and many products directly from stock.
+
+Free shipping over £50.00 UK and over 50€ Ireland.
+
+Easy Return For many countries, we offer a discounted return label
+
+	 
+
+ 
+
+	 
+
+	 
+
+
+
+
+
+
+
+
+
+
+
+				Convenient payment methods: PayPal, credit card, cash on delivery, Sofort Banking, Advanced payment & Pick up 
+
+
+
+
+
+
+Secure payment
+
+
+	 
+
+	 
+
+	 
+
+   
+
+	 
+
+   
+
+	 
+
+Advanced Payment - The traditional way to pay
+
+Cash on Delivery - The payment takes place at your doorstep.
+
+Credit Card - The convenient and quick way to pay.
+
+Paypal - The safest and fastest way to pay
+
+Sofort Banking - easily and securely, pay with your usual online Banking data (PIN / TAN)
+
+Pick up at Shop -  order online without obligation, pick up at store & pay
+
+	 
+
+
+
+
+
+
+	Hotline +49 (0) 2405 4950050
+	Mo. - Fr. 10:00 to 16:00
+
+     
+
+
+
+
+
+
+
+ © 2004 - 2016 FC-Moto GmbH und Co. KG
+
+	 
+
+
+
+
+
+
+
+<!--
+jQuery.ready({
+	  plugin: ['jQuery.cookie'],
+	  DOM: true
+	}, function($) {
+  var zanpid = ZanoxAG.gup('zanpid');
+
+  if  (document.cookie == '' && zanpid.length == 0) {
+    zanpid = '';
+  }
+
+  if (zanpid.length > 0) {
+    jq.cookie('AffiliateSource', 'zanox'+zanpid, { expires: 30, path: '/'});
+
+    if  (document.cookie == '') {
+     $('<input>').attr('type', 'hidden').attr('name', 'zanpid').attr('value', zanpid).appendTo('form');
+
+     $('a').each(function() {
+       var href = $(this).attr('href');
+       var sep = (href.indexOf('?') > -1) ? '&' : '?';
+
+       $(this).attr('href', href + sep + 'zanpid=' + zanpid);
+     });
+    }
+  }
+});
+-->
+
+require(["jquery", "util/storage", "$ready!"], function ($, storage) {
+  // remove all selected products on logout
+  var $LogoutNodes = $('a[href*="ChangeAction=Logout"]');
+  
+  $LogoutNodes.each(function (event){
+    $(this).on('click', function (event){
+      storage.sessionStorage('Product::ProductComparison', null);
+    });
+  });
+});
+
+require(['jquery', '$ready!'], function ($) {
+  $(window).bind('load',function(){
+    var createGadgets = function(){
+      // Constants.
+      var gNodeType = 'div',
+        gClassName = 'ep-gadget',
+        gDataName = gClassName,
+        gFolder = 'ui',
+        // Gadget nodes in DOM.
+        $gNodes = $(gNodeType + '.' + gClassName);
+  
+      if ($gNodes.length) {
+        // Go go gadgets.
+        $gNodes.each(function () {
+          var $this = $(this),
+            data = $this.data(gDataName);
+          require([['de_epages', data.cartridge, gFolder, data.alias].join('/')], function ($) {
+            $this[data.cartridge + gFolder.charAt(0).toUpperCase() + gFolder.slice(1) + data.alias.charAt(0).toUpperCase() + data.alias.slice(1)](data.options);
+            
+          });
+  
+        });
+      }
+    };
+  
+    createGadgets();
+    $('body').on('updatepreview', createGadgets);
+  });
+
+});
+
+
+
+
+
+
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  
+  ga('create', 'UA-45623427-1', 'auto');  // Replace with your property ID.
+  ga('require', 'displayfeatures');
+  ga('set', 'anonymizeIp', true);   
+  ga('set', 'dimension1', "");
+  ga('set', 'dimension2', "other");
+  ga('set', 'dimension3', "");  
+  ga('send', 'pageview');
+
+
+
+
+
+
+
+
+jQuery.ready('jQuery.i18n', function ($) {
+  var isActive = {},
+      $gadgets = $('.ep-gadget'),
+      $otherbuttonsDivs;
+
+  $otherbuttonsDivs = $gadgets.filter(function () {
+    var data = $(this).data('epGadget');
+    // Set *isActive* properties.
+    data && (isActive[data.alias] = true);
+    // Filter *otherbuttons*.
+    return (data.alias === 'otherbuttons');
+  });
+
+  // Facebook.
+  if (isActive['facebook']) {
+    window.fbAsyncInit = function () {
+      FB.init();
+    };
+    $.ajax({
+      dataType : 'script',
+      url : '//connect.facebook.net/' + $.i18n.settings.region.replace(/-/,'_') + '/all.js',
+      cache : true
+    }).done(function () {
+      // Like.
+      FB.Event.subscribe('edge.create', function (targetUrl) {
+        ga('send', 'social', 'facebook', 'like', targetUrl); 
+      });
+      // Unlike.
+      FB.Event.subscribe('edge.remove', function (targetUrl) {
+        ga('send', 'social', 'facebook', 'unlike', targetUrl);
+      });
+      // Share.
+      FB.Event.subscribe('message.send', function (targetUrl) {
+        ga('send', 'social', 'facebook', 'send', targetUrl);
+      });
+    });
+  }
+
+  // Twitter.
+  if (isActive['twitter']) {
+    var regex = new RegExp('[\\?&#]' + 'url' + '=([^&#]*)');
+    $.ajax({
+      dataType : 'script',
+      url : '//platform.twitter.com/widgets.js',
+      cache : true
+    }).done(function () {
+      twttr.ready(function (twttr) {
+        // Tweet.
+        twttr.events.bind('tweet', function (event) {
+          var targetUrl = '';
+          if (event.target && event.target.nodeName == 'IFRAME') {
+            var params = regex.exec(event.target.src);
+            params = params || [0,''];
+            ga('send', 'social', 'twitter', 'tweet', unescape(params[1]));           
+          }
+        });
+        // Follow.
+        twttr.events.bind('follow', function (event) {
+          ga('send', 'social', 'twitter', 'follow', event.data.user_id);         
+        });
+      });
+    });
+  }
+
+  // Otherbuttons.
+  if (isActive['otherbuttons']) {
+    $otherbuttonsDivs.on('click', 'img', function (event) {
+      ga('send', 'social', 'event.target && event.target.alt', 'click');
+    });
+  }
+});
+
+
+
+
+  /* <![CDATA[ */
+  var google_conversion_id = 1070800967;
+  var google_conversion_label = "8oVYCPertQQQx8DM_gM";
+  var google_custom_params = window.google_tag_params;
+  var google_remarketing_only = true;
+  /* ]]> */
+
+
+
+
+
+
+
+
+
+
+
+
+        window._zx = window._zx || [];
+        window._zx.push({"id":"15D8727C2CFFB5BE433D"});
+        (function(d) {
+          var s = d.createElement("script"); s.async = true;
+          s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//static.zanox.com/scripts/zanox.js";
+          var a = d.getElementsByTagName("script")[0]; a.parentNode.insertBefore(s, a);
+        }(document));
+      
+
+
+
+
+
+
+  
+  
+    
+      
+        
+        
+          
+        
+      
+
+    window.criteo_q = window.criteo_q || []; 
+    window.criteo_q.push(
+      { event: "setAccount", account: 28190 }, 
+      
+        { event: "setSiteType", type: "d" }, 
+      
+
+      
+    
+      
+    
+    );
+  
+  
+
+
+
+
+
+
+
+
+
+  
+  
+  
+    
+  
+
+    
+      
+      // Andere Seite
+      window.nxp_type = 10;
+      window.nxp_campaignid = 1463; 
+      window.nxp_source = 1;
+      window.nxp_pagename = "Privacy Policy";
+      
+    
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+

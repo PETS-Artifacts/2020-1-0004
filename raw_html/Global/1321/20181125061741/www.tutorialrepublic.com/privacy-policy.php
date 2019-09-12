@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en"><!-- InstanceBegin template="/Templates/about.dwt.php" codeOutsideHTMLIsLocked="false" -->
+<head>
+	<!-- InstanceBeginEditable name="doctitle" -->
+    <title>Privacy Policy</title>
+    <!-- InstanceEndEditable -->
+    	<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="fb:admins" content="100001054961582" />
+<meta property="fb:app_id" content="1404574483159557" />
+<meta property="og:image" content="/lib/images/signature.png" />
+<link type="image/x-icon" href="/favicon.ico" rel="shortcut icon" />
+<style>
+html,body,h1,h2,h3,h4,h5,h6,p,blockquote,pre,img{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}
+html,body{min-height:100%}
+p{margin:0 0 10px}
+ol,ul{margin:0 0 10px}
+a,a:active,a:visited{outline:none;color:#1db79f;text-decoration:none}
+a code{color:inherit}
+a img{border:none;outline:none}
+code{color:#000}
+table{border-collapse:collapse;border-spacing:0}
+table td{vertical-align:top}
+body{min-width:1300px;color:#414141;background:#fafafa;font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif;font-size:17px;line-height:1.7}
+input,select,textarea,button,div,span,a{box-sizing:border-box}
+h1,h2,h3,h4{color:#262626;font-weight:500;margin:20px 0 10px;line-height:1.5;font-weight:600}
+h1{font-size:34px;margin-top:15px}
+h2{font-size:28px}
+h3{font-size:22px}
+.space{margin-bottom:25px!important}
+.break{margin-bottom:15px!important}
+.text-center{text-align:center!important}
+.scroll{height:195px;overflow-y:scroll}
+.scroll.large{height:245px}
+.scroll.xlarge{height:290px}
+.scroll.xxlarge{height:340px}
+sup{font-size:13px}
+pre{background:none;border-radius:0}
+.leaderboard{width:728px;height:90px;background:#ebecf0}
+.intro-image img{display:block;padding:10px 0 25px;max-width:100%}
+.clearfix::after{content:".";display:block;height:0;clear:both;visibility:hidden}
+code,.code,.syntax,.green-box,.sky-box,.gray-box,.pink-box,.red-box,.at-rule,.codebox ul,.console-output{font-size:16px;font-family:Consolas,Monaco,Courier,monospace}
+p code,table.data td:last-child code, .content ul li code, code.mark{padding:2px 4px;color:#333;background-color:#f1f1f1;border-radius:4px}
+p code a,table.data td:last-child code a, .content ul li code a{padding:2px 0;background:#fff;margin:0 -4px;font-size:16px}
+.console-output{margin:15px 0}
+hr{border:none;border-bottom:1px solid #e7e9ed;height:1px;margin:30px 0}
+.summary,.topic{border:1px solid #eaeaea;border-width:1px 0;margin:20px 0;padding:10px 0;color:#8e9aa6;line-height:1.5}
+h2.section-title span{display:inline-block;border-bottom:4px solid #c9d7e0;padding:0 50px 12px 0}
+.wrapper{width:1300px;padding:0 15px;margin:0 auto}
+.header{background:#23384e;padding:16px 0}
+input.search{background:#fff;border:0 none;color:#807E7E;float:left;height:38px;line-height:26px;font-size:14px;margin:0 0 0 12px;outline:medium none;padding:6px 14px;width:500px;border-radius:2px;box-shadow:0 0 1px rgba(0,0,0,0.6);font-family:inherit}
+.search-btn{color:rgba(0,0,0,.6);background:#ebebeb;border:none;outline:none;cursor:pointer;float:left;height:38px;line-height:46px;width:44px;display:block;margin-left:-2px;border-radius:0 2px 2px 0;box-shadow:0 0 1px rgba(0,0,0,0.7)}
+.logo{width:304px}
+.logo img{height:44px;margin:-3px 0;display:block}
+.site-search{float:left;margin-left:100px}
+.menu{background-color:#f5f5f5;box-shadow:0 1px 1px rgba(0,0,0,.15);position:relative;z-index:9}
+.menu a{color:#666;display:inline-block;padding:0 10px;text-decoration:none;font-size:14px;font-weight:600;height:48px;line-height:48px}
+.menu a:first-child{margin-left:-10px}
+.menu a.tool-link{float:right;display:inline-block;border-radius:30px;line-height:28px;position:relative;height:auto;top:9px;padding:0 12px;color:#1ebba3;border:1px double #1ebba3}
+.fl,.logo,.centercolumn{float:left}
+.content{background:#fff;width:850px;padding:20px 40px;border:1px solid #dedede;border-top:none;border-radius:1px}
+.leftcolumn{width:240px;float:left;font-size:16px;color:#4f4f4f}
+.sidebar{float:left;padding:20px 0 0 20px;width:180px}
+.leftcolumn .segment{margin:16px 0 12px;position:relative;font-size:18px;font-weight:600;display:inline-block;line-height:normal}
+.leftcolumn a{color:#4f4f4f;font-size:16px;line-height:26px;display:block;border-bottom:1px solid transparent}
+.leftcolumn ul{list-style:none;padding:0}
+.segment,.chapters,.chapters a,.toggle-tree-menu{float:left;clear:both}
+ul.tree-menu li.tree{margin-left:-12px;float:left;width:100%}
+ul.tree-menu li a,ul.tree-menu li code{color:#4f4f4f;font-size:15.4px}
+ul.chapters.tree-menu li a{font-size:16px}
+h1 code,h2 code,h3 code{font:inherit}
+.color-box{margin:15px 0;padding-left:20px}
+.note-box,.warning-box,.tip-box{padding:8px 8px 3px 26px}
+.info-tab{float:left;margin-left:-23px}
+.content ul li{margin-top:7px}
+.extra{padding-top:5px}
+.green-box,.sky-box,.gray-box,.red-box,.pink-box{color:#000;margin-top:15px;padding:10px;background-color:#f6f8fa;border:1px solid #d7e2ec}
+.example{background:#f4f5f6;padding:3px;margin:15px 0}
+.codebox{background:#fff;border:1px solid #ddd}
+.codebox-title{height:41px;padding-left:12px;border-bottom:1px solid #ddd;background:#f5f5f5}
+.codebox-title h4{margin:0;font-size:18px;line-height:38px;float:left;display:inline;font-weight:500}
+a.try-btn,a.download-btn{width:140px;height:40px;color:#333;font-size:15px;line-height:41px;font-weight:600;text-align:center;text-decoration:none;float:right;display:block;border-left:1px solid #ddd;background:rgba(27,31,35,0.08);box-sizing:border-box;font-family:Arial,sans-serif}
+a.try-btn span{font-size:18px;line-height:normal}
+.hide,.code-style,.box-size,.bottom-link,.footer,.code-style,.report-error,.badge,.social,.mobile-only{display:none}
+.skyscraper{width:160px;height:600px;overflow:hidden;margin-bottom:20px;background:#ebecf0}
+.bottom-ad{margin-top:24px;padding:24px;background:url(/lib/images/smooth-line.png) no-repeat center #f6f8fa}
+.rectangle-left,.rectangle-right{min-width:336px;min-height:280px;overflow:hidden}
+.fr,a.previous-page,a.next-page,.topic-nav{float:right}
+a.previous-page,a.next-page{display:inline-block;width:30px;height:30px;line-height:30px}
+.shadow{background:#F7F8F9;padding:3px;margin:10px 0}
+.syntax{color:#2f4959;padding:13px 18px;background:#F9F9FA;border:1px solid #ddd;font-size:15px}
+.codebox ul{font-size:14px;padding:7px;list-style:decimal inside none}
+.codebox ul.lead-zero,.codebox ul.lead-double-zero{list-style-type:decimal-leading-zero}
+.codebox ul li{padding:0 9px;color:#AFAFAF;background-image:none;margin:0}
+.codebox ul pre,.codebox ul li,.codebox ul li code{line-height:1.6;vertical-align:top}
+.codebox ul pre,.codebox ul code{width:90%;font-size:16px;color:#222;display:inline-block;padding-left:10px;border-left:3px solid #6CE26C;white-space:pre-wrap;word-break:normal}
+.codebox ul.lead-double-zero li{text-align:right}
+.codebox ul.lead-double-zero li pre{text-align:left}
+.codebox ul.sql.single-line pre{line-height:26px}
+.content .codebox ul li code{color:#222;padding:0 0 0 10px}
+.preview-box{padding:15px;text-align:center;cursor:pointer;overflow:hidden;background:#FFF;border:1px solid #e6e6e6}
+.preview-box a,.preview-box img{display:block;margin:0 auto}
+.topic a:first-of-type{margin-left:2px}
+.topic-nav{padding-right:5px;color:#d0d0d0}
+.topic-nav a{padding:0 15px;margin:0 0 0 5px;position:relative;display:inline-block}
+.topic-nav a::after{font-size:24px;position:absolute;line-height:normal;top:-6px}
+.topic-nav a:first-child{margin:0 5px 0 0}
+.topic-nav a:first-child::after{content:'\00AB';left:-5px}
+.topic-nav a:last-child::after{content:'\00BB';right:-5px}
+.download-box{text-align:center;padding:20px 0;margin:20px 0 10px}
+.output-box{border-color:#d4d4d4;border-style:solid;border-width:1px 0;padding:5px 15px;overflow:hidden;background:#fff;margin:10px 0}
+.demo-box{margin-top:15px}
+.subhead{border-bottom:3px solid #DCE3EB;margin-bottom:15px;padding-bottom:10px}
+table.data,table.description{width:100%;font-size:92%}
+table.data th{color:#000;padding:8px 7px;text-align:left;font-size:15px;background:#F8F8F8}
+table.data td{color:#484848;padding:5px 7px;background:#fff}
+table.data th,table.data td{vertical-align:top;border:1px solid #DCE3EB}
+table.data tr.section th,table.data td.section{font-size:15px;background:#f0f4f7}
+table.description th{width:150px;padding:7px;vertical-align: middle}
+.overview{padding-right:202px}
+.overview .intro-image{float:right;margin-right:-202px;text-align:right}
+.overview .intro-image + p{padding-top:0}
+.support{background:#F8F8F8;border:1px solid #ccc;color:#2F4959;padding:15px}
+.support table td:first-child{width:200px;padding:0 25px 0 10px;border-right:1px dashed #D0D0D0}
+.support h2{color:#2F4959;font-size:16px;padding:0 0 0 30px;margin-top:0}
+.support ul{margin-left:10px}
+.support ul li{margin-top:4px}
+h1 sup{background:#ec0000;border-radius:3px;padding:5px 10px;font-size:15px;color:#fff;position:relative;top:5px}
+@media screen and (max-width: 1280px) {
+body{min-width:1260px}
+.wrapper{width:1260px}
+.leftcolumn{width:230px}
+.content{width:820px}
+}
+@media screen and (max-width: 800px) {
+body{min-width:100%;max-width:100%;padding-top:46px}
+.wrapper{width:100%;padding:0}
+.header{height:46px;padding:5px 0;position:fixed;top:0;left:0;right:0;width:100%;z-index:99}
+.logo{width:auto;display:block;padding:6px 0 0 60px;position:absolute;left:0;z-index:100}
+.logo img{height:30px}
+.menu{width:100%;padding-left:12px;padding-right:12px;overflow-x:auto;white-space:nowrap}
+.content{width:100%;float:none;padding:10px}
+.sidebar{width:160px;float:none;padding:0;margin:0 auto;margin-top:25px}
+.skyscraper{display:inline-block}
+.shadow,.example{max-width:100%;overflow-x:auto}
+.codebox-title{position:relative}
+.codebox.multi-style-mode ul{padding-top:7px;margin-top:36px;border-top:1px solid #ddd}
+.codebox ul,.codebox ul.scroll{overflow-x:auto}
+.rectangle-left,.rectangle-right{float:none;display:inline-block;margin:10px auto;background:#EDEEF2}
+.leftcolumn,.footer,.header .social,.header .site-search,.overview .intro-image,.toggle-tree-menu,.code-style,.support table td:first-child,ul.tree-menu code.shorthand,.menu a.tool-link,.backdrop{display:none}
+.summary,.topic{padding:5px 0;margin:10px 0}
+.leftcolumn,.centercolumn,.sidebar{float:none}
+.header,.menu,.leaderboard,.container,.footer,.appeal-text{width:100%;box-sizing:border-box}
+.centercolumn{width:100%}
+.content img{max-width:100%;height:auto}
+.codebox ul li{width:614px}
+.codebox ul.scroll li{width:597px}
+.codebox ul,.codebox ul.scroll{overflow-x:auto}
+a.try-btn,a.download-btn{width:130px}
+.bottom-ad{height:auto;background:none;padding:0;margin:15px 0 0;text-align:center}
+.native-unit{margin-bottom:30px}
+.sidebar{overflow:visible;padding-left:0;padding-top:0;margin-top:25px;text-align:center}
+.overview{padding-right:0}
+.scroll-pane{overflow-x:auto}
+table.data{min-width:480px}
+table.data pre{display:inline;white-space:normal}
+table tr th,table tr td{width:auto!important}
+.support h2,.support ul{padding-left:0}
+p.topic{vertical-align:top}
+p.topic > a{word-wrap:break-word;display:inline-block}
+.example-list ul li,ul.faq-list li{padding-bottom:3px}
+.preview-box{padding:6px}
+.topic-nav{float:none;display:block;padding:6px 0 0 5px}
+.codebox.multi-style-mode ul{padding-top:7px;margin-top:34px;border-top:1px solid #ccc}
+.content pre{max-width:100%;overflow:hidden}
+.shadow,.content pre.console-output{max-width:100%;overflow-x:auto}
+ul.tree-menu li.tree{margin-left:0}
+.support ul{margin-left:20px}
+.leaderboard{max-width:100%;height:60px;overflow:hidden;margin:10px 0}
+h1{font-size:28px}
+h2{font-size:24px}
+h3{font-size:20px}
+}
+@media screen and (min-width: 801px) {
+.site-search,.leftcolumn,.social{display:block!important}
+.backdrop{display:none!important}
+}</style>    
+    <!-- InstanceBeginEditable name="head" -->
+    <!-- InstanceEndEditable -->
+    
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-40117907-1', 'auto');
+  ga('send', 'pageview');
+</script></head>
+<body>
+    <!--Header-->
+    
+<div class="header">
+    <div class="wrapper clearfix">
+        <button type="button" class="open-menu mobile-only"><i class="icon-menu"></i></button>
+        <div class="logo">
+            <a href="https://www.tutorialrepublic.com/"><img src="/lib/images/logo.svg" alt="TutorialRepublic" /></a>
+        </div>
+        <div class="site-search">
+            <form action="https://www.google.com/search" method="get" target="_blank" class="clearfix">
+                <input type="hidden" value="www.tutorialrepublic.com" name="sitesearch" />
+                <input type="text" name="q" placeholder="Search topics, tutorials, questions and answers..." id="searchInput" class="search" />
+                <button type="submit" class="search-btn"><span class="icon-search"></span></button>
+            </form>
+        </div>
+        <div class="social">                
+            <a href="https://www.facebook.com/tutorialrepublic" target="_blank" title="Join us on Facebook"><i class="icon-facebook"></i></a>
+            <a href="https://twitter.com/tutrepublic" target="_blank" title="Follow us on Twitter"><i class="icon-twitter"></i></a>
+            <a href="https://plus.google.com/u/0/106987116359359710902" target="_blank" title="Add us on Google+"><i class="icon-google-plus"></i></a>
+            <a href="/contact-us.php" target="_blank" title="Send us an Email"><i class="icon-mail"></i></a>
+        </div>
+        <button type="button" class="open-search mobile-only">
+            <i class="icon-search"></i>
+        </button>
+    </div>    
+</div>
+<div class="menu">
+    <div class="wrapper">
+        <a href="//www.tutorialrepublic.com" title="Home Page">HOME</a>
+        <a href="/html-tutorial/" title="HTML Tutorial">HTML5</a>            
+        <a href="/css-tutorial/" title="CSS Tutorial">CSS3</a>
+        <a href="/javascript-tutorial/" title="JavaScript Tutorial">JAVASCRIPT</a>
+        <a href="/jquery-tutorial/" title="jQuery Tutorial">JQUERY</a>
+        <a href="/twitter-bootstrap-tutorial/" title="Bootstrap Tutorial">BOOTSTRAP3</a>
+        <a href="/php-tutorial/" title="PHP Tutorial">PHP7</a> 
+        <a href="/sql-tutorial/" title="SQL Tutorial">SQL</a>
+        <a href="/references.php" title="Web References">REFERENCES</a>
+        <a href="/practice-examples.php" title="Practice Examples and Demos">EXAMPLES</a>
+        <a href="/faq.php" title="Frequently Asked Questions and Answers">FAQ</a>
+        <a href="/snippets/gallery.php" title="Bootstrap Code Snippets" target="_blank">SNIPPETS</a>
+        <a href="/codelab.php" class="tool-link" target="_blank">Online HTML Editor</a>
+    </div>        
+</div>    <!--End:Header-->
+    <div class="wrapper clearfix">
+        <div class="leftcolumn" id="myNav">
+		
+        <div class="segment"><span>ABOUT</span> PAGES</div>
+<ul class="chapters">
+    <li><a href="/about-us.php">About Us</a></li>
+    <li><a href="/terms-of-use.php">Terms of Use</a></li>
+    <li><a href="/privacy-policy.php">Privacy Policy</a></li>
+    <li><a href="/advertise-with-us.php">Advertise With Us</a></li>           
+    <li><a href="/contact-us.php">Contact Us</a></li>
+</ul>        
+                </div>
+        <div class="centercolumn">
+            <!--Text Content-->
+            <div class="content">
+                <div class="leaderboard">
+                    
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Responsive Leaderboard -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-9107540490929984"
+     data-ad-slot="4302666817"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>                </div>
+                <!-- InstanceBeginEditable name="main_content" -->
+                <a href="terms-of-use.php" class="previous-page" title="Go to Previous Page"></a>
+                <a href="advertise-with-us.php" class="next-page" title="Go to Next Page"></a>
+                <h1>Privacy <span>Policy</span></h1>
+                <p class="summary">The following statements describe the privacy practices for this website.</p>
+                <h2>What We Collect</h2>
+                <p>Tutorial Republic may collect certain information about a visitor's computer that may be furnished by the visitor's browser, such as:</p>
+                <ul>
+                    <li>Browser Information </li>
+                    <li>IP Address</li>
+                    <li>Page Accessed </li>
+                    <li>Geographic Location</li>
+                    <li>Time of Visit</li>
+                    <li>Referring Site, Application, or Service</li>
+                </ul>
+                <p>This information is used by us and/or our affiliates on an aggregate basis only to administer the site, analyze trends, and assess the levels of traffic to the site and the areas of the site users are accessing. We do not collect and evaluate this information for others.</p>
+                <p>We do not collect Information that could be used to personally identify you, such as your name, email, address or phone number. Users are free to visit Tutorial Republic, and navigate all its pages, without any user registration.</p>
+                <hr />
+                <h2>Cookies &amp; 3rd Party Advertisements</h2>
+                <p>We do not use cookies to collect or store personal information, but since we allow third-party companies to serve ads and/or collect certain anonymous information when you visit our web site. These companies may use non-personally identifiable information (e.g., click stream information, browser type, time and date, subject of advertisements clicked or scrolled over) during your visits to this and other websites in order to provide advertisements about goods and services likely to be of greater interest to you.</p>
+                <p>A 'cookie' is a small text file sent to your browser by the web server that enables your computer to access information on a particular website in a faster and more efficient manner.</p>
+                <p>You can choose to accept or decline cookies. Most web browsers automatically accept cookies, but you can change the settings on your browser to refuse all cookies.</p>
+                <hr />
+                <h2>External Links</h2>
+                <p>Tutorial Republic may contain links to other websites. Since we do not have any control over these websites, we are not responsible for the protection and privacy of any information which you provide whilst visiting such websites.</p>
+                <p>This privacy policy applies only to Tutorial Republic. We encourage you to review the privacy statements of each and every website that collects personally identifiable information.</p>
+                <hr />
+                <h2>Questions?</h2>
+                <p>If you have any questions or concerns about this Privacy Statement, please <a href="contact-us.php">contact us</a>.</p>
+                <!--Bottom Navigation-->
+                <div class="bottom-link clearfix">
+                    <a href="terms-of-use.php" class="previous-page-bottom">Previous Page</a>
+                    <a href="advertise-with-us.php" class="next-page-bottom">Next Page</a>
+                </div>
+                <!--End:Bottom Navigation-->
+		  <!-- InstanceEndEditable -->
+                <!--Bottom Ads-->
+                <div class="bottom-ad clearfix">
+                    <!--Rectangle Left-->
+<div class="rectangle-left fl">
+    
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Large Rectangle Left -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:336px;height:280px"
+     data-ad-client="ca-pub-9107540490929984"
+     data-ad-slot="8162953958"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+</div>
+<!--End:Rectangle Left-->
+
+
+<!--Rectangle Right-->
+<div class="rectangle-right fr">
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Large Rectangle Right -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:336px;height:280px"
+     data-ad-client="ca-pub-9107540490929984"
+     data-ad-slot="3324015654"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+</div>
+<!--End:Rectangle Right-->                </div>
+                <!--End:Bottom Ads-->
+            </div>
+            <!--End:Text Content-->
+            <!--Feedback Form-->
+			<div class="report-error" id="feedback">
+    <div class="contact-form clearfix">
+        <div class="close"><span class="icon-close"></span></div>
+        <form id="feedback-form">
+            <h3>Your Feedback:</h3>
+            <div class="clearfix">
+                <div class="name fl"><label>Your Name (optional) <input type="text" name="user-name" id="user-name" /></label></div>
+                <div class="email fr"><label>Your E-mail (optional) <input type="text" name="user-email" id="user-email" /></label></div>
+            </div>
+            <div><label>Page address <input type="text" name="page-url" id="page-url" class="disabled" disabled="disabled" /></label></div>
+            <div><label>Description <textarea name="description" id="description" rows="6"></textarea></label></div>
+            <p id="feedback-error">We would love to hear from you, please drop us a line.</p>
+            <div><button type="button" class="action-btn" onclick="sendFeedback()"><span class="icon-send"></span> Send</button></div>
+        </form>
+        <div id="response"></div>
+    </div>           
+</div>            <!--End:Feedback Form-->
+        </div>        
+        <div class="sidebar">
+            <div class="skyscraper primary">
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Premium Skyscraper -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:160px;height:600px"
+     data-ad-client="ca-pub-9107540490929984"
+     data-ad-slot="4376141825"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+</div>
+
+<div class="skyscraper">
+    
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Bottom Skyscraper -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:160px;height:600px"
+     data-ad-client="ca-pub-9107540490929984"
+     data-ad-slot="3387984471"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+</div>        </div>
+    </div>
+    <!--Footer-->
+	<!--Footer-->
+    <div class="footer">
+        <div class="appeal">
+            <div class="wrapper">
+                <p>Is this website helpful to you? Please give us a
+                <a href="/like.php" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=250,width=600,top=150, left='+((screen.width/2)-300));return false;">like</a>,
+                or share your <a href="#feedback" class="feedback">feedback</a><em> to help us improve</em>.
+                Connect with us on <a href="https://www.facebook.com/tutorialrepublic" target="_blank">Facebook</a>,&thinsp;<a href="https://twitter.com/tutrepublic" target="_blank">Twitter</a>
+                and <a href="https://plus.google.com/u/0/106987116359359710902" target="_blank">Google+</a> for the latest updates.</p>               
+            </div>
+        </div>
+        <div class="footer-inner">
+            <div class="wrapper clearfix">                
+                <div class="link-box">
+                    <h4>About Us</h4>
+                    <div class="clearfix">
+                        <a href="/about-us.php">Our Story</a>                    
+                        <a href="/terms-of-use.php">Terms of Use</a>
+                        <a href="/privacy-policy.php">Privacy Policy</a>                    
+                    </div>
+                </div>
+                <div class="link-box">
+                    <h4>Contact</h4>
+                    <div class="clearfix">
+                        <a href="/contact-us.php">Contact Us</a>                    
+                        <a href="#feedback" class="feedback">Report Error</a>
+                        <a href="/advertise-with-us.php">Advertise</a>                    
+                    </div>
+                </div>
+                <div class="tool-box">
+                    <h4>Interactive Tools</h4>
+                    <div class="tools-list clearfix" id="tools">
+                        <a href="/faq/what-is-the-maximum-length-of-title-and-meta-description-tag.php">Title &amp; Meta Length Calculator</a>                           
+                        <a href="/html-formatter.php" target="_blank">HTML Formatter</a>                        
+                        <a href="/twitter-bootstrap-button-generator.php" target="_blank">Bootstrap Button Generator</a>
+                        <a href="/html-reference/html-color-picker.php">HTML Color Picker</a>
+                        <a href="/codelab.php?topic=sql&amp;file=select-all" target="_blank">SQL Playground</a>
+                        <a href="/codelab.php?topic=html&amp;file=hello-world" target="_blank">HTML Editor</a>                    
+                    </div>
+                </div>
+                <div class="footer-logo">
+                    <img src="/lib/images/logo.svg" alt="TutorialRepublic" />
+                </div>
+            </div>
+        </div>           
+        		<div class="bottom-strip">
+            <div class="wrapper">
+                <div class="notice">Copyright &copy; 2018 Tutorial Republic. All Rights Reserved.</div>
+                <div class="social-media">
+					<em>Share This:</em>
+                    <a href="https://facebook.com/sharer.php?u=https://www.tutorialrepublic.com%2Fprivacy-policy.php" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600,top=150, left='+((screen.width/2)-300));return false;" title="Facebook"><i class="icon-facebook"></i></a>
+                    <a id="tweet-btn" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600,top=150, left='+((screen.width/2)-300));return false;" title="Twitter"><i class="icon-twitter"></i></a>
+                    <a href="https://plus.google.com/share?url=https://www.tutorialrepublic.com%2Fprivacy-policy.php" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=438,width=600,top=150, left='+((screen.width/2)-300));return false;" title="Google+"><i class="icon-google-plus"></i></a>
+                    <a id="email-btn" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600,top=150, left='+((screen.width/2)-300));return false;" rel="noreferrer" title="Gmail"><i class="icon-mail"></i></a>
+                </div>
+            </div>            
+        </div>
+		<script>
+			var title = document.title.replace('- Tutorial Republic', '');
+			document.getElementById('tweet-btn').href = 'https://twitter.com/share?text=' + title + '- &url=https://www.tutorialrepublic.com%2Fprivacy-policy.php';
+			document.getElementById('email-btn').href = 'https://mail.google.com/mail/?view=cm&fs=1&su=' + title + '&body=https://www.tutorialrepublic.com%2Fprivacy-policy.php';
+		</script>
+    </div>
+    <!--End:Footer-->
+    
+<div class="backdrop mobile-only"></div>
+
+<!-- TutorialRepublic base script -->
+<script>
+// Adding CSS files
+[
+	'/lib/styles/extended-2.5.css',
+	'/lib/icomoon/style.css'
+].forEach(function(href) {
+	var link = document.createElement('link');
+	link.rel = 'stylesheet';
+	link.href = href;
+	(document.getElementsByTagName('head')[0]).appendChild(link);
+});
+
+// Adding JS files
+[
+	'https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js',
+	'/lib/js/prism.js',
+	'/lib/js/default-2.9.min.js'
+].forEach(function(src) {
+	var script = document.createElement('script');
+	script.async = false; // important
+	script.src = src;
+	(document.getElementsByTagName('body')[0]).appendChild(script);
+});
+</script>
+
+
+    <!--End:Footer-->
+</body>
+<!-- InstanceEnd --></html>

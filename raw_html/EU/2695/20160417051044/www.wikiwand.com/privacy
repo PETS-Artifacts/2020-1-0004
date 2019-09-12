@@ -1,0 +1,955 @@
+
+	<!doctype html>
+<!--[if lt IE 7]>
+<html lang="en" ng-app="wikiwand" xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://www.facebook.com/2008/fbml" xmlns:og="http://ogp.me/ns#" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html lang="en" ng-app="wikiwand" xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://www.facebook.com/2008/fbml" xmlns:og="http://ogp.me/ns#" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html lang="en" ng-app="wikiwand" xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://www.facebook.com/2008/fbml" xmlns:og="http://ogp.me/ns#" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" ng-app="wikiwand" xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://www.facebook.com/2008/fbml" xmlns:og="http://ogp.me/ns#" class="no-js"> <!--<![endif]-->
+<head>
+
+	<!--header generic -->
+	
+	<!--this is the original url for google fonts-->
+	<link href='//fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic|Lora:400,700,400italic,700italic|Merriweather:400italic,400,300italic,300,700,700italic|Open+Sans:300italic,400italic,700italic,700,300,400&subset=latin,cyrillic-ext,greek-ext,greek,devanagari,vietnamese,latin-ext,cyrillic' rel='stylesheet' type='text/css'>
+
+	<meta charset="utf-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="chrome-webstore-item" href="https://chrome.google.com/webstore/detail/emffkefkbkpkgpdeeooapgaicgmcbolj">
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+	<!--<script type="text/javascript"  src="https://s3.amazonaws.com/assets.wikiwand.com/ads.js"></script>-->
+	<link rel="apple-touch-icon" href="//d3isfnyiuldmfu.cloudfront.net/img/wikiwand_icon_apple.png"/>
+	
+
+	
+
+	
+	<img id="imagePlaceHolder" src="" height="0" width="0" style="opacity:0;position:fixed">
+	<script>
+
+		console.time('time up to showArticleContents');
+		var precache_from_extension = false;
+		if (window.location.hash.indexOf('precache_from_extension=true') > -1) {
+			precache_from_extension = true;
+		}
+		var pageLoadStart = new Date().getTime();
+		var pageHTMLReceived = (new Date()).getTime();
+		var genericData = {
+			debug: {
+				pageLoadedTimestamp: (new Date()).getTime()
+			}
+		};
+		var localContentHtml;
+		var localContentHtmlPartial;
+		var attempts = 0;
+		function tempConditioning(mystring) {
+			//this is to migrate old article contents until we do a database recaching (advance version)
+			//replace old pic-placeholder with one which supports both protocols
+			if (location.protocol == 'https:') {
+				var newstring = mystring.split('http://assets.cdn.wikiwand.com/img/pic-placeholder.gif').join('//d3isfnyiuldmfu.cloudfront.net/img/pic-placeholder.gif');
+			} else {
+				newstring = mystring;
+			}
+			return newstring;
+		}
+
+		function httpGet(theUrl, type) {
+			var xmlHttp = null;
+			xmlHttp = new XMLHttpRequest();
+			xmlHttp.onreadystatechange = function() {
+				if (xmlHttp.readyState == 4) // Finished
+				{
+					if (xmlHttp.status == 200) {
+						if (theUrl.indexOf('_PARTIAL_DOWNLOAD') == -1) {
+							//console.log('got full text');
+							localContentHtml = xmlHttp.responseText;
+						} else {
+							//console.log('got partial text');
+							localContentHtmlPartial = xmlHttp.responseText;
+						}
+					}
+					else {
+						console.log('failed with status ',xmlHttp.status);
+						attempts++;
+						if (attempts < 10 && (theUrl.indexOf('_PARTIAL_DOWNLOAD') == -1)) {
+							console.log("DOWNLOAD FAILED, TRYING AGAIN ", theUrl);
+							if (xmlHttp.status == 0) {
+								if (theUrl.indexOf('s3.amazonaws.com') != -1) {
+									if (attempts==9) {
+
+										setTimeout(function() {
+											var element;
+											if (typeof(noAdblock) == 'undefined') {
+												element = '#adblockNotice';
+											} else {
+												element = '#httpsEverywhereNotice';
+											}
+											if ($(element).length > 0) {
+												console.log(' element exists');
+												$(element).show();
+												$(element).css('opacity', 1);
+												$(element).detach().prependTo('#content');
+											}
+										}, 6000);
+									}
+								}
+								var urlOnS3 = '';
+								urlOnS3 = urlOnS3.replace('http://', '//').replace('https://', '//');
+								urlOnS3 = urlOnS3.replace(/\+/g, '%2B');
+								httpGet(urlOnS3, 'html');
+								httpGet(urlOnS3, 'html');
+							} else {
+								//console.log('status ', xmlHttp);
+								setTimeout(function() {
+									httpGet(theUrl, 'html');
+								}, 500);
+							}
+						}
+					}
+				}
+			};
+			xmlHttp.open("GET", theUrl, true);
+			xmlHttp.send(null);
+		}
+	</script>
+	
+	<script>
+		var loadedFromCache = false;
+	</script>
+	
+
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.13/angular.min.js"></script>
+
+	<!--
+	
+	<link rel="stylesheet" href="//d3isfnyiuldmfu.cloudfront.net/css/fonts.92ff4698.css" type="text/css" media="screen"/>
+	
+	-->
+
+	
+
+	
+	<script> var CURRENT_USER_ID=null; </script>
+	
+
+	 
+
+	
+
+	<link rel="stylesheet" href="//d3isfnyiuldmfu.cloudfront.net/css/wikiwand.early.min.ef22ab1e.css" type="text/css" media="screen"/>
+	<script type="text/javascript" src="//d3isfnyiuldmfu.cloudfront.net/js/wikiwand.early.min.e91777a7.js"></script>
+	
+	
+
+	
+
+	
+
+
+
+	<!-- BEGIN TRACKJS -->
+	<script type="text/javascript">
+		var LOAD_TRACKJS = false;
+		if (LOAD_TRACKJS && !precache_from_extension) {
+			window._trackJs = {
+				token: '9bcd9b3d130a4b8eb9f58ff06e6781b5',
+				callback: {enabled: false},
+				console: {enabled: true, display: true, error: false},
+				network: {enabled: false},
+				visitor: {enabled: false},
+				window: {enabled: false},
+				onError: function(payload, error) {
+
+					// List borrowed from the awesome @pamelafox
+					// https://gist.github.com/pamelafox/1878283
+					var i, commonCrypticExtensionErrors = [
+						"top.GLOBALS",
+						"originalCreateNotification",
+						"canvas.contentDocument",
+						"MyApp_RemoveAllHighlights",
+						"http://tt.epicplay.com",
+						"Can't find variable: ZiteReader",
+						"jigsaw is not defined",
+						"ComboSearch is not defined",
+						"http://loading.retry.widdit.com/",
+						"atomicFindClose",
+						"fb_xd_fragment",
+						"Script error",
+						"__adg_gm_commands_api",
+						"A Chrome Web Store installation is already pending.",
+						"‘-×´]/: Range out of order in character class"
+					];
+					for (i = 0; i < commonCrypticExtensionErrors.length; i++) {
+						if (payload.message.indexOf(commonCrypticExtensionErrors[i]) > -1) {
+							// returning any kind of falsy value will reject error
+							return false;
+						}
+					}
+					return true; // Return any kind of truthy value here to allow transmission of error
+				}
+			};
+			var fileref = document.createElement('script');
+			fileref.setAttribute("type", "text/javascript");
+			fileref.setAttribute("src", "//d2zah9y47r7bi2.cloudfront.net/releases/current/tracker.js");
+			if (typeof fileref != "undefined")    document.getElementsByTagName("head")[0].appendChild(fileref);
+		}
+	</script>
+
+
+
+
+
+	
+	
+
+	
+	<script>
+		// disable all logs
+		if (document.location.search.indexOf('debug_logs=1') == -1) {
+			console.log = function() {};
+			console.time = function() {};
+			console.timeEnd = function() {};
+		}
+	</script>
+
+
+	
+
+	<script>
+		
+		
+			var serverData={"layout":"wikiwand","publisherMonetization":"false","showTOC":"true","settings":{"whitelist":["/en/Kinsey_scale","/en/Mokomokai","/en/Binomial_distribution","/en/Lee_Van_Cleef","/en/Gutter_oil","/en/Yūki_Kaji"],"tests":{"mon_p":{"none":0},"mon_footer":{"recommendations":0,"adsense":0},"mon_footer_b":{"wikipedia":0},"mon_bottom":{"none":100},"mon_ocd":{"msg":0}},"boards":{"percent_see_gen_buttons":100},"msg_to_all_users":{"show":false,"text":"Due to a global Amazon S3 outage, article load times may be longer than usual.<BR>In the meantime, you can use the toolbar to skip to Wikipedia. We appreciate your patience."},"pw":false,"redirect_all_users":"no"},"agent":{"string":"ia_archiver","ua":{"family":"Other","major":null,"minor":null,"patch":null},"userAgent":{"family":"Other","major":null,"minor":null,"patch":null},"os":{"family":"Other","major":null,"minor":null,"patch":null,"patchMinor":null},"device":{"family":"Spider"},"family":"Other","isMobileRes":false,"extensionInstalled":false,"fromSearchWidget":false,"isBot":false,"isHuman":false},"config":{"environment":"production","features":{"news":false,"map":true,"toc":true,"gallery":true,"partials":true,"apiCache":true,"invites":false,"articlePromo":true,"classification":false,"moduleYouTubeVideo":false,"webSocket":false,"snippet":true,"userManagement":true,"comments":false,"reportBoardActions":true,"paywall":false,"boards":false,"comparisons":false}}};
+		
+		
+		
+
+		
+			var articleData={langCodeUrl:'en'};
+		
+
+	</script>
+	<script>
+		if (location.host=='translate.googleusercontent.com' && location.search){
+
+			var requestedLang=location.search.split('tl=')[1];
+			if (requestedLang) {
+				requestedLang = requestedLang.split('&')[0];
+				var desiredLink = articleData.links.selfRead.replace('http://', 'https://');
+				for (idx in articleData.availableLanguages) {
+					var lang = articleData.availableLanguages[idx];
+					if (lang.langCodeURL == requestedLang) {
+						desiredLink = 'https://www.wikiwand.com' + lang.articleLink;
+						break;
+					}
+				}
+				window.location = desiredLink;
+				var dontReport=true;
+			}
+		}
+	</script>
+
+	<title>Privacy Policy - Wikiwand</title>
+
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:site" content="@wikiwand">
+	<meta name="twitter:app:name:iphone" content="Wikiwand">
+	<meta name="twitter:app:name:ipad" content="Wikiwand">
+	<meta name="twitter:app:id:iphone" content="947444965" />
+	<meta name="twitter:app:id:ipad" content="947444965" />
+	
+	<meta name="apple-itunes-app" content="app-id=947444965"/>
+	
+	<meta property="al:ios:url" content="wikiwand://applinks" />
+	<meta property="al:ios:app_store_id" content="947444965" />
+	<meta property="al:ios:app_name" content="Wikiwand" />
+	<meta property="fb:app_id" content="823404911083396" />
+
+	<meta name="robots" content="index,follow" />
+
+	
+		<meta property="og:type" content="article" />
+		<meta property="og:site_name" content="Wikiwand" />
+		<meta property="og:url" content="http://www.wikiwand.com/privacy" />
+
+		<meta property="og:title" content="Wikiwand Privacy Policy" />
+		<meta property="twitter:title" content="Wikiwand Privacy Policy" />
+
+		<meta property="og:description" content="" />
+		<meta name="description" content="" />
+		<meta name="twitter:description" content="" />
+		
+		<meta property="og:image" content="//d3isfnyiuldmfu.cloudfront.net/img/wikiwand_icon.png" />
+		<meta property="twitter:image:src" content="//d3isfnyiuldmfu.cloudfront.net/img/wikiwand_icon.png" />
+		
+
+		
+	
+
+    
+
+</head>
+
+
+<body class="bsp1 lg_latin serif light medium_txt bsp2 lang_en bsp3"
+	ng-class="$root.userBodyStyle" ng-controller="ShellController"
+
+	ng-init="initializeShellController()">
+
+
+
+
+
+	<div id="body_wrapp"
+		ng-click="clickedOutside()" ng-mousedown="clickedAnywhere($event)">
+
+	
+<div ng-cloak ng-if="precache_from_extension">For faster navigation, this Iframe is preloading the Wikiwand page for <b></b>.
+
+</div>
+
+<nav ng-if="!hideToolbar"
+	ng-cloak ng-hide="$root.serverData.agent.iOSWebView"
+	ng-class="{active:!$root.tocShow}"
+	ng-controller='ToolbarController' id="header"
+	class=" wide  unselectable"
+	>
+		<ul id="main_menu" ng-class="{ios_focus: $root.iosFocus}" class="menu  navbar_opaque ">
+			
+			<li class="article_btn " ng-class="{active:showWikiwandMenu, gone: searchFocus}" ng-click="toggleWikiwandMenu($event); $root.userClick(showWikiwandMenu, 'toolbar-mainmenu');" >
+				<img class="logo_img unselectable" src="//d3isfnyiuldmfu.cloudfront.net/img/logo_new.svg?h=1e5c92df6d73fff6c28e1983e177de13" alt="wikiwand logo"/>
+				<img class="hide logo_w unselectable" src="//d3isfnyiuldmfu.cloudfront.net/img/w.svg?h=7f5c0aee0bcbfa8d70bf8c4f1172d30c" alt="wikiwand w"/>
+				<i></i>
+				<div class="drop_down" ng-show="showWikiwandMenu" ng-click="clickedInside($event)">
+
+					<ul id="feadback_list" ng-show="!showUserVoice && !showCoverReport">
+						<li><a href="/"><i class="home_icon"></i>Home</a></li>
+						<li><a href="/news"><i class="news_icon"></i>News</a></li>
+
+						
+						<li><a href="/random/en"><i class="random_icon"></i>Random Article</a></li>
+						
+
+						<li ng-if="!activation.extensionInstalled"><a href="#" ng-click="$root.showInstall = true" onclick="event.preventDefault();"><i class="install_icon"></i>Install Wikiwand</a></li>
+						<li><a href="#" ng-click="$root.showFollow = true; loadGplusScript()" onclick="event.preventDefault();"><i class="follow_icon"></i>Follow Us</a></li>
+
+						<!--<li><a href="http://wikiwand.uservoice.com" target="_blank"><i class="support_icon"></i>Support</a></li>-->
+						<!---->
+						<!--<!<li><a href="javascript:void(0);" ng-click="showUserVoice=true; openUserVoiceDialog()" onclick="event.preventDefault()"><i class="report_icon"></i>Report a problem</a></li>-->
+
+						<li><a ng-click="closeAllMenus()" href="http://wikiwand.uservoice.com/forums/247843-wikiwand-website-extensions" target="_blank"><i class="idea_icon"></i>Send a suggestion</a></li>
+						<li ng-if="activation.extensionInstalled"><a href="/extension/uninstall/menu" target="_blank"><i class="uninstall_icon"></i>Uninstall Wikiwand</a></li>
+
+						<!--<li ng-if="$root.activation.showSwitchToWikipedia"><a href="javascript:void(0);" ng-click="closeAllMenus(); $root.walkthroughs['switch_to_wp'].showWalkthrough=true;" onclick="event.preventDefault()"><i class="wiki_icon"></i>Switch to Wikipedia</a></li>-->
+						<!--<li ng-if="!$root.activation.showSwitchToWikipedia"><a href="javascript:void(0);" ng-click="closeAllMenus()" ng-href="{{::articleData.links.wikipediaRead }}" target="_blank"><i class="wiki_icon"></i>Switch to Wikipedia</a></li>-->
+
+					</ul>
+
+					<div id="user_voice_wrapper" ng-show="showUserVoice">
+
+					</div>
+
+
+					<div id="cover_report" ng-show="showCoverReport">
+						<article ng-cloak ng-show="$root.showReportCoverImageText1">
+							<h3>Our magic isn't perfect</h3>
+							<p>You can help our automatic cover photo selection by reporting an unsuitable photo.</p>
+							<div ng-click="$root.reportImage($event,'disturbing',articleData.mainImage.full.originalUrl)">The cover is visually disturbing</div>
+							<div ng-click="$root.reportImage($event,'irrelevant',articleData.mainImage.full.originalUrl)">The cover is not a good choice</div>
+						</article>
+
+						<article ng-cloak ng-show="$root.showReportCoverImageText2">
+							<h4>Thank you for helping!</h4>
+							<br>
+							<p>Your input will affect cover photo selection, along with input from other users.<br>
+						</article>
+
+					</div>
+
+					<div id="feadback_back" ng-show="showUserVoice || showCoverReport" ng-click="showUserVoice=false;showCoverReport=false;$root.showReportCoverImageText1=true;$root.showReportCoverImageText2=false;">&#60; back</div>
+
+
+				</div>
+
+			</li>
+
+
+			<li class="search_btn menu-tooltip"  title="Search" ng-click="$root.openSearch('open'); $root.userClick(true, 'toolbar-search');">
+				<i></i>
+			</li>
+
+
+
+			
+
+			<!--
+			<li class="find_btn menu-tooltip" title="Find in article" ng-class="{active: showFindMenu}">
+				<i></i>
+			</li>
+			-->
+
+			
+
+
+
+
+			<li class="share_btn  menu-tooltip" ng-class="{active:showShareMenu, gone: searchFocus}" ng-click="toggleShareMenu($event); $root.userClick(showShareMenu, 'toolbar-share');"  title="Share">
+				<i></i>
+				<div class="drop_down menu_share" id="share_drop_down" ng-show="showShareMenu" ng-click="clickedInside($event)">
+					<ul class="share_links">
+						<li class="share-facebook"><a class="hover" href="#" target="_blank" ng-click="$root.userClick(showShareMenu, 'toolbar-share-facebook');"></a></li>
+						<li class="share-gplus"><a class="hover" href="#" target="_blank" ng-click="$root.userClick(showShareMenu, 'toolbar-share-gplus');"></a></li>
+						<!--<li class="share-reddit"><a class="hover" href="#" target="_blank" ng-click="$root.userClick(showShareMenu, 'toolbar-share-reddit');"></a></li>-->
+						<li class="share-twitter"><a class="hover" href="#" target="_blank" ng-click="$root.userClick(showShareMenu, 'toolbar-share-twitter');"></a></li>
+						<li class="share-gmail"><a class="hover" href="#" target="_blank" ng-click="$root.userClick(showShareMenu, 'toolbar-share-gmail');"></a></li>
+					</ul>
+				</div>
+			</li>
+
+
+
+
+			<li class="feedback_btn  menu-tooltip" ng-class="{active:showFeedbackMenu, gone: searchFocus}" ng-click="toggleFeedbackMenu($event); $root.userClick(showFeedbackMenu, 'toolbar-report');" title="Wikipedia Tools">
+				<i></i>
+				<ul class="drop_down menu_feedback" id="feedback_drop_down" ng-show="showFeedbackMenu" >
+					<li class="wikipedia_list"><a ng-href="{{::articleData.links.wikipediaRead }}" target="_blank"><i class="read_w_icon"></i>Read On Wikipedia</a></li>
+					<li class="wikipedia_list"><a ng-href="{{::articleData.links.wikipediaEdit }}" target="_blank"><i class="edit_w_icon"></i>Edit</a></li>
+					<li class="wikipedia_list"><a ng-href="{{::articleData.links.wikipediaHistory }}" target="_blank"><i class="history_w_icon"></i>History</a></li>
+					<li class="wikipedia_list"><a ng-href="{{::articleData.links.wikipediaTalk }}" target="_blank"><i class="talk_w_icon"></i>Talk Page</a></li>
+					<li class="wikipedia_list"><a ng-href="{{::articleData.links.wikipediaPrint }}" target="_blank"><i class="print_w_icon"></i>Print</a></li>
+					<li class="wikipedia_list"><a ng-href="{{::articleData.links.wikipediaDownload }}" target="_blank"><i class="download_w_icon"></i>Download PDF</a></li>
+					<!--<li class="wikipedia_list"><a ng-href="https://en.wikipedia.org/wiki/Special:Watchlist" target="_blank"><i class="watch_icon"></i>Your Watchlist</a></li>-->
+					<!--<li class="wikipedia_list"><a ng-href="https://{{::articleData.langCodeUrl }}.wikipedia.org" target="_blank"><i class="home_icon"></i>Wikipedia Home Page</a></li>-->
+				</ul>
+			</li>
+
+
+			
+			<li class="bookmark_btn  menu-tooltip" ng-class="{active:$root.showBookmarkFeed, gone: searchFocus}" ng-click="toggleBookmarkFeed($event); $root.userClick($root.showBookmarkFeed, 'toolbar-report');" title="My Bookmarks">
+				<i></i>
+				<span ng-if="$root.bookmarkCount === 0" style="font-size: 14px">+</span>
+				<span ng-if="$root.bookmarkCount < 10 && $root.bookmarkCount !== 0">{{$root.bookmarkCount}}</span>
+				<span ng-if="$root.bookmarkCount >= 10" class="two">9+</span>
+			</li>
+			
+
+
+
+
+
+			<span class="menu_line"></span>
+
+
+			
+
+
+
+
+<li  ng-cloak
+	class="upgrade_btn menu-tooltip {{::$root.activation.nextAction}}"
+	title="{{::$root.activation.tooltip}}"
+	ng-if="$root.activation.nextAction != ''"
+	ng-class="{active: hover}"
+	ng-mouseenter="hover = true; $root.extensionPopup('enter');" ng-mouseleave="hover = false; $root.extensionPopup('leave');"
+	ng-click="$root.reportClick('toolbar');$root.activationButtonClicked();  $root.extensionPopup('click');">
+
+	<span ng-if="$root.activation.nextAction != 'activation_share'" class="upgrade_txt">{{::$root.activation.text}}</span>
+	<span ng-if="$root.activation.nextAction == 'activation_share'" class="upgrade_txt">{{::$root.activation.toolbarText}}</span>
+	<i>
+		
+	</i>
+
+</li>
+<!--
+<a href="javascript:void(0);" ng-cloak ng-class="{active: hover}"
+	ng-mouseenter="hover = true"  ng-mouseleave="hover = false"
+	ng-click="activationButtonClicked();" class="upgrade_button activation_button_toolbar small {{::activation.action}}" >
+	<span>{{activation.text}}</span><i></i>
+</a>
+-->
+
+		</ul>
+
+
+
+
+	</nav>
+
+
+
+
+
+
+
+<!--*************************** content  *************************-->
+<div id="content" ng-class="{limit: $root.limitPage, active:!$root.tocShow}" class=" wide  small_image">
+
+
+	<!--************ news Article section ************-->
+	
+
+
+	
+
+	
+	
+
+	<!--************ main_image ************-->
+		
+	<!--************ main_image ENDS ************-->
+	
+	
+
+	
+
+
+	<section class="center_column">
+			<h1>Privacy Policy</h1>
+
+	        
+<p dir=LTR style='text-align:justify;
+direction:ltr;unicode-bidi:embed'><span style=''>Wikiwand
+provides an Internet site and mobile application with a modern interface that optimizes the content
+available on Wikipedia (</span><a target="_blank" href="http://www.wikipedia.org"><span
+	style='text-decoration:
+none'>www.wikipedia.org</span></a><span style=''>)
+for a quicker and significantly improved reading experience (the “<b>Site</b>”).
+Wikiwand respects</span><span style=''> your
+right to privacy. Your ability to make informed choices about the uses of your
+information is important to us. This privacy policy details how we collect, use
+and store information and data that we receive. </span><span>If you have any comments or questions about our privacy
+policies, please contact us at privacy@wikiwand.com</span><span
+	style=''>.</span></p>
+
+<p dir=LTR style='text-align:justify;
+direction:ltr;unicode-bidi:embed'><span style=''>As
+used in this privacy policy, “<b>Personal Information</b>” means information
+that can be directly associated with a specific person or entity such as a
+name, address, telephone number, or e-mail address. Other terms capitalized but
+not defined in this Privacy Policy shall have the meaning set forth in our
+Terms of Service, a current version of which is available at <a
+		href="http://www.wikiwand.com/terms" target="_blank">http://www.wikiwand.com/terms</a> (the “<b>Terms</b>”).</span></p>
+
+
+
+
+<br/>
+<p dir=LTR style='text-align:justify;
+direction:ltr;unicode-bidi:embed'><b><span style=''>Information
+We Collect </span></b></p>
+
+<p dir=LTR style='text-align:justify;
+direction:ltr;unicode-bidi:embed'><span style=''>In
+order to use the Site, you may be prompted to log in through a social network
+or provide specified information. If you log in through a social network, such
+as Facebook, we will receive such Personal Information about you as is provided
+by such social network. Please check the policies of such social network in
+order to understand what information we receive. If you create an account with
+us, we receive and store all information that you provide in the creation of
+the account. </span></p>
+
+<p dir=LTR style='text-align:justify;
+direction:ltr;unicode-bidi:embed'><span style=''>We
+also collect information when you make use of the Site, including your browsing
+history. </span><span style=''>The Site will also
+record certain information automatically, such as your IP address, mobile
+device or computer, operating system and browser. In addition, we collect any
+information you provide when you contact us for any reason. </span><span
+	style=''>You are not required by law to
+provide us with any such information, but by using the Site and agreeing to the
+Terms you agree to provide us with such information.</span></p>
+
+<p dir=LTR style='text-align:justify;
+direction:ltr;unicode-bidi:embed'><span style=''>We
+may use services such as Google Analytics or other analytics services that
+provides us with analysis of the use of our Site.</span></p>
+
+
+<br/>
+<p dir=LTR style='text-align:justify;
+direction:ltr;unicode-bidi:embed'><b><span style=''>How
+We Use Information</span></b></p>
+
+<p dir=LTR style='text-align:justify;
+direction:ltr;unicode-bidi:embed'><span style=''>We
+will not share your Personal Information with third parties without your
+explicit permission, except when required by law, regulation, subpoena or court
+order or as otherwise expressly set forth herein. We may use Personal
+Information and other information internally – for example, to help diagnose
+problems with our servers, and to make the Site more useful for you and for our
+other customers. </span></p>
+
+<p dir=LTR style='text-align:justify;
+direction:ltr;unicode-bidi:embed'><span style=''>By
+analyzing all information we receive, we may compile statistical information
+across a variety of users (“<b>Statistical Information</b>”).<b> </b>Statistical
+Information helps understand trends and customer needs so that new services can
+be considered and so the Site and associated services can be tailored to
+customer desires. We may share Statistical Information with our partners,
+pursuant to commercial terms that we determine in our sole discretion. In
+addition, we may provide any information to third parties, so long as we have
+removed any information that identifies any specific individual or user, such
+as a name, address or contact information</span><span style=''>.</span></p>
+
+
+
+
+
+<br/>
+<p dir=LTR style='text-align:justify;
+direction:ltr;unicode-bidi:embed'><b><span style='
+letter-spacing:-.55pt'>How we Protect Information</span></b></p>
+
+<p dir=LTR style='text-align:justify;
+direction:ltr;unicode-bidi:embed'><span style=''>We
+follow generally accepted industry standards to protect the Personal
+Information submitted to us, both during transmission and once we receive it.
+However, no method of transmission over the Internet, or method of electronic
+storage is 100% secure. Therefore, while we strive to use commercially acceptable
+means to protect your Personal Information, we cannot guarantee its absolute
+security.</span></p>
+
+<p dir=LTR style='text-align:justify;
+direction:ltr;unicode-bidi:embed'><span style=''>We
+will delete any Personal Information provided to us by a user upon the receipt
+of a written request by such user. We cannot restore information once it has
+been deleted.</span></p>
+
+
+
+<br/>
+<p dir=LTR style='text-align:justify;
+direction:ltr;unicode-bidi:embed'><b><span style=''>Cookies
+</span></b></p>
+
+<p dir=LTR style='text-align:justify;
+direction:ltr;unicode-bidi:embed'><span style=''>A
+cookie is a small piece of text that is sent to a visitor's browser. The
+browser provides this piece of text to the device of the originating visitor
+when this visitor returns. A “persistent” cookie may be used to help save your
+settings and customizations across visits. Most Web browsers are initially
+configured to accept cookies, but you can change this setting so your browser
+either refuses all cookies or informs you when a cookie is being sent. Also,
+you are free to delete any existing cookies at any time. Please note that some
+features of the Site may not function properly when cookies are disabled or
+removed.</span></p>
+
+
+
+
+<br/>
+<p dir=LTR style='text-align:justify;
+direction:ltr;unicode-bidi:embed'><b><span style=''>Third
+Party Sites and Services </span></b></p>
+
+<p dir=LTR style='text-align:justify;
+direction:ltr;unicode-bidi:embed'><span style=''>We
+are not responsible for the use of any data by third parties, and we cannot
+vouch for the privacy policies of any third party. T</span><span
+	style=''>he Site may link to or use web sites
+or services belonging to third parties. We have no control over third-party
+sites or services, and all use of third-party sites or services is at your own
+risk. We cannot accept responsibility for the privacy policies of any such
+sites. We are not responsible for content available by means of such sites or services.
+We do not endorse any services or offered by third parties and we urge our
+users to exercise caution in using third-party sites or services.  When we
+provide information to third parties, we remove any information that identifies
+any particular individual or user, such as a name, address or contact
+information, but we cannot provide complete assurance that the recipient will
+not be able to associate such de-identified information with a particular
+individual.
+<br><br>
+
+The Site may contain links to third party content provided or sponsored by Outbrain.
+Please see the privacy policy of such third party content provider,
+available at <a target="_blank"  href="http://www.outbrain.com/privacy">http://www.outbrain.com/privacy</a>
+in order to understand how it collects, uses and stores your data.
+
+</span></p>
+
+
+<br/>
+<p dir=LTR style='text-align:justify;
+direction:ltr;unicode-bidi:embed'><b><span style=''>Children</span></b></p>
+
+<p dir=LTR style='text-align:justify;
+direction:ltr;unicode-bidi:embed'><span style=''>We
+do not knowingly collect Personal Information from children under the age of
+14. In the event you become aware that an individual under the age of 14 has
+enrolled without parental permission, please advise us immediately.</span></p>
+
+
+<br/>
+<p align=left dir=LTR style='text-align:left;
+direction:ltr;unicode-bidi:embed'><b><span style='
+'>Other Uses or Transfer of Your Information</span></b></p>
+
+<p dir=LTR style='text-align:justify;
+direction:ltr;unicode-bidi:embed'><span style='
+'>We will fully cooperate with any law enforcement authorities or
+court order requesting or directing us to disclose the identity or behavior of
+any user suspected to have engaged in illegal behavior. </span></p>
+
+<p dir=LTR style='text-align:justify;direction:ltr;unicode-bidi:
+embed'><span style=''>We may use
+subcontractors that are located in countries other than your own, and send them
+information we receive. For example, we may send your information to any
+countries outside the United States, Canada or the European Union. All our
+subcontractors will be subject to non-disclosure and non-use obligations.
+Nevertheless, some countries may have levels of protection of personal and
+other information which are not as high as in your country of residence or
+business.</span></p>
+
+<p dir=LTR style='text-align:justify;
+direction:ltr;unicode-bidi:embed'><span style='
+'>We may transfer our databases containing information if we sell
+our business or part of it.</span></p>
+
+
+<br/>
+<p dir=LTR style='text-align:justify;
+direction:ltr;unicode-bidi:embed'><b><span style=''>Changes</span></b></p>
+
+<p dir=LTR style='text-align:justify;
+direction:ltr;unicode-bidi:embed'><span style=''>We
+may update this privacy policy from time to time, and we encourage you to
+review it periodically.</span></p>
+
+
+
+<br/>
+<p align=left dir=LTR style='margin-right:5.3pt;text-align:
+left;background:white;direction:ltr;unicode-bidi:embed'><b><span
+	style='letter-spacing:-.55pt'>Comments and Questions</span></b></p>
+
+<p align=left dir=LTR style='text-align:left;
+direction:ltr;unicode-bidi:embed'><span style=''>If
+you have any comments or questions about our privacy policy, please contact us
+at privacy@wikiwand.com.</span></p>
+
+
+
+
+<br/>
+<p dir=LTR style='text-align:justify;
+direction:ltr;unicode-bidi:embed'><i><span style=''>Last
+updated: January 2015</span></i></p>
+
+
+
+	</section>
+
+
+
+
+
+
+		
+
+
+
+
+	
+
+
+			<!--************ wikiwand_footer ************-->
+			<footer class="wikiwand_footer" ng-cloak ng-show="$root.showArticleContents || !articleData.pageIsArticle">
+
+
+				
+				<div ng-if="$root.activation.nextAction != ''">
+
+					<!-- touch devices footer share -->
+					<div ng-if="$root.touchDevice"  class="mobile_share">
+						<div class="footer_icon"></div>
+						<div class="h2">Enjoying Wikiwand?</div>
+						<div ng-cloak ng-if="!activation.extensionInstalled" class="h3">Give good old Wikipedia a great new look:</div>
+						
+
+<a href="javascript:void(0);" ng-cloak
+	ng-class="{active: btnHover}"
+	ng-mouseenter="$root.activationHover('enter')" ng-mouseleave="$root.activationHover('leave')"
+	ng-click="$root.reportClick('footer');$root.activationButtonClicked(''); $root.extensionPopup('click');" class="upgrade_button {{::$root.activation.nextAction}}" >
+	<span>{{::$root.activation.text}}</span><i></i>
+</a>
+
+					</div>
+
+					<!-- desktop upsale -->
+					<div ng-if="!$root.touchDevice" class="desktop_upsale">
+
+						<!-- desktop: rate -->
+						<div ng-if="$root.activation.extensionInstalled && $root.activation.nextAction == 'activation_rate'">
+							<div class="footer_icon"></div>
+							<div class="h2">Enjoying Wikiwand?</div>
+							
+
+<a href="javascript:void(0);" ng-cloak
+	ng-class="{active: btnHover}"
+	ng-mouseenter="$root.activationHover('enter')" ng-mouseleave="$root.activationHover('leave')"
+	ng-click="$root.reportClick('footer');$root.activationButtonClicked(''); $root.extensionPopup('click');" class="upgrade_button {{::$root.activation.nextAction}}" >
+	<span>{{::$root.activation.text}}</span><i></i>
+</a>
+
+							<div class="stars" ng-bind-html="activation.ratedText"></div>
+						</div>
+						<!-- desktop: share -->
+						<div ng-if="$root.activation.extensionInstalled && $root.activation.nextAction == 'activation_share'">
+							<div class="footer_invite_wrapper" class="hide_before_angular">
+								<div class="invite_box footer_invite_box active anim">
+									
+									<h4>Tell your friends about Wikiwand!</h4>
+
+<a style="background-color:#bb0000" target="_blank" ng-click="$root.pressedTellAFriendLink('gmail','footer')" href="http://mail.google.com/mail/?view=cm&fs=1&tf=1&to=&su=Have you seen Wikiwand%3F&body=Check out Wikiwand - it's an awesome new interface for Wikipedia:%0Ahttp://www.wikiwand.com/{{::$root.refString}}%0AGive it a try, you'll thank me later :)"><i style="background-position: 0 -96px"></i> Gmail</a>
+
+<a style="background-color:#3B5999" target="_blank" ng-click="$root.pressedTellAFriendLink('facebook','footer')" target="_blank" href="http://www.facebook.com/sharer.php?u=http://www.wikiwand.com/{{::$root.refString}}"><i style="background-position: -120px -96px"></i> Facebook</a>
+
+<a style="background-color:#0084b4" target="_blank" ng-click="$root.pressedTellAFriendLink('twitter','footer')" target="_blank" href="http://twitter.com/share?text=Wikiwand gives good old Wikipedia a great new look - check it out:&hashtags=wikipedia,ux,design&url=http://www.wikiwand.com/{{::$root.refString}}&related=wikiwand"><i style="background-position: -150px -96px"></i> Twitter</a>
+
+<a class="link" ng-click="$root.pressedTellAFriendLink('link','footer')" ng-class="{wide: wideLink}"  style="background-color:#615a5f" href="javascript:void(0);"><i style="background-position: -90px -97px"></i><input type="text" value="http://www.wikiwand.com/" ng-focus="wideLink = true" ng-blur="wideLink = false" onClick="this.setSelectionRange(0, this.value.length)"/> Link</a>
+
+
+	<br><br>
+
+
+								</div>
+							</div>
+						</div>
+						<!-- desktop: install -->
+						<div ng-if="!$root.activation.extensionInstalled && $root.activation.nextAction == 'activation_install'">
+							<div class="footer_icon"></div>
+							<div class="h2">Enjoying Wikiwand?</div>
+							<div class="h3">Give good old Wikipedia a great new look:</div>
+							
+
+<a href="javascript:void(0);" ng-cloak
+	ng-class="{active: btnHover}"
+	ng-mouseenter="$root.activationHover('enter')" ng-mouseleave="$root.activationHover('leave')"
+	ng-click="$root.reportClick('footer');$root.activationButtonClicked(''); $root.extensionPopup('click');" class="upgrade_button {{::$root.activation.nextAction}}" >
+	<span>{{::$root.activation.text}}</span><i></i>
+</a>
+
+						</div>
+
+					</div>
+				</div>
+				
+
+
+
+				<ul class="social_links" ng-show="(!activation.extensionInstalled || activation.nextAction != 'activation_share') && !$root.showContentRecommendations">
+					<li class="facebook"><a class="hover" href="https://www.facebook.com/wikiwandapp" target="_blank"></a></li>
+					<li class="twitter"><a class="hover" href="https://twitter.com/wikiwand" target="_blank"></a></li>
+					<li class="gplus"><a class="hover" href="https://plus.google.com/+Wikiwand" target="_blank"></a></li>
+					<li class="linkedin"><a class="hover" href="http://www.linkedin.com/company/wikiwand" target="_blank"></a></li>
+				</ul>
+
+
+				<ul class="footer_links">
+					<li><a href="/">Home</a></li>
+					<li><a href="/about">About</a></li>
+					<li><a href="/press">Press</a></li>
+					<li><a href="/sitemap">Site Map</a></li>
+					<li><a href="/terms">Terms Of Service</a></li>
+					<li><a href="/privacy">Privacy Policy</a></li>
+					<!--<li style="font-weight: 400"><a href="javascript:void(0);" ng-mouseenter="loadUserVoice()"  data-uv-trigger="contact">Send Feedback</a></li>-->
+				</ul>
+			</footer>
+			<!--************ wikiwand_footer ENDS ************-->
+
+
+
+		</div>
+		<!--**************************** content ENDS *****************************-->
+		
+
+
+		<!--************ gallery & lang  ************-->
+		
+
+		<!--************ TOC  ************-->
+		
+			
+		
+		
+
+
+<!--*************************** search  *************************-->
+
+
+
+<!--*************************** search  *************************-->
+<div ng-cloak id="wikiwand_search" ng-init="initSearch()" ng-controller="ArticleSearchControllerRev2" ng-show="$root.showSearch">
+	<div class="bg darkBlack" ng-click="$root.openSearch('close')"></div>
+
+
+	<div id="search_list" ng-class="{on: search.query.length}">
+
+		<input id="queryinput" autocomplete="off" class="toolbar-search" type="text" ng-class="{selectedResult: noSelection, loading:waiting}"
+			ng-model="search.query" ng-keyup="testKeyboard($event)" placeholder="Search"/>
+
+		<div id="articleSearch"  ng-show="search.query.length">
+
+			<ul class="results-container"  ng-show="search.results.length">
+				<li class='searchResult'  ng-repeat="result in search.results" ng-click='resultClicked($event,"{{result.linkEncoded}}");'
+					desc-attr="{{result.desc}}" id='result_{{$index}}'  ng-class="{selectedResult:result.selected, rtl: result.rtl}">
+					<span class="thumbicon" ng-style="{'background-image' :result.backgroundImageSring}"></span>
+					<span ng-if="result.firstInlang" class='langtag'><i>{{result.lang}}</i></span>
+					<span class='value'>{{result.T}}</span>
+					<div class='suggestion-type-icon {{result.c}}'></div>
+				</li>
+			</ul>
+
+			<div id="no_results" ng-if="noResults && search.query && !waiting">
+				No matching articles found
+			</div>
+			<a ng-show="search.query && !waiting" class='searchResult containing' href="/en/{{search.query}}?fullSearch=true"
+				ng-class="{selectedResult:fullSearch}">
+
+				<span class='value'>Search for articles containing: <i>{{search.query}}</i></span>
+			</a>
+		</div>
+		<img src="//d3isfnyiuldmfu.cloudfront.net/img/search_ctrl.svg?h=d6f97027b3a0484c7d30c4936ecdbae8"  ng-if="!$root.touchDevices" id="search-hint" style="display: block; margin: 20px auto"/>
+
+	</div>
+
+
+
+
+	<div id="search_description">
+
+	</div>
+
+</div>
+<!--*************************** search ENDS *************************-->
+
+<!--*************************** search ENDS *************************-->
+
+<popups ng-if="$root.loadVariousPopups" ng-include="'/api/various_popups'"></popups>
+<!--************ follow dialog ************-->
+
+
+	
+
+
+	
+
+
+	</div>
+<div id="error_message" style="display:none;width:500px;padding: 20px;margin: 30vh auto;font-size:16px;text-align:center;">
+<h1>Oh no, there's been an error</h1>
+Please help us solve this error by emailing us at <a href="http://mail.google.com/mail/?view=cm&fs=1&tf=1&to=support@wikiwand.com&su=Encountered an error on Wikiwand" target='_blank'>support@wikiwand.com</a><br>
+Let us know what you've done that caused this error, what browser you're using, and whether you have any special extensions/add-ons installed.<br>
+Thank you!
+</div>
+</body>
+
+
+
+</html>
+
+
+

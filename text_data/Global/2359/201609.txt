@@ -1,0 +1,1048 @@
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var base_url = "/";	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Give us Feedback...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			{"parsetags": "explicit"}
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+					window.fbAsyncInit = function() {
+						FB.init({
+							appId      : '210260349052001',
+							status     : true,
+							cookie     : true,
+							xfbml      : true,
+							oauth			 : true
+						});
+
+					function updateButton(response) {
+					    button       =   document.getElementById('fb-auth');
+
+					    if (response.authResponse) {
+						//user is already logged in and connected
+						FB.api('/me', function(info) {
+						    document.cookie="firstlogin=1;expires=0;path=/";
+						    login(response, info);
+						});
+
+                button.onclick = function() {
+                    FB.logout(function(response) {
+                        logout(response);
+                    });
+                };
+            } else {
+                //user is not connected to your app or logged out
+                button.innerHTML = '<img src="/images/fb_login.jpg" />';
+                button.onclick = function() {
+                    FB.login(function(response) {
+                        if (response.authResponse) {
+                            FB.api('/me', function(info) {
+                                login(response, info);
+                            });
+                        } else {
+                            //user cancelled login or did not grant authorization
+                        }
+                    }, {scope:'email'});
+                }
+            }
+					}
+
+					// run once with current status and whenever the status changes
+					FB.getLoginStatus(updateButton);
+					FB.Event.subscribe('auth.statusChange', updateButton);
+				};
+
+				(function() {
+        var e = document.createElement('script'); e.async = true;
+        e.src = document.location.protocol
+            + '//connect.facebook.net/en_US/all.js';
+        document.getElementById('fb-root').appendChild(e);
+				}());
+
+				function login(response, info){
+					if (response.authResponse) {
+						var accessToken =   response.authResponse.accessToken;
+						//alert(info.email);
+						//return false;
+						$.post("/login/fb",{emailid:info.email,firstname:info.first_name,lastname:info.last_name,gender:info.gender,fbid:info.id},function(data){
+						//$.post("/login/fb",{emailid:'chetan_tank2002@yahoo.co.in',firstname:'chetan',lastname:'tank',gender:info.gender,fbid:info.id},function(data){
+								//$('#dvlogin').html(loginhtml);
+								$("#register").html("");
+								if(getCookie('firstlogin')==1)
+								{
+									
+									location.reload(true);
+								}else{
+									$.get('/login/isloggedin',function(result) {
+										if(result!=0)
+										{
+											var displayname = unescape(getCookie('displayname')) ? unescape(getCookie('displayname')) : result;
+
+											var loginhtml = "<input type='hidden' id='loggedInUser' name='loggedInUser' value='1' /><div class='ifr iht20 imt8 iw_fff' ><b>" + 'Welcome ' + displayname + "</b> &nbsp; </div>";
+
+											$('#dvlogin').html(loginhtml);
+											button.innerHTML = '<img src="/images/fb_logout.jpg" />';
+										}
+									});
+								}
+						});
+
+						button.innerHTML = '<img src="/images/fb_logout.jpg" />';
+					}
+				}
+
+				function logout(response){
+					window.location = "/login/logout";
+				}
+
+				
+
+
+
+
+
+
+
+
+
+
+
+jQuery(document).ready(function(){
+	gapi.plusone.go();
+});
+
+ 
+
+
+
+
+
+
+if (document.referrer.match(/google\.com/gi) && document.referrer.match(/cd/gi)) {
+	var myString = document.referrer;
+	var r        = myString.match(/cd=(.*?)&/);
+	var rank     = parseInt(r[1]);
+	var kw       = myString.match(/q=(.*?)&/);
+	
+	if (kw[1].length > 0) {
+		var keyWord  = decodeURI(kw[1]);
+	} else {
+	    keyWord = "(not provided)";
+	}
+
+	var p        = document.location.pathname;
+
+  _gaq.push(['_trackEvent', 'RankTracker', keyWord, p, rank, true]);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	jQuery(function(){
+		//jQuery(".megamenu").megamenu();
+		$('.mrmenu').mouseover(function(){
+			$(this).find('a').addClass('selected');
+			$('.mrmenulist').show();
+
+		}).mouseout(function(){
+			$(this).find('a').removeClass('selected');
+			$('.mrmenulist').hide();
+
+		});
+		$('#listmenu').mouseover(function(){
+			$('.mrmenu').find('a').addClass('selected');
+			$('.mrmenulist').show();
+
+		}).mouseout(function(){
+			$('.mrmenu').find('a').removeClass('selected');
+			$('.mrmenulist').hide();
+
+		});
+		jQuery('.moviesmenu').mouseover(function(){
+			jQuery(this).find('a').addClass('selected');
+			jQuery('.moviesmenulist').show();
+
+		}).mouseout(function(){
+			jQuery(this).find('a').removeClass('selected');
+			jQuery('.moviesmenulist').hide();
+
+		});
+		$('#mvlistmenu').mouseover(function(){
+			$('.moviesmenu').find('a').addClass('selected');
+			$('.moviesmenulist').show();
+
+		}).mouseout(function(){
+			$('.moviesmenu').find('a').removeClass('selected');
+			$('.moviesmenulist').hide();
+
+		});
+		$('.celebsmenu').mouseover(function(){
+			$(this).find('a').addClass('selected');
+			$('.celebsmenulist').show();
+
+		}).mouseout(function(){
+			$(this).find('a').removeClass('selected');
+			$('.celebsmenulist').hide();
+
+		});
+		$('#celistmenu').mouseover(function(){
+			$('.celebsmenu').find('a').addClass('selected');
+			$('.celebsmenulist').show();
+
+		}).mouseout(function(){
+			$('.celebsmenu').find('a').removeClass('selected');
+			$('.celebsmenulist').hide();
+
+		});
+
+		$('.videosmenu').mouseover(function(){
+            jQuery(this).find('a').addClass('selected');
+            jQuery('.videosmenulist').show();
+
+        }).mouseout(function(){
+            jQuery(this).find('a').removeClass('selected');
+            jQuery('.videosmenulist').hide();
+
+        });
+        $('#vidlistmenu').mouseover(function(){
+            $('.videosmenu').find('a').addClass('selected');
+            $('.videosmenulist').show();
+
+        }).mouseout(function(){
+            $('.videosmenu').find('a').removeClass('selected');
+            $('.videosmenulist').hide();
+
+        });
+
+		$('.musicmenu').mouseover(function(){
+            jQuery(this).find('a').addClass('selected');
+            jQuery('.musicmenulist').show();
+
+        }).mouseout(function(){
+            jQuery(this).find('a').removeClass('selected');
+            jQuery('.musicmenulist').hide();
+
+        });
+        $('#muslistmenu').mouseover(function(){
+            $('.musicmenu').find('a').addClass('selected');
+            $('.musicmenulist').show();
+
+        }).mouseout(function(){
+            $('.musicmenu').find('a').removeClass('selected');
+            $('.musicmenulist').hide();
+
+        });
+
+		$('.photosmenu').mouseover(function(){
+            jQuery(this).find('a').addClass('selected');
+            jQuery('.photosmenulist').show();
+
+        }).mouseout(function(){
+            jQuery(this).find('a').removeClass('selected');
+            jQuery('.photosmenulist').hide();
+
+        });
+        $('#phtlistmenu').mouseover(function(){
+            $('.photosmenu').find('a').addClass('selected');
+            $('.photosmenulist').show();
+
+        }).mouseout(function(){
+            $('.photosmenu').find('a').removeClass('selected');
+            $('.photosmenulist').hide();
+
+        });
+
+		$('.trademenu').mouseover(function(){
+            jQuery(this).find('a').addClass('selected');
+            jQuery('.trademenulist').show();
+
+        }).mouseout(function(){
+            jQuery(this).find('a').removeClass('selected');
+            jQuery('.trademenulist').hide();
+
+        });
+        $('#trdlistmenu').mouseover(function(){
+            $('.trademenu').find('a').addClass('selected');
+            $('.trademenulist').show();
+
+        }).mouseout(function(){
+            $('.trademenu').find('a').removeClass('selected');
+            $('.trademenulist').hide();
+
+        });
+	});
+
+
+	function ReloadFrame() { //reload ad frame when next or previous clicked
+
+		$('div[id^="zd_parent_"]').remove();
+		
+		var f1 = document.getElementById('zd_frm_1117_14');
+		f1.src = f1.src;
+		
+		var f2 = document.getElementById('zd_frm_1117_9');
+		f2.src = f2.src;
+	}
+
+
+
+
+
+
+
+
+
+
+$( document ).ready(function() {
+    jQuery('.videosmenu').mouseover(function(){
+            jQuery(this).find('a').addClass('selected');
+            jQuery('.videosmenulist').show();
+
+        }).mouseout(function(){
+            jQuery(this).find('a').removeClass('selected');
+            jQuery('.videosmenulist').hide();
+
+        });
+        $('#vidlistmenu').mouseover(function(){
+            $('.videosmenu').find('a').addClass('selected');
+            $('.videosmenulist').show();
+
+        }).mouseout(function(){
+            $('.videosmenu').find('a').removeClass('selected');
+            $('.videosmenulist').hide();
+
+        });
+
+    jQuery('.musicmenu').mouseover(function(){
+            jQuery(this).find('a').addClass('selected');
+            jQuery('.musicmenulist').show();
+
+        }).mouseout(function(){
+            jQuery(this).find('a').removeClass('selected');
+            jQuery('.musicmenulist').hide();
+
+        });
+        $('#muslistmenu').mouseover(function(){
+            $('.musicmenu').find('a').addClass('selected');
+            $('.musicmenulist').show();
+
+        }).mouseout(function(){
+            $('.musicmenu').find('a').removeClass('selected');
+            $('.musicmenulist').hide();
+
+        });
+
+    jQuery('.photosmenu').mouseover(function(){
+            jQuery(this).find('a').addClass('selected');
+            jQuery('.photosmenulist').show();
+
+        }).mouseout(function(){
+            jQuery(this).find('a').removeClass('selected');
+            jQuery('.photosmenulist').hide();
+
+        });
+        $('#phtlistmenu').mouseover(function(){
+            $('.photosmenu').find('a').addClass('selected');
+            $('.photosmenulist').show();
+
+        }).mouseout(function(){
+            $('.photosmenu').find('a').removeClass('selected');
+            $('.photosmenulist').hide();
+
+        });
+
+    jQuery('.trademenu').mouseover(function(){
+            jQuery(this).find('a').addClass('selected');
+            jQuery('.trademenulist').show();
+
+        }).mouseout(function(){
+            jQuery(this).find('a').removeClass('selected');
+            jQuery('.trademenulist').hide();
+
+        });
+        $('#trdlistmenu').mouseover(function(){
+            $('.trademenu').find('a').addClass('selected');
+            $('.trademenulist').show();
+
+        }).mouseout(function(){
+            $('.trademenu').find('a').removeClass('selected');
+            $('.trademenulist').hide();
+
+        });
+});
+
+
+
+
+
+
+
+    $(document).ready(function() {
+
+        var redirect_url = "/index/search/q/";
+        $("#searchboxtext").autocomplete(redirect_url, "/index/autosuggestions/", {
+            selectFirst: false
+        });
+
+    });
+
+    function processSubmit(txt, v){
+        if (typeof(v) === 'undefined')
+            v = 0;
+
+        var srchtxt = txt.replace(/<.*?>/g, '');
+        var frm = document.getElementById('topsearch_form');
+        frm.action = frm.action + 'q/' + encodeURI(srchtxt);
+        if (v == 1)
+        {
+            document.getElementById('topsearch_form').submit();
+            return false;
+        }
+
+    }
+
+
+
+
+ 
+
+
+
+Movies
+Celebs
+Videos
+Music
+Photos
+Wallpapers
+
+My Bollywood
+Trade
+More...
+
+
+
+Movies this month
+Top Movies
+News
+Wallpapers 
+Videos
+Music
+Features
+Reviews
+DVD 
+
+
+
+
+Top Celebs
+Directory
+Wallpapers 
+Photos
+Videos
+News
+Features
+
+
+
+
+Top Videos
+Movie Promos
+Exclusives
+Celeb Interviews 
+More..
+
+
+
+
+Juke Box
+Lyrics
+Reviews
+
+
+
+
+Top Photos
+First Look
+Movie Stills
+Celeb Photos
+More..
+
+
+
+
+B.O. Update
+Top Grossers
+B.O. Overseas
+Release Dates
+More..
+
+
+
+
+News
+Reviews
+Community
+
+VFX
+Awards
+Slideshow
+Radio
+Celebs @ Twitter 
+
+
+
+Destination Bollywood
+
+
+
+
+
+
+
+
+Search
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+We're sorry, the page you requested cannot be found. To see if the page is still available or to find similar information, please try the following:
+
+
+
+Did you try searching? Enter a keyword(s) in the search field above. Or, try one of the links below.
+
+Home
+
+Top Movies
+Movie Reviews
+Contact Us
+Advertise
+
+
+
+Movies
+
+Wallpapers
+Videos
+Music
+Features
+Reviews
+
+
+
+Celebrities
+
+Top Celebrities
+Directory
+Wallpapers
+Photos
+Videos
+News
+Features
+
+
+
+
+More...
+
+
+More Videos
+More News
+Box Office
+Forums
+Slideshow
+
+
+
+
+More Photos
+More Reviews
+Celebs @ Twitter
+Movie Showtime
+Awards
+
+
+
+
+Bollywood ka baap
+More Music
+Community
+Bollywood VFX
+Radio
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Bollywood Directory
+
+
+
+ A-Z Index (Click a letter)
+
+
+Celebrities
+
+
+A
+B
+C
+D
+E
+F
+
+
+G
+H
+I
+J
+K
+L
+
+
+M
+N
+O
+P
+Q
+R
+
+
+S
+T
+U
+V
+W
+X
+
+
+Y
+Z
+#
+
+
+
+
+Movies
+
+A
+B
+C
+D
+E
+F
+
+
+G
+H
+I
+J
+K
+L
+
+
+M
+N
+O
+P
+Q
+R
+
+
+S
+T
+U
+V
+W
+X
+
+
+Y
+Z
+#
+
+
+
+Companies
+
+
+A
+B
+C
+D
+E
+F
+
+
+G
+H
+I
+J
+K
+L
+
+
+M
+N
+O
+P
+Q
+R
+
+
+S
+T
+U
+V
+W
+X
+
+
+Y
+Z
+#
+
+
+
+
+
+Movie Release Year
+
+
+
+--Year--
+In 2015 
+In 2014 
+In 2013 
+In 2012 
+In 2011 
+Before 2011 
+
+
+
+
+
+Celebrities
+25,978
+
+
+Photos
+92,131
+
+
+Videos
+14,956
+
+
+Reviews 
+1,654
+
+
+Wallpapers
+4,375
+
+
+Songs
+50,880
+
+
+Companies
+2,507
+
+ 
+
+
+
+Explore Bollywoodhungama.com
+
+
+Slideshow
+
+Awards
+VFX
+
+
+Celebs @ Twitter
+
+Radio
+DVD
+
+
+
+
+Never Ending Quiz
+Community
+
+
+NOW ON MOBILE
+
+
+
+
+
+
+
+Group Sites
+
+
+Hungama
+Artist Aloud
+The Game Box
+
+
+
+
+
+
+Home 
+ | 
+Advertise 
+ | 
+Privacy Policy 
+ | 
+Feedback 
+ | 
+Contact Us
+
+
+Copyright © 2016 Hungama Digital Media Entertainment Pvt. Ltd. All Rights Reserved.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+To do this you need to Login or Register now! 
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+	$(document).ready(function(){
+    if($("a[rel^='prettyPhoto']").length > 0)
+		  $("a[rel^='prettyPhoto']").prettyPhoto({theme:'light_square'});
+	});
+
+
+
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-7052069-2', 'auto');
+ga('require', 'displayfeatures');
+ga('send', 'pageview');
+
+
+  (function() {
+   _hn = "BOLLYWOODHUNGAMA-WEB";
+   window._jsondata={};
+   var hgma = document.createElement('script'); hgma.type = 'text/javascript'; hgma.async = true;
+   hgma.src = 'http://carousel.play.static.hungama.com/java_script/ha.js';
+   var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(hgma, s);
+  })();
+
+
+
+
+
+        var _afs = _afs || {};              
+        _afs['pb'] = "arj77";
+        _afs['aduid'] = "102";
+        (function() {
+            var mg = document.createElement('script'); mg.type = 'text/javascript'; 
+            mg.src = '//inm.affinitymatrix.com/js/mg.js?pb='+_afs['pb'];
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mg, s);
+        })();
+    
+
+
+

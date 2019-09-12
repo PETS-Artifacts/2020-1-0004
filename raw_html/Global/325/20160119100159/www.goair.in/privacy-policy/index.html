@@ -1,0 +1,1071 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><meta http-equiv="X-UA-Compatible" content="IE=edge" /><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><script type="text/javascript">window.NREUM||(NREUM={});NREUM.info = {"beacon":"bam.nr-data.net","errorBeacon":"bam.nr-data.net","licenseKey":"d71307b05a","applicationID":"5680366","transactionName":"YAFTMkcFXkBZBhBRDllLcAVBDV9dFyYLVhVSCkUlWgpEQVcJCF0TGC1fAlAc","queueTime":0,"applicationTime":395,"ttGuid":"44E1FBCEA5B4A371","agent":"js-agent.newrelic.com/nr-768.min.js"}</script><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"XQYPV1BRGwYGXFFRAQc="};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o||e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({QJf3ax:[function(t,e){function n(t){function e(e,n,a){t&&t(e,n,a),a||(a={});for(var c=s(e),f=c.length,u=i(a,o,r),d=0;f>d;d++)c[d].apply(u,n);return u}function a(t,e){f[t]=s(t).concat(e)}function s(t){return f[t]||[]}function c(){return n(e)}var f={};return{on:a,emit:e,create:c,listeners:s,_events:f}}function r(){return{}}var o="nr@context",i=t("gos");e.exports=n()},{gos:"7eSDFh"}],ee:[function(t,e){e.exports=t("QJf3ax")},{}],3:[function(t){function e(t){try{i.console&&console.log(t)}catch(e){}}var n,r=t("ee"),o=t(1),i={};try{n=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(i.console=!0,-1!==n.indexOf("dev")&&(i.dev=!0),-1!==n.indexOf("nr_dev")&&(i.nrDev=!0))}catch(a){}i.nrDev&&r.on("internal-error",function(t){e(t.stack)}),i.dev&&r.on("fn-err",function(t,n,r){e(r.stack)}),i.dev&&(e("NR AGENT IN DEVELOPMENT MODE"),e("flags: "+o(i,function(t){return t}).join(", ")))},{1:24,ee:"QJf3ax"}],4:[function(t){function e(t,e,n,i,s){try{c?c-=1:r("err",[s||new UncaughtException(t,e,n)])}catch(f){try{r("ierr",[f,(new Date).getTime(),!0])}catch(u){}}return"function"==typeof a?a.apply(this,o(arguments)):!1}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function n(t){r("err",[t,(new Date).getTime()])}var r=t("handle"),o=t(6),i=t("ee"),a=window.onerror,s=!1,c=0;t("loader").features.err=!0,t(5),window.onerror=e;try{throw new Error}catch(f){"stack"in f&&(t(1),t(2),"addEventListener"in window&&t(3),window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&!/CriOS/.test(navigator.userAgent)&&t(4),s=!0)}i.on("fn-start",function(){s&&(c+=1)}),i.on("fn-err",function(t,e,r){s&&(this.thrown=!0,n(r))}),i.on("fn-end",function(){s&&!this.thrown&&c>0&&(c-=1)}),i.on("internal-error",function(t){r("ierr",[t,(new Date).getTime(),!0])})},{1:11,2:10,3:8,4:12,5:3,6:25,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],5:[function(t){if(window.addEventListener){var e=t("handle"),n=t("ee");t(1),window.addEventListener("click",function(){e("inc",["ck"])},!1),window.addEventListener("hashchange",function(){e("inc",["hc"])},!1),n.on("pushState-start",function(){e("inc",["ps"])})}},{1:9,ee:"QJf3ax",handle:"D5DuLP"}],6:[function(t){t("loader").features.ins=!0},{loader:"G9z0Bl"}],7:[function(t){function e(){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var n=t("ee"),r=t("handle"),o=t(1),i=t(2);t("loader").features.stn=!0,t(3);var a=Event;n.on("fn-start",function(t){var e=t[0];e instanceof a&&(this.bstStart=Date.now())}),n.on("fn-end",function(t,e){var n=t[0];n instanceof a&&r("bst",[n,e,this.bstStart,Date.now()])}),o.on("fn-start",function(t,e,n){this.bstStart=Date.now(),this.bstType=n}),o.on("fn-end",function(t,e){r("bstTimer",[e,this.bstStart,Date.now(),this.bstType])}),i.on("fn-start",function(){this.bstStart=Date.now()}),i.on("fn-end",function(t,e){r("bstTimer",[e,this.bstStart,Date.now(),"requestAnimationFrame"])}),n.on("pushState-start",function(){this.time=Date.now(),this.startPath=location.pathname+location.hash}),n.on("pushState-end",function(){r("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),"addEventListener"in window.performance&&(window.performance.addEventListener("webkitresourcetimingbufferfull",function(){r("bstResource",[window.performance.getEntriesByType("resource")]),window.performance.webkitClearResourceTimings()},!1),window.performance.addEventListener("resourcetimingbufferfull",function(){r("bstResource",[window.performance.getEntriesByType("resource")]),window.performance.clearResourceTimings()},!1)),document.addEventListener("scroll",e,!1),document.addEventListener("keypress",e,!1),document.addEventListener("click",e,!1)}},{1:11,2:10,3:9,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],8:[function(t,e){function n(t){i.inPlace(t,["addEventListener","removeEventListener"],"-",r)}function r(t){return t[1]}var o=t("ee").create(),i=t(1)(o),a=t("gos");if(e.exports=o,n(window),"getPrototypeOf"in Object){for(var s=document;s&&!s.hasOwnProperty("addEventListener");)s=Object.getPrototypeOf(s);s&&n(s);for(var c=XMLHttpRequest.prototype;c&&!c.hasOwnProperty("addEventListener");)c=Object.getPrototypeOf(c);c&&n(c)}else XMLHttpRequest.prototype.hasOwnProperty("addEventListener")&&n(XMLHttpRequest.prototype);o.on("addEventListener-start",function(t,e){function n(){return s}if(t[1]){var r=t[1];if("function"==typeof r){var s=a(r,"nr@wrapped",function(){return i(r,"fn-",n,r.name||"anonymous")});this.wrapped=t[1]=s,o.emit("initEventContext",[t,e],this.wrapped)}else"function"==typeof r.handleEvent&&i.inPlace(r,["handleEvent"],"fn-")}}),o.on("removeEventListener-start",function(t){var e=this.wrapped;e&&(t[1]=e)})},{1:26,ee:"QJf3ax",gos:"7eSDFh"}],9:[function(t,e){var n=t("ee").create(),r=t(1)(n);e.exports=n,r.inPlace(window.history,["pushState","replaceState"],"-")},{1:26,ee:"QJf3ax"}],10:[function(t,e){var n=t("ee").create(),r=t(1)(n);e.exports=n,r.inPlace(window,["requestAnimationFrame","mozRequestAnimationFrame","webkitRequestAnimationFrame","msRequestAnimationFrame"],"raf-"),n.on("raf-start",function(t){t[0]=r(t[0],"fn-")})},{1:26,ee:"QJf3ax"}],11:[function(t,e){function n(t,e,n){t[0]=i(t[0],"fn-",null,n)}function r(t,e,n){function r(){return a}this.ctx={};var a={"nr@context":this.ctx};o.emit("initTimerContext",[t,n],a),t[0]=i(t[0],"fn-",r,n)}var o=t("ee").create(),i=t(1)(o);e.exports=o,i.inPlace(window,["setTimeout","setImmediate"],"setTimer-"),i.inPlace(window,["setInterval"],"setInterval-"),i.inPlace(window,["clearTimeout","clearImmediate"],"clearTimeout-"),o.on("setInterval-start",n),o.on("setTimer-start",r)},{1:26,ee:"QJf3ax"}],12:[function(t,e){function n(){f.inPlace(this,p,"fn-",o)}function r(t,e){f.inPlace(e,["onreadystatechange"],"fn-")}function o(t,e){return e}function i(t,e){for(var n in t)e[n]=t[n];return e}var a=t("ee").create(),s=t(1),c=t(2),f=c(a),u=c(s),d=window.XMLHttpRequest,p=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"];e.exports=a,window.XMLHttpRequest=function(t){var e=new d(t);try{a.emit("new-xhr",[],e),e.hasOwnProperty("addEventListener")&&u.inPlace(e,["addEventListener","removeEventListener"],"-",o),e.addEventListener("readystatechange",n,!1)}catch(r){try{a.emit("internal-error",[r])}catch(i){}}return e},i(d,XMLHttpRequest),XMLHttpRequest.prototype=d.prototype,f.inPlace(XMLHttpRequest.prototype,["open","send"],"-xhr-",o),a.on("send-xhr-start",r),a.on("open-xhr-start",r)},{1:8,2:26,ee:"QJf3ax"}],13:[function(t){function e(t){var e=this.params,r=this.metrics;if(!this.ended){this.ended=!0;for(var i=0;c>i;i++)t.removeEventListener(s[i],this.listener,!1);if(!e.aborted){if(r.duration=(new Date).getTime()-this.startTime,4===t.readyState){e.status=t.status;var a=t.responseType,f="arraybuffer"===a||"blob"===a||"json"===a?t.response:t.responseText,u=n(f);if(u&&(r.rxSize=u),this.sameOrigin){var d=t.getResponseHeader("X-NewRelic-App-Data");d&&(e.cat=d.split(", ").pop())}}else e.status=0;r.cbTime=this.cbTime,o("xhr",[e,r,this.startTime])}}}function n(t){if("string"==typeof t&&t.length)return t.length;if("object"!=typeof t)return void 0;if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if("undefined"!=typeof FormData&&t instanceof FormData)return void 0;try{return JSON.stringify(t).length}catch(e){return void 0}}function r(t,e){var n=i(e),r=t.params;r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.sameOrigin=n.sameOrigin}if(window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&!/CriOS/.test(navigator.userAgent)){t("loader").features.xhr=!0;var o=t("handle"),i=t(2),a=t("ee"),s=["load","error","abort","timeout"],c=s.length,f=t(1),u=window.XMLHttpRequest;t(4),t(3),a.on("new-xhr",function(){this.totalCbs=0,this.called=0,this.cbTime=0,this.end=e,this.ended=!1,this.xhrGuids={}}),a.on("open-xhr-start",function(t){this.params={method:t[0]},r(this,t[1]),this.metrics={}}),a.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),a.on("send-xhr-start",function(t,e){var r=this.metrics,o=t[0],i=this;if(r&&o){var f=n(o);f&&(r.txSize=f)}this.startTime=(new Date).getTime(),this.listener=function(t){try{"abort"===t.type&&(i.params.aborted=!0),("load"!==t.type||i.called===i.totalCbs&&(i.onloadCalled||"function"!=typeof e.onload))&&i.end(e)}catch(n){try{a.emit("internal-error",[n])}catch(r){}}};for(var u=0;c>u;u++)e.addEventListener(s[u],this.listener,!1)}),a.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),a.on("xhr-load-added",function(t,e){var n=""+f(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),a.on("xhr-load-removed",function(t,e){var n=""+f(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),a.on("addEventListener-end",function(t,e){e instanceof u&&"load"===t[0]&&a.emit("xhr-load-added",[t[1],t[2]],e)}),a.on("removeEventListener-end",function(t,e){e instanceof u&&"load"===t[0]&&a.emit("xhr-load-removed",[t[1],t[2]],e)}),a.on("fn-start",function(t,e,n){e instanceof u&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=(new Date).getTime()))}),a.on("fn-end",function(t,e){this.xhrCbStart&&a.emit("xhr-cb-time",[(new Date).getTime()-this.xhrCbStart,this.onload,e],e)})}},{1:"XL7HBI",2:14,3:12,4:8,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],14:[function(t,e){e.exports=function(t){var e=document.createElement("a"),n=window.location,r={};e.href=t,r.port=e.port;var o=e.href.split("://");return!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=e.hostname||n.hostname,r.pathname=e.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname),r.sameOrigin=!e.hostname||e.hostname===document.domain&&e.port===n.port&&e.protocol===n.protocol,r}},{}],15:[function(t,e){function n(t){return function(){r(t,[(new Date).getTime()].concat(i(arguments)))}}var r=t("handle"),o=t(1),i=t(2);"undefined"==typeof window.newrelic&&(newrelic=window.NREUM);var a=["setPageViewName","addPageAction","setCustomAttribute","finished","addToTrace","inlineHit","noticeError"];o(a,function(t,e){window.NREUM[e]=n("api-"+e)}),e.exports=window.NREUM},{1:24,2:25,handle:"D5DuLP"}],gos:[function(t,e){e.exports=t("7eSDFh")},{}],"7eSDFh":[function(t,e){function n(t,e,n){if(r.call(t,e))return t[e];var o=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:o,writable:!0,enumerable:!1}),o}catch(i){}return t[e]=o,o}var r=Object.prototype.hasOwnProperty;e.exports=n},{}],D5DuLP:[function(t,e){function n(t,e,n){return r.listeners(t).length?r.emit(t,e,n):void(r.q&&(r.q[t]||(r.q[t]=[]),r.q[t].push(e)))}var r=t("ee").create();e.exports=n,n.ee=r,r.q={}},{ee:"QJf3ax"}],handle:[function(t,e){e.exports=t("D5DuLP")},{}],XL7HBI:[function(t,e){function n(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:i(t,o,function(){return r++})}var r=1,o="nr@id",i=t("gos");e.exports=n},{gos:"7eSDFh"}],id:[function(t,e){e.exports=t("XL7HBI")},{}],G9z0Bl:[function(t,e){function n(){var t=p.info=NREUM.info,e=f.getElementsByTagName("script")[0];if(t&&t.licenseKey&&t.applicationID&&e){s(d,function(e,n){e in t||(t[e]=n)});var n="https"===u.split(":")[0]||t.sslForHttp;p.proto=n?"https://":"http://",a("mark",["onload",i()]);var r=f.createElement("script");r.src=p.proto+t.agent,e.parentNode.insertBefore(r,e)}}function r(){"complete"===f.readyState&&o()}function o(){a("mark",["domContent",i()])}function i(){return(new Date).getTime()}var a=t("handle"),s=t(1),c=window,f=c.document;t(2);var u=(""+location).split("?")[0],d={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-768.min.js"},p=e.exports={offset:i(),origin:u,features:{}};f.addEventListener?(f.addEventListener("DOMContentLoaded",o,!1),c.addEventListener("load",n,!1)):(f.attachEvent("onreadystatechange",r),c.attachEvent("onload",n)),a("mark",["firstbyte",i()])},{1:24,2:15,handle:"D5DuLP"}],loader:[function(t,e){e.exports=t("G9z0Bl")},{}],24:[function(t,e){function n(t,e){var n=[],o="",i=0;for(o in t)r.call(t,o)&&(n[i]=e(o,t[o]),i+=1);return n}var r=Object.prototype.hasOwnProperty;e.exports=n},{}],25:[function(t,e){function n(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(0>o?0:o);++r<o;)i[r]=t[e+r];return i}e.exports=n},{}],26:[function(t,e){function n(t){return!(t&&"function"==typeof t&&t.apply&&!t[i])}var r=t("ee"),o=t(1),i="nr@original",a=Object.prototype.hasOwnProperty;e.exports=function(t){function e(t,e,r,a){function nrWrapper(){var n,i,s,f;try{i=this,n=o(arguments),s=r&&r(n,i)||{}}catch(d){u([d,"",[n,i,a],s])}c(e+"start",[n,i,a],s);try{return f=t.apply(i,n)}catch(p){throw c(e+"err",[n,i,p],s),p}finally{c(e+"end",[n,i,f],s)}}return n(t)?t:(e||(e=""),nrWrapper[i]=t,f(t,nrWrapper),nrWrapper)}function s(t,r,o,i){o||(o="");var a,s,c,f="-"===o.charAt(0);for(c=0;c<r.length;c++)s=r[c],a=t[s],n(a)||(t[s]=e(a,f?s+o:o,i,s))}function c(e,n,r){try{t.emit(e,n,r)}catch(o){u([o,e,n,r])}}function f(t,e){if(Object.defineProperty&&Object.keys)try{var n=Object.keys(t);return n.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(r){u([r])}for(var o in t)a.call(t,o)&&(e[o]=t[o]);return e}function u(e){try{t.emit("internal-error",e)}catch(n){}}return t||(t=r),e.inPlace=s,e.flag=i,e}},{1:25,ee:"QJf3ax"}]},{},["G9z0Bl",4,13,7,6,5]);</script><link rel="icon" href="/Images/favicon.ico" type="image/png" /><link rel="shortcut icon" href="/Images/favicon.ico" /><meta name="blitz" content="mu-b2128b2f-8a867c8f-9d863a01-9b6caf05">
+<link rel="apple-touch-icon" href="/upload/touchlogo.png" type="image/png" />
+<meta name="description" content="Privacy Policy - Looking for Best & Lowest Airfare for Domestic Flights in India? - GoAir is the leading Indian Airlines offering the lowest, cheapest fares for flight tickets. " />
+<meta name="keywords" content="Privacy Policy,flight tickets, domestic flights, lowest air ticket, air ticket offers" />
+<meta name="title" content="GoAir - Privacy Policy" /><script type="text/javascript" src="/scripts/combined_00FCE03D17517DB320E5195E74A25D0F.js"></script>
+<link rel="stylesheet" type="text/css" href="/styles/combined_C73DC88A6DE4F2D6586D054031B28D46.css" />
+
+<link rel="stylesheet" type="text/css" href="/upload/override-web.css" />
+        <script type="text/javascript">
+            //<![CDATA[
+            (function (i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+            ga('create', 'UA-1977307-1');
+            ga('send', 'pageview');
+            //]]>
+        </script>        
+        <!--[if IE 7]>
+        <link rel="stylesheet" type="text/css" href="/Styles/ie7.css" />
+        <![endif]-->
+        <!--[if IE 8]>
+        <link rel="stylesheet" type="text/css" href="/Styles/ie8.css" />
+        <![endif]-->
+        <title>
+	GoAir - Privacy Policy
+</title></head>
+<body>
+    
+    
+					<script type="text/javascript">
+					</script>
+<!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MSQ4V2"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MSQ4V2');</script>
+<!-- End Google Tag Manager -->
+<script>
+				</script>
+
+
+	<div class="wrapper">
+		<div class="shell">
+			<div class="header">
+				
+
+<div class="top-bar">
+	<ul>
+		<li><p style="font-size:14px;">GoAir Customer Care</p>
+
+<p style="font-size:14px;color:#5B5959">Call: 092 - 2322 - 2111/020 - 2566 - 2111</p>
+
+<p style="color:#5B5959">&nbsp;</p>
+
+<p style="font-size:14px;">Fog Helpline:</p>
+
+<p style="font-size:14px;color:#5B5959">020 - 6689 - 5050</p>
+ <span></span></li>
+		<li><p><span style="color: #19398a;font-size:14px;">Download GoAir App: <a href="https://itunes.apple.com/us/app/go-airlines/id947310396?mt=8" target="_blank"><img height="25" src="https://lh5.googleusercontent.com/-M1Tk6TdDh2U/VOwkaewWC5I/AAAAAAAAARg/XyM29VZk5TQ/w426-h237/app-store.png" /></a> <a href="https://play.google.com/store/apps/details?id=com.ezy.goair" target="_blank"><img height="25" src="https://lh5.googleusercontent.com/-JllzfTVYpJM/VOwk9EgnNJI/AAAAAAAAASo/2Q5_z1EttfQ/w426-h237/Google-App.png" /></a></span></p>
+ <span></span></li>
+	</ul>
+</div><!-- /.top-bar -->
+
+<div class="user-nav">
+	<ul>
+	
+            <li><a class="topmenu-links" href="/bottom-menu/announcement" >Partner Login</a></li>                                                     
+        
+    </ul>   
+</div>
+
+<!-- /.user-nav -->
+<div class="nav">
+	<ul>
+		
+    <li class="item ">
+        <a href="/"class='home'  ></a>
+        
+    </li>
+    
+    <li class="item ">
+        <a href="/"  >Plan my trip</a>
+        
+        <ul>
+                
+               <a href="/manage/manage-booking" class="sub-menu" >Manage Booking</a>
+           
+               <a href="/checkin" class="sub-menu" >Web Check-In</a>
+           
+               <a href="/flight-status" class="sub-menu" >Flight Status</a>
+           
+               <a href="/menu/plan-my-trip/travel-guide" class="sub-menu" >Travel Guide</a>
+           
+               <a href="/menu/plan-my-trip/route-map" class="sub-menu" >Route Map</a>
+           
+               <a href="https://groups.goair.in/index.php" class="sub-menu" >Group Bookings</a>
+           
+               <a href="/flight-schedule" class="sub-menu" >Flight Schedule</a>
+           
+               <a href="/menu/plan-my-trip/charters" class="sub-menu" >Charters</a>
+           
+            </ul>
+           
+    </li>
+    
+    <li class="item ">
+        <a href="/menu/gobusiness"  >GoBusiness</a>
+        
+    </li>
+    
+    <li class="item ">
+        <a href="https://holidays.goair.in"  target='_blank'>GoHolidays</a>
+        
+    </li>
+    
+    <li class="item ">
+        <a href="https://www.goteam.in/bl_candidate/index.asp"  target='_blank'>Careers</a>
+        
+    </li>
+    
+    <li class="item ">
+        <a href="/menu/promotions"  >Promotions</a>
+        
+        <ul>
+                
+               <a href="/menu/promotions/defence-promotion" class="sub-menu" >Defence Promotion</a>
+           
+               <a href="/menu/promotions/introducing-new-flight-to-leh" class="sub-menu" >Introducing New Flight To Leh</a>
+           
+               <a href="/menu/promotions/introducing-new-flight-to-port-blair" class="sub-menu" >Introducing New Flight To Port Blair</a>
+           
+            </ul>
+           
+    </li>
+    
+    <li class="item ">
+        <a href="/menu/services"  >Services</a>
+        
+        <ul>
+                
+               <a href="/menu/services/sms-services" class="sub-menu" >SMS Services</a>
+           
+               <a href="/menu/services/inflight-menu" class="sub-menu" >Inflight Menu</a>
+           
+               <a href="/menu/services/pre-book-refreshment" class="sub-menu" >Pre book refreshment</a>
+           
+               <a href="/menu/services/pre-book-seats" class="sub-menu" >Pre-Book Seats</a>
+           
+               <a href="/menu/services/priority-check-in" class="sub-menu" >Priority Check-in</a>
+           
+            </ul>
+           
+    </li>
+    
+    <li class="item ">
+        <a href="/menu/about-us"  >About Us</a>
+        
+        <ul>
+                
+               <a href="/menu/about-us/our-offices" class="sub-menu" >Our Offices</a>
+           
+               <a href="/menu/about-us/network" class="sub-menu" >Network</a>
+           
+               <a href="/menu/about-us/advertise-with-us" class="sub-menu" >Advertise With Us</a>
+           
+               <a href="/menu/about-us/contact-us" class="sub-menu" >Contact Us</a>
+           
+            </ul>
+           
+    </li>
+    
+	</ul>
+</div>
+<!-- /.nav -->
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".nav ul").superfish({
+            delay: 0,
+            animation: { height: 'show' },
+            speed: 'fast',
+            autoArrows: false,
+            dropShadows: true
+        });
+    });
+</script>
+				<a href="/" class="logo">ezyFlight India</a>
+			</div><!-- /.header -->
+				
+    
+    
+        <div class="container contentMaster">
+		     
+
+<div class="cms-top-title">
+    Privacy Policy
+</div>
+		</div><!-- /.container -->
+    
+		<div class="main contentMaster ">
+		    
+
+			<div class="content ">
+				
+    
+        <div class="menu-page-content">
+	        <div style="">
+				<p>We respect the privacy of our users. This privacy statement is designed to help them understand the type of information we gather and what we do with the gathered information.</p>
+
+<p>The collected information falls into two categories:</p>
+
+<ul>
+	<li>Information voluntarily supplied by the visitors to our website through optional registration</li>
+	<li>Tracking information gathered as visitors navigate through our website</li>
+</ul>
+
+<p>To make use of certain features of our website (such as e-mail and other interactive forums), visitors need to register and provide certain information as a part of the registration process. We may ask for their name and address, the name and address of their company affiliation, their home and business phone numbers, their e-mail address, certain financial information, and any other information which may be useful. This helps us tailor our website to suit our visitor&rsquo;s needs.</p>
+
+<p>To make our website responsive to the needs and interests of our visitors, we track the pages visited by each user. Then, we aggregate this data with the data on the pages visited by other users, to track the overall visitor traffic pattern.</p>
+
+<p>Our web servers automatically collect some information about our visitors when they request pages, including their IP address. The IP address is the number that is used by the computers connected to the Internet to identify the visitor&rsquo;s computer so that data (such as the web pages they request) can be sent to them. The visitor&rsquo;s IP address does not identify them personally. We use our visitor&rsquo;s IP address, among the other things, to diagnose problems with our web servers, and to manage our website. We may also use cookies to meet the needs of our visitors. They can set their browser not to accept cookies, but if that is done; our visitors may not be able to take advantage of certain personalised features on our website.</p>
+
+<p>We recognise industry standards and employ security safeguards to protect personal information of our visitors from unauthorised access and misuse. Our online reservation system resides on a secure server that encrypts all purchase information using Secure Socket Layers. We use all reasonable endeavours to protect personal information from loss, misuse, and alteration. Only our authorised employees that are under appropriate confidentiality obligations have access to users&#39; personal information.</p>
+
+<p>Our visitors should, however, understand that the open nature of the internet is such that data may flow over networks without security measures and may be accessed and used by people other than those for whom the data is intended.</p>
+
+<p>Please note that we respect the privacy of our users. We will not sell or provide any of their personal information to any third party except as necessary to provide requisite service(s), carry out the transaction(s) they have requested, to operate the GoAir website and/or if we believe in good faith that the law requires it.</p>
+
+<p>Our website often provides links to third party websites, such as those of our business partners and online advertisers. We request our visitors to review their privacy policies to learn more about what, why, and how they collect and use information of their visitors/users.</p>
+
+<p>A final note: The web is an evolving medium. We may need to change our privacy policy from time to time. By continuing to use the services after we post such changes, our visitors accept the terms of this policy, as modified.</p>
+
+				
+			</div>
+        </div>
+    
+			</div><!-- /.content -->
+            
+            
+                <div class="sidebar">
+                    
+			            <div class="sidebar">
+				            
+
+<ul class="widgets">
+    
+           <li class="widget widget-prebook">
+		<a href="/bottom-menu/extra-baggage">
+			<img src="/upload/Banners/Excess-Baggage.jpg" alt="Excess Baggage" />
+		</a>
+	</li><!-- /.widget -->
+       
+           <li class="widget widget-prebook">
+		<a href="/menu/services/pre-book-seats">
+			<img src="/upload/Banners/prebook.png" alt="Pre-book now!" />
+		</a>
+	</li><!-- /.widget -->
+       
+</ul><!-- /.widgets -->
+			            </div><!-- /.sidebar -->
+                        
+                </div>
+            
+		</div><!-- /.main -->
+    
+			<div class="footer" >
+                     
+<div> 
+<div class="footer-cols">
+<div class="footer-col">
+<h5><a href="/">Home</a></h5>
+
+<ul>
+</ul>
+
+<h5><a href="/">Plan my trip</a></h5>
+
+<ul>
+	<li><a href="/manage/manage-booking"><span>&bull;</span>Manage Booking</a></li>
+	<li><a href="/checkin"><span>&bull;</span>Web Check-In</a></li>
+	<li><a href="/flight-status"><span>&bull;</span>Flight Status</a></li>
+	<li><a href="/menu/plan-my-trip/travel-guide"><span>&bull;</span>Travel Guide</a></li>
+	<li><a href="/menu/plan-my-trip/route-map"><span>&bull;</span>Route Map</a></li>
+	<li><a href="https://groups.goair.in/index.php"><span>&bull;</span>Group Bookings</a></li>
+	<li><a href="/flight-schedule"><span>&bull;</span>Flight Schedule</a></li>
+	<li><a href="/menu/plan-my-trip/charters"><span>&bull;</span>Charters</a></li>
+</ul>
+</div>
+
+<div class="footer-col">
+<h5><a href="/menu/gobusiness">GoBusiness</a></h5>
+
+<ul>
+</ul>
+
+<h5><a href="https://holidays.goair.in" target="_blank">GoAir Holidays</a></h5>
+
+<ul>
+</ul>
+
+<h5><a href="https://www.goteam.in/bl_candidate/index.asp" target="_blank">Careers</a></h5>
+<ul>
+</ul>
+<h5><a href="/Partner-Registration" target="_blank">Partner Registration</a></h5>
+<ul>
+</ul>
+</div>
+
+<div class="footer-col">
+<h5><a href="/menu/promotions">Promotion</a></h5>
+
+<ul>
+	<li><a href="/menu/promotions/defence-promotion"><span>&bull;</span>Defence Promotion</a></li>
+</ul>
+
+<h5><a href="/menu/about-us">About Us</a></h5>
+
+<ul>
+	<li><a href="/menu/about-us/our-offices"><span>&bull;</span>Our Offices</a></li>
+	<li><a href="/menu/about-us/network"><span>&bull;</span>Network</a></li>
+	<li><a href="/menu/about-us/advertise-with-us">&bull; Advertise With Us</a></li>
+	<li><a href="/menu/about-us/contact-us"><span>&bull;</span>Contact Us</a></li>
+</ul>
+</div>
+
+<div class="footer-col">
+<div>
+<h5 style="font-family: 'Myriad Pro Semibold';
+font-size: 14px;
+color: #313e9b;">GoAir Customer Care</h5>
+
+<p>092-2322-2111</p>
+
+<p>020-2566-2111</p>
+
+<h5 style="font-family: 'Myriad Pro Semibold'; font-size: 14px; color: rgb(49, 62, 155);">Tele Check-in</h5>
+
+<p>092-2322-2111</p>
+
+<p>020-2566-2111</p>
+
+<h5 style="font-family: 'Myriad Pro Semibold';
+font-size: 14px;
+color: #313e9b;">Follow Us on</h5>
+
+<div class="socials"><a href="https://www.facebook.com/GoAir" target="_blank"><img alt="" src="/upload/Icon/fb_icon_original.jpg" style="width: 22px; height: 22px;" /></a>&nbsp;&nbsp;<a href="https://twitter.com/goairlinesindia" target="_blank"><img alt="" src="/upload/Icon/twit_icon_original.jpg" style="width: 22px; height: 22px;" /></a>&nbsp;&nbsp;<a href="https://plus.google.com/+goair/posts" target="_blank"><img alt="" src="/upload/Icon/google_plus.png" style="width: 22px; height: 23px;" /></a>&nbsp;&nbsp;<a href="https://www.instagram.com/goairlinesindia/" target="_blank"><img alt="" src="/upload/Icon/instagram_new_original.jpg" style="width: 22px; height: 22px;" /></a></div>
+</div>
+</div>
+<!-- /.footer-col --></div>    
+ 
+</div> 
+ 
+<div> 
+<div class="footer-bottom">
+<p><a href="/wadiagroup">Wadia Group</a> <span>|</span> <a href="https://www.goair.in/citizens-charter">Citizens Charter</a> <span>|</span> <a href="https://www.goair.in/terms-conditions">Terms &amp; Conditions</a> <span>|</span> <a href="https://www.goair.in/bottom-menu/corporate-governance">Corporate Governance</a> <span>|</span> <a href="https://www.goair.in/disclaimer">Disclaimer</a> <span>|</span> <a href="https://www.goair.in/privacy-policy">Privacy Policy</a> <span>|</span> <a href="https://www.goair.in/upload/TARIFF.pdf">Tariff Sheet</a> <span>|</span> <a href="https://www.goair.in/bottom-menu/in-flight-magazine">In-flight Magazine</a> | <a href="https://www.goair.in/menu/plan-my-trip/travel-guide">Travel Guide</a></p>
+
+<div><a href="https://www.goair.in/testimonials">Testimonials</a> | <a href="https://www.goair.in/bottom-menu/travel-insurance">Travel Insurance</a> | <a a="" href="https://www.goair.in/bottom-menu/feedback-form">Feedback</a> | <a href="https://www.goair.in/bottom-menu/Credit-Card-Upload">Credit Card Upload</a> | <a href="https://www.goair.in/authorized-travel-agents">Authorized Travel Agents</a> | <a href="https://www.goair.in/menu/about-us/contact-us">Contact Us</a> | <a href="https://www.goair.in/sitemap">Sitemap</a></div>
+
+<p>GoAir: India&#39;s Low Cost Domestic Airline. &copy; 2015. GoAir All Rights Reserved. Powered by <a href="https://radixx.com/" style="text-decoration: none;" target="_blank"> <img alt="Radixx" border="0" src="/upload/radixx.png" style="height:15px;" /> </a> <a href="https://www.ezy.se/en" style="text-decoration: none;" target="_blank"> <img alt="ezy" border="0" src="/upload/ezyw.png" style="margin-left: 5px; height:15px;" /> </a></p>
+</div>
+    
+ 
+</div> 
+
+			</div><!-- /.footer -->
+		</div><!-- /.shell -->
+	</div><!-- /.wrapper -->
+
+      
+<script type="text/javascript">
+	var fixedFooter;
+</script>
+<div class="fixedfooter">
+    <div class="wrapper">
+        <div id="bookdiv" class="fixed-footer-popup" style="display: none;">
+            <div id="BookClose">
+                X
+            </div>
+            
+<script type="text/javascript">
+	var loadDestinationCity1316fixedFooterCriteriaBox = '';
+	
+</script>
+<div class="form-book">
+    <select id="departureDate1316fixedFooterCriteriaBoxDay" class="hidden"></select>
+    <select id="departureDate1316fixedFooterCriteriaBoxMonthYear" class="hidden"></select>
+    <select id="returnDate1316fixedFooterCriteriaBoxMonthYear" class="hidden"></select>
+    <select id="returnDate1316fixedFooterCriteriaBoxDay" class="hidden"></select>
+    <div class="form-row">
+        <div class="radios">
+            <div class="radio checked">
+                <input type="radio" name="flightType" onclick="flightSearchBox1316fixedFooterCriteriaBox.setRoundTripCriteriaValues(true)" id="rdRoundTrip1316fixedFooterCriteriaBox" checked="checked" />
+                <label for="rdRoundTrip1316fixedFooterCriteriaBox">Return</label>
+            </div>
+            <!-- /.radio -->
+            <div class="radio">
+                <input type="radio" name="flightType" onclick="flightSearchBox1316fixedFooterCriteriaBox.setRoundTripCriteriaValues(false)" id="rdOneway1316fixedFooterCriteriaBox" />
+                <label for="rdOneway1316fixedFooterCriteriaBox">One way</label>
+            </div>
+            <!-- /.radio -->
+        </div>
+        <!-- /.radios -->
+
+        <div class="group">
+            <i class="icon-group"></i>
+            <a href="https://groups.goair.in/index.php"><span>Group bookings</span></a>
+        </div>
+        <!-- /.group -->
+    </div>
+    <!-- /.form-row -->
+    
+    <div class="form-row">
+        <div class="form-controls clearfix">
+            <div class="select">
+                <label for="">From:</label>
+                <select id="departureCity1316fixedFooterCriteriaBox" onchange="flightSearchBox1316fixedFooterCriteriaBox.setCurrenciesFromAirport(this[this.selectedIndex].value);getDestinationAirports('toCity1316fixedFooterCriteriaBox',this.value, loadDestinationCity1316fixedFooterCriteriaBox, '-- Select To --','Please wait..', true, 'en-US', 'departureCity1316fixedFooterCriteriaBox','1316fixedFooterCriteriaBox');" class="fixed-width departureCity">
+                    <option value="">-- Select From --</option>
+                </select>
+                <input class="required" type="hidden" id="departureCityTypeId1316fixedFooterCriteriaBox" name="cityFrom" />
+            </div>
+            <!-- /.select -->
+
+            <div class="select">
+                <label for="">To:</label>
+                <select id="toCity1316fixedFooterCriteriaBox" onchange="flightSearchBox1316fixedFooterCriteriaBox.getSchedules($('#departureCity1316fixedFooterCriteriaBox').val(), this.value);" class="fixed-width toCity">
+                    <option value="">-- Select To --</option>
+                </select>
+            </div>
+            <!-- /.select -->
+        </div>
+        <!-- /.form-controls -->
+        
+        <div class="form-controls clearfix">
+            <div class="date">
+                <input type="text" id="departureDate1316fixedFooterCriteriaBox" placeholder="Depart Date" value="Depart Date" title="Depart Date" />
+            </div>
+            <!-- /.date -->
+
+            <div class="date returnDate1316fixedFooterCriteriaBox">
+                <input type="text" id="returnDate1316fixedFooterCriteriaBox" placeholder="Return Date" value="Return Date" title="Return Date" />
+            </div>
+            <!-- /.date -->
+        </div>
+        <!-- /.form-controls -->
+    </div>
+    <!-- /.form-row -->
+
+    <div class="form-row">
+        <div class="form-cols">
+            <div class="form-col col-1of3">
+                <div class="counts">
+                    <label class="form-label" id="adult-label-text1316fixedFooterCriteriaBox">Adults</label>
+                    <div class="count">
+                        <input type="text" class="field field-select allow-numbers" id="adults1316fixedFooterCriteriaBox" value="1" title="1" maxvalue="9" />
+                        <span>
+                            <a href="#" class="up active"><i class="arrow-up"></i></a>
+                            <a href="#" class="down"><i class="arrow-down"></i></a>
+                        </span>
+                    </div>
+                    <!-- /.count -->
+                </div>
+                <!-- /.counts -->
+            </div>
+            <!-- /.form-col -->
+
+            <div class="form-col col-1of3" id="children-count-wrapper1316fixedFooterCriteriaBox">
+                <div class="counts">
+                    <label class="form-label">Children</label>
+                    <div class="count">
+                        <input type="text" class="field field-select allow-numbers" id="children1316fixedFooterCriteriaBox" value="0" title="0" maxvalue="9" />
+                        <span>
+                            <a href="#" class="up active"><i class="arrow-up"></i></a>
+                            <a href="#" class="down"><i class="arrow-down"></i></a>
+                        </span>
+                    </div>
+                    <!-- /.count -->
+                    <small>2-12 yrs</small>
+                </div>
+                <!-- /.counts -->
+            </div>
+            <!-- /.form-col -->
+
+            <div class="form-col col-1of3" id="infant-count-wrapper1316fixedFooterCriteriaBox">
+                <div class="counts">
+                    <label class="form-label">Infant</label>
+                    <div class="count">
+                        <input type="text" class="field field-select allow-numbers" id="infants1316fixedFooterCriteriaBox" value="0" title="0" maxvalue="9" />
+                        <span>
+                            <a href="#" class="up active"><i class="arrow-up"></i></a>
+                            <a href="#" class="down"><i class="arrow-down"></i></a>
+                        </span>
+                    </div>
+                    <!-- /.count -->
+                    <small>0-2 yrs</small>
+                </div>
+                <!-- /.counts -->
+            </div>
+            <!-- /.form-col -->
+        </div>
+        <!-- /.form-cols -->
+        
+
+    </div>
+    <!-- /.form-row -->
+    
+   
+    <div class="form-foot">
+        
+            <div class="form-promos">
+                <div class="form-controls clearfix">
+                    <div class="promo-select-wrapper">
+                        <div class="select">
+                            <select id="promo-select1316fixedFooterCriteriaBox" class="fixed-width">
+                                <option value="">Select promo</option>
+                                <option value=".promocode1316fixedFooterCriteriaBox">Promo code</option>
+                                <option value=".gocode1316fixedFooterCriteriaBox">GoCode</option>
+                                
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-controls clearfix" style="margin-top: 5px">
+                    <div class="gocode1316fixedFooterCriteriaBox promo-select1316fixedFooterCriteriaBox" style="display: none">
+                        <input type="text" class="field" id="gocode1316fixedFooterCriteriaBox" placeholder="GoCode" />
+                    </div>
+                    <div class="promocode1316fixedFooterCriteriaBox promo-select1316fixedFooterCriteriaBox" style="display: none">
+                        <input type="text" class="field" id="promocode1316fixedFooterCriteriaBox" placeholder="Promo code" />
+                    </div>
+                </div>    
+            </div>
+        
+        <!-- /.promo -->
+
+        <div class="form-actions">
+            <input type="submit" value="Book Now" class="btn btn-submit" onclick="flightSearchBox1316fixedFooterCriteriaBox.doFlightSearch()" />
+        </div>
+        <!-- /.form-actions -->
+    </div>
+    <!-- /.form-foot -->    
+</div>
+<!-- /.form-book -->
+
+
+<script type="text/javascript">
+	var flightSearchBox1316fixedFooterCriteriaBox = null;
+            
+	$(document).ready(function () {
+    	
+
+		$(".allow-numbers").ForceNumericOnly();
+
+		var translations =
+		{   
+			DepartingFromTexts: '-- Select From --',
+			DepartingFromText: '-- Select From --',
+			ChooseDestinationAndOriginMessage: 'Choose origin and destination ',
+			DepartureDateErrorMessage: 'Departure date must be before return date ',
+			OnlyOneInfantPerAdultMessage: 'Only 1 infant per adult',
+			GroupTravelLink: 'https://groups.goair.in/index.php',
+			MaxNumberOfPassengersAllowedMessage: 'Only one passenger is allowed per voucher OR max 9 passengers are allowed for normal bookings. Visit https://groups.goair.in/ for group bookings OR Only one adult one way ticket can be booked to redeem a go code voucher',
+		    DateIsNotOpenForBookingMessage: 'Please select a departure date',
+		    OneWayPopupText: 'Save more on your return tickets, book a Round Trip with us.',
+		    DisplayOneWayPopupText: true,
+			AdultsText: 'Adults'
+		};
+
+		var options = {
+			SchedulePeriod: 11,
+			LanguageCode: 'en-US',
+			CarLocationsServiceUrl: '/SearchBoxUserControl/GetCarLocations',
+			SetupCarDrops: true,
+			CarSearchUrl: '',
+			flightSearchUrl: '/flight/search',
+			adultsDrop: "adults1316fixedFooterCriteriaBox",
+			childDrop: "children1316fixedFooterCriteriaBox",
+			infantsDrop: "infants1316fixedFooterCriteriaBox",
+			roundTripRadio: "rdRoundTrip1316fixedFooterCriteriaBox",
+			oneWayRadio: "rdOneway1316fixedFooterCriteriaBox",
+			departureDate: "departureDate1316fixedFooterCriteriaBox",
+			returnDate: "returnDate1316fixedFooterCriteriaBox",
+		    promoCode: "promocode1316fixedFooterCriteriaBox",
+			departureCity: "departureCity1316fixedFooterCriteriaBox",
+			departureCityTypeId: "departureCityTypeId1316fixedFooterCriteriaBox",
+			toCity : "toCity1316fixedFooterCriteriaBox",
+			useFlexDatesCheckbox: 'chkUseFlexDates1316fixedFooterCriteriaBox',
+		    maxNumberOfPassengersAllowed: parseInt('9'),
+		    promoSelect: $('#promo-select1316fixedFooterCriteriaBox'),
+		    promoSelectWrappers: $('.promo-select1316fixedFooterCriteriaBox'),
+		    goCode: $('#gocode1316fixedFooterCriteriaBox'),
+		    childrenCountWrapper: $('#children-count-wrapper1316fixedFooterCriteriaBox'),
+		    infantCountWrapper: $('#infant-count-wrapper1316fixedFooterCriteriaBox'),
+			adultLabelText: $('#adult-label-text1316fixedFooterCriteriaBox')
+		};
+
+		var airportSettings = [];
+		var currencies = ['INR'];
+
+		var criteria = null;
+		
+
+		flightSearchBox1316fixedFooterCriteriaBox = new FlightSearchBox(criteria, translations,currencies,airportSettings, "start", '/', options);
+		flightSearchBox1316fixedFooterCriteriaBox.init();
+		flightSearchBox1316fixedFooterCriteriaBox.setDefaultDate();
+	});
+</script>
+        </div>
+        <div id="checkindiv" class="fixed-footer-popup" style="display: none;">
+            <div id="CheckClose">
+                X
+            </div>
+            
+<h3>Web Check-in</h3>
+<div class="clearfix"></div>
+<form action="/checkin" id="form0" method="post">
+<div class="webcheckin" >
+    
+    <div class="webcheckin-row" >
+        <label class="searchLabel">Last name</label>
+        <input name="lastName" type="text" id="txtLastNameCheckin1316fixedFooterCheckinBox" class="inputdata">
+    </div>
+    <div class="clear"></div>
+    
+     <div class="webcheckin-row" >
+        <label class="searchLabel">PNR</label>
+        <input name="bookingCode" type="text" maxlength="6" id="pnrCheckin1316fixedFooterCheckinBox" class="inputdata">
+    </div>
+    <div class="clear"></div>
+    
+    <div class="webcheckin-row checkbox">
+        <input type="checkbox" name="acceptTerms" id="acceptTerms1316fixedFooterCheckinBox" />
+        <label class="inline" for="acceptTerms1316fixedFooterCheckinBox">Check the box to confirm that you have the permission to check-in other passengers on this booking or that you are the only passenger.</label>
+    </div>
+    <div class="clear"></div>
+
+    <div class="webcheckin-row">
+        <input type="submit" name="btnLogIn" value="Login" onclick="return theJsValidatorCheckin1316fixedFooterCheckinBox.validate();" id="btnLogIn" class="fixed-footer-submit-button">
+    </div>
+</div>
+</form><script type="text/javascript">
+//<![CDATA[
+if (!window.mvcClientValidationMetadata) { window.mvcClientValidationMetadata = []; }
+window.mvcClientValidationMetadata.push({"Fields":[],"FormId":"form0","ReplaceValidationSummary":false});
+//]]>
+</script>
+
+<script type="text/javascript">
+    var theJsValidatorCheckin1316fixedFooterCheckinBox = null;
+    $(document).ready(function () {
+        var fieldsToValidate = [
+        {
+            field: $("#txtLastNameCheckin1316fixedFooterCheckinBox"),
+            message: "Last name required",
+            type: "required"
+        }, {
+            field: $("#pnrCheckin1316fixedFooterCheckinBox"),
+            message: "PNR required",
+            type: "required"
+        }, {
+            field: $("#acceptTerms1316fixedFooterCheckinBox"),
+            message: "Please accept the terms.",
+            type: "required",
+            position:'after-label'
+        }];
+
+        theJsValidatorCheckin1316fixedFooterCheckinBox = new TheJsValidator(fieldsToValidate, null);
+        theJsValidatorCheckin1316fixedFooterCheckinBox.init();
+    });
+</script>
+        </div>
+        <div id="managebkgdiv" class="fixed-footer-popup" style="display: none;">
+            <div id="ManageClose">
+                X
+            </div>
+            
+<h3>Manage Bookings</h3>
+<div class="clearfix"></div>
+<form action="/manage/manage-booking" id="form1" method="post">
+<div class="modify-booking" >
+    
+    
+    <div class="modify-booking-row">
+        <label class="searchLabel">Last name</label>
+        <input name="lastname" type="text" id="txtLastNameManage1316fixedFooterManageBox" class="inputdata">
+    </div>
+    <div class="clear"></div>
+    
+    <div class="modify-booking-row">
+        <label class="searchLabel">PNR</label>
+        <input name="pnr" type="text" maxlength="6" id="pnrManage1316fixedFooterManageBox" class="inputdata">
+    </div>
+    <div class="clear"></div>
+
+
+
+    <div class="modify-booking-row">
+        <input type="submit" name="btnLogIn" value="Retrieve booking" onclick="return theJsValidatorManage1316fixedFooterManageBox.validate();" id="btnLogIn" class="fixed-footer-submit-button">
+    </div>
+</div>
+</form><script type="text/javascript">
+//<![CDATA[
+if (!window.mvcClientValidationMetadata) { window.mvcClientValidationMetadata = []; }
+window.mvcClientValidationMetadata.push({"Fields":[],"FormId":"form1","ReplaceValidationSummary":false});
+//]]>
+</script>
+<script type="text/javascript">
+    var theJsValidatorManage1316fixedFooterManageBox = null;
+    $(document).ready(function() {
+        var fieldsToValidate = [
+        {
+            field: $("#txtLastNameManage1316fixedFooterManageBox"),
+            message: "Enter Last Name",
+            type: "required"
+        }, {
+            field: $("#pnrManage1316fixedFooterManageBox"),
+            message: "Enter PNR number",
+            type: "required"
+        }];
+  
+        theJsValidatorManage1316fixedFooterManageBox = new TheJsValidator(fieldsToValidate, null);
+        theJsValidatorManage1316fixedFooterManageBox.init();
+    });
+</script>
+        </div>
+        <div id="flightstatusdiv" class="fixed-footer-popup" style="display: none;">
+            <div id="FltstsClose">
+                X
+            </div>
+            
+
+
+<h3>Flight Status</h3>
+<div class="clearfix">
+</div>
+<form action="/flight-status" id="formFlightStatus" method="post">
+<div style="margin-right: 15px;" class="flight-date flightstatus-row">
+    <label class="searchLabel">
+        Flight Date :</label>
+    <select class="selectlist12" id="flightDateSelect" name="Criteria.FlightDate"><option value="2016-01-19">19-Jan-2016</option>
+<option value="2016-01-20">20-Jan-2016</option>
+<option value="2016-01-21">21-Jan-2016</option>
+<option value="2016-01-22">22-Jan-2016</option>
+<option value="2016-01-23">23-Jan-2016</option>
+<option value="2016-01-24">24-Jan-2016</option>
+<option value="2016-01-25">25-Jan-2016</option>
+</select>
+</div>
+
+<div id="flight-destinationtype-1316FixedFooterFlightStatusBoxpart" class="flight-destination-type flightstatus-row">
+    <input checked="checked" id="FlightDestinationType.Departure1316FixedFooterFlightStatusBoxpart" name="Criteria.FlightDestinationType" type="radio" value="Departure" />
+    <label for="FlightDestinationType.Departure1316FixedFooterFlightStatusBoxpart"  >Departure</label>
+    <input id="FlightDestinationType.Arrival1316FixedFooterFlightStatusBoxpart" name="Criteria.FlightDestinationType" type="radio" value="Arrival" />
+    <label for="FlightDestinationType.Arrival1316FixedFooterFlightStatusBoxpart"  >Arrival</label>
+	<div class="clear"></div>
+</div>
+
+<div id="flight-statustype-1316FixedFooterFlightStatusBoxpart" class="flight-status-type flightstatus-row">
+    <input checked="checked" id="FlightStatusType.FlightId1316FixedFooterFlightStatusBoxpart" name="Criteria.FlightStatusType" type="radio" value="FlightId" />
+    <label for="FlightStatusType.FlightId1316FixedFooterFlightStatusBoxpart" class="data-flightid-1316FixedFooterFlightStatusBoxpart" >Flight Number</label>
+    <input id="FlightStatusType.Route1316FixedFooterFlightStatusBoxpart" name="Criteria.FlightStatusType" type="radio" value="Route" />
+    <label for="FlightStatusType.Route1316FixedFooterFlightStatusBoxpart" class="data-bycity-1316FixedFooterFlightStatusBoxpart" >By City</label>
+	<div class="clear"></div>
+</div>
+
+<div class="flight-city-selection flightstatus-row">
+    <div class="flight-selection" id="FlightSelector1316FixedFooterFlightStatusBoxpart" style="display:block;">
+        <label class="searchLabel">Flight Number :</label>
+        <select class="selectlist12" id="Criteria_FlightId" name="Criteria.FlightId"><option value="371731">G8-101 (CCU-IXZ)</option>
+<option value="371732">G8-101 (DEL-CCU)</option>
+<option value="371733">G8-102 (CCU-DEL)</option>
+<option value="371734">G8-102 (IXZ-CCU)</option>
+<option value="371687">G8-103 (DEL-CCU)</option>
+<option value="371688">G8-104 (CCU-DEL)</option>
+<option value="371717">G8-113 (DEL-BLR)</option>
+<option value="371665">G8-116 (BLR-DEL)</option>
+<option value="371696">G8-117 (DEL-BLR)</option>
+<option value="371697">G8-118 (BLR-DEL)</option>
+<option value="371656">G8-140 (DEL-PAT)</option>
+<option value="371735">G8-141 (NAG-BOM)</option>
+<option value="371718">G8-142 (BOM-NAG)</option>
+<option value="371657">G8-144 (PAT-DEL)</option>
+<option value="373607">G8-145 (DEL-IXR)</option>
+<option value="377623">G8-145D (CCU-IXR)</option>
+<option value="377622">G8-145D (DEL-CCU)</option>
+<option value="373608">G8-146 (IXR-DEL)</option>
+<option value="371686">G8-147 (DEL-IXR)</option>
+<option value="371747">G8-148 (IXR-DEL)</option>
+<option value="371658">G8-149 (DEL-PAT)</option>
+<option value="371659">G8-150 (PAT-DEL)</option>
+<option value="371705">G8-151 (DEL-GAU)</option>
+<option value="371739">G8-152 (GAU-DEL)</option>
+<option value="371644">G8-153 (DEL-IXB)</option>
+<option value="371645">G8-154 (IXB-DEL)</option>
+<option value="371745">G8-161 (DEL-BBI)</option>
+<option value="371746">G8-162 (BBI-DEL)</option>
+<option value="371689">G8-173 (DEL-PNQ)</option>
+<option value="371690">G8-174 (PNQ-DEL)</option>
+<option value="371646">G8-177 (DEL-PNQ)</option>
+<option value="371647">G8-178 (PNQ-DEL)</option>
+<option value="371748">G8-185 (DEL-IXJ)</option>
+<option value="371749">G8-186 (IXJ-DEL)</option>
+<option value="371679">G8-193 (DEL-IXL)</option>
+<option value="371680">G8-194 (IXL-DEL)</option>
+<option value="371653">G8-199 (DEL-IXJ)</option>
+<option value="371655">G8-199 (IXJ-SXR)</option>
+<option value="371654">G8-199 (SXR-DEL)</option>
+<option value="371641">G8-241 (BLR-PNQ)</option>
+<option value="371642">G8-242 (PNQ-BLR)</option>
+<option value="371724">G8-243 (BBI-BOM)</option>
+<option value="371723">G8-243 (CCU-BBI)</option>
+<option value="371704">G8-244 (BBI-CCU)</option>
+<option value="371703">G8-244 (BOM-BBI)</option>
+<option value="371649">G8-283 (BLR-PNQ)</option>
+<option value="371650">G8-283 (PNQ-NAG)</option>
+<option value="371701">G8-284 (NAG-PNQ)</option>
+<option value="371702">G8-284 (PNQ-BLR)</option>
+<option value="371678">G8-285 (BLR-GOI)</option>
+<option value="371639">G8-285 (GOI-DEL)</option>
+<option value="371643">G8-286 (DEL-GOI)</option>
+<option value="371708">G8-286 (GOI-BLR)</option>
+<option value="371638">G8-302 (MAA-BOM)</option>
+<option value="371637">G8-303 (BOM-MAA)</option>
+<option value="371693">G8-304 (IXZ-MAA)</option>
+<option value="371692">G8-304 (MAA-BOM)</option>
+<option value="371695">G8-305 (BOM-MAA)</option>
+<option value="371694">G8-305 (MAA-IXZ)</option>
+<option value="371685">G8-317 (BOM-BLR)</option>
+<option value="371681">G8-319 (BOM-DEL)</option>
+<option value="371672">G8-320 (BLR-BOM)</option>
+<option value="371682">G8-322 (BLR-BOM)</option>
+<option value="371640">G8-323 (BOM-BLR)</option>
+<option value="371666">G8-325 (BOM-BLR)</option>
+<option value="371709">G8-326 (BLR-BOM)</option>
+<option value="371683">G8-327 (BOM-DEL)</option>
+<option value="371660">G8-329 (BOM-DEL)</option>
+<option value="371716">G8-330 (DEL-BOM)</option>
+<option value="371744">G8-332 (DEL-BOM)</option>
+<option value="371648">G8-334 (DEL-BOM)</option>
+<option value="371691">G8-336 (BOM-COK)</option>
+<option value="371698">G8-336 (DEL-BOM)</option>
+<option value="371710">G8-337 (BOM-DEL)</option>
+<option value="371699">G8-339 (BOM-DEL)</option>
+<option value="371636">G8-340 (DEL-BOM)</option>
+<option value="371700">G8-342 (DEL-BOM)</option>
+<option value="371669">G8-343 (BOM-DEL)</option>
+<option value="371722">G8-345 (BOM-DEL)</option>
+<option value="371719">G8-345 (COK-BOM)</option>
+<option value="371715">G8-346 (DEL-BOM)</option>
+<option value="371720">G8-347 (BOM-COK)</option>
+<option value="371721">G8-348 (COK-BOM)</option>
+<option value="371670">G8-367 (BOM-AMD)</option>
+<option value="371671">G8-368 (AMD-BOM)</option>
+<option value="371684">G8-369 (BOM-AMD)</option>
+<option value="371673">G8-370 (AMD-BOM)</option>
+<option value="371674">G8-371 (BOM-GOI)</option>
+<option value="371675">G8-372 (GOI-BOM)</option>
+<option value="371737">G8-373 (BOM-GOI)</option>
+<option value="371738">G8-374 (GOI-BOM)</option>
+<option value="371676">G8-375 (BOM-GOI)</option>
+<option value="371677">G8-376 (GOI-BOM)</option>
+<option value="371711">G8-377 (BOM-GOI)</option>
+<option value="371712">G8-378 (GOI-BOM)</option>
+<option value="371713">G8-379 (BOM-GOI)</option>
+<option value="371714">G8-380 (GOI-BOM)</option>
+<option value="371661">G8-381 (BOM-IXC)</option>
+<option value="371662">G8-382 (IXC-BOM)</option>
+<option value="371633">G8-385 (BOM-PAT)</option>
+<option value="371635">G8-385 (IXR-BOM)</option>
+<option value="371634">G8-385 (PAT-IXR)</option>
+<option value="371741">G8-387 (BOM-IXJ)</option>
+<option value="371743">G8-387 (IXJ-SXR)</option>
+<option value="371742">G8-387 (SXR-BOM)</option>
+<option value="371706">G8-390 (BOM-JAI)</option>
+<option value="371628">G8-391 (BOM-JAI)</option>
+<option value="371629">G8-392 (JAI-BOM)</option>
+<option value="371707">G8-394 (JAI-BOM)</option>
+<option value="371630">G8-395 (BLR-BOM)</option>
+<option value="371631">G8-395 (BOM-LKO)</option>
+<option value="371740">G8-396 (BOM-BLR)</option>
+<option value="371750">G8-396 (LKO-BOM)</option>
+<option value="371736">G8-397 (BOM-LKO)</option>
+<option value="371632">G8-398 (LKO-BOM)</option>
+<option value="371667">G8-451 (MAA-PNQ)</option>
+<option value="371668">G8-452 (PNQ-MAA)</option>
+<option value="371725">G8-532 (AMD-CCU)</option>
+<option value="371726">G8-537 (CCU-AMD)</option>
+<option value="371727">G8-541 (CCU-PAT)</option>
+<option value="371728">G8-542 (PAT-CCU)</option>
+<option value="371729">G8-545 (CCU-GAU)</option>
+<option value="371730">G8-546 (GAU-CCU)</option>
+<option value="371663">G8-633 (AMD-PNQ)</option>
+<option value="371664">G8-634 (PNQ-AMD)</option>
+<option value="377620">G8-8082 (BLR-BLR)</option>
+</select>
+    </div>
+    <div class="city-selection" id="AirportSelector1316FixedFooterFlightStatusBoxpart" style="display:none;">
+        <div class="departure-airport">
+         <label class="searchLabel">From:</label>
+        <select class="selectlist12" id="Criteria_DepartureAirportId" name="Criteria.DepartureAirportId"><option value="126">AHMEDABAD (AMD)</option>
+<option value="194">BAGDOGRA (IXB)</option>
+<option value="129">BANGALORE (BLR)</option>
+<option value="154">BIJU PATNAIK (BBI)</option>
+<option value="200">CHANDIGARH (IXC)</option>
+<option value="1">CHENNAI (MAA)</option>
+<option value="133">COCHIN (COK)</option>
+<option value="134">DELHI (DEL)</option>
+<option value="173">GOA (GOI)</option>
+<option value="170">GUWAHATI (GAU)</option>
+<option value="141">JAIPUR (JAI)</option>
+<option value="197">JAMMU (IXJ)</option>
+<option value="118">KOLKATA (CCU)</option>
+<option value="203">LEH KUSHOK (IXL)</option>
+<option value="142">LUCKNOW (LKO)</option>
+<option value="130">MUMBAI (BOM)</option>
+<option value="143">NAGPUR (NAG)</option>
+<option value="176">PATNA (PAT)</option>
+<option value="160">PORTBLAIR (IXZ)</option>
+<option value="144">PUNE AIRPORT (PNQ)</option>
+<option value="204">RANCHI (IXR)</option>
+<option value="183">SRINAGAR AIRPORT (SXR)</option>
+</select>
+            </div>
+        <div class="arrival-airport">
+        <label class="searchLabel">To:</label>
+        <select class="selectlist12" id="Criteria_ArrivalAirportId" name="Criteria.ArrivalAirportId"><option value="126">AHMEDABAD (AMD)</option>
+<option value="194">BAGDOGRA (IXB)</option>
+<option value="129">BANGALORE (BLR)</option>
+<option value="154">BIJU PATNAIK (BBI)</option>
+<option value="200">CHANDIGARH (IXC)</option>
+<option value="1">CHENNAI (MAA)</option>
+<option value="133">COCHIN (COK)</option>
+<option value="134">DELHI (DEL)</option>
+<option value="173">GOA (GOI)</option>
+<option value="170">GUWAHATI (GAU)</option>
+<option value="139">HYDERABAD (HYD)</option>
+<option value="141">JAIPUR (JAI)</option>
+<option value="197">JAMMU (IXJ)</option>
+<option value="118">KOLKATA (CCU)</option>
+<option value="203">LEH KUSHOK (IXL)</option>
+<option value="142">LUCKNOW (LKO)</option>
+<option value="130">MUMBAI (BOM)</option>
+<option value="143">NAGPUR (NAG)</option>
+<option value="176">PATNA (PAT)</option>
+<option value="160">PORTBLAIR (IXZ)</option>
+<option value="144">PUNE AIRPORT (PNQ)</option>
+<option value="204">RANCHI (IXR)</option>
+<option value="183">SRINAGAR AIRPORT (SXR)</option>
+</select>
+            </div>
+    </div>
+</div>
+<div class="loginbtn flightstatus-row">
+    <input type="submit" value="SHOW ALL" class="fixed-footer-submit-button submit-button">
+</div>
+</form><script type="text/javascript">
+//<![CDATA[
+if (!window.mvcClientValidationMetadata) { window.mvcClientValidationMetadata = []; }
+window.mvcClientValidationMetadata.push({"Fields":[],"FormId":"formFlightStatus","ReplaceValidationSummary":false});
+//]]>
+</script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var flightSelector = $("#FlightSelector1316FixedFooterFlightStatusBoxpart");
+        var airportSelector = $("#AirportSelector1316FixedFooterFlightStatusBoxpart");
+        
+        $("#flight-statustype-1316FixedFooterFlightStatusBoxpart label").click(function () {
+            var inputid = $(this).attr("for");
+            $("#flight-statustype-1316FixedFooterFlightStatusBoxpart input[name='Criteria.FlightStatusType']").filter(function () {
+                if (this.id == inputid) {
+                    if (this.value == 'FlightId') {
+                        flightSelector.show();
+                        airportSelector.hide();
+                        $(this).attr("checked", "checked");
+                    } else if (this.value == 'Route') {
+                        airportSelector.show();
+                        flightSelector.hide();
+                        $(this).attr("checked", "checked");
+                    }
+                }
+            }); 
+
+            
+        });
+
+        $("#flight-destinationtype-1316FixedFooterFlightStatusBoxpart label").click(function () {
+            var inputid = $(this).attr("for");
+            $("#flight-destinationtype-1316FixedFooterFlightStatusBoxpart input[name='Criteria.FlightDestinationType']").filter(function () {               
+                if (this.id == inputid) {
+                    $(this).attr("checked", "checked");
+                }
+            }); 
+        }); 
+
+    });
+</script>
+        </div>
+        
+        <div class="linkdiv" id="footer-book-btn">Book Flights</div>
+
+        <div style="float: left">
+            <img src="/Images/FixedFooter/separator.png" alt="" style="border: none"></div>
+
+        <div class="linkdiv" id="footer-check-in-btn">Web check-in</div>
+
+        <div style="float: left">
+            <img src="/Images/FixedFooter/separator.png" alt="" style="border: none"></div>
+
+        <div class="linkdiv" id="manage-booking-btn">Manage Booking</div>
+
+        <div style="float: left">
+            <img src="/Images/FixedFooter/separator.png" alt="" style="border: none"></div>
+
+        <div class="linkdiv" id="flight-status-btn">Flight Status</div>
+
+        <div style="float: left"><img src="/Images/FixedFooter/separator.png" alt="" style="border: none"></div>
+
+        <div class="linkdiv" id="flight-status-btn" onclick="fixedFooter.goTo('/flight-schedule')">Flight Schedule</div>
+
+        <div style="float: left">
+            <img src="/Images/FixedFooter/separator.png" alt="" style="border: none"></div>
+
+        <div class="linkdiv" id="route-map-btn" onclick="fixedFooter.goTo('/menu/plan-my-trip/route-map')">Route Map</div>
+    </div>
+</div>
+<script type="text/javascript">
+	$(document).ready(function () {
+		var options = {
+			book: {
+				openButton: $("#footer-book-btn"),
+				closeButton:$("#BookClose"),
+				box: $("#bookdiv")
+			},
+			checkin: {
+				openButton: $("#footer-check-in-btn"),
+				closeButton: $("#CheckClose"),
+				box: $("#checkindiv")
+			},
+			manage: {
+				openButton: $("#manage-booking-btn"),
+				closeButton: $("#ManageClose"),
+				box: $("#managebkgdiv")
+			},
+			flightStatus: {
+				openButton: $("#flight-status-btn"),
+				closeButton: $("#FltstsClose"),
+				box: $("#flightstatusdiv")
+			}
+		};
+		fixedFooter = new FixedFooter(options);
+		fixedFooter.init();
+	});
+</script>
+</body>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</html>

@@ -1,0 +1,423 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy  | WOT (Web of Trust)
+
+ 
+
+
+
+
+
+
+
+
+
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-K96H33');
+
+
+
+
+
+
+
+We recently reset user passwords as part of a security update. If your old password no longer works, you will need to create a new one by following this link, or clicking "Forgot password" (new users can ignore this message). Thank you for your cooperation.
+
+					#login-dropdown {
+						height: 320px;
+						padding-top: 20px;
+						box-sizing: border-box;
+					}
+					#login-dropdown .form-item label a {
+						font-size: 16px;
+						font-weight: bold;
+					}
+					.login-warning {
+						margin-bottom: 10px;
+						border-radius: 8px;
+						text-align: left;
+						color: rgb(221, 221, 221);
+						box-sizing: border-box;
+						padding: 10px 0;
+						line-height: 1.5;
+						font-size: 14px;
+					}
+					.login-warning p b a {
+						color: #71B74D;
+					}
+					.login-warning__title {
+						font-size: 24px;
+						font-weight: bold;
+						margin-bottom: 5px;
+					}
+				
+
+
+
+
+Your username or email address: 
+
+
+
+Do you already have an account?: 
+
+ No, create an account now
+
+
+ Yes, my password is:
+
+
+
+
+Forgot your password?: 
+
+
+Log in
+
+
+
+
+
+
+Sign in with FacebookSign in with Google(The quickest way to register)
+
+
+
+
+
+Check out our new Mobile App
+
+
+
+
+
+
+
+
+
+
+
+
+en
+EnglishPусский
+
+Login \ Register
+
+
+
+
+
+
+
+
+
+Protect your Browser firefox
+
+
+
+
+
+Mobile
+Filter
+
+
+Forum
+Community Updates
+Invite a Friend
+Developers
+Blog
+
+Community
+
+
+Our APIs
+
+
+
+FAQ
+Guidelines
+Terms
+Privacy
+
+Support
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ Privacy  Privacy policy 
+
+
+
+
+
+
+
+
+
+Privacy Policy 
+
+
+
+Read our Privacy Policy document in full
+
+
+
+
+
+
+
+
+
+
+
+
+Contact us
+
+Contact us
+Press information
+Partnerships
+Marketing
+Jobs
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Supported Browsers
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+add to firefox
+
+
+Downloaded by over:
+140,000,000
+
+
+
+
+
+
+
+
+
+
+About
+
+About MyWOT
+Take a Tour
+Press
+Download
+Contact
+
+
+
+Community
+
+Forum
+Community Updates
+Invite a Friend
+Developers
+Blog
+
+
+
+Business
+Our APIs
+
+
+Support
+
+FAQ
+Guidelines
+Terms
+Privacy
+
+
+
+Social
+
+Facebook
+Twitter
+Google+
+LinkedIn
+Crunchbase
+YouTube
+
+
+
+
+
+
+
+
+
+
+
+
+Know Which Sites To Trust!  More than 140 million downloads
+Add to Firefox Know Who to Trust
+WOT shows website reputation icons next to links in most search engines, social media platforms, and many popular sites.
+
+
+
+
+
+var language="en";
+var portal_nonce = 'aa68198aa5cbc702822011a5ecdd9563ef07abe6';
+
+		var wot_rating_options = {
+			exclude: /^(.+\.)*mywot\.com$/i,
+			selector: "a[href], span[href]",
+			exclass: "norating"
+		};
+		var wot_tooltip_options = {
+			linkbase: "https://www.mywot.com/scorecard/"
+		};
+    
+
+
+
+				var _gaq = _gaq || [];
+				_gaq.push(['_setAccount', 'UA-2412412-1']);
+				_gaq.push(['_trackPageview']);
+
+				(function() {
+					var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+					ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+					var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+			  })();
+
+			
+
+	(function(){
+		var pass = {
+			form: {},
+			value: '',
+			valid: false,
+			el: {}
+		};
+		var err = {
+			el: null
+		};
+
+		var errorMessage = function() {
+			if(!err.el) {
+				err.el = document.createElement('div');
+				err.el.className = 'messages error';
+				err.el.innerHTML = '<p>' + "Invalid password: Your password needs to be at least 8 characters long and include at least 1 digit" + '</p>';
+				document.querySelector('.wot_user_edit_fieldset').insertBefore(err.el, document.querySelector('.block-title'));
+			}
+		};
+
+		var changeHandler = function(e) {
+			pass.value = e.target.value;
+			pass.valid = pass.value.length >= 8 ? (/\d/ig).test(pass.value) : ( pass.value.length == 0 ? true : false );
+			if(err.el) {
+				pass.valid ? err.el.setAttribute('style', 'display: none') : err.el.removeAttribute('style');
+			}
+		};
+
+		var validate = function(e) {
+			if(pass.el.value.length && !pass.valid) {
+				e.preventDefault();
+				e.stopPropagation();
+				errorMessage()
+			}
+		};
+
+		var ready = function(){
+			pass.form = document.querySelector('#user-edit');
+			if(!!pass.form) {
+				pass.form.addEventListener('submit', validate, false);
+				pass.el = pass.form.querySelector('#edit-pass-pass1');
+				pass.el.addEventListener('keyup', changeHandler, false);
+			}
+		};
+		document.addEventListener("DOMContentLoaded", ready);
+	}())
+
+
+
+
+

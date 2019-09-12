@@ -1,0 +1,1681 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy - PlayStation
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   var globalLocale = "en_US";
+
+
+
+	var PDC = PDC || {};
+	PDC.User = PDC.User || {};
+	if(document.cookie.indexOf("userinfo=") != -1) {
+		try {
+			var userInfoCookieValue = document.cookie.substring(document.cookie.indexOf("userinfo=") + 9);
+			userInfoCookieValue = decodeURIComponent(userInfoCookieValue.substring(0,userInfoCookieValue.indexOf(";")));
+	        $.ajax({
+	            type: "get",
+	            async: false,
+	            crossDomain: true,
+	            data: { userInfoCookie : userInfoCookieValue },
+	            cache: false,
+	            url: "https://io.playstation.com/playstation/psn/decrypt",
+	            dataType: "json",
+	            success: function(response) {
+		        	PDC.User = response;
+		        }
+	        });
+		}
+		catch(e){}
+	}
+
+
+
+var PDC = PDC || {};
+
+;(function ( pdc ){
+  pdc.isUserConsentedCookie = function() {
+    return !(PDC.Region.getRegion() == 'SCEE' && $.cookie('eucookiepreference') == 'rejected');
+  }
+
+	pdc.addProperty = function(obj, name, val){
+   		if (!obj && !name){
+   			return;
+   		}
+   		
+   		pdc[obj] = pdc[obj] || {};
+   		
+   		if(typeof val != "undefined" && val != null){
+   			if(!pdc[obj].hasOwnProperty(name) || !pdc[obj][name]){
+   				pdc[obj][name] = val;
+   			}	 
+   		}
+	};
+	
+	function sortRatings(a,b) {
+		a.ea=Number(a.ea);
+		b.ea=Number(b.ea);
+		a.i=Number(a.i);
+		b.i=Number(b.i);
+		return (a.ea != b.ea ? a.ea-b.ea : a.i-b.i);
+	}
+   	    
+   	pdc.addProperty('Header', 'PostLoginAjaxUrl', '');
+   	pdc.addProperty('Header', 'AgeGateThreshold', '17');
+   	pdc.addProperty('Header', 'DateFormat', 'MM/dd/yyyy');
+   	pdc.addProperty('Header', 'MyPlaystationLoginUrl', 'https://io.playstation.com/playstation/psn/login');
+   	pdc.addProperty('Header', 'MyPlaystationCookieDecryptionUrl', 'https://io.playstation.com/playstation/psn/decrypt');
+   	pdc.addProperty('GameTile', 'DefaultImage', '//media.playstation.com/is/image/SCEA/GameTile_Default_02Jun14?$GameTile_Small$');
+   	pdc.addProperty('Header', 'oauthServiceUrl', 'https://io.playstation.com');
+   	pdc.addProperty('Header', 'sceaOauth', 'https://auth.api.sonyentertainmentnetwork.com');
+   	pdc.addProperty('Rating','PRS',{"tags":[{"name":"rp-mccifc","ea":"17","i":1},{"name":"ao","ea":"18","i":2},{"name":"e-t","ea":"13","i":3},{"name":"e10-t","ea":"13","i":4},{"name":"ec","ea":"1","i":5},{"name":"e","ea":"1","i":6},{"name":"e10plus","ea":"10","i":7},{"name":"ka","ea":"1","i":8},{"name":"m","ea":"17","i":9},{"name":"rp","ea":"1","i":10},{"name":"rp-m","ea":"17","i":11},{"name":"t","ea":"13","i":12}]});
+   	pdc.addProperty('Rating','SRS',{"tags":[]});
+	
+   	if (pdc.Rating.PRS.tags instanceof Array) pdc.Rating.PRS = pdc.Rating.PRS.tags.sort(sortRatings);
+   	if (pdc.Rating.SRS.tags instanceof Array) pdc.Rating.SRS = pdc.Rating.SRS.tags.sort(sortRatings);
+
+})(PDC);
+PDC.version = "1.15.142";
+PDC.cqpagepath = "/content/pdc/us/en_US/network/legal/privacy-policy.html";
+
+
+
+
+
+
+var MTIProjectId='289bf93d-1f8b-49b5-95a2-888a76ac7e82';
+ (function() {
+        var mtiTracking = document.createElement('script');
+        mtiTracking.type='text/javascript';
+        mtiTracking.async='true';
+        mtiTracking.src=('https:'==document.location.protocol?'https:':'http:')+'//fast.fonts.net/t/trackingCode.js';
+        (document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild( mtiTracking );
+   })();
+
+
+
+
+
+
+var pdclogqueue = [];
+var pdclog = function() {
+  pdclogqueue.push(arguments)
+};
+
+;(function ( pdc ){
+	
+	pdc.SC = pdc.SC || {};
+	pdc.SC.vars = pdc.SC.vars || {};
+	pdc.SC.vars.pageTemplate = "/apps/pdc/templates/designkit/dkcontentpage".toLowerCase();
+	pdc.SC.vars.product = null;
+	pdc.SC.vars.product_type = null;
+	pdc.SC.vars.products = {'psnid': [], 'sku': [], 'upc': []};
+
+    var PDCFunctionQueue = function(){
+                this.queue = [];
+            };
+            PDCFunctionQueue.prototype.addToQueue = function(funcItem){
+              pdclog("funcqueue/add");
+              pdclog(funcItem);
+                this.queue.push(funcItem);
+            };
+            PDCFunctionQueue.prototype.clearQueue = function(){
+                this.queue.length = 0;
+            };
+            PDCFunctionQueue.prototype.executeQueue = function(){
+
+                var nQueueLength = this.queue.length;
+                var sTargetID,
+                    sMethodName,
+                    aParams,
+                    $targetElement,
+                    fMethod;
+
+                for (var i = 0; i < this.queue.length; i++) {
+                    try {
+                        var funcItem = this.queue[i];
+
+                        if (typeof funcItem === 'object') {
+                              pdclog("funcqueue/object: " + funcItem['method']);
+                                sTargetID = funcItem['id'];
+                                sMethodName = funcItem['method'];
+                                aParams = funcItem['params'];
+                                $targetElement = $(document.getElementById(sTargetID));
+                                fMethod = $targetElement[sMethodName];
+
+                            fMethod.apply($targetElement, aParams);
+
+                        } else if (typeof funcItem === 'string' && pdc.Func) {
+                            pdclog("funcqueue/string: " + funcItem);
+                            if (typeof pdc.Func[funcItem] === 'function') {
+                                pdc.Func[funcItem].call();
+                            }
+
+                        }
+                    } catch(err) {
+                        if (typeof console == "object") {
+                            pdclog("Error running script - " + err + " (Has plugin been included?)");
+                            pdclog({
+                                "sTargetID" : sTargetID,
+                                "sMethodName" : sMethodName,
+                                "aParams" : aParams,
+                                "$targetElement" : $targetElement,
+                                "fMethod" : fMethod
+                            });
+                        }
+                    }
+                }
+                this.clearQueue();
+            };
+
+	pdc.funcQueue = pdc.funcQueue || new PDCFunctionQueue();
+     
+})(PDC);
+
+
+
+
+
+
+    #oo_tab { display:none !important;}
+    
+
+
+(window.BOOMR_mq=window.BOOMR_mq||[]).push(["addVar",{"rua.upush":"false","rua.cpush":"false","rua.upre":"false","rua.cpre":"false","rua.uprl":"false","rua.cprl":"false","rua.cprf":"false","rua.trans":"","rua.cook":"false","rua.ims":"false"}]);
+!function(){function o(n,i){if(n&&i)for(var r in i)i.hasOwnProperty(r)&&(void 0===n[r]?n[r]=i[r]:n[r].constructor===Object&&i[r].constructor===Object?o(n[r],i[r]):n[r]=i[r])}try{var n=decodeURIComponent("");if(n.length>0&&window.JSON&&"function"==typeof window.JSON.parse){var i=JSON.parse(n);void 0!==window.BOOMR_config?o(window.BOOMR_config,i):window.BOOMR_config=i}}catch(o){window.console&&"function"==typeof window.console.error&&console.error("mPulse: Could not parse configuration",o)}}();
+!function(){function e(e){O.BOOMR_onload=e&&e.timeStamp||(new Date).getTime()}function n(e,n){var a=void 0!==window.aFeoApplied?"1":"0";BOOMR.addVar("ak.feo",a)}function a(e,n){var a=["ak.bpcip","ak.cport","ak.cr","ak.csrc","ak.gh","ak.ipv","ak.m","ak.n","ak.ol","ak.proto","ak.quicv","ak.r","ak.acc"];BOOMR.removeVar(a)}function o(){var e="",o="true"===e;BOOMR.subscribe("before_beacon",n,null,null),BOOMR.addVar({"ak.v":8,"ak.cp":"354192","ak.ai":"172858","ak.ol":"0","ak.cr":3,"ak.ipv":4,"ak.proto":"","ak.rid":"ed35e22","ak.r":17497,"ak.a2":o?1:0,"ak.m":"dscx","ak.n":"","ak.bpcip":"207.241.231.163","ak.cport":33890,"ak.gh":"23.61.195.150","ak.quicv":"","ak.csrc":"-","ak.acc":"reno"}),BOOMR.subscribe("onbeacon",a,null,null)}var t="https://s.go-mpulse.net/boomerang/";if("False"=="True")window.BOOMR_config=window.BOOMR_config||{},window.BOOMR_config.PageParams=window.BOOMR_config.PageParams||{},window.BOOMR_config.PageParams.pci=!0,t="https://s2.go-mpulse.net/boomerang/";if(!window.BOOMR||!window.BOOMR.version&&!window.BOOMR.snippetExecuted){window.BOOMR=window.BOOMR||{},window.BOOMR.snippetExecuted=!0;var i,r,c,d=document.createElement("iframe"),O=window;if(O.addEventListener)O.addEventListener("load",e,!1);else if(O.attachEvent)O.attachEvent("onload",e);d.src="javascript:void(0)",d.title="",d.role="presentation",(d.frameElement||d).style.cssText="width:0;height:0;border:0;display:none;",c=document.getElementsByTagName("script")[0],c.parentNode.insertBefore(d,c);try{r=d.contentWindow.document}catch(e){i=document.domain,d.src="javascript:var d=document.open();d.domain='"+i+"';void(0);",r=d.contentWindow.document}r.open()._l=function(){var e=this.createElement("script");if(i)this.domain=i;e.id="boomr-if-as",e.src=t+"FZ29U-GWEB6-F5YGN-ND96F-S7VWT",BOOMR_lstart=(new Date).getTime(),this.body.appendChild(e)},r.write("<bo"+'dy onload="document._l();">'),r.close();if("".length>0)if(O&&"performance"in O&&O.performance&&"function"==typeof O.performance.setResourceTimingBufferSize)O.performance.setResourceTimingBufferSize();if(document.addEventListener)document.addEventListener("onBoomerangLoaded",o);else if(document.attachEvent)document.attachEvent("onpropertychange",function(e){if(!e)e=window.event;if(e&&"onBoomerangLoaded"===e.propertyName)o()})}}();
+
+	//SSO Authentication Code
+        PDC.ssoAuthenticate = function() {
+        	var currentLocale = "en_US";
+        	try{
+        		currentLocale = PDC.Locale.getLocale()[0].split("-")[0]+"_"+PDC.Locale.getLocale()[0].split("-")[1].toUpperCase();
+        	}
+        	catch(e){}
+
+            var currentPageURL = encodeURIComponent(window.location.href),
+            	serviceDomain = PDC.Header.sceaOauth,
+            	serviceURL = serviceDomain + "/2.0/oauth/authorize?service_entity=urn:service-entity:psn&ui=pr&service_logo=ps&prompt=none&response_type=code&scope=psn:s2s&client_id=93be7f95-7d1f-461b-baf0-aa07bd53af84&request_locale="+currentLocale+"&redirect_uri=",
+                sharedPageUrl = "/en-us/oauth-redirect/",
+                authenticationWindow = window.location.protocol + "\/\/" + window.location.host + sharedPageUrl + "?postSignInURL=" + currentPageURL;
+            var finalIFrameUrl = serviceURL + encodeURIComponent(authenticationWindow);
+            if($("iframe[id='sso-redirect']").length == 0) {
+            	$('body').prepend("<iframe title =\"Sign In\" src=\""+finalIFrameUrl+"\" id=\"sso-redirect\"></iframe>");
+            }
+        };
+        //ssoAuthenticate iframe call
+        if("" != PDC.Header.sceaOauth) {
+        	PDC.ssoAuthenticate();
+        }
+
+
+
+
+  ;(function($) {
+        var authUHCookie,
+            uhCookieRegex = new RegExp('^ uh=', 'i'),
+            defer = $.Deferred(),
+            apiUrl = "https://id-lookup.api.playstation.com/v1/adid?uid=",
+            getUHCookie = function(cookieName) {
+                var cookieValue, documentCookiesArray;
+                if (document.cookie.indexOf(cookieName) !== -1) {
+                    documentCookiesArray = document.cookie.split(";");
+                    $.each(documentCookiesArray, function(i, val) {
+                         if (uhCookieRegex.test(val)) {
+                            cookieValue = val.replace(" uh=", "");
+                         }
+                    });
+                }
+                return cookieValue;
+            },
+            callSieAidAPI = function (uId) {
+                return $.ajax({
+                    url: (apiUrl + uId),
+                    timeout: 5000
+                });
+            },
+            getKruxScript = function() {
+                return "<script class=\"kxct\" data-id=\"rz2hywbai\" data-timing=\"async\" data-version=\"3.0\" " +
+                        "type=\"text/javascript\"> window.Krux||((Krux=function() { Krux.q.push(arguments)}" +
+                        ").q=[]);" +
+                        "(function() { var k=document.createElement(\"script\");k.type=\"text/javascript\";k.async=true; " +
+                        "k.src=(location.protocol===\"https:\"?\"https:\":\"http:\")+\"//cdn.krxd.net/controltag/rz2hywbai.js\";" +
+                        "var s=document.getElementsByTagName(\"script\")[0];s.parentNode.insertBefore(k,s); }());<\/script>";
+            },
+            appendScriptToBody = function () {
+                var scriptKrux = getKruxScript();
+                $("body").append(scriptKrux);
+            };
+
+            authUHCookie = getUHCookie("uh");
+            if (authUHCookie) {
+                defer = callSieAidAPI(authUHCookie);
+
+                defer.done(function(data) {
+                    <!--  Begin code for use of SAID instead of UH -->
+                    if (data.sie_aid) {
+                        // success
+                        // Append the meta tag
+                        $('.html-page head').append('<meta name="sie-aid" content="' + data.sie_aid + '" />');
+
+                        window.sie_aid = data.sie_aid;
+
+                        if (window.PDC && window.PDC.Profile) {
+                            window.PDC.Profile.sie_aid = data.sie_aid;
+                        }
+
+                        var expires = "";
+                        var date = new Date();
+                        date.setTime(date.getTime() + (365 * 24 * 60 * 60 * 1000));
+                        expires = "; expires=" + date.toUTCString();
+                        document.cookie = "said=" + data.sie_aid + expires + "; path=/";
+
+                        appendScriptToBody();
+                    }
+                    <!-- End code for use of SAID instead of UH  -->
+                }).fail(function() {
+                    console.log("uh: failed to load");
+                });
+            } else {
+                appendScriptToBody();
+            }
+    }(jQuery));
+
+
+
+
+
+
+
+    $CQ(function() {
+        try {
+	        //CQ_Analytics.SegmentMgr.loadSegments("/etc/clientcontext/pdc/segmentation");
+	         CQ_Analytics.ClientContextUtils.init("/etc/clientcontext/pdc","/content/pdc/us/en_US/network/legal/privacy-policy");
+	        CQ_Analytics.GeolocMap = {
+	        	show: function() {
+	        		console.log("geolocmap hi");
+	        	}
+	        }; 
+	        
+        } catch (e){
+            pdclog("Attempted to use local storage and this browser doesn't support it.");
+        };
+    });
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			Platform
+
+
+PlayStation®4
+
+
+PlayStation®VR
+
+
+PlayStation®3
+
+
+PlayStation®Vita
+
+
+
+
+			Games
+
+
+PS4™ Games
+
+
+PS3™ Games
+
+
+PS Vita Games
+
+
+Free Games in Plus
+
+
+
+
+			Entertainment
+
+
+PlayStation™Network
+
+
+PlayStation®Plus
+
+
+PlayStation™Now
+
+
+PlayStation™Video
+
+
+PlayStation™Music
+
+
+PlayStation™Vue
+
+
+
+
+			Help
+
+
+Live Chat
+
+
+Network Status
+
+
+Contact Support
+
+
+Protection Plan
+
+
+Service and Repair
+
+
+System Updates
+
+
+
+
+
+
+
+
+			Our Sites
+
+
+PlayStation.com
+
+
+PlayStation.Blog
+
+
+PlayStation Store
+
+
+PlayStation Docs
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+PS4
+PS4
+
+
+
+
+
+
+
+
+
+
+
+
+PS4
+
+
+
+
+
+
+PS4 Pro
+
+
+
+
+
+
+PS4 Games
+
+
+
+
+
+
+PS4 Accessories
+
+
+
+
+
+
+PlayStation®Plus
+
+
+
+
+
+
+
+
+
+
+PlayStation®App
+
+
+
+
+
+PlayStation®Video
+
+
+
+
+
+PlayStation®Music
+
+
+
+
+
+Sony Rewards
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+PS VR
+VR
+
+
+
+
+
+
+
+
+
+
+
+
+PlayStation® VR
+
+
+
+
+
+
+PS VR Games
+
+
+
+
+
+
+PS VR Accessories
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Games
+Games
+
+
+
+
+
+
+
+
+
+
+
+
+PS4™ Games
+
+
+
+
+
+
+PS VR Games
+
+
+
+
+
+
+PlayStation™ Now
+
+
+
+
+
+
+Free Games in Plus
+
+
+
+
+
+
+
+
+
+
+PS3™Games
+
+
+
+
+
+PS Vita Games
+
+
+
+
+
+Docs for PlayStation®
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+PS Vue
+PS Vue
+
+
+
+
+
+
+
+
+
+
+
+
+What is PS Vue?
+
+
+
+
+
+
+Subscribe
+
+
+
+
+
+
+Activate Devices
+
+
+
+
+
+
+Watch Online
+
+
+
+
+
+
+
+
+
+
+Getting Started
+
+
+
+
+
+FAQ
+
+
+
+
+
+HBO
+
+
+
+
+
+Showtime
+
+
+
+
+
+Sports
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+PS Store
+Store
+
+
+
+
+
+
+
+
+
+
+
+
+About PlayStation®Store
+
+
+
+
+
+
+Shop Now
+
+
+
+
+
+
+Offers and Deals
+
+
+
+
+
+
+
+			From PlayStation Store
+
+
+New Releases
+
+
+Deals of the Week
+
+
+Popular Games
+
+
+Coming Soon
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Help
+Help
+
+
+
+
+
+
+
+
+
+
+
+
+Network Status
+
+
+
+
+
+
+Password Reset
+
+
+
+
+
+
+Need Service & Repair
+
+
+
+
+
+
+2-Step Verification
+
+
+
+
+
+
+System Updates
+
+
+
+
+
+
+
+
+
+
+Support
+
+
+
+
+
+@AskPlayStation
+
+
+
+
+
+Service Case Look Up
+
+
+
+
+
+Warranties
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+My PlayStation 
+
+
+
+
+
+
+
+
+
+SIGN IN
+SIGN IN
+
+
+
+
+
+
+
+
+
+Sign in to your account
+
+
+SIGN IN
+
+
+
+
+  Create an account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                            Sign Out
+
+
+
+
+
+
+        PDC.funcQueue.addToQueue({
+            id: "main-header",
+            method: "myProfile",
+            params: [{}]
+        });
+    
+
+
+
+		PDC.funcQueue.addToQueue({
+    		id: "main-header",
+    		method: "navSignIn",
+    		params: [{}]
+		});
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+SITEMAP
+SITEMAP
+
+
+
+
+
+
+			Platform
+
+
+PlayStation®4
+
+
+PlayStation®VR
+
+
+PlayStation®3
+
+
+PlayStation®Vita
+
+
+
+
+			Games
+
+
+PS4™ Games
+
+
+PS3™ Games
+
+
+PS Vita Games
+
+
+Free Games in Plus
+
+
+
+
+			Entertainment
+
+
+PlayStation™Network
+
+
+PlayStation®Plus
+
+
+PlayStation™Now
+
+
+PlayStation™Video
+
+
+PlayStation™Music
+
+
+PlayStation™Vue
+
+
+
+
+			Help
+
+
+Live Chat
+
+
+Network Status
+
+
+Contact Support
+
+
+Protection Plan
+
+
+Service and Repair
+
+
+System Updates
+
+
+
+
+
+
+
+
+			Our Sites
+
+
+PlayStation.com
+
+
+PlayStation.Blog
+
+
+PlayStation Store
+
+
+PlayStation Docs
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+PDC.funcQueue.addToQueue({
+    id: "headersearch79c353e0_6078_4fac_adcb_7fd8a6ad58ae",
+    method: "searchBox",
+    params: [{
+    	queryParameter: 'q',
+    	autoComplete: false,
+    	
+    }]
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	(function() {
+		var $mainHeader = $(document.getElementById("main-header"));
+        var sbMobileMenuItem = $mainHeader.find('.nav-avatar-mobile.mobile-menu .nav-content img.mobile-icon');
+		
+		if(PDC && PDC.Profile && PDC.Profile.loggedIn) {
+			PDC.Profile.setContentToId( $mainHeader.find('.nav-avatar .large-title') );
+			PDC.Profile.setContentToId( $mainHeader.find('.nav-avatar-mobile .large-title') );
+			PDC.Profile.setContentToId( $mainHeader.find('#handle span') );
+			
+			PDC.Profile.setContentToSmallAvatar( $mainHeader.find('.nav-avatar .nav-content img') );
+			PDC.Profile.setContentToSmallAvatar( $mainHeader.find('.nav-avatar-mobile .nav-content img') );
+
+            if (sbMobileMenuItem && sbMobileMenuItem.length) {
+                $mainHeader.find('.nav-avatar-mobile.my-pslink .large-title').html('My PlayStation <img src="/etc/designs/pdc/clientlibs_base/images/nav/icon_chevron.png" class="my-pslink-chevron">');
+                sbMobileMenuItem.attr('src', '/etc/designs/pdc/clientlibs_base/images/nav/gear-icon.png');
+            }
+			$mainHeader.addClass('signed-in');	
+		} else {
+            if (sbMobileMenuItem && sbMobileMenuItem.length) {
+                sbMobileMenuItem.attr('src', '/etc/designs/pdc/clientlibs_base/images/nav/icon_log-in.png');
+            }
+        }
+		
+		
+		PDC.Navigation.resizeToTablet($mainHeader);
+
+        $(document).ready(function(){
+        	try {
+                if(PDC && PDC.Profile && PDC.Profile.loggedIn && sbMobileMenuItem && sbMobileMenuItem.length && window.Adobe) {
+	                var accountLabelSignInMobile = Adobe.I18n.get('account_label_signin_mobile');
+	                if (accountLabelSignInMobile) {
+	                    $mainHeader.find('.nav-avatar-mobile:not(.my-pslink) .large-title').text(accountLabelSignInMobile);
+	                    $mainHeader.find('#handle span').text(accountLabelSignInMobile);
+	                }
+	            }
+            } catch(err) {
+                console.log("window.Adobe not defined.");
+            }
+        });
+
+	})();
+
+	PDC.funcQueue.addToQueue({
+		id: "main-header",
+		method: "playstationMenu",
+		params: [{}]
+	});
+
+
+
+    $(document).ready(function(){
+            if($('.nav-link.selected a[href*="index"] span.large-title').length>0){
+                $('.nav-link.selected').removeClass('selected');
+                $('.nav-link.nav-home').addClass('selected');
+            }
+            try{
+            	$.fn.placeholder();
+            }
+            catch(e){}
+	});
+
+    window.onload = function() {
+        if($('#sb-signin-link')){
+            console.log($('#sb-signin-link').attr('href'));
+            console.log($('#sb-social-toolbar-root').data('href'));
+            console.log("logout url:"+$('#sb-social-toolbar-root').data('signouthref'));
+
+            $('#sb-signin-link').attr('href', $('#sb-social-toolbar-root').data('href'));
+            if($(".return-url-link[href='']").length) {
+            	$(".return-url-link[href='']").attr("href",$("#sb-social-toolbar-root").data("href"));
+            }
+        }
+    };
+    if($(".return-url-link[href='']").length) {
+    	$(".return-url-link[href='']").attr("href",$("#sb-social-toolbar-root").data("href"));
+    }
+
+
+
+
+
+
+    PDC = PDC || {};
+
+    (function(pdc,$){
+
+        var GAME = function(config){
+            this.config = config;
+        };
+
+        GAME.prototype.getEquivalentAge = function(){
+            return 0 ;
+        };
+
+        GAME.prototype.getThreshold = function(){
+            return 17 ;
+        };
+
+        GAME.prototype.isAgeGateOn = function(){
+            return true ;
+        };
+
+
+        pdc.GamePage = pdc.GamePage || new GAME() ;
+
+
+    })(PDC, jQuery);
+
+
+
+        try{
+	    	PDC.SC.vars.sku = "";
+			PDC.SC.vars.upc = "";
+	    	PDC.SC.vars.product_title ="Privacy Policy";
+        }
+        catch(err) {
+		}
+	
+
+if (typeof PDC.hidePage != "undefined") PDC.hidePage()
+
+
+
+
+
+
+
+Privacy Policy
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+hero-cta-arrow copy
+Created with Sketch.
+
+
+
+
+
+
+
+
+
+
+
+
+hero-cta-arrow copy
+Created with Sketch.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      (function () {
+        var tagjs = document.createElement("script");
+        var s = document.getElementsByTagName("script")[0];
+        tagjs.async = true;
+        tagjs.src = "//s.btstatic.com/tag.js#site=j6lPWC2";
+        s.parentNode.insertBefore(tagjs, s);
+      }());
+    
+
+
+
+
+		var ut_params = ut_params || [];
+		ut_params.push("UT-865786453");//version:0.4
+		(function() {var ut = document.createElement('script'); 
+			ut.type = 'text/javascript'; 
+			ut.async = true;
+			ut.src = (("https:" == document.location.protocol) ? "https://" : "http://") +
+			'app.ubertags.com/javascripts/ubertags.js';
+			var script = document.getElementsByTagName('script')[0]; script.parentNode.insertBefore(ut,
+			script);})();
+	
+
+
+
+
+  if (typeof mboxCreate == "function") {
+    mboxCreate('gamepage_recommendations',
+               'entity.id=/content/pdc/us/en_US/network/legal/privacy-policy',
+               PDC.getEntityDefFromMeta('gameTitle','name'),
+               'entity.categoryID=game',
+               'entity.locale='+globalLocale,
+               'entity.pageURL=' + window.location.pathname,
+               PDC.getEntityDefFromMeta('platform'),
+               PDC.getEntityDefFromMeta('genre'),
+               PDC.getEntityDefFromMeta('image','thumbnailURL1'),
+               PDC.getEntityDefFromMeta('hoverImage','thumbnailURL2'),
+               'entity.daysSinceRelease=',
+               PDC.getEntityDefFromMeta('release_date','releaseDate'),
+               PDC.getEntityDefFromMeta('SKU-ID', 'sku'),
+               PDC.getEntityDefFromMeta('upc'),
+               PDC.getEntityDefFromMeta('release_date_display','releaseDate4Display'),
+               'entity.ageRating=',
+               PDC.getEntityDefFromMeta('description','message'),
+               PDC.getEntityDefFromMeta('buttonURL'),
+               PDC.getEntityDefFromMeta('buttonColor'),
+               PDC.getEntityDefFromMeta('buttonType'),
+               PDC.getEntityDefFromMeta('buttonTxt'),
+               PDC.getEntityDefFromMeta('ageRatingImage'),
+               PDC.getEntityDefFromMeta('ageRatingImageAlt'));
+  }
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+Support
+
+
+About SIE
+
+
+Terms of Use
+
+
+Privacy Policy
+
+
+California Privacy Rights
+
+
+Press Releases
+
+
+Careers
+
+
+Legal
+
+
+Contact Us
+
+
+Developers
+
+
+Site Map
+
+
+Modern Slavery Transparency Act Statement
+
+
+
+
+
+
+Country: United States
+
+
+
+ 
+
+
+
+
+About Sony
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+© 2018 Sony Interactive Entertainment LLC
+
+
+
+
+
+
+
+
+
+
+
+
+	PDC.funcQueue.addToQueue('CM066');
+
+
+
+
+
+
+
+
+
+
+
+
+
+$(function() {
+var videoId = '';
+    if(videoId){
+        isVideoMature(videoId, '0', '0');
+    }
+})
+
+
+   // Adding for reading the report suite from configuration
+    try {
+
+        var s_account = PDC.SC.get_rs();
+    }catch(err) {
+    }
+
+
+
+
+
+
+
+
+try {
+    PDC.SC.process_global_vars(s);
+    PDC.SC.configure_rs(s);
+    console.log("processed sc");
+} catch (e) {
+    console.log("error processing sc");
+    console.log(e);
+}
+
+CQ_Analytics.Sitecatalyst.frameworkComponents = [''];
+/**
+ * Sets SiteCatalyst variables accordingly to mapped components. If <code>options</code>
+ * object is provided only variables matching the options.componentPath are set.
+ *
+ * @param {Object} options Parameter object from CQ_Analytics.record() call. Optional.
+ */
+CQ_Analytics.Sitecatalyst.updateEvars = function(options) {
+    this.frameworkMappings = [];
+    for (var i=0; i<this.frameworkMappings.length; i++){
+        var m = this.frameworkMappings[i];
+        if (!options || options.compatibility || (options.componentPath == m.resourceType)) {
+            CQ_Analytics.Sitecatalyst.setEvar(m);
+        }
+    }
+}
+
+CQ_Analytics.Sitecatalyst.doPageTrack = function() {
+    var collect = true;
+    var lte = s.linkTrackEvents;
+    CQ_Analytics.Sitecatalyst.collect(collect);
+    if (collect) {
+        CQ_Analytics.Sitecatalyst.updateEvars();
+        if (document.location.pathname.indexOf('.retailers') > 0) {
+            return;
+        }
+        /************* DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/
+        /* Blocking the onload event if url contains author path */
+        if(location.href.indexOf("/content/pdc") == -1) {
+		
+        	var s_code=s.t();if(s_code)document.write(s_code);
+        
+        }
+        s.linkTrackEvents = lte;
+        if(s.linkTrackVars.indexOf('events')==-1){delete s.events};
+        $CQ(document).trigger("sitecatalystAfterCollect");
+    }
+    /*trigger impression calls after page load call has gone thru*/
+    pdclog("sitecatalysImpression triiger on page load");
+    $(window).trigger("sitecatalysImpression");
+};
+if (CQ_Analytics.CCM.areStoresInitialized) {
+    CQ_Analytics.Sitecatalyst.doPageTrack();
+} else {
+    CQ_Analytics.CCM.addListener("storesinitialize", function(e) {
+        CQ_Analytics.Sitecatalyst.doPageTrack();
+    });
+}
+
+
+
+
+
+
+
+
+		if (typeof mboxDefine == 'function') {
+			mboxDefine('pdc6_video_recs_en_us','pdc6_video_recs_en_us');
+			window.mboxRelatedVideosLocale = 'en_us';
+			window.mboxRelatedVideosName = 'pdc6_video_recs_en_us';
+		}
+	
+
+
+

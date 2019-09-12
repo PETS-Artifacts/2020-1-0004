@@ -1,0 +1,1925 @@
+<!DOCTYPE html><html lang="en"><head>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","errorBeacon":"bam.nr-data.net","licenseKey":"32e8d0ad2c","applicationID":"3395804","transactionName":"IAtdEhEMXwkGRUpXQBcNUAoGEBwWC1gS","queueTime":0,"applicationTime":429,"agent":""}</script>
+<script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"UwYAU1VVGwADXVRaBwU="};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o||e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({QJf3ax:[function(t,e){function n(){}function r(t){function e(t){return t&&t instanceof n?t:t?a(t,i,o):o()}function u(n,r,o){t&&t(n,r,o);for(var i=e(o),a=l(n),s=a.length,f=0;s>f;f++)a[f].apply(i,r);var u=c[v[n]];return u&&u.push([y,n,r,i]),i}function d(t,e){m[t]=l(t).concat(e)}function l(t){return m[t]||[]}function p(t){return f[t]=f[t]||r(u)}function h(t,e){s(t,function(t,n){e=e||"feature",v[n]=e,e in c||(c[e]=[])})}var m={},v={},y={on:d,emit:u,get:p,listeners:l,context:e,buffer:h};return y}function o(){return new n}var i="nr@context",a=t("gos"),s=t(1),c={},f={},u=e.exports=r();u.backlog=c},{1:21,gos:"7eSDFh"}],ee:[function(t,e){e.exports=t("QJf3ax")},{}],3:[function(t){function e(t){try{i.console&&console.log(t)}catch(e){}}var n,r=t("ee"),o=t(1),i={};try{n=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(i.console=!0,-1!==n.indexOf("dev")&&(i.dev=!0),-1!==n.indexOf("nr_dev")&&(i.nrDev=!0))}catch(a){}i.nrDev&&r.on("internal-error",function(t){e(t.stack)}),i.dev&&r.on("fn-err",function(t,n,r){e(r.stack)}),i.dev&&(e("NR AGENT IN DEVELOPMENT MODE"),e("flags: "+o(i,function(t){return t}).join(", ")))},{1:21,ee:"QJf3ax"}],4:[function(t){function e(t,e,n,i,a){try{f?f-=1:r("err",[a||new UncaughtException(t,e,n)])}catch(c){try{r("ierr",[c,(new Date).getTime(),!0])}catch(u){}}return"function"==typeof s?s.apply(this,o(arguments)):!1}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function n(t){r("err",[t,(new Date).getTime()])}var r=t("handle"),o=t(6),i=t("ee"),a=t("loader"),s=window.onerror,c=!1,f=0;a.features.err=!0,t(3),window.onerror=e;try{throw new Error}catch(u){"stack"in u&&(t(4),t(5),"addEventListener"in window&&t(1),a.xhrWrappable&&t(2),c=!0)}i.on("fn-start",function(){c&&(f+=1)}),i.on("fn-err",function(t,e,r){c&&(this.thrown=!0,n(r))}),i.on("fn-end",function(){c&&!this.thrown&&f>0&&(f-=1)}),i.on("internal-error",function(t){r("ierr",[t,(new Date).getTime(),!0])})},{1:5,2:8,3:3,4:7,5:6,6:22,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],5:[function(t,e){function n(t){for(var e=t;e&&!e.hasOwnProperty("addEventListener");)e=Object.getPrototypeOf(e);e&&r(e)}function r(t){a.inPlace(t,["addEventListener","removeEventListener"],"-",o)}function o(t){return t[1]}var i=t("ee").get("events"),a=t(1)(i),s=t("gos");e.exports=i,r(window),"getPrototypeOf"in Object?(n(document),n(XMLHttpRequest.prototype)):XMLHttpRequest.prototype.hasOwnProperty("addEventListener")&&r(XMLHttpRequest.prototype),i.on("addEventListener-start",function(t){if(t[1]){var e=t[1];if("function"==typeof e){var n=s(e,"nr@wrapped",function(){return a(e,"fn-",null,e.name||"anonymous")});this.wrapped=t[1]=n}else"function"==typeof e.handleEvent&&a.inPlace(e,["handleEvent"],"fn-")}}),i.on("removeEventListener-start",function(t){var e=this.wrapped;e&&(t[1]=e)})},{1:23,ee:"QJf3ax",gos:"7eSDFh"}],6:[function(t,e){var n=t("ee").get("raf"),r=t(1)(n);e.exports=n,r.inPlace(window,["requestAnimationFrame","mozRequestAnimationFrame","webkitRequestAnimationFrame","msRequestAnimationFrame"],"raf-"),n.on("raf-start",function(t){t[0]=r(t[0],"fn-")})},{1:23,ee:"QJf3ax"}],7:[function(t,e){function n(t,e,n){t[0]=i(t[0],"fn-",null,n)}function r(t,e,n){this.method=n,this.timerDuration="number"==typeof t[1]?t[1]:0,t[0]=i(t[0],"fn-",this,n)}var o=t("ee").get("timer"),i=t(1)(o);e.exports=o,i.inPlace(window,["setTimeout","setImmediate"],"setTimer-"),i.inPlace(window,["setInterval"],"setInterval-"),i.inPlace(window,["clearTimeout","clearImmediate"],"clearTimeout-"),o.on("setInterval-start",n),o.on("setTimer-start",r)},{1:23,ee:"QJf3ax"}],8:[function(t,e){function n(t,e){e=e||this;var n=i.context(e);e.readyState>3&&!n.resolved&&(n.resolved=!0,i.emit("xhr-resolved",[],e));try{c.inPlace(e,l,"fn-",r)}catch(o){}}function r(t,e){return e}function o(t,e){for(var n in t)e[n]=t[n];return e}var i=t("ee").get("xhr"),a=t(1),s=t(2),c=s(i),f=s(a),u=NREUM.o,d=u.XHR,l=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout","onreadystatechange"];e.exports=i,window.XMLHttpRequest=function(t){var e=new d(t);try{i.emit("new-xhr",[e],e),e.hasOwnProperty("addEventListener")&&f.inPlace(e,["addEventListener","removeEventListener"],"-",r),e.addEventListener("readystatechange",n,!1)}catch(o){try{i.emit("internal-error",[o])}catch(a){}}return e},o(d,XMLHttpRequest),XMLHttpRequest.prototype=d.prototype,c.inPlace(XMLHttpRequest.prototype,["open","send"],"-xhr-",r),i.on("send-xhr-start",n),i.on("open-xhr-start",n)},{1:5,2:23,ee:"QJf3ax"}],9:[function(t){function e(t){var e=this.params,r=this.metrics;if(!this.ended){this.ended=!0;for(var o=0;u>o;o++)t.removeEventListener(f[o],this.listener,!1);if(!e.aborted){if(r.duration=(new Date).getTime()-this.startTime,4===t.readyState){e.status=t.status;var i=n(t,this.lastSize);if(i&&(r.rxSize=i),this.sameOrigin){var s=t.getResponseHeader("X-NewRelic-App-Data");s&&(e.cat=s.split(", ").pop())}}else e.status=0;r.cbTime=this.cbTime,c.emit("xhr-done",[t],t),a("xhr",[e,r,this.startTime])}}}function n(t,e){var n=t.responseType;if("json"===n&&null!==e)return e;var o="arraybuffer"===n||"blob"===n||"json"===n?t.response:t.responseText;return r(o)}function r(t){if("string"==typeof t&&t.length)return t.length;if("object"!=typeof t)return void 0;if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if("undefined"!=typeof FormData&&t instanceof FormData)return void 0;try{return JSON.stringify(t).length}catch(e){return void 0}}function o(t,e){var n=s(e),r=t.params;r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.sameOrigin=n.sameOrigin}var i=t("loader");if(i.xhrWrappable){var a=t("handle"),s=t(2),c=t("ee"),f=["load","error","abort","timeout"],u=f.length,d=t(1),l=t(3),p=window.XMLHttpRequest;i.features.xhr=!0,t(5),t(4),c.on("new-xhr",function(t){var n=this;n.totalCbs=0,n.called=0,n.cbTime=0,n.end=e,n.ended=!1,n.xhrGuids={},n.lastSize=null,l&&(l>34||10>l)||window.opera||t.addEventListener("progress",function(t){n.lastSize=t.loaded},!1)}),c.on("open-xhr-start",function(t){this.params={method:t[0]},o(this,t[1]),this.metrics={}}),c.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),c.on("send-xhr-start",function(t,e){var n=this.metrics,o=t[0],i=this;if(n&&o){var a=r(o);a&&(n.txSize=a)}this.startTime=(new Date).getTime(),this.listener=function(t){try{"abort"===t.type&&(i.params.aborted=!0),("load"!==t.type||i.called===i.totalCbs&&(i.onloadCalled||"function"!=typeof e.onload))&&i.end(e)}catch(n){try{c.emit("internal-error",[n])}catch(r){}}};for(var s=0;u>s;s++)e.addEventListener(f[s],this.listener,!1)}),c.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),c.on("xhr-load-added",function(t,e){var n=""+d(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),c.on("xhr-load-removed",function(t,e){var n=""+d(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),c.on("addEventListener-end",function(t,e){e instanceof p&&"load"===t[0]&&c.emit("xhr-load-added",[t[1],t[2]],e)}),c.on("removeEventListener-end",function(t,e){e instanceof p&&"load"===t[0]&&c.emit("xhr-load-removed",[t[1],t[2]],e)}),c.on("fn-start",function(t,e,n){e instanceof p&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=(new Date).getTime()))}),c.on("fn-end",function(t,e){this.xhrCbStart&&c.emit("xhr-cb-time",[(new Date).getTime()-this.xhrCbStart,this.onload,e],e)})}},{1:"XL7HBI",2:10,3:12,4:8,5:5,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],10:[function(t,e){e.exports=function(t){var e=document.createElement("a"),n=window.location,r={};e.href=t,r.port=e.port;var o=e.href.split("://");!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=e.hostname||n.hostname,r.pathname=e.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname);var i=!e.protocol||":"===e.protocol||e.protocol===n.protocol,a=e.hostname===document.domain&&e.port===n.port;return r.sameOrigin=i&&(!e.hostname||a),r}},{}],11:[function(t,e){function n(t,e){return function(){r(t,[(new Date).getTime()].concat(i(arguments)),null,e)}}var r=t("handle"),o=t(1),i=t(2);"undefined"==typeof window.newrelic&&(newrelic=NREUM);var a=["setPageViewName","addPageAction","setCustomAttribute","finished","addToTrace","inlineHit"],s=["addPageAction"],c="api-";o(a,function(t,e){newrelic[e]=n(c+e,"api")}),o(s,function(t,e){newrelic[e]=n(c+e)}),e.exports=newrelic,newrelic.noticeError=function(t){"string"==typeof t&&(t=new Error(t)),r("err",[t,(new Date).getTime()])}},{1:21,2:22,handle:"D5DuLP"}],12:[function(t,e){var n=0,r=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);r&&(n=+r[1]),e.exports=n},{}],gos:[function(t,e){e.exports=t("7eSDFh")},{}],"7eSDFh":[function(t,e){function n(t,e,n){if(r.call(t,e))return t[e];var o=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:o,writable:!0,enumerable:!1}),o}catch(i){}return t[e]=o,o}var r=Object.prototype.hasOwnProperty;e.exports=n},{}],handle:[function(t,e){e.exports=t("D5DuLP")},{}],D5DuLP:[function(t,e){function n(t,e,n,o){r.buffer([t],o),r.emit(t,e,n)}var r=t("ee").get("handle");e.exports=n,n.ee=r},{ee:"QJf3ax"}],XL7HBI:[function(t,e){function n(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:i(t,o,function(){return r++})}var r=1,o="nr@id",i=t("gos");e.exports=n},{gos:"7eSDFh"}],id:[function(t,e){e.exports=t("XL7HBI")},{}],G9z0Bl:[function(t,e){function n(){if(!h++){var t=p.info=NREUM.info,e=f.getElementsByTagName("script")[0];if(t&&t.licenseKey&&t.applicationID&&e){s(d,function(e,n){t[e]||(t[e]=n)});var n="https"===u.split(":")[0]||t.sslForHttp;p.proto=n?"https://":"http://",a("mark",["onload",i()],null,"api");var r=f.createElement("script");r.src=p.proto+t.agent,e.parentNode.insertBefore(r,e)}}}function r(){"complete"===f.readyState&&o()}function o(){a("mark",["domContent",i()],null,"api")}function i(){return(new Date).getTime()}var a=t("handle"),s=t(1),c=window,f=c.document;NREUM.o={ST:setTimeout,XHR:c.XMLHttpRequest,REQ:c.Request,EV:c.Event,PR:c.Promise,MO:c.MutationObserver},t(2);var u=(""+location).split("?")[0],d={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-885.min.js"},l=window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&!/CriOS/.test(navigator.userAgent),p=e.exports={offset:i(),origin:u,features:{},xhrWrappable:l};f.addEventListener?(f.addEventListener("DOMContentLoaded",o,!1),c.addEventListener("load",n,!1)):(f.attachEvent("onreadystatechange",r),c.attachEvent("onload",n)),a("mark",["firstbyte",i()],null,"api");var h=0},{1:21,2:11,handle:"D5DuLP"}],loader:[function(t,e){e.exports=t("G9z0Bl")},{}],21:[function(t,e){function n(t,e){var n=[],o="",i=0;for(o in t)r.call(t,o)&&(n[i]=e(o,t[o]),i+=1);return n}var r=Object.prototype.hasOwnProperty;e.exports=n},{}],22:[function(t,e){function n(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(0>o?0:o);++r<o;)i[r]=t[e+r];return i}e.exports=n},{}],23:[function(t,e){function n(t){return!(t&&"function"==typeof t&&t.apply&&!t[i])}var r=t("ee"),o=t(1),i="nr@original",a=Object.prototype.hasOwnProperty,s=!1;e.exports=function(t){function e(t,e,r,a){function nrWrapper(){var n,i,s,c;try{i=this,n=o(arguments),s="function"==typeof r?r(n,i):r||{}}catch(u){d([u,"",[n,i,a],s])}f(e+"start",[n,i,a],s);try{return c=t.apply(i,n)}catch(l){throw f(e+"err",[n,i,l],s),l}finally{f(e+"end",[n,i,c],s)}}return n(t)?t:(e||(e=""),nrWrapper[i]=t,u(t,nrWrapper),nrWrapper)}function c(t,r,o,i){o||(o="");var a,s,c,f="-"===o.charAt(0);for(c=0;c<r.length;c++)s=r[c],a=t[s],n(a)||(t[s]=e(a,f?s+o:o,i,s))}function f(e,n,r){if(!s){s=!0;try{t.emit(e,n,r)}catch(o){d([o,e,n,r])}s=!1}}function u(t,e){if(Object.defineProperty&&Object.keys)try{var n=Object.keys(t);return n.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(r){d([r])}for(var o in t)a.call(t,o)&&(e[o]=t[o]);return e}function d(e){try{t.emit("internal-error",e)}catch(n){}}return t||(t=r),e.inPlace=c,e.flag=i,e}},{1:22,ee:"QJf3ax"}]},{},["G9z0Bl",4,9]);</script><script src="/help/assets/ab_testing-5c54d15d5d896de3cfa33608e54ed1914a2eafd1892ec5ee8f0397db697fddc2.js"></script><title>Sky Help: Sky Privacy and Cookies Notice</title><link href="http://www.sky.com/help/articles/sky-privacy-and-cookies-notice" rel="canonical" /><meta content="This privacy notice explains what information we collect when visitors come to one of our Sky websites." name="description" /><meta content="sky-privacy-and-cookies-notice" name="slug" /><meta content="BSkyB" name="author" /><meta content="app-id=com.bskyb.skyservice" name="google-play-app" /><meta content="app-id=880575127" name="apple-itunes-app" /><meta content='width=device-width, initial-scale=1.0' name='viewport'>
+<link href='//assets.sky.com/dist/1276/css/responsive-12.css' media='(min-width: 768px)' rel='stylesheet'>
+<!--[mobilestart]-->
+<link href='//assets.sky.com/dist/1276/css/mobile-12.css' media='(max-width: 767px)' rel='stylesheet'>
+<!--[mobileend]-->
+<link href='//assets.sky.com/images/favicon.png' rel='icon' type='image/png'>
+<link href='//assets.sky.com/images/favicon.ico' rel='shortcut icon' type='image/x-icon'>
+<link href='//assets.sky.com/fonts/sky_regular.ttf' rel='prefetch'>
+<link href='//assets.sky.com/fonts/sky_regular.svg' rel='prefetch'>
+<link href='//assets.sky.com/fonts/sky_medium.ttf' rel='prefetch'>
+<link href='//assets.sky.com/fonts/sky_medium.svg' rel='prefetch'>
+<link href='//assets.sky.com/images/apple-touch-icon-precomposed.png' rel='apple-touch-icon-precomposed'>
+<link href='//assets.sky.com/images/apple-touch-icon-114x114-precomposed.png' rel='apple-touch-icon-precomposed' sizes='114x114'>
+<style media='print'>
+  #skycom-menu-button,  #skycom-profile-button,  #acc-links,  #skycom-footer-wrapper,  #skycom_breadcrumb,  #skycom-nav-wrapper,  #skycom-search-wrapper{    display:none;  }
+</style>
+<link href='//assets.sky.com/dist/1276/css/fonts.css' rel='stylesheet'>
+<link href='//assets.sky.com/dist/1276/fonts/skyicons.css' rel='stylesheet'>
+<!--[if IE 6]>
+<link href='//assets.sky.com/dist/1276/css/ie/ie6.css' rel='stylesheet'>
+<![endif]-->
+<!--[if IE 7]>
+<link href='//assets.sky.com/dist/1276/css/ie/ie7.css' rel='stylesheet'>
+<![endif]-->
+<!--[if LT IE 9]>
+<link href='//assets.sky.com/dist/1276/stylesheets/masthead-ie.css' rel='stylesheet'>
+<link href='//assets.sky.com/dist/1276/css/ie/ielt9.css' rel='stylesheet'>
+<![endif]-->
+<!--[if IE 9]>
+<link href='//assets.sky.com/dist/1276/css/ie/ie9.css' rel='stylesheet'>
+<![endif]-->
+<!--[if LT IE 10]>
+<link href='//assets.sky.com/dist/1276/css/ie/ielt10.css' rel='stylesheet'>
+<![endif]-->
+<script id='skycom-view-type'></script>
+<script id='skycom-orientation'></script>
+<!--[if LT IE 9]>
+<link href='//assets.sky.com/dist/1276/css/non-responsive-12.css' rel='stylesheet'>
+<![endif]-->
+<link rel="stylesheet" media="all" href="//web-toolkit.global.sky.com/2.3.6/stylesheets/toolkit.css" /><link rel="stylesheet" media="all" href="//web-toolkit.global.sky.com/2.3.6/fonts/skycons.css" /><link rel="stylesheet" media="screen" href="//player.sky.com/css/styles.min.css" /><link rel="stylesheet" media="all" href="/help/assets/browser_modern_v2-8b937bda5026ee10205c9ec74c794c4e90bb15c97324ec002dc042f745b248f5.css" /><!--[if lte IE 8]><link rel="stylesheet" media="all" href="/help/assets/browser_old_v2-e02f32d26a45c553400102e7993752b54278aa272d461f9368f0da5c69dc465e.css" /><![endif]--><script>window.STATS_GOPHER_ENDPOINT='http://stats-gopher.herokuapp.com/gopher/'</script><script>var skyIdHost = "https://skyid.sky.com"
+var analyticsSite = "helpcentre"
+var analyticsReportSuites = "bskybskyhcprod,bskybeexperienceglobal,bskybnetworkglobal,bskybskyhcincl"
+var videoHubToken = "8D5B12D4-E1E6-48E8-AF24-F7B13050EE85";
+var hodorHost = "https://prod-hodor.herokuapp.com/";</script><meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="CGz2wi1tE4xNG18/2C8lbB+lsA8Kbq2P1zVMqYl7hJANIDKgIjma/Ib2pUFbgU4hQC+Eitt5ZemWnRx1zoxtnA==" /><script src="/help/assets/application-4542b90cfcd8c4f2d753fceedd6bcd10fb14913cbcd44e875d81cb7688d49ba6.js"></script><script src="/help/adobe/mbox.js_2086775330.js"></script><script>$(function () {
+  $.smartbanner({
+    daysHidden: 45,
+    daysReminder: 45,
+    layer: true,
+    inAppStore: 'on the App Store >',
+    inGooglePlay: 'on the Play Store >',
+    appStoreLanguage: 'gb',
+    icon: null,
+    iconGloss: false,
+    title: 'Sky Service',
+    
+  });
+});</script><script>setTimeout(function() {
+  var settings = {
+    headline: "Classic-sky privacy and cookies notice", // c3, v13
+    contentType: "article",
+    referringUrl: document.referrer,
+    workAroundSkyTagsBrokenChannel: "sky/portal/helpcentre/" +
+      dataLayerHelpers[0].get("config.adobe.section")
+};
+SkyTagsAnalyticsShim.trackAdHoc(settings,"adjustedBounceRateOccur");
+}, 5 * 1000);</script><script>var akamai_segment = "control";
+
+// Run ab splits to make sure cookies are present
+ab.split('help_va_launch')
+
+cookies = {
+  "nina": "help_va_launch"
+};
+var js_segments = ab.segments(cookies);
+window.abSegment = (js_segments + " " + akamai_segment).replace(/^\s+|\s+$/g,'');
+
+var abEvents = {};
+var customEvents = [{ 'articleUsefulYes': { 'event': 98, 'value': 'Yes' } }, { 'articleUsefulNo': { 'event': 99, 'value': 'No' } }, {'adjustedBounceRatePV': { 'event': 270, 'onPageLoad': true} }, {'adjustedBounceRateOccur': {'event': 271, 'onPageLoad': false}}];
+$.each(abEvents, function(cookie, abEvent){
+  if (ab.split(cookie)){
+    customEvents.push(abEvent);
+  }
+});
+
+/* We're doing something slightly odd with loadVariables here: the
+  `undefined` value for `workAroundSkyTagsBrokenChannel` causes the
+  hardwired workaround values which sky-tags-analytics-shim knows
+  about to be loaded into the sky-tags config.  If we don't pass it
+  in, it doesn't get defined, and we don't want to give it a value
+  on page load.
+*/
+var settings = {
+  site: analyticsSite,
+  section: "other-information/account/policies",
+  page: "articles/sky-privacy-and-cookies-notice",
+  contentType: "article",
+  headline: "Classic-sky privacy and cookies notice",
+  account: analyticsReportSuites,
+  customVariables: [ { 'articlesRead': { 'eVar': 41, 'onPageLoad': true, 'value': '+1' } }, { 'defaultPath': { 'prop': 65, 'onPageLoad': true, 'value': 'articles/other-information/account/policies' } }, { 'adjustedBounceSeconds': { 'eVar': 79, 'value': 5} } ],
+  customEvents: customEvents,
+  loadVariables: { 'testAndTarget': window.abSegment,
+                   'workAroundSkyTagsBrokenChannel': undefined }
+};
+
+SkyTagsAnalyticsShim.trackPage(settings);</script><link rel="stylesheet" media="screen" href="/help/assets/service_app_banner-eaef1e430485b47752d6028ea43d363add41a56ac9bbff4280b72dcbe34d6279.css" /></head><body class="grid-1140" itemscope="" itemtype="http://schema.org/WebPage"><!--[skycom.assets.version: 1276]-->
+<script>
+    function cookie(name){
+        var cookieValue = null;
+        if (!document.cookie || document.cookie == '') { return; }
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookie = cookies[i].replace(/\s/g, "");
+            if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1)).replace(/^\s+|\s+$/g, '');
+                break;
+            }
+        }
+        return cookieValue;
+    }
+</script>
+
+<!--[if IE]><script type="text/javascript">
+    document.createElement('header');
+    document.createElement('section');
+    document.createElement('footer');
+    document.createElement('article');
+    document.createElement('aside');
+    document.createElement('hgroup');
+    document.createElement('nav');
+    document.createElement('figure');
+    document.createElement('figcaption');
+</script><![endif]-->
+
+<script>
+
+    if(document.location.pathname !== "/cms/edit") {
+        document.documentElement.className += ' mh-split-test-b';
+    }
+
+    if (document.location.pathname === '/findandwatch/' ||
+        document.location.pathname === '/products/' ||
+        document.location.pathname === '/shop/' ||
+        document.location.pathname === '/mysky/indexb.html' ||
+        document.location.href === "http://help.sky.com/"
+    ) {
+        document.documentElement.className += ' mh-split-test-padding';
+    }
+
+</script>
+<header role="banner">
+    <div id="skycom-masthead-wrapper" class="backgroundTheme" data-tracking-module="masthead">
+        <div id="skycom-searchbar-wrapper">
+            <div class="skycom_container skycom_bleed-mobile">
+                <div id="skycom-logo-wrapper">
+                    <a id="skycom-menu-button" class="visible-mobile skycom-internal" name="mobile-menu-button" href="#mobile_nav" ><i class="skyicon-menu" aria-hidden=true></i><span class="at">Show navigation menu</span></a>
+                    <a id="skycom-profile-button" name="mobile-profile-button" href="#mobile_profile" class="skycom-internal">
+                        <i class="skyicon-user-profile hidden-mobile" aria-hidden=true></i>
+                        <i class="skyicon-user-profile visible-mobile" id="persisted-profile" aria-hidden=true></i>
+                        <span class="at">Show profile menu</span></a>
+                    <a href="http://www.sky.com" name="skycom-logo" id="skycom-logo-noflash" class="h1 hbx-lid" tabindex="-1"><i class="sprite-sky-logo"></i><span class=at>Sky homepage</span></a>
+                </div>
+                <div  id="acc-links">
+                    <a href="#skycom-header-bottom" class="at" id="skycom-skip-link" name="accessibility:skip_to_content">Skip to content</a>
+                </div>
+
+                <form id="skycom-search-wrapper" action="/skycom/search" method="post" role="search">
+
+
+    <i class="sprite-desktop-google-logo"></i>
+    <div class="skycom-search-area">
+        <div class="skycom-search-type">
+            
+                <label class="skycom-search-type-helpandsupport active" tabindex="5">Help &amp; Support
+                    <input type="radio" id="search-type-helpandsupport" name="brandSearchType" value="helpandsupport" checked="checked" />
+                </label>
+            
+        </div>
+        <div class="search-field">
+            <label>
+                <i class="hidden-responsive skyicon-search" aria-hidden=true data-tracking data-tracking-label="search icon"></i>
+                <span id="search-placeholder">Search:</span>
+                <input type="search" class="search-text"  autocomplete="off" value="" name="query" id="skycom-search-text" tabindex="10" />
+            </label>
+            <span class="skycom-button-image">
+                <span class="pretty"></span>
+                <input
+                data-tracking-search="web"
+                data-tracking-context-id="skycom-search-text"
+                type="submit"
+                class="search-submit text sprite-desktop-button"
+                value="Search"
+                id="skycom-search"
+                name="skycom-search"
+                tabindex="11" />
+            </span>
+        </div>
+        <div class="trends"></div>
+    </div>
+</form>
+
+
+            </div>
+        </div>
+
+        <nav role="navigation" aria-labelledby="skycom-main-menu">
+            
+            
+            
+            
+            <div id="skycom-nav-wrapper" class="gb" data-segments="" data-country="gb">
+    <!--[if LT IE 10]><div class="ieBgFade"></div><![endif]-->
+    <div id="skycom-nav" class="skycom_container clearfix" data-tracking-pod="nav-bar">
+        <h2 class="at" id="skycom-main-menu">Main Menu</h2>
+        <ul class="primary">
+            <li id="skycom-allCategories" class="skycom-hide">
+                <a href="#" data-id="skycom-allCategories" name="skycom_allCategories" class="hbx-lid nav">
+                    Main menu
+                </a>
+            </li>
+            
+            
+            
+            
+            
+                
+                    
+
+<li id="skycom-home"
+    class="
+    
+    ">
+    <a href="http://www.sky.com"
+       data-id="skycom-home"
+       name="skycom_home"
+       class="hbx-lid nav
+            ">
+        <i class="skyicon-chevron skyicon-chevron-dark" aria-hidden=true></i>
+        <div class="nav-shine" ></div>
+        <div class="ieFilter"></div>
+        Home<i class="sprite-desktop-indent-left"></i><i class="sprite-desktop-indent-right"></i>
+    </a>
+    
+</li>
+
+
+
+
+
+                
+            
+                
+                    
+
+<li id="skycom-find-and-watch"
+    class="
+    has_meganav
+    ">
+    <a href="http://www.sky.com/findandwatch/"
+       data-id="skycom-find-and-watch"
+       name="skycom_watch"
+       class="hbx-lid nav
+            ">
+        <i class="" aria-hidden=true></i>
+        <div class="nav-shine" ></div>
+        <div class="ieFilter"></div>
+        Find &amp; Watch TV<i class="sprite-desktop-indent-left"></i><i class="sprite-desktop-indent-right"></i>
+    </a>
+    
+        
+            <div
+    class="mega-nav gb "
+    id="find-and-watch-mega-nav"
+    data-tracking-pod="find-and-watch">
+    <div class="ieFilter"></div>
+    <div class="nav-links
+        
+        columns4" data-columns="4">
+            <div class="maingroup lastInColumn"
+                 data-tracking-other="plan_your_viewing">
+                    <h3>
+                        <i class="" aria-hidden=true></i>
+                            Plan your viewing
+                    </h3>
+                    <div class="subgroup">
+                            
+                                <a href="http://tv.sky.com/tv-guide/" name="find_and_watch-plan_your_viewing:tv_guide">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    TV Guide
+                                </a>
+                                <a href="http://accessibility.sky.com/whats-on-tv/" name="find_and_watch-plan_your_viewing:accessible_tv_guide">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Accessible TV Guide
+                                </a>
+                                <a href="http://epgservices.sky.com/nevermiss/" name="find_and_watch-plan_your_viewing:never_miss">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Never Miss
+                                </a>
+                            
+                    </div>
+            </div>
+            <div class="maingroup lastInColumn"
+                 data-tracking-other="highlights">
+                    <h3>
+                        <i class="" aria-hidden=true></i>
+                            Highlights
+                    </h3>
+                    <div class="subgroup">
+                            
+                                <a href="http://www.sky.com/tv/channel/sky1/" name="find_and_watch-highlights:sky_1">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Sky 1
+                                </a>
+                                <a href="http://www.sky.com/tv/channel/skyliving/" name="find_and_watch-highlights:sky_living">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Sky Living
+                                </a>
+                                <a href="http://www.sky.com/tv/channel/skyatlantic/" name="find_and_watch-highlights:sky_atlantic">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Sky Atlantic
+                                </a>
+                                <a href="http://www.sky.com/tv/channel/skyarts/" name="find_and_watch-highlights:sky_arts">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Sky Arts
+                                </a>
+                                <a href="http://www.sky.com/watch/channel/sky-movies/" name="find_and_watch-highlights:sky_movies">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Sky Movies
+                                </a>
+                                <a href="http://www.skysports.com" name="find_and_watch-highlights:sky_sports">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Sky Sports
+                                </a>
+                                <a href="http://news.sky.com" name="find_and_watch-highlights:sky_news">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Sky News
+                                </a>
+                                <a href="http://www.sky.com/tv/show/box-sets" name="find_and_watch-highlights:sky_box_sets">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Sky Box Sets
+                                </a>
+                                <a href="https://www.sky.com/watch/channel/sky-store/" name="find_and_watch-highlights:sky_store">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Sky Store
+                                </a>
+                            
+                    </div>
+            </div>
+            <div class="maingroup lastInColumn"
+                 data-tracking-other="ways_to_watch">
+                    <h3>
+                        <i class="" aria-hidden=true></i>
+                            Ways To Watch
+                    </h3>
+                    <div class="subgroup">
+                            
+                                <a href="http://www.sky.com/shop/tv/sky-plus/" name="find_and_watch-ways_to_watch:sky+">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Sky+
+                                </a>
+                                <a href="http://go.sky.com" name="find_and_watch-ways_to_watch:sky_go">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Sky Go
+                                </a>
+                                <a href="http://www.sky.com/shop/tv/sky-apps/" name="find_and_watch-ways_to_watch:sky_apps">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Sky Apps
+                                </a>
+                            
+                    </div>
+            </div>
+            <div class="maingroup imageCaption"
+                 data-tracking-other="our_weekly_guide_to_what’s_on_is_full_of_exclusive_interviews_and_news_on_the_latest_shows.">
+                    <img src="//skystorage-a.akamaihd.net/masthead/FAW_SkyEmail_April.png" alt="" />
+                    <h3>
+                        <i class="" aria-hidden=true></i>
+                            Our weekly guide to what’s on is full of exclusive interviews and news on the latest shows.
+                    </h3>
+                    <div class="subgroup">
+                            
+                                <a href="http://www.sky.com/tv/email/?source=fwnavbar" name="find_and_watch-our_weekly_guide_to_what’s_on_is_full_of_exclusive_interviews_and_news_on_the_latest_shows.:sign_up_and_discover_more">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Sign up and discover more
+                                </a>
+                            
+                    </div>
+            </div>
+    </div>
+</div>
+        
+    
+</li>
+
+
+
+
+
+                
+            
+                
+            
+                
+                    
+
+<li id="skycom-shop"
+    class="
+    has_meganav
+    ">
+    <a href="http://www.sky.com/shop/"
+       data-id="skycom-shop"
+       name="skycom_shop"
+       class="hbx-lid nav
+            ">
+        <i class="" aria-hidden=true></i>
+        <div class="nav-shine" ></div>
+        <div class="ieFilter"></div>
+        Shop<i class="sprite-desktop-indent-left"></i><i class="sprite-desktop-indent-right"></i>
+    </a>
+    
+        
+            <div
+    class="mega-nav gb "
+    id="shop-mega-nav"
+    data-tracking-pod="shop">
+    <div class="ieFilter"></div>
+    <div class="nav-links
+        
+        columns4" data-columns="4">
+            <div class="maingroup"
+                 data-tracking-other="buy_sky">
+                    <h3>
+                        <i class="" aria-hidden=true></i>
+                            <a href="http://www.sky.com/quickbuy/deeplink?addToBasket=TV_ORIG_1M2048S0M0" name="shop-buy_sky" class="skycom-ellipsis-mobile">
+                                Buy Sky
+                            </a>
+                    </h3>
+                    <div class="subgroup">
+                            
+                                <a href="http://www.sky.com/shop/" name="shop-buy_sky:sky_bundles">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Sky Bundles
+                                </a>
+                            
+                    </div>
+            </div>
+            <div class="maingroup"
+                 data-tracking-other="offers">
+                    <h3>
+                        <i class="" aria-hidden=true></i>
+                            <a href="http://www.sky.com/shop/offers/" name="shop-offers" class="skycom-ellipsis-mobile">
+                                Offers
+                            </a>
+                    </h3>
+                    <div class="subgroup">
+                            
+                                <a href="http://www.sky.com/shop/bundles-offers/introduceafriend/" name="shop-offers:introduce_a_friend">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Introduce a Friend
+                                </a>
+                                <a href="http://www.sky.com/shop/bundles-offers/vouchers/" name="shop-offers:rewards">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Rewards
+                                </a>
+                            
+                    </div>
+            </div>
+            <div class="maingroup lastInColumn"
+                 data-tracking-other="sky_tv">
+                    <h3>
+                        <i class="" aria-hidden=true></i>
+                            <a href="http://www.sky.com/shop/tv/" name="shop-sky_tv" class="skycom-ellipsis-mobile">
+                                Sky TV
+                            </a>
+                    </h3>
+                    <div class="subgroup">
+                            
+                                <a href="http://www.sky.com/shop/tv/original-bundle/" name="shop-sky_tv:original_bundle">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Original Bundle
+                                </a>
+                                <a href="http://www.sky.com/shop/tv/variety-bundle/" name="shop-sky_tv:variety_bundle">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Variety Bundle
+                                </a>
+                                <a href="http://www.sky.com/shop/tv/family-bundle/" name="shop-sky_tv:family_bundle">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Family Bundle
+                                </a>
+                                <a href="http://www.sky.com/shop/tv/sports/" name="shop-sky_tv:sky_sports">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Sky Sports
+                                </a>
+                                <a href="http://www.sky.com/shop/tv/movies/" name="shop-sky_tv:sky_movies">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Sky Movies
+                                </a>
+                                <a href="http://www.sky.com/shop/tv/extra-channels/" name="shop-sky_tv:extra_channels">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Extra channels
+                                </a>
+                                <a href="http://www.sky.com/shop/tv/extra-channels/asia-pack/" name="shop-sky_tv:sky_asia_pack">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Sky Asia Pack
+                                </a>
+                            
+                    </div>
+            </div>
+            <div class="maingroup"
+                 data-tracking-other="ways_to_watch">
+                    <h3>
+                        <i class="" aria-hidden=true></i>
+                            <a href="http://www.sky.com/shop/tv/sky-plus/" name="shop-ways_to_watch" class="skycom-ellipsis-mobile">
+                                Ways to Watch
+                            </a>
+                    </h3>
+                    <div class="subgroup">
+                            
+                                <a href="http://www.sky.com/shop/tv/sky-plus/" name="shop-ways_to_watch:sky+">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Sky+
+                                </a>
+                                <a href="http://www.sky.com/shop/tv/high-definition/" name="shop-ways_to_watch:hd_tv">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    HD TV
+                                </a>
+                                <a href="http://www.sky.com/shop/tv/sky-go/" name="shop-ways_to_watch:sky_go">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Sky Go
+                                </a>
+                                <a href="http://www.sky.com/shop/tv/sky-multiscreen/" name="shop-ways_to_watch:sky_multiscreen">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Sky Multiscreen
+                                </a>
+                                <a href="http://www.sky.com/shop/tv/3d/" name="shop-ways_to_watch:3d_tv">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    3D TV
+                                </a>
+                            
+                    </div>
+            </div>
+            <div class="maingroup lastInColumn"
+                 data-tracking-other="sky_boxes">
+                    <h3>
+                        <i class="" aria-hidden=true></i>
+                            <a href="http://www.sky.com/shop/tv/sky-plus-hd-box/" name="shop-sky_boxes" class="skycom-ellipsis-mobile">
+                                Sky boxes
+                            </a>
+                    </h3>
+                    <div class="subgroup">
+                            
+                                <a href="http://www.sky.com/shop/tv/sky-plus-hd-box/" name="shop-sky_boxes:sky+hd_box">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Sky+HD box
+                                </a>
+                                <a href="http://www.sky.com/shop/tv/2tb/" name="shop-sky_boxes:sky+hd_2tb_box">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Sky+HD 2TB box
+                                </a>
+                                <a href="http://www.sky.com/shop/tv/compare/" name="shop-sky_boxes:compare_boxes">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Compare boxes
+                                </a>
+                                <a href="http://www.sky.com/shop/tv/setup-installation/" name="shop-sky_boxes:installation_and_set_up">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Installation & set-up
+                                </a>
+                                <a href="http://www.sky.com/shop/tv/on-demand-connector/" name="shop-sky_boxes:on_demand_connector">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    On Demand Connector
+                                </a>
+                            
+                    </div>
+            </div>
+            <div class="maingroup lastInColumn"
+                 data-tracking-other="broadband_and_talk">
+                    <h3>
+                        <i class="" aria-hidden=true></i>
+                            <a href="http://www.sky.com/shop/broadband-talk/" name="shop-broadband_and_talk" class="skycom-ellipsis-mobile">
+                                Broadband & Talk
+                            </a>
+                    </h3>
+                    <div class="subgroup">
+                            
+                                <a href="http://www.sky.com/shop/broadband-talk/broadband-lite/" name="shop-broadband_and_talk:lite">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Lite
+                                </a>
+                                <a href="http://www.sky.com/shop/broadband-talk/broadband-unlimited/" name="shop-broadband_and_talk:unlimited">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Unlimited
+                                </a>
+                                <a href="http://www.sky.com/shop/broadband-talk/fibre-optic/" name="shop-broadband_and_talk:fibre">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Fibre
+                                </a>
+                                <a href="http://www.sky.com/shop/broadband-talk/broadband-compare/" name="shop-broadband_and_talk:compare_broadband">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Compare broadband
+                                </a>
+                                <a href="http://www.sky.com/shop/broadband-talk/broadband-speeds/" name="shop-broadband_and_talk:broadband_speeds">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Broadband speeds
+                                </a>
+                                <a href="http://www.sky.com/shop/broadband-talk/talk-weekends/" name="shop-broadband_and_talk:talk_weekends">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Talk Weekends
+                                </a>
+                                <a href="http://www.sky.com/shop/broadband-talk/talk-anytime/" name="shop-broadband_and_talk:talk_anytime_uk">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Talk Anytime UK
+                                </a>
+                                <a href="http://www.sky.com/shop/broadband-talk/talk-anytime-international/" name="shop-broadband_and_talk:talk_anytime_international">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Talk Anytime International
+                                </a>
+                                <a href="http://www.sky.com/shop/broadband-talk/talk-compare/" name="shop-broadband_and_talk:compare_talk">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Compare Talk
+                                </a>
+                                <a href="http://www.sky.com/shop/broadband-talk/sky-hub/" name="shop-broadband_and_talk:sky_hub">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Sky Hub
+                                </a>
+                                <a href="http://www.sky.com/shop/broadband-talk/sky-wireless-booster/" name="shop-broadband_and_talk:sky_wireless_booster">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Sky Wireless Booster
+                                </a>
+                                <a href="http://www.sky.com/shop/broadband-talk/setup-installation/" name="shop-broadband_and_talk:installation_and_set_up">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Installation & set-up
+                                </a>
+                            
+                    </div>
+            </div>
+            <div class="maingroup"
+                 data-tracking-other="switching_to_sky">
+                    <h3>
+                        <i class="" aria-hidden=true></i>
+                            <a href="http://www.sky.com/shop/switching-to-sky/tv/" name="shop-switching_to_sky" class="skycom-ellipsis-mobile">
+                                Switching to Sky
+                            </a>
+                    </h3>
+                    <div class="subgroup">
+                            
+                                <a href="http://www.sky.com/shop/switching-to-sky/tv/" name="shop-switching_to_sky:tv">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    TV
+                                </a>
+                                <a href="http://www.sky.com/shop/switching-to-sky/broadband/" name="shop-switching_to_sky:broadband_and_talk">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Broadband & Talk
+                                </a>
+                                <a href="http://www.sky.com/shop/switching-to-sky/compare/" name="shop-switching_to_sky:how_sky_compares">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    How Sky compares
+                                </a>
+                            
+                    </div>
+            </div>
+            <div class="maingroup lastInColumn"
+                 data-tracking-other="upgrade">
+                    <h3>
+                        <i class="" aria-hidden=true></i>
+                            <a href="http://buy.sky.com/offers-upgrades/" name="shop-upgrade" class="skycom-ellipsis-mobile">
+                                Upgrade
+                            </a>
+                    </h3>
+                    <div class="subgroup">
+                            
+                                <a href="http://www.sky.com/shop/customer-shop/customer-offers/" name="shop-upgrade:offers1">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Offers1
+                                </a>
+                                <a href="https://buy.sky.com/hd-upgrades/campaign/tv-box-sets/" name="shop-upgrade:sky_box_sets_1">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Sky Box Sets 1
+                                </a>
+                                <a href="https://buy.sky.com/hd-upgrades/" name="shop-upgrade:hd">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    HD
+                                </a>
+                                <a href="http://www.sky.com/shop/customer-shop/tv-upgrades/" name="shop-upgrade:tv">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    TV
+                                </a>
+                                <a href="https://buy.sky.com/sports-upgrades/" name="shop-upgrade:sky_sports">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Sky Sports
+                                </a>
+                                <a href="https://buy.sky.com/movies-upgrades/" name="shop-upgrade:sky_movies">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Sky Movies
+                                </a>
+                                <a href="http://www.sky.com/shop/customer-shop/box-upgrade/" name="shop-upgrade:boxes">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Boxes
+                                </a>
+                                <a href="http://www.sky.com/quickbuy/upgrades/multiscreen" name="shop-upgrade:sky_multiscreen">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Sky Multiscreen
+                                </a>
+                                <a href="http://www.sky.com/shop/customer-shop/broadband-talk/" name="shop-upgrade:broadband_and_talk">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Broadband & Talk
+                                </a>
+                            
+                    </div>
+            </div>
+            <div class="maingroup"
+                 data-tracking-other="why_choose_sky">
+                    <h3>
+                        <i class=" skyicon-chevron" aria-hidden=true></i>
+                            <a href="http://www.sky.com/shop/why-choose-sky/" name="shop-why_choose_sky" class="skycom-ellipsis-mobile">
+                                Why choose Sky
+                            </a>
+                    </h3>
+            </div>
+            <div class="maingroup"
+                 data-tracking-other="12_month_standard_contract">
+                    <h3>
+                        <i class=" skyicon-chevron" aria-hidden=true></i>
+                            <a href="http://www.sky.com/shop/terms-conditions/new/" name="shop-12_month_standard_contract" class="skycom-ellipsis-mobile">
+                                12 month standard contract
+                            </a>
+                    </h3>
+            </div>
+            <div class="maingroup"
+                 data-tracking-other="standard_installation_within_2_weeks">
+                    <h3>
+                        <i class=" skyicon-chevron" aria-hidden=true></i>
+                            <a href="http://www.sky.com/shop/tv/setup-installation/" name="shop-standard_installation_within_2_weeks" class="skycom-ellipsis-mobile">
+                                Standard installation within 2 weeks
+                            </a>
+                    </h3>
+            </div>
+            <div class="maingroup"
+                 data-tracking-other="switching_to_sky_is_easy">
+                    <h3>
+                        <i class=" skyicon-chevron" aria-hidden=true></i>
+                            <a href="http://www.sky.com/shop/switching-to-sky/tv/" name="shop-switching_to_sky_is_easy" class="skycom-ellipsis-mobile">
+                                Switching to Sky is easy
+                            </a>
+                    </h3>
+            </div>
+            <div class="maingroup"
+                 data-tracking-other="left_sky_tv_in_the_last_12_months?">
+                    <h3>
+                        <i class=" skyicon-chevron" aria-hidden=true></i>
+                            <a href="https://secure.sky.com/mysky-comeback/index?DCMP=ilc-Sky.com-ec-SSWB-sales-gnav" name="shop-left_sky_tv_in_the_last_12_months?" class="skycom-ellipsis-mobile">
+                                Left Sky TV in the last 12 months?
+                            </a>
+                    </h3>
+            </div>
+    </div>
+        <div class="nav-pod"></div>
+</div>
+        
+    
+</li>
+
+    <span id="vanquish-meganav"><!--
+        <a href="http://www.sky.com/shop"
+   data-id="skycom-shop"
+   name="skycom_shop"
+   class="hbx-lid nav
+             active-group-header">
+    <i class="" aria-hidden=true></i>
+
+    <div class="nav-shine"></div>
+    <div class="ieFilter"></div>
+    Shop<i class="sprite-desktop-indent-left"></i><i class="sprite-desktop-indent-right"></i>
+</a>
+
+
+<div class="mega-nav" id="shop-mega-nav" data-tracking-pod="shop-vanquish">
+    <div class="ieFilter"></div>
+    <div class="nav-links
+
+        columns4" data-columns="4">
+        <div class="maingroup lastInColumn" data-tracking-other="TV">
+            <h3 style="position: absolute; top: 0px; left: 0px;">
+                <i class="" aria-hidden="true"></i>
+                <a href="http://www.sky.com/shop/tv/" class="skycom-ellipsis-mobile">
+                    TV
+                </a>
+            </h3>
+
+            <div class="subgroup" style="position: absolute; top: 34px; left: 0px;">
+
+                <a href="http://www.sky.com/shop/sky-bundles/">
+                    <i class="skyicon-chevron" aria-hidden="true"></i>
+                    TV bundles
+                </a>
+                <a href="http://www.sky.com/shop/tv/channels-shows/">
+                    <i class="skyicon-chevron" aria-hidden="true"></i>
+                    Channels &amp; shows
+                </a>
+                <a href="http://www.sky.com/shop/tv/ways-to-watch/">
+                    <i class="skyicon-chevron" aria-hidden="true"></i>
+                    Ways to watch
+                </a>
+                <a href="http://www.sky.com/shop/tv/equipment/">
+                    <i class="skyicon-chevron" aria-hidden="true"></i>
+                    Equipment
+                </a>
+                <a href="http://www.sky.com/shop/tv/setup-installation/">
+                    <i class="skyicon-chevron" aria-hidden="true"></i>
+                    Installation &amp; set-up
+                </a>
+
+            </div>
+        </div>
+        <div class="maingroup lastInColumn" data-tracking-other="broadband-and-talk">
+            <h3 style="position: absolute; top: 0px; left: 223.4375px;">
+                <i class="" aria-hidden="true"></i>
+                <a href="http://www.sky.com/shop/broadband-talk/" class="skycom-ellipsis-mobile">
+                    Broadband &amp; Talk
+                </a>
+            </h3>
+
+            <div class="subgroup" style="position: absolute; top: 34px; left: 223.4375px;">
+
+                <a href="http://www.sky.com/shop/broadband-talk/broadband-compare/">
+                    <i class="skyicon-chevron" aria-hidden="true"></i>
+                    Compare Broadband
+                </a>
+                <a href="http://www.sky.com/shop/broadband-talk/broadband-speeds/">
+                    <i class="skyicon-chevron" aria-hidden="true"></i>
+                    Broadband speeds
+                </a>
+                <a href="http://www.sky.com/shop/broadband-talk/talk-compare/">
+                    <i class="skyicon-chevron" aria-hidden="true"></i>
+                    Compare Talk
+                </a>
+                <a href="http://www.sky.com/shop/broadband-talk/broadband-equipment/" name="help_and_support-tv:set_up_on_demand">
+                    <i class="skyicon-chevron" aria-hidden="true"></i>
+                    Equipment
+                </a>
+                <a href="http://www.sky.com/shop/broadband-talk/setup-installation/">
+                    <i class="skyicon-chevron" aria-hidden="true"></i>
+                    Installation &amp; set-up
+                </a>
+
+            </div>
+        </div>
+        <div class="maingroup lastInColumn" data-tracking-other="offers">
+            <h3 style="position: absolute; top: 0px; left: 446.875px;">
+                <i class="" aria-hidden="true"></i>
+                <a href="http://www.sky.com/shop/offers/" class="skycom-ellipsis-mobile">
+                    Offers
+                </a>
+            </h3>
+
+            <div class="subgroup" style="position: absolute; top: 34px; left: 446.875px;">
+                <a href="http://www.sky.com/shop/offers/">
+                    <i class="skyicon-chevron" aria-hidden="true"></i>
+                    New to Sky
+                </a>
+                <a href="https://buy.sky.com/offers-upgrades/">
+                    <i class="skyicon-chevron" aria-hidden="true"></i>
+                    Existing Customers
+                </a>
+                <a href="http://www.sky.com/shop/bundles-offers/introduceafriend/">
+                    <i class="skyicon-chevron" aria-hidden="true"></i>
+                    Introduce a friend
+                </a>
+            </div>
+        </div>
+        <div class="maingroup" data-tracking-other="switching-to-sky">
+            <h3 style="position: absolute; top: 0px; left: 670.3125px;">
+                <i class="" aria-hidden="true"></i>
+                <a href="http://www.sky.com/shop/switching-to-sky/tv/">Switching to Sky</a>
+            </h3>
+
+            <div class="subgroup" style="position: absolute; top: 34px; left: 670.3125px;">
+
+                <a href="http://www.sky.com/shop/switching-to-sky/tv/">
+                    <i class="skyicon-chevron" aria-hidden="true"></i>
+                    TV
+                </a>
+                <a href="http://www.sky.com/shop/switching-to-sky/broadband">
+                    <i class="skyicon-chevron" aria-hidden="true"></i>
+                    Broadband &amp; Talk
+                </a>
+                <a href="http://www.sky.com/shop/switching-to-sky/compare/">
+                    <i class="skyicon-chevron" aria-hidden="true"></i>
+                    How Sky compares
+                </a>
+                <a href="https://secure.sky.com/mysky-comeback/index?DCMP=ilc-Sky.com-ec-SSWB-sales-gnav">
+                    <i class="skyicon-chevron" aria-hidden="true"></i>
+                    Left Sky TV in the last 12 months?
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+     --></span>
+
+
+
+
+                
+            
+                
+                    
+
+<li id="skycom-my-sky"
+    class="
+    has_meganav
+    ">
+    <a href="http://www.sky.com/mysky/"
+       data-id="skycom-my-sky"
+       name="skycom_mysky"
+       class="hbx-lid nav
+            ">
+        <i class="" aria-hidden=true></i>
+        <div class="nav-shine" ></div>
+        <div class="ieFilter"></div>
+        My Sky<i class="sprite-desktop-indent-left"></i><i class="sprite-desktop-indent-right"></i>
+    </a>
+    
+        
+            <div
+    class="mega-nav gb "
+    id="my-sky-mega-nav"
+    data-tracking-pod="my-sky">
+    <div class="ieFilter"></div>
+    <div class="nav-links
+        
+        columns4" data-columns="4">
+            <div class="maingroup lastInColumn"
+                 data-tracking-other="my_package">
+                    <h3>
+                        <i class="" aria-hidden=true></i>
+                            <a href="https://my.sky.com/mysky/myaccount/my-packages/" name="my_sky-my_package" class="skycom-ellipsis-mobile">
+                                My Package
+                            </a>
+                    </h3>
+                    <div class="subgroup">
+                            
+                                <a href="https://my.sky.com/mysky/myaccount/my-packages/" name="my_sky-my_package:review_my_sky_package">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Review my Sky package
+                                </a>
+                                <a href="https://secure.sky.com/my-broadband" name="my_sky-my_package:check_my_broadband">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Check my broadband
+                                </a>
+                                <a href="https://secure.sky.com/mtmos/indexb/" name="my_sky-my_package:my_extras">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    My extras
+                                </a>
+                                <a href="https://secure.sky.com/mtmos/indexb/" name="my_sky-my_package:sky_go">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Sky Go
+                                </a>
+                                <a href="https://rewards.sky.com/skyloyalty/home/sky-at-the-o2/" name="my_sky-my_package:sky_at_the_o2">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Sky at The O2
+                                </a>
+                                <a href="https://my.sky.com/mysky/skyloyalty/introduceafriend/overview/indexb.html" name="my_sky-my_package:introduce_a_friend">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Introduce a Friend
+                                </a>
+                            
+                    </div>
+            </div>
+            <div class="maingroup"
+                 data-tracking-other="bills_and_payments">
+                    <h3>
+                        <i class="" aria-hidden=true></i>
+                            <a href="https://myaccount.sky.com/bill" name="my_sky-bills_and_payments" class="skycom-ellipsis-mobile">
+                                Bills & payments
+                            </a>
+                    </h3>
+                    <div class="subgroup">
+                            
+                                <a href="https://myaccount.sky.com/bill" name="my_sky-bills_and_payments:view_my_bill">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    View my bill
+                                </a>
+                                <a href="https://myaccount.sky.com/pay" name="my_sky-bills_and_payments:make_a_payment">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Make a payment
+                                </a>
+                                <a href="https://myaccount.sky.com/pay/date" name="my_sky-bills_and_payments:change_payment_due_date">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Change payment due date
+                                </a>
+                                <a href="https://myaccount.sky.com/pay/method" name="my_sky-bills_and_payments:change_payment_method">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Change payment method
+                                </a>
+                            
+                    </div>
+            </div>
+            <div class="maingroup lastInColumn"
+                 data-tracking-other="my_orders">
+                    <h3>
+                        <i class="" aria-hidden=true></i>
+                            <a href="http://trackmyorder.sky.com/" name="my_sky-my_orders" class="skycom-ellipsis-mobile">
+                                My Orders
+                            </a>
+                    </h3>
+                    <div class="subgroup">
+                            
+                                <a href="http://trackmyorder.sky.com/" name="my_sky-my_orders:track_my_order">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Track my order
+                                </a>
+                                <a href="https://claim.sky.com/" name="my_sky-my_orders:claim_my_reward">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Claim my reward
+                                </a>
+                                <a href="http://trackmyorder.sky.com/" name="my_sky-my_orders:engineer_visits">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Engineer visits
+                                </a>
+                                <a href="https://activatemychannels.sky.com/activate" name="my_sky-my_orders:set_up_viewing_card">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Set up viewing card
+                                </a>
+                            
+                    </div>
+            </div>
+            <div class="maingroup"
+                 data-tracking-other="my_details">
+                    <h3>
+                        <i class="" aria-hidden=true></i>
+                            <a href="https://secure.sky.com/mydetails" name="my_sky-my_details" class="skycom-ellipsis-mobile">
+                                My Details
+                            </a>
+                    </h3>
+                    <div class="subgroup">
+                            
+                                <a href="https://secure.sky.com/mydetails" name="my_sky-my_details:change_details">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Change details
+                                </a>
+                                <a href="https://my.sky.com/mysky/profilesettings/additionalusers/" name="my_sky-my_details:additional_users">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Additional users
+                                </a>
+                                <a href="https://secure.sky.com/homemove/indexb" name="my_sky-my_details:moving_home">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Moving home
+                                </a>
+                            
+                    </div>
+            </div>
+            <div class="maingroup lastInColumn"
+                 data-tracking-other="my_settings">
+                    <h3>
+                        <i class="" aria-hidden=true></i>
+                            <a href="https://mysky.sky.com/mysky/settings" name="my_sky-my_settings" class="skycom-ellipsis-mobile">
+                                My Settings
+                            </a>
+                    </h3>
+                    <div class="subgroup">
+                            
+                                <a href="https://mysky.sky.com/mysky/settings/tv-pin" name="my_sky-my_settings:tv_pin">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    TV PIN
+                                </a>
+                                <a href="https://mysky.sky.com/mysky/settings/sky-go" name="my_sky-my_settings:sky_device_pin">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Sky Device PIN
+                                </a>
+                                <a href="https://broadbandshield.sky.com/" name="my_sky-my_settings:broadband_shield">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Broadband Shield
+                                </a>
+                                <a href="https://mysky.sky.com/mysky/settings/broadband-pro" name="my_sky-my_settings:broadband_pro">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Broadband Pro
+                                </a>
+                            
+                    </div>
+            </div>
+            <div class="maingroup lastInColumn"
+                 data-tracking-other="upgrades">
+                    <h3>
+                        <i class="" aria-hidden=true></i>
+                            <a href="http://buy.sky.com/offers-upgrades/" name="my_sky-upgrades" class="skycom-ellipsis-mobile">
+                                Upgrades
+                            </a>
+                    </h3>
+                    <div class="subgroup">
+                            
+                                <a href="http://buy.sky.com/offers-upgrades/" name="my_sky-upgrades:offers">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Offers
+                                </a>
+                                <a href="https://buy.sky.com/hd-upgrades/tv-box-sets/" name="my_sky-upgrades:sky_box_sets">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Sky Box Sets
+                                </a>
+                                <a href="https://buy.sky.com/hd-upgrades/" name="my_sky-upgrades:hd">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    HD
+                                </a>
+                                <a href="https://buy.sky.com/sports-upgrades/" name="my_sky-upgrades:sports">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Sports
+                                </a>
+                                <a href="http://www.sky.com/shop/tv/movies?DCMP=allcustomers" name="my_sky-upgrades:movies">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Movies
+                                </a>
+                                <a href="http://www.sky.com/quickbuy/upgrades/multiscreen" name="my_sky-upgrades:sky_multiscreen">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Sky Multiscreen
+                                </a>
+                                <a href="http://www.sky.com/shop/customer-shop/broadband-talk/" name="my_sky-upgrades:broadband_and_talk">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Broadband & Talk
+                                </a>
+                                <a href="http://www.sky.com/quickbuy/deeplink?addToBasket=&amp;custype=EC" name="my_sky-upgrades:customise_your_package">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Customise your package
+                                </a>
+                            
+                    </div>
+            </div>
+            <div class="maingroup"
+                 data-tracking-other="latest_support_issues">
+                    <h3>
+                        <i class=" skyicon-chevron" aria-hidden=true></i>
+                            <a href="https://servicestatus.sky.com/" name="my_sky-latest_support_issues" class="skycom-ellipsis-mobile">
+                                Latest Support issues
+                            </a>
+                    </h3>
+            </div>
+            <div class="maingroup"
+                 data-tracking-other="sky_community">
+                    <h3>
+                        <i class=" skyicon-chevron" aria-hidden=true></i>
+                            <a href="http://helpforum.sky.com" name="my_sky-sky_community" class="skycom-ellipsis-mobile">
+                                Sky community
+                            </a>
+                    </h3>
+            </div>
+            <div class="maingroup"
+                 data-tracking-other="complaints">
+                    <h3>
+                        <i class=" skyicon-chevron" aria-hidden=true></i>
+                            <a href="http://help.sky.com/my-account/complaints/how-to-complain-to-sky/" name="my_sky-complaints" class="skycom-ellipsis-mobile">
+                                Complaints
+                            </a>
+                    </h3>
+            </div>
+            <div class="maingroup"
+                 data-tracking-other="sky_help_videos">
+                    <h3>
+                        <i class=" skyicon-chevron" aria-hidden=true></i>
+                            <a href="http://www.youtube.com/user/skyhelp" name="my_sky-sky_help_videos" class="skycom-ellipsis-mobile">
+                                Sky Help Videos
+                            </a>
+                    </h3>
+            </div>
+            <div class="maingroup lastInColumn"
+                 data-tracking-other="left_sky_tv_in_the_last_12_months?">
+                    <h3>
+                        <i class=" skyicon-chevron" aria-hidden=true></i>
+                            <a href="https://secure.sky.com/mysky-comeback/index?DCMP=ilc-Sky.com-ec-SSWB-mysky-gnav" name="my_sky-left_sky_tv_in_the_last_12_months?" class="skycom-ellipsis-mobile">
+                                Left Sky TV in the last 12 months?
+                            </a>
+                    </h3>
+            </div>
+    </div>
+        <div class="nav-pod"></div>
+</div>
+        
+    
+</li>
+
+
+
+
+
+                
+            
+                
+                    
+
+<li id="skycom-help-and-support"
+    class="
+    has_meganav
+     selected">
+    <a href="http://help.sky.com"
+       data-id="skycom-help-and-support"
+       name="skycom_help"
+       class="hbx-lid nav
+             active-group-header">
+        <i class="" aria-hidden=true></i>
+        <div class="nav-shine" ></div>
+        <div class="ieFilter"></div>
+        Help & Support<i class="sprite-desktop-indent-left"></i><i class="sprite-desktop-indent-right"></i>
+    </a>
+    
+        
+            <div
+    class="mega-nav gb "
+    id="help-and-support-mega-nav"
+    data-tracking-pod="help-and-support">
+    <div class="ieFilter"></div>
+    <div class="nav-links
+        
+        columns4" data-columns="4">
+            <div class="maingroup lastInColumn"
+                 data-tracking-other="tv">
+                    <h3>
+                        <i class="" aria-hidden=true></i>
+                            TV
+                    </h3>
+                    <div class="subgroup">
+                            
+                                <a href="http://diagnostics.sky.com/no-satellite-signal/" name="help_and_support-tv:no_satellite_signal">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    No satellite signal
+                                </a>
+                                <a href="http://help.sky.com/tv/set-up-your-box/set-up-your-skyhd-box/" name="help_and_support-tv:set_up_your_box">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Set up your box
+                                </a>
+                                <a href="http://help.sky.com/tv/your-sky-remote-control/program-your-sky-remote-to-control-your-tv/" name="help_and_support-tv:program_your_sky_remote">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Program your Sky remote
+                                </a>
+                                <a href="https://tv.help.sky.com/ondemand/setup" name="help_and_support-tv:set_up_on_demand">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Set up on demand
+                                </a>
+                                <a href="http://help.sky.com/articles/fix-problems-with-sky-tv-on-demand/" name="help_and_support-tv:fix_on_demand">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Fix on demand
+                                </a>
+                                <a href="http://help.sky.com/articles/fix-problems-with-your-tv-picture/" name="help_and_support-tv:fix_picture_problems">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Fix picture problems
+                                </a>
+                                <a href="http://help.sky.com/articles/fix-problems-with-remote-record/" name="help_and_support-tv:fix_remote_record">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Fix Remote Record
+                                </a>
+                                <a href="http://help.sky.com/tv/sky-go/get-started-with-sky-go/" name="help_and_support-tv:get_started_with_sky_go">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Get started with Sky Go
+                                </a>
+                            
+                    </div>
+            </div>
+            <div class="maingroup lastInColumn"
+                 data-tracking-other="broadband">
+                    <h3>
+                        <i class="" aria-hidden=true></i>
+                            Broadband
+                    </h3>
+                    <div class="subgroup">
+                            
+                                <a href="http://help.sky.com/broadband/set-up-sky-broadband/set-up-your-sky-hub/" name="help_and_support-broadband:set_up_your_sky_hub">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Set up your Sky Hub
+                                </a>
+                                <a href="https://broadband.diagnostics.sky.com" name="help_and_support-broadband:fix_broadband_problems">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Fix broadband problems
+                                </a>
+                                <a href="http://help.sky.com/articles/problems-viewing-sky-yahoo-mail/" name="help_and_support-broadband:fix_sky_yahoo_mail">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Fix Sky Yahoo Mail
+                                </a>
+                                <a href="http://help.sky.com/broadband/broadband-speeds-and-usage/broadband-speeds-explained/" name="help_and_support-broadband:about_broadband_speeds">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    About broadband speeds
+                                </a>
+                            
+                    </div>
+            </div>
+            <div class="maingroup lastInColumn"
+                 data-tracking-other="talk">
+                    <h3>
+                        <i class="" aria-hidden=true></i>
+                            Talk
+                    </h3>
+                    <div class="subgroup">
+                            
+                                <a href="http://help.sky.com/articles/what-to-do-once-youve-ordered-sky-talk/" name="help_and_support-talk:your_sky_talk_order">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Your Sky Talk order
+                                </a>
+                                <a href="http://help.sky.com/talk/switching-to-sky-talk/how-to-switch-to-sky-talk/" name="help_and_support-talk:switching_to_sky_talk">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Switching to Sky Talk
+                                </a>
+                                <a href="http://help.sky.com/talk/voicemail/1571-using-sky-talk-voicemail/" name="help_and_support-talk:voicemail">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Voicemail
+                                </a>
+                            
+                    </div>
+            </div>
+            <div class="maingroup"
+                 data-tracking-other="using_your_account">
+                    <h3>
+                        <i class="" aria-hidden=true></i>
+                            Using your account
+                    </h3>
+                    <div class="subgroup">
+                            
+                                <a href="http://help.sky.com/articles/change-your-sky-package/" name="help_and_support-using_your_account:change_your_sky_package">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Change your Sky package
+                                </a>
+                                <a href="https://secure.sky.com/mysky-cancelsky?DCMP=ilc-Sky.com-ec-cancel-help_cancel_gnav" name="help_and_support-using_your_account:cancel_your_sky">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Cancel your Sky
+                                </a>
+                                <a href="http://help.sky.com/my-account/sky-id/create-a-sky-id/" name="help_and_support-using_your_account:create_a_sky_id">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Create a Sky iD
+                                </a>
+                                <a href="http://help.sky.com/articles/moving-home-faqs/" name="help_and_support-using_your_account:moving_home">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Moving home
+                                </a>
+                                <a href="http://help.sky.com/articles/understanding-your-bill/" name="help_and_support-using_your_account:understanding_your_bill">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Understanding your bill
+                                </a>
+                            
+                    </div>
+            </div>
+            <div class="maingroup lastInColumn"
+                 data-tracking-other="service_support">
+                    <h3>
+                        <i class="" aria-hidden=true></i>
+                            Service Support
+                    </h3>
+                    <div class="subgroup">
+                            
+                                <a href="http://www.sky.com/mysky/latestnews/article/my-sky-updates/latest-help-and-support-issues/" name="help_and_support-service_support:latest_issues">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Latest issues
+                                </a>
+                                <a href="http://help.sky.com/articles/help-with-your-sky-products-during-bad-weather/" name="help_and_support-service_support:bad_weather_help">
+                                    <i class="skyicon-chevron" aria-hidden=true></i>
+                                    Bad weather help
+                                </a>
+                            
+                    </div>
+            </div>
+            <div class="maingroup"
+                 data-tracking-other="contact_us">
+                    <h3>
+                        <i class=" skyicon-chevron" aria-hidden=true></i>
+                            <a href="http://contactus.sky.com" name="help_and_support-contact_us" class="skycom-ellipsis-mobile">
+                                Contact us
+                            </a>
+                    </h3>
+            </div>
+            <div class="maingroup"
+                 data-tracking-other="service_status">
+                    <h3>
+                        <i class=" skyicon-chevron" aria-hidden=true></i>
+                            <a href="https://servicestatus.sky.com/#/uk/login" name="help_and_support-service_status" class="skycom-ellipsis-mobile">
+                                Service Status
+                            </a>
+                    </h3>
+            </div>
+            <div class="maingroup"
+                 data-tracking-other="sky_community">
+                    <h3>
+                        <i class=" skyicon-chevron" aria-hidden=true></i>
+                            <a href="http://helpforum.sky.com" name="help_and_support-sky_community" class="skycom-ellipsis-mobile">
+                                Sky Community
+                            </a>
+                    </h3>
+            </div>
+            <div class="maingroup"
+                 data-tracking-other="complaints">
+                    <h3>
+                        <i class=" skyicon-chevron" aria-hidden=true></i>
+                            <a href="http://help.sky.com/my-account/complaints/how-to-complain-to-sky/" name="help_and_support-complaints" class="skycom-ellipsis-mobile">
+                                Complaints
+                            </a>
+                    </h3>
+            </div>
+            <div class="maingroup lastInColumn"
+                 data-tracking-other="sky_help_videos">
+                    <h3>
+                        <i class=" skyicon-chevron" aria-hidden=true></i>
+                            <a href="http://www.youtube.com/user/skyhelp" name="help_and_support-sky_help_videos" class="skycom-ellipsis-mobile">
+                                Sky Help Videos
+                            </a>
+                    </h3>
+            </div>
+    </div>
+        <div class="nav-pod"></div>
+</div>
+        
+    
+</li>
+
+
+
+
+
+                
+            
+            <li id="skycom-welcome" class="tool"><a href="https://my.sky.com/mysky/profilesettings/mydetails/" name="skycom-welcome" ><i class="skyicon-user-profile" aria-hidden="true"></i><span id="skycom-welcomeName" class="skycom-ellipsis"></span><div class="skycom-pointer"></div></a></li>
+            <li id="skycom-signin" class="tool"><a href="https://skyid.sky.com/signin/" name="skycom-signin"  ><i class="skyicon-user-profile" aria-hidden="true"></i>Sign In<div class="skycom-pointer"></div></a></li>
+            <li id="skycom-signup" class="tool"><a href="https://skyid.sky.com/signup/" name="skycom-signup" >Sign Up</a></li>
+            <li id="skycom-signout" class="tool"><a href="https://skyid.sky.com/signout/" name="skycom-signout"  >Sign Out</a></li>
+            <li id="skycom-email" class="tool"><a href="https://skyid.sky.com/signin/email/" name="skycom-email" ><i class="skyicon-mail" aria-hidden=true></i>Email</a></li>
+        </ul>
+    </div>
+    <div class="dropShadow"></div>
+</div>
+
+        </nav>
+    </div>
+    <a id="skycom-header-bottom" name="skycom-header-bottom" class="at" tabindex="-1"></a>
+</header>
+<script type="text/javascript">
+    (function(){
+        var is_webkit = navigator.userAgent.toLowerCase().indexOf('webkit') > -1,
+                is_opera = navigator.userAgent.toLowerCase().indexOf('opera') > -1;
+        if(is_webkit || is_opera){
+            var target = document.getElementById('skycom-header-bottom');
+            target.href="#skycom-header-bottom";
+            target.innerText="Start of main content";
+            target.setAttribute("tabindex" , "-1");
+            document.getElementById('skycom-skip-link').setAttribute("onclick" , "document.getElementById('skycom-header-bottom').focus();");
+        }
+        var globalskycom = globalskycom || {};
+        globalskycom.responsiveImages = function(container) {
+            function init(container){
+                var w = window,
+                        ps = container.getElementsByTagName("div"),
+                        i = 0, il = ps.length,
+                        j = 0, jl = ps.length,
+                        sources, matches, media, picImg, newSrc ;
+                for(; i < il; i++ ){
+                    if( ps[ i ].getAttribute( "data-picture" ) !== null ){
+
+                        sources = ps[ i ].getElementsByTagName( "div" );
+                        matches = [];
+
+                        // See if which sources match
+                        for(j = 0, jl = sources.length; j < jl; j++ ){
+                            media = sources[ j ].getAttribute( "data-media" );
+                            // if there's no media specified, OR w.matchMedia is supported
+                            if( !media || ( w.matchMedia && w.matchMedia( media ).matches ) ){
+                                matches.push( sources[ j ] );
+                            }
+                        }
+
+                        // Find any existing img element in the picture element
+                        picImg = ps[ i ].getElementsByTagName( "img" )[ 0 ];
+
+                        if( matches.length ){
+                            if( !picImg ){
+                                picImg = w.document.createElement( "img" );
+                                picImg.alt = ps[ i ].getAttribute( "data-alt" );
+                                ps[ i ].appendChild( picImg );
+                            }
+                            newSrc = matches.pop().getAttribute( "data-src" );
+                            if(picImg.src !== newSrc ) {
+                                picImg.src =  newSrc;
+                            }
+                        }
+                        else if( picImg ){
+                            ps[ i ].removeChild( picImg );
+                        }
+                    }
+                }
+            }
+            init(container);
+            $(window).bind("skycom.resizeend", function() { init(container) });
+        };
+    }());
+</script>
+
+    <!--<h1>INCLUDING SESSION CAM</h1>-->
+    <script src="//assets.sky.com/js/thirdparty/sessioncam5-5.js"></script>
+<div id="sky-c-identification-banner" class="sky-c-id-banner sky-c-id-banner--hidden" data-tracking-module="identification-banner">
+  <div class="sky-c-id-banner--container" id="sky-c-identification-banner-selection">
+    <h3 class="sky-c-id-banner--title">Are you a Sky Q customer?</h3>
+    <a id="sky-c-identification-banner-ethan-btn" class="sky-c-button sky-c-button--default sky-c-button--icons sky-c-button--icons--tick sky-c-button--left"><span>Yes, I'm a Sky Q customer</span></a>
+    <a id="sky-c-identification-banner-classic-btn" class="sky-c-button sky-c-button--default sky-c-button--icons sky-c-button--icons--cross"><span>No, I'm a Sky+ customer</span></a>
+    <p class="sky-c-id-banner--tagline">For a more personalised experience, please sign in.</p>
+  </div>
+  <div class="sky-c-id-banner--container sky-c-id-banner--hidden" id="sky-c-identification-banner-confirmation">
+    <h3 class="sky-c-id-banner--title">Thanks</h3>
+    <p class="sky-c-id-banner--tagline">We can now provide you with more relevant help.</p>
+  </div>
+</div>
+<style>.sky-c-id-banner{margin:0;display:block;color:#000;width:100%;text-align:center;font-family:SkyTextRegular,Helvetica,Arial,sans-serif;background:#cdccd4;background:-moz-linear-gradient(left,#cdccd4 0,#fff 40%,#fff 60%,#cdccd4 100%);background:-webkit-gradient(left top,right top,color-stop(0,#cdccd4),color-stop(40%,#fff),color-stop(60%,#fff),color-stop(100%,#cdccd4));background:-webkit-linear-gradient(left,#cdccd4 0,#fff 40%,#fff 60%,#cdccd4 100%);background:-o-linear-gradient(left,#cdccd4 0,#fff 40%,#fff 60%,#cdccd4 100%);background:-ms-linear-gradient(left,#cdccd4 0,#fff 40%,#fff 60%,#cdccd4 100%);background:linear-gradient(to right,#cdccd4 0,#fff 40%,#fff 60%,#cdccd4 100%);filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#cdccd4', endColorstr='#cdccd4', GradientType=1 )}.sky-c-id-banner--title{margin:0;padding:0 0 .5em}.sky-c-id-banner--hidden{display:none}.sky-c-id-banner--tagline{padding:0;margin:0;max-width:60%}.sky-c-id-banner--container{padding:1em 0}@media screen and (max-width:640px){.sky-c-id-banner--tagline{display:none}}@media screen and (min-width:641px){.sky-c-id-banner--container{padding:1em 0 1.5em;margin-left:auto;margin-right:auto;text-align:left;width:94.05941%;max-width:1140px;min-height:8em;background-image:url(https://www.sky.com/assets2/manual/sky-q-banner-logo.png);background-size:contain;background-repeat:no-repeat;background-position:right;background-origin:content-box}}@media screen and (max-width:767px){.sky-c-id-banner--container{background-size:30%}}.sky-c-id-banner .sky-c-button{color:inherit;font:inherit;margin:0 0 1em;overflow:visible;text-transform:none;cursor:pointer;display:inline-block;padding:.5em 1em}.sky-c-id-banner .sky-c-button:disabled{cursor:default}.sky-c-id-banner .sky-c-button:-moz-focus-inner{border:0;padding:0}.sky-c-id-banner .sky-c-button--left{margin-right:1em}@media screen and (min-width:641px){.sky-c-id-banner .sky-c-button--default{font-family:SkyTextRegular,Helvetica,Arial,Sans-Serif;border-radius:.25em;color:#fff;background:#0072ca;transition:border-color .5s ease,background-color .5s ease}.sky-c-id-banner .sky-c-button--default:hover{color:#FFF;background:#4d9ed6}}@media screen and (max-width:640px){.sky-c-id-banner .sky-c-button--icons{width:3em;height:3em;padding:0;background-size:contain;background-repeat:no-repeat}.sky-c-id-banner .sky-c-button--icons span{display:none}.sky-c-id-banner .sky-c-button--icons--tick{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIEAAACBCAMAAADQfiliAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAzUExURUxpcQ9ytw9wtg9wtQ9vrw9xtQ9vtw9xtQ9wtQ9vtA9wtQ9vtw9xtg9xtg9vtQ9xthBxti8epqEAAAAQdFJOUwBg4NAQgECg8DDAIHCwUJCYSkWOAAADdElEQVR42sXc62KrIAwAYAERRNS8/9OutnV1q9wTkt878zsSuQTYMNTGPG36DD9Ny9AxJr87C1+hVr11cEzaQSykEZSKzVjICKVnmv993uPfCD8iP370EgrDTJjP1xYqwgne5z/zcuN9/vM9NLfFJqExTFNOLiu0h/X1AGEBJVxlJzWugBW26quYJSBGRTYIwA1V2hIGsMPOTClwiYJkGBUAK4EKkE2gA2QSKAFZBFpADsEAcaQGy50akOoXBNCHinXQs+0ggJUvC8/wfFl4RigVtl4AUIE2sN0EoHnbINQOU08AuBuB6iq46Z1FXwDI//3SKDsLvpJR9waAHbt9iavNeQmEWWBCo83flyAJAY8BTyU/h40UEGpkeRGstIBQd/eZLi3UgEAzG/JP0aS6/JE4Dz+AwcW75pkcYBLzNc0F+G0GxQZ4N8PIB3j/mOADvDslwwcAWGjSIB/wSgROAOwUM9QSwHPG6jkBAPjr9ULAkYqOFXCM0JIVcKyjeQHHfJUX8Pg3Ey/g8TlOvABMQR0gLvAlha1KwGN0nGKDRj7BVFdCwgJRUt6rB4QFvqTC2AAICmRJkbMFIJOCDEILIPItiGxCEyAiuJTA44Q2wDFFgTZCI+BYNkEToRVwjI2yhdAMOASROVKS0A445kixeWKCgAA4CszRuXKUgAGA5HohQkABqPTSOUhAAbx+i6wi4ABeA2DqF9wSkACvnY5k/eCGgAWwmdXELwIW4CxlqVICGuAcgTPWrn8IeABY8uuJF8KCB1AlNdW7LfPmCpQv2vL/JrSXwJay2vp/QjtgTRaeowSEIuBWvM10JSAAZMU+04eAUQbVNduNJwED8HevLXu/8UVAKQTvtXuuRmiU4pdd+I4/3GQBx8az/T4TJJlfQc9zMF99AfnGa2ChcnM8umMy7vfHgXy/NggdTVtZ26Bnp7BHbop0AajY+UTP0xd1PhqWOrtNfjQreVSW+pRkxnUK2g/CZF1csMwASkIm4DFCKGYAVToWXWYhuEJRfJsG+/i4LL9xuKHmo6u52YWZj7ryTpfma4HfngHlNeimu3W+ORtc66XXsW28lhj3PJd6g9UDTlQapEa88LvsxfmgxIAboyg5MmMNyaXrxavMx28DWYzCJNbYTk8DdSybdrcMZTz9069//sBrvbsjVq31Vv0HEH4AuRzym+ouzrwAAAAASUVORK5CYII=)}.sky-c-id-banner .sky-c-button--icons--cross{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIEAAACBCAMAAADQfiliAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAzUExURUxpcQ9vtxBwtRBxtQ9ytxBxtg9xtRBxtg9vtA9vrxBxtQ9vtxBxtg9xthBwtQ9vtRBxtqoefiEAAAAQdFJOUwBAn99gz4DvMBC/IK9wj1CuWeJsAAAD5ElEQVR42sWc7ZarIAxFFfkQEM37P+2ddjq9tiomIUB+z1rugRCSQ9Jh4No8bvbP0jjGoaGNaQ0ODmYWuzXgGG2AnE1K16TYlAOEGTvX+e9xn39BJC/8eZ8mIJoaJb9vHTAs6L7ff/rl1vf7z3Uo3ottgkJTRT4ZFyg3l/gA2oGIBWaQ8gtImWOdinkCQWN4gwZZM9SdUCBtbu7kAjsjOIM3AF0RagGgEeoBIBFqAqAQ6gJgEBRUtrvLcq0NcBcXNNQ3kwvQs2tAAEs/L/yz1M8L/+zKFbZWAGAu9sA1IwDbdw+u9mFsCQDhhCB7DkKD6Kzz28YIVW61mVRz+o5LfrrhJSM8o6/CO6O9XTDNAMghOI8+iQvnznjfPwq5CBpznWoGQCbSfy5Czgs2+s25u4Ezl53GxuPdbaolAWDaESwgiYAE2KdLEZ9TaEEAUKijSEbAAwB4jB9SESgAb1+cacmdFgN4hxoLYgg0gPc24LJDDAIV4LUNnp5layGA12lAR7o7BDrAKyjhs7M8AgMAIOLd4BaBBfDrCMyKS0sAwErOUK8QmADPjDWBAAIXAIBRr58h8AEerkhOxI8IBQCPG5ou3n4jlAA86ugyDUIXAjzy1UIZRJcB/MRlXrl4qsSwFJjALVhPEHgSEJvgiMDUoPgE3whcEWwqkA0+EPgqXIlwsVfl+ApQAcGHOKo7EHyps1wEvh8c5GEmAvssnOjTuinBqUCueQRDIcC8+CKEhUXweRmZIgTLyQ++b8MiBMvIkY7XcQnCSM8Tz/KBAoSZnCufJyR8BHK9cJURcREMoXS+yYqZCAqn4aAKEx5CotXO+aSUhTCLKqUMBIdSE/GlGR1hoehImLqAjKAJb824woSKEPF6IrYyoiEYvKaKL81ICAn95E+pDSkIEaut04pTPMIu3Q+CAASEbaghVhMQJuQ7E0cf2CFgXxwt5u8IteF/hOtF+Hxry703zpzi9I2wZMVM3CK8toFYHb8QMksQ8e0PTwRyef5E0EgvuHtocTYyWlZ/EHKvMUcZSLQp9BdhBcIStOyDOcQC3MOrsJ12p8WGvTjreTtQarcHV61pS9c9aNkTtWYmRZoAmFx/YgtXcL5vk+h1Yx6qNUvCbltla3dJIsYp6h4IhRpccJ0BaiIgAX5uCNMZoJY7koZZKoxQkKdppNvHJ/rE4Sbqj4Ez2SXpj5Y502X77cA7Mogsgy2arUvF3hBKh1592X09Scx5Rj6Ds4OMMRkmKzjwG1eyPxg9yJrXlOcgp6oMXceE1H/VNlQzr9VNjR3sONS2uNlwimFUqv/1/c8fJGvX8LDFWruxfwDhH4yf2eH/mOBKAAAAAElFTkSuQmCC)}}</style><script>!function(a){if("object"==typeof exports&&"undefined"!=typeof module)module.exports=a();else if("function"==typeof define&&define.amd)define([],a);else{var b;b="undefined"!=typeof window?window:"undefined"!=typeof global?global:"undefined"!=typeof self?self:this,b=b.sky||(b.sky={}),b=b.components||(b.components={}),b.identificationBanner=a()}}(function(){return function a(b,c,d){function e(g,h){if(!c[g]){if(!b[g]){var i="function"==typeof require&&require;if(!h&&i)return i(g,!0);if(f)return f(g,!0);var j=new Error("Cannot find module '"+g+"'");throw j.code="MODULE_NOT_FOUND",j}var k=c[g]={exports:{}};b[g][0].call(k.exports,function(a){var c=b[g][1][a];return e(c?c:a)},k,k.exports,a,b,c,d)}return c[g].exports}for(var f="function"==typeof require&&require,g=0;g<d.length;g++)e(d[g]);return e}({1:[function(a,b,c){"use strict";var d=a("polaris-dmp"),e=e||{};e.components=e.components||{},e.components.identificationBanner=e.components.identificationBanner||{},e.components.identificationBanner.utils=function(){return{getElement:function(a){return document.querySelector("."+a)},getElements:function(a){return document.querySelectorAll("."+a)},removeClass:function(a,b){-1!==a.className.indexOf(b)&&(a.className=a.className.replace(b,"").replace(/\s{2}/," ").replace(/\s$/,"").replace(/^\s/,""))},addClass:function(a,b){a.className?a.className=a.className+" "+b:a.className=b}}}();var f=e.components.identificationBanner.utils,g={PREFERENCES:{UNKNOWN:"unknown",ETHAN:"sky-q",CLASSIC:"classic"},SKY_Q_PREFERENCE_MAP:{customer:"sky-q",prereg:void 0,unknown:void 0},ETHAN_PREFERENCE_MAP:{ethan:"sky-q",classic:"classic"},SELECTORS:{CONTAINER:"sky-c-identification-banner",SELECTION_CONTAINER:"sky-c-identification-banner-selection",CONFIRMATION_CONTAINER:"sky-c-identification-banner-confirmation",BUTTONS:{ETHAN:"sky-c-identification-banner-ethan-btn",CLASSIC:"sky-c-identification-banner-classic-btn"}},COOKIE:{PREFIX:"sky_help_product_type",DOMAIN:".sky.com",PATH:"/"},EVENTS:{CHANGED:"identificationBannerChanged"}};e.components.identificationBanner=function(a){function b(a){l=d.parseDocumentCookie(document.cookie),m=a,h(c());var b=document.getElementById("sky-c-identification-banner-ethan-btn"),f=document.getElementById("sky-c-identification-banner-classic-btn");b.addEventListener("click",function(){e("sky-q")}),f.addEventListener("click",function(){e("classic")})}function c(){var b=g();return b=b||a.SKY_Q_PREFERENCE_MAP[l.getSkyQStatus()]||a.ETHAN_PREFERENCE_MAP[l.getEthanStatus()]}function e(b){document.cookie=a.COOKIE.PREFIX+"="+b+";domain="+a.COOKIE.DOMAIN+";path="+a.COOKIE.PATH;var c=document.createEvent("Event");c.initEvent(a.EVENTS.CHANGED,!0,!0),document.dispatchEvent(c),m&&m(b),j(a.SELECTORS.SELECTION_CONTAINER),i(a.SELECTORS.CONFIRMATION_CONTAINER)}function g(){return k(a.COOKIE.PREFIX)}function h(b){b!==a.PREFERENCES.ETHAN&&b!==a.PREFERENCES.CLASSIC&&i(a.SELECTORS.CONTAINER)}function i(){var a=arguments.length<=0||void 0===arguments[0]?"sky-c-identification-banner":arguments[0],b=document.getElementById(a);f.removeClass(b,"sky-c-id-banner--hidden")}function j(){var a=arguments.length<=0||void 0===arguments[0]?"sky-c-identification-banner":arguments[0],b=document.getElementById(a);f.addClass(b,"sky-c-id-banner--hidden")}function k(a){var b="; "+document.cookie,c=b.split("; "+a+"=");return 2==c.length?c.pop().split(";").shift():void 0}var l=void 0,m=void 0;return{init:b,checkPreference:c,setPreference:e,hideBanner:j}}(g),e.components.identificationBanner.constants=g,b.exports=e.components.identificationBanner},{"polaris-dmp":2}],2:[function(a,b,c){function d(a){if(!a)return a;var b=a.split("|");return 1===b.length?b[0]:b}function e(a){var b=a.match(h)[1],c=decodeURIComponent(b);return f(c)}function f(a){var b=(a||"").split(",").reduce(function(a,b){var c=b.split("="),e=c[0].split(":"),f=d(c[1]);return e[1]?(a[e[0]]=a[e[0]]||{},a[e[0]][e[1]]=f):a[e[0]]=f,a},{});return g(b)}var g=a("./polaris-dmp"),h=/(?:(?:^|.*;\s*)polaris-engine-test\s*\=\s*([^;]*).*$)|^.*$/;b.exports={parseDmpCookie:f,parseDocumentCookie:e}},{"./polaris-dmp":3}],3:[function(a,b,c){function d(a){for(var b=["secure","stabilise","stimulate","support"],c=0;c<b.length;c++)if(a.indexOf(b[c])>-1)return b[c];return"unknown"}function e(a){return!f(a)}function f(a){return"false"===a.prospect}function g(a){return r(a["package"]||{},!0)}function h(a,b){return i(a,[b])}function i(a,b){for(var c=g(a),d=0;d<b.length;d++)if(-1===c.indexOf(b[d]))return!1;return!0}function j(a,b){for(var c=g(a),d=0;d<b.length;d++)if(-1!==c.indexOf(b[d]))return!0;return!1}function k(a){return"true"===a.broadband}function l(a){return j(a,["original","family","variety"])}function m(a){var b=a.ethan;switch(b){case"true":return"ethan";case"false":return"classic";default:return"unknown"}}function n(a){return"customer"===a.skyq}function o(a){return a.skyq||"unknown"}function p(a){var b=Object.keys(a);return{getSimpleSegment:q(d,b),getPackages:q(g,a),isProspect:q(e,a),isCustomer:q(f,a),hasPackage:q(h,a),hasAnyPackages:q(i,a),hasAllPackages:q(i,a),hasBroadband:q(k,a),hasTV:q(l,a),getEthanStatus:q(m,a),hasSkyQ:q(n,a),getSkyQStatus:q(o,a)}}var q=a("./utils/partial"),r=a("./utils/object-to-array");b.exports=p},{"./utils/object-to-array":4,"./utils/partial":5}],4:[function(a,b,c){function d(a,b){return b?Object.keys(a).filter(function(b){return"false"!==a[b]&&a[b]!==!1}):Object.keys(a)}b.exports=d},{}],5:[function(a,b,c){function d(){var a=Array.prototype.slice.call(arguments)[0],b=Array.prototype.slice.call(arguments,1);if(a&&"function"!=typeof a.apply)throw new Error("First argument is not a function");return function(){var c=Array.prototype.slice.call(arguments);return a.apply(this,b.concat(c))}}b.exports=d},{}]},{},[1])(1)});</script><script>sky.components.identificationBanner.init()</script><div class="skycom-container breadcrumb"><aside id="skycom-breadcrumb" itemprop="breadcrumb"><h2 class="speak">Navigational Trail</h2><ul class="breadcrumb__list"><li><a href="/help">Help &amp; Support</a></li><li><i aria-hidden="true" class="skycon skycon--chevron skycon--active"></i><a href="/help/articles?intent=other-information">Other Info</a></li><li><i aria-hidden="true" class="skycon skycon--chevron skycon--active"></i><a href="/help/articles?intent=other-information&amp;product=account">Account</a></li></ul></aside></div><div class="skyhelp-container"><div class="skyhelp-row"><div class="diagnostics-message skyhelp-12-lg"><p class="message">We've detected that you may be experiencing poor broadband performance.</p><p><a class="btn primary-cta" href="http://microfilter-check.sky.com/" id="microfilter-fix-now"><span class="pretty"></span><span class="text">Fix this</span></a></p></div></div><section class="help-article skyhelp-row"><span class="skyhelp-12-lg cluster_title">Sky account security</span><article class="skyhelp-8-lg"><h1 class="cluster_article_title">Sky Privacy and Cookies Notice</h1><h3>Privacy notice</h3><p>This privacy notice applies to the use of personal information and other information by Sky UK Limited and its group companies.</p><p>Any member of the Sky group may use and share, within that group and with its advisors, the information you provide and other information it holds about you for the purposes set out below.</p><p>Certain group entities such as, The Cloud and NOW TV may have specific privacy notices on their websites, so please check to make sure you are informed of how they use your information.</p><ul class="accordion"><li><a class="accordion-heading" data-toggle="#db5262099c-information-we-may-hold-about-you" data-toggle-state="hidden" href="#db5262099c-information-we-may-hold-about-you"><span>Information we may hold about you</span><i class="skycon-chevron-down colour"></i></a><div class="view-container toggle-hidden" id="db5262099c-information-we-may-hold-about-you"><div class="accordion-content"><p></p><ul class="grey-bullets"><li><span>Information you've provided to us, including on our websites.</span><br></li><li><span>Information about our content, products and services you've ordered or enquired about.</span><br></li><li><span>Information provided by other companies who've obtained your permission to share information about you.</span><br></li><li><span>Information, uploads and comments you make about the shows; channels, programmes, advertisements and services you use, for example how you access, view, share, contribute to, communicate with, record or fast forward them.</span><br></li><li><span>Information we collect from the devices (including your viewing card) you use to receive Sky content, products and services about your use of Sky and/or selected third party content, products and services. For more information on cookies and how to manage them, please see the section on cookies.</span><br></li><li><span>IP address (this is a number that identifies a specific network device on the internet and is required for your devices to communicate with websites) and location data.</span><br></li><li><span>Technical information from the devices you use to receive Sky content, products and services, for example, the collection of diagnostic and traffic information.</span><br></li></ul><p></p></div></div></li><li><a class="accordion-heading" data-toggle="#524a806e9b-how-we-may-use-your-information" data-toggle-state="hidden" href="#524a806e9b-how-we-may-use-your-information"><span>How we may use your information</span><i class="skycon-chevron-down colour"></i></a><div class="view-container toggle-hidden" id="524a806e9b-how-we-may-use-your-information"><div class="accordion-content"><p><span>In addition to using your information to provide you with content, products, services, tailored and personalised recommendations, and general account management, and the management of traffic across our network, we may also use your information in the following ways:</span><br></p><p></p><ul class="grey-bullets"><li><span>To monitor, improve and protect our content, products and services, work with our agents and business partners to improve the products and services we offer, and develop new content, products and services.</span><br></li><li><span>We may share information with credit reference, fraud prevention agencies and other companies for use in credit decisions, for fraud detection and debt recovery purposes.</span><br></li><li><span>We may transfer your information to our data processors outside the European Economic Area, but will do so with appropriate measures and controls in place to protect that information in accordance with applicable data protection laws and regulations.</span><br></li><li><span>If false or inaccurate information is provided and fraud is identified, the details will be passed to fraud prevention agencies. Law enforcement agencies may access and use this information. We and other organisations may also access and use this information to prevent fraud and money laundering, for example when: checking details on applications for credit and credit related or other facilities; managing credit and credit related accounts and facilities; recovering debt; checking details on proposals and claims for all types of insurance; or checking details of job applications and employees. We and other organisations may access and use from other countries the information recorded by fraud prevention agencies. Please <a href="https://contactus.sky.com/uk">contact us</a> if you want to receive details of the relevant fraud prevention agencies.</span><br></li></ul><p></p><p></p><ul class="grey-bullets"><li><span>For market research.</span><br></li><li><span>To enable us to comply with any legal or regulatory requirements; to protect or enforce our rights or the rights of any third party; in the detection and prevention of fraud and other crimes; and for the purpose of safeguarding national security.</span><br></li><li><span>We may disclose your information to any successors of our business for them to use for the purposes set out in this privacy notice.</span><br></li></ul><p><b>Unless you've asked us not to</b>:</p><p></p><p></p><ul class="grey-bullets"><li><span>To send you periodic newsletters and other information about content, products and services you have chosen or are entitled to receive.</span><br></li><li><span>To send you direct marketing. This may include communications by post, telephone or email, about us and our business partners’ content, products and services, events and special offers, including, where applicable, for a reasonable time after you have ceased to be a customer of ours.</span><br></li><li><span>To provide you with more relevant tailored advertising. Sky can serve different ads to groups of different Sky households watching the same programme. We use the information we hold about you and your household, to make some of the adverts you see more relevant. </span><br></li></ul><p></p></div></div></li><li><a class="accordion-heading" data-toggle="#3ef595c656-your-preferences" data-toggle-state="hidden" href="#3ef595c656-your-preferences"><span>Your preferences</span><i class="skycon-chevron-down colour"></i></a><div class="view-container toggle-hidden" id="3ef595c656-your-preferences"><div class="accordion-content"><p><span><b>Marketing and tailored advertising</b></span></p><p></p><span>You can choose not to receive direct marketing or tailored advertising. You can adjust your preferences in the following ways: via your </span><a href="https://my.sky.com/mysky/indexb.html">My Sky</a><span> account, by calling us on 03442 414 141 in the UK or 0818 719 819 in ROI, by clicking on the "unsubscribe" link in marketing information from us. </span><div><p><b>Online behavioural advertising</b><br></p><div><p></p><p></p><span>If you don't want any information processed through the use of cookies, please see the section on "How to see and manage your cookies" or check via your </span><a href="https://my.sky.com/mysky/indexb.html">My Sky</a><span> account.</span><br><p></p></div></div></div></div></li></ul><h3><br></h3><h3>Cookies notice</h3><p>When you create or log in to an online account you agree to our privacy and cookies notice. Otherwise, by continuing to use our websites, content, products or services you agree to the use of cookies as described in this notice.</p><p>You should be aware that when you access or use our content, products and services, we may collect information from the devices you use to receive Sky content, products and services by using 'cookies'. </p><p>If you'd like to learn how to manage these cookies and choose whether or not to receive information of different types, please see the section "Controlling My Cookies" below. </p><ul class="accordion"><li><a class="accordion-heading" data-toggle="#2c8c1bb155-what-are-cookies-and-how-do-they-work" data-toggle-state="hidden" href="#2c8c1bb155-what-are-cookies-and-how-do-they-work"><span>What are cookies and how do they work?</span><i class="skycon-chevron-down colour"></i></a><div class="view-container toggle-hidden" id="2c8c1bb155-what-are-cookies-and-how-do-they-work"><div class="accordion-content"><p><span>Cookies are small bits of text that are downloaded to the devices you use to receive Sky content, products and services and access online information. Your browser makes these cookies available every time you visit the website again, so it can recognise you and can then tailor what you see on your device.</span><br></p></div></div></li><li><a class="accordion-heading" data-toggle="#a24f0ef885-what-do-you-use-cookies-for" data-toggle-state="hidden" href="#a24f0ef885-what-do-you-use-cookies-for"><span>What do you use cookies for?</span><i class="skycon-chevron-down colour"></i></a><div class="view-container toggle-hidden" id="a24f0ef885-what-do-you-use-cookies-for"><div class="accordion-content"><p><span>Cookies are an important part of the internet. They make using devices and accessing online information much smoother and affect lots of the useful features of websites. There are many different uses for cookies, but they fall into four main groups.</span><br></p><p><b>Cookies that are needed to provide the content, product or service you have asked for</b></p><p>Some cookies are essential to help your devices download or stream the information, or so you can move around websites and use their features. Without these cookies, content, products or services you've asked for can't be provided. </p><p>Here are some examples of essential cookies:</p><p></p><ul class="grey-bullets"><li><span>Positioning information on a smartphone screen, tablet device or other screen so that you can see the website and use its functionality.</span><br></li><li><span>Keeping you logged in during your visit or enabling you to stream content; without cookies you might have to log in on every website you visit or repeatedly adjust your volume and viewing settings.</span><br></li><li><span>When you add something to the online shopping basket, cookies make sure it's still there when you get to the checkout.</span><br></li><li><span>Some are session cookies which make it possible to navigate through the website smoothly.</span><br></li></ul><p></p><p><b>Improving your browsing experience</b></p><p>Cookies allow the application or website to remember choices you make, such as your language or region and they provide improved features. </p><p>Here are a few examples of just some of the ways that cookies are used to improve your experience on our applications and websites:</p><p></p><ul class="grey-bullets"><li><span>Remembering your preferences and settings, including marketing preferences, such as choosing whether you wish to receive marketing information.</span><br></li><li><span>Remembering if you've filled in a survey, so you're not asked to do it again.</span><br></li><li><span>Remembering if you've been to the application or website before.</span><br></li><li><span>Restricting the number of times you're shown a particular advertisement. This is sometimes called 'frequency capping'.</span><br></li><li><span>Showing you information that's relevant to content, products or services that you receive.</span><br></li><li><span>Giving you access to content provided by social-media sites like Facebook or Twitter.</span><br></li><li><span>Showing 'related article' links that are relevant to the information you're looking at.</span><br></li><li><span>Remembering an application or website you've entered, such as weather forecasts.</span><br></li></ul><p></p><p><b>Analytics</b></p><p>We like to keep track of what websites, information and links are popular and which ones don't get used so much, to help us keep our information relevant and up to date. It's also very useful to be able to identify trends of how people navigate (find their way through) our information and when and where 'error messages' may originate.</p><p>This group of cookies, often called 'analytics cookies' are used to gather this information. The information collected is grouped with the information from everyone else’s cookies. We can then see the overall patterns of usage rather than any one person’s activity. Analytics cookies are used to improve how an application, a website and its pages work.</p><p>Our applications, web locations, websites and communications you get from us also contain small invisible images known as 'web beacons' or ' pixels'. These are used to count the number of times the page or email has been viewed and allows us to measure the effectiveness of the communication.</p><p><b>Affiliate cookies</b></p><p>We also use 'affiliate' cookies. Some of our web based information will contain promotional links to other companies’ sites. If you follow one of these links and then register with or buy something from that other site, a cookie is used to tell the other site that you came from one of our sites. That other site may then pay us a small amount for the successful referral. For more information, see the <a href="http://www.iab-performance-marketing-explained.net/">Internet Advertising Bureau's</a> guide about how affiliate marketing works.</p></div></div></li><li><a class="accordion-heading" data-toggle="#bcb6d79450-how-we-show-advertising-and-marketing-that-is-relevant-to-your-interests" data-toggle-state="hidden" href="#bcb6d79450-how-we-show-advertising-and-marketing-that-is-relevant-to-your-interests"><span>How we show advertising and marketing that is relevant to your interests</span><i class="skycon-chevron-down colour"></i></a><div class="view-container toggle-hidden" id="bcb6d79450-how-we-show-advertising-and-marketing-that-is-relevant-to-your-interests"><div class="accordion-content"><p><span>We sell space on some of our websites to advertisers. The resulting adverts often contain cookies. The advertiser uses the browsing information collected from these cookies to:</span><br></p><p></p><ul class="grey-bullets"><li><span>restrict the number of times you see the same ad (frequency capping) and</span><br></li><li><span>help show other advertisements that are relevant to you while you're accessing our information. This information about your browsing activity may be grouped with information about what is being accessed by other users, into interest groups, and then used to show you advertisements based on those interests. This is often called online behavioural advertising (OBA). OBA is a way of using information about your web-browsing activity, collected by using cookies, to group you with other users into interest groups and show you advertisements based on those interests.</span><br></li></ul><p></p><p>Sometimes our websites contain advertisements for our own Sky products. These advertisements use cookies in the same way as described above.</p></div></div></li><li><a class="accordion-heading" data-toggle="#f285ff5565-cookies-explained" data-toggle-state="hidden" href="#f285ff5565-cookies-explained"><span>Cookies Explained</span><i class="skycon-chevron-down colour"></i></a><div class="view-container toggle-hidden" id="f285ff5565-cookies-explained"><div class="accordion-content"><p><span>Neither we, nor the companies who show advertisements on our sites sell personal data collected from cookies to any other organisations.</span><br></p><p>It’s easy to choose not to receive behavioural advertising and manage your cookies if you want to.</p></div></div></li><li><a class="accordion-heading" data-toggle="#ecdcb5bc3e-controlling-my-cookies" data-toggle-state="hidden" href="#ecdcb5bc3e-controlling-my-cookies"><span>Controlling my Cookies</span><i class="skycon-chevron-down colour"></i></a><div class="view-container toggle-hidden" id="ecdcb5bc3e-controlling-my-cookies"><div class="accordion-content"><p><span><b>How can I see and manage my cookies in my browser?</b></span><br></p><p>Virtually all modern browsers allow you to see what cookies you've got, and to clear them individually or clear all of them. To find out how to do this go to <a href="http://www.aboutcookies.org/">aboutcookies.org</a>, which contains comprehensive information on how to do this on a wide variety of desktop browsers.</p><p><b>How can I choose not to receive Online Behavioural Advertising and other tracking cookies?</b></p><p>In addition to the controls available on your computer, there are other ways of choosing not to receive Online Behavioural Advertising and other tracking cookies.</p><p>Please note that most of these choices work by setting a cookie that overrides the behavioural advertising cookie. If you clear all your cookies, you will also clear these opt-out cookies, therefore changing your preferences. In this instance you would need to choose again.</p><p><b>Organisations which provide more information on Online Behavioural Advertising</b></p><p></p><ul class="grey-bullets"><li><span><a href="http://www.evidon.com/consumers-privacy/manage-your-online-profile">Evidon</a> are a provider of privacy solutions.</span><br></li><li><span><a href="http://www.youronlinechoices.com/uk/your-ad-choices">Internet Advertising Bureau (IAB)</a> “ Your Online Choices” page. This allows you to choose not to receive behavioural advertising from each of the advertising networks represented by the IAB.</span><br></li><li><span><a href="http://www.networkadvertising.org/managing/opt_out.asp">Network Advertising Initiative (NAI)</a> opt out page. This allows you to opt out of behavioural advertising from each of the ad networks represented by the NAI.</span><br></li><li><span><a href="http://www.aboutads.info/choices/">Digital Advertising Alliance’s</a> self-regulatory program for online behavioural advertising choices page.</span><br></li></ul><p></p></div></div></li></ul><h3><br></h3><h3>Contacting Sky</h3><p>Any queries or comments about this privacy notice or for requests of copies of the information we hold about you should be sent to <span><a href="mailto:dp.department@sky.uk">dp.department@sky.uk</a></span><span> or to Customer Relations, Sky Subscriber Services Ltd, PO Box 43, Livingston, West Lothian, EH54 7DD, UK. or to Customer Relations, Sky Subscriber Services Limited, One Burlington Plaza, Burlington Plaza, Dublin 4, ROI.</span></p><p>Please ensure you notify us of any updates, amendments and corrections to your information by contacting us online, by phone on 03442 414141 in the UK or 0818 719 819 in the ROI or through <a href="https://my.sky.com/mysky/indexb.html">My Sky</a>.</p><p><b>We will occasionally update this privacy notice. We will post a notice of any material changes on our website prior to implementing the changes, and, where appropriate, notify you using any of the contact details we hold for you for this purpose. We encourage you to periodically review this notice to be informed of how we use your information.</b></p><p>This Privacy and Cookies Notice was last updated 19 March 2015.<b> </b></p></article><aside class="skyhelp-4-lg skyhelp-12-md" id="cluster"><img alt="Image of a padlock" src="//res.cloudinary.com/hugoaoilw/image/upload/awtyfscknqwfh3m8qcsd" /><div class="polar-tile--alpha"><section class="polar-tile--alpha__content"><h3>Related help articles</h3><dl><div class="mar-b-1x"><dt class="text-lead"><a href="/help/articles/skys-network-resilience-and-security">Sky&#39;s Network Resilience and Security</a></dt><dd>Information on how Sky Broadband, Talk and TV products conform with the Ofcom General Condition on network resilience and security.</dd></div><div class="mar-b-1x"><dt class="text-lead"><a href="/help/articles/cookies-explained">Cookies explained</a></dt><dd>Information on cookies, what they are and how you can manage them.</dd></div></dl><a class="button--bordered button--stacked pad-e-1x" href="/help/articles?topic=sky-account-security">Show all <strong>Sky account security</strong> articles</a></section></div></aside></section></div>
+
+
+<div class="skycom-footer">
+    <div class="skycom_container js-skycom-footer clearfix" data-tracking-module="footer" role="contentinfo">
+        
+        <nav class="skycom-footer__nav" aria-labelledby="sky-footer-nav-title">
+            <h2 class="skycom-footer__heading js-footer-heading skyicon-chevron">Explore Sky</h2>
+            <ul>
+                
+      <li>
+          <a class="skycom-footer__link skycom-footer__link--ellipsis" href="https://corporate.sky.com/" name="link_Sky-Corporate">
+              Sky Corporate
+          </a>
+      </li>
+
+      <li>
+          <a class="skycom-footer__link skycom-footer__link--ellipsis" href="http://business.sky.com" name="link_Sky-For-Businesses">
+              Sky For Businesses
+          </a>
+      </li>
+
+      <li>
+          <a class="skycom-footer__link skycom-footer__link--ellipsis" href="http://communaltv.sky.com/" name="link_Sky-Homes">
+              Sky Communal TV
+          </a>
+      </li>
+
+      <li>
+          <a class="skycom-footer__link skycom-footer__link--ellipsis" href="http://www.sky.com/shop/store-locator/" name="link_Store-Locator">
+              Store Locator
+          </a>
+      </li>
+
+      <li>
+          <a class="skycom-footer__link skycom-footer__link--ellipsis" href="https://careers.sky.com/" name="link_Work-For-Sky">
+              Work For Sky
+          </a>
+      </li>
+
+      <li>
+          <a class="skycom-footer__link skycom-footer__link--ellipsis" href="http://www.sky.com/products/broadband-talk/sky-broadband-shield/safety-centre" name="link_Safety-Centre">
+              Safety Centre
+          </a>
+      </li>
+
+      <li>
+          <a class="skycom-footer__link skycom-footer__link--ellipsis" href="http://www.skymedia.co.uk" name="link_Advertise-With-Us">
+              Advertise With Us
+          </a>
+      </li>
+
+            </ul>
+        </nav>
+
+        <nav class="skycom-footer__nav" aria-labelledby="sky-footer-nav-title">
+            <h2 class="skycom-footer__heading js-footer-heading skyicon-chevron">Sky Initiatives</h2>
+            <ul>
+                
+      <li>
+          <a class="skycom-footer__link skycom-footer__link--ellipsis" href="http://corporate.sky.com/the_bigger_picture" name="link_Sky_bigger-picture">
+              Bigger Picture
+          </a>
+      </li>
+
+      <li>
+          <a class="skycom-footer__link skycom-footer__link--ellipsis" href="http://www.sky.com/academy/home" name="link_Sky-Academy">
+              Sky Academy
+          </a>
+      </li>
+
+      <li>
+          <a class="skycom-footer__link skycom-footer__link--ellipsis" href="http://www.sky.com/academy/sky_sports_living_for_sport" name="link_living-for-sport">
+              Sky Sports Living For Sport
+          </a>
+      </li>
+
+      <li>
+          <a class="skycom-footer__link skycom-footer__link--ellipsis" href="http://www.sky.com/academy/starting_out" name="link_Sky-Academy-Starting-Out">
+              Sky Academy Starting Out
+          </a>
+      </li>
+
+      <li>
+          <a class="skycom-footer__link skycom-footer__link--ellipsis" href="http://www.goskyride.com/" name="link_Sky-Ride">
+              Sky Ride
+          </a>
+      </li>
+
+      <li>
+          <a class="skycom-footer__link skycom-footer__link--ellipsis" href="https://rainforestrescue.sky.com" name="link_Sky_rainforest-rescue">
+              Sky Rainforest Rescue
+          </a>
+      </li>
+
+            </ul>
+        </nav>
+
+        <nav class="skycom-footer__nav" aria-labelledby="sky-footer-nav-title">
+            <h2 class="skycom-footer__heading js-footer-heading skyicon-chevron">Sky Channels</h2>
+            <ul>
+                
+      <li>
+          <a class="skycom-footer__link skycom-footer__link--ellipsis" href="http://www.sky.com/watch/channel/sky-1" name="link_sky-1">
+              Sky 1
+          </a>
+      </li>
+
+      <li>
+          <a class="skycom-footer__link skycom-footer__link--ellipsis" href="http://www.sky.com/watch/channel/sky-living" name="link_Sky-Living">
+              Sky Living
+          </a>
+      </li>
+
+      <li>
+          <a class="skycom-footer__link skycom-footer__link--ellipsis" href="http://www.sky.com/watch/channel/sky-atlantic" name="link_Sky-Atlantic">
+              Sky Atlantic
+          </a>
+      </li>
+
+      <li>
+          <a class="skycom-footer__link skycom-footer__link--ellipsis" href="http://www.sky.com/watch/channel/sky-arts" name="link_Sky-arts">
+              Sky Arts
+          </a>
+      </li>
+
+      <li>
+          <a class="skycom-footer__link skycom-footer__link--ellipsis" href="http://www.sky.com/watch/channel/sky-movies" name="link_Sky-Movies">
+              Sky Movies
+          </a>
+      </li>
+
+      <li>
+          <a class="skycom-footer__link skycom-footer__link--ellipsis" href="http://www.skysports.com/" name="link_Sky-sports">
+              Sky Sports
+          </a>
+      </li>
+
+      <li>
+          <a class="skycom-footer__link skycom-footer__link--ellipsis" href="http://news.sky.com/" name="link_Sky-news">
+              Sky News
+          </a>
+      </li>
+
+            </ul>
+        </nav>
+
+        <nav class="skycom-footer__nav" aria-labelledby="sky-footer-nav-title">
+            <h2 class="skycom-footer__heading js-footer-heading skyicon-chevron">More Sky Sites</h2>
+            <ul>
+                
+      <li>
+          <a class="skycom-footer__link skycom-footer__link--ellipsis" href="http://www.nowtv.com" name="link_now-tv">
+              NOW TV
+          </a>
+      </li>
+
+      <li>
+          <a class="skycom-footer__link skycom-footer__link--ellipsis" href="http://tickets.sky.com" name="link_Sky-Tickets">
+              Sky Tickets
+          </a>
+      </li>
+
+      <li>
+          <a class="skycom-footer__link skycom-footer__link--ellipsis" href="http://www.skyprotect.com/" name="link_Sky-Protect">
+              Sky Protect
+          </a>
+      </li>
+
+            </ul>
+        </nav>
+
+        <!-- #footer-en_IE
+        
+        <nav class="skycom-footer__nav" aria-labelledby="sky-footer-nav-title">
+            <h2 class="skycom-footer__heading js-footer-heading skyicon-chevron">Explore Sky</h2>
+            <ul>
+                
+      <li>
+          <a class="skycom-footer__link skycom-footer__link--ellipsis" href="https://corporate.sky.com/" name="link_Sky-Corporate">
+              Sky Corporate
+          </a>
+      </li>
+
+      <li>
+          <a class="skycom-footer__link skycom-footer__link--ellipsis" href="http://business.sky.com" name="link_Sky-For-Businesses">
+              Sky For Businesses
+          </a>
+      </li>
+
+      <li>
+          <a class="skycom-footer__link skycom-footer__link--ellipsis" href="http://communaltv.sky.com/" name="link_Sky-Homes">
+              Sky Communal TV
+          </a>
+      </li>
+
+      <li>
+          <a class="skycom-footer__link skycom-footer__link--ellipsis" href="http://www.sky.com/ireland/skystores/" name="link_Store-Locator">
+              Store Locator
+          </a>
+      </li>
+
+      <li>
+          <a class="skycom-footer__link skycom-footer__link--ellipsis" href="https://careers.sky.com/" name="link_Work-For-Sky">
+              Work For Sky
+          </a>
+      </li>
+
+      <li>
+          <a class="skycom-footer__link skycom-footer__link--ellipsis" href="http://www.sky.com/products/broadband-talk/sky-broadband-shield/safety-centre" name="link_Safety-Centre">
+              Safety Centre
+          </a>
+      </li>
+
+      <li>
+          <a class="skycom-footer__link skycom-footer__link--ellipsis" href="http://www.skymedia.co.uk" name="link_Advertise-With-Us">
+              Advertise With Us
+          </a>
+      </li>
+
+            </ul>
+        </nav>
+
+        <nav class="skycom-footer__nav" aria-labelledby="sky-footer-nav-title">
+            <h2 class="skycom-footer__heading js-footer-heading skyicon-chevron">Sky Initiatives</h2>
+            <ul>
+                
+      <li>
+          <a class="skycom-footer__link skycom-footer__link--ellipsis" href="http://corporate.sky.com/the_bigger_picture" name="link_Sky_bigger-picture">
+              Bigger Picture
+          </a>
+      </li>
+
+      <li>
+          <a class="skycom-footer__link skycom-footer__link--ellipsis" href="http://www.sky.com/academy/home" name="link_Sky-Academy">
+              Sky Academy
+          </a>
+      </li>
+
+      <li>
+          <a class="skycom-footer__link skycom-footer__link--ellipsis" href="http://www.sky.com/academy/sky_sports_living_for_sport" name="link_living-for-sport">
+              Sky Sports Living For Sport
+          </a>
+      </li>
+
+      <li>
+          <a class="skycom-footer__link skycom-footer__link--ellipsis" href="http://www.sky.com/academy/starting_out" name="link_Sky-Academy-Starting-Out">
+              Sky Academy Starting Out
+          </a>
+      </li>
+
+      <li>
+          <a class="skycom-footer__link skycom-footer__link--ellipsis" href="http://www.goskyride.com/" name="link_Sky-Ride">
+              Sky Ride
+          </a>
+      </li>
+
+      <li>
+          <a class="skycom-footer__link skycom-footer__link--ellipsis" href="https://rainforestrescue.sky.com" name="link_Sky_rainforest-rescue">
+              Sky Rainforest Rescue
+          </a>
+      </li>
+
+            </ul>
+        </nav>
+
+        <nav class="skycom-footer__nav" aria-labelledby="sky-footer-nav-title">
+            <h2 class="skycom-footer__heading js-footer-heading skyicon-chevron">Sky Channels</h2>
+            <ul>
+                
+      <li>
+          <a class="skycom-footer__link skycom-footer__link--ellipsis" href="http://www.sky.com/watch/channel/sky-1" name="link_sky-1">
+              Sky 1
+          </a>
+      </li>
+
+      <li>
+          <a class="skycom-footer__link skycom-footer__link--ellipsis" href="http://www.sky.com/watch/channel/sky-living" name="link_Sky-Living">
+              Sky Living
+          </a>
+      </li>
+
+      <li>
+          <a class="skycom-footer__link skycom-footer__link--ellipsis" href="http://www.sky.com/watch/channel/sky-atlantic" name="link_Sky-Atlantic">
+              Sky Atlantic
+          </a>
+      </li>
+
+      <li>
+          <a class="skycom-footer__link skycom-footer__link--ellipsis" href="http://www.sky.com/watch/channel/sky-arts" name="link_Sky-arts">
+              Sky Arts
+          </a>
+      </li>
+
+      <li>
+          <a class="skycom-footer__link skycom-footer__link--ellipsis" href="http://www.sky.com/watch/channel/sky-movies" name="link_Sky-Movies">
+              Sky Movies
+          </a>
+      </li>
+
+      <li>
+          <a class="skycom-footer__link skycom-footer__link--ellipsis" href="http://www.skysports.com/" name="link_Sky-sports">
+              Sky Sports
+          </a>
+      </li>
+
+      <li>
+          <a class="skycom-footer__link skycom-footer__link--ellipsis" href="http://news.sky.com/" name="link_Sky-news">
+              Sky News
+          </a>
+      </li>
+
+            </ul>
+        </nav>
+
+        <nav class="skycom-footer__nav" aria-labelledby="sky-footer-nav-title">
+            <h2 class="skycom-footer__heading js-footer-heading skyicon-chevron">More Sky Sites</h2>
+            <ul>
+                
+      <li>
+          <a class="skycom-footer__link skycom-footer__link--ellipsis" href="http://www.nowtv.com" name="link_now-tv">
+              NOW TV
+          </a>
+      </li>
+
+      <li>
+          <a class="skycom-footer__link skycom-footer__link--ellipsis" href="http://tickets.sky.com" name="link_Sky-Tickets">
+              Sky Tickets
+          </a>
+      </li>
+
+      <li>
+          <a class="skycom-footer__link skycom-footer__link--ellipsis" href="http://www.skyprotect.com/" name="link_Sky-Protect">
+              Sky Protect
+          </a>
+      </li>
+
+            </ul>
+        </nav>
+
+        #footer-en_IE -->
+    </div>
+    
+<div class="skycom_container skycom-footer__corporate ">
+    <ul class="skycom-footer__list">
+        
+        <li class="first">
+            <a class="skycom-footer__link" id="" href="http://help.sky.com/my-account/terms-and-conditions/skycom-terms-and-conditions/" name="link_Terms-and-Conditions" id="">Terms &amp; Conditions</a>
+        </li>
+        
+        <li class="">
+            <a class="skycom-footer__link" id="" href="http://help.sky.com/security/privacy/privacy-and-cookies-notice/" name="link_Privacy-and-Cookies-Notice" id="">Privacy &amp; Cookies Notice</a>
+        </li>
+        
+        <li class="">
+            <a class="skycom-footer__link" id="" href="http://accessibility.sky.com" name="link_Accessibility-Information" id="">Accessibility Information</a>
+        </li>
+        
+        <li class="">
+            <a class="skycom-footer__link" id="" href="http://contactus.sky.com" name="link_Contact-Us" id="">Contact Us</a>
+        </li>
+        
+        <li class="">
+            <a class="skycom-footer__link" id="" href="http://www.sky.com/sitemap" name="link_Site-Map" id="">Site Map</a>
+        </li>
+        
+        <li class="skycom-change">
+            <a class="skycom-footer__link" id="" href="#" name="link_change-location" id="">Go to Ireland site</a>
+        </li>
+        
+        <!-- #footer-en_IE
+        
+        <li class="first">
+            <a class="skycom-footer__link" id="" href="http://help.sky.com/my-account/terms-and-conditions/skycom-terms-and-conditions/" name="link_Terms-and-Conditions" id="">Terms &amp; Conditions</a>
+        </li>
+        
+        <li class="">
+            <a class="skycom-footer__link" id="" href="http://www.sky.com/ireland/terms-conditions/privacy-statement/" name="link_Privacy-and-Cookies-Notice" id="">Privacy &amp; Cookies Notice</a>
+        </li>
+        
+        <li class="">
+            <a class="skycom-footer__link" id="" href="http://accessibility.sky.com" name="link_Accessibility-Information" id="">Accessibility Information</a>
+        </li>
+        
+        <li class="">
+            <a class="skycom-footer__link" id="" href="http://contactus.sky.com" name="link_Contact-Us" id="">Contact Us</a>
+        </li>
+        
+        <li class="">
+            <a class="skycom-footer__link" id="" href="http://www.sky.com/sitemap" name="link_Site-Map" id="">Site Map</a>
+        </li>
+        
+        <li class="skycom-change">
+            <a class="skycom-footer__link" id="" href="#" name="link_change-location" id="">Go to the UK site</a>
+        </li>
+        
+        #footer-en_IE -->
+    </ul>
+    <div class="skycom-footer__copyright">
+        <a href="http://www.sky.com" tabindex="-1"><i class="sprite-sky-logo-small-colour skycom-footer__icon">Sky</i></a>
+        <span class="skycom-footer__body copyright">© 2016 Sky UK</span>
+    </div>
+</div>
+
+    </div>
+</div>
+<!--[if lte IE 7]>
+  <script src='//assets.sky.com/dist/1276/js/ie7.js' type='text/javascript'></script>
+<![endif]-->
+<script>
+  var globalskycom = globalskycom || { };
+  globalskycom.serverHost = 'assets.sky.com';
+</script>
+<script src='//assets.sky.com/static/caramel/17/user-profile.js' type='text/javascript'></script>
+<script src='//assets.sky.com/dist/1276/js/masthead.js'></script>
+<script>
+  globalskycom.config.nav.host = 'assets.sky.com';
+  globalskycom.config.nav.defaults.signUpUrl = "https://skyid.sky.com/signup/";
+  globalskycom.config.nav.defaults.signInUrl = "https://skyid.sky.com/signin/";
+  globalskycom.config.nav.defaults.signOutUrl = 'https://skyid.sky.com/signout?successUrl=' + globalskycom.pageUrl;
+  globalskycom.config.nav.defaults.emailUrl = 'https://skyid.sky.com/signin/email/';
+  globalskycom.config.search.trendsDomain = "//www.sky.com";
+</script>
+<script src="//web-toolkit.global.sky.com/2.3.6/scripts/toolkit.min.js"></script><script src="//web-toolkit.global.sky.com/static/lib/require-2.1.9.min.js"></script><script src="//player.sky.com/plugin/jquery.sky.htmlplayer.js"></script><script src="/help/sky_popin/scripts/NinaLoader.js"></script></body></html>

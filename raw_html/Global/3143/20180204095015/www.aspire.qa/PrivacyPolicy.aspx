@@ -1,0 +1,1451 @@
+
+
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+<head id="ctl00_Head1"><meta http-equiv="content-type" content="text/html; charset=utf-8" /><meta name="author" content="Aspire Academy" /><meta name="Description" content="Aspire Academy was founded in 2004 with the goal to find and develop the best young male Qatari athletes, whilst also providing them with high quality secondary school education. Since the population in Qatar is small the identification of talents at an early age is important and therefore we cooperate with schools and sports federations; we also have Multi-sport Skills Development Centers across Qatar to promote sports and prepare talented youths before they reach the appropriate age to be considered for the Academy. " /><meta name="Keywords" content="Aspire Academy,Aspire, Aspire Qatar, Qatar, Doha, Sports,Qatari athletes,Multi-sport Skills,talented youths,Sport schools,talant identification,Football,Talent Centres,footballers ,sports scholarships, FIFA World Cup 2022,FIFA U-20,U-19,Olympic,Mutaz Essa Barshim,high jumpe,2012 Olympic bronze" />
+
+    <!-- Stylesheets
+        ============================================= -->
+    <link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" /><link rel="stylesheet" href="css/bootstrap.css" type="text/css" /><link rel="stylesheet" href="style.css" type="text/css" /><link rel="stylesheet" href="css/dark.css" type="text/css" /><link rel="stylesheet" href="css/font-icons.css" type="text/css" /><link rel="stylesheet" href="css/animate.css" type="text/css" /><link rel="stylesheet" href="css/magnific-popup.css" type="text/css" /><link rel="stylesheet" href="css/responsive.css" type="text/css" /><link href="css/custom.css" rel="stylesheet" /><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <!--[if lt IE 9]>
+    	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="css/colors.css" type="text/css" />
+    <!-- External JavaScripts
+    ============================================= -->
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/plugins.js"></script>
+    <script src="js/custom.js"></script>
+    <style>
+        
+        .bgc ol
+        {
+            margin-left:25px;
+            margin-top:7px;
+           
+        }
+        .bgc ul
+        {
+            margin-left:25px;
+            margin-top:7px;
+           
+        }
+
+        .entry-image img
+        {width:100%;
+        }
+        .bgc h4
+        { margin-bottom:15px; 
+        }
+
+     
+    </style>
+
+     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+<![endif]-->
+
+    <link href="js/sweetalert-master/lib/sweet-alert.css" rel="stylesheet" />
+    <script src="js/sweetalert-master/lib/sweet-alert.js"></script>
+
+   <title>
+	Privacy Policy
+</title>
+
+
+
+
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-12004469-1', 'auto');
+        ga('send', 'pageview');
+
+</script>
+
+
+
+    
+ <!-- start social profiles (https://developers.google.com/structured-data/customize/social-profiles) -->
+ <script type="application/ld+json">
+ { 
+ "@context" : "http://schema.org",
+ "@type" : "Organization",
+ "name" : "Aspire Academy",
+ "url" : "http://aspire.qa/",
+ "logo": "http://aspire.qa/images/logo@2x.png",
+ "sameAs" : [ 
+ "http://www.facebook.com/aspireacademy",
+ "http://www.twitter.com/aspire_academy",
+ "http://www.instagram.com/aspire_academy",
+ "http://www.linkedin.com/aspireacademy",
+ "https://www.youtube.com/user/aspiresportacademy",
+ "https://plus.google.com/b/102051907782938396497/102051907782938396497/posts "
+ ]
+ }
+ </script>
+ <!-- end social profiles -->
+
+    
+</head>
+<body class="stretched no-transition">
+    <form method="post" action="./PrivacyPolicy.aspx" id="aspnetForm">
+<input type="hidden" name="ctl00_RadScriptManager1_TSM" id="ctl00_RadScriptManager1_TSM" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwULLTEwMDUyNjYzMjgPZBYCZg9kFgICAw9kFgwCBQ9kFgICAQ8WAh4LXyFJdGVtQ291bnQCDxYeZg9kFgICAw8WAh4FY2xhc3MFCm1lZ2EtbWVudSAWBgIBDxYCHgRocmVmBQ0vRGVmYXVsdC5hc3B4FgQCAQ9kFgJmDxUBBEhvbWVkAgIPFQEKTGV0cyBTdGFydGQCAw8WBB8AAgEeB1Zpc2libGVoFgICAQ9kFgRmDxUCCS9mYXEuYXNweANGQVFkAgEPFgIfAGZkAgUPFgQfAAIBHwNoFgICAQ9kFgJmDxUCCS9mYXEuYXNweANGQVFkAgEPZBYCAgMPFgIfAQUCICAWBgIBDxYCHwIFDS9hYm91dHVzLmFzcHgWBAIBD2QWAmYPFQEIQWJvdXQgVXNkAgIPFQERQWJvdXQgdGhlIEFjYWRlbXlkAgMPFgQfAAIJHwNoFhICAQ9kFgRmDxUCGC9hYm91dE1pc3Npb25WaXNpb24uYXNweBhWaXNpb24sIE1pc3Npb24gJiBWYWx1ZXNkAgEPFgIfAGZkAgIPZBYEZg8VAhMvYWJvdXRXaG9XZUFyZS5hc3B4CldobyBXZSBBcmVkAgEPFgIfAGZkAgMPZBYEZg8VAhgvYWJvdXRUSURBZG1pc3Npb25zLmFzcHgQVElEICYgQWRtaXNzaW9uc2QCAQ8WAh8AZmQCBA9kFgRmDxUCGS9hYm91dE1hbmFnZW1lbnRUZWFtLmFzcHgPTWFuYWdlbWVudCBUZWFtZAIBDxYCHwBmZAIFD2QWBGYPFQIiL2Fib3V0RGlyZWN0b3JHZW5lcmFsc01lc3NhZ2UuYXNweBpEaXJlY3RvciBHZW5lcmFsJ3MgTWVzc2FnZWQCAQ8WAh8AZmQCBg9kFgRmDxUCHC9hYm91dFB1Ymxpc2hlZFJlc2VhcmNoLmFzcHgSUHVibGlzaGVkIFJlc2VhcmNoZAIBDxYCHwBmZAIHD2QWBGYPFQIeL2Fib3V0QW1iYXNzYWRvcnNWaXNpdG9ycy5hc3B4HUdsb2JhbCBBbWJhc3NhZG9ycyAmIFZpc2l0b3JzZAIBDxYCHwBmZAIID2QWBGYPFQIWL2Fib3V0T3VyUGFydG5lcnMuYXNweAxPdXIgUGFydG5lcnNkAgEPFgIfAGZkAgkPZBYEZg8VAhAvYWJvdXRRYXRhci5hc3B4C0Fib3V0IFFhdGFyZAIBDxYCHwBmZAIFDxYCHwACCRYSAgEPZBYCZg8VAhgvYWJvdXRNaXNzaW9uVmlzaW9uLmFzcHgYVmlzaW9uLCBNaXNzaW9uICYgVmFsdWVzZAICD2QWAmYPFQITL2Fib3V0V2hvV2VBcmUuYXNweApXaG8gV2UgQXJlZAIDD2QWAmYPFQIYL2Fib3V0VElEQWRtaXNzaW9ucy5hc3B4EFRJRCAmIEFkbWlzc2lvbnNkAgQPZBYCZg8VAhkvYWJvdXRNYW5hZ2VtZW50VGVhbS5hc3B4D01hbmFnZW1lbnQgVGVhbWQCBQ9kFgJmDxUCIi9hYm91dERpcmVjdG9yR2VuZXJhbHNNZXNzYWdlLmFzcHgaRGlyZWN0b3IgR2VuZXJhbCdzIE1lc3NhZ2VkAgYPZBYCZg8VAhwvYWJvdXRQdWJsaXNoZWRSZXNlYXJjaC5hc3B4ElB1Ymxpc2hlZCBSZXNlYXJjaGQCBw9kFgJmDxUCHi9hYm91dEFtYmFzc2Fkb3JzVmlzaXRvcnMuYXNweB1HbG9iYWwgQW1iYXNzYWRvcnMgJiBWaXNpdG9yc2QCCA9kFgJmDxUCFi9hYm91dE91clBhcnRuZXJzLmFzcHgMT3VyIFBhcnRuZXJzZAIJD2QWAmYPFQIQL2Fib3V0UWF0YXIuYXNweAtBYm91dCBRYXRhcmQCAg9kFgICAw8WAh8BBQptZWdhLW1lbnUgFgYCAQ8WAh8CBRkvRGV2ZWxvcGluZ0NoYW1waW9ucy5hc3B4FgQCAQ9kFgJmDxUBFERldmVsb3BpbmcgQ2hhbXBpb25zZAICDxUBEVNwb3J0cyBleGNlbGxlbmNlZAIDDxYCHwACBRYKAgEPZBYEZg8VAg4vRm9vdGJhbGwuYXNweAhGb290YmFsbGQCAQ8WAh8AAgcWDmYPZBYCAgEPZBYCZg8VAhUvRm9vdGJhbGxQcm9ncmFtLmFzcHgQRm9vdGJhbGwgUHJvZ3JhbWQCAQ9kFgICAQ9kFgJmDxUCGy9TcXVhZHNhbmROYXRpb25hbFRlYW0uYXNweAVUZWFtc2QCAg9kFgICAQ9kFgJmDxUCGi9Gb290YmFsbENvbXBldGl0aW9ucy5hc3B4DENvbXBldGl0aW9uc2QCAw9kFgICAQ9kFgJmDxUCGS9Gb290YmFsbFRyYWluaW5nRW52LmFzcHgUVHJhaW5pbmcgRW52aXJvbm1lbnRkAgQPZBYCAgEPZBYCZg8VAh4vRm9vdGJhbGxJbnRlcm5hdGlvbmFsRXhwLmFzcHgYSW50ZXJuYXRpb25hbCBFeHBlcmllbmNlZAIFD2QWAgIBD2QWAmYPFQIaL0Zvb3RiYWxsQXNwaXJlRHJlYW1zLmFzcHgWQXNwaXJlIEZvb3RiYWxsIERyZWFtc2QCBg9kFgICAQ9kFgJmDxUCFi9Gb290YmFsbEtBU0V1cGVuLmFzcHgJS0FTIEV1cGVuZAICD2QWBGYPFQIZL0Zvb3RiYWxsUGVyZm9ybWFuY2UuYXNweB5Gb290YmFsbCBQZXJmb3JtYW5jZSAmIFNjaWVuY2VkAgEPFgIfAAIEFghmD2QWAgIBD2QWAmYPFQIaL1N0cmVuZ3RoQ29uZGl0aW9uaW5nLmFzcHgYU3RyZW5ndGggJiBDb25kaXRpb25pbmcgZAIBD2QWAgIBD2QWAmYPFQIYL0Zvb3RiYWxsUGh5c2lvbG9neS5hc3B4ClBoeXNpb2xvZ3lkAgIPZBYCAgEPZBYCZg8VAhgvUGVyZm9ybWFuY2VBbmFseXN0LmFzcHgUUGVyZm9ybWFuY2UgQW5hbHlzaXNkAgMPZBYCAgEPZBYCZg8VAh4vRm9vdGJhbGxQZXJmb3JtYW5jZVN0YWZmLmFzcHgaRm9vdGJhbGwgUGVyZm9ybWFuY2UgU3RhZmZkAgMPZBYEZg8VAgwvU3BvcnRzLmFzcHgGU3BvcnRzZAIBDxYCHwACBxYOZg9kFgICAQ9kFgJmDxUCDy9BdGhsZXRpY3MuYXNweAlBdGhsZXRpY3NkAgEPZBYCAgEPZBYCZg8VAhEvVGFibGVUZW5uaXMuYXNweAxUYWJsZSBUZW5uaXNkAgIPZBYCAgEPZBYCZg8VAgwvU3F1YXNoLmFzcHgGU3F1YXNoZAIDD2QWAgIBD2QWAmYPFQIkL0ZlZGVyYXRpb25TcG9ydHNBcXVhdGljUHJvZ3JhbS5hc3B4EUZlZGVyYXRpb24gU3BvcnRzZAIED2QWAgIBD2QWAmYPFQIbL011bHRpU2tpbGxEZXZlbG9wbWVudC5hc3B4F011bHRpIFNraWxsIERldmVsb3BtZW50ZAIFD2QWAgIBD2QWAmYPFQIXL0dyYWR1YXRlQ2hhbXBpb25zLmFzcHgZQXNwaXJlIEdyYWR1YXRlIENoYW1waW9uc2QCBg9kFgICAQ9kFgJmDxUCGC9HcmFkdWF0ZUNoYW1waW9ucy5hc3B4IwRub25lZAIED2QWBGYPFQISL1Nwb3J0U2NpZW5jZS5hc3B4DVNwb3J0IFNjaWVuY2VkAgEPFgIfAAIHFg5mD2QWAgIBD2QWAmYPFQISL0Jpb01lY2hhbmljcy5hc3B4DEJpb21lY2hhbmljc2QCAQ9kFgICAQ9kFgJmDxUCFS9TcG9ydFBzeWNob2xvZ3kuYXNweBBTcG9ydCBQc3ljaG9sb2d5ZAICD2QWAgIBD2QWAmYPFQIQL1BoeXNpb2xvZ3kuYXNweBFTcG9ydHMgUGh5c2lvbG9neWQCAw9kFgICAQ9kFgJmDxUCFy9TdHJlbmd0aENvbmRpdGlvbi5hc3B4F1N0cmVuZ3RoICYgQ29uZGl0aW9uaW5nZAIED2QWAgIBD2QWAmYPFQIcL0hlYWx0aE1lZGljaW5lU2VydmljZXMuYXNweBpIZWFsdGggJiBNZWRpY2luZSBTZXJ2aWNlc2QCBQ9kFgICAQ9kFgJmDxUCFS9SZXNlYXJzaFF1YWxpdHkuYXNweB1SZXNlYXJjaCAmIFF1YWxpdHkgQXNzdXJhbmNlIGQCBg9kFgICAQ9kFgJmDxUCGS9hYm91dFRJREFkbWlzc2lvbnMuYXNweCMWVGFsZW50IElkZW50aWZpY2F0aW9uIGQCBQ9kFgRmDxUCDy9FZHVjYXRpb24uYXNweAlFZHVjYXRpb25kAgEPFgIfAAIIFhBmD2QWAgIBD2QWAmYPFQIZL1N0dWRlbnRDYXJlU2VydmljZXMuYXNweBdTdHVkZW50IENhcmUgJiBTZXJ2aWNlc2QCAQ9kFgICAQ9kFgJmDxUCFi9UZWFjaGluZ0xlYXJuaW5nLmFzcHgTVGVhY2hpbmcgJiBMZWFybmluZ2QCAg9kFgICAQ9kFgJmDxUCFS9BY2FkZW1pY1N1cHBvcnQuYXNweBBBY2FkZW1pYyBTdXBwb3J0ZAIDD2QWAgIBD2QWAmYPFQIPL0VMZWFybmluZy5hc3B4CkUtTGVhcm5pbmdkAgQPZBYCAgEPZBYCZg8VAiIvTGVhZGVyc2hpcERldmVsb3BtZW50UHJvZ3JhbS5hc3B4FkxlYWRlcnNoaXAgRGV2ZWxvcG1lbnRkAgUPZBYCAgEPZBYCZg8VAhYvQ2FyZWVyTmV0d29ya2luZy5hc3B4EUNhcmVlciBOZXR3b3JraW5nZAIGD2QWAgIBD2QWAmYPFQIML0FsdW1uaS5hc3B4BkFsdW1uaWQCBw9kFgICAQ9kFgJmDxUCDS9GYWN1bHR5LmFzcHgHRmFjdWx0eWQCBQ8WBB8AAgUfA2gWCgIBD2QWAmYPFQIOL0Zvb3RiYWxsLmFzcHgIRm9vdGJhbGxkAgIPZBYCZg8VAhkvRm9vdGJhbGxQZXJmb3JtYW5jZS5hc3B4HkZvb3RiYWxsIFBlcmZvcm1hbmNlICYgU2NpZW5jZWQCAw9kFgJmDxUCDC9TcG9ydHMuYXNweAZTcG9ydHNkAgQPZBYCZg8VAhIvU3BvcnRTY2llbmNlLmFzcHgNU3BvcnQgU2NpZW5jZWQCBQ9kFgJmDxUCDy9FZHVjYXRpb24uYXNweAlFZHVjYXRpb25kAgMPZBYCAgMPFgIfAQUCICAWBgIBDxYCHwIFEC9GYWNpbGl0aWVzLmFzcHgWBAIBD2QWAmYPFQEKRmFjaWxpdGllc2QCAg8VARZXb3JsZCBDbGFzcyBGYWNpbGl0aWVzZAIDDxYEHwBmHwNoZAIFDxYCHwBmZAIED2QWAgIDDxYCHwEFCm1lZ2EtbWVudSAWBgIBDxYCHwIFFC9Bc3BpcmVBdGhsZXRlcy5hc3B4FgQCAQ9kFgJmDxUBD0FzcGlyZSBBdGhsZXRlc2QCAg8VAQBkAgMPFgQfAGYfA2hkAgUPFgQfAGYfA2hkAgUPZBYCAgMPFgIfAQUObWVnYS1tZW51IGhpZGUWBgIBDxYCHwIFGy9yZWRpcmVjdC5hc3B4P3BhZ2U9Q2FyZWVycxYEAgEPZBYCZg8VAQdDYXJlZXJzZAICDxUBAGQCAw8WBB8AAgQfA2gWCAIBD2QWBGYPFQINL0NhcmVlcnMuYXNweAxDYXJlZXJzIEhvbWVkAgEPFgIfAGZkAgIPZBYEZg8VAg8vVmFjYW5jaWVzLmFzcHgJVmFjYW5jaWVzZAIBDxYCHwBmZAIDD2QWBGYPFQIYL1JlY3J1aXRtZW50UHJvY2Vzcy5hc3B4E1JlY3J1aXRtZW50IFByb2Nlc3NkAgEPFgIfAGZkAgQPZBYEZg8VAhIvUWF0YXJpemF0aW9uLmFzcHgMUWF0YXJpemF0aW9uZAIBDxYCHwBmZAIFDxYEHwACBB8DaBYIAgEPZBYCZg8VAg0vQ2FyZWVycy5hc3B4DENhcmVlcnMgSG9tZWQCAg9kFgJmDxUCDy9WYWNhbmNpZXMuYXNweAlWYWNhbmNpZXNkAgMPZBYCZg8VAhgvUmVjcnVpdG1lbnRQcm9jZXNzLmFzcHgTUmVjcnVpdG1lbnQgUHJvY2Vzc2QCBA9kFgJmDxUCEi9RYXRhcml6YXRpb24uYXNweAxRYXRhcml6YXRpb25kAgYPZBYCAgMPFgIfAQUObWVnYS1tZW51IGhpZGUWBgIBDxYCHwIFGC9yZWRpcmVjdC5hc3B4P3BhZ2U9bmV3cxYEAgEPZBYCZg8VAQVNZWRpYWQCAg8VAQVNZWRpYWQCAw8WBB8AAgYfA2gWDAIBD2QWBGYPFQIKL25ld3MuYXNweAROZXdzZAIBDxYCHwBmZAICD2QWBGYPFQISL1ByZXNzUmVsZWFzZS5hc3B4DVByZXNzIFJlbGVhc2VkAgEPFgIfAGZkAgMPZBYEZg8VAgwvZXZlbnRzLmFzcHgGRXZlbnRzZAIBDxYCHwBmZAIED2QWBGYPFQISL1Bob3RvR2FsbGVyeS5hc3B4DVBob3RvIEdhbGxlcnlkAgEPFgIfAGZkAgUPZBYEZg8VAhIvVmlkZW9HYWxsZXJ5LmFzcHgNVmlkZW8gR2FsbGVyeWQCAQ8WAh8AZmQCBg9kFgRmDxUCGS9NYXJrZXRpbmdEZXBhcnRtZW50LmFzcHglTWFya2V0aW5nICYgQ29tbXVuaWNhdGlvbnMgRGVwYXJ0bWVudGQCAQ8WAh8AZmQCBQ8WBB8AAgYfA2gWDAIBD2QWAmYPFQIKL25ld3MuYXNweAROZXdzZAICD2QWAmYPFQISL1ByZXNzUmVsZWFzZS5hc3B4DVByZXNzIFJlbGVhc2VkAgMPZBYCZg8VAgwvZXZlbnRzLmFzcHgGRXZlbnRzZAIED2QWAmYPFQISL1Bob3RvR2FsbGVyeS5hc3B4DVBob3RvIEdhbGxlcnlkAgUPZBYCZg8VAhIvVmlkZW9HYWxsZXJ5LmFzcHgNVmlkZW8gR2FsbGVyeWQCBg9kFgJmDxUCGS9NYXJrZXRpbmdEZXBhcnRtZW50LmFzcHglTWFya2V0aW5nICYgQ29tbXVuaWNhdGlvbnMgRGVwYXJ0bWVudGQCBw9kFgICAw8WAh8BBQptZWdhLW1lbnUgFgYCAQ8WAh8CBRovRWxpdGVUcmFpbmluZ0NhbXBzLmFzcHgjIRYEAgEPZBYCZg8VAQ5UcmFpbmluZyBDYW1wc2QCAg8VARZXb3JsZCBDbGFzcyBGYWNpbGl0aWVzZAIDDxYEHwACAh8DaBYEAgEPZBYEZg8VAhgvRWxpdGVUcmFpbmluZ0NhbXBzLmFzcHgURWxpdGUgVHJhaW5pbmcgQ2FtcHNkAgEPFgIfAGZkAgIPZBYEZg8VAiIvU3R1ZGVudC1BdGhsZXRlVHJhaW5pbmdDYW1wcy5hc3B4HlN0dWRlbnQtQXRobGV0ZSBUcmFpbmluZyBDYW1wc2QCAQ8WAh8AZmQCBQ8WBB8AAgIfA2gWBAIBD2QWAmYPFQIYL0VsaXRlVHJhaW5pbmdDYW1wcy5hc3B4FEVsaXRlIFRyYWluaW5nIENhbXBzZAICD2QWAmYPFQIiL1N0dWRlbnQtQXRobGV0ZVRyYWluaW5nQ2FtcHMuYXNweB5TdHVkZW50LUF0aGxldGUgVHJhaW5pbmcgQ2FtcHNkAggPZBYCAgMPFgIfAQUObWVnYS1tZW51IGhpZGUWBgIBDxYCHwIFDS9jb250YWN0LmFzcHgWBAIBD2QWAmYPFQEKQ29udGFjdCBVc2QCAg8VAQtoaWRkaW5sZXZlbGQCAw8WBB8AZh8DaGQCBQ8WAh8AZmQCCQ9kFgICAw8WAh8BBQ5tZWdhLW1lbnUgaGlkZRYGAgEPFgIfAgUPL3ZpZXdQcmVzcy5hc3B4FgQCAQ9kFgJmDxUBElZpZXcgUHJlc3MgUmVsZWFzZWQCAg8VAQBkAgMPFgQfAGYfA2hkAgUPFgQfAGYfA2hkAgoPZBYCAgMPFgIfAQUObWVnYS1tZW51IGhpZGUWBgIBDxYCHwIFCC9zci5hc3B4FgQCAQ9kFgJmDxUBDVNlYXJjaCBSZXN1bHRkAgIPFQELaGlkZGlubGV2ZWxkAgMPFgQfAGYfA2hkAgUPFgQfAGYfA2hkAgsPZBYCAgMPFgIfAQUObWVnYS1tZW51IGhpZGUWBgIBDxYCHwIFCy9MZWdhbC5hc3B4FgQCAQ9kFgJmDxUBBUxlZ2FsZAICDxUBC2hpZGRpbmxldmVsZAIDDxYEHwBmHwNoZAIFDxYEHwBmHwNoZAIMD2QWAgIDDxYCHwEFFmN1cnJlbnQgbWVnYS1tZW51IGhpZGUWBgIBDxYCHwIFEy9Qcml2YWN5UG9saWN5LmFzcHgWBAIBD2QWAmYPFQEOUHJpdmFjeSBQb2xpY3lkAgIPFQELaGlkZGlubGV2ZWxkAgMPFgQfAGYfA2hkAgUPFgQfAGYfA2hkAg0PZBYCAgMPFgIfAQUObWVnYS1tZW51IGhpZGUWBgIBDxYCHwIFEC9UZXJtc29mVXNlLmFzcHgWBAIBD2QWAmYPFQEMVGVybXMgb2YgVXNlZAICDxUBC2hpZGRpbmxldmVsZAIDDxYEHwBmHwNoZAIFDxYEHwBmHwNoZAIOD2QWAgIDDxYCHwEFDm1lZ2EtbWVudSBoaWRlFgYCAQ8WAh8CBRUvQXBwbHlmb3J2YWNhbmN5LmFzcHgWBAIBD2QWAmYPFQETQXBwbHkgZm9yIGEgdmFjYW5jeWQCAg8VAQBkAgMPFgQfAGYfA2hkAgUPFgQfAGYfA2hkAgcPZBYCAgEPFgIfAGZkAgkPZBYCAgEPFgIfA2hkAgsPDxYCHwNoZGQCDw9kFggCAw8UKwACDxYEHgtfIURhdGFCb3VuZGcfAAIFZGQWAmYPZBYKAgEPZBYCZg8VBAQxNzQ2IDIwMTgxMzAxMzM4MjFfQmFzc2VtXzJfdGh1bWIuUE5HBDE3NDZCQVNQSVJFIFNUVURFTlQgQVRITEVURSBIRU1FSURBIEhVUkRMRVMgVE8gV09STEQgWU9VVEggTEVBRElORyBUSU1FZAICD2QWAmYPFQQEMTc0NyoyMDE4MTMwMjA0OTI2X0FTUElSRV92c19BQ19NaWxhbl90aHVtYi5QTkcEMTc0NzdBU1BJUkUgQUNBREVNWSBEUkFXIFZJVEFMIExFU1NPTlMgRlJPTSAyMDE4IEFMIEtBU1MgQ1VQZAIDD2QWAmYPFQQEMTc0NCEyMDE4MTI4MTkzNjEyX0FGRF92c19BQ190aHVtYi5qcGcEMTc0NEpBU1BJUkUgRk9PVEJBTEwgRFJFQU1TIElOIE5BUlJPVyBXSU4gT1ZFUiBBU1BJUkUgQUNBREVNWSBBVCBBTCBLQVNTIElOVC4uLmQCBA9kFgJmDxUEBDE3NDMiMjAxODEyNzIxNDcyOV9BRkRfdnNfUFNHX3RodW1iLmpwZwQxNzQzSUFHT05ZIE9GIFBFTkFMVFkgU0hPT1QtT1VUIEVORFMgQVNQSVJFIEZPT1RCQUxMIERSRUFNUycgUVVFU1QgRk9SIEhPTk9VUlNkAgUPZBYCZg8VBAQxNzQyKjIwMTgxMjYyMTI0NF9Bc3BpcmVfdnNfRXNwZXJhbmNlX3RodW1iLmpwZwQxNzQyR0FTUElSRSBBQ0FERU1ZIFNVQ0NVTUIgVE8gRVNQRVJBTkNFIElOIFFVQVJURVIgRklOQUwgT0YgQUwgS0FTUyBJTlQgQ1VQZAIHDxQrAAIPFgQfBGcfAAICZGQWAmYPZBYEAgEPZBYCZg8VBQkyNDc5NDM1MDMJMjQ3OTQzNTAzCTI0Nzk0MzUwMwkyNDc5NDM1MDMjQXNwaXJlIFN0dWRlbnQtQXRobGV0ZXMgZ28gdG8gQUxUSVNkAgIPZBYCZg8VBQkyNDc5NDAwODMJMjQ3OTQwMDgzCTI0Nzk0MDA4MwkyNDc5NDAwODMwSXRhbGlhbiBHaWFudHMgSnV2ZW50dXMgYW5kIEFDIE1pbGFuIFRyYWluIGF0Li4uZAIJDw9kDxAWAWYWARYCHg5QYXJhbWV0ZXJWYWx1ZWQWAQIDZGQCCw8UKwACDxYEHwRnHwACCGRkFgJmD2QWEAIBD2QWAmYPFQRGMjAxODEyNTgxNzI3XzI3MDI0MzEyXzE4NTE1NjI2MjQ4Njc2NjNfOTE2Mjc3NDY1ODI3MDAxMzMxN19vX3RodW1iLmpwZ40BQSBsYXN0IG1pbnV0ZSBoZWFkZXIgYWdhaW5zdCBCZW5maWNhIG9uIEphbnVhcnkgMjQgc2VjdXJlcyBBc3BpcmUgQWNhZGVteSBhIHNwb3QgaW4gdGhlIHF1YXJ0ZXItZmluYWxzIG9mIHRoZSAyMDE4IEFsIEthc3MgSW50ZXJuYXRpb25hbCBDdXAuRjIwMTgxMjU4MTcyN18yNzAyNDMxMl8xODUxNTYyNjI0ODY3NjYzXzkxNjI3NzQ2NTgyNzAwMTMzMTdfb190aHVtYi5qcGeNAUEgbGFzdCBtaW51dGUgaGVhZGVyIGFnYWluc3QgQmVuZmljYSBvbiBKYW51YXJ5IDI0IHNlY3VyZXMgQXNwaXJlIEFjYWRlbXkgYSBzcG90IGluIHRoZSBxdWFydGVyLWZpbmFscyBvZiB0aGUgMjAxOCBBbCBLYXNzIEludGVybmF0aW9uYWwgQ3VwLmQCAg9kFgJmDxUERjIwMTgxMjU4MTcxN18yNzE2NDA0N18xODUxNTYyNzA4MjAwOTg4XzE2NDM5NDg3MTAwNzUxNDE1ODJfb190aHVtYi5qcGeNAUEgbGFzdCBtaW51dGUgaGVhZGVyIGFnYWluc3QgQmVuZmljYSBvbiBKYW51YXJ5IDI0IHNlY3VyZXMgQXNwaXJlIEFjYWRlbXkgYSBzcG90IGluIHRoZSBxdWFydGVyLWZpbmFscyBvZiB0aGUgMjAxOCBBbCBLYXNzIEludGVybmF0aW9uYWwgQ3VwLkYyMDE4MTI1ODE3MTdfMjcxNjQwNDdfMTg1MTU2MjcwODIwMDk4OF8xNjQzOTQ4NzEwMDc1MTQxNTgyX29fdGh1bWIuanBnjQFBIGxhc3QgbWludXRlIGhlYWRlciBhZ2FpbnN0IEJlbmZpY2Egb24gSmFudWFyeSAyNCBzZWN1cmVzIEFzcGlyZSBBY2FkZW15IGEgc3BvdCBpbiB0aGUgcXVhcnRlci1maW5hbHMgb2YgdGhlIDIwMTggQWwgS2FzcyBJbnRlcm5hdGlvbmFsIEN1cC5kAgMPZBYCZg8VBEUyMDE4MTI1ODE3N18yNzAyMTc5Ml8xODUxNTYzNjM0ODY3NTYyXzY0MjA3NDA5MjIxNTUxMTk3MDFfb190aHVtYi5qcGeNAUEgbGFzdCBtaW51dGUgaGVhZGVyIGFnYWluc3QgQmVuZmljYSBvbiBKYW51YXJ5IDI0IHNlY3VyZXMgQXNwaXJlIEFjYWRlbXkgYSBzcG90IGluIHRoZSBxdWFydGVyLWZpbmFscyBvZiB0aGUgMjAxOCBBbCBLYXNzIEludGVybmF0aW9uYWwgQ3VwLkUyMDE4MTI1ODE3N18yNzAyMTc5Ml8xODUxNTYzNjM0ODY3NTYyXzY0MjA3NDA5MjIxNTUxMTk3MDFfb190aHVtYi5qcGeNAUEgbGFzdCBtaW51dGUgaGVhZGVyIGFnYWluc3QgQmVuZmljYSBvbiBKYW51YXJ5IDI0IHNlY3VyZXMgQXNwaXJlIEFjYWRlbXkgYSBzcG90IGluIHRoZSBxdWFydGVyLWZpbmFscyBvZiB0aGUgMjAxOCBBbCBLYXNzIEludGVybmF0aW9uYWwgQ3VwLmQCBA9kFgJmDxUERDIwMTgxMjU4MTY0OV8yNzAyMTU1M18xODUxNTYzMjY4MjAwOTMyXzY4NTkyNjg4Nzk2MTYzNDA4X29fdGh1bWIuanBnjQFBIGxhc3QgbWludXRlIGhlYWRlciBhZ2FpbnN0IEJlbmZpY2Egb24gSmFudWFyeSAyNCBzZWN1cmVzIEFzcGlyZSBBY2FkZW15IGEgc3BvdCBpbiB0aGUgcXVhcnRlci1maW5hbHMgb2YgdGhlIDIwMTggQWwgS2FzcyBJbnRlcm5hdGlvbmFsIEN1cC5EMjAxODEyNTgxNjQ5XzI3MDIxNTUzXzE4NTE1NjMyNjgyMDA5MzJfNjg1OTI2ODg3OTYxNjM0MDhfb190aHVtYi5qcGeNAUEgbGFzdCBtaW51dGUgaGVhZGVyIGFnYWluc3QgQmVuZmljYSBvbiBKYW51YXJ5IDI0IHNlY3VyZXMgQXNwaXJlIEFjYWRlbXkgYSBzcG90IGluIHRoZSBxdWFydGVyLWZpbmFscyBvZiB0aGUgMjAxOCBBbCBLYXNzIEludGVybmF0aW9uYWwgQ3VwLmQCBQ9kFgJmDxUERjIwMTgxMjU4MTYzOF8yNjkxMDQyMF8xODUxNTYyODQ4MjAwOTc0XzYxNTMyMzg2Mjc5NTQ1OTg4MDFfb190aHVtYi5qcGeNAUEgbGFzdCBtaW51dGUgaGVhZGVyIGFnYWluc3QgQmVuZmljYSBvbiBKYW51YXJ5IDI0IHNlY3VyZXMgQXNwaXJlIEFjYWRlbXkgYSBzcG90IGluIHRoZSBxdWFydGVyLWZpbmFscyBvZiB0aGUgMjAxOCBBbCBLYXNzIEludGVybmF0aW9uYWwgQ3VwLkYyMDE4MTI1ODE2MzhfMjY5MTA0MjBfMTg1MTU2Mjg0ODIwMDk3NF82MTUzMjM4NjI3OTU0NTk4ODAxX29fdGh1bWIuanBnjQFBIGxhc3QgbWludXRlIGhlYWRlciBhZ2FpbnN0IEJlbmZpY2Egb24gSmFudWFyeSAyNCBzZWN1cmVzIEFzcGlyZSBBY2FkZW15IGEgc3BvdCBpbiB0aGUgcXVhcnRlci1maW5hbHMgb2YgdGhlIDIwMTggQWwgS2FzcyBJbnRlcm5hdGlvbmFsIEN1cC5kAgYPZBYCZg8VBEYyMDE4MTI1ODE2MjlfMjY5OTM5MDhfMTg1MTU2MzA1ODIwMDk1M18xMjc2OTIzODE0MzM5ODc3NTg4X25fdGh1bWIuanBnjQFBIGxhc3QgbWludXRlIGhlYWRlciBhZ2FpbnN0IEJlbmZpY2Egb24gSmFudWFyeSAyNCBzZWN1cmVzIEFzcGlyZSBBY2FkZW15IGEgc3BvdCBpbiB0aGUgcXVhcnRlci1maW5hbHMgb2YgdGhlIDIwMTggQWwgS2FzcyBJbnRlcm5hdGlvbmFsIEN1cC5GMjAxODEyNTgxNjI5XzI2OTkzOTA4XzE4NTE1NjMwNTgyMDA5NTNfMTI3NjkyMzgxNDMzOTg3NzU4OF9uX3RodW1iLmpwZ40BQSBsYXN0IG1pbnV0ZSBoZWFkZXIgYWdhaW5zdCBCZW5maWNhIG9uIEphbnVhcnkgMjQgc2VjdXJlcyBBc3BpcmUgQWNhZGVteSBhIHNwb3QgaW4gdGhlIHF1YXJ0ZXItZmluYWxzIG9mIHRoZSAyMDE4IEFsIEthc3MgSW50ZXJuYXRpb25hbCBDdXAuZAIHD2QWAmYPFQRGMjAxODEyNTgxNjE2XzI3MDIxNzY4XzE4NTE1NjM4MzQ4Njc1NDJfMzg4ODU2NDc4MTI5MDU0Mjk0MF9vX3RodW1iLmpwZ40BQSBsYXN0IG1pbnV0ZSBoZWFkZXIgYWdhaW5zdCBCZW5maWNhIG9uIEphbnVhcnkgMjQgc2VjdXJlcyBBc3BpcmUgQWNhZGVteSBhIHNwb3QgaW4gdGhlIHF1YXJ0ZXItZmluYWxzIG9mIHRoZSAyMDE4IEFsIEthc3MgSW50ZXJuYXRpb25hbCBDdXAuRjIwMTgxMjU4MTYxNl8yNzAyMTc2OF8xODUxNTYzODM0ODY3NTQyXzM4ODg1NjQ3ODEyOTA1NDI5NDBfb190aHVtYi5qcGeNAUEgbGFzdCBtaW51dGUgaGVhZGVyIGFnYWluc3QgQmVuZmljYSBvbiBKYW51YXJ5IDI0IHNlY3VyZXMgQXNwaXJlIEFjYWRlbXkgYSBzcG90IGluIHRoZSBxdWFydGVyLWZpbmFscyBvZiB0aGUgMjAxOCBBbCBLYXNzIEludGVybmF0aW9uYWwgQ3VwLmQCCA9kFgJmDxUERzIwMTgxMjQxMDQ3MzhfMjcwMjEzNDhfMTM5NDQ4NzQyMDY2MTgxM183OTk1MDUyMTMxNTMzODczNTkwX29fdGh1bWIuanBnnAFJbiB0aGVpciBzZWNvbmQgdG91cm5hbWVudCBnYW1lIG9uIFR1ZXNkYXksIEphbnVhcnkgMjMsIEFzcGlyZSBGb290YmFsbCBEcmVhbXMgdG9vayBob21lIGEgMS0xIGFnYWluc3QgUmVhbCBNYWRyaWQgIGFuZCBnb2VzIHN0cmFpZ2h0IHRvIHRoZSBxdWFydGVyLWZpbmFscy5HMjAxODEyNDEwNDczOF8yNzAyMTM0OF8xMzk0NDg3NDIwNjYxODEzXzc5OTUwNTIxMzE1MzM4NzM1OTBfb190aHVtYi5qcGecAUluIHRoZWlyIHNlY29uZCB0b3VybmFtZW50IGdhbWUgb24gVHVlc2RheSwgSmFudWFyeSAyMywgQXNwaXJlIEZvb3RiYWxsIERyZWFtcyB0b29rIGhvbWUgYSAxLTEgYWdhaW5zdCBSZWFsIE1hZHJpZCAgYW5kIGdvZXMgc3RyYWlnaHQgdG8gdGhlIHF1YXJ0ZXItZmluYWxzLmQCEQ9kFgQCAQ8WAh4EVGV4dAUEMjAxOGQCBQ8WAh8AAg8WHmYPZBYCZg8VAwANL0RlZmF1bHQuYXNweARIb21lZAIBD2QWAmYPFQMADS9hYm91dHVzLmFzcHgIQWJvdXQgVXNkAgIPZBYCZg8VAwAZL0RldmVsb3BpbmdDaGFtcGlvbnMuYXNweBREZXZlbG9waW5nIENoYW1waW9uc2QCAw9kFgJmDxUDABAvRmFjaWxpdGllcy5hc3B4CkZhY2lsaXRpZXNkAgQPZBYCZg8VAwAUL0FzcGlyZUF0aGxldGVzLmFzcHgPQXNwaXJlIEF0aGxldGVzZAIFD2QWAmYPFQMEaGlkZRsvcmVkaXJlY3QuYXNweD9wYWdlPUNhcmVlcnMHQ2FyZWVyc2QCBg9kFgJmDxUDBGhpZGUYL3JlZGlyZWN0LmFzcHg/cGFnZT1uZXdzBU1lZGlhZAIHD2QWAmYPFQMAGi9FbGl0ZVRyYWluaW5nQ2FtcHMuYXNweCMhDlRyYWluaW5nIENhbXBzZAIID2QWAmYPFQMEaGlkZQ0vY29udGFjdC5hc3B4CkNvbnRhY3QgVXNkAgkPZBYCZg8VAwRoaWRlDy92aWV3UHJlc3MuYXNweBJWaWV3IFByZXNzIFJlbGVhc2VkAgoPZBYCZg8VAwRoaWRlCC9zci5hc3B4DVNlYXJjaCBSZXN1bHRkAgsPZBYCZg8VAwRoaWRlCy9MZWdhbC5hc3B4BUxlZ2FsZAIMD2QWAmYPFQMEaGlkZRMvUHJpdmFjeVBvbGljeS5hc3B4DlByaXZhY3kgUG9saWN5ZAIND2QWAmYPFQMEaGlkZRAvVGVybXNvZlVzZS5hc3B4DFRlcm1zIG9mIFVzZWQCDg9kFgJmDxUDBGhpZGUVL0FwcGx5Zm9ydmFjYW5jeS5hc3B4E0FwcGx5IGZvciBhIHZhY2FuY3lkGAMFFWN0bDAwJHNpZGUyJExpc3RWaWV3NA8UKwAOZGRkZGRkZDwrAAgAAghkZGRmAv////8PZAUVY3RsMDAkc2lkZTIkTGlzdFZpZXcyDxQrAA5kZGRkZGRkFCsAAmRkAgJkZGRmAv////8PZAUVY3RsMDAkc2lkZTIkTGlzdFZpZXcxDxQrAA5kZGRkZGRkPCsABQACBWRkZGYC/////w9kO7IDdiZaNGmtFDgzIWWNT2zFDsbH+4punNpVCEqDpxg=" />
+
+
+<script src="/Telerik.Web.UI.WebResource.axd?_TSM_HiddenField_=ctl00_RadScriptManager1_TSM&amp;compress=1&amp;_TSM_CombinedScripts_=%3b%3bAjaxControlToolkit%2c+Version%3d4.1.40412.0%2c+Culture%3dneutral%2c+PublicKeyToken%3d28f01b0e84b6d53e%3aen-US%3aacfc7575-cdee-46af-964f-5d85d9cdcf92%3aea597d4b" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+if (typeof(Sys) === 'undefined') throw new Error('ASP.NET Ajax client-side framework failed to load.');
+//]]>
+</script>
+
+<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="7650BFE2" />
+<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdABFlfBdStQfIS6q5ZveMmpS3Wqhs957lHUWH4CJqXibB/it8P0/IKmJXMAEmMi/5aDFslN8VJu+5MyHRJMfuSlLIFZGvIn+ocD4XQqtD+41yBzZA7MMQe6cpFyiCZzxtyBN7f3nmpVMA2Sk8tKICsYakPU9hUdwJftLsCe4oN8yLqolhm7G3L3D40OnqsGapP5xkp0CtRh5OL1rrFGvzuFqiw5HXVBdPcvLLGzZWuVgKIRoiz44sAphbDnzZpXkZgl2yvPl0u+mKpLmlB57F3cc+OOgaSidS35Vqv20j0H1rC1NFA5hWh8yw7de2gGBqQ76fCwufTqottss4IZGbmVxw/IBkkXFsMeHonqkgjMsE7k79nLiYfqONqIn2MVeqmcuY+2F/ezSymnfGpR5i1+rs" />
+        <!-- Google Tag Manager -->
+        <noscript>
+            <iframe src="//www.googletagmanager.com/ns.html?id=GTM-W7LPBL"
+                height="0" width="0" style="display: none; visibility: hidden"></iframe>
+        </noscript>
+        <script>(function (w, d, s, l, i) {
+    w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+        new Date().getTime(), event: 'gtm.js'
+    }); var f = d.getElementsByTagName(s)[0],
+    j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+    '//www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+})(window, document, 'script', 'dataLayer', 'GTM-W7LPBL');</script>
+        <!-- End Google Tag Manager -->
+        
+            
+         <!--[if lt IE 9]>
+	
+        
+            <div id="note">
+        
+             Your browser is out of date. It has known security flaws and may not display all features of this and other websites.
+             
+             </div>
+
+             <link href="js/sweetalert-master/lib/ie9.css" rel="stylesheet" />
+<![endif]-->
+    <!-- Document Wrapper
+    ============================================= -->
+    <div id="wrapper" class="clearfix" style=" margin-bottom:-30px">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- Top Bar
+        ============================================= -->
+        
+<div id="top-bar">
+            <div class="container clearfix">
+                <div class="col_half nobottommargin">
+                    <!-- Top Links
+                    ============================================= -->
+                    <div class="top-links">
+                        <ul>
+                            <li id="ctl00_topbar1_Careers"><a href="Careers.aspx">Careers</a></li>
+                            <li id="ctl00_topbar1_FAQ"><a href="faq.aspx">FAQs</a></li>
+                            <li id="ctl00_topbar1_ContctUs"><a href="contact.aspx">Contact Us</a></li>
+                            
+
+                              <li><a href="https://ilearn.aspire.qa/webapps/portal/execute/tabs/tabAction?tab_tab_group_id=_18_1"> students / Alumni / Parents</a></li>
+                            <li id="ctl00_topbar1_MediaRoom"><a href="redirect.aspx?page=news">News / Media</a></li>
+                        </ul>
+                    </div>
+                    <!-- .top-links end -->
+                </div>
+                <div class="col_half fright col_last nobottommargin">
+                    <!-- Top Social
+                    ============================================= -->
+                    <div id="top-social">
+                        <ul>
+                            <li><a href="https://www.facebook.com/pages/ASPIRE-Academy-for-Sports-Excellence/115986181758658" target="_blank" class="si-facebook"><span class="ts-icon"><i class="icon-facebook"></i>
+                            </span><span class="ts-text">Facebook</span></a></li>
+                            <li><a href="https://twitter.com/Aspire_Academy" target="_blank" class="si-twitter"><span class="ts-icon"><i class="icon-twitter"></i>
+                            </span><span class="ts-text">Twitter</span></a></li>
+                            <li><a href="https://www.youtube.com/user/AspireSportAcademy" target="_blank" class="si-youtube"><span class="ts-icon"><i class="icon-youtube"></i>
+                            </span><span class="ts-text">youtube</span></a></li>
+                            <li><a href="https://instagram.com/aspire_academy" target="_blank" class="si-instagram"><span class="ts-icon"><i class="icon-instagram2">
+                            </i></span><span class="ts-text">Instagram</span></a></li>
+                            <li><a href="tel:+97444136570" class="si-call"><span class="ts-icon"><i class="icon-call">
+                            </i></span><span class="ts-text">+974 4413 6570</span></a></li>
+                            <li><a href="mailto:info@aspire.qa" class="si-email3"><span class="ts-icon"><i class="icon-email3">
+                            </i></span><span class="ts-text">info@aspire.qa</span></a></li>
+
+                             <li><a href="contact.aspx" class="si-map"><span class="ts-icon"><i class="icon-map">
+                            </i></span><span class="ts-text">View our Map</span></a></li>
+                        </ul>
+                    </div>
+                    <!-- #top-social end -->
+                </div>
+            </div>
+        </div>
+<!-- #top-bar end --><!-- Header
+        ============================================= --><header id="header" class="">
+
+            <div id="header-wrap">
+
+                <div class="container clearfix">
+
+                    <div id="primary-menu-trigger"><i class="icon-reorder"></i>
+                        
+                    </div>
+
+                    <!-- Logo
+                    ============================================= -->
+                    <div id="logo">
+                        <a href="Default.aspx" class="standard-logo" data-dark-logo="images/logo-dark.png"><img src="images/logo.png" alt="Aspire Logo"></a>
+                        <a href="Default.aspx" class="retina-logo" data-dark-logo="images/logo-dark@2x.png"><img src="images/logo@2x.png" alt="Aspire Logo"></a>
+                    </div><!-- #logo end -->
+
+                    <!-- Primary Navigation
+                    ============================================= -->
+                    
+
+
+
+
+
+
+
+
+
+
+<nav id="primary-menu" class="sub-title">
+
+
+     <ul>
+   
+    
+            <input type="hidden" name="ctl00$topnav1$topnavRepeater$ctl00$li1HiddenField" id="ctl00_topnav1_topnavRepeater_ctl00_li1HiddenField" value="Home" />
+         
+                <li id="ctl00_topnav1_topnavRepeater_ctl00_li1" class="mega-menu ">
+                    <a href="/Default.aspx" id="ctl00_topnav1_topnavRepeater_ctl00_menuitemspa" class="spa">
+
+                        <div id="ctl00_topnav1_topnavRepeater_ctl00_menuitemspa2" class="spa2">Home</div>
+
+                        <span style="visibility: hidden">Lets Start</span>
+
+                    </a>
+                   
+                    
+                            
+                       
+
+                     
+                   
+                </li>
+         
+        
+            <input type="hidden" name="ctl00$topnav1$topnavRepeater$ctl01$li1HiddenField" id="ctl00_topnav1_topnavRepeater_ctl01_li1HiddenField" value="About Us" />
+         
+                <li id="ctl00_topnav1_topnavRepeater_ctl01_li1" class="  ">
+                    <a href="/aboutus.aspx" id="ctl00_topnav1_topnavRepeater_ctl01_menuitemspa" class="spa">
+
+                        <div id="ctl00_topnav1_topnavRepeater_ctl01_menuitemspa2" class="spa2">About Us</div>
+
+                        <span style="visibility: hidden">About the Academy</span>
+
+                    </a>
+                   
+                    
+                            
+                       
+
+                      <div class="mega-menu-content">
+                                   
+                                   
+                                    <ul>
+                                       
+                                    <li class="mega-menu-title"><a href="/aboutMissionVision.aspx"><div>Vision, Mission & Values</div></a>
+                                    
+                                    </li>
+                                        </ul>
+                                
+                                   
+                                   
+                                    <ul>
+                                       
+                                    <li class="mega-menu-title"><a href="/aboutWhoWeAre.aspx"><div>Who We Are</div></a>
+                                    
+                                    </li>
+                                        </ul>
+                                
+                                   
+                                   
+                                    <ul>
+                                       
+                                    <li class="mega-menu-title"><a href="/aboutTIDAdmissions.aspx"><div>TID & Admissions</div></a>
+                                    
+                                    </li>
+                                        </ul>
+                                
+                                   
+                                   
+                                    <ul>
+                                       
+                                    <li class="mega-menu-title"><a href="/aboutManagementTeam.aspx"><div>Management Team</div></a>
+                                    
+                                    </li>
+                                        </ul>
+                                
+                                   
+                                   
+                                    <ul>
+                                       
+                                    <li class="mega-menu-title"><a href="/aboutDirectorGeneralsMessage.aspx"><div>Director General's Message</div></a>
+                                    
+                                    </li>
+                                        </ul>
+                                
+                                   
+                                   
+                                    <ul>
+                                       
+                                    <li class="mega-menu-title"><a href="/aboutPublishedResearch.aspx"><div>Published Research</div></a>
+                                    
+                                    </li>
+                                        </ul>
+                                
+                                   
+                                   
+                                    <ul>
+                                       
+                                    <li class="mega-menu-title"><a href="/aboutAmbassadorsVisitors.aspx"><div>Global Ambassadors & Visitors</div></a>
+                                    
+                                    </li>
+                                        </ul>
+                                
+                                   
+                                   
+                                    <ul>
+                                       
+                                    <li class="mega-menu-title"><a href="/aboutOurPartners.aspx"><div>Our Partners</div></a>
+                                    
+                                    </li>
+                                        </ul>
+                                
+                                   
+                                   
+                                    <ul>
+                                       
+                                    <li class="mega-menu-title"><a href="/aboutQatar.aspx"><div>About Qatar</div></a>
+                                    
+                                    </li>
+                                        </ul>
+                                 </div>
+                   
+                </li>
+         
+        
+            <input type="hidden" name="ctl00$topnav1$topnavRepeater$ctl02$li1HiddenField" id="ctl00_topnav1_topnavRepeater_ctl02_li1HiddenField" value="Developing Champions" />
+         
+                <li id="ctl00_topnav1_topnavRepeater_ctl02_li1" class="mega-menu ">
+                    <a href="/DevelopingChampions.aspx" id="ctl00_topnav1_topnavRepeater_ctl02_menuitemspa" class="spa">
+
+                        <div id="ctl00_topnav1_topnavRepeater_ctl02_menuitemspa2" class="spa2">Developing Champions</div>
+
+                        <span style="visibility: hidden">Sports excellence</span>
+
+                    </a>
+                   
+                    
+                             <div class="mega-menu-content style-2 col-3 clearfix">
+                                   
+                                   
+                                    <ul>
+                                    <li class="mega-menu-title"><a href="/Football.aspx"><div>Football</div></a>
+                                        <ul>
+                                       
+                                            
+                                                    <li id="ctl00_topnav1_topnavRepeater_ctl02_Repeater1_ctl01_Repeater1_ctl00_subli"><a href="/FootballProgram.aspx"><div>Football Program</div></a></li>
+                                                    
+                                                
+                                                    <li id="ctl00_topnav1_topnavRepeater_ctl02_Repeater1_ctl01_Repeater1_ctl01_subli"><a href="/SquadsandNationalTeam.aspx"><div>Teams</div></a></li>
+                                                    
+                                                
+                                                    <li id="ctl00_topnav1_topnavRepeater_ctl02_Repeater1_ctl01_Repeater1_ctl02_subli"><a href="/FootballCompetitions.aspx"><div>Competitions</div></a></li>
+                                                    
+                                                
+                                                    <li id="ctl00_topnav1_topnavRepeater_ctl02_Repeater1_ctl01_Repeater1_ctl03_subli"><a href="/FootballTrainingEnv.aspx"><div>Training Environment</div></a></li>
+                                                    
+                                                
+                                                    <li id="ctl00_topnav1_topnavRepeater_ctl02_Repeater1_ctl01_Repeater1_ctl04_subli"><a href="/FootballInternationalExp.aspx"><div>International Experience</div></a></li>
+                                                    
+                                                
+                                                    <li id="ctl00_topnav1_topnavRepeater_ctl02_Repeater1_ctl01_Repeater1_ctl05_subli"><a href="/FootballAspireDreams.aspx"><div>Aspire Football Dreams</div></a></li>
+                                                    
+                                                
+                                                    <li id="ctl00_topnav1_topnavRepeater_ctl02_Repeater1_ctl01_Repeater1_ctl06_subli"><a href="/FootballKASEupen.aspx"><div>KAS Eupen</div></a></li>
+                                                    
+                                                
+                                        </ul>
+                                    </li>
+                                        </ul>
+                                
+                                   
+                                   
+                                    <ul>
+                                    <li class="mega-menu-title"><a href="/FootballPerformance.aspx"><div>Football Performance & Science</div></a>
+                                        <ul>
+                                       
+                                            
+                                                    <li id="ctl00_topnav1_topnavRepeater_ctl02_Repeater1_ctl02_Repeater1_ctl00_subli"><a href="/StrengthConditioning.aspx"><div>Strength & Conditioning </div></a></li>
+                                                    
+                                                
+                                                    <li id="ctl00_topnav1_topnavRepeater_ctl02_Repeater1_ctl02_Repeater1_ctl01_subli"><a href="/FootballPhysiology.aspx"><div>Physiology</div></a></li>
+                                                    
+                                                
+                                                    <li id="ctl00_topnav1_topnavRepeater_ctl02_Repeater1_ctl02_Repeater1_ctl02_subli"><a href="/PerformanceAnalyst.aspx"><div>Performance Analysis</div></a></li>
+                                                    
+                                                
+                                                    <li id="ctl00_topnav1_topnavRepeater_ctl02_Repeater1_ctl02_Repeater1_ctl03_subli"><a href="/FootballPerformanceStaff.aspx"><div>Football Performance Staff</div></a></li>
+                                                    
+                                                
+                                        </ul>
+                                    </li>
+                                        </ul>
+                                
+                                   
+                                   
+                                    <ul>
+                                    <li class="mega-menu-title"><a href="/Sports.aspx"><div>Sports</div></a>
+                                        <ul>
+                                       
+                                            
+                                                    <li id="ctl00_topnav1_topnavRepeater_ctl02_Repeater1_ctl03_Repeater1_ctl00_subli"><a href="/Athletics.aspx"><div>Athletics</div></a></li>
+                                                    
+                                                
+                                                    <li id="ctl00_topnav1_topnavRepeater_ctl02_Repeater1_ctl03_Repeater1_ctl01_subli"><a href="/TableTennis.aspx"><div>Table Tennis</div></a></li>
+                                                    
+                                                
+                                                    <li id="ctl00_topnav1_topnavRepeater_ctl02_Repeater1_ctl03_Repeater1_ctl02_subli"><a href="/Squash.aspx"><div>Squash</div></a></li>
+                                                    
+                                                
+                                                    <li id="ctl00_topnav1_topnavRepeater_ctl02_Repeater1_ctl03_Repeater1_ctl03_subli"><a href="/FederationSportsAquaticProgram.aspx"><div>Federation Sports</div></a></li>
+                                                    
+                                                
+                                                    <li id="ctl00_topnav1_topnavRepeater_ctl02_Repeater1_ctl03_Repeater1_ctl04_subli"><a href="/MultiSkillDevelopment.aspx"><div>Multi Skill Development</div></a></li>
+                                                    
+                                                
+                                                    <li id="ctl00_topnav1_topnavRepeater_ctl02_Repeater1_ctl03_Repeater1_ctl05_subli"><a href="/GraduateChampions.aspx"><div>Aspire Graduate Champions</div></a></li>
+                                                    
+                                                
+                                                    <li id="ctl00_topnav1_topnavRepeater_ctl02_Repeater1_ctl03_Repeater1_ctl06_subli"><a href="/GraduateChampions.aspx#"><div>none</div></a></li>
+                                                    
+                                                
+                                        </ul>
+                                    </li>
+                                        </ul>
+                                
+                                   
+                                   
+                                    <ul>
+                                    <li class="mega-menu-title"><a href="/SportScience.aspx"><div>Sport Science</div></a>
+                                        <ul>
+                                       
+                                            
+                                                    <li id="ctl00_topnav1_topnavRepeater_ctl02_Repeater1_ctl04_Repeater1_ctl00_subli"><a href="/BioMechanics.aspx"><div>Biomechanics</div></a></li>
+                                                    
+                                                
+                                                    <li id="ctl00_topnav1_topnavRepeater_ctl02_Repeater1_ctl04_Repeater1_ctl01_subli"><a href="/SportPsychology.aspx"><div>Sport Psychology</div></a></li>
+                                                    
+                                                
+                                                    <li id="ctl00_topnav1_topnavRepeater_ctl02_Repeater1_ctl04_Repeater1_ctl02_subli"><a href="/Physiology.aspx"><div>Sports Physiology</div></a></li>
+                                                    
+                                                
+                                                    <li id="ctl00_topnav1_topnavRepeater_ctl02_Repeater1_ctl04_Repeater1_ctl03_subli"><a href="/StrengthCondition.aspx"><div>Strength & Conditioning</div></a></li>
+                                                    
+                                                
+                                                    <li id="ctl00_topnav1_topnavRepeater_ctl02_Repeater1_ctl04_Repeater1_ctl04_subli"><a href="/HealthMedicineServices.aspx"><div>Health & Medicine Services</div></a></li>
+                                                    
+                                                
+                                                    <li id="ctl00_topnav1_topnavRepeater_ctl02_Repeater1_ctl04_Repeater1_ctl05_subli"><a href="/ResearshQuality.aspx"><div>Research & Quality Assurance </div></a></li>
+                                                    
+                                                
+                                                    <li id="ctl00_topnav1_topnavRepeater_ctl02_Repeater1_ctl04_Repeater1_ctl06_subli"><a href="/aboutTIDAdmissions.aspx#"><div>Talent Identification </div></a></li>
+                                                    
+                                                
+                                        </ul>
+                                    </li>
+                                        </ul>
+                                
+                                   
+                                   
+                                    <ul>
+                                    <li class="mega-menu-title"><a href="/Education.aspx"><div>Education</div></a>
+                                        <ul>
+                                       
+                                            
+                                                    <li id="ctl00_topnav1_topnavRepeater_ctl02_Repeater1_ctl05_Repeater1_ctl00_subli"><a href="/StudentCareServices.aspx"><div>Student Care & Services</div></a></li>
+                                                    
+                                                
+                                                    <li id="ctl00_topnav1_topnavRepeater_ctl02_Repeater1_ctl05_Repeater1_ctl01_subli"><a href="/TeachingLearning.aspx"><div>Teaching & Learning</div></a></li>
+                                                    
+                                                
+                                                    <li id="ctl00_topnav1_topnavRepeater_ctl02_Repeater1_ctl05_Repeater1_ctl02_subli"><a href="/AcademicSupport.aspx"><div>Academic Support</div></a></li>
+                                                    
+                                                
+                                                    <li id="ctl00_topnav1_topnavRepeater_ctl02_Repeater1_ctl05_Repeater1_ctl03_subli"><a href="/ELearning.aspx"><div>E-Learning</div></a></li>
+                                                    
+                                                
+                                                    <li id="ctl00_topnav1_topnavRepeater_ctl02_Repeater1_ctl05_Repeater1_ctl04_subli"><a href="/LeadershipDevelopmentProgram.aspx"><div>Leadership Development</div></a></li>
+                                                    
+                                                
+                                                    <li id="ctl00_topnav1_topnavRepeater_ctl02_Repeater1_ctl05_Repeater1_ctl05_subli"><a href="/CareerNetworking.aspx"><div>Career Networking</div></a></li>
+                                                    
+                                                
+                                                    <li id="ctl00_topnav1_topnavRepeater_ctl02_Repeater1_ctl05_Repeater1_ctl06_subli"><a href="/Alumni.aspx"><div>Alumni</div></a></li>
+                                                    
+                                                
+                                                    <li id="ctl00_topnav1_topnavRepeater_ctl02_Repeater1_ctl05_Repeater1_ctl07_subli"><a href="/Faculty.aspx"><div>Faculty</div></a></li>
+                                                    
+                                                
+                                        </ul>
+                                    </li>
+                                        </ul>
+                                 </div>
+                       
+
+                     
+                   
+                </li>
+         
+        
+            <input type="hidden" name="ctl00$topnav1$topnavRepeater$ctl03$li1HiddenField" id="ctl00_topnav1_topnavRepeater_ctl03_li1HiddenField" value="Facilities" />
+         
+                <li id="ctl00_topnav1_topnavRepeater_ctl03_li1" class="  ">
+                    <a href="/Facilities.aspx" id="ctl00_topnav1_topnavRepeater_ctl03_menuitemspa" class="spa">
+
+                        <div id="ctl00_topnav1_topnavRepeater_ctl03_menuitemspa2" class="spa2">Facilities</div>
+
+                        <span style="visibility: hidden">World Class Facilities</span>
+
+                    </a>
+                   
+                    
+                            
+                       
+
+                      <div class="mega-menu-content"> </div>
+                   
+                </li>
+         
+        
+            <input type="hidden" name="ctl00$topnav1$topnavRepeater$ctl04$li1HiddenField" id="ctl00_topnav1_topnavRepeater_ctl04_li1HiddenField" value="Aspire Athletes" />
+         
+                <li id="ctl00_topnav1_topnavRepeater_ctl04_li1" class="mega-menu ">
+                    <a href="/AspireAthletes.aspx" id="ctl00_topnav1_topnavRepeater_ctl04_menuitemspa" class="spa">
+
+                        <div id="ctl00_topnav1_topnavRepeater_ctl04_menuitemspa2" class="spa2">Aspire Athletes</div>
+
+                        <span style="visibility: hidden"></span>
+
+                    </a>
+                   
+                    
+                            
+                       
+
+                     
+                   
+                </li>
+         
+        
+            <input type="hidden" name="ctl00$topnav1$topnavRepeater$ctl05$li1HiddenField" id="ctl00_topnav1_topnavRepeater_ctl05_li1HiddenField" value="Careers" />
+         
+                <li id="ctl00_topnav1_topnavRepeater_ctl05_li1" class="mega-menu hide">
+                    <a href="/redirect.aspx?page=Careers" id="ctl00_topnav1_topnavRepeater_ctl05_menuitemspa" class="spa">
+
+                        <div id="ctl00_topnav1_topnavRepeater_ctl05_menuitemspa2" class="spa2">Careers</div>
+
+                        <span style="visibility: hidden"></span>
+
+                    </a>
+                   
+                    
+                            
+                       
+
+                     
+                   
+                </li>
+         
+        
+            <input type="hidden" name="ctl00$topnav1$topnavRepeater$ctl06$li1HiddenField" id="ctl00_topnav1_topnavRepeater_ctl06_li1HiddenField" value="Media" />
+         
+                <li id="ctl00_topnav1_topnavRepeater_ctl06_li1" class="mega-menu hide">
+                    <a href="/redirect.aspx?page=news" id="ctl00_topnav1_topnavRepeater_ctl06_menuitemspa" class="spa">
+
+                        <div id="ctl00_topnav1_topnavRepeater_ctl06_menuitemspa2" class="spa2">Media</div>
+
+                        <span style="visibility: hidden">Media</span>
+
+                    </a>
+                   
+                    
+                            
+                       
+
+                     
+                   
+                </li>
+         
+        
+            <input type="hidden" name="ctl00$topnav1$topnavRepeater$ctl07$li1HiddenField" id="ctl00_topnav1_topnavRepeater_ctl07_li1HiddenField" value="Training Camps" />
+         
+                <li id="ctl00_topnav1_topnavRepeater_ctl07_li1" class="mega-menu ">
+                    <a href="/EliteTrainingCamps.aspx#!" id="ctl00_topnav1_topnavRepeater_ctl07_menuitemspa" class="spa">
+
+                        <div id="ctl00_topnav1_topnavRepeater_ctl07_menuitemspa2" class="spa2">Training Camps</div>
+
+                        <span style="visibility: hidden">World Class Facilities</span>
+
+                    </a>
+                   
+                    
+                            
+                       
+
+                     
+                   
+                </li>
+         
+        
+            <input type="hidden" name="ctl00$topnav1$topnavRepeater$ctl08$li1HiddenField" id="ctl00_topnav1_topnavRepeater_ctl08_li1HiddenField" value="Contact Us" />
+         
+                <li id="ctl00_topnav1_topnavRepeater_ctl08_li1" class="mega-menu hide">
+                    <a href="/contact.aspx" id="ctl00_topnav1_topnavRepeater_ctl08_menuitemspa" class="spa">
+
+                        <div id="ctl00_topnav1_topnavRepeater_ctl08_menuitemspa2" class="spa2">Contact Us</div>
+
+                        <span style="visibility: hidden">hiddinlevel</span>
+
+                    </a>
+                   
+                    
+                            
+                       
+
+                      <div class="mega-menu-content"> </div>
+                   
+                </li>
+         
+        
+            <input type="hidden" name="ctl00$topnav1$topnavRepeater$ctl09$li1HiddenField" id="ctl00_topnav1_topnavRepeater_ctl09_li1HiddenField" value="View Press Release" />
+         
+                <li id="ctl00_topnav1_topnavRepeater_ctl09_li1" class="mega-menu hide">
+                    <a href="/viewPress.aspx" id="ctl00_topnav1_topnavRepeater_ctl09_menuitemspa" class="spa">
+
+                        <div id="ctl00_topnav1_topnavRepeater_ctl09_menuitemspa2" class="spa2">View Press Release</div>
+
+                        <span style="visibility: hidden"></span>
+
+                    </a>
+                   
+                    
+                            
+                       
+
+                     
+                   
+                </li>
+         
+        
+            <input type="hidden" name="ctl00$topnav1$topnavRepeater$ctl10$li1HiddenField" id="ctl00_topnav1_topnavRepeater_ctl10_li1HiddenField" value="Search Result" />
+         
+                <li id="ctl00_topnav1_topnavRepeater_ctl10_li1" class="mega-menu hide">
+                    <a href="/sr.aspx" id="ctl00_topnav1_topnavRepeater_ctl10_menuitemspa" class="spa">
+
+                        <div id="ctl00_topnav1_topnavRepeater_ctl10_menuitemspa2" class="spa2">Search Result</div>
+
+                        <span style="visibility: hidden">hiddinlevel</span>
+
+                    </a>
+                   
+                    
+                            
+                       
+
+                     
+                   
+                </li>
+         
+        
+            <input type="hidden" name="ctl00$topnav1$topnavRepeater$ctl11$li1HiddenField" id="ctl00_topnav1_topnavRepeater_ctl11_li1HiddenField" value="Legal" />
+         
+                <li id="ctl00_topnav1_topnavRepeater_ctl11_li1" class="mega-menu hide">
+                    <a href="/Legal.aspx" id="ctl00_topnav1_topnavRepeater_ctl11_menuitemspa" class="spa">
+
+                        <div id="ctl00_topnav1_topnavRepeater_ctl11_menuitemspa2" class="spa2">Legal</div>
+
+                        <span style="visibility: hidden">hiddinlevel</span>
+
+                    </a>
+                   
+                    
+                            
+                       
+
+                     
+                   
+                </li>
+         
+        
+            <input type="hidden" name="ctl00$topnav1$topnavRepeater$ctl12$li1HiddenField" id="ctl00_topnav1_topnavRepeater_ctl12_li1HiddenField" value="Privacy Policy" />
+         
+                <li id="ctl00_topnav1_topnavRepeater_ctl12_li1" class="current mega-menu hide">
+                    <a href="/PrivacyPolicy.aspx" id="ctl00_topnav1_topnavRepeater_ctl12_menuitemspa" class="spa">
+
+                        <div id="ctl00_topnav1_topnavRepeater_ctl12_menuitemspa2" class="spa2">Privacy Policy</div>
+
+                        <span style="visibility: hidden">hiddinlevel</span>
+
+                    </a>
+                   
+                    
+                            
+                       
+
+                     
+                   
+                </li>
+         
+        
+            <input type="hidden" name="ctl00$topnav1$topnavRepeater$ctl13$li1HiddenField" id="ctl00_topnav1_topnavRepeater_ctl13_li1HiddenField" value="Terms of Use" />
+         
+                <li id="ctl00_topnav1_topnavRepeater_ctl13_li1" class="mega-menu hide">
+                    <a href="/TermsofUse.aspx" id="ctl00_topnav1_topnavRepeater_ctl13_menuitemspa" class="spa">
+
+                        <div id="ctl00_topnav1_topnavRepeater_ctl13_menuitemspa2" class="spa2">Terms of Use</div>
+
+                        <span style="visibility: hidden">hiddinlevel</span>
+
+                    </a>
+                   
+                    
+                            
+                       
+
+                     
+                   
+                </li>
+         
+        
+            <input type="hidden" name="ctl00$topnav1$topnavRepeater$ctl14$li1HiddenField" id="ctl00_topnav1_topnavRepeater_ctl14_li1HiddenField" value="Apply for a vacancy" />
+         
+                <li id="ctl00_topnav1_topnavRepeater_ctl14_li1" class="mega-menu hide">
+                    <a href="/Applyforvacancy.aspx" id="ctl00_topnav1_topnavRepeater_ctl14_menuitemspa" class="spa">
+
+                        <div id="ctl00_topnav1_topnavRepeater_ctl14_menuitemspa2" class="spa2">Apply for a vacancy</div>
+
+                        <span style="visibility: hidden"></span>
+
+                    </a>
+                   
+                    
+                            
+                       
+
+                     
+                   
+                </li>
+         
+        
+  
+
+
+           </ul>
+        
+        
+        
+        
+    
+    <!-- Top Search
+                        ============================================= -->
+    <div id="top-search">
+        <a href="#" id="top-search-trigger"><i class="icon-search3"></i><i class="icon-line-cross"></i></a>
+        <div class="sform">
+       
+            <input name="ctl00$topnav1$TextBox1" type="text" id="ctl00_topnav1_TextBox1" class="form-control" placeholder="Type &amp; Hit Enter.." />
+
+        </div>
+    </div>
+    <!-- #top-search end -->
+
+</nav>
+
+
+
+
+
+
+
+
+                    <!-- #primary-menu end -->
+
+                </div>
+
+            </div>
+
+        </header>
+
+          
+
+
+<div id="page-menu">
+
+            <div id="page-menu-wrap">
+
+                <div class="container clearfix">
+
+                 
+
+                    <nav>
+                         <ul>
+                         
+                                  
+                                  
+                                 
+                                </ul>
+                    </nav>
+
+                <div id="page-submenu-trigger"><i class="icon-reorder"></i></div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        
+    
+       
+          <!-- #page-menu end -->
+
+   
+     
+<section id="page-title" class="page-title-mini ">
+     <div class="container clearfix">
+
+    <span id="ctl00_Page_title1_SiteMapPath1"><a href="#ctl00_Page_title1_SiteMapPath1_SkipLink"><img alt="Skip Navigation Links" src="/WebResource.axd?d=b9yh2D1Ftgk1jpuWDCWXxTRJuQFCcz0tLnGupw5fcbXlM0O33DCDvzF_sWsT6i2wBg-YLToYZQEM0d2LMngeG0U0d20MpRHTVnVHM5hcdps1&amp;t=635932269132899956" width="0" height="0" border="0" /></a><span><a href="/Default.aspx#">Home</a></span><span> &gt; </span><span><a title="hiddinlevel" href="/PrivacyPolicy.aspx">Privacy Policy</a></span><a id="ctl00_Page_title1_SiteMapPath1_SkipLink"></a></span>
+                
+               
+               
+               
+                <ol class="breadcrumb " style="float:left">
+
+            
+
+                    
+                    <li><a href="/Default.aspx#">Home</a></li>
+                    <li class="active">
+                       Privacy Policy</li>
+                </ol>
+            </div>
+
+        </section>
+
+
+
+
+ 
+        
+        
+        
+        <!-- #page-title end -->
+
+        
+        
+      
+
+
+        <!-- #header end -->
+         <section id="content" style=" background-position: center top; 
+ background-color: #E1E6EA; " >
+
+            <div class="content-wrap" style="border:0px solid red solid; padding-top:20px;" >
+            
+                <div class="container clearfix " style="  padding-bottom:30px;padding-top:30px; margin-top:-20px; background-color:RGBA(0,0,0,0.0)" >
+                    <div class="row">
+
+                       <div class=" col-lg-9 col-md-9 col-sm-12  bottommargin " style="padding-right:7px; ">
+
+                           <div class="bgc bottommargin-sm minh">
+                      
+
+
+                         
+
+    <h2> Privacy and Policy </h2>
+
+        You do not want your personal information to fall into the wrong hands. Neither does ASPIRE.<br /><br />
+
+
+    <h4> ASPIRE Academy for Sports Excellence Privacy Statement  </h4>
+
+        ASPIRE Academy for Sports Excellence, produces ASPIRE.qa, the Official Website of ASPIRE. We are committed to safeguarding your privacy online. This Privacy Policy is applicable to this Website only. <br /><br />
+
+
+     <h4> General  </h4>
+
+        You can visit and enjoy the Website without disclosing any personal information about yourself. If you submit any personal information to us, or to our third party service providers acting on our behalf, you can be assured that we will not sell, lease, or share your personal information with or to anyone else. <br /><br />
+
+
+
+
+
+     <h4>Children’s Data Protection </h4>
+
+         The publishing of identifying photos for a child under the age of eighteen is restricted. We do not publish children’s details on the website unless it is an uncaptioned action photo or part of a single press release story in which case we will publish the child’s name and photo. We will not publish photos or information that in anyway display details of a child’s age, academy, religious community or personal information. <br /><br />
+        We cannot collect any personal information from a child under the age of eighteen without the consent of that child's parent. The statements in the privacy statement are about our collection and use of personal information also applies to our treatment of personal information from children under the age of eighteen.<br /><br />
+
+     <h4> Non-Personal Identifiable Information Collected Automatically </h4>
+
+        When you visit ASPIRE’s website, we may collect and store information about your visit on an anonymous, aggregate basis. This information may include the time and length of your visit, the pages you look at on our site, and the site you visited just before coming to ours. We may also record the name of your internet service provider. We use this information only to measure site activity and to develop ideas for improving our site.<br /><br />
+
+                           </div>
+                           </div>
+   
+                       
+<div class="col-lg-3 col-md-3 col-sm-12 bottommargin-sm   clearfix" style="padding-left:7px;">
+    
+          
+
+      
+  
+
+
+
+    <div class="clearfix bgc bottommargin-sm">
+
+          <h4 class="uppercase notopmargin">Latest News</h4>
+        <div id="oc-portfolio-sidebar" class="owl-carousel portfolio-5">
+
+
+            
+                
+
+
+               
+                        <div class="oc-item">
+                <div class="iportfolio">
+                    <div class="portfolio-image">
+                        <a target="_blank" href="news.aspx?id=1746">
+                            <img src="images/d/news/2018130133821_Bassem_2_thumb.PNG" alt="" class="image_fade">
+                        </a>
+
+
+                    </div>
+                    <div class=" center nobottompadding color" style=" margin-top:10px;">
+                        <h5><a target="_blank" href="news.aspx?id=1746"> ASPIRE STUDENT ATHLETE HEMEIDA HURDLES TO WORLD YOUTH LEADING TIME</a></h5>
+
+                    </div>
+                </div>
+            </div>              
+                                   
+
+            
+
+
+               
+                        <div class="oc-item">
+                <div class="iportfolio">
+                    <div class="portfolio-image">
+                        <a target="_blank" href="news.aspx?id=1747">
+                            <img src="images/d/news/2018130204926_ASPIRE_vs_AC_Milan_thumb.PNG" alt="" class="image_fade">
+                        </a>
+
+
+                    </div>
+                    <div class=" center nobottompadding color" style=" margin-top:10px;">
+                        <h5><a target="_blank" href="news.aspx?id=1747"> ASPIRE ACADEMY DRAW VITAL LESSONS FROM 2018 AL KASS CUP</a></h5>
+
+                    </div>
+                </div>
+            </div>              
+                                   
+
+            
+
+
+               
+                        <div class="oc-item">
+                <div class="iportfolio">
+                    <div class="portfolio-image">
+                        <a target="_blank" href="news.aspx?id=1744">
+                            <img src="images/d/news/2018128193612_AFD_vs_AC_thumb.jpg" alt="" class="image_fade">
+                        </a>
+
+
+                    </div>
+                    <div class=" center nobottompadding color" style=" margin-top:10px;">
+                        <h5><a target="_blank" href="news.aspx?id=1744"> ASPIRE FOOTBALL DREAMS IN NARROW WIN OVER ASPIRE ACADEMY AT AL KASS INT...</a></h5>
+
+                    </div>
+                </div>
+            </div>              
+                                   
+
+            
+
+
+               
+                        <div class="oc-item">
+                <div class="iportfolio">
+                    <div class="portfolio-image">
+                        <a target="_blank" href="news.aspx?id=1743">
+                            <img src="images/d/news/2018127214729_AFD_vs_PSG_thumb.jpg" alt="" class="image_fade">
+                        </a>
+
+
+                    </div>
+                    <div class=" center nobottompadding color" style=" margin-top:10px;">
+                        <h5><a target="_blank" href="news.aspx?id=1743"> AGONY OF PENALTY SHOOT-OUT ENDS ASPIRE FOOTBALL DREAMS' QUEST FOR HONOURS</a></h5>
+
+                    </div>
+                </div>
+            </div>              
+                                   
+
+            
+
+
+               
+                        <div class="oc-item">
+                <div class="iportfolio">
+                    <div class="portfolio-image">
+                        <a target="_blank" href="news.aspx?id=1742">
+                            <img src="images/d/news/201812621244_Aspire_vs_Esperance_thumb.jpg" alt="" class="image_fade">
+                        </a>
+
+
+                    </div>
+                    <div class=" center nobottompadding color" style=" margin-top:10px;">
+                        <h5><a target="_blank" href="news.aspx?id=1742"> ASPIRE ACADEMY SUCCUMB TO ESPERANCE IN QUARTER FINAL OF AL KASS INT CUP</a></h5>
+
+                    </div>
+                </div>
+            </div>              
+                                   
+
+            
+            
+
+
+        </div>
+
+        <script type="text/javascript">
+
+            jQuery(document).ready(function ($) {
+
+                var ocClients = $("#oc-portfolio-sidebar");
+
+                ocClients.owlCarousel({
+                    items: 1,
+                    margin: 5,
+                    loop: true,
+                    nav: false,
+                    autoplay: true,
+                    dots: true,
+                    autoplayHoverPause: true
+                });
+
+            });
+
+        </script>
+          
+                                   <a class="button button-mini  nobottommargin button-3d center" style=" width:95% ;margin-top:25px; " href="news.aspx">View All News</a>            
+                                 
+    </div>
+
+
+      <div class="clearfix bgc bottommargin-sm">
+
+        <h4 class="uppercase notopmargin">Latest Videos</h4>
+            <div class="masonry-thumbs col-2 clearfix">      
+
+          <div class="row " >
+            
+          
+                
+               
+                
+                     
+        
+
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clearfix bottommargin-sm clearfix ">
+
+
+
+
+
+                    
+
+                    <a href="#247943503" class="open-popup-link" style="width: 100%">
+                       
+                      <img  alt=""  src="images/vthumbs/247943503.jpg" >
+                      
+                        <div class="overlay">
+                            <div class="overlay-wrap"><i class="icon-line-play"></i></div>
+                        </div>
+                    </a>
+
+
+
+
+
+
+
+                 <div class="white-popup mfp-hide " id='247943503'>
+                       
+              
+                      <iframe src="//player.vimeo.com/video/247943503" width="900" height="508" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+
+                 </div>
+
+
+
+
+
+
+                    <div class="clear"></div>
+
+
+
+
+              <h6 style=" margin-top:10px;">    Aspire Student-Athletes go to ALTIS</h6>
+                
+
+
+  
+
+        </div>
+                
+                   
+            
+               
+                
+                     
+        
+
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 clearfix bottommargin-sm clearfix ">
+
+
+
+
+
+                    
+
+                    <a href="#247940083" class="open-popup-link" style="width: 100%">
+                       
+                      <img  alt=""  src="images/vthumbs/247940083.jpg" >
+                      
+                        <div class="overlay">
+                            <div class="overlay-wrap"><i class="icon-line-play"></i></div>
+                        </div>
+                    </a>
+
+
+
+
+
+
+
+                 <div class="white-popup mfp-hide " id='247940083'>
+                       
+              
+                      <iframe src="//player.vimeo.com/video/247940083" width="900" height="508" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+
+                 </div>
+
+
+
+
+
+
+                    <div class="clear"></div>
+
+
+
+
+              <h6 style=" margin-top:10px;">    Italian Giants Juventus and AC Milan Train at...</h6>
+                
+
+
+  
+
+        </div>
+                
+                   
+            
+            
+
+              </div></div>
+
+          <a class="button button-mini  nobottommargin button-3d center" style=" width:95% ; " href="VideoGallery.aspx">View All Videos</a>   
+    </div>
+
+
+     <div class="clearfix bgc bottommargin-sm">
+
+        <h4 class="uppercase notopmargin">Latest Photos</h4>
+
+
+         
+                
+
+         
+
+                <div class="masonry-thumbs col-2" data-lightbox="gallery">
+
+                    
+                            
+                            <a href="images/d/photogallery/201812581727_27024312_1851562624867663_9162774658270013317_o_thumb.jpg" data-lightbox="gallery-item" title="A last minute header against Benfica on January 24 secures Aspire Academy a spot in the quarter-finals of the 2018 Al Kass International Cup.">
+                                <img class="image_fade" src="images/d/photogallery/201812581727_27024312_1851562624867663_9162774658270013317_o_thumb.jpg" alt="A last minute header against Benfica on January 24 secures Aspire Academy a spot in the quarter-finals of the 2018 Al Kass International Cup." style="border:1px solid #FFF"></a>
+
+
+
+                        
+                            <a href="images/d/photogallery/201812581717_27164047_1851562708200988_1643948710075141582_o_thumb.jpg" data-lightbox="gallery-item" title="A last minute header against Benfica on January 24 secures Aspire Academy a spot in the quarter-finals of the 2018 Al Kass International Cup.">
+                                <img class="image_fade" src="images/d/photogallery/201812581717_27164047_1851562708200988_1643948710075141582_o_thumb.jpg" alt="A last minute header against Benfica on January 24 secures Aspire Academy a spot in the quarter-finals of the 2018 Al Kass International Cup." style="border:1px solid #FFF"></a>
+
+
+
+                        
+                            <a href="images/d/photogallery/20181258177_27021792_1851563634867562_6420740922155119701_o_thumb.jpg" data-lightbox="gallery-item" title="A last minute header against Benfica on January 24 secures Aspire Academy a spot in the quarter-finals of the 2018 Al Kass International Cup.">
+                                <img class="image_fade" src="images/d/photogallery/20181258177_27021792_1851563634867562_6420740922155119701_o_thumb.jpg" alt="A last minute header against Benfica on January 24 secures Aspire Academy a spot in the quarter-finals of the 2018 Al Kass International Cup." style="border:1px solid #FFF"></a>
+
+
+
+                        
+                            <a href="images/d/photogallery/201812581649_27021553_1851563268200932_68592688796163408_o_thumb.jpg" data-lightbox="gallery-item" title="A last minute header against Benfica on January 24 secures Aspire Academy a spot in the quarter-finals of the 2018 Al Kass International Cup.">
+                                <img class="image_fade" src="images/d/photogallery/201812581649_27021553_1851563268200932_68592688796163408_o_thumb.jpg" alt="A last minute header against Benfica on January 24 secures Aspire Academy a spot in the quarter-finals of the 2018 Al Kass International Cup." style="border:1px solid #FFF"></a>
+
+
+
+                        
+                            <a href="images/d/photogallery/201812581638_26910420_1851562848200974_6153238627954598801_o_thumb.jpg" data-lightbox="gallery-item" title="A last minute header against Benfica on January 24 secures Aspire Academy a spot in the quarter-finals of the 2018 Al Kass International Cup.">
+                                <img class="image_fade" src="images/d/photogallery/201812581638_26910420_1851562848200974_6153238627954598801_o_thumb.jpg" alt="A last minute header against Benfica on January 24 secures Aspire Academy a spot in the quarter-finals of the 2018 Al Kass International Cup." style="border:1px solid #FFF"></a>
+
+
+
+                        
+                            <a href="images/d/photogallery/201812581629_26993908_1851563058200953_1276923814339877588_n_thumb.jpg" data-lightbox="gallery-item" title="A last minute header against Benfica on January 24 secures Aspire Academy a spot in the quarter-finals of the 2018 Al Kass International Cup.">
+                                <img class="image_fade" src="images/d/photogallery/201812581629_26993908_1851563058200953_1276923814339877588_n_thumb.jpg" alt="A last minute header against Benfica on January 24 secures Aspire Academy a spot in the quarter-finals of the 2018 Al Kass International Cup." style="border:1px solid #FFF"></a>
+
+
+
+                        
+                            <a href="images/d/photogallery/201812581616_27021768_1851563834867542_3888564781290542940_o_thumb.jpg" data-lightbox="gallery-item" title="A last minute header against Benfica on January 24 secures Aspire Academy a spot in the quarter-finals of the 2018 Al Kass International Cup.">
+                                <img class="image_fade" src="images/d/photogallery/201812581616_27021768_1851563834867542_3888564781290542940_o_thumb.jpg" alt="A last minute header against Benfica on January 24 secures Aspire Academy a spot in the quarter-finals of the 2018 Al Kass International Cup." style="border:1px solid #FFF"></a>
+
+
+
+                        
+                            <a href="images/d/photogallery/2018124104738_27021348_1394487420661813_7995052131533873590_o_thumb.jpg" data-lightbox="gallery-item" title="In their second tournament game on Tuesday, January 23, Aspire Football Dreams took home a 1-1 against Real Madrid  and goes straight to the quarter-finals.">
+                                <img class="image_fade" src="images/d/photogallery/2018124104738_27021348_1394487420661813_7995052131533873590_o_thumb.jpg" alt="In their second tournament game on Tuesday, January 23, Aspire Football Dreams took home a 1-1 against Real Madrid  and goes straight to the quarter-finals." style="border:1px solid #FFF"></a>
+
+
+
+                        
+                        
+
+
+
+                </div>
+
+
+           <a class="button button-mini  nobottommargin button-3d center" style=" width:95% ; margin-top:25px; " href="PhotoGallery.aspx">View All Photos</a> 
+
+    </div>
+</div>
+</div>
+                   
+
+                </div>
+
+            </div>
+
+        </section>
+        <!-- #content end -->
+        <!-- Footer
+        ==================== ========================= -->
+          
+<footer id="footer " class="dark" style=" background-position: center top; background-color: #004185; background-image: url('images/bg3.png'); background-repeat: repeat-x;">
+
+            <!-- Copyrights
+            ============================================= -->
+            <div id="copyrights">
+
+                <div class="container clearfix">
+
+                    <div class="col_half">
+                       
+                        Copyrights &copy;  2018 All Rights Reserved by Aspire Academy.
+
+                        <span class="small copyright-links" style=" display:block; margin-top:15px; "><a  href="Legal.aspx" class=" ">Legal</a> | 
+                             <a href="PrivacyPolicy.aspx">Privacyand Policy</a> |  <a href="TermsofUse.aspx">Terms of Use</a></span>
+                    </div>
+
+                    <div class="col_half col_last tright">
+                       
+                        
+                       
+        
+        
+        
+        
+        
+                        
+                         <div class="copyrights-menu copyright-links fright clearfix">
+                            
+           
+          <a class='' href="/Default.aspx">Home</a>
+
+        
+           
+          <a class='' href="/aboutus.aspx">About Us</a>
+
+        
+           
+          <a class='' href="/DevelopingChampions.aspx">Developing Champions</a>
+
+        
+           
+          <a class='' href="/Facilities.aspx">Facilities</a>
+
+        
+           
+          <a class='' href="/AspireAthletes.aspx">Aspire Athletes</a>
+
+        
+           
+          <a class='hide' href="/redirect.aspx?page=Careers">Careers</a>
+
+        
+           
+          <a class='hide' href="/redirect.aspx?page=news">Media</a>
+
+        
+           
+          <a class='' href="/EliteTrainingCamps.aspx#!">Training Camps</a>
+
+        
+           
+          <a class='hide' href="/contact.aspx">Contact Us</a>
+
+        
+           
+          <a class='hide' href="/viewPress.aspx">View Press Release</a>
+
+        
+           
+          <a class='hide' href="/sr.aspx">Search Result</a>
+
+        
+           
+          <a class='hide' href="/Legal.aspx">Legal</a>
+
+        
+           
+          <a class='hide' href="/PrivacyPolicy.aspx">Privacy Policy</a>
+
+        
+           
+          <a class='hide' href="/TermsofUse.aspx">Terms of Use</a>
+
+        
+           
+          <a class='hide' href="/Applyforvacancy.aspx">Apply for a vacancy</a>
+
+        
+    
+                        </div>
+
+
+
+
+
+
+                        <div class="fright clearfix">
+                           <a href="https://www.facebook.com/pages/ASPIRE-Academy-for-Sports-Excellence/115986181758658" target="_blank" class="social-icon si-small si-borderless nobottommargin si-facebook">
+                                <i class="icon-facebook"></i>
+                                <i class="icon-facebook"></i>
+                            </a>
+
+                          <a href="https://twitter.com/Aspire_Academy" target="_blank" class="social-icon si-small si-borderless nobottommargin si-twitter">
+                                <i class="icon-twitter"></i>
+                                <i class="icon-twitter"></i>
+                            </a>
+
+                          
+                            <a href="https://www.youtube.com/user/AspireSportAcademy" target="_blank" class="social-icon si-small si-borderless nobottommargin si-youtube">
+                                <i class="icon-youtube"></i>
+                                <i class="icon-youtube"></i>
+                            </a>
+
+                            <a href="https://instagram.com/aspire_academy" target="_blank"  class="social-icon si-small si-borderless nobottommargin si-instagram">
+                                <i class="icon-instagram"></i>
+                                <i class="icon-instagram"></i>
+                            </a>
+                           
+
+                          
+
+                           
+                        </div>
+                    </div>
+
+                </div>
+
+            </div><!-- #copyrights end -->
+
+        </footer>
+
+
+
+
+        <!-- #footer end -->
+    
+    </div>
+    <!-- #wrapper end -->
+    <!-- Go To Top
+    ============================================= -->
+    <div id="gotoTop" class="icon-angle-up">
+    </div>
+    <!-- Footer Scripts
+    ============================================= -->
+    <script type="text/javascript" src="js/functions.js"></script>
+    </form>
+</body>
+</html>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               

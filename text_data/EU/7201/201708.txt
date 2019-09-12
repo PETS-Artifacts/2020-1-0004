@@ -1,0 +1,240 @@
+
+
+
+
+	
+    Banned
+
+
+
+
+
+
+
+
+
+
+
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+  m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-63783416-9', 'auto');
+        ga('send', 'pageview');
+    
+
+
+
+
+
+
+
+
+        Please login
+        or register
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                (function () {
+                                    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+                                    po.src = 'https://apis.google.com/js/plusone.js';
+                                    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+                                })();
+                            
+
+
+
+
+  Advanced
+                            Search
+
+
+
+
+                    $('#imgSearch').click(function () {
+                        Submit();
+                    });
+
+                    var delay = (function () {
+                        var timer = 0;
+                        return function (callback, ms) {
+                            clearTimeout(timer);
+                            timer = setTimeout(callback, ms);
+                        };
+                    })();
+
+                    $('#keyword').keyup(function () {
+                        delay(function () {
+                            Suggest();
+                        }, 500);
+                    });
+
+                    $('#selectSearch').change(function () {
+                        Suggest();
+                    });
+
+                    $("#selectSearch option").each(function () {
+                        var url = location.href;
+                        if (url.indexOf($(this).attr('value')) != -1)
+                            $(this).attr("selected", "selected");
+                    });
+
+                    function Submit() {
+                        if ($.trim($('#keyword').val()).length < 2) {
+                            $('#keyword').blur();
+                            alert('Keyword must be more than one character!');
+                        }
+                        else {
+                            $("#formSearch").attr('action', "/Search/Cartoon");
+                            $("#formSearch").submit();
+                        }
+                    }
+
+
+                    function Suggest() {
+                        var keyword = $.trim($('#keyword').val());
+                        if (keyword != "") {
+                            $('#result_box').html("<span id='loader'></span>");
+                            $('#result_box').css('display', 'block');
+                            $.ajax(
+                            {
+                                type: "POST",
+                                url: "/Search/SearchSuggest",
+                                data: "type=Cartoon" + '&keyword=' + encodeURIComponent(keyword),
+                                success: function (message) {
+                                    if (message != "") {
+                                        $('#result_box').html(message);
+                                    }
+                                    else {
+                                        //$('#result_box').html('');
+                                        //$('#result_box').css('display', 'none');
+                                        $('#result_box').html('<a href="#" onclick="return false;">Press Enter to search...</a>');
+                                    }
+                                }
+                            });
+                        }
+                        else {
+                            $('#result_box').html('');
+                            $('#result_box').css('display', 'none');
+                        }
+                    }
+
+                    $(document).click(function (e) {
+                        var container = $("#search");                        
+                        if (container.has(e.target).length == 0) {
+                            $("#result_box").hide();
+                        }
+                    });
+                
+
+
+KimCartoon.me
+
+
+
+
+
+
+
+
+Home
+
+                Cartoon list
+Report Error
+
+                Request Cartoon
+Mobile
+
+
+
+
+    var path = 'Special';
+    if (path == 'Home')
+        $('#liHome a').attr('id', 'currentTab');
+    else if (path == 'Cartoon' || path == 'Genre' || path == 'Group')
+        $('#liDS a').attr('id', 'currentTab');
+    else if (document.URL.indexOf('GoPremium') >= 0)
+        $('#liGoPremium a').attr('id', 'currentTab');
+    else if (document.URL.indexOf('FreeDownload') >= 0)
+        $('#liDS a').attr('id', 'currentTab');
+    else if (document.URL.indexOf('FAQ') >= 0)
+        $('#liFAQ a').attr('id', 'currentTab');
+    else if (path == 'Error')
+        $('#liReport a').attr('id', 'currentTab');
+    else
+        $('#navcontainer a[href*="' + path + '"]').attr('id', 'currentTab');
+
+
+
+
+You got banned
+
+
+
+
+                Sorry but you got banned.
+                Please make sure you do not use VPN/Proxy or any third party program to change your IP.
+Follow these instructions to access KimCartoon normally again:
+                - Turn off VPN.
+                - Remove proxy.
+                - Turn off all browser extensions that can change your IP.
+                If you believe this is our mistake, please contact us via KimCartoon Facebook fanpage with your IP address.
+                Your IP: 51.15.35.228
+                
+
+
+
+
+
+             
+
+             
+
+             
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                From 2017 KimCartoon.me. Copyrights and trademarks
+                for the cartoon, and other promotional materials are held by their respective owners
+                and their use is allowed under the fair use clause of the Copyright Law.
+                
+
+Privacy Policy | DMCA | watch cartoons online  
+
+
+
+        $('#footer').css('top', $(document).height() - $('#containerRoot').height());
+    
+
+

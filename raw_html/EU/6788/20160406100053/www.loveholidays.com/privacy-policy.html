@@ -1,0 +1,1408 @@
+<!DOCTYPE html>
+<html lang="en-GB" class="large-screen">
+	
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta charset="utf-8"><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"UQIBUFJWGwcDUlFbBQI="};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o||e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(t,e,n){function r(t){try{s.console&&console.log(t)}catch(e){}}var o,i=t("ee"),a=t(14),s={};try{o=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(s.console=!0,-1!==o.indexOf("dev")&&(s.dev=!0),-1!==o.indexOf("nr_dev")&&(s.nrDev=!0))}catch(c){}s.nrDev&&i.on("internal-error",function(t){r(t.stack)}),s.dev&&i.on("fn-err",function(t,e,n){r(n.stack)}),s.dev&&(r("NR AGENT IN DEVELOPMENT MODE"),r("flags: "+a(s,function(t,e){return t}).join(", ")))},{}],2:[function(t,e,n){function r(t,e,n,r,o){try{d?d-=1:i("err",[o||new UncaughtException(t,e,n)])}catch(s){try{i("ierr",[s,(new Date).getTime(),!0])}catch(c){}}return"function"==typeof f?f.apply(this,a(arguments)):!1}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function o(t){i("err",[t,(new Date).getTime()])}var i=t("handle"),a=t(15),s=t("ee"),c=t("loader"),f=window.onerror,u=!1,d=0;c.features.err=!0,t(1),window.onerror=r;try{throw new Error}catch(l){"stack"in l&&(t(8),t(7),"addEventListener"in window&&t(5),c.xhrWrappable&&t(9),u=!0)}s.on("fn-start",function(t,e,n){u&&(d+=1)}),s.on("fn-err",function(t,e,n){u&&(this.thrown=!0,o(n))}),s.on("fn-end",function(){u&&!this.thrown&&d>0&&(d-=1)}),s.on("internal-error",function(t){i("ierr",[t,(new Date).getTime(),!0])})},{}],3:[function(t,e,n){t("loader").features.ins=!0},{}],4:[function(t,e,n){function r(t){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var o=t("ee"),i=t("handle"),a=t(8),s=t(7);t("loader").features.stn=!0,t(6);var c=NREUM.o.EV;o.on("fn-start",function(t,e){var n=t[0];n instanceof c&&(this.bstStart=Date.now())}),o.on("fn-end",function(t,e){var n=t[0];n instanceof c&&i("bst",[n,e,this.bstStart,Date.now()])}),a.on("fn-start",function(t,e,n){this.bstStart=Date.now(),this.bstType=n}),a.on("fn-end",function(t,e){i("bstTimer",[e,this.bstStart,Date.now(),this.bstType])}),s.on("fn-start",function(){this.bstStart=Date.now()}),s.on("fn-end",function(t,e){i("bstTimer",[e,this.bstStart,Date.now(),"requestAnimationFrame"])}),o.on("pushState-start",function(t){this.time=Date.now(),this.startPath=location.pathname+location.hash}),o.on("pushState-end",function(t){i("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),"addEventListener"in window.performance&&(window.performance.clearResourceTimings?window.performance.addEventListener("resourcetimingbufferfull",function(t){i("bstResource",[window.performance.getEntriesByType("resource")]),window.performance.clearResourceTimings()},!1):window.performance.addEventListener("webkitresourcetimingbufferfull",function(t){i("bstResource",[window.performance.getEntriesByType("resource")]),window.performance.webkitClearResourceTimings()},!1)),document.addEventListener("scroll",r,!1),document.addEventListener("keypress",r,!1),document.addEventListener("click",r,!1)}},{}],5:[function(t,e,n){function r(t){for(var e=t;e&&!e.hasOwnProperty(u);)e=Object.getPrototypeOf(e);e&&o(e)}function o(t){s.inPlace(t,[u,d],"-",i)}function i(t,e){return t[1]}var a=t("ee").get("events"),s=t(16)(a),c=t("gos"),f=XMLHttpRequest,u="addEventListener",d="removeEventListener";e.exports=a,"getPrototypeOf"in Object?(r(document),r(window),r(f.prototype)):f.prototype.hasOwnProperty(u)&&(o(window),o(f.prototype)),a.on(u+"-start",function(t,e){if(t[1]){var n=t[1];if("function"==typeof n){var r=c(n,"nr@wrapped",function(){return s(n,"fn-",null,n.name||"anonymous")});this.wrapped=t[1]=r}else"function"==typeof n.handleEvent&&s.inPlace(n,["handleEvent"],"fn-")}}),a.on(d+"-start",function(t){var e=this.wrapped;e&&(t[1]=e)})},{}],6:[function(t,e,n){var r=t("ee").get("history"),o=t(16)(r);e.exports=r,o.inPlace(window.history,["pushState","replaceState"],"-")},{}],7:[function(t,e,n){var r=t("ee").get("raf"),o=t(16)(r);e.exports=r,o.inPlace(window,["requestAnimationFrame","mozRequestAnimationFrame","webkitRequestAnimationFrame","msRequestAnimationFrame"],"raf-"),r.on("raf-start",function(t){t[0]=o(t[0],"fn-")})},{}],8:[function(t,e,n){function r(t,e,n){t[0]=a(t[0],"fn-",null,n)}function o(t,e,n){this.method=n,this.timerDuration="number"==typeof t[1]?t[1]:0,t[0]=a(t[0],"fn-",this,n)}var i=t("ee").get("timer"),a=t(16)(i);e.exports=i,a.inPlace(window,["setTimeout","setImmediate"],"setTimer-"),a.inPlace(window,["setInterval"],"setInterval-"),a.inPlace(window,["clearTimeout","clearImmediate"],"clearTimeout-"),i.on("setInterval-start",r),i.on("setTimer-start",o)},{}],9:[function(t,e,n){function r(t,e){d.inPlace(e,["onreadystatechange"],"fn-",s)}function o(){var t=this,e=u.context(t);t.readyState>3&&!e.resolved&&(e.resolved=!0,u.emit("xhr-resolved",[],t)),d.inPlace(t,v,"fn-",s)}function i(t){w.push(t),h&&(g=-g,b.data=g)}function a(){for(var t=0;t<w.length;t++)r([],w[t]);w.length&&(w=[])}function s(t,e){return e}function c(t,e){for(var n in t)e[n]=t[n];return e}t(5);var f=t("ee"),u=f.get("xhr"),d=t(16)(u),l=NREUM.o,p=l.XHR,h=l.MO,m="readystatechange",v=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],w=[];e.exports=u;var y=window.XMLHttpRequest=function(t){var e=new p(t);try{u.emit("new-xhr",[e],e),e.addEventListener(m,o,!1)}catch(n){try{u.emit("internal-error",[n])}catch(r){}}return e};if(c(p,y),y.prototype=p.prototype,d.inPlace(y.prototype,["open","send"],"-xhr-",s),u.on("send-xhr-start",function(t,e){r(t,e),i(e)}),u.on("open-xhr-start",r),h){var g=1,b=document.createTextNode(g);new h(a).observe(b,{characterData:!0})}else f.on("fn-end",function(t){t[0]&&t[0].type===m||a()})},{}],10:[function(t,e,n){function r(t){var e=this.params,n=this.metrics;if(!this.ended){this.ended=!0;for(var r=0;l>r;r++)t.removeEventListener(d[r],this.listener,!1);if(!e.aborted){if(n.duration=(new Date).getTime()-this.startTime,4===t.readyState){e.status=t.status;var i=o(t,this.lastSize);if(i&&(n.rxSize=i),this.sameOrigin){var a=t.getResponseHeader("X-NewRelic-App-Data");a&&(e.cat=a.split(", ").pop())}}else e.status=0;n.cbTime=this.cbTime,u.emit("xhr-done",[t],t),c("xhr",[e,n,this.startTime])}}}function o(t,e){var n=t.responseType;if("json"===n&&null!==e)return e;var r="arraybuffer"===n||"blob"===n||"json"===n?t.response:t.responseText;return i(r)}function i(t){if("string"==typeof t&&t.length)return t.length;if("object"==typeof t){if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if(!("undefined"!=typeof FormData&&t instanceof FormData))try{return JSON.stringify(t).length}catch(e){return}}}function a(t,e){var n=f(e),r=t.params;r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.sameOrigin=n.sameOrigin}var s=t("loader");if(s.xhrWrappable){var c=t("handle"),f=t(11),u=t("ee"),d=["load","error","abort","timeout"],l=d.length,p=t("id"),h=t(13),m=window.XMLHttpRequest;s.features.xhr=!0,t(9),u.on("new-xhr",function(t){var e=this;e.totalCbs=0,e.called=0,e.cbTime=0,e.end=r,e.ended=!1,e.xhrGuids={},e.lastSize=null,h&&(h>34||10>h)||window.opera||t.addEventListener("progress",function(t){e.lastSize=t.loaded},!1)}),u.on("open-xhr-start",function(t){this.params={method:t[0]},a(this,t[1]),this.metrics={}}),u.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),u.on("send-xhr-start",function(t,e){var n=this.metrics,r=t[0],o=this;if(n&&r){var a=i(r);a&&(n.txSize=a)}this.startTime=(new Date).getTime(),this.listener=function(t){try{"abort"===t.type&&(o.params.aborted=!0),("load"!==t.type||o.called===o.totalCbs&&(o.onloadCalled||"function"!=typeof e.onload))&&o.end(e)}catch(n){try{u.emit("internal-error",[n])}catch(r){}}};for(var s=0;l>s;s++)e.addEventListener(d[s],this.listener,!1)}),u.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),u.on("xhr-load-added",function(t,e){var n=""+p(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),u.on("xhr-load-removed",function(t,e){var n=""+p(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),u.on("addEventListener-end",function(t,e){e instanceof m&&"load"===t[0]&&u.emit("xhr-load-added",[t[1],t[2]],e)}),u.on("removeEventListener-end",function(t,e){e instanceof m&&"load"===t[0]&&u.emit("xhr-load-removed",[t[1],t[2]],e)}),u.on("fn-start",function(t,e,n){e instanceof m&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=(new Date).getTime()))}),u.on("fn-end",function(t,e){this.xhrCbStart&&u.emit("xhr-cb-time",[(new Date).getTime()-this.xhrCbStart,this.onload,e],e)})}},{}],11:[function(t,e,n){e.exports=function(t){var e=document.createElement("a"),n=window.location,r={};e.href=t,r.port=e.port;var o=e.href.split("://");!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=e.hostname||n.hostname,r.pathname=e.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname);var i=!e.protocol||":"===e.protocol||e.protocol===n.protocol,a=e.hostname===document.domain&&e.port===n.port;return r.sameOrigin=i&&(!e.hostname||a),r}},{}],12:[function(t,e,n){function r(t,e){return function(){o(t,[(new Date).getTime()].concat(a(arguments)),null,e)}}var o=t("handle"),i=t(14),a=t(15);"undefined"==typeof window.newrelic&&(newrelic=NREUM);var s=["setPageViewName","addPageAction","setCustomAttribute","finished","addToTrace","inlineHit"],c=["addPageAction"],f="api-";i(s,function(t,e){newrelic[e]=r(f+e,"api")}),i(c,function(t,e){newrelic[e]=r(f+e)}),e.exports=newrelic,newrelic.noticeError=function(t){"string"==typeof t&&(t=new Error(t)),o("err",[t,(new Date).getTime()])}},{}],13:[function(t,e,n){var r=0,o=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);o&&(r=+o[1]),e.exports=r},{}],14:[function(t,e,n){function r(t,e){var n=[],r="",i=0;for(r in t)o.call(t,r)&&(n[i]=e(r,t[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],15:[function(t,e,n){function r(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(0>o?0:o);++r<o;)i[r]=t[e+r];return i}e.exports=r},{}],16:[function(t,e,n){function r(t){return!(t&&"function"==typeof t&&t.apply&&!t[a])}var o=t("ee"),i=t(15),a="nr@original",s=Object.prototype.hasOwnProperty,c=!1;e.exports=function(t){function e(t,e,n,o){function nrWrapper(){var r,a,s,c;try{a=this,r=i(arguments),s="function"==typeof n?n(r,a):n||{}}catch(u){d([u,"",[r,a,o],s])}f(e+"start",[r,a,o],s);try{return c=t.apply(a,r)}catch(l){throw f(e+"err",[r,a,l],s),l}finally{f(e+"end",[r,a,c],s)}}return r(t)?t:(e||(e=""),nrWrapper[a]=t,u(t,nrWrapper),nrWrapper)}function n(t,n,o,i){o||(o="");var a,s,c,f="-"===o.charAt(0);for(c=0;c<n.length;c++)s=n[c],a=t[s],r(a)||(t[s]=e(a,f?s+o:o,i,s))}function f(e,n,r){if(!c){c=!0;try{t.emit(e,n,r)}catch(o){d([o,e,n,r])}c=!1}}function u(t,e){if(Object.defineProperty&&Object.keys)try{var n=Object.keys(t);return n.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(r){d([r])}for(var o in t)s.call(t,o)&&(e[o]=t[o]);return e}function d(e){try{t.emit("internal-error",e)}catch(n){}}return t||(t=o),e.inPlace=n,e.flag=a,e}},{}],ee:[function(t,e,n){function r(){}function o(t){function e(t){return t&&t instanceof r?t:t?s(t,a,i):i()}function n(n,r,o){t&&t(n,r,o);for(var i=e(o),a=l(n),s=a.length,c=0;s>c;c++)a[c].apply(i,r);var u=f[v[n]];return u&&u.push([w,n,r,i]),i}function d(t,e){m[t]=l(t).concat(e)}function l(t){return m[t]||[]}function p(t){return u[t]=u[t]||o(n)}function h(t,e){c(t,function(t,n){e=e||"feature",v[n]=e,e in f||(f[e]=[])})}var m={},v={},w={on:d,emit:n,get:p,listeners:l,context:e,buffer:h};return w}function i(){return new r}var a="nr@context",s=t("gos"),c=t(14),f={},u={},d=e.exports=o();d.backlog=f},{}],gos:[function(t,e,n){function r(t,e,n){if(o.call(t,e))return t[e];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return t[e]=r,r}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],handle:[function(t,e,n){function r(t,e,n,r){o.buffer([t],r),o.emit(t,e,n)}var o=t("ee").get("handle");e.exports=r,r.ee=o},{}],id:[function(t,e,n){function r(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:a(t,i,function(){return o++})}var o=1,i="nr@id",a=t("gos");e.exports=r},{}],loader:[function(t,e,n){function r(){if(!m++){var t=h.info=NREUM.info,e=u.getElementsByTagName("script")[0];if(t&&t.licenseKey&&t.applicationID&&e){c(l,function(e,n){t[e]||(t[e]=n)});var n="https"===d.split(":")[0]||t.sslForHttp;h.proto=n?"https://":"http://",s("mark",["onload",a()],null,"api");var r=u.createElement("script");r.src=h.proto+t.agent,e.parentNode.insertBefore(r,e)}}}function o(){"complete"===u.readyState&&i()}function i(){s("mark",["domContent",a()],null,"api")}function a(){return(new Date).getTime()}var s=t("handle"),c=t(14),f=window,u=f.document;NREUM.o={ST:setTimeout,CT:clearTimeout,XHR:f.XMLHttpRequest,REQ:f.Request,EV:f.Event,PR:f.Promise,MO:f.MutationObserver},t(12);var d=""+location,l={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-918.min.js"},p=window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&!/CriOS/.test(navigator.userAgent),h=e.exports={offset:a(),origin:d,features:{},xhrWrappable:p};u.addEventListener?(u.addEventListener("DOMContentLoaded",i,!1),f.addEventListener("load",r,!1)):(u.attachEvent("onreadystatechange",o),f.attachEvent("onload",r)),s("mark",["firstbyte",a()],null,"api");var m=0},{}]},{},["loader",2,10,4,3]);</script><script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","queueTime":1,"licenseKey":"fbbef8e525","agent":"","transactionName":"YgRRYRZWD0BWB0dfV1tOdUAKVBVaWAocUlJUD1RaSkEIVkAXHVFdWwRBXAcZElpaFF9TAlEIQVAHQz5HWDtHU1VFDVJBAQ==","applicationID":"4360923","errorBeacon":"bam.nr-data.net","applicationTime":38}</script>
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+		<link rel="apple-touch-icon" sizes="150x150" href="/apple-touch-icon-150x150.png" />
+		<link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png" />
+		<link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png" />
+		<link rel="apple-touch-icon" sizes="64x64" href="/apple-touch-icon-64x64.png" />
+		<link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png" />
+		<link rel="apple-touch-icon" sizes="32x32" href="/apple-touch-icon-32x32.png" />
+		<meta name="viewport" content="width=device-width">
+		<meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE" />
+		<meta name="format-detection" content="telephone=no">
+		
+	<meta name="description" content="loveholidays.com ensures that proper security measures are in place to protect the information you give us. We do nothand over your details to anyone without your consent.">
+	<link rel="canonical" href="http://www.loveholidays.com/privacy-policy.html">
+
+		
+		<title>Privacy Policy - loveholidays.com</title>
+
+		
+			<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+			
+			<script type="text/javascript" src="http://assets.loveholidays.com/849a844/js/app/polyfill.js?cb=849a844"></script>
+		
+
+		<script type="text/javascript">
+			window.TM = window.TM || {};
+			window.TM.AB = window.TM.AB || {};
+
+			// Set var for prod
+			
+				window.TM.AB.Env = 'prod';
+			
+			
+			
+			window.TM.AB.SplitServerTesting = "B";
+
+
+			// Add "Alive" GA report
+			window._gaq = window._gaq || [];
+			window._gaq.push(['_setCustomVar',2,"Alive",1,1]);
+		</script>
+
+		<script type="text/javascript" src="http://assets.loveholidays.com/849a844/js/eeec72aebd85.js"></script>
+
+		
+			<script src="//cdn.optimizely.com/js/788353815.js"></script>
+		
+
+		
+
+		
+
+		
+
+		
+		
+	<link rel="stylesheet" href="http://assets.loveholidays.com/849a844/css/4ceb49b67524.css" type="text/css" media="all" />
+	<link rel="stylesheet" href="http://assets.loveholidays.com/849a844/css/5f1f31eec3f7.css" type="text/css" media="all" />
+	<link rel="stylesheet" href="http://assets.loveholidays.com/849a844/css/8b1bc394284d.css" type="text/css" media="all" />
+	<link rel="stylesheet" href="http://assets.loveholidays.com/849a844/css/dfc8d9d718be.css" type="text/css" media="all" />
+	<link rel="stylesheet" href="http://assets.loveholidays.com/849a844/css/0ce7dfeb1bc9.css" type="text/css" media="all" />
+	<link rel="stylesheet" href="http://assets.loveholidays.com/849a844/css/836819f4117e.css" type="text/css" media="all" />
+
+		
+
+		<!-- html5shiv lets us use HTML5 elements in older IE versions
+		 See https://github.com/aFarkas/html5shiv for details. -->
+		<!--[if lt IE 9]>
+			<script>
+				window.html5 = {
+				  'elements': ['figure', 'figcaption']
+				};
+			</script>
+			<script src="http://assets.loveholidays.com/849a844/src-js/html5shiv.js"></script>
+			
+			
+		<![endif]-->
+
+		<script type="text/javascript">
+			window.love_static_url = "http://assets.loveholidays.com/849a844/";
+			window.love_compressed_mode = ("True" === "True");
+			window.love_cb = "849a844";
+
+			// pollyfill for old browsers
+			if(!window.console) {
+				window.console = {
+					log : function(){}
+				};
+			}
+		</script>
+
+		<script type="text/javascript">
+	var google_tag_params = {
+		hrental_id: null,
+		hrental_pagetype: null
+	};
+</script>
+
+		
+
+		
+
+<script type="text/javascript">
+	/****
+	 * We place a single object on the page to colelct analytics while the page is loading, this is even before Modularizer loads our libraries
+	 * This shouldn't be confused with the reportPagePerformance in the KPI Analytics Engine, as those reports use window.performance to make browser performance
+	 * reporting, while these reports are for us to plug into our own legacy code (mostly)
+	 */
+	window.LovePerformance = {
+		reports:[],
+		/****
+		 * start a time and create a callback which will end the count since its creation and file that away
+		 * for reporting later
+		 * @returns {Function}
+		 */
+		time:function(key){
+			var start = (new Date()).getTime(),
+					loveperf = this;
+			return function(){
+				var time = (new Date()).getTime() - start;
+				loveperf.report([key,"KPITIMER",time]);
+			};
+		},
+		report:function(eventToReport){
+			if(typeof eventToReport === 'undefined') {
+				if(this.reports) {
+					for(var index = 0; index < this.reports.length;index++) {
+						$(document).trigger("KPI:" + this.reports[index][0],this.reports[index].splice(1));
+					}
+					// mark report caching as false so next time it'll be reported directly to KPIs
+					this.reports = false;
+				}
+			} else {
+				if(this.reports) {
+					// analytics haven't been init yet, cache report for later
+					this.reports.push(eventToReport);
+				} else {
+					$(document).trigger("KPI:" + eventToReport[0],eventToReport.splice(1));
+				}
+			}
+		}
+	};
+
+	/****
+	 * Globals object to pass vars to the client side
+	 */
+	var FedGlobalsDefine = function(){
+		var useCORS = false;
+
+		var props = {
+			CurrentUser:{
+				flags:{
+					leg: "B"
+				},
+				isAuthenticated : false,
+				isStaff : false
+			},
+			STATIC_IMAGES_URL: 'http://www.loveholidays.com.global.prod.fastly.net/images/',
+			"TM" : {
+				"channel_mobile_num" : '0161 2600 569',
+				"channel_num" : '0161 2600 569',
+				"after_sales_num" : '0161 2600 555',
+				"phone_enabled" : true
+			},
+			"media_url": 'http://www.loveholidays.com.global.prod.fastly.net/images/',
+			"STATIC_URL" : "http://assets.loveholidays.com/849a844/",
+			"templates-src" : "/static/app-js/app/templates/" + window.love_cb + "/templates.html",
+			"OnExitPopup" : {
+				"NotTheHotel" : function(){return (TM && TM.AB && TM.AB.OnExitPopup && TM.AB.OnExitPopup.NotTheHotel? true : false); },
+				"Coupon" : function(){return (TM && TM.AB && TM.AB.OnExitPopup && TM.AB.OnExitPopup.Coupon? true : false); }
+			},
+			"OnEventPopup" : {
+				"NotTheHotelHeader" : function(){return (TM && TM.AB && TM.AB.OnEventPopup && TM.AB.OnEventPopup.NotTheHotelHeader? true : false); }
+			},
+			"leg": "B",
+			// Hash keys we wish to treat as sticky and transferable from page to page
+			StickyFragments : ['r','state'],
+			StickyQuery : ['alltabs']
+		};
+
+		if(TM && TM.AB && TM.AB.CouponCode) {
+			props.CouponCode = TM.AB.CouponCode;
+		}
+
+		
+			props.ENVIRONMENT =  'prod';
+		
+		if(!props.ENVIRONMENT || props.ENVIRONMENT === 'local') {
+			// treat local env as Dev env
+			props.ENVIRONMENT = 'dev';
+			// locally our templates file doesn't contain a cache buster in a path
+			props['templates-src'] =  "/static/app-js/app/templates/templates.html";
+		}
+
+		
+
+		if(window.TM && window.TM.AB && window.TM.AB.defaultBasestate) {
+			props.defaultBasestate = window.TM.AB.defaultBasestate;
+		}
+
+		return props;
+	};
+	window.Love = window.Love || {};
+	if(Love.define){
+		Love.define('App.Config.Globals',[],FedGlobalsDefine);
+
+		/***
+		 * Init the analytics and logging engines
+		 */
+		Love.require(['Engine.Analytics', 'Engine.Log','Engine.Error'], function (Analytics, Logger, o_O) {
+			Logger.initialize();
+			Analytics.initialize(function(){
+				// require the analytics just to make sure its all setup before reporting all the timers
+				if(window.LovePerformance) {
+					window.LovePerformance.report();
+				}
+			});
+		})
+	} else {
+		Love.AppConfigGlobals = FedGlobalsDefine();
+	}
+</script>
+
+		
+	<script type="text/javascript">
+		Love.AppConfigPage = {
+			"page" : {
+				"name" : "PrivacyPolicy"
+			}
+		};
+	</script>
+
+
+		
+			<!-- START OF SmartSource Data Collector TAG v10.4.1 -->
+<!-- Copyright (c) 2014 Webtrends Inc.  All rights reserved. -->
+<script>
+	window.webtrendsAsyncInit=function(){
+		var dcsid = "dcs22263gb8bk38pttji1dpj6_3b1l";
+		if(dcsid){
+			var dcs=new Webtrends.dcs().init({
+				dcsid:dcsid,
+				domain:"statse.webtrendslive.com",
+				timezone:0,
+				i18n:true,
+				offsite:true,
+				download:true,
+				downloadtypes:"xls,doc,pdf,txt,csv,zip,docx,xlsx,rar,gzip",
+				onsitedoms:"loveholidays.com",
+				fpcdom:".loveholidays.com",
+				plugins:{
+					//hm:{src:"//s.webtrends.com/js/webtrends.hm.js"}
+				}
+			});
+		} else {
+			throw new Error("Webtrends: No dcsid has been specified.");
+		}
+	};
+</script>
+<script type="application/javascript" src="http://assets.loveholidays.com/849a844/src-js/webtrends/webtrends.min.js"></script>
+<!-- END OF SmartSource Data Collector TAG v10.4.1 -->
+		
+	</head>
+	<body data-authenticated="0" class="no-js  boot  support ">
+		
+			<!-- START OF SmartSource Data Collector TAG v10.4.1 -->
+<!-- Copyright (c) 2014 Webtrends Inc.  All rights reserved. -->
+<noscript>
+	<img alt="dcsimg" id="dcsimg" width="1" height="1" src="//statse.webtrendslive.com/dcs22263gb8bk38pttji1dpj6_3b1l/njs.gif?dcsuri=/nojavascript&amp;WT.js=No&amp;WT.tv=10.4.1&amp;dcssip=www.loveholidays.com"/>
+</noscript>
+<!-- END OF SmartSource Data Collector TAG v10.4.1 -->
+
+		
+
+		
+		<script>document.body.className = document.body.className.replace("no-js", "");</script>
+
+		
+
+		
+
+		
+
+<div id="masthead" class="boot">
+	<div class="container">
+		<div class="row">
+			
+			<div class="col-xs-4">
+				<a href="/"
+					 title="loveholidays.com Home" class="logo left">loveholidays.com</a>
+			</div>
+
+
+
+			
+				
+					<div class="col-xs-1 pull-right">
+    <div class="masthead-badge cogs">
+        <a href="/book/manage-my-booking.html" rel="nofollow" >
+            <div class="icon-badge"></div>
+            <div class="masthead-label">
+                My Booking
+            </div>
+        </a>
+    </div>
+</div>
+				
+			
+
+			<div class="col-xs-1 pull-right">
+				<div class="masthead-badge atol-protected">
+					<a href="/book-with-confidence.html" target="_blank">
+						<div class="icon-badge"></div>
+						<div class="masthead-label">
+							ATOL<br>Protected
+						</div>
+					</a>
+				</div>
+			</div>
+
+			<div class="col-xs-1 pull-right">
+				<div class="masthead-badge abta-member">
+					<a href="/book-with-confidence.html" target="_blank">
+						<div class="icon-badge"></div>
+						<div class="masthead-label">
+							ABTA<br>Member
+						</div>
+					</a>
+				</div>
+			</div>
+
+			<div class="col-xs-1 pull-right">
+				<div class="masthead-badge monthly-payments">
+					<a href="/spread-the-cost-holidays.html" target="_blank">
+						<div class="icon-badge"></div>
+						<div class="masthead-label">
+							Monthly<br>Payments
+						</div>
+					</a>
+				</div>
+			</div>
+
+			<div class="col-xs-1 pull-right">
+				<div class="masthead-badge price-match">
+					<a href="/lowest-price-promise.html" target="_blank">
+						<div class="icon-badge"></div>
+						<div class="masthead-label">
+							Price<br/>Match
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+		<!--[if IE 8]> <div id="page" class="ie8 main-width"> <![endif]-->
+		<!--[if IE 9]> <div id="page" class="ie9 main-width"> <![endif]-->
+		<!--[if gt IE 9]><!-->
+		<div id="page" class="main-width">
+		<!--<![endif]-->
+
+			
+				<div class="boot">
+					<div class="container">
+						
+
+<div class="row menu main">
+	
+		<div class="col-xs-2 menu-element">
+			<a class="" href="/" title="loveholidays.com Home"
+					>
+				Home
+			</a>
+		</div>
+		<div class="col-xs-2 menu-element hover-menu">
+			<a href="/holidays/">
+				Holidays
+			</a>
+			
+				
+
+<div id="megaMenu" class="row">
+	<div class="col-xs-4">
+        
+		   <a class="mega-menu-ai" href="/holidays/all-inclusive-holidays.html"><span>All Inclusive Holidays</span></a>
+        
+		   <a class="mega-menu-b" href="/holidays/beach-holidays.html"><span>Beach Holidays</span></a>
+        
+		   <a class="mega-menu-c" href="/holidays/couples-holidays.html"><span>Couples Holidays</span></a>
+        
+	</div>
+	<div class="col-xs-4">
+		<h6>Most popular destinations:</h6>
+		<ul>
+            
+			   <li><a href="/holidays/lanzarote-holidays.html">Lanzarote</a></li>
+            
+			   <li><a href="/holidays/turkey-holidays.html">Turkey</a></li>
+            
+			   <li><a href="/holidays/tenerife-holidays.html">Tenerife</a></li>
+            
+			   <li><a href="/holidays/majorca-holidays.html">Majorca</a></li>
+            
+			   <li><a href="/holidays/portugal-holidays.html">Portugal</a></li>
+            
+			   <li><a href="/holidays/crete-holidays.html">Crete</a></li>
+            
+			   <li><a href="/holidays/cyprus-holidays.html">Cyprus</a></li>
+            
+			   <li><a href="/holidays/cuba-holidays.html">Cuba</a></li>
+            
+			<li><a href="/holidays/"><em>View all ></em></a></li>
+		</ul>
+	</div>
+	<div class="col-xs-4">
+		<h6>Most popular holiday types:</h6>
+		<ul>
+            
+			   <li><a href="/holidays/all-inclusive-holidays.html">All Inclusive Holidays</a></li>
+            
+			   <li><a href="/holidays/low-deposit-holidays.html">Low Deposit Holidays</a></li>
+            
+			   <li><a href="/holidays/self-catering-holidays.html">Self Catering Holidays</a></li>
+            
+			   <li><a href="/holidays/family-holidays.html">Family Holidays</a></li>
+            
+			   <li><a href="/holidays/couples-holidays.html">Couples Holidays</a></li>
+            
+			   <li><a href="/late-holiday-deals.html#state=AQoUKFAAIKHLYwIAAAg">Late Holiday Deals</a></li>
+            
+			   <li><a href="/holidays/may-holidays.html">May Holidays</a></li>
+            
+			   <li><a href="/holidays/manchester-airport-holidays.html">Manchester Airport Holidays</a></li>
+            
+			   <li><a href="/holidays/5-star-holidays.html">5 Star Holidays</a></li>
+            
+		</ul>
+	</div>
+</div>
+			
+		</div>
+		<div class="col-xs-2 menu-element">
+			<a href="/late-holiday-deals.html"
+					>
+				Late Deals
+			</a>
+		</div>
+		<div class="col-xs-2 menu-element">
+			<a href="/about-us.html"
+					
+					>
+				About Us
+			</a>
+		</div>
+		
+			<div class="col-xs-2 menu-element">
+				<a href="/book/manage-my-booking.html" rel="nofollow"
+						>
+					My Booking
+				</a>
+			</div>
+
+			
+				<div class="login col-xs-2 menu-element">
+					<a href="/accounts/login/?next=/privacy-policy.html" rel="nofollow"
+							>
+						Login / Sign up
+					<span class="fa fa-user menu-user-icon"></span>
+					</a>
+				</div>
+			
+		
+	
+</div>
+
+					</div>
+				</div>
+			
+
+			
+				<div class="boot">
+					<div class="container">
+						<div id="masthead-support" class="masthead-support row">
+							
+								<div id="breadcrumb" class="masthead-breadcrumb col-xs-12">
+									
+
+
+	<div class="masthead-support-links pull-right">
+		
+		<a href="/customer-services/"
+				>
+			Customer Support
+		</a>
+		|
+
+		<span  data-placement="left" class="opening-times-help dotted-popover" rel="popover" data-title="Call Centre times" data-animation="true" data-content-selector="#opening-times-help" data-html="true">Call Centre times</span>
+
+		<div id="opening-times-help" class="popover-hidden-content">
+			<div class="opening-times-help">
+				
+				<p class="call-center-times">
+					
+						New Years Day 10am to 6pm<br/>
+					
+						New Years Eve 8am to 6pm<br/>
+					
+						Monday-Friday 8am to 11pm<br/>
+					
+						Saturday 8am to 10pm<br/>
+					
+						Sunday 9am to 10pm<br/>
+					
+						Bank Holidays 10am to 10pm<br/>
+					
+				</p>
+
+				<p>
+					Calls to 0800 numbers are normally free of charge from landlines but
+					charges may
+					apply from mobile phones; calls to 01 numbers from mobile phones are
+					often
+					included
+					in your inclusive minutes.
+				</p>
+			</div>
+		</div>
+	</div>
+
+
+									
+								</div>
+							
+						</div>
+					</div>
+				</div>
+			
+			
+
+			
+	<div class="container main-container">
+		<div class="row">
+			<div class="col-xs-3" id="left-column">
+	<div id="holidays-flat-search-module" class="loading flat-search-view vertical-search-view">
+		<div class="panel panel-primary padding-medium">
+			<div class="panel-heading">
+				<h4 class="panel-title">&nbsp;</h4>
+			</div>
+			<div class="blocker"></div>
+		</div>
+	</div>
+
+	<div class="module default-padding useful-links">
+		<h4 class="h4">Useful links:</h4>
+		<ul class="fa-ul">
+			<li><i class="fa-li fa fa-heart"></i><a href="/customer-services/">Customer support</a></li>
+			<li><i class="fa-li fa fa-heart"></i><a href="/feedback/">Site feedback</a></li>
+			<li><i class="fa-li fa fa-heart"></i><a href="/about-us.html">About Us</a></li>
+			<li><i class="fa-li fa fa-heart"></i><a href="/privacy-policy.html">Privacy policy</a></li>
+			<li><i class="fa-li fa fa-heart"></i><a href="/terms-and-conditions-lh.html">Terms and conditions</a></li>
+			<li><i class="fa-li fa fa-heart"></i><a href="/lowest-price-promise.html">Price Match Guarantee</a></li>
+		</ul>
+	</div>
+
+	
+
+	<div class="module default-padding useful-links recent-viewed">
+		<h4 class="h4">Recently Viewed: </h4>
+		<ul class="fa-ul">
+			
+				<li>
+					<div class="heart-button-slot" data-url="/holidays/spain/costa-brava/pineda-de-mar/fergus-paradis-park-aparthotel.html"></div>
+					<i class="fa-li fa fa-eye"></i>
+					<a href="/holidays/spain/costa-brava/pineda-de-mar/fergus-paradis-park-aparthotel.html">Fergus Paradis Park Aparthotel</a>
+					
+						<span class="flat-rating-small rate-range-5 rate-3" title="3 out of 5 stars"></span>
+					
+					<p>in Pineda de Mar, Costa Brava, Spain</p>
+				</li>
+			
+		</ul>
+	</div>
+
+
+</div>
+			<div class="col-xs-9" id="main-content">
+	<div id="content">
+		<h2 class="">About Us</h2>
+
+		<img src="http://assets.loveholidays.com/849a844/img/about-us-header.jpg" style="margin: 10px 0; width: 100%;" />
+
+		<ul class="nav nav-tabs nav-narrow" role="tablist">
+			<li class="" style="margin-left: 10px;"><a href="/about-us.html">About Us</a></li>
+			<li class=""><a href="/customer-services/">Contact Us</a></li>
+			<li class="active"><a href="/privacy-policy.html">Privacy</a></li>
+			<li class=""><a href="/terms-and-conditions-lh.html">T&amp;C's</a></li>
+			<li class=""><a href="/feedback/">Feedback</a></li>
+			<li class="">
+				<a href="/lowest-price-promise.html">
+					Price Match Guarantee
+				</a>
+			</li>
+			<li class=""><a href="/PR.html">PR</a></li>
+			<li class=""><a href="/jobs.html">Jobs</a></li>
+		</ul>
+
+		<div class="content-area">
+		<div>
+			
+	<div class="row">
+		<div class="in-this-section col-xs-12">
+			<h3>In this section</h3>
+			<ul class="fa-ul">
+				<li><i class="fa-li fa fa-chevron-right"></i><a href="#cards">Credit and Debit card details</a></li>
+				<li><i class="fa-li fa fa-chevron-right"></i><a href="#monitoring">Monitoring</a></li>
+				<li><i class="fa-li fa fa-chevron-right"></i><a href="#other-websites">Other websites</a></li>
+				<li><i class="fa-li fa fa-chevron-right"></i><a href="#cookies">Cookies</a></li>
+			</ul>
+			<div class="clearBoth"></div>
+		</div>
+		<img class="col-xs-3" src="http://assets.loveholidays.com/849a844/img/AboutUs-Bookwithconfidence.gif">
+		<div class="col-xs-9" >
+			<h4>loveholidays.com takes your privacy seriously</h4>
+			<p>
+				Loveholidays.com understands and respects the importance of your privacy and we are committed to safeguarding
+				your personal information.
+			</p>
+			<p>
+				Any personal information you provide to us including and similar to your name, address, telephone number and email
+				address will not be released, sold, or rented to any entities or individuals outside of Loveholidays.com except
+				where required by us to process your booking and to ensure that your travel arrangements run smoothly and meet
+				your requirements. Our representatives may sometimes follow up, either by e-mail, phone, fax or mail, to people who
+				have registered their details and we may periodically send promotional e-mail about new products, special offers or
+				other information which we think you may find interesting using the e-mail address which you have provided.
+			</p>
+			<p>
+				We take full responsibility for ensuring that proper security measures are in place to protect your information. We
+				must pass the information on to the relevant suppliers of your travel arrangements such as your tour operator,
+				airlines, hotels, transport companies etc. The information may also be provided to security or credit checking
+				companies, public authorities such as customs/immigration if required by them, or as required by law. We may need
+				to disclose our customer list including any personal information relating to you to a third party who acquires or
+				attempts to acquire all or substantially all of the asset/ stock in our company or our website.
+			</p>
+			<p>
+				Where your holiday is outside the European Economic Area (EEA), controls on data protection in your destination
+				may not be as strong as the legal requirements in this country. We will not however, pass any information onto any
+				person not responsible for part of your travel arrangements. This applies to any sensitive information that you give to
+				us such as details of any disabilities, or dietary/religious requirements. (If we cannot pass this information to the
+				relevant suppliers, whether in the EEA or not, we cannot provide your booking. In making this booking, you consent
+				to this information being passed on to the relevant persons.)</p>
+			<p>
+				Usually your tour operator or other principal will pass this information onto their suppliers once we have provided it to
+				them. The tour operator or other principal's use of your information is subject to their policy, both in respect of your
+				booking and any future marketing, and is their responsibility. Please ask either us or them for a copy of this if you
+				would like to see it.
+			</p>
+
+			<h4  id="cards">CREDIT &amp; DEBIT CARD DETAILS</h4>
+			<p>
+				All credit card information and personal information is encrypted as it is passed between your browser and our
+				website. When you make a booking your initial payment is cleared using the information you provide. Your credit
+				card number is not held in our database. All encryption is performed using at least 128 bits making it virtually
+				impossible to decrypt without the necessary decryption key.
+			</p>
+
+			<h4  id="monitoring">MONITORING</h4>
+			<p>
+				To ensure that we carry out your instructions accurately, to help improve our service and in the interest of security,
+				we may monitor and/or record: (1) your telephone calls; (2) customer activities using CCTV recording equipment in
+				and around our premises; and (3) customer transactions and activities on our website. All recordings are and shall
+				remain our sole property.
+			</p>
+
+			<h4  id="other-websites">OTHER WEBSITES</h4>
+			<p>
+				Our website may contain links to enable you to visit other websites of interest easily. However, once you have used
+				these links to leave our site you should note that we do not have any control over that other web site. Therefore, we
+				cannot be responsible for the protection and privacy of any information which you provide whilst visiting such sites
+				and such sites are not governed by this Privacy Statement. You should exercise caution and look at the Privacy
+				Statement applicable to the website in question.
+			</p>
+
+			<h4  id="can-i-do">WHAT CAN I DO?</h4>
+			<p>
+				You are entitled to a copy of your information held by us. If you would like to see this please ask us. [We may make a
+				small charge for providing this to you].
+			</p>
+			<p>
+				If you do not agree to our use of the information as set out above, you should inform us as soon as possible by
+				writing to us at Loveholidays.com, The Triangle, 4th Floor South Side, 5-17 Hammersmith Grove, London, W6 0LG
+				or by email at [insert e-mail address].
+			</p>
+			<p>
+				In accordance with the Data Protection Act 1998, you may ask us in writing for a copy of the information we hold
+				about you (for which we may charge an administration fee) and to correct any inaccuracies in your information. We
+				aim to respond to you within 21 days from the date of request.
+			</p>
+			<p>
+				You can also choose not to provide us with some of the information we request, however as a result we may not be
+				able to complete your booking.
+			</p>
+
+			<h4  id="cookies">OPT-OUT POLICY</h4>
+			<p>
+				Subscribers can opt out of receiving further information from us at any time. You will also be given a fast and easy
+				option of opting out on all communications. Email us at [insert e-mail address] to unsubscribe.
+			</p>
+
+			<h4  id="cookies">COOKIES</h4>
+			<p>
+				Please note that in order for us to provide you with optimum service, we use ‘Cookies’ on our website.
+			</p>
+			<p>
+				<b>What are cookies?</b></br></br>
+				A "cookie" is a small data text file that is placed in your browser and allows loveholidays.com to recognise you each
+				time you visit this site (customisation etc). Cookies themselves do not contain any personal information, and
+				loveholidays.com does not use cookies to collect personal information. Cookies may also be used to pass
+				information between websites owned by loveholidays.com. Cookies will typically contain the name of the domain
+				from which the cookie has come, the "lifetime" of the cookie, and a value, usually a randomly generated unique
+				number.
+			</p>
+			<p>
+				Two types of cookies are used on this web site - session cookies, which are temporary cookies that remain in the
+				cookie file of your browser until you leave the site, and persistent cookies, which remain in the cookie file of your
+				browser for much longer (though how long will depend on the lifetime of the specific cookie).
+			</p>
+			<p>
+				Cookies allow us to obtain information regarding users of our site which essentially helps us to provide you with a
+				better user experience and tailor our services to your individual needs. We may collect information such as your IP
+				address, online activity, web browser details and online activity. We will not however collect or store any of your
+				passwords or other highly sensitive data.
+			</p>
+			<p>
+				<b>
+					By using our website with your browser settings adjusted to accept all cookies, we will take this to mean
+					that you want to use our products and services, and that you consent to our use of cookies and other
+					technologies as described in this Policy.
+				</b>
+			</p>
+			<p>
+				<b>Browser settings:</b>
+				Most browsers have options that allow the visitor to control whether the browser will accept
+				cookies, reject cookies, or notify the visitor each time a cookie is sent. You may elect to reject cookies by adjusting
+				your browser's settings, but doing so will limit the range of features available to the visitor on our site and most other
+				major websites that use cookies.
+				</br>
+			</p>
+			<p>
+				We use the following types of cookies on our website:<br/>
+				<h4>Category 1: strictly necessary cookies </h4>
+				These cookies are essential in order to enable you to move around the website and use its features, such as
+				accessing secure areas of the website. Without these cookies services you have asked for, like shopping baskets or
+				e-billing, cannot be provided.
+			</p>
+			<p>
+				<h4>Category 2: performance cookies </h4>
+				These cookies collect information about how visitors use a website, for instance which pages visitors go to most
+				often, and if they get error messages from web pages. These cookies don’t collect information that identifies a visitor.
+				All information these cookies collect is aggregated and therefore anonymous. It is only used to improve how a
+				website works.
+			</p>
+			<p>
+				<h4>Category 3: Functionality Cookies </h4>
+				These cookies are used to recognise you when you return to our website. This enables us to personalise our content
+				for you, greet you by name and remember your preferences (for example, your choice of language or region).
+			</p>
+			<p>
+				<h4>Category 4: Targeting or Advertising Cookies </h4>
+				These cookies are used to deliver adverts more relevant to you and your interests. They are also used to limit the
+				number of times you see an advertisement as well as help measure the effectiveness of the advertising campaign.
+				They are usually placed by advertising networks with our permission. They remember that you have visited a website
+				and this information is shared with other organisations such as advertisers. Quite often targeting or advertising
+				cookies will be linked to site functionality provided by the other organisation.
+			</p>
+			<p>
+				<b>By using our website, you agree that we can place these types of cookies on your device. </b></br>
+				<b>Further information:</b> to find out more information about cookies, please visit <a href="http://www.allaboutcookies.org" target="_blank">www.allaboutcookies.org</a>.
+			</p>
+
+			<h4  id="updates">UPDATES  &amp; CHANGES </h4>
+			<p>
+				As our privacy statement may change due to developments in the law we encourage you to re read this from time to
+				time so you are aware of any changes in how we gather and use your personal information. Any changes to this
+				Policy will be either posted on our website, brochure and/or made available on request.
+				<br>
+				<br>
+				Last Updated: March 2015
+			</p>
+			<p>
+				<h4>WEBSITE TERMS OF USE</h4>
+				This website is owned and operated by Loveholidays.com (“the Company”). Access to and use of any information on this
+				website is conditional on your acceptance of these website terms and conditions (“the Conditions”). We recommend you read
+				them carefully and print out and keep a copy of them for your future reference. If you do not wish to accept any part of these
+				Conditions then you may not use our website.
+			</p>
+			<p>
+				Please Note:</br>
+				When you visit our website or send e-mails to us, you are communicating electronically. We will also communicate with you
+				by e-mail. You agree that all notices, agreements, disclosures and other communications that we provide to you electronically
+				satisfy any requirement that such communications be in writing.
+				<br><br>
+				By using this website, you warrant to us that:
+				<ol class="numbered-list">
+					<li>You will not use this website or any material or information on it for any purpose that is unlawful or prohibited by
+						these Conditions; </li>
+					<li>You are at least 18 years old and have the legal authority to use this website in accordance with these Conditions; </li>
+					<li>You agree to be financially responsible for all charges, fees and other sums of whatever nature which arise out of
+						your use of this website; </li>
+					<li>All information that you provide about yourself and about anyone else shall be true and accurate. </li>
+				</ol>
+				You must not link (including deep linking) to our website or access, monitor or copy any content or information of this website
+				using any robot, spider, scraper or other automated means or any manual process for any purpose without our prior written
+				agreement.
+			</p>
+			<p>
+				<span style="text-decoration:underline">Copyright Notice</span></br>
+				All content of this website (such as text, graphics, logos, button icons, images, audio clips, digital downloads, data
+				compilations and software) is our exclusive property or that of our content suppliers (if applicable) and is, unless specifically
+				stated otherwise, protected by copyright or similar ownership rights. It is published by us and may not be reproduced other
+				than by downloading and viewing on a single computer and/or printing a single hard copy, for private purposes only. It is not to
+				be otherwise reproduced, transmitted, made available on a network or used to create derivative works without our prior written
+				consent. All rights are reserved.<br><br>
+				The trade marks, logos and service marks shown on our website, unless otherwise specified, are our intellectual property. No
+				rights are granted to use any of them without our prior written consent.
+			</p>
+			<p>
+				<span style="text-decoration:underline">Booking Conditions </span></br>
+				All bookings made on this website are subject to our booking conditions in addition to these Conditions. We recommend that
+				you read our booking conditions carefully and print out and keep a copy of them for your future reference.
+			</p>
+			<p>
+				<span style="text-decoration:underline">Website Content</span></br>
+				We are an English registered Company. Our business and the services we offer are governed by the applicable laws of
+				England and Wales except where otherwise stated in our booking conditions. No warranties, promises and/or representations
+				of any kind, express or implied, are given as to the accuracy or completeness of any of the material or information contained
+				on this website (in accordance with English law or with any laws of any other country) or as to the nature, standard, suitability
+				or otherwise of any services offered by us or on our behalf.<br><br>
+				We shall not be liable for any loss or damage or other sum or claim of any nature whatsoever (direct, indirect, consequential
+				or other) which arises, directly or indirectly, in connection with this website.<br><br>
+				The information contained on this website may contain technical inaccuracies and typographical and other errors. The
+				information on these pages may be updated from time to time and may at times be out of date. If any price or other
+				information is obviously incorrect, we will not be bound by it. You must ensure you check all details of the chosen
+				arrangements (including the price) with us at the time of booking.<br><br>
+				Occasionally, we may upload traveller reviews, blogs and recommendations on to our website. Such reviews and blogs are
+				the personal opinions of the author of said content and not that of the Company. We take no responsibility and accept no
+				liability in relation to these reviews, blogs, recommendations or other similar content on the website, or any resulting acts,
+				omissions or losses incurred.<br><br>
+				This website may contain links to other websites. Except where they belong to us, such other websites are not under our
+				control or maintained by us. We are not responsible for the content of such websites. We provide these links for your
+				convenience only but do not monitor or endorse the material on them. We cannot accept any liability in relation to any such
+				other websites or in relation to any material or information appearing on them or which you may otherwise come across after
+				leaving our site by way of a hypertext link or any other means.<br><br>
+				This website or any part of it (or any websites that are linked to this website) may not be compatible with your browser or
+				computer configuration and we make no warranty that it is. We make no warranty that your access to our website will be
+				uninterrupted, timely or error free. It is your responsibility to ensure you carry out sufficient checks (including virus checks) to
+				satisfy your particular requirements.
+			</p>
+			<p>
+				<span style="text-decoration:underline">User Reviews</span></br>
+				Occasionally, we may allow users to upload comments, videos, photographs, reviews, blog entries and other material in
+				relation to travel or other holiday services. Where you upload such materials, you disclaim any proprietary or other rights you
+				may have in the materials, and agree that such materials can be freely used by the Company for any reason whatsoever,
+				without your permission.<br><br>
+				You agree that, at the date of posting, the material submitted by you is appropriate and accurate. You warrant that the material
+				is not misleading, defamatory, untrue, malicious, offensive or abusive. You agree that you will not post any information or
+				material that is owned by another third party without their express authority to do so.<br><br>
+				You agree to indemnify the Company for the full amount of all damages, losses, costs and expenses in (including legal costs)
+				in relation to claims brought by any third party against the Company arising out of or in connection with breach of these
+				Conditions in relation to the materials.<br><br>
+				The Company reserves the right to refuse to post or remove (without notice) any materials for any reason at its sole
+				discretion.
+			</p>
+			<p>
+				<span style="text-decoration:underline">Law and Jurisdiction</span></br>
+				Access to this website is conditional on your agreement that all information contained in it and all matters which arise between
+				you and us will be governed by English law. Access is further conditional on your agreement that any dispute or matter which
+				arises between you and us will be dealt with by the Courts of England and Wales only to the exclusion of the Courts of any
+				other country.<br><br>
+				If any exclusion(s) or limitation(s) contained in these Conditions is found, in whole or part, to be unlawful, void or for any other
+				reason unenforceable for any purpose(s), that exclusion(s) or limitation(s) or the part(s) in question shall be deemed
+				severable and omitted from these Conditions for that purpose / those purposes. Such omission shall not affect the validity,
+				effectiveness or enforceability of the other provisions of these Conditions.<br><br>
+				We may alter these terms and conditions at any time. If we do so, all subsequent use of our website will be governed by the
+				newer version. You must check these terms and conditions regularly.<br><br>
+				Updated: March 2015
+			</p>
+		</div>
+	</div>
+
+		</div>
+		</div>
+	</div>
+</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12" id="main-content"></div>
+		</div>
+	</div>
+
+
+			
+			<div class="clearBoth"></div>
+		</div>
+
+
+
+		
+			<div class="boot footer">
+	<div class="container">
+		<div class="row testimonials">
+	<div class="col-xs-4"
+			>
+		<p>
+			LoveHolidays gave us a ridiculously cheap price for
+			such an incredible hotel - I'm 99% sure we paid less than everyone else staying there!
+		</p>
+
+		<p>
+			<span class="flat-rating rate-range-5 rate-5" title="5 out of 5 stars"></span>
+		</p>
+
+		<p>Niamh, London</p>
+
+		<p>
+			<meta content="1">
+			(<span>5</span>/<span
+				>5</span>)
+		</p>
+	</div>
+	<div class="col-xs-4">
+		<div class="trust-pilot">
+	<p class="logo-paragraph">
+		<span class="trust-pilot-logo">Trust<span>Pilot</span></span>
+	</p>
+
+	<p>
+		Independent customer reviews.
+	</p>
+
+	<p>
+		<span class="trust-pilot-rating">5 star rating</span>
+	</p>
+
+	<div
+			>
+		<p>
+			<span>8.5</span> /
+			<span>10</span>
+		</p>
+
+		<p>
+			<span>2,125</span> customer reviews
+		</p>
+	</div>
+</div>
+	</div>
+	<div class="col-xs-4"
+			>
+		<p>
+			Absolutely fantastic, lovely call centre staff and<br/>
+			fabulous prices, This is coming from a member of staff that works for a leading high street
+			agent....ssssh
+		</p>
+
+		<p>
+			<span class="flat-rating rate-range-5 rate-5" title="5 out of 5 stars"></span>
+		</p>
+
+		<p>Chloe, Northampton</p>
+
+		<p>
+			<meta content="1">
+			(<span>5</span>/<span
+				>5</span>)
+		</p>
+	</div>
+</div>
+		
+
+<div class="row quick-links">
+	<div class="col-xs-12">
+		
+
+		
+			
+		
+
+		<ul class="nav nav-tabs" role="tablist">
+			
+				<li class="active">
+					<a href="#information" role="tab" data-tab-id="footer-tab-information" data-toggle="tab">Information</a>
+				</li>
+				
+					<li>
+						<a href="#1" role="tab" data-tab-id="footer-tab-1" data-toggle="tab">Destinations</a>
+					</li>
+					<li>
+				
+					<li>
+						<a href="#2" role="tab" data-tab-id="footer-tab-2" data-toggle="tab">Airports</a>
+					</li>
+					<li>
+				
+					<li>
+						<a href="#3" role="tab" data-tab-id="footer-tab-3" data-toggle="tab">Top Hotels</a>
+					</li>
+					<li>
+				
+			
+		</ul>
+
+		<!-- Tab panes -->
+		<div class="tab-content">
+			
+				<div class="tab-pane active" id="information">
+					<ul>
+						<li>
+							<a href="/about-us.html" >About us...</a>
+						</li>
+						<li>
+							<a href="/faq/" >FAQs</a>
+						</li>
+						<li>
+							<a href="/customer-services/" rel="nofollow" >Contact us</a>
+						</li>
+					</ul>
+					<ul>
+						<li>
+							<a href="/spread-the-cost-holidays.html" >Payment Options</a>
+						</li>
+						<li>
+							<a href="/lowest-price-promise.html" rel="nofollow" >Price Match</a>
+						</li>
+					</ul>
+					<ul>
+						<li>
+							<a href="/terms-and-conditions-lh.html" rel="nofollow" >Terms &amp; conditions</a>
+						</li>
+						<li>
+							<a href="/privacy-policy.html#cookies" rel="nofollow" >Use of Cookies</a>
+						</li>
+						<li>
+							<a href="/privacy-policy.html"
+							   	rel="nofollow"
+								
+							>
+								Privacy policy
+							</a>
+						</li>
+					</ul>
+					<ul>
+						<li>
+							<a href="/affiliate.html" rel="nofollow" >Affiliates</a>
+						</li>
+						<li>
+							<a href="/feedback/"
+							   	rel="nofollow"
+								
+							>
+								Feedback
+							</a>
+						</li>
+						
+							<li class="holiday-enquire-view">
+								<a href="/enquire/" rel="nofollow" class="enquire">Holiday Enquiry</a>
+							</li>
+						
+					</ul>
+					<ul>
+						<li>
+							<a target="_blank" rel="nofollow" href="http://www.facebook.com/loveholidays">Facebook</a>
+						</li>
+						<li>
+							<a target="_blank" rel="nofollow" href="https://twitter.com/loveholidays">Twitter</a>
+						</li>
+						<li>
+							<a target="_blank" rel="publisher" href="https://plus.google.com/+Loveholidaysltd/posts">Google+</a>
+						</li>
+					</ul>
+					<ul>
+						<li>
+							<a target="_blank" rel="nofollow" href="http://www.pinterest.com/loveholidays/">Pinterest</a>
+						</li>
+						<li>
+							<a target="_blank" href="/blog/">Blog</a>
+						</li>
+						<li><a target="_blank" href="/html-sitemap/sitemap.html">Sitemap</a></li>
+					</ul>
+				</div>
+			
+
+			
+				<div class="tab-pane" id="1">
+					<div class="footer-tab-links">
+<ul>
+<li class="tab-links-header">Most Popular</li>
+<li><a href="/holidays/corfu-holidays.html">Corfu</a></li>
+<li><a href="/holidays/crete-holidays.html">Crete</a></li>
+<li><a href="/holidays/gran-canaria-holidays.html">Gran Canaria</a></li>
+<li><a href="/holidays/ibiza-holidays.html">Ibiza</a></li>
+<li><a href="/holidays/kos-holidays.html">Kos</a></li>
+<li><a href="/holidays/majorca-holidays.html">Majorca</a></li>
+<li><a href="/holidays/magaluf-holidays.html">Magaluf</a></li>
+<li><a href="/holidays/menorca-holidays.html">Menorca</a></li>
+<li><a href="/holidays/rhodes-holidays.html">Rhodes</a></li>
+<li><a href="/holidays/santorini-holidays.html">Santorini</a></li>
+<li><a href="/holidays/sorrento-holidays.html">Sorrento</a></li>
+<li><a href="/holidays/sharm-el-sheikh-holidays.html">Sharm El Sheikh</a></li>
+<li><a href="/holidays/tenerife-holidays.html">Tenerife</a></li>
+</ul>
+<ul>
+<li class="tab-links-header">Africa holidays</li>
+<li><a href="/holidays/cape-verde-islands-holidays.html">Cape Verde Islands</a></li>
+<li><a href="/holidays/egypt-holidays.html">Egypt</a></li>
+<li><a href="/holidays/gambia-holidays.html">Gambia</a></li>
+<li><a href="/holidays/kenya-holidays.html">Kenya</a></li>
+<li><a href="/holidays/morocco-holidays.html">Morocco</a></li>
+<li><a href="/holidays/tunisia-holidays.html">Tunisia</a></li>
+</ul>
+<ul>
+<li class="tab-links-header">Caribbean holidays</li>
+<li><a href="/holidays/aruba-holidays.html">Aruba</a></li>
+<li><a href="/holidays/barbados-holidays.html">Barbados</a></li>
+<li><a href="/holidays/cuba-holidays.html">Cuba</a></li>
+<li><a href="/holidays/dominican-republic-holidays.html">Dominican Republic</a></li>
+<li><a href="/holidays/jamaica-holidays.html">Jamaica</a></li>
+<li><a href="/holidays/trinidad-and-tobago-holidays.html">Trinidad and Tobago</a></li>
+</ul>
+<ul>
+<li class="tab-links-header">Europe holidays</li>
+<li><a href="/holidays/bulgaria-holidays.html">Bulgaria</a></li>
+<li><a href="/holidays/croatia-holidays.html">Croatia</a></li>
+<li><a href="/holidays/montenegro-holidays.html">Montenegro</a></li>
+<li><a href="/holidays/slovenia-holidays.html">Slovenia</a></li>
+</ul>
+<ul>
+<li class="tab-links-header">Indian Ocean</li>
+<li><a href="/holidays/india-holidays.html">India</a></li>
+<li><a href="/holidays/maldives-holidays.html">Maldives</a></li>
+<li><a href="/holidays/mauritius-holidays.html">Mauritius</a></li>
+<li class="tab-links-header">North America</li>
+<li><a href="/holidays/mexico-holidays.html">Mexico</a></li>
+<li><a href="/holidays/usa-holidays.html">USA</a></li>
+</ul>
+<ul>
+<li class="tab-links-header">Mediterranean holidays</li>
+<li><a href="/holidays/balearic-islands-holidays.html">Balearic Islands</a></li>
+<li><a href="/holidays/canary-islands-holidays.html">Canary Islands</a></li>
+<li><a href="/holidays/cyprus-holidays.html">Cyprus</a></li>
+<li><a href="/holidays/greece-holidays.html">Greece</a></li>
+<li><a href="/holidays/greek-islands-holidays.html">Greek Islands</a></li>
+<li><a href="/holidays/italy-holidays.html">Italy</a></li>
+<li><a href="/holidays/malta-holidays.html">Malta</a></li>
+<li><a href="/holidays/portugal-holidays.html">Portugal</a></li>
+<li><a href="/holidays/spain-holidays.html">Spain</a></li>
+<li><a href="/holidays/turkey-holidays.html">Turkey</a></li>
+</ul>
+</div>
+				</div>
+			
+				<div class="tab-pane" id="2">
+					<div class="footer-tab-links">
+<p>Holidays from:</p>
+<ul>
+<li><a href="/holidays/aberdeen-airport-holidays.html">Aberdeen airport</a></li>
+<li><a href="/holidays/belfast-airport-holidays.html">Belfast airport</a></li>
+<li><a href="/holidays/birmingham-airport-holidays.html">Birmingham airport</a></li>
+<li><a href="/holidays/bournemouth-airport-holidays.html">Bournemouth airport</a></li>
+</ul>
+<ul>
+<li><a href="/holidays/bristol-airport-holidays.html">Bristol airport</a></li>
+<li><a href="/holidays/cardiff-wales-airport-holidays.html">Cardiff Wales airport</a></li>
+<li><a href="/holidays/durham-tees-valley-airport-holidays.html">Durham Tees Valley airport</a></li>
+<li><a href="/holidays/east-midlands-airport-holidays.html">East Midlands airport</a></li>
+</ul>
+<ul>
+<li><a href="/holidays/edinburgh-airport-holidays.html">Edinburgh airport</a></li>
+<li><a href="/holidays/exeter-airport-holidays.html">Exeter airport</a></li>
+<li><a href="/holidays/glasgow-airport-holidays.html">Glasgow airport</a></li>
+<li><a href="/holidays/humberside-airport-holidays.html">Humberside airport</a></li>
+</ul>
+<ul>
+<li><a href="/holidays/leeds-bradford-airport-holidays.html">Leeds Bradford airport</a></li>
+<li><a href="/holidays/liverpool-john-lennon-airport-holidays.html">Liverpool John Lennon</a></li>
+<li><a href="/holidays/london-gatwick-airport-holidays.html">London Gatwick airport</a></li>
+<li><a href="/holidays/london-heathrow-airport-holidays.html">London Heathrow airport</a></li>
+</ul>
+<ul>
+<li><a href="/holidays/manchester-airport-holidays.html">Manchester airport</a></li>
+<li><a href="/holidays/newcastle-airport-holidays.html">Newcastle airport</a></li>
+<li><a href="/holidays/norwich-airport-holidays.html">Norwich airport</a></li>
+<li><a href="/holidays/robin-hood-airport-holidays.html">Robin Hood airport</a></li>
+</ul>
+<ul>
+<li><a href="/holidays/southampton-airport-holidays.html">Southampton airport</a></li>
+<li><a href="/holidays/blackpool-airport-holidays.html">Blackpool airport</a></li>
+</ul>
+</div>
+				</div>
+			
+				<div class="tab-pane" id="3">
+					<div class="footer-tab-links">
+<ul>
+<li><a href="/holidays/majorca/alcudia/bellevue-club.html">Bellevue Club</a></li>
+<li><a href="/holidays/portugal/algarve/albufeira/eden-resort.html">Eden Resort</a></li>
+</ul>
+<ul>
+<li><a href="/holidays/lanzarote/costa-teguise/be-live-family-lanzarote-resort.html">Be Live Family Lanzarote Resort</a></li>
+<li><a href="/holidays/tenerife/costa-adeje/bahia-principe-costa-adeje.html">Bahia Principe Costa Adeje</a></li>
+</ul>
+<ul>
+<li><a href="/holidays/tenerife/costa-adeje/labranda-isla-bonita-hotel.html">Labranda Isla Bonita Hotel</a></li>
+<li><a href="/holidays/malta/mellieha/db-seabank-resort-spa.html">DB Seabank Resort & Spa</a></li>
+</ul>
+<ul>
+<li><a href="/holidays/lanzarote/playa-blanca/dream-gran-castillo.html">Dream Gran Castillo</a></li>
+<li><a href="/holidays/fuerteventura/caleta-de-fuste/caleta-dorada.html">Caleta Dorada</a></li>
+</ul>
+<ul>
+<li><a href="/holidays/majorca/cales-de-majorca/club-cala-romani-hotel.html">Club Cala Romani Hotel</a></li>
+<li><a href="/holidays/turkey/antalya/lara-beach/ramada-resort-hotel.html">Ramada Resort Hotel</a></li>
+</ul>
+<ul>
+<li><a href="/holidays/tenerife/costa-del-silencio/alborada-beach-club.html">Alborada Beach Club</a></li>
+<li><a href="/holidays/cyprus/paphos/king-evelthon-beach-hotel-and-resort.html">King Evelthon Beach Hotel & Resort</a></li>
+</ul>
+</div>
+				</div>
+			
+		</div>
+	</div>
+</div>
+		
+	
+
+		<div class="row text-leg">
+	<div class="col-xs-12">
+		loveholidays.com acts an agent in respect of all bookings made on our website. For all bookings, your contract will be with
+		the applicable supplier principal of your chosen arrangements, and loveholidays.com acts only as an agent on their behalf.
+		We do not create or organise package holidays. All package holidays available on our website are organised by third party
+		supplier principals on whose behalf we act as agent, and where flights are included, protected under their ATOL. Where you
+		book a Flight plus Hotel product on our website, it is protected under our ATOL (10989) but we still act as an agent on
+		behalf of the applicable supplier principal. All the arrangements on our website have their own price independent of any
+		other arrangements booked at the same time and creates a separate contract directly between you and the supplier principal
+		of each arrangement. Please see our Agency terms and conditions for more information. Click here to view full site map.
+	</div>
+</div>
+<div class="row text-leg">
+	<div class="col-xs-12">
+		When you book a flight-inclusive holiday with <a target="_blank" href="http://www.loveholidays.com/">loveholidays.com</a>, you can trust you
+		are fully protected under the ATOL scheme. You will receive an ATOL Certificate confirming what is ATOL protected, where you
+		can get information on what this means for you and who to contact if things go wrong. Please see our Agency
+		<a class="offsite" target="_blank" rel="nofollow" href="/terms-and-conditions-lh.html">Terms & Conditions</a>
+		for information, or for more
+		information about financial protection and the ATOL Certificate go to:
+		<a href="http://www.caa.co.uk/default.aspx?catid=27&amp;pageid=13227" target="_blank" rel="nofollow">www.atol.org.uk/ATOLCertificate</a>.
+	</div>
+	<div class="col-xs-12 text-copy">
+		loveholidays.com is a trading name of We Love Holidays Ltd and is registered in England and Wales with registered number
+		7839224 and VAT No. GB - 140 6082 45
+		&copy; 2016 loveholidays.com
+	</div>
+</div>
+		<div class="row text-leg reference-section">
+	<div class="col-xs-12">
+		
+		<p>
+			
+				For new bookings quote reference ID:
+				<span class="reference">REF95R5ZT</span>
+			
+		</p>
+	</div>
+</div>
+	</div>
+</div>
+		
+
+		<script type='text/javascript'>
+			window.TM = window.TM || {};
+			
+			TM.JonnyMode = true;
+			var dataLayer = dataLayer || [];
+		</script>
+
+		
+		
+		
+
+		<div id="new-overlay-background" class="popupclose"></div>
+		
+
+		
+
+		
+
+	<script type="text/javascript">
+		var __stormJs = 't1.stormiq.com/dcv4/jslib/4904_7D531088_9A64_4186_B079_FF8B26DA6AE7.js';
+	</script>
+	<script type="text/javascript" src="http://assets.loveholidays.com/849a844/src-js/track.js"></script>
+
+<script type="text/javascript">
+	if(!window.customTrack){
+		window.customTrack = {
+			addCustomParameter : function(a, b) {},
+			logStoredParameters : function(a) {},
+			DROP_IN : true
+		};
+	}
+</script>
+
+
+
+
+
+		
+			<script type="text/javascript" src="http://assets.loveholidays.com/849a844/js/app/base.js?cb=849a844"></script>
+		
+		
+	<script type="text/javascript" src="http://assets.loveholidays.com/849a844/js/app/support.js?cb=849a844"></script>
+
+
+		<script type="text/javascript">
+			customTrack.addCustomParameter('lvhid', '1459936798300');
+			customTrack.addCustomParameter('customer_ref', 'REF95R5ZT');
+			customTrack.addCustomParameter('channel', 'default');
+			
+			
+			
+			
+			
+			customTrack.addCustomParameter('is_mobile', false);
+			customTrack.logStoredParameters('iqvisit');
+		</script>
+
+
+
+		
+			<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-438L"
+			                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+			<script type="text/javascript">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+			j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+				'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+			})(window,document,'script','dataLayer','GTM-438L');</script>
+		
+
+		
+			<div id="fb-root"></div>
+			<script type="text/javascript">
+				(function(d, s, id) {
+					var js, fjs = d.getElementsByTagName(s)[0];
+					if (d.getElementById(id)) return;
+					js = d.createElement(s); js.id = id;
+					js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=537132909692852";
+					fjs.parentNode.insertBefore(js, fjs);
+				}(document, 'script', 'facebook-jssdk'));
+			</script>
+		
+
+		
+
+		
+		
+		<script>
+			(function () {
+				var script = document.createElement("script");
+				script.type = "text/javascript";
+				script.async = true;
+				script.src = "//d2hkbi3gan6yg6.cloudfront.net/visscore.tag.min.js";
+				var s = document.getElementsByTagName("script")[0];
+				s.parentNode.insertBefore(script, s);
+			})();
+
+			var vscr = window.vscr || [];
+			vscr.push(["setAccount", "lovehols"]);
+			vscr.push(["addForwardParam", "ch"]);
+			vscr.push(["addForwardParam", "WT.mc_id"]);
+			vscr.push(["addForwardParam", "aff"]);
+			vscr.push(["addStringLabel", " Platform", "Desktop"]);
+			vscr.push(["fire"]);
+		</script>
+		
+
+		
+		<script type="text/javascript">
+			window._uxa = window._uxa || [];
+			window._uxa.push(['page:asyncSendHtml']);
+			window._uxa.push(['setPath', window.location.pathname + window.location.search + window.location.hash.replace('#', '?__')]);
+			(function () {
+				var mt = document.createElement("script");
+				mt.type = "text/javascript";
+				mt.async = true;
+				mt.src = "//d1m6l9dfulcyw7.cloudfront.net/uxa/2dbfb25ee3322.js";
+				document.getElementsByTagName("head")[0].appendChild(mt);
+			})();
+
+			console.log('UXAnalytics global load');
+		</script>
+		
+
+	</body>
+</html>

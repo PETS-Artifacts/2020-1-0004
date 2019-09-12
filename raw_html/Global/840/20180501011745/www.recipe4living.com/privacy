@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="x-ua-compatible" content="IE=edge" />
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var o=t[n]={exports:{}};e[n][0].call(o.exports,function(t){var o=e[n][1][t];return r(o||t)},o,o.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(e,t,n){function r(){}function o(e,t,n){return function(){return i(e,[f.now()].concat(u(arguments)),t?null:this,n),t?void 0:this}}var i=e("handle"),a=e(2),u=e(3),c=e("ee").get("tracer"),f=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,t){s[t]=o(d+t,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,o="function"==typeof t;return i(l+"tracer",[f.now(),e,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],n),o)try{return t.apply(this,arguments)}catch(e){throw c.emit("fn-err",[arguments,this,e],n),e}finally{c.emit("fn-end",[f.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=o(l+t)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,f.now()])}},{}],2:[function(e,t,n){function r(e,t){var n=[],r="",i=0;for(r in e)o.call(e,r)&&(n[i]=t(r,e[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],3:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,o=n-t||0,i=Array(o<0?0:o);++r<o;)i[r]=e[t+r];return i}t.exports=r},{}],4:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function o(e){function t(e){return e&&e instanceof r?e:e?c(e,u,i):i()}function n(n,r,o,i){if(!d.aborted||i){e&&e(n,r,o);for(var a=t(o),u=m(n),c=u.length,f=0;f<c;f++)u[f].apply(a,r);var p=s[y[n]];return p&&p.push([b,n,r,a]),a}}function l(e,t){v[e]=m(e).concat(t)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(n)}function g(e,t){f(e,function(e,n){t=t||"feature",y[n]=t,t in s||(s[t]=[])})}var v={},y={},b={on:l,emit:n,get:w,listeners:m,context:t,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",c=e("gos"),f=e(2),s={},p={},d=t.exports=o();d.backlog=s},{}],gos:[function(e,t,n){function r(e,t,n){if(o.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[t]=r,r}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){o.buffer([e],r),o.emit(e,t,n)}var o=e("ee").get("handle");t.exports=r,r.ee=o},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=h.info=NREUM.info,t=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return s.abort();f(y,function(t,n){e[t]||(e[t]=n)}),c("mark",["onload",a()+h.offset],null,"api");var n=d.createElement("script");n.src="https://"+e.agent,t.parentNode.insertBefore(n,t)}}function o(){"complete"===d.readyState&&i()}function i(){c("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),c=e("handle"),f=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1071.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=t.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),c("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script>
+
+  <!-- Duda mobile redirect -->
+  <!--
+  <script src="http://static.mobilewebsiteserver.com/redirect.js" type="text/javascript"></script>
+  <script type="text/javascript">Mobile_redirect("http://m.recipe4living.com");</script>
+  -->
+
+    <title>Privacy | Recipe4Living</title>
+  
+    <meta name="keywords" content="Recipe, Recipes, Easy Recipes, Food Ideas, Quick Recipes, Healthy Recipes, Cooking Tips, Cooking Ideas, Food Tips," />
+  
+  <meta name="description" content="Looking for recipes and cooking tips? Recipe4Living has a recipe for every occasion. Whether you are looking for a quick and easy recipe, healthy recipes, or food ideas & tips for a special occasion, we have you covered." />
+  <meta name="author" content="Recipe4Living, Recipe4Living.com" />
+  <meta name="verify-v1" content="MdhXUubKMGRn6vL5WSVMEXeKt6D4mMrULy9MG+6+Zf8=" />
+
+    <link rel="stylesheet" href="/frontend/recipe4living/css/site.css,nav.css,index.css,articles.css,landing.css,recipes.css,account.css,static.css,stickywin.css?v=a80cb" type="text/css" media="screen" />
+  
+  
+  <link type="text/css" href="/frontend/recipe4living/css/print.css?v=4" media="print" rel="stylesheet">
+  <link rel="stylesheet" href="/frontend/recipe4living/css/duda.css" />
+  <!--[if IE 6]><link href="/frontend/recipe4living/css/ie6.css?v=4" rel="stylesheet" type="text/css" /><![endif]-->
+  <!--[if IE 7]><link href="/frontend/recipe4living/css/ie7.css?v=4" rel="stylesheet" type="text/css" /><![endif]-->
+  <link rel="shortcut icon" href="/frontend/recipe4living/images/favicon.ico" type="image/vnd.microsoft.icon" />
+  <link rel="icon" href="/frontend/recipe4living/images/favicon.ico" type="image/vnd.microsoft.icon" />
+
+  
+    <script type="text/javascript">
+    /* Define global static variables. */
+    DEBUG = false;
+    SITEURL = '';
+    SITESECUREURL = 'https://www.recipe4living.com';
+    SITEINSECUREURL = 'http://www.recipe4living.com';
+    ASSETURL = '/assets';
+    COREASSETURL = '/frontend/base';
+    SITEASSETURL = '/frontend/recipe4living';
+  </script>
+
+    <script type="text/javascript" src="/frontend/base/js/mootoolsCore.js,mootoolsMore.js,StickyWin.js,Interface.js,Nav.js,HistoryManager.js,Forms.js,BrowseArea.js,Autocompleter.js,Milkbox.js,Wizard.js,sifr.js,Slideshow.js,Articles.js?ver=6wnp"></script>
+  
+  <script>
+    
+    if (window.JSON && !window.JSON.parse) {
+      console.log('polyfill JSON.parse');
+      window.JSON.parse = function (sJSON) { return eval('(' + sJSON + ')'); };
+    }
+  </script>
+
+  <script type="text/javascript" src="/frontend/base/js/jquery.min.js,jquery.fancybox-1.3.4.pack.js,jquery.cookie.js"></script>
+
+  <script type="text/javascript">
+    var R4LSignUpDhtml = jQuery.noConflict();
+    var R4LDhtml = jQuery.noConflict();
+  </script>
+
+  
+  
+  <script type="text/javascript">
+    window.addEvent('domready', function () {
+
+      /* Init history manager */
+      HistoryManager.initialize();
+
+      /* Get reference to body content */
+      var bodyContent = $(document.body);
+
+      /* Top nav */
+      var topNav = new TopNav($('nav-top'));
+
+      /* Standard forms */
+      bodyContent.getElements('div.standardform, fieldset.standardform').each(function(formcontainer) {
+        var standardForm = new StandardForm(formcontainer);
+      });
+
+      
+      /* Popups */
+      var infoPopups = new InfoPopups(bodyContent.getElements('a.info-popup'));
+      var printPopups = new AssetPopups(bodyContent.getElements('a.print-popup'), {
+        windowKey: 'recipe4living_print_popup'
+      });
+
+      /* Page scroll */
+      var pageScroll = new PageScroll(bodyContent.getElements('a.scroll'), {
+        wheelStops: false
+      });
+
+      /* Start history manager */
+      HistoryManager.start();
+
+      /* Input over text */
+      $$('input.simpletext, textarea.simpletext').each(function(input) {
+        new InputText(input);
+      });
+
+    });
+
+    window.addEvent('load', function() {
+          });
+  </script>
+
+  <!-- Yieldbot.com Intent Tag LOADING -->
+  <script type="text/javascript" src="https://cdn.yldbt.com/js/yieldbot.intent.js"></script>
+  <!-- Yieldbot.com Intent Tag ACTIVATION -->
+  <script type="text/javascript">
+    yieldbot.pub('6e09');
+    yieldbot.defineSlot('LB_ATF');
+    yieldbot.defineSlot('MR_ATF');
+    yieldbot.defineSlot('MR_Mid');
+    yieldbot.defineSlot('LB_BTF');
+    yieldbot.go();
+  </script>
+  <!-- END Yieldbot.com Intent Tag -->
+
+  <!-- ~ Copyright (C) 2014-2015 Media.net Advertising FZ-LLC All Rights Reserved -->
+<script type="text/javascript">
+  window._mNHandle = window._mNHandle || {};
+  window._mNHandle.queue = window._mNHandle.queue || [];
+  medianet_versionId = "121199";
+  (function() {
+    var sct = document.createElement("script"),
+        sctHl = document.getElementsByTagName("script")[0],
+        isSSL = 'https:' == document.location.protocol;
+    sct.type = "text/javascript";
+    sct.src = (isSSL ? 'https:' : 'http:') + '//contextual.media.net/dmedianet.js?cid=8CU52X6SM' + (isSSL ? '&https=1' : '')+'';
+    sct.async = "async";
+    sctHl.parentNode.insertBefore(sct, sctHl);
+  })();
+</script>
+
+
+  
+  <meta name="msvalidate.01" content="E03168D9BB4076DC3C37E21B03C7EE91" />
+  <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+
+  
+</head>
+
+<body>
+
+<!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-PPMDBL"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PPMDBL');</script>
+<!-- End Google Tag Manager -->
+
+
+<!--Sticky Menu-->
+<script type="text/javascript" src="/frontend/base/js/stickymenu.js"></script>
+
+
+<div id="nav-header">
+  <div class="site-wrapper" id="top-ad"><div class="screenonly">
+
+  <script type="text/javascript">
+    var LB_ATF_Params = { ybot_slot:"LB_ATF", ybot_size:"", ybot_cpm:"" };
+    try {
+      LB_ATF_Params = yieldbot.getSlotCriteria('LB_ATF');
+    }
+    catch(e) {/*ignore*/}
+  </script>
+
+  <!--/* OpenX Asynchronous JavaScript tag */-->
+  <div id="537229262_728x90ATF" style="width:728px;height:90px;margin:0;padding:0">
+    <noscript><iframe id="f17dd02004" name="f17dd02004" src="//junemedia-d.openx.net/w/1.0/afr?auid=537229262&cb=INSERT_RANDOM_NUMBER_HERE" frameborder="0" scrolling="no" width="728" height="90"><a href="//junemedia-d.openx.net/w/1.0/rc?cs=f17dd02004&cb=INSERT_RANDOM_NUMBER_HERE" ><img src="//junemedia-d.openx.net/w/1.0/ai?auid=537229262&cs=f17dd02004&cb=INSERT_RANDOM_NUMBER_HERE" border="0" alt=""></a></iframe></noscript>
+  </div>
+  <script type="text/javascript">
+    var OX_ads = OX_ads || [];
+    OX_ads.push({
+      slot_id: "537229262_728x90ATF",
+      auid: "537229262",
+      vars: { "ybot_slot":LB_ATF_Params.ybot_slot, "ybot_size": LB_ATF_Params.ybot_size, "ybot_cpm": LB_ATF_Params.ybot_cpm }
+    });
+  </script>
+
+  <script type="text/javascript" src="//junemedia-d.openx.net/w/1.0/jstag"></script>
+  <!-- end openx 728x90ATF -->
+
+</div>
+</div>
+  <div class="site-wrapper">
+    <div id="logo">
+      <a href="/"><img style="width:387px;margin-left: -5px;" class="screenonly" alt="Recipe4Living" src="/frontend/recipe4living/images/site/R4L-Homepage-Logo.png" /></a>
+      <a href="/"><img class="printonly" alt="Recipe4Living" src="/frontend/recipe4living/images/site/R4L-Homepage-Logo.png" /></a>
+    </div>
+            <div class="tagline"><h4>Easy recipes and a helping of fun from home cooks like you.</h4></div>
+    <div class="standardform screenonly">
+      <div id="nav-links" class="screenonly text-content fr">
+        <ul>
+          <li>
+                                      <a href="/facebook/login/" id="sign_in"><span>Login</span></a> /
+              <a href="/register/" id="join_now"><span>Register</span></a>
+                      </li>
+        </ul>
+      </div>
+      <div class="formholder">
+        <form id="nav-top-form-search" action="/search" method="get" class="search fullsubmit">
+          <div>
+            <div class="categories">
+              <label class="radio"><input class="controllerradio" name="controller" type="radio" value="recipes" checked="checked" /> Recipes</label>
+              <label class="radio"><input class="controllerradio" name="controller" type="radio" value="articles" /> Articles</label>
+              <!--<label class="radio"><input class="controllerradio" name="controller" type="radio" value="profile" /> UserName</label>-->
+              <div class="clear"></div>
+            </div>
+            <input class="textinput simpletext fl" type="text" title="Enter search keywords..." autocomplete="off" name="searchterm" value="" />
+                        <button class="button-lg fl" type="submit" title="Find"><span>Search</span></button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+
+	
+	<div id="nav-top" class="screenonly">
+		<div class="site-wrapper">
+			<ul id="nav-top-list">
+
+				<li class="parent home">
+					<div class="nav-item">
+						<a href="/"><span>Home</span></a>
+					</div>
+				</li>
+
+				<li class="parent recipes drops">
+					<div class="nav-item">
+						<a href="/recipes"><span>Recipes</span></a>
+					</div>
+					<div class="nav-popup">
+						<div class="nav-popup-bg">
+							<div class="dd-products">
+								<ul>
+									<li><a href="/appetizers">Appetizers</a></li>
+									<li><a href="/crockpot">Crockpot</a></li>
+									<li><a href="/casseroles">Casseroles</a></li>
+									<li><a href="/desserts">Desserts</a></li>
+									<li><a href="/main_courses">Main Courses</a></li>
+								</ul>
+								<div class="clear"></div>
+							</div>
+						</div>
+					</div>
+				</li>
+
+				<li class="parent">
+					<div class="nav-item">
+						<a href="/hints_tips/recipe_collections"><span>Recipe Collections</span></a>
+					</div>
+				</li>
+
+				<!--<li class="parent">
+					<div class="nav-item">
+						<a href="/articles"><span>Articles</span></a>
+					</div>
+				</li>-->
+				<li class="parent">
+					<div class="nav-item">
+						<a href="http://win.recipe4living.com/" target="_blank"><span>Giveaways</span></a>
+					</div>
+				</li>
+
+				<li class="parent">
+					<div class="nav-item">
+						<a href="/hints_tips/product_reviews"><span>Product Reviews</span></a>
+					</div>
+				</li>
+
+				<li class="parent" style="padding:0px;">
+					<div class="nav-icon-item">
+						<span>Follow Us:</span>
+						<a href="http://goo.gl/8XKWk" target="_blank"><img src="/frontend/recipe4living/images/site/R4l-facebook.png"/></a>
+						<a href="http://goo.gl/QWWuy" target="_blank"><img src="/frontend/recipe4living/images/site/R4l-twitter.png"/></a>
+						<a href="http://goo.gl/LBcYo" target="_blank"><img src="/frontend/recipe4living/images/site/R4l-pinterest.png"/></a>
+						<a href="http://bit.ly/ZxqJ3w" target="_blank"><img src="/frontend/recipe4living/images/site/R4l-googleplus.png"/></a>
+					</div>
+				</li>
+				
+
+			</ul>
+		</div>
+	</div>
+
+
+<div id="content-wrapper">
+  <div class="site-wrapper">
+
+	<div id="main-content" class="static">
+
+		<div id="column-container">
+			<div id="panel-center" class="column">
+		
+				<div id="privacy-policy" class="rounded"><div class="content">
+
+					<h1>Recipe4Living Privacy Policy</h1>
+			
+						
+					<div class="text-content">
+
+					
+		<p>Recipe4Living.com, a property of Silvercarrot.com and Ampere Media LLC, has created this Privacy Policy to demonstrate our firm commitment to your privacy and the protection of your personally identifiable information at the Recipe4Living.com website (the "Website"). As part of our business, we collect and, in some instances, may disclose information about you - but only as set forth in this Privacy Policy. To better protect your privacy, we provide this notice explaining our personal information collection and use practices and the choices that you can make concerning the use of your personal information. This Privacy Policy also applies to individuals that have agreed to receive e-mail marketing from Recipe4Living.com or one of our advertising partners, whether at the Website, via e-mail, on third-party websites or otherwise.</p>
+<h2>Information Collected and Use of Your Information</h2>
+<p>For each visitor to the Website, our servers automatically recognize only the visitor's domain name, but not the e-mail address (unless requested and supplied by the visitor as a part of registration).</p>
+<p>You must register to become a member at Recipe4Living.com in order to qualify to receive the products and services available through our Website.<!-- Some offers require a subsequent registration on the Milesource.com website. To qualify and claim these offers, the instructions posted on the Milesource.com website must be followed. The instructions may require the completion of a registration form, the completion of a survey and several weeks of active Milesource participation. Please review the Milesource.com website for specific instructions as they apply to the individual offers. If you wish to join Milesource.com to claim the offer and NOT join the Website please <a href="http://www.milesource.com/join/join.php3" mce_href="http://www.milesource.com/join/join.php3" target="_blank">click here</a>. This link will direct you to a general Milesource.com registration page where you can begin the registration process. On Milesource.com, you can view the offer of interest in the Milesource Award Center and the number of AwardMiles required to redeem that offer.--></p>
+<p>As part of our on-going efforts to ensure the best possible experience for all visitors to the Website, we collect data from browsers to aggregate statistical information. This includes the type of browser being used, its level of HTML support and what platform it is on. This Privacy Policy also applies to visitors to the Website that have agreed to receive e-mail marketing from Recipe4Living.com, but have not separately registered to become a Recipe4Living.com member. The personal profile information that you submit to Recipe4Living.com remains your property, but by submitting that information to Recipe4Living.com, its partners including, but not limited to, SilverNGold, Dealhighway.com, ConsumerValueDirect.com, SmartBrands, BargainSpot, SavingsAvalanche, Deal-zone.com, Couponandgifts.com, AskVinegarJoe.com, TVNewsDaily.com, AsmileADay.com, TensionBusters.com, YourDailySmile.com, YourSelfDaily.com, YourtimeDaily.com and/or any and all other affiliates, you Recipe4Living.com the right to use that information for marketing purposes.</p>
+<p>When visitors elect to become members of Recipe4Living.com, we request that they provide additional, personally-identifiable information. This includes name, address, e-mail address, telephone number, age bracket, day and month of birth. All registrants may receive e-mail confirming their registration, and subsequent correspondence. Certain information, such as your e-mail address, is collected in order to, among other functions, verify your identity in the future within our database. When you select to receive information about offerings from a third party company during the registration process, we will share your personal information with that third party company to carry out your information request. Recipe4Living.com may also use such information to directly market certain offers to you (via e-mail, direct mail and/or telemarketing), to monitor compliance with our Terms and Conditions and for content improvement and feedback purposes. We may sell the personal information that you supply to us and we may join together with other businesses to bring selected retail opportunities to our members. These businesses may include, but are not limited to: (a) providers of direct marketing services and applications, including lookup and reference, data enhancement, suppression and validation; (b) e-mail marketers; and (c) telemarketers.</p>
+<p>We may also employ other companies and individuals to perform certain functions on our behalf. Examples include sending direct and electronic mail, removing duplicate information from customer lists, analyzing data, and providing marketing analysis. These agents have access to our members' personal information as needed to perform their functions for Recipe4Living.com, but we do not permit them to use our members' personal information for other purposes.</p>
+<p>Recipe4Living.com reserves the right to release current or past member information in the event Recipe4Living.com believes that the membership is being or has been used in violation of the Website's terms and conditions, or to commit unlawful acts, if the information is subpoenaed, if Recipe4Living.com is sold or acquired, or when Recipe4Living.com deems it necessary or appropriate. By agreeing to these conditions, you hereby consent to disclosure of any record or communication to any third party, when Recipe4Living.com, in its sole discretion, determines the disclosure to be appropriate including, without limitation, sharing your e-mail address with other third-parties for suppression purposes in compliance with the CAN-SPAM Act of 2003, as amended from time to time, and Federal Trade Commission enabling regulations.</p>
+<p>In addition, by registering at the Website, you agree that such act constitutes an inquiry and/or application for purposes of the Amended Telemarketing Sales Rule (16 CFR &sect;310 et seq.), as amended from time to time (the "Rule"). Notwithstanding that your telephone number may be listed at the Federal Trade Commission's Do-Not-Call List, we retain the right to contact you via telemarketing in accordance with the Rule.</p>
+<p>From time to time, we may receive personal information about you from outside sources and add it to your existing registration information on file at the Website. We do this to improve personalization of our services (for example, providing better newsletter content, advertising and/or special offers that we think may be of interest you).</p>
+<p>We may also collect other information such as your IP address, domain names, access times and referring third party website addresses. This information is used by Recipe4Living.com for the operation of the Website, to maintain the quality of our offerings, and to provide general aggregate statistics regarding Recipe4Living.com. Such information is not personally identifiable.</p>
+<p>We also collect information such as the identification of the server that your computer is logged onto and whether you opened a Recipe4Living.com e-mail message delivered to you. We also may compare our member list to various lists received from other third party companies, in an effort to avoid sending identical or similar e-mail messages to our members.</p>
+<p>When you obtain any product or service directly from Recipe4Living.com, we collect certain financial information, such as your credit card number, credit card expiration date and billing address. Financial Information that you disclose to Recipe4Living.com is used to confirm your age and to bill you for shipping our products and services. To the extent that customer credit card-specific information is collected by Recipe4Living.com, said information will be kept in confidence and will not be shared with any third parties (other than consumer credit agencies) without your prior informed consent. Notwithstanding the foregoing, Recipe4Living.com reserves the right to share with third parties the fact that we have credit card information on file for specific customers but we will not share the specific credit card information with third parties without your prior informed consent.</p>
+<p>When you visit the Site, we may collect certain  non-personally-identifiable information from you, including your IP  address, browser type and language, the domain name from which you  accessed the Site and the date and time of your visit. In addition, we  may collect information about your browsing behavior, such as the areas  or pages of the Site that you visit, the amount of time you spend  viewing the Site, the number of times you return to the Site and other  clickstream data.<br /> <br /> We may use cookies to collect the non-personal information described  above. A cookie is a small text file that is stored on the hard drive of  your computer when you access the Site. We may also use cookies to: (1)  allow you to use the Site without having to re-enter your user name and  password; (2) monitor Site usage; (3) manage the Site; and (4) improve  the Site and our services. You are free to decline cookies, but by doing  so, you may not be able to use certain features on the Site. Check the  &ldquo;Help&rdquo; menu of your browser to learn how to change your cookie  preferences.<br /> <br /> We may also use web beacons on the Site, in our emails and in our  advertisements on other websites. Web beacons are tiny graphic images  that are used to collect information about your Site visit, such as the  pages you view and the features you use, as well as information about  whether you open and/or act upon one of our emails or advertisements.  Web beacons help us analyze our Site visitors' behavior and measure the  effectiveness of the Site and our advertising. We may work with service  providers that help us track, collect and analyze this information. In  addition, we may use third-party advertising companies to serve ads when  you visit the Site and to serve our advertisements across the Internet.  These companies may use non-personally identifiable information about  your visits to the Site and other websites in order to provide  advertisements about goods and services of interest to you. If you would  like more information about this practice and to know your choices  about not having this information used by these companies, <a href="http://www.allaboutcookies.org/web-beacons/" target="_blank">click here</a>.</p>
+<p>Notwithstanding any other provision, we may also engage a data provider who may collect web log data from you (including IP address and information about your browser or operating system), or place or recognize a unique cookie on your browser to enable you to receive customized ads or content.   These cookies contain no personally identifiable information.  The cookies may reflect de-identified demographic or other data linked to data you voluntarily have submitted to us, e.g., your email address, that we may share with a data provider solely in hashed, non-human readable form. To opt-out of these data provider cookies, please go to <a href="http://www.aboutads.info/choices">http://www.aboutads.info/choices</a>.</p>
+<h2>Unsubscribe (Opt Out)</h2>
+<p>If you do not want to receive e-mail from us in the future, please let us know by using the unsubscribe option on the bottom of every email. You can also manage your newsletter subscriptions by visiting Recipe4Living.com and clicking on the "Manage My Subscriptions" link on the top right-hand side of the home page.</p>
+<h2>Information Collection Processes</h2>
+<p>Recipe4Living.com may employ "cookies" to help customize your access to the Website. A cookie is a piece of data stored on a your hard drive containing information about you. Cookies have many benefits to enhance your experience at our Website. For instance, by setting a cookie on our Website, a member would not have to log in a password more than once, thereby saving time while on our Website. Even in the case where a member rejects a cookie, they may still use our Website. The only drawback to this is that the member will be limited in what he/she can access in some areas on our Website, much like visitor-level access.</p>
+<p>We occasionally use cookies to anonymously track and target the interests of our members to further enhance the experience on our Website or for advertising tracking purposes. To find out more about cookies, please visit <a href="http://www.cookiecentral.com/" target="_blank">www.cookiecentral.com</a>.</p>
+<p>In addition to cookies, our Website pages and/or e-mails may contain electronic images known as "pixel tags" (also knows as clear gifs) to track the pages that visitors and/or members visit at the Website for purposes of formatting future campaigns and upgrading visitor information used in reporting statistics.</p>
+<p>Our Website may also contain pixel tags placed there by third parties to help determine the effectiveness of a joint promotional or advertising campaign.</p>
+<h2>Security</h2>
+<p>Recipe4Living.com has security measures in place to protect the loss, misuse, and alteration of personal information under our control. Currently Recipe4Living.com uses Secure Socket Layer Software (SSL) to protect data and secure any transactions. SSL encrypts information, including credit card numbers, names and addresses as they are transmitted over the Internet. Please be advised that, although we take every reasonable technological precaution available to protect your data, no data transmission over the Internet can be guaranteed to be 100% secure. Therefore, Recipe4Living.com cannot warrant that your information will be absolutely secure. Any transmission of data at or through our Website is at your own risk. However, access to your information is strictly limited, and not accessible to the public. Our employees are dedicated to ensuring the security and privacy of all Recipe4Living.com user information. Employees not adhering to our firm policies are subject to disciplinary action.</p>
+<h2>Minors</h2>
+<p>Individuals under 18 years of age are not permitted to participate in obtaining products and/or services at Recipe4Living.com. No information should be submitted to, or posted at, Recipe4Living.com by visitors under 18 years of age without the prior consent of their parent or guardian. Notwithstanding the foregoing, children 13 years of age and younger are not permitted to access Recipe4Living.com for any reason and we do not knowingly collect personal information from such children. We encourage parents and guardians to spend time online with their children and to participate and monitor the interactive activities of their children.</p>
+<h2>Third-Party Links</h2>
+<p>Recipe4Living.com does not endorse, nor is Recipe4Living.com responsible for the accuracy of, the privacy policies and/or terms and conditions of each of the advertisers and/or third parties accessible through the Recipe4Living.com Website. The entities that advertise and/or place banner ads at Recipe4Living.com are independent third parties and not affiliated with Recipe4Living.com.</p>
+<p>We use third-party advertising companies to serve ads and collect data when you visit our Web site. These companies may use aggregated information (not including your name, address, email address or telephone number) about your visits to this and other Web sites in order to provide advertisements on this site, other sites, and other forms of media about goods and services of interest to you. If you would like more information about this practice and to know your choices about not having this information used by these companies, please see: <a href="http://www.networkadvertising.org/managing/opt_out.asp" target="_blank">http://www.networkadvertising.org/managing/opt_out.asp</a>.</p>
+<h2>Acceptance of this Privacy Policy</h2>
+<p>By using this Website including, without limitation, signing up for offers and/or continuing to receive information from Recipe4Living.com, you agree to the Recipe4Living.com Privacy Policy. We reserve the right, at our discretion, to change, modify, add, and/or remove portions of this Privacy Policy at any time. All changes will take effect immediately upon their posting on our Website. Please check this page periodically for changes. Your continued use of Recipe4Living.com or acceptance of our e-mails following the posting of changes to this Privacy Policy will mean that you accept any and all such changes and agree to continue receiving directing marketing from us and other third party companies. If you do not agree to the terms of this Privacy Policy, please unsubscribe at the bottom of our e-mail. If you have questions about this Privacy Policy, please contact us at:</p>
+<p>Recipe4Living<br /> Customer Service<br /> 3400 Dundee Rd, suite 236<br /> Northbrook, IL 60062<br /> (847) 205-9320</p>						
+											
+					</div>
+
+				</div></div>
+
+			</div>
+	
+			<div id="panel-left" class="column">
+				
+	<div id="nav-left" class="rounded">
+		<h2 class="main">Recipes</h2>
+		
+		<div class="content">
+						<div class="block">
+				<ul class="text-content">
+										 
+					<li><a href=/appetizers>Appetizer Recipes</a></li>										 
+															 
+															 
+					<li><a href=/breakfast>Breakfast Recipes</a></li>										 
+															 
+					<li><a href=/casseroles>Casserole Recipes</a></li>										 
+					<li><a href=/budget_cooking>Cheap Recipes</a></li>										 
+															 
+					<li><a href=/copycat>Copycat Recipes</a></li>										 
+					<li><a href=/crockpot>Crockpot Recipes</a></li>										 
+					<li><a href=/desserts>Dessert Recipes</a></li>										 
+					<li><a href=/diabetic>Diabetic Recipes</a></li>										 
+					<li><a href=/beverages>Drink Recipes</a></li>										 
+															 
+															 
+					<li><a href=/special_occasion>Holiday Recipes</a></li>										 
+					<li><a href=/global_cuisines>International Recipes</a></li>										 
+															 
+															 
+															 
+					<li><a href=/main_courses>Main Courses</a></li>										 
+															 
+					<li><a href=/vegetarian_vegan>Meatless Recipes</a></li>										 
+															 
+															 
+															 
+					<li><a href=/quick_easy>Quick & Easy</a></li>										 
+					<li><a href=/salads>Salad Recipes</a></li>										 
+															 
+															 
+															 
+					<li><a href=/sides>Side Dish Recipes</a></li>										 
+															 
+															 
+															 
+															 
+										
+				</ul>
+			</div>
+					</div>
+	</div>
+
+  <div class="screenonly" style="padding: 5px 15px;">
+  <script id="mNCC" language="javascript">
+    medianet_width = "120";
+    medianet_height = "300";
+    medianet_crid = "578022840";
+    medianet_versionId = "111299";
+    (function() {
+      var isSSL = 'https:' == document.location.protocol;
+      var mnSrc = (isSSL ? 'https:' : 'http:') + '//contextual.media.net/nmedianet.js?cid=8CU52X6SM' + (isSSL ? '&https=1' : '');
+      document.write('<scr' + 'ipt type="text/javascript" id="mNSC" src="' + mnSrc + '"></scr' + 'ipt>');
+    })();
+  </script>
+</div>
+			</div>
+	
+			<div id="panel-right" class="column">
+				<div class="ad"><div class="screenonly">
+
+  <script type="text/javascript">
+    var MR_ATF_Params = { ybot_slot:"MR_ATF", ybot_size:"", ybot_cpm:"" };
+    try {
+      MR_ATF_Params = yieldbot.getSlotCriteria('MR_ATF');
+    }
+    catch(e) {/*ignore*/}
+  </script>
+
+  <!--/* OpenX Asynchronous JavaScript tag */-->
+  <div id="537229258_300x250ATF" style="width:300px;height:250px;margin:0;padding:0">
+    <noscript><iframe id="c9c2130980" name="c9c2130980" src="//junemedia-d.openx.net/w/1.0/afr?auid=537229258&cb=INSERT_RANDOM_NUMBER_HERE" frameborder="0" scrolling="no" width="300" height="250"><a href="//junemedia-d.openx.net/w/1.0/rc?cs=c9c2130980&cb=INSERT_RANDOM_NUMBER_HERE" ><img src="//junemedia-d.openx.net/w/1.0/ai?auid=537229258&cs=c9c2130980&cb=INSERT_RANDOM_NUMBER_HERE" border="0" alt=""></a></iframe></noscript>
+  </div>
+  <script type="text/javascript">
+    var OX_ads = OX_ads || [];
+    OX_ads.push({
+      slot_id: "537229258_300x250ATF",
+      auid: "537229258",
+      vars: { "ybot_slot":MR_ATF_Params.ybot_slot, "ybot_size": MR_ATF_Params.ybot_size, "ybot_cpm": MR_ATF_Params.ybot_cpm }
+    });
+  </script>
+
+  <script type="text/javascript" src="//junemedia-d.openx.net/w/1.0/jstag"></script>
+  <!-- end openx 300x250ATF -->
+
+</div>
+</div>
+	
+				
+	<div id="reference_guides" class="rounded">
+		<div class="content">
+			<h2>Reference Guides</h2>
+			<div class="text-content">
+				
+								<ul>
+										<li><a href="/articles/encyclopedia_of_tips.htm">Encyclopedia of Tips</a></li>
+										<li><a href="/articles/emergency_substitutions.htm">Emergency Substitutions</a></li>
+										<li><a href="/slidearticles/details/food_storage_guidelines/1">Food Storage Guidelines</a></li>
+										<li><a href="/slidearticles/details/selecting_and_storing/1">Selecting and Storing Meat, Fruits, and Vegetables</a></li>
+										<li><a href="/articles/dictionary_of_herbs_and_spices.htm">Dictionary of Herbs and Spices</a></li>
+									</ul>
+								
+								
+							
+				<div class="clear"></div>
+			</div>
+		</div>
+	</div>
+	
+		
+				<div class="ad"><!-- OpenX -->
+<div class="ad">
+  <div class="screenonly">
+
+    <script type="text/javascript">
+      var MR_Mid_Params = { ybot_slot:"MR_Mid", ybot_size:"", ybot_cpm:"" };
+      try {
+        MR_Mid_Params = yieldbot.getSlotCriteria('MR_Mid');
+      }
+      catch(e) {/*ignore*/}
+    </script>
+
+    <!--/* OpenX Asynchronous JavaScript tag */-->
+    <div id="537229261_300x250BTF" style="width:300px;height:250px;margin:0;padding:0">
+      <noscript><iframe id="d2ccdb3a36" name="d2ccdb3a36" src="//junemedia-d.openx.net/w/1.0/afr?auid=537229261&cb=INSERT_RANDOM_NUMBER_HERE" frameborder="0" scrolling="no" width="300" height="250"><a href="//junemedia-d.openx.net/w/1.0/rc?cs=d2ccdb3a36&cb=INSERT_RANDOM_NUMBER_HERE" ><img src="//junemedia-d.openx.net/w/1.0/ai?auid=537229261&cs=d2ccdb3a36&cb=INSERT_RANDOM_NUMBER_HERE" border="0" alt=""></a></iframe></noscript>
+    </div>
+    <script type="text/javascript">
+      var OX_ads = OX_ads || [];
+      OX_ads.push({
+      slot_id: "537229261_300x250BTF",
+      auid: "537229261",
+      vars: { "ybot_slot":MR_Mid_Params.ybot_slot, "ybot_size": MR_Mid_Params.ybot_size, "ybot_cpm": MR_Mid_Params.ybot_cpm }
+      });
+    </script>
+
+    <script type="text/javascript" src="//junemedia-d.openx.net/w/1.0/jstag"></script>
+    <!-- end openx 300x250BTF -->
+
+  </div>
+</div>
+<!-- zergnet -->
+<div class="ad">
+	<div style="font-family:Arial color:#000000; font-size:18px; font-weight:bold !important;">Around The Web</div>
+  <div id="zergnet-widget-49586"></div>
+</div>
+
+<script language="javascript" type="text/javascript">
+  (function() {
+    var zergnet = document.createElement('script');
+    zergnet.type = 'text/javascript'; zergnet.async = true;
+    zergnet.src = (document.location.protocol == "https:" ? "https:" : "http:") + '//www.zergnet.com/zerg.js?id=49586';
+    var znscr = document.getElementsByTagName('script')[0];
+    znscr.parentNode.insertBefore(zergnet, znscr);
+  })();
+</script>
+<!-- /zergnet -->
+<!-- ~ Copyright (C) 2014 Media.net Advertising FZ-LLC All Rights Reserved -->
+<div class="ad">
+  <div id="877521783">
+    <script type="text/javascript">
+      try {
+        window._mNHandle.queue.push(function () {
+          window._mNDetails.loadTag("877521783", "300x125", "877521783");
+        });
+      }
+      catch (error) {}
+    </script>
+  </div>
+</div>
+</div>
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	</div>
+    <div class="clear"></div>
+    <div id="footer-ad"><div class="screenonly">
+
+  <script type="text/javascript">
+    var LB_BTF_Params = { ybot_slot:"LB_BTF", ybot_size:"", ybot_cpm:"" };
+    try {
+      LB_BTF_Params = yieldbot.getSlotCriteria('LB_BTF');
+    }
+    catch(e) {/*ignore*/}
+  </script>
+
+  <!--/* OpenX Asynchronous JavaScript tag */-->
+  <div id="537229263_728x90BTF" style="width:728px;height:90px;margin:0;padding:0">
+    <noscript><iframe id="b44a172e15" name="b44a172e15" src="//junemedia-d.openx.net/w/1.0/afr?auid=537229263&cb=INSERT_RANDOM_NUMBER_HERE" frameborder="0" scrolling="no" width="728" height="90"><a href="//junemedia-d.openx.net/w/1.0/rc?cs=b44a172e15&cb=INSERT_RANDOM_NUMBER_HERE" ><img src="//junemedia-d.openx.net/w/1.0/ai?auid=537229263&cs=b44a172e15&cb=INSERT_RANDOM_NUMBER_HERE" border="0" alt=""></a></iframe></noscript>
+  </div>
+  <script type="text/javascript">
+    var OX_ads = OX_ads || [];
+    OX_ads.push({
+      slot_id: "537229263_728x90BTF",
+      auid: "537229263",
+      vars: { "ybot_slot":LB_BTF_Params.ybot_slot, "ybot_size": LB_BTF_Params.ybot_size, "ybot_cpm": LB_BTF_Params.ybot_cpm }
+    });
+  </script>
+
+  <script type="text/javascript" src="//junemedia-d.openx.net/w/1.0/jstag"></script>
+  <!-- end openx 728x90BTF -->
+
+</div>
+</div>
+  </div>
+</div>
+
+<div id="footer" class="site-wrapper screenonly">
+
+  <div style="text-align: center; margin: 0px; padding-bottom: 0px;background-color: background:#e2ded5;">
+    <img src="/frontend/recipe4living/images/site/FamilyOfSites.png" border="0" />
+  </div>
+
+  
+  <div style="width: 980px;" id="mainFooterDiv">
+    <div class="rssdiv" id="ffrss">
+
+      <ol class="rssfeed">          <div id="li_item">
+            <a target="_blank" title="Best-Ever Eggs Benedict" href="http://www.fitandfabliving.com/recipes/12304-eggs-benedict">
+              Best-Ever Eggs Benedict</a>
+          </div>
+
+                    <div id="li_item">
+            <a target="_blank" title="8 Healthy Holiday Weekend Brunch Ideas" href="http://www.fitandfabliving.com/recipes/12296-8-healthy-brunches-that-ll-wake-you-up-this-morning">
+              8 Healthy Holiday Weekend...</a>
+          </div>
+
+                    <div id="li_item">
+            <a target="_blank" title="Light Strawberry Crepes" href="http://www.fitandfabliving.com/recipes/12297-light-strawberry-crepes">
+              Light Strawberry Crepes</a>
+          </div>
+
+          </li>    </div>
+
+    <div class="rssdiv" id="wimrss">
+      <ol class="rssfeed">          <div id="li_item">
+            <a target="_blank" title="Easy Summer Work Look" href="http://www.workitmom.com/articles/detail/202119/easy-summer-work-look">
+              Easy Summer Work Look                  </a>
+              </div>
+                    <div id="li_item">
+            <a target="_blank" title="No-Bake Mint Chocolate Ice Cream Bars" href="http://www.workitmom.com/articles/detail/202115/no-bake-mint-chocolate-ice-cream-bars">
+              No-Bake Mint Chocolate Ice...                  </a>
+              </div>
+                    <div id="li_item">
+            <a target="_blank" title="No-Bake Lemon Bar Dessert" href="http://www.workitmom.com/articles/detail/202113/no-bake-lemon-bar-dessert">
+              No-Bake Lemon Bar Dessert                  </a>
+              </div>
+          </ol>    </div>
+
+    <div class="rssdiv" id="rwmrss">
+      <ol class="rssfeed">
+      <div id="li_item"><a target="_blank" title="Beautiful Appetizer Recipes" href="http://www.savvyfork.com/component/yoorecipe/category/11-appetizers.html">Beautiful Appetizer Recipes</a></div>
+      <div id="li_item"><a target="_blank" title="Sumptuous Main Dish Recipes" href="http://www.savvyfork.com/component/yoorecipe/category/13-main-dishes.html">Sumptuous Main Dish Recipes</a></div>
+      <div id="li_item"><a target="_blank" title="Gorgeous Dessert Recipes" href="http://www.savvyfork.com/component/yoorecipe/category/15-desserts.html">Gorgeous Dessert Recipes</a></div>
+      </ol>
+    </div>
+
+    <div class="rssdiv" id="cotrss">
+    <ol class="rssfeed"></ol>    </div>
+      <div style="clear: left;"></div>
+
+    <div class="mainFooterDiv">
+      <a target="_blank" id="box-link-ff" href="http://www.fitandfabliving.com/"></a>
+      <a target="_blank" id="box-link-wim" href="http://www.workitmom.com/"></a>
+      <a target="_blank" id="box-link-rwm" href="http://www.savvyfork.com/"></a>
+      <a target="_blank" id="box-link-cot" href="http://www.chewonthatblog.com/"></a>
+    </div>
+
+    <div style="clear: left;"></div>
+
+    <div id="topLinks" style="text-align: center;padding-top:150px;">
+      <span style="padding-left: 0px;">
+        <a href="/about">About Us</a>&nbsp;|&nbsp;
+        <a href="/contact/">Contact Us</a>&nbsp;|&nbsp;
+        <a href="/press">Press Room</a>&nbsp;|&nbsp;
+        <a href="/sitemap">Site Map</a>&nbsp;|&nbsp;
+        <a href="/index/links">Advertising</a>&nbsp;|&nbsp;
+        <a href="/privacy">Privacy Policy</a>&nbsp;|&nbsp;
+        <a href="/terms">Terms of Use</a>&nbsp;|&nbsp;
+        <a href="/index/unsub">Unsubscribe</a>&nbsp;|&nbsp;
+        <a href="/index/subctr">Manage My Newsletters</a>
+      </span>
+      <p class="text-content"><br>&copy; 2018 <a href="http://www.junemedia.com/" target="_blank">June Media Inc</a> All rights reserved</p>
+    </div>
+  </div>
+
+</div>
+
+<div class="clear"></div>
+
+  <script type="text/javascript" src="http://edge.quantserve.com/quant.js"></script>
+  <script type="text/javascript">
+    _qacct="p-ed7ji9FtIlPSo";quantserve();
+  </script>
+
+
+
+
+<div class="screenonly"><!--- UNDERDOGMEDIA EDGE EDGE_Recipe4Living.com JavaScript ADCODE START--->
+<script data-cfasync="false" language="javascript" async src="//udmserve.net/udm/img.fetch?sid=9462;tid=1;ev=1;dt=6;"></script>
+<!--- UNDERDOGMEDIA EDGE EDGE_Recipe4Living.com JavaScript ADCODE END--->
+</div>
+
+
+<!-- BEGIN SiteCTRL Script -->
+<script type="text/javascript">
+if(document.location.protocol=='http:'){
+var Tynt=Tynt||[];Tynt.push('dRKpBGeA8r5kFwacwqm_6l');
+(function(){var s=document.createElement('script');s.async="async";s.type="text/javascript";s.src='http://tcr.tynt.com/ti.js';var h=document.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);})();
+}
+</script>
+<!-- END SiteCTRL Script -->
+<script type="text/javascript" src="//b-code.liadm.com/a-00js.min.js" async="true" charset="utf-8"></script>
+<script type="text/javascript" async="async" src="https://widgets.outbrain.com/outbrain.js"></script>
+
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"5080428538","applicationID":"9765876","transactionName":"Y1EHYxNXV0UAUEZdV1obMEUIGVBYBVZKGkhcRA==","queueTime":0,"applicationTime":181,"atts":"TxYEFVtNREs=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>

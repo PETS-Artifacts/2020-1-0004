@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var o=t[n]={exports:{}};e[n][0].call(o.exports,function(t){var o=e[n][1][t];return r(o||t)},o,o.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(e,t,n){function r(){}function o(e,t,n){return function(){return i(e,[f.now()].concat(u(arguments)),t?null:this,n),t?void 0:this}}var i=e("handle"),a=e(2),u=e(3),c=e("ee").get("tracer"),f=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,t){s[t]=o(d+t,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,o="function"==typeof t;return i(l+"tracer",[f.now(),e,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],n),o)try{return t.apply(this,arguments)}catch(e){throw c.emit("fn-err",[arguments,this,e],n),e}finally{c.emit("fn-end",[f.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=o(l+t)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,f.now()])}},{}],2:[function(e,t,n){function r(e,t){var n=[],r="",i=0;for(r in e)o.call(e,r)&&(n[i]=t(r,e[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],3:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,o=n-t||0,i=Array(o<0?0:o);++r<o;)i[r]=e[t+r];return i}t.exports=r},{}],4:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function o(e){function t(e){return e&&e instanceof r?e:e?c(e,u,i):i()}function n(n,r,o,i){if(!d.aborted||i){e&&e(n,r,o);for(var a=t(o),u=m(n),c=u.length,f=0;f<c;f++)u[f].apply(a,r);var p=s[y[n]];return p&&p.push([b,n,r,a]),a}}function l(e,t){v[e]=m(e).concat(t)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(n)}function g(e,t){f(e,function(e,n){t=t||"feature",y[n]=t,t in s||(s[t]=[])})}var v={},y={},b={on:l,emit:n,get:w,listeners:m,context:t,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",c=e("gos"),f=e(2),s={},p={},d=t.exports=o();d.backlog=s},{}],gos:[function(e,t,n){function r(e,t,n){if(o.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[t]=r,r}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){o.buffer([e],r),o.emit(e,t,n)}var o=e("ee").get("handle");t.exports=r,r.ee=o},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=h.info=NREUM.info,t=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return s.abort();f(y,function(t,n){e[t]||(e[t]=n)}),c("mark",["onload",a()+h.offset],null,"api");var n=d.createElement("script");n.src="https://"+e.agent,t.parentNode.insertBefore(n,t)}}function o(){"complete"===d.readyState&&i()}function i(){c("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),c=e("handle"),f=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1071.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=t.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),c("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+<link rel="shortcut icon" href="http://www.mfa.org/sites/all/themes/mfa/favicon.ico" type="image/vnd.microsoft.icon" />
+<meta name="description" content="Last Updated: June 8, 2017" />
+<meta name="rating" content="general" />
+<meta name="referrer" content="no-referrer" />
+<link rel="canonical" href="http://www.mfa.org/privacy" />
+<link rel="shortlink" href="http://www.mfa.org/node/307" />
+<meta property="fb:pages" content="549755808705878, 28314922320" />
+<meta property="og:site_name" content="Museum of Fine Arts, Boston" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://www.mfa.org/privacy" />
+<meta property="og:title" content="Privacy Policy" />
+<meta property="og:description" content="Last Updated: June 8, 2017" />
+<meta property="og:updated_time" content="2017-06-08T18:13:20-04:00" />
+<meta property="article:published_time" content="2010-10-11T14:56:32-04:00" />
+<meta property="article:modified_time" content="2017-06-08T18:13:20-04:00" />
+<meta name="google-site-verification" content="LuDPj2YcQ0q4LlCaTYaal4q5vU3DFXsQaFyHTnv8YkE" />
+  <link rel="shortcut icon" href="http://www.mfa.org/sites/all/themes/guide/favicon.ico">
+  <link rel="shortcut icon" href="http://www.mfa.org/sites/all/themes/guide/favicon2x.ico">
+  <link rel="apple-touch-icon-precomposed" href="http://www.mfa.org/sites/all/themes/guide/images/apple-touch-icon-152x152-precomposed.png">
+  <title>Privacy Policy | Museum of Fine Arts, Boston</title>
+  <link type="text/css" rel="stylesheet" href="http://www.mfa.org/sites/mfa.dev/files/css/css_xE-rWrJf-fncB6ztZfd2huxqgxu4WO-qwma6Xer30m4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="http://www.mfa.org/sites/mfa.dev/files/css/css_lkvHUqwuaMnlSkPLjR6wgdcvM88sr5Mi-fDRQ-vdqKU.css" media="all" />
+<link type="text/css" rel="stylesheet" href="http://www.mfa.org/sites/mfa.dev/files/css/css_qsj1PSePZ1kSoroPw_K7uqf7WhaC8Xv3k1gVnXS5ssY.css" media="all" />
+<link type="text/css" rel="stylesheet" href="http://www.mfa.org/sites/mfa.dev/files/css/css_yaShLz55VmbL5Y50Jt6h88vohKyuM5wzdsTrinTe1NI.css" media="all" />
+<link type="text/css" rel="stylesheet" href="http://www.mfa.org/sites/mfa.dev/files/css/css_wsTn_LyDG5ku49ufAtw_5TA7iO9Vx-RE8EWlHbxSKVE.css" media="all" />
+<link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Libre+Baskerville:700,italic,regular|Open+Sans:300,300italic,600,600italic,italic,regular&amp;subset=latin,latin-ext" media="all" />
+<link type="text/css" rel="stylesheet" href="http://www.mfa.org/sites/mfa.dev/files/css/css_DvMljNSG-OyjaJxyG1M0rQ-r3I1-OyZcg2KuPiRh6GE.css" media="all" />
+
+<!--[if (lt IE 9)&(!IEMobile)]>
+<link type="text/css" rel="stylesheet" href="http://www.mfa.org/sites/mfa.dev/files/css/css_61BGrOSYoAxRlibm634OoYPnueFfCWsY2aESE1WB6Ik.css" media="all" />
+<![endif]-->
+
+<!--[if gte IE 9]><!-->
+<link type="text/css" rel="stylesheet" href="http://www.mfa.org/sites/mfa.dev/files/css/css_OELe_WiBDp0qgAcTghBw6I40dol4TXPdvT0fdtrjEF4.css" media="all" />
+<!--<![endif]-->
+<script type="text/javascript" src="http://www.mfa.org/sites/mfa.dev/files/js/js_o6z9oc_Jp049mMLjoDkytou9pFchJr74ee2sl34GKVA.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+window.jQuery || document.write("<script src='/sites/all/modules/contrib/jquery_update/replace/jquery/1.7/jquery.min.js'>\x3C/script>")
+//--><!]]>
+</script>
+<script type="text/javascript" src="http://www.mfa.org/sites/mfa.dev/files/js/js_vSmhpx_T-AShyt_WMW5_TcwwxJP1imoVOa8jvwL_mxE.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+window.jQuery.ui || document.write("<script src='/sites/all/modules/contrib/jquery_update/replace/ui/ui/minified/jquery-ui.min.js'>\x3C/script>")
+//--><!]]>
+</script>
+<script type="text/javascript" src="http://www.mfa.org/sites/mfa.dev/files/js/js_CHZqTYfedFR4BLTc2vm-8trQkdc7WzTxvFg_qgd0LwE.js"></script>
+<script type="text/javascript" src="http://www.mfa.org/sites/mfa.dev/files/js/js_owwuSThP9_sOfJCu2DvvQyhxtME3k4ABY7_n-MaEyiI.js"></script>
+<script type="text/javascript" src="http://www.mfa.org/sites/mfa.dev/files/js/js_BmwqwCBJcoByFaDUIeikfJaIFnobXK7LDLuYFJokS0M.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"mfa","theme_token":"Wn6F5PKE4QUnZLCTrX8_3GkGLgJ_wjU0ia_-WzIqBAo","js":{"public:\/\/google_tag\/google_tag.script.js":1,"\/\/ajax.googleapis.com\/ajax\/libs\/jquery\/1.7.2\/jquery.min.js":1,"0":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"\/\/ajax.googleapis.com\/ajax\/libs\/jqueryui\/1.10.2\/jquery-ui.min.js":1,"1":1,"sites\/mfa.dev\/modules\/custom\/accessible_carousel\/js\/accessible_carousel.js":1,"sites\/mfa.dev\/modules\/custom\/accessible_carousel\/js\/jquery.mobile-events.min.js":1,"sites\/mfa.dev\/modules\/custom\/accessible_carousel\/js\/jquery.detectmobilebrowser.js":1,"profiles\/commerce_kickstart\/modules\/contrib\/commerce_add_to_cart_confirmation\/js\/commerce_add_to_cart_confirmation.js":1,"sites\/mfa.dev\/modules\/contrib\/fancybox\/fancybox.js":1,"sites\/mfa.dev\/libraries\/fancybox\/source\/jquery.fancybox.pack.js":1,"sites\/mfa.dev\/modules\/contrib\/responsive_menus\/styles\/responsive_menus_simple\/js\/responsive_menus_simple.js":1,"sites\/all\/themes\/omega\/omega\/js\/jquery.formalize.js":1,"sites\/all\/themes\/omega\/omega\/js\/omega-mediaqueries.js":1,"sites\/all\/themes\/omega\/omega\/js\/omega-equalheights.js":1,"sites\/all\/themes\/guide\/js\/guide.js":1,"sites\/all\/themes\/mfa\/js\/mfa.js":1,"sites\/all\/themes\/guide\/js\/jquery.flexslider.min.js":1,"sites\/all\/themes\/mfa\/js\/mfa-responsive-menus.js":1,"sites\/all\/themes\/guide\/js\/jquery.smoothzoom.min.js":1,"sites\/all\/themes\/mfa\/js\/mfa-card-swipe.js":1,"sites\/all\/themes\/guide\/js\/jquery.maccordion.min.js":1,"sites\/all\/themes\/guide\/js\/jquery.tablesorter.min.js":1,"sites\/all\/themes\/guide\/js\/jquery.multiselect.min.js":1,"sites\/all\/themes\/guide\/js\/jquery.detectmobilebrowser.js":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"misc\/ui\/jquery.ui.core.css":1,"misc\/ui\/jquery.ui.theme.css":1,"misc\/ui\/jquery.ui.accordion.css":1,"sites\/mfa.dev\/modules\/custom\/accessible_carousel\/css\/accessible_carousel.css":1,"modules\/comment\/comment.css":1,"profiles\/commerce_kickstart\/modules\/contrib\/commerce_add_to_cart_confirmation\/css\/commerce_add_to_cart_confirmation.css":1,"sites\/all\/modules\/contrib\/date\/date_api\/date.css":1,"sites\/all\/modules\/contrib\/date\/date_popup\/themes\/datepicker.1.7.css":1,"sites\/all\/modules\/contrib\/date\/date_repeat_field\/date_repeat_field.css":1,"modules\/field\/theme\/field.css":1,"sites\/all\/modules\/contrib\/mollom\/mollom.css":1,"modules\/node\/node.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/contrib\/views\/css\/views.css":1,"sites\/all\/modules\/contrib\/ctools\/css\/ctools.css":1,"sites\/mfa.dev\/libraries\/fancybox\/source\/jquery.fancybox.css":1,"sites\/mfa.dev\/modules\/contrib\/typogrify\/typogrify.css":1,"sites\/mfa.dev\/modules\/contrib\/responsive_menus\/styles\/responsive_menus_simple\/css\/responsive_menus_simple.css":1,"sites\/all\/themes\/omega\/alpha\/css\/alpha-reset.css":1,"sites\/all\/themes\/omega\/alpha\/css\/alpha-mobile.css":1,"sites\/all\/themes\/omega\/alpha\/css\/alpha-alpha.css":1,"sites\/all\/themes\/omega\/omega\/css\/formalize.css":1,"sites\/all\/themes\/omega\/omega\/css\/omega-text.css":1,"sites\/all\/themes\/omega\/omega\/css\/omega-branding.css":1,"sites\/all\/themes\/omega\/omega\/css\/omega-menu.css":1,"sites\/all\/themes\/omega\/omega\/css\/omega-forms.css":1,"sites\/all\/themes\/omega\/omega\/css\/omega-visuals.css":1,"http:\/\/fonts.googleapis.com\/css?family=Libre+Baskerville:700,italic,regular|Open+Sans:300,300italic,600,600italic,italic,regular\u0026subset=latin,latin-ext":1,"sites\/all\/themes\/guide\/css\/global.css":1,"sites\/all\/themes\/mfa\/css\/mfa.css":1,"ie::normal::sites\/all\/themes\/guide\/css\/guide-alpha-default.css":1,"ie::normal::sites\/all\/themes\/guide\/css\/guide-alpha-default-normal.css":1,"ie::normal::sites\/all\/themes\/mfa\/css\/mfa-alpha-default.css":1,"ie::normal::sites\/all\/themes\/mfa\/css\/mfa-alpha-default-normal.css":1,"ie::normal::sites\/all\/themes\/omega\/alpha\/css\/grid\/alpha_default\/normal\/alpha-default-normal-12.css":1,"narrow::sites\/all\/themes\/guide\/css\/guide-alpha-default.css":1,"narrow::sites\/all\/themes\/guide\/css\/guide-alpha-default-narrow.css":1,"narrow::sites\/all\/themes\/mfa\/css\/mfa-alpha-default.css":1,"narrow::sites\/all\/themes\/mfa\/css\/mfa-alpha-default-narrow.css":1,"sites\/all\/themes\/omega\/alpha\/css\/grid\/alpha_default\/narrow\/alpha-default-narrow-12.css":1,"normal::sites\/all\/themes\/guide\/css\/guide-alpha-default.css":1,"normal::sites\/all\/themes\/guide\/css\/guide-alpha-default-normal.css":1,"normal::sites\/all\/themes\/mfa\/css\/mfa-alpha-default.css":1,"normal::sites\/all\/themes\/mfa\/css\/mfa-alpha-default-normal.css":1,"sites\/all\/themes\/omega\/alpha\/css\/grid\/alpha_default\/normal\/alpha-default-normal-12.css":1,"wide::sites\/all\/themes\/guide\/css\/guide-alpha-default.css":1,"wide::sites\/all\/themes\/guide\/css\/guide-alpha-default-wide.css":1,"wide::sites\/all\/themes\/mfa\/css\/mfa-alpha-default.css":1,"wide::sites\/all\/themes\/mfa\/css\/mfa-alpha-default-wide.css":1,"sites\/all\/themes\/omega\/alpha\/css\/grid\/alpha_default\/wide\/alpha-default-wide-12.css":1}},"fancybox":{"options":{"padding":10,"width":981,"height":780,"arrows":0,"mouseWheel":0},"callbacks":{"afterShow":"focusFancybox"},"selectors":[".various"]},"urlIsAjaxTrusted":{"http:\/\/www.mfa.org\/search":true},"responsive_menus":[{"toggler_text":"\u2630 Menu","selectors":["#zone-menu"],"media_size":"740","remove_attributes":true,"responsive_menus_style":"responsive_menus_simple"}],"omega":{"layouts":{"primary":"normal","order":["narrow","normal","wide"],"queries":{"narrow":"all and (min-width: 740px) and (min-device-width: 740px), (max-device-width: 800px) and (min-width: 740px) and (orientation:landscape)","normal":"all and (min-width: 980px) and (min-device-width: 980px), all and (max-device-width: 1024px) and (min-width: 1024px) and (orientation:landscape)","wide":"all and (min-width: 1220px)"}}}});
+//--><!]]>
+</script>
+  <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+</head>
+<body class="html not-front not-logged-in page-node page-node- page-node-307 node-type-generic i18n-en context-privacy">
+  <div id="skip-link">
+    <a href="#main-content" class="element-invisible element-focusable">Skip to main content</a>
+  </div>
+  <div class="region region-page-top" id="region-page-top">
+  <div class="region-inner region-page-top-inner">
+    <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-GWJF" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>  </div>
+</div><div class="page clearfix" id="page">
+      <header id="section-header" class="section section-header">
+  <div id="zone-user-wrapper" class="zone-wrapper zone-user-wrapper clearfix">  
+  <div id="zone-user" class="zone zone-user clearfix container-12">
+    <div class="grid-4 region region-user-second" id="region-user-second">
+  <div class="region-inner region-user-second-inner">
+    <div id="block-views-exp-search-page" class="block block-views" class="block block-views block--exp-search-page block-views-exp-search-page odd block-without-title" id="block-views-exp-search-page">
+				<div class="content" class="content clearfix" role="search">
+		<form action="http://www.mfa.org/search" method="get" id="views-exposed-form-search-page" accept-charset="UTF-8"><div><div class="views-exposed-form">
+  <div class="views-exposed-widgets clearfix">
+          <div id="edit-search-api-views-fulltext-wrapper" class="views-exposed-widget views-widget-filter-search_api_views_fulltext">
+                  <label for="edit-search-api-views-fulltext">
+            Search          </label>
+                        <div class="views-widget">
+          <div class="form-item form-type-textfield form-item-search-api-views-fulltext">
+ <input type="text" id="edit-search-api-views-fulltext" name="search_api_views_fulltext" value="" size="30" maxlength="128" class="form-text" />
+</div>
+        </div>
+              </div>
+                    <div class="views-exposed-widget views-submit-button">
+      <input type="submit" id="edit-submit-search" name="" value="Search" class="form-submit" />    </div>
+      </div>
+</div>
+</div></form>	</div>
+</div>
+  </div>
+</div>  </div>
+</div><div id="zone-branding-wrapper" class="zone-wrapper zone-branding-wrapper clearfix">  
+  <div id="zone-branding" class="zone zone-branding clearfix container-12">
+    <div class="grid-6 region region-branding" id="region-branding">
+  <div class="region-inner region-branding-inner">
+        <div class="branding-data clearfix">
+                        <div class="site-name-slogan">
+                        <h1 class="site-name" role="banner"><a href="http://www.mfa.org" title="Home">Museum of Fine Arts, Boston</a></h1>
+                      </div>
+          </div>
+          </div>
+</div>
+<div class="grid-6 region region-postscript-fourth" id="region-postscript-fourth">
+  <div class="region-inner region-postscript-fourth-inner">
+    <div id="block-menu-secondary-navigation" class="block block-menu" class="block block-menu block-secondary-navigation block-menu-secondary-navigation odd block-without-title" id="block-menu-secondary-navigation">
+				<div class="content" class="content clearfix">
+		<ul class="menu"><li class="first last leaf"><a href="http://www.mfa.org/node/399260">Today at the MFA</a></li>
+</ul>	</div>
+</div><div id="block-menu-block-18" class="block block-menu-block" class="block block-menu-block block-18 block-menu-block-18 even block-without-title" id="block-menu-block-18">
+				<div class="content" class="content clearfix">
+		<div class="menu-block-wrapper menu-block-18 menu-name-menu-tickets parent-mlid-0 menu-level-1">
+  <ul class="menu"><li class="first last expanded menu-mlid-111616"><a href="http://www.mfa.org/node/399261">Tickets</a><ul class="menu"><li class="first last leaf menu-mlid-16323"><a href="http://www.mfa.org/node/239">Ticketing Policies</a></li>
+</ul></li>
+</ul></div>
+	</div>
+</div><div id="block-menu-block-20" class="block block-menu-block" class="block block-menu-block block-20 block-menu-block-20 odd block-without-title" id="block-menu-block-20">
+				<div class="content" class="content clearfix">
+		<div class="menu-block-wrapper menu-block-20 menu-name-menu-shop parent-mlid-0 menu-level-1">
+  <ul class="menu"><li class="first last leaf menu-mlid-111631"><a href="http://www.mfashop.com/">Shop</a></li>
+</ul></div>
+	</div>
+</div><div id="block-menu-block-19" class="block block-menu-block" class="block block-menu-block block-19 block-menu-block-19 even block-without-title" id="block-menu-block-19">
+				<div class="content" class="content clearfix">
+		<div class="menu-block-wrapper menu-block-19 menu-name-menu-news parent-mlid-0 menu-level-1">
+  <ul class="menu"><li class="first last expanded menu-mlid-32251"><a href="http://www.mfa.org/node/410">Press</a><ul class="menu"><li class="first leaf menu-mlid-16266"><a href="http://www.mfa.org/node/427">Current Exhibitions</a></li>
+<li class="leaf menu-mlid-16263"><a href="http://www.mfa.org/node/424">Upcoming Exhibitions</a></li>
+<li class="collapsed menu-mlid-16276"><a href="http://www.mfa.org/node/430">News and Events</a></li>
+<li class="last leaf menu-mlid-16262"><a href="http://www.mfa.org/node/20992">Image Library</a></li>
+</ul></li>
+</ul></div>
+	</div>
+</div>  </div>
+</div>  </div>
+</div><div id="zone-menu-wrapper" class="zone-wrapper zone-menu-wrapper clearfix" role="navigation" aria-label="Site-wide links">  <div id="zone-menu" class="zone zone-menu clearfix container-12">
+    <div class="grid-12 region region-menu" id="region-menu">
+  <div class="region-inner region-menu-inner">
+        <div id="block-menu-block-12" class="block block-menu-block" class="block block-menu-block block-12 block-menu-block-12 odd block-without-title" id="block-menu-block-12">
+				<div class="content" class="content clearfix">
+		<div class="menu-block-wrapper menu-block-12 menu-name-menu-visit parent-mlid-0 menu-level-1">
+  <ul class="menu"><li class="first last expanded menu-mlid-16363"><a href="http://www.mfa.org/node/236">Visit</a><div class="arrow-wrapper"><div class="arrow"></div></div><ul class="menu"><li class="first leaf menu-mlid-70456"><a href="http://www.mfa.org/node/236">Hours and Admission</a></li>
+<li class="expanded menu-mlid-16364"><a href="http://www.mfa.org/node/240">Getting Here</a><div class="arrow-wrapper"><div class="arrow"></div></div><ul class="menu"><li class="first leaf menu-mlid-125696"><a href="http://www.mfa.org/node/534936">Parking</a></li>
+<li class="last leaf menu-mlid-16327"><a href="http://www.mfa.org/node/468">Red Sox and Fenway Event Parking</a></li>
+</ul></li>
+<li class="expanded menu-mlid-16369"><a href="http://www.mfa.org/node/541">Plan Your Visit</a><div class="arrow-wrapper"><div class="arrow"></div></div><ul class="menu"><li class="first leaf menu-mlid-16036"><a href="http://www.mfa.org/node/399260">Today at the MFA</a></li>
+<li class="leaf menu-mlid-16331"><a href="http://www.mfa.org/node/244">Floorplans</a></li>
+<li class="leaf menu-mlid-231231"><a href="http://www.mfa.org/node/685471">Event Spaces</a></li>
+<li class="leaf menu-mlid-42226"><a href="http://www.mfa.org/node/546">Visiting with Kids</a></li>
+<li class="collapsed menu-mlid-16370"><a href="http://www.mfa.org/node/542">Visiting from Out of Town</a></li>
+<li class="last leaf menu-mlid-16343"><a href="http://www.mfa.org/node/545">Tips for Visitors</a></li>
+</ul></li>
+<li class="leaf menu-mlid-16365"><a href="http://www.mfa.org/node/247">Dining</a></li>
+<li class="leaf menu-mlid-16333"><a href="http://www.mfa.org/node/246">Shops</a></li>
+<li class="expanded menu-mlid-16366"><a href="http://www.mfa.org/node/249">Groups</a><div class="arrow-wrapper"><div class="arrow"></div></div><ul class="menu"><li class="first leaf menu-mlid-16344"><a href="http://www.mfa.org/node/547">Adult and University</a></li>
+<li class="leaf menu-mlid-186586"><a href="http://www.mfa.org/node/560626">School Group Visits</a></li>
+<li class="leaf menu-mlid-16330"><a href="http://www.mfa.org/node/243">Tips for Groups</a></li>
+<li class="last leaf menu-mlid-16339"><a href="http://www.mfa.org/node/20996">Request Adult/University Visit</a></li>
+</ul></li>
+<li class="collapsed menu-mlid-16367"><a href="http://www.mfa.org/node/255">Accessibility</a></li>
+<li class="leaf menu-mlid-16334"><a href="http://www.mfa.org/node/248">Catering and Special Events</a></li>
+<li class="last collapsed menu-mlid-16368"><a href="http://www.mfa.org/node/353">MFA Guide</a></li>
+</ul></li>
+</ul></div>
+	</div>
+</div><div id="block-menu-block-13" class="block block-menu-block" class="block block-menu-block block-13 block-menu-block-13 even block-without-title" id="block-menu-block-13">
+				<div class="content" class="content clearfix">
+		<div class="menu-block-wrapper menu-block-13 menu-name-menu-exhibitions parent-mlid-0 menu-level-1">
+  <ul class="menu"><li class="first last expanded menu-mlid-7690"><a href="http://www.mfa.org/node/627">Exhibitions</a><div class="arrow-wrapper"><div class="arrow"></div></div><ul class="menu"><li class="first leaf menu-mlid-4519"><a href="http://www.mfa.org/node/627">Current</a></li>
+<li class="leaf menu-mlid-6672"><a href="http://www.mfa.org/exhibitions/upcoming">Upcoming</a></li>
+<li class="leaf menu-mlid-6669"><a href="http://www.mfa.org/exhibitions/past">Past</a></li>
+<li class="last collapsed menu-mlid-240096"><a href="http://www.mfa.org/node/688311">Traveling</a></li>
+</ul></li>
+</ul></div>
+	</div>
+</div><div id="block-menu-block-17" class="block block-menu-block" class="block block-menu-block block-17 block-menu-block-17 odd block-without-title" id="block-menu-block-17">
+				<div class="content" class="content clearfix">
+		<div class="menu-block-wrapper menu-block-17 menu-name-menu-programs parent-mlid-0 menu-level-1">
+  <ul class="menu"><li class="first last expanded menu-mlid-7692"><a href="http://www.mfa.org/node/695206">Programs</a><div class="arrow-wrapper"><div class="arrow"></div></div><ul class="menu"><li class="first collapsed menu-mlid-15262"><a href="http://www.mfa.org/node/21353">Gallery Activities and Tours</a></li>
+<li class="collapsed menu-mlid-16279"><a href="http://www.mfa.org/node/610">Lectures and Courses</a></li>
+<li class="collapsed menu-mlid-60386"><a href="http://www.mfa.org/node/620">Studio Art Classes</a></li>
+<li class="leaf menu-mlid-16313"><a href="http://www.mfa.org/node/609">Film</a></li>
+<li class="leaf menu-mlid-16302"><a href="http://www.mfa.org/node/615">Music</a></li>
+<li class="leaf menu-mlid-78331"><a href="http://www.mfa.org/node/424376">Performance Art</a></li>
+<li class="leaf menu-mlid-15263"><a href="http://www.mfa.org/node/21354">Special Events</a></li>
+<li class="collapsed menu-mlid-16314"><a href="http://www.mfa.org/node/603">Kids and Family Programs</a></li>
+<li class="collapsed menu-mlid-16319"><a href="http://www.mfa.org/node/608">Teen Programs</a></li>
+<li class="collapsed menu-mlid-16315"><a href="http://www.mfa.org/node/605">School Programs</a></li>
+<li class="last collapsed menu-mlid-16317"><a href="http://www.mfa.org/node/606">Community Programs</a></li>
+</ul></li>
+</ul></div>
+	</div>
+</div><div id="block-menu-block-14" class="block block-menu-block" class="block block-menu-block block-14 block-menu-block-14 even block-without-title" id="block-menu-block-14">
+				<div class="content" class="content clearfix">
+		<div class="menu-block-wrapper menu-block-14 menu-name-menu-collections parent-mlid-0 menu-level-1">
+  <ul class="menu"><li class="first last expanded menu-mlid-7691"><a href="http://www.mfa.org/node/629">Collections</a><div class="arrow-wrapper"><div class="arrow"></div></div><ul class="menu"><li class="first leaf menu-mlid-249001"><a href="http://www.mfa.org/collections/search">Collections Search</a></li>
+<li class="leaf menu-mlid-15709"><a href="http://www.mfa.org/node/398018">Featured Galleries</a></li>
+<li class="collapsed menu-mlid-16121"><a href="http://www.mfa.org/node/1483">Americas</a></li>
+<li class="collapsed menu-mlid-16105"><a href="http://www.mfa.org/node/1484">Europe</a></li>
+<li class="collapsed menu-mlid-16106"><a href="http://www.mfa.org/node/1485">Asia</a></li>
+<li class="collapsed menu-mlid-16107"><a href="http://www.mfa.org/node/1486">Africa and Oceania</a></li>
+<li class="leaf menu-mlid-16108"><a href="http://www.mfa.org/node/1487">The Ancient World</a></li>
+<li class="expanded menu-mlid-16109"><a href="http://www.mfa.org/node/1488">Contemporary Art</a><div class="arrow-wrapper"><div class="arrow"></div></div><ul class="menu"><li class="first last leaf menu-mlid-82306"><a href="http://www.mfa.org/node/430861">Performance Art</a></li>
+</ul></li>
+<li class="leaf menu-mlid-16110"><a href="http://www.mfa.org/node/1489">Photography</a></li>
+<li class="collapsed menu-mlid-16111"><a href="http://www.mfa.org/node/1490">Prints and Drawings</a></li>
+<li class="collapsed menu-mlid-16112"><a href="http://www.mfa.org/node/1491">Musical Instruments</a></li>
+<li class="leaf menu-mlid-16113"><a href="http://www.mfa.org/node/1492">Textiles and Fashion Arts</a></li>
+<li class="leaf menu-mlid-16058"><a href="http://www.mfa.org/node/1493">Jewelry</a></li>
+<li class="collapsed menu-mlid-16115"><a href="http://www.mfa.org/node/318">Conservation and Collections Management</a></li>
+<li class="collapsed menu-mlid-16114"><a href="http://www.mfa.org/node/312">Provenance</a></li>
+<li class="collapsed menu-mlid-16117"><a href="http://www.mfa.org/node/332">Libraries and Archives</a></li>
+<li class="leaf menu-mlid-16104"><a href="http://www.mfa.org/node/607">Publications</a></li>
+<li class="last collapsed menu-mlid-16103"><a href="http://www.mfa.org/node/611">MFA Images</a></li>
+</ul></li>
+</ul></div>
+	</div>
+</div><div id="block-menu-block-16" class="block block-menu-block" class="block block-menu-block block-16 block-menu-block-16 odd block-without-title" id="block-menu-block-16">
+				<div class="content" class="content clearfix">
+		<div class="menu-block-wrapper menu-block-16 menu-name-menu-membership parent-mlid-0 menu-level-1">
+  <ul class="menu"><li class="first last expanded menu-mlid-16250"><a href="http://www.mfa.org/node/515">Membership</a><div class="arrow-wrapper"><div class="arrow"></div></div><ul class="menu"><li class="first leaf menu-mlid-16249"><a href="http://www.mfa.org/node/514">Levels and Benefits</a></li>
+<li class="leaf menu-mlid-15264"><a href="http://www.mfa.org/node/21355">Member Events</a></li>
+<li class="leaf menu-mlid-16237"><a href="http://www.mfa.org/node/432">Gift Membership</a></li>
+<li class="expanded menu-mlid-16256"><a href="http://www.mfa.org/node/265">Patron Program</a><div class="arrow-wrapper"><div class="arrow"></div></div><ul class="menu"><li class="first leaf menu-mlid-15265"><a href="http://www.mfa.org/node/21356">Events</a></li>
+<li class="leaf menu-mlid-248876"><a href="http://www.mfa.org/taxonomy/term/59166">News</a></li>
+<li class="last leaf menu-mlid-16244"><a href="http://www.mfa.org/node/268">Travel</a></li>
+</ul></li>
+<li class="expanded menu-mlid-16257"><a href="http://www.mfa.org/node/269">Museum Council</a><div class="arrow-wrapper"><div class="arrow"></div></div><ul class="menu"><li class="first leaf menu-mlid-15266"><a href="http://www.mfa.org/node/21357">Events</a></li>
+<li class="leaf menu-mlid-16252"><a href="http://www.mfa.org/taxonomy/term/59196">News</a></li>
+<li class="leaf menu-mlid-111591"><a href="http://www.mfa.org/node/495766">Meet-Ups</a></li>
+<li class="last leaf menu-mlid-249006"><a href="http://www.mfa.org/node/17994">Summer Party</a></li>
+</ul></li>
+<li class="expanded menu-mlid-16260"><a href="http://www.mfa.org/node/573">Friends of the MFA</a><div class="arrow-wrapper"><div class="arrow"></div></div><ul class="menu"><li class="first leaf menu-mlid-15271"><a href="http://www.mfa.org/node/21360">Levels and Groups</a></li>
+<li class="leaf menu-mlid-15269"><a href="http://www.mfa.org/node/21358">Fan Events</a></li>
+<li class="last leaf menu-mlid-15270"><a href="http://www.mfa.org/node/21359">Enthusiast Events</a></li>
+</ul></li>
+<li class="leaf menu-mlid-16239"><a href="http://www.mfa.org/node/258">Frequently Asked Questions</a></li>
+<li class="last expanded menu-mlid-16258"><a href="http://www.mfa.org/node/516">Organizational Memberships</a><div class="arrow-wrapper"><div class="arrow"></div></div><ul class="menu"><li class="first leaf menu-mlid-225196"><a href="http://www.mfa.org/node/665111">Corporations</a></li>
+<li class="leaf menu-mlid-16240"><a href="http://www.mfa.org/node/259">Universities</a></li>
+<li class="leaf menu-mlid-16251"><a href="http://www.mfa.org/node/517">Libraries and Non-Profits</a></li>
+<li class="last leaf menu-mlid-225191"><a href="http://www.mfa.org/node/666556">Massachusetts Community College Access Pass</a></li>
+</ul></li>
+</ul></li>
+</ul></div>
+	</div>
+</div><div id="block-menu-block-15" class="block block-menu-block" class="block block-menu-block block-15 block-menu-block-15 even block-without-title" id="block-menu-block-15">
+				<div class="content" class="content clearfix">
+		<div class="menu-block-wrapper menu-block-15 menu-name-menu-give parent-mlid-0 menu-level-1">
+  <ul class="menu"><li class="first last expanded menu-mlid-7693"><a href="http://www.mfa.org/node/20">Give</a><div class="arrow-wrapper"><div class="arrow"></div></div><ul class="menu"><li class="first leaf menu-mlid-70461"><a href="http://www.mfa.org/node/20">Give to the MFA</a></li>
+<li class="collapsed menu-mlid-225161"><a href="http://www.mfa.org/node/665111">Corporate Partnerships</a></li>
+<li class="collapsed menu-mlid-16233"><a href="http://www.mfa.org/node/283">Planned Giving</a></li>
+<li class="collapsed menu-mlid-16235"><a href="http://www.mfa.org/node/287">Gifts of Art</a></li>
+<li class="leaf menu-mlid-189651"><a href="http://www.mfa.org/node/572176">MFA Fund</a></li>
+<li class="leaf menu-mlid-16224"><a href="http://www.mfa.org/node/263">Matching Gifts</a></li>
+<li class="leaf menu-mlid-16220"><a href="http://www.mfa.org/node/20995">Request Information</a></li>
+<li class="last leaf menu-mlid-16223"><a href="http://www.mfa.org/node/264">Frequently Asked Questions</a></li>
+</ul></li>
+</ul></div>
+	</div>
+</div>  </div>
+</div>
+  </div>
+</div></header>    
+      <section id="section-content" class="section section-content">
+  <div id="zone-preface-wrapper" class="zone-wrapper zone-preface-wrapper clearfix">  <div id="zone-preface" class="zone zone-preface clearfix equal-height-container container-12">
+    <div class="grid-9 region region-preface-first equal-height-element" id="region-preface-first">
+  <div class="region-inner region-preface-first-inner">
+    <div class="block block-delta-blocks block-page-title block-delta-blocks-page-title odd block-without-title" id="block-delta-blocks-page-title">
+	<div class="block-inner clearfix">
+								<div class="content clearfix">
+		<h1 id="page-title" class="title">Privacy Policy</h1>	</div>
+</div>
+</div>
+  </div>
+</div><div class="grid-3 region region-preface-second equal-height-element" id="region-preface-second">
+  <div class="region-inner region-preface-second-inner">
+    <div id="block-block-1" class="block block-block" class="block block-block block-1 block-block-1 odd block-without-title" id="block-block-1">
+				<div class="content" class="content clearfix">
+		<ul id="social">
+			<li>
+				<a class="email" href="mailto:%20?body=http://www.mfa.org/privacy">
+					Email
+				</a>
+			</li>
+			<li>
+				<a class="facebook" href="http://www.facebook.com/share.php?u=http://www.mfa.org/privacy" target="_blank">
+					Facebook
+				</a>
+			</li>
+			<li>
+				<a class="twitter" href="http://twitter.com/home?status=http://www.mfa.org/privacy" target="_blank">
+					Twitter
+				</a>
+			</li>
+			<li>
+				<a class="google" href="https://plus.google.com/share?url=http://www.mfa.org/privacy" target="_blank">
+					Google
+				</a>
+			</li>
+		</ul>
+	</div>
+</div>
+  </div>
+</div>    <hr>
+  </div>
+</div><div id="zone-content-wrapper" class="zone-wrapper zone-content-wrapper clearfix">  
+  <div id="zone-content" class="zone zone-content clearfix container-12">    
+    <div id="breadcrumb" class="grid-12"><h2 class="element-invisible">You are here</h2><div class="breadcrumb"><a href="/">Home</a></div></div>  
+        <div class="grid-3 region region-sidebar-first" id="region-sidebar-first" role="navigation" aria-label="Submenu links">
+  <div class="region-inner region-sidebar-first-inner">
+      </div>
+</div>
+<div class="grid-6 region region-content" id="region-content" role="main">
+	<div class="region-inner region-content-inner">
+							<a id="main-content"></a>
+			    		    		    		   			    					<div id="block-system-main" class="block block-system" class="block block-system block-main block-system-main odd block-without-title" id="block-system-main">
+				<div class="content" class="content clearfix">
+		<article class="node node-generic node-published node-not-promoted node-not-sticky author-superuser odd clearfix" id="node-generic-307">
+	<div class="content clearfix">
+				<div class="body">
+			<p>Last Updated: June 8,&nbsp;2017</p>
+<p>The Museum of Fine Arts, Boston (“MFA”, “we”, “us”, “our”, etc.), is committed to protecting your privacy. This Privacy Policy applies to the information we collect about you in connection with your use of the website <a href="/">www.mfa.org</a> and all corresponding subdomains and web pages associated with the foregoing URL (collectively, the “MFA Web Site”). The MFA does not collect personally identifiable information about individuals, such as names, addresses, e-mail addresses, telephone numbers, and credit/debit card numbers (“Personal Information”), unless the individual visiting the MFA Web Site voluntarily provides it. By visiting the MFA Web Site, you agree to be bound by the terms and conditions of this Privacy Policy. By providing Personal Information via the MFA Web Site, you consent to our collection and use of it, as described in this Privacy Policy, as it may be revised from time to time. This Privacy Policy governs our use and disclosure of Personal&nbsp;Information.</p>
+<h2>1. The MFA’s Policy on Collecting&nbsp;Information</h2>
+<h3>Purchases</h3>
+<p>When you purchase a ticket or product on the MFA Web Site, we need to know your name, billing and shipping addresses, telephone number, e-mail address, and credit card information to process your order. Your credit card information will be used only as needed to process your transaction. You may decide whether or not to provide such information. If you purchase a ticket via the MFA Web Site to, or otherwise participate in, an event or promotion that we conduct jointly with another organization or company, we may share certain Personal Information collected from you, such as your name, address and e-mail address, with the relevant organization or&nbsp;company.</p>
+<h3>Memberships and&nbsp;Donations</h3>
+<p>When you purchase an MFA membership via the MFA Web Site or make a donation to the MFA via the MFA Web Site, we will ask you to provide us with the Personal Information we need to process your membership and/or to acknowledge your contribution. This information includes your name, billing and shipping addresses, telephone number, e-mail address, and credit card information. Your credit card information will be used only as needed to process your&nbsp;transaction.</p>
+<h3>Surveys</h3>
+<p>From time to time, the MFA may invite you to participate in surveys conducted via the MFA Web Site. You may decide whether or not you wish to complete such surveys, which may ask about your background, occupation, or similar questions. We use this information to help us better understand our visitors’ needs and interests, which in turn allows us to better meet your expectations. Our online surveys may be powered by SurveyGizmo or other third-party service&nbsp;provider.</p>
+<h3>Contests</h3>
+<p>The MFA will occasionally offer visitors of the MFA Web Site the opportunity to participate in contests or sweepstakes. If you choose to enter, you will need to provide your name and e-mail address so that we may contact you in connection with the contest. We may also request that you provide us with certain other information, such as your zip code and/or state of&nbsp;residence.</p>
+<h3>MFA E-mail (MFA&nbsp;Mail)</h3>
+<p>As a service, the MFA offers the opportunity to subscribe to our e-mails. If you choose to subscribe, you will receive MFA Mail on the topics you choose. You may subscribe or unsubscribe at any time by following the simple instructions at the bottom of each e-mail. On occasion, the MFA may send e-mails to individuals who have provided us with their e-mail address, informing them of Museum events or promotions we think may be of&nbsp;interest.</p>
+<h3>MFA&nbsp;E-Cards</h3>
+<p>The MFA offers the opportunity to send e-cards featuring works in the MFA collection. If you choose to use our e-card service, you will need to provide your name and e-mail address, as well as the recipient’s name and e-mail&nbsp;address.</p>
+<h3>Information Collected Through Automatic Data Collection&nbsp;Technologies</h3>
+<p>The MFA Web Site may use cookies (which are small data files containing information about you that is stored on your device), pixels, web beacons, and other similar tracking technologies (collectively, “Tracking Technologies”) to automatically collect information about your equipment, browsing actions, and patterns as you interact with the MFA Web Site, including: details of your visits to the MFA Web Site, including traffic data, logs, and other communication data and the resources that you access and use on the MFA Web Site and information about your computer and internet connection, including your IP address, operating system, device ID and browser type. Some content or applications, including advertisements, on the MFA Web Site are served by third parties, including advertisers, ad networks and servers, content providers, and application providers. These third parties may use Tracking Technologies to collect information about you when you use the MFA Web Site and unaffiliated, third-party websites. They may use this information to provide you with interest-based advertising (also known as behavioral advertising) or other targeted content. We do not control these third parties’ Tracking Technologies or how they may be used. If you have any questions about an advertisement or other targeted content, you should contact the responsible provider directly. For further information regarding interest-based advertising and how you can opt out of receiving targeted advertising from many providers, see Section 3&nbsp;below.</p>
+<h2>2. How the MFA Uses Information Collected From&nbsp;Visitors</h2>
+<p>The MFA uses the Personal Information you provide to us for internal purposes, such as filling and tracking your purchases, analyzing trends and collecting statistics. The MFA may also compile and provide aggregate statistics about our visitors, customers, sales, traffic patterns and related site information to third parties, but these statistics will not include any Personal&nbsp;Information.</p>
+<p>The MFA may contact you by mail, phone or e-mail to inform you of an event or promotion that we believe would interest you. We may combine Personal Information you give to us online, in our stores or at the Museum. We may also combine this information with publicly available information and information we received from or cross-reference with our third-party vendors and others. We may use this combined information to enhance and personalize your shopping experience with us, to communicate with you about products or events that may be of interest to you, or for other promotional&nbsp;purposes.</p>
+<p>The MFA may disclose Personal Information when such disclosure is reasonably necessary to comply with the law; enforce the terms of any of our user agreements; or protect the rights, property, and safety of MFA, the users of its site, or&nbsp;others.</p>
+<p>The MFA may from time to time retain qualified third-party vendors in order to help us manage the MFA Web Site and allow us to better serve our visitors and customers. These may include third-party vendors we engage to analyze the information we collect on the MFA Web Site, provide credit card processing, data management, promotional services and other services. We provide these service providers with the information they need to perform these services. The MFA requires its vendors to maintain the security of the Personal Information to which they are provided access and restricts third-party vendors from using Personal Information in any way not expressly authorized by&nbsp;MFA.</p>
+<p>Personal Information collected from you may be transferred to a third party as a result of a sale, acquisition, merger or bankruptcy involving&nbsp;MFA.</p>
+<p>In addition to the foregoing, your information may also be used for the following&nbsp;purposes:</p>
+<ul><li>To provide any services or products that you request or purchase in connection with the MFA Web&nbsp;Site;</li>
+<li>To contact you regarding the administration of any features or functions of the MFA Web&nbsp;Site;</li>
+<li>To respond to your questions, comments, complaints, requests and other&nbsp;communications;</li>
+<li>To track your return visits and use of the MFA Web Site and to save your user account, registration and profile data or other information in order to tailor your experience with the MFA Web Site and otherwise customize what you see when you use the MFA Web Site (and so that you are not required to have to re-enter such data each time you use the MFA Web&nbsp;Site);</li>
+<li>For other purposes described in this Privacy Policy or disclosed at the time you provide us with the&nbsp;information.</li>
+</ul><h2>3. Opting Out of Certain Uses and Disclosures of Your&nbsp;Information</h2>
+<h3>Marketing and Promotional&nbsp;Communications</h3>
+<p>You can unsubscribe or opt out of receiving marketing and promotional communications by either following the specific instructions included in such communications or by sending an e-mail to us at <a href="mailto:info@mfa.org">info@mfa.org</a> detailing your privacy request. Please note that opt-out and unsubscribe requests may not take effect immediately and may take a reasonable amount of time to receive, process and apply, during which time your information shall remain subject to the prior privacy settings. Additionally, you should be aware that any information provided to third parties prior to your election to opt out or unsubscribe cannot be retrieved or rescinded by us unless required by applicable law, and you cannot retroactively opt out or unsubscribe with respect to such third parties. Also, please note that we may still send you e-mails regarding changes to our policies and/or the features and functionality of the MFA Web Site or in connection with a purchase via MFA Web Site or other purposes specifically relating to your account and/or use of the MFA Web Site. We may also have features that allow you to submit information, questions or feedback to us. In those instances, we may retain your e-mails and other information you submit to us for purposes of responding to you, for our internal purposes, and to help us to serve you&nbsp;better.</p>
+<h3>Interest-Based Advertising and Opting Out of Certain Tracking&nbsp;Technologies</h3>
+<p>We may collect and share with third-party service providers, and third parties (such as advertisers, ad networks and servers, content providers, and application providers) may directly collect, certain information about you and your interaction with the MFA Web Site and your interaction with third-party websites, services and platforms. Such information may be collected using Tracking Technologies and may include your e-mail address, browser type and version, operating system type and version, IP address, location-based information, device type and other device identifiers, web browsing activity, web pages visited, interaction with advertisements and your other online activities over time and across different websites, applications and devices. This information may be used by us and third parties for analytics, attribution and reporting purposes and to show you targeted advertisements for products and services that you might be interested in on the MFA Web Site and on unaffiliated websites, applications and platforms. In order to customize these advertisements or content, we and/or third parties may connect de-identified demographic, behavioral, inferred-interest or other data about you (which may be received from third parties) either to data you have voluntarily submitted to us (e.g., your e-mail address), or to data passively collected from you, such as your device identifier or IP address. If you would like to learn more about interest-based advertising, please visit the website of the Digital Advertising Alliance (DAA) at <a href="//www.aboutads.info/consumers/" target="_blank">http://www.aboutads.info/consumers/</a>.</p>
+<p>You may limit or opt out from the collection of certain information for interest-based advertising uses and the use of certain Tracking Technologies as&nbsp;follows:</p>
+<ul><li><strong>Collection of Information by Third-party Advertising Providers</strong>: To limit or opt out from the collection of your web viewing data for interest-based advertising uses, go to the DAA’s Consumer Choice Page, located at <a href="//www.aboutads.info/choices/" target="_blank">http://aboutads.info/choices/</a>.</li>
+<li><strong>Tracking Technologies</strong>: Most browsers are initially set to accept cookies (other than Flash cookies) and allow local storage, but you should be able to change your settings to notify you when a cookie is being set or updated, local storage is being used, and/or to block cookies and/or the use of local storage altogether. Please consult the “Help” section of your browser for more&nbsp;information.</li>
+<li><strong>Flash Cookies</strong>: Users can manage the use of Flash technologies, with the Flash management tools available at Adobe’s website, see <a href="//www.adobe.com/products/flashplayer/security/privacy_policy/faq" target="_blank">http://www.adobe.com/products/flashplayer/security/privacy_policy/faq</a></li>
+<li><strong>Do Not Track Signals</strong>: Certain browsers transmit “do not track” signals to the websites that such browsers communicate with; however, this feature, and how it is used and activated, varies from browser to browser. Therefore, it is not clear whether the signals are intentionally transmitted by a user, or whether a user is even aware of this. Despite current efforts, there is still disagreement among leading Internet standards organizations, industry groups, technology companies, and regulators, concerning what, if anything, websites should do when they receive such signals, and no standard has been adopted to date. We take privacy and security very seriously. With respect to “do not track signals,” we currently do not take action in response to these signals, but, if a standard is established and accepted, we may reassess how to respond to these&nbsp;signals.</li>
+</ul><p>Please note that by blocking any or all cookies you may not have access to certain features, content and/or other personalization available through the MFA Web&nbsp;Site.</p>
+<h2>4. Linked&nbsp;Sites</h2>
+<h3>Linking</h3>
+<p>The MFA Web Site may include links to web sites operated by third parties over which we have no control. MFA is not responsible for the privacy practices of such other sites and encourages you to be aware when you leave the MFA Web Site and to read the privacy policies of each and every web site that collects Personal Information. Once you leave the MFA Web Site, the MFA Privacy Policy will not apply, and you access such sites at your own&nbsp;risk.</p>
+<h2>5. Children and&nbsp;Parents</h2>
+<h3>Children Twelve and&nbsp;Under</h3>
+<p>MFA does not solicit Personal Information from children. Visitors twelve years of age and under should remember that they are required to obtain an adult’s permission before submitting any Personal Information to this or any other Web site. If your child has submitted Personal Information and you would like to request that such information be removed, you may contact us via one of the contact methods described on the MFA Web Site and we will promptly remove such information and shall not use such information or include it in our database. Users twelve and under and their parents or guardians are advised that any Personal Information voluntarily entered by children may be available for use until MFA becomes aware that a user is under the age of thirteen and has had a reasonable opportunity to remove the information from the MFA Web&nbsp;Site.</p>
+<h2>6. Security&nbsp;Measures</h2>
+<h3>Security</h3>
+<p>MFA uses commercially reasonable security standards to protect your Personal Information. MFA secure server software uses industry-standard Secure Socket Layer (SSL) encryption technology. SSL encodes your Personal Information as it travels over the Internet so that all transactions are secure. If you prefer, you may also place a MFA Store order by phone at 617-369-3575 or by fax at 617-859-9903. For membership gifts, please call 617-369-3395; for donations, please call&nbsp;617-369-3004.</p>
+<h3>Disclaimer</h3>
+<p>The MFA takes commercially reasonable precautions to protect your Personal Information both online and off-line, but absolute security cannot be guaranteed. It is important for you to protect against unauthorized access to your password and to your computer. The MFA shall not be liable for the transfer or use of any Personal Information resulting from loss or distribution of data, the corruption of storage media, power failures, natural phenomena, riots, acts of vandalism, sabotage, terrorism or any other event beyond the MFA’s reasonable&nbsp;control.</p>
+<h2>7. Revisions to the MFA Privacy&nbsp;Policy</h2>
+<h3>Revisions to our Privacy&nbsp;Policy</h3>
+<p>Please note that MFA may revise this Privacy Policy at any time, without notice. Any such change is effective immediately upon posting it on the MFA Web Site. Such revisions may arise in response to changes in the law, policy, or other factors. When we change this Privacy Policy in a material way, a notice will be posted on the MFA Web Site along with the updated Privacy Policy. Your continued use of the MFA Web Site after we post a revised Privacy Policy (and, where appropriate, notify you of same) signifies your acceptance of the revised Privacy Policy. We encourage you to periodically visit this page to review our most current Privacy Policy. Certain provisions of this Privacy Policy may be superseded by expressly designated legal notices or terms located on particular pages on the MFA Web&nbsp;Site.</p>
+<h2>8. MFA’s Contact Information for Privacy&nbsp;Questions</h2>
+<h3>Contact the&nbsp;MFA</h3>
+<p>E-mail us your questions, comments, or concerns about our privacy policy or any other aspect of our Web&nbsp;site.</p>
+<h2>9. Your California Privacy&nbsp;Rights</h2>
+<p>We provide you with information on how to exercise your disclosure choice options such as your right to opt-out (which we may sometimes refer to as “unsubscribe”) with respect to use of your Personal Information by third parties for marketing purposes. Therefore, pursuant to the California Civil Code, we are not required to maintain or disclose a list of the third parties that received your Personal Information for marketing purposes during the preceding year. If you are a California resident and wish to request information about how to exercise your third-party disclosure choices, please send a request by e-mail to our Privacy Administrator at <a href="mailto:info@mfa.org">info@mfa.org</a> detailing your privacy request. All requests must be labeled “Your California Privacy Rights” on the e-mail subject line. For all requests, please clearly state that the request is related to “Your California Privacy Rights”, include your name, street address, city, state, zip code and e-mail address (your street address is optional if you wish to receive a response to your request via e-mail) and indicate your preference on how our response to your request should be sent (e-mail or postal mail). We will not accept requests via the telephone, postal mail or by fax. We are not responsible for notices that are not labeled or sent properly, or do not have complete or legible&nbsp;information.</p>
+		</div>
+		</div>
+</article>
+	</div>
+</div>    		</div>
+</div>
+<aside class="grid-3 region region-sidebar-second" id="region-sidebar-second" role="complementary">
+  <div class="region-inner region-sidebar-second-inner">
+      </div>
+</aside>
+  </div>
+</div><div id="zone-postscript-wrapper" class="zone-wrapper zone-postscript-wrapper clearfix">  
+  <div id="zone-postscript" class="zone zone-postscript clearfix equal-height-container container-12">
+    <div class="grid-3 region region-postscript-first equal-height-element" id="region-postscript-first">
+  <div class="region-inner region-postscript-first-inner">
+      </div>
+</div><div class="grid-6 region region-postscript-second equal-height-element" id="region-postscript-second">
+  <div class="region-inner region-postscript-second-inner">
+      </div>
+</div><div class="grid-3 region region-postscript-third equal-height-element" id="region-postscript-third">
+  <div class="region-inner region-postscript-third-inner">
+      </div>
+</div>  </div>
+</div></section>    
+  
+      <footer id="section-footer" class="section section-footer" role="contentinfo">
+  <div id="zone-footer-wrapper" class="zone-wrapper zone-footer-wrapper clearfix">  
+  <div id="zone-footer" class="zone zone-footer clearfix equal-height-container container-12">
+    <div class="grid-3 region region-footer-first equal-height-element" id="region-footer-first">
+  <div class="region-inner region-footer-first-inner">
+    <div id="block-block-341" class="block block-block" class="block block-block block-341 block-block-341 odd" id="block-block-341">
+				<h2 class="block-title">Visit Us</h2>
+			<div class="content" class="content clearfix">
+		<p><a href="https://www.google.com/maps/place/Museum+of+Fine+Arts,+Boston/@42.3391059,-71.0938552,16z/data=!4m2!3m1!1s0x89e37a0de7e77a4b:0x2f033fd6c495d564">Avenue of the Arts <br />465 Huntington Avenue <br /> Boston, Massachusetts&nbsp;02115 </a></p>
+<p><a href="tel:617-267-9300">617-267-9300</a></p>
+<p><a href="/visit" class="action">Plan Your&nbsp;Visit</a></p>
+	</div>
+</div>  </div>
+</div><div class="grid-3 region region-footer-second equal-height-element" id="region-footer-second">
+  <div class="region-inner region-footer-second-inner equal-height-container">
+    <div id="block-block-336" class="block block-block" class="block block-block block-336 block-block-336 odd equal-height-element" id="block-block-336">
+				<h2 class="block-title">Connect with Us</h2>
+			<div class="content" class="content clearfix">
+		<ul id="social"><li><a class="facebook" href="https://www.facebook.com/mfaboston" target="_blank">&nbsp;Facebook </a></li>
+<li><a class="twitter" href="https://twitter.com/mfaboston" target="_blank">&nbsp;Twitter </a></li>
+<li><a class="instagram" href="https://www.instagram.com/mfaboston/" target="_blank">&nbsp;Instagram </a></li>
+<li><a class="youtube" href="https://www.youtube.com/mfaboston" target="_blank">&nbsp;Youtube </a></li>
+</ul>	</div>
+</div>  </div>
+</div><div class="grid-3 region region-footer-third equal-height-element" id="region-footer-third">
+  <div class="region-inner region-footer-third-inner">
+    <div id="block-block-281" class="block block-block" class="block block-block block-281 block-block-281 odd" id="block-block-281">
+				<h2 class="block-title">Sign up for MFA Mail</h2>
+			<div class="content" class="content clearfix">
+		<p>Get updates on what’s happening at the MFA, from exhibitions and programs to special events and&nbsp;more.</p>
+<p><a href="https://tnew.mfa.org/account/shortreg.aspx" class="action">SIGN&nbsp;UP</a></p>
+	</div>
+</div>  </div>
+</div><div class="grid-3 region region-footer-fourth equal-height-element" id="region-footer-fourth">
+  <div class="region-inner region-footer-fourth-inner">
+    <div id="block-menu-block-21" class="block block-menu-block" class="block block-menu-block block-21 block-menu-block-21 odd block-without-title" id="block-menu-block-21">
+				<div class="content" class="content clearfix">
+		<div class="menu-block-wrapper menu-block-21 menu-name-menu-about parent-mlid-0 menu-level-1">
+  <ul class="menu"><li class="first last expanded menu-mlid-16049"><a href="http://www.mfa.org/node/367">About</a><ul class="menu"><li class="first leaf menu-mlid-16053"><a href="http://www.mfa.org/node/300">Annual Report</a></li>
+<li class="collapsed menu-mlid-16051"><a href="http://www.mfa.org/node/298">Architectural History</a></li>
+<li class="collapsed menu-mlid-16050"><a href="http://www.mfa.org/node/297">Director&#039;s Message</a></li>
+<li class="leaf menu-mlid-90186"><a href="http://www.mfa.org/node/469036">Economic Impact Report</a></li>
+<li class="leaf menu-mlid-16052"><a href="http://www.mfa.org/node/299">Mission Statement</a></li>
+<li class="leaf menu-mlid-16391"><a href="http://www.smfa.edu/" target="_blank">Museum School/SMFA</a></li>
+<li class="leaf menu-mlid-16396"><a href="http://www.ncaaa.org/" target="_blank">NCAAA</a></li>
+<li class="leaf menu-mlid-16401"><a href="http://www.nagoya-boston.or.jp/english/index.html" target="_blank">Nagoya/Boston Museum of Fine Arts</a></li>
+<li class="last leaf menu-mlid-195691"><a href="http://www.mfa.org/node/578426">Strategic Plan</a></li>
+</ul></li>
+</ul></div>
+	</div>
+</div><div id="block-menu-block-22" class="block block-menu-block" class="block block-menu-block block-22 block-menu-block-22 even block-without-title" id="block-menu-block-22">
+				<div class="content" class="content clearfix">
+		<div class="menu-block-wrapper menu-block-22 menu-name-menu-employment parent-mlid-0 menu-level-1">
+  <ul class="menu"><li class="first last expanded menu-mlid-111636"><a href="http://www.mfa.org/node/305">Employment</a><ul class="menu"><li class="first expanded menu-mlid-16194"><a href="http://www.mfa.org/node/305">Working at the Museum</a><ul class="menu"><li class="first leaf menu-mlid-16195"><a href="http://www.mfa.org/node/379">Open Staff Positions</a></li>
+<li class="last leaf menu-mlid-16158"><a href="http://www.mfa.org/node/306">Benefits</a></li>
+</ul></li>
+<li class="expanded menu-mlid-16192"><a href="http://www.mfa.org/node/368">Volunteering</a><ul class="menu"><li class="first leaf menu-mlid-16196"><a href="http://www.mfa.org/node/380">Open Volunteer Positions</a></li>
+<li class="last leaf menu-mlid-16138"><a href="http://www.mfa.org/node/20993">Apply as a Volunteer</a></li>
+</ul></li>
+<li class="expanded menu-mlid-16193"><a href="http://www.mfa.org/node/369">Internship Opportunities</a><ul class="menu"><li class="first last collapsed menu-mlid-16197"><a href="http://www.mfa.org/node/381">Open Internships</a></li>
+</ul></li>
+<li class="last leaf menu-mlid-16176"><a href="http://www.mfa.org/node/953">MFA Ambassadors</a></li>
+</ul></li>
+</ul></div>
+	</div>
+</div><div id="block-menu-menu-footer" class="block block-menu" class="block block-menu block-menu-footer block-menu-menu-footer odd block-without-title" id="block-menu-menu-footer">
+				<div class="content" class="content clearfix">
+		<ul class="menu"><li class="first leaf"><a href="http://www.mfa.org/node/21002">Contact</a></li>
+<li class="leaf active-trail"><a href="http://www.mfa.org/node/307" class="active-trail">Privacy Policy</a></li>
+<li class="leaf"><a href="http://www.mfa.org/node/435">Terms of Use</a></li>
+<li class="leaf"><a href="http://www.mfa.org/node/255">Accessibility</a></li>
+<li class="last leaf"><a href="http://translate.google.com/translate?js=n&amp;prev=_t&amp;hl=en&amp;ie=UTF-8&amp;layout=2&amp;eotf=1&amp;sl=auto&amp;tl=fr&amp;u=www.mfa.org">Translate</a></li>
+</ul>	</div>
+</div><div id="block-block-346" class="block block-block" class="block block-block block-346 block-block-346 even block-without-title" id="block-block-346">
+				<div class="content" class="content clearfix">
+		<p>&copy; 2018 Museum of Fine Arts, Boston </p>	</div>
+</div>  </div>
+</div>  </div>
+</div></footer>
+  </div>  <div id="top-link">
+    <a href="#">Back to top</a>
+  </div>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"3ecedcc8b6","applicationID":"4447818","transactionName":"ZQBQMUMFVhAEVU0NClxKcwZFDVcNSlhWAABtFVMCVDtOCgBB","queueTime":0,"applicationTime":559,"atts":"SUdTRwsfRR4=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+
+</html>

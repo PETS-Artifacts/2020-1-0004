@@ -1,0 +1,874 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html >
+<head>
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+
+    <meta name="last_modified_date" content="1475775512" />
+
+    <!-- Internal user test pixel -->
+    <script type="text/javascript">
+      (function () {
+        window.dataLayer = [];
+        //Test internal pixel function
+        function testImage(URL) {
+          var tester = new Image();
+          tester.onload = imageFound;
+          tester.onerror = imageNotFound;
+          tester.src = URL;
+        }
+        function imageFound() {
+          window.dataLayer.push({ 'Internal User - Fred Hutch' : "true" });
+        }
+        function imageNotFound() {
+          window.dataLayer.push({ 'Internal User - Fred Hutch' : "false" });
+        }
+        testImage("https://s3-us-west-2.amazonaws.com/fredhutch-internal/analytics.gif");
+      })();
+    </script>
+    <!-- End Internal user test pixel -->
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-P5LSMQ');</script>
+    <!-- End Google Tag Manager -->
+
+    <!-- New Relic -->
+    <script type="text/javascript">
+window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o||e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(t,e,n){function r(t){try{s.console&&console.log(t)}catch(e){}}var o,i=t("ee"),a=t(23),s={};try{o=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(s.console=!0,o.indexOf("dev")!==-1&&(s.dev=!0),o.indexOf("nr_dev")!==-1&&(s.nrDev=!0))}catch(c){}s.nrDev&&i.on("internal-error",function(t){r(t.stack)}),s.dev&&i.on("fn-err",function(t,e,n){r(n.stack)}),s.dev&&(r("NR AGENT IN DEVELOPMENT MODE"),r("flags: "+a(s,function(t,e){return t}).join(", ")))},{}],2:[function(t,e,n){function r(t,e,n,r,s){try{p?p-=1:o(s||new UncaughtException(t,e,n),!0)}catch(f){try{i("ierr",[f,c.now(),!0])}catch(d){}}return"function"==typeof u&&u.apply(this,a(arguments))}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function o(t,e){var n=e?null:c.now();i("err",[t,n])}var i=t("handle"),a=t(24),s=t("ee"),c=t("loader"),f=t("gos"),u=window.onerror,d=!1,l="nr@seenError",p=0;c.features.err=!0,t(1),window.onerror=r;try{throw new Error}catch(h){"stack"in h&&(t(13),t(12),"addEventListener"in window&&t(6),c.xhrWrappable&&t(14),d=!0)}s.on("fn-start",function(t,e,n){d&&(p+=1)}),s.on("fn-err",function(t,e,n){d&&!n[l]&&(f(n,l,function(){return!0}),this.thrown=!0,o(n))}),s.on("fn-end",function(){d&&!this.thrown&&p>0&&(p-=1)}),s.on("internal-error",function(t){i("ierr",[t,c.now(),!0])})},{}],3:[function(t,e,n){t("loader").features.ins=!0},{}],4:[function(t,e,n){function r(){M++,j=y.hash,this[u]=x.now()}function o(){M--,y.hash!==j&&i(0,!0);var t=x.now();this[h]=~~this[h]+t-this[u],this[d]=t}function i(t,e){E.emit("newURL",[""+y,e])}function a(t,e){t.on(e,function(){this[e]=x.now()})}var s="-start",c="-end",f="-body",u="fn"+s,d="fn"+c,l="cb"+s,p="cb"+c,h="jsTime",m="fetch",v="addEventListener",w=window,y=w.location,x=t("loader");if(w[v]&&x.xhrWrappable){var g=t(10),b=t(11),E=t(8),R=t(6),O=t(13),C=t(7),P=t(14),T=t(9),L=t("ee"),S=L.get("tracer");t(16),x.features.spa=!0;var j,M=0;L.on(u,r),L.on(l,r),L.on(d,o),L.on(p,o),L.buffer([u,d,"xhr-done","xhr-resolved"]),R.buffer([u]),O.buffer(["setTimeout"+c,"clearTimeout"+s,u]),P.buffer([u,"new-xhr","send-xhr"+s]),C.buffer([m+s,m+"-done",m+f+s,m+f+c]),E.buffer(["newURL"]),g.buffer([u]),b.buffer(["propagate",l,p,"executor-err","resolve"+s]),S.buffer([u,"no-"+u]),T.buffer(["new-jsonp","cb-start","jsonp-error","jsonp-end"]),a(P,"send-xhr"+s),a(L,"xhr-resolved"),a(L,"xhr-done"),a(C,m+s),a(C,m+"-done"),a(T,"new-jsonp"),a(T,"jsonp-end"),a(T,"cb-start"),E.on("pushState-end",i),E.on("replaceState-end",i),w[v]("hashchange",i,!0),w[v]("load",i,!0),w[v]("popstate",function(){i(0,M>1)},!0)}},{}],5:[function(t,e,n){function r(t){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var o=t("ee"),i=t("handle"),a=t(13),s=t(12),c="learResourceTimings",f="addEventListener",u="resourcetimingbufferfull",d="bstResource",l="resource",p="-start",h="-end",m="fn"+p,v="fn"+h,w="bstTimer",y="pushState",x=t("loader");x.features.stn=!0,t(8);var g=NREUM.o.EV;o.on(m,function(t,e){var n=t[0];n instanceof g&&(this.bstStart=x.now())}),o.on(v,function(t,e){var n=t[0];n instanceof g&&i("bst",[n,e,this.bstStart,x.now()])}),a.on(m,function(t,e,n){this.bstStart=x.now(),this.bstType=n}),a.on(v,function(t,e){i(w,[e,this.bstStart,x.now(),this.bstType])}),s.on(m,function(){this.bstStart=x.now()}),s.on(v,function(t,e){i(w,[e,this.bstStart,x.now(),"requestAnimationFrame"])}),o.on(y+p,function(t){this.time=x.now(),this.startPath=location.pathname+location.hash}),o.on(y+h,function(t){i("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),f in window.performance&&(window.performance["c"+c]?window.performance[f](u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["c"+c]()},!1):window.performance[f]("webkit"+u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["webkitC"+c]()},!1)),document[f]("scroll",r,{passive:!0}),document[f]("keypress",r,!1),document[f]("click",r,!1)}},{}],6:[function(t,e,n){function r(t){for(var e=t;e&&!e.hasOwnProperty(u);)e=Object.getPrototypeOf(e);e&&o(e)}function o(t){s.inPlace(t,[u,d],"-",i)}function i(t,e){return t[1]}var a=t("ee").get("events"),s=t(26)(a,!0),c=t("gos"),f=XMLHttpRequest,u="addEventListener",d="removeEventListener";e.exports=a,"getPrototypeOf"in Object?(r(document),r(window),r(f.prototype)):f.prototype.hasOwnProperty(u)&&(o(window),o(f.prototype)),a.on(u+"-start",function(t,e){var n=t[1],r=c(n,"nr@wrapped",function(){function t(){if("function"==typeof n.handleEvent)return n.handleEvent.apply(n,arguments)}var e={object:t,"function":n}[typeof n];return e?s(e,"fn-",null,e.name||"anonymous"):n});this.wrapped=t[1]=r}),a.on(d+"-start",function(t){t[1]=this.wrapped||t[1]})},{}],7:[function(t,e,n){function r(t,e,n){var r=t[e];"function"==typeof r&&(t[e]=function(){var t=r.apply(this,arguments);return o.emit(n+"start",arguments,t),t.then(function(e){return o.emit(n+"end",[null,e],t),e},function(e){throw o.emit(n+"end",[e],t),e})})}var o=t("ee").get("fetch"),i=t(23);e.exports=o;var a=window,s="fetch-",c=s+"body-",f=["arrayBuffer","blob","json","text","formData"],u=a.Request,d=a.Response,l=a.fetch,p="prototype";u&&d&&l&&(i(f,function(t,e){r(u[p],e,c),r(d[p],e,c)}),r(a,"fetch",s),o.on(s+"end",function(t,e){var n=this;if(e){var r=e.headers.get("content-length");null!==r&&(n.rxSize=r),o.emit(s+"done",[null,e],n)}else o.emit(s+"done",[t],n)}))},{}],8:[function(t,e,n){var r=t("ee").get("history"),o=t(26)(r);e.exports=r,o.inPlace(window.history,["pushState","replaceState"],"-")},{}],9:[function(t,e,n){function r(t){function e(){c.emit("jsonp-end",[],l),t.removeEventListener("load",e,!1),t.removeEventListener("error",n,!1)}function n(){c.emit("jsonp-error",[],l),c.emit("jsonp-end",[],l),t.removeEventListener("load",e,!1),t.removeEventListener("error",n,!1)}var r=t&&"string"==typeof t.nodeName&&"script"===t.nodeName.toLowerCase();if(r){var o="function"==typeof t.addEventListener;if(o){var a=i(t.src);if(a){var u=s(a),d="function"==typeof u.parent[u.key];if(d){var l={};f.inPlace(u.parent,[u.key],"cb-",l),t.addEventListener("load",e,!1),t.addEventListener("error",n,!1),c.emit("new-jsonp",[t.src],l)}}}}}function o(){return"addEventListener"in window}function i(t){var e=t.match(u);return e?e[1]:null}function a(t,e){var n=t.match(l),r=n[1],o=n[3];return o?a(o,e[r]):e[r]}function s(t){var e=t.match(d);return e&&e.length>=3?{key:e[2],parent:a(e[1],window)}:{key:t,parent:window}}var c=t("ee").get("jsonp"),f=t(26)(c);if(e.exports=c,o()){var u=/[?&](?:callback|cb)=([^&#]+)/,d=/(.*)\.([^.]+)/,l=/^(\w+)(\.|$)(.*)$/,p=["appendChild","insertBefore","replaceChild"];f.inPlace(HTMLElement.prototype,p,"dom-"),f.inPlace(HTMLHeadElement.prototype,p,"dom-"),f.inPlace(HTMLBodyElement.prototype,p,"dom-"),c.on("dom-start",function(t){r(t[0])})}},{}],10:[function(t,e,n){var r=t("ee").get("mutation"),o=t(26)(r),i=NREUM.o.MO;e.exports=r,i&&(window.MutationObserver=function(t){return this instanceof i?new i(o(t,"fn-")):i.apply(this,arguments)},MutationObserver.prototype=i.prototype)},{}],11:[function(t,e,n){function r(t){var e=a.context(),n=s(t,"executor-",e),r=new f(n);return a.context(r).getCtx=function(){return e},a.emit("new-promise",[r,e],e),r}function o(t,e){return e}var i=t(26),a=t("ee").get("promise"),s=i(a),c=t(23),f=NREUM.o.PR;e.exports=a,f&&(window.Promise=r,["all","race"].forEach(function(t){var e=f[t];f[t]=function(n){function r(t){return function(){a.emit("propagate",[null,!o],i),o=o||!t}}var o=!1;c(n,function(e,n){Promise.resolve(n).then(r("all"===t),r(!1))});var i=e.apply(f,arguments),s=f.resolve(i);return s}}),["resolve","reject"].forEach(function(t){var e=f[t];f[t]=function(t){var n=e.apply(f,arguments);return t!==n&&a.emit("propagate",[t,!0],n),n}}),f.prototype["catch"]=function(t){return this.then(null,t)},f.prototype=Object.create(f.prototype,{constructor:{value:r}}),c(Object.getOwnPropertyNames(f),function(t,e){try{r[e]=f[e]}catch(n){}}),a.on("executor-start",function(t){t[0]=s(t[0],"resolve-",this),t[1]=s(t[1],"resolve-",this)}),a.on("executor-err",function(t,e,n){t[1](n)}),s.inPlace(f.prototype,["then"],"then-",o),a.on("then-start",function(t,e){this.promise=e,t[0]=s(t[0],"cb-",this),t[1]=s(t[1],"cb-",this)}),a.on("then-end",function(t,e,n){this.nextPromise=n;var r=this.promise;a.emit("propagate",[r,!0],n)}),a.on("cb-end",function(t,e,n){a.emit("propagate",[n,!0],this.nextPromise)}),a.on("propagate",function(t,e,n){this.getCtx&&!e||(this.getCtx=function(){if(t instanceof Promise)var e=a.context(t);return e&&e.getCtx?e.getCtx():this})}),r.toString=function(){return""+f})},{}],12:[function(t,e,n){var r=t("ee").get("raf"),o=t(26)(r),i="equestAnimationFrame";e.exports=r,o.inPlace(window,["r"+i,"mozR"+i,"webkitR"+i,"msR"+i],"raf-"),r.on("raf-start",function(t){t[0]=o(t[0],"fn-")})},{}],13:[function(t,e,n){function r(t,e,n){t[0]=a(t[0],"fn-",null,n)}function o(t,e,n){this.method=n,this.timerDuration=isNaN(t[1])?0:+t[1],t[0]=a(t[0],"fn-",this,n)}var i=t("ee").get("timer"),a=t(26)(i),s="setTimeout",c="setInterval",f="clearTimeout",u="-start",d="-";e.exports=i,a.inPlace(window,[s,"setImmediate"],s+d),a.inPlace(window,[c],c+d),a.inPlace(window,[f,"clearImmediate"],f+d),i.on(c+u,r),i.on(s+u,o)},{}],14:[function(t,e,n){function r(t,e){d.inPlace(e,["onreadystatechange"],"fn-",s)}function o(){var t=this,e=u.context(t);t.readyState>3&&!e.resolved&&(e.resolved=!0,u.emit("xhr-resolved",[],t)),d.inPlace(t,y,"fn-",s)}function i(t){x.push(t),h&&(b?b.then(a):v?v(a):(E=-E,R.data=E))}function a(){for(var t=0;t<x.length;t++)r([],x[t]);x.length&&(x=[])}function s(t,e){return e}function c(t,e){for(var n in t)e[n]=t[n];return e}t(6);var f=t("ee"),u=f.get("xhr"),d=t(26)(u),l=NREUM.o,p=l.XHR,h=l.MO,m=l.PR,v=l.SI,w="readystatechange",y=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],x=[];e.exports=u;var g=window.XMLHttpRequest=function(t){var e=new p(t);try{u.emit("new-xhr",[e],e),e.addEventListener(w,o,!1)}catch(n){try{u.emit("internal-error",[n])}catch(r){}}return e};if(c(p,g),g.prototype=p.prototype,d.inPlace(g.prototype,["open","send"],"-xhr-",s),u.on("send-xhr-start",function(t,e){r(t,e),i(e)}),u.on("open-xhr-start",r),h){var b=m&&m.resolve();if(!v&&!m){var E=1,R=document.createTextNode(E);new h(a).observe(R,{characterData:!0})}}else f.on("fn-end",function(t){t[0]&&t[0].type===w||a()})},{}],15:[function(t,e,n){function r(){var t=window.NREUM,e=t.info.accountID||null,n=t.info.agentID||null,r=t.info.trustKey||null,i="btoa"in window&&"function"==typeof window.btoa;if(!e||!n||!i)return null;var a={v:[0,1],d:{ty:"Browser",ac:e,ap:n,id:o.generateCatId(),tr:o.generateCatId(),ti:Date.now()}};return r&&e!==r&&(a.d.tk=r),btoa(JSON.stringify(a))}var o=t(21);e.exports={generateTraceHeader:r}},{}],16:[function(t,e,n){function r(t){var e=this.params,n=this.metrics;if(!this.ended){this.ended=!0;for(var r=0;r<p;r++)t.removeEventListener(l[r],this.listener,!1);e.aborted||(n.duration=s.now()-this.startTime,this.loadCaptureCalled||4!==t.readyState?null==e.status&&(e.status=0):a(this,t),n.cbTime=this.cbTime,d.emit("xhr-done",[t],t),c("xhr",[e,n,this.startTime]))}}function o(t,e){var n=t.responseType;if("json"===n&&null!==e)return e;var r="arraybuffer"===n||"blob"===n||"json"===n?t.response:t.responseText;return v(r)}function i(t,e){var n=f(e),r=t.params;r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.sameOrigin=n.sameOrigin}function a(t,e){t.params.status=e.status;var n=o(e,t.lastSize);if(n&&(t.metrics.rxSize=n),t.sameOrigin){var r=e.getResponseHeader("X-NewRelic-App-Data");r&&(t.params.cat=r.split(", ").pop())}t.loadCaptureCalled=!0}var s=t("loader");if(s.xhrWrappable){var c=t("handle"),f=t(17),u=t(15).generateTraceHeader,d=t("ee"),l=["load","error","abort","timeout"],p=l.length,h=t("id"),m=t(20),v=t(19),w=window.XMLHttpRequest;s.features.xhr=!0,t(14),d.on("new-xhr",function(t){var e=this;e.totalCbs=0,e.called=0,e.cbTime=0,e.end=r,e.ended=!1,e.xhrGuids={},e.lastSize=null,e.loadCaptureCalled=!1,t.addEventListener("load",function(n){a(e,t)},!1),m&&(m>34||m<10)||window.opera||t.addEventListener("progress",function(t){e.lastSize=t.loaded},!1)}),d.on("open-xhr-start",function(t){this.params={method:t[0]},i(this,t[1]),this.metrics={}}),d.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid);var n=!1;if("init"in NREUM&&"distributed_tracing"in NREUM.init&&(n=!!NREUM.init.distributed_tracing.enabled),n&&this.sameOrigin){var r=u();r&&e.setRequestHeader("newrelic",r)}}),d.on("send-xhr-start",function(t,e){var n=this.metrics,r=t[0],o=this;if(n&&r){var i=v(r);i&&(n.txSize=i)}this.startTime=s.now(),this.listener=function(t){try{"abort"!==t.type||o.loadCaptureCalled||(o.params.aborted=!0),("load"!==t.type||o.called===o.totalCbs&&(o.onloadCalled||"function"!=typeof e.onload))&&o.end(e)}catch(n){try{d.emit("internal-error",[n])}catch(r){}}};for(var a=0;a<p;a++)e.addEventListener(l[a],this.listener,!1)}),d.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),d.on("xhr-load-added",function(t,e){var n=""+h(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),d.on("xhr-load-removed",function(t,e){var n=""+h(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),d.on("addEventListener-end",function(t,e){e instanceof w&&"load"===t[0]&&d.emit("xhr-load-added",[t[1],t[2]],e)}),d.on("removeEventListener-end",function(t,e){e instanceof w&&"load"===t[0]&&d.emit("xhr-load-removed",[t[1],t[2]],e)}),d.on("fn-start",function(t,e,n){e instanceof w&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=s.now()))}),d.on("fn-end",function(t,e){this.xhrCbStart&&d.emit("xhr-cb-time",[s.now()-this.xhrCbStart,this.onload,e],e)})}},{}],17:[function(t,e,n){e.exports=function(t){var e=document.createElement("a"),n=window.location,r={};e.href=t,r.port=e.port;var o=e.href.split("://");!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=e.hostname||n.hostname,r.pathname=e.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname);var i=!e.protocol||":"===e.protocol||e.protocol===n.protocol,a=e.hostname===document.domain&&e.port===n.port;return r.sameOrigin=i&&(!e.hostname||a),r}},{}],18:[function(t,e,n){function r(){}function o(t,e,n){return function(){return i(t,[f.now()].concat(s(arguments)),e?null:this,n),e?void 0:this}}var i=t("handle"),a=t(23),s=t(24),c=t("ee").get("tracer"),f=t("loader"),u=NREUM;"undefined"==typeof window.newrelic&&(newrelic=u);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],l="api-",p=l+"ixn-";a(d,function(t,e){u[e]=o(l+e,!0,"api")}),u.addPageAction=o(l+"addPageAction",!0),u.setCurrentRouteName=o(l+"routeName",!0),e.exports=newrelic,u.interaction=function(){return(new r).get()};var h=r.prototype={createTracer:function(t,e){var n={},r=this,o="function"==typeof e;return i(p+"tracer",[f.now(),t,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],n),o)try{return e.apply(this,arguments)}catch(t){throw c.emit("fn-err",[arguments,this,t],n),t}finally{c.emit("fn-end",[f.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,e){h[e]=o(p+e)}),newrelic.noticeError=function(t,e){"string"==typeof t&&(t=new Error(t)),i("err",[t,f.now(),!1,e])}},{}],19:[function(t,e,n){e.exports=function(t){if("string"==typeof t&&t.length)return t.length;if("object"==typeof t){if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if(!("undefined"!=typeof FormData&&t instanceof FormData))try{return JSON.stringify(t).length}catch(e){return}}}},{}],20:[function(t,e,n){var r=0,o=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);o&&(r=+o[1]),e.exports=r},{}],21:[function(t,e,n){function r(){function t(){return e?15&e[n++]:16*Math.random()|0}var e=null,n=0,r=window.crypto||window.msCrypto;r&&r.getRandomValues&&(e=r.getRandomValues(new Uint8Array(31)));for(var o,i="xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx",a="",s=0;s<i.length;s++)o=i[s],"x"===o?a+=t().toString(16):"y"===o?(o=3&t()|8,a+=o.toString(16)):a+=o;return a}function o(){function t(){return e?15&e[n++]:16*Math.random()|0}var e=null,n=0,r=window.crypto||window.msCrypto;r&&r.getRandomValues&&Uint8Array&&(e=r.getRandomValues(new Uint8Array(31)));for(var o=[],i=0;i<16;i++)o.push(t().toString(16));return o.join("")}e.exports={generateUuid:r,generateCatId:o}},{}],22:[function(t,e,n){function r(t,e){if(!o)return!1;if(t!==o)return!1;if(!e)return!0;if(!i)return!1;for(var n=i.split("."),r=e.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var o=null,i=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var s=navigator.userAgent,c=s.match(a);c&&s.indexOf("Chrome")===-1&&s.indexOf("Chromium")===-1&&(o="Safari",i=c[1])}e.exports={agent:o,version:i,match:r}},{}],23:[function(t,e,n){function r(t,e){var n=[],r="",i=0;for(r in t)o.call(t,r)&&(n[i]=e(r,t[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],24:[function(t,e,n){function r(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(o<0?0:o);++r<o;)i[r]=t[e+r];return i}e.exports=r},{}],25:[function(t,e,n){e.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],26:[function(t,e,n){function r(t){return!(t&&t instanceof Function&&t.apply&&!t[a])}var o=t("ee"),i=t(24),a="nr@original",s=Object.prototype.hasOwnProperty,c=!1;e.exports=function(t,e){function n(t,e,n,o){function nrWrapper(){var r,a,s,c;try{a=this,r=i(arguments),s="function"==typeof n?n(r,a):n||{}}catch(f){l([f,"",[r,a,o],s])}u(e+"start",[r,a,o],s);try{return c=t.apply(a,r)}catch(d){throw u(e+"err",[r,a,d],s),d}finally{u(e+"end",[r,a,c],s)}}return r(t)?t:(e||(e=""),nrWrapper[a]=t,d(t,nrWrapper),nrWrapper)}function f(t,e,o,i){o||(o="");var a,s,c,f="-"===o.charAt(0);for(c=0;c<e.length;c++)s=e[c],a=t[s],r(a)||(t[s]=n(a,f?s+o:o,i,s))}function u(n,r,o){if(!c||e){var i=c;c=!0;try{t.emit(n,r,o,e)}catch(a){l([a,n,r,o])}c=i}}function d(t,e){if(Object.defineProperty&&Object.keys)try{var n=Object.keys(t);return n.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(r){l([r])}for(var o in t)s.call(t,o)&&(e[o]=t[o]);return e}function l(e){try{t.emit("internal-error",e)}catch(n){}}return t||(t=o),n.inPlace=f,n.flag=a,n}},{}],ee:[function(t,e,n){function r(){}function o(t){function e(t){return t&&t instanceof r?t:t?c(t,s,i):i()}function n(n,r,o,i){if(!l.aborted||i){t&&t(n,r,o);for(var a=e(o),s=m(n),c=s.length,f=0;f<c;f++)s[f].apply(a,r);var d=u[x[n]];return d&&d.push([g,n,r,a]),a}}function p(t,e){y[t]=m(t).concat(e)}function h(t,e){var n=y[t];if(n)for(var r=0;r<n.length;r++)n[r]===e&&n.splice(r,1)}function m(t){return y[t]||[]}function v(t){return d[t]=d[t]||o(n)}function w(t,e){f(t,function(t,n){e=e||"feature",x[n]=e,e in u||(u[e]=[])})}var y={},x={},g={on:p,addEventListener:p,removeEventListener:h,emit:n,get:v,listeners:m,context:e,buffer:w,abort:a,aborted:!1};return g}function i(){return new r}function a(){(u.api||u.feature)&&(l.aborted=!0,u=l.backlog={})}var s="nr@context",c=t("gos"),f=t(23),u={},d={},l=e.exports=o();l.backlog=u},{}],gos:[function(t,e,n){function r(t,e,n){if(o.call(t,e))return t[e];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return t[e]=r,r}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],handle:[function(t,e,n){function r(t,e,n,r){o.buffer([t],r),o.emit(t,e,n)}var o=t("ee").get("handle");e.exports=r,r.ee=o},{}],id:[function(t,e,n){function r(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:a(t,i,function(){return o++})}var o=1,i="nr@id",a=t("gos");e.exports=r},{}],loader:[function(t,e,n){function r(){if(!E++){var t=b.info=NREUM.info,e=p.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(t&&t.licenseKey&&t.applicationID&&e))return u.abort();f(x,function(e,n){t[e]||(t[e]=n)}),c("mark",["onload",a()+b.offset],null,"api");var n=p.createElement("script");n.src="https://"+t.agent,e.parentNode.insertBefore(n,e)}}function o(){"complete"===p.readyState&&i()}function i(){c("mark",["domContent",a()+b.offset],null,"api")}function a(){return R.exists&&performance.now?Math.round(performance.now()):(s=Math.max((new Date).getTime(),s))-b.offset}var s=(new Date).getTime(),c=t("handle"),f=t(23),u=t("ee"),d=t(22),l=window,p=l.document,h="addEventListener",m="attachEvent",v=l.XMLHttpRequest,w=v&&v.prototype;NREUM.o={ST:setTimeout,SI:l.setImmediate,CT:clearTimeout,XHR:v,REQ:l.Request,EV:l.Event,PR:l.Promise,MO:l.MutationObserver};var y=""+location,x={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-spa-1123.min.js"},g=v&&w&&w[h]&&!/CriOS/.test(navigator.userAgent),b=e.exports={offset:s,now:a,origin:y,features:{},xhrWrappable:g,userAgent:d};t(18),p[h]?(p[h]("DOMContentLoaded",i,!1),l[h]("load",r,!1)):(p[m]("onreadystatechange",o),l[m]("onload",r)),c("mark",["firstbyte",s],null,"api");var E=0,R=t(25)},{}]},{},["loader",2,16,5,3,4]);
+;NREUM.info={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",licenseKey:"aade70df3f",applicationID:"286892453",sa:1}
+    </script>
+    <!-- End New Relic -->
+
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="robots" content="all"/>
+    
+    
+    <link rel="canonical" href="https://www.fredhutch.org/en/util/terms-privacy.html"/>
+    
+    
+    <link rel="image_src" href="https://www.fredhutch.org/etc/designs/public/img/facebook_share.png"/>
+    
+     
+    
+    <meta property="og:image" content="https://www.fredhutch.org/etc/designs/public/img/facebook_share.png"/>
+    
+    
+    <meta property="og:title" content="Terms of use and privacy policy"/>
+    <meta property="og:description" content=""/>
+
+    <meta property="og:site_name" content="Fred Hutch"/>
+    <meta property="og:url" content="http://www.fredhutch.org/en/util/terms-privacy.html"/>
+    <meta property="og:locale" content="en_US"/>
+
+    <meta property="fb:admins" content="10420423202"/>
+    <meta property="fb:pages" content="10420423202"/>
+      
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@fredhutch">
+    <meta name="twitter:title" content="Terms of use and privacy policy">
+    <meta name="twitter:description" content="">
+    
+    
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    
+    
+    
+    
+    
+    
+    <link href="/etc/designs/public/clientlibs.min.css?t=234234" type="text/css" rel="stylesheet"/>
+
+    
+    <link rel="stylesheet" href="/etc/designs/public/clientlibs/css/webfonts-geogrotesque.css"/>
+    
+    <script type="text/javascript" src="/etc.clientlibs/clientlibs/granite/jquery.min.js"></script>
+<script type="text/javascript" src="/etc/designs/public/clientlibs/headEmbeds.min.js"></script>
+<script type="text/javascript" src="/etc/designs/public/clientlibs.min.js"></script>
+
+
+    
+    
+    <link rel="stylesheet" href="/etc/designs/public/clientlibs/css/print.css" type="text/css" media="print"/>
+    
+
+
+    <!--[if gte IE 9]>
+      <style type="text/css">
+        /* http://www.colorzilla.com/gradient-editor/ */
+        .gradient {
+           filter: none;
+        }
+      </style>
+    <![endif]-->
+
+    <!--[if lte IE 9]>
+    <link rel="stylesheet" type="text/css" href="/etc/designs/public/clientlibs/css/ie9.css" />
+    <![endif]-->
+
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" type="text/css" href="/etc/designs/public/clientlibs/css/ie8.css" />
+    <![endif]-->    
+    
+    <!--[if lte IE 7]>
+    <link rel="stylesheet" type="text/css" href="/etc/designs/public/clientlibs/css/ie7.css" />
+    <![endif]-->  
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+
+    
+    <link rel="icon" type="image/vnd.microsoft.icon" href="/etc/designs/public/img/favicon.ico"/>
+    <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="/etc/designs/public/img/favicon.ico"/>
+    
+    <title>Terms of use and privacy policy</title>
+
+</head>
+
+
+
+<body class="general landingpage foundation page">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P5LSMQ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+
+<a href="#content" title="Jump to content"></a>
+<a href="#site-wide-navigation" title="Jump to site-wide navigation"></a>
+<a href="#section-navigation" title="Jump to navigation for this section"></a>
+
+
+<div id="fh_container" class="fh_container">
+ 
+
+ <!-- page content -->
+ <div id="fh_body" class="fh_body container_12 clearfix"><a name="content"></a>
+
+  <div class="grid_12">
+
+    <!-- breadcrumbs appear in the content flow in case they wrap to two lines -->
+    
+
+<div id="breadcrumbs" class="breadcrumbs"><ul>
+<li><a href="/en.html">Home</a></li><li><a href="/en/util.html">Utilities</a></li>
+<li>Terms of use and privacy policy</li>
+</ul><!-- <br class="clear"/>--></div>
+    
+    
+
+
+  <h1 class="cluster_title">
+      <!-- Lockerz Share BEGIN -->
+      <span class="share_options">
+        <a class="a2a_dd" href="http://www.addtoany.com/share_save">
+    		<img src="/etc/designs/public/img/buttons/plus_icon_static.png" class="rolloverImage" data-hover="/etc/designs/public/img/buttons/plus_icon_hover.png"><span class="share_link_text">Share</span>
+    	</a>
+      </span>
+      <script type="text/javascript">
+      <!--
+        a2a_config = {};
+        a2a_config.onclick=1;
+        a2a_config.show_title=0;
+        a2a_config.num_services=10;
+        /*a2a_config.linkname=document.title;
+        a2a_config.linkurl=location.href;*/
+        a2a_config.prioritize=["facebook","twitter","linkedin","digg","delicious","myspace","read_it_later","squidoo","technorati_favorites","care2_news"];
+        /*a2a_config.color_main="D7E5ED";*/
+        /*a2a_config.color_border="AECADB";*/
+        a2a_config.color_link_text="123054";
+        a2a_config.color_link_text_hover="24548d";
+      //-->
+      </script>
+      <script type="text/javascript" src="//static.addtoany.com/menu/page.js"></script>
+      <!-- Lockerz Share END -->   Terms of use and privacy policy</h1>
+
+
+ 
+
+  </div>  
+    
+  <!-- content column -->
+  
+
+	  <div id="fh_body_content" class="fh_body_content grid_9 push_3">  
+	    
+	    
+
+
+
+
+
+	    
+	    <div class="par parsys"><div class="text parbase section">
+
+<link rel="stylesheet" href="/etc/clientlibs/wcm/foundation/accessibility.min.css" type="text/css"/>
+
+
+    <p><a href="#terms">Terms of Use</a> | <a href="#privacy">Privacy Policy</a></p>
+
+<h3>Fred Hutchinson Cancer Research Center<br />
+www.fredhutch.org Web site Terms Of Use</h3>
+
+<p><b>PLEASE REVIEW THESE TERMS OF USE (THE &quot;TERMS&quot;) FOR FRED HUTCHINSON CANCER RESEARCH CENTER (&quot;FRED HUTCH&quot;) www.<b>f</b>red<b>h</b>utch.org WEB SITE (THE &quot;SITE&quot;). BY USING THIS SITE, YOU AGREE TO FOLLOW AND BE BOUND BY THE TERMS. IF YOU DO NOT AGREE WITH ANY OF THE TERMS, PLEASE DO NOT USE THIS SITE.</b></p>
+
+<h4>Changes to <a name="terms"></a>Terms</h4>
+
+<p>Please review the Terms regularly. The Terms may change at any time. By using the Site after a change in the Terms, you agree to follow and be bound by the Terms as changed.</p>
+
+<h4>Table of Contents</h4>
+
+<ul>
+<li>Site Content</li>
+<li>Third Party Content</li>
+<li>Your Use of the Site</li>
+<li>Use by Fred Hutch Employees</li>
+<li>Use by Children</li>
+<li>Use of the Arnold Digital Library</li>
+<li>Medical and Other Information</li>
+<li>Links to Other Sites</li>
+<li>User Comments and Submissions</li>
+<li>Copyright</li>
+<li>Trademarks</li>
+<li>Privacy Policy</li>
+<li>State Fundraising Notice</li>
+<li>Disclaimers</li>
+<li>Indemnification</li>
+<li>Termination</li>
+<li>Applicable Law</li>
+<li>Miscellaneous</li>
+</ul>
+
+<h4>Site Content</h4>
+
+<p>Unless otherwise expressly noted, you should assume everything you see, hear, or otherwise receive from or on the Site (the &quot;Content&quot;) is copyright, trademark, trade dress or other intellectual property owned or licensed by Fred Hutch. The Content includes, without limitation, images, illustrations, designs, icons, photographs, trademarks, logos, text, sounds, music, the Site as a whole and any other materials at the Site.</p>
+
+<p>The information in this Site is provided as a courtesy by Fred Hutch. The views and opinions of individual authors do not necessarily state or reflect those of the Hutch. References to specific products, processes or services do not constitute or imply recommendation or endorsement by the Hutch.</p>
+
+
+<p>If you would like to request reprints, copy or distribute materials contained on the Site, other than for noncommercial, personal use, please contact Fred Hutch <a href="mailto:communications@fredhutch.org">Communications &amp; Marketing</a>.</p>
+
+<h4>Third Party Content</h4>
+
+<p>Nothing in the Terms transfers to you any right, title or interest in any Content, including any intellectual property or content of third parties included on the Site.</p>
+
+<h4>Your Use of the Site</h4>
+
+<p>You may use or download Content for research or educational purposes, or for your personal, noncommercial purposes, provided you keep unchanged all copyright and other notices with them. No other use of any Content is permitted unless a specific use is expressly sated as to particular Content.</p>
+
+<p>You agree that you will make only lawful use of the Site, and will use the Site only in compliance with all federal, state and local laws and regulations. You agree that you will make no use of the Site that violates anyone else's rights, including copyright, trademark, patient, trade secret, privacy, publicity or other rights.</p>
+
+<p>You agree that you will not upload, post, transmit, distribute or otherwise publish on or to the Site (&quot;Publish&quot;) any materials that contain a software virus or other harmful component. You agree that you will not Publish any materials that contain advertising or commercial material of any kind. You agree that you will not Publish any materials that are false, threatening, libelous, defamatory, pornographic, obscene or otherwise unlawful, or that violate any rights of privacy or publicity or any trademark, copyright, patent or other rights. You are solely responsible for the content of any material you Publish. Fred Hutch is not responsible or liable for the conduct of any person using the Site.</p>
+
+<p>Fred Hutch may change, suspend, discontinue or remove any aspect of the Site at any time, without prior notice, including the availability of any Site feature, services or Content or any material you have Published. Fred Hutch may restrict your access to certain features, services or Content at any time, without prior notice.</p>
+
+<h4>Use by Fred Hutch Employees</h4>
+
+<p>If you are an employee, agent, contractor, or are otherwise employed by Fred Hutch, these Terms supplement the Hutch policy on Acceptable Use of Fred Hutch Information Technology Resources. In the event of a conflict between these documents, the policy on Acceptable Use of Fred Hutch Information Technology Resources will control.</p>
+
+<p>Portions of the Site are not public. Use of non-public portions of the Site is restricted to authorized Fred Hutch personnel and authorized scientific affiliates. All use of restricted portions of the Site may be monitored and/or recorded by Fred Hutch system administration staff.</p>
+
+<p>By using restricted portions of the Site, you expressly consent to any monitoring and recording of your activities while in such restricted areas. In the event monitoring reveals any indications of criminal activity, system administration staff will have the right, but not the obligation, to provide any such information to law enforcement personnel.</p>
+
+<h4>Use by Children</h4>
+
+<p>The Site is intended for adults aged 18 and older. It is not intended for or directed at persons under the age of 18. If you are under the age of 18, you may not register or submit personally identifiable information to or through the Site. Fred Hutch does not collect personally identifiable information through the Site from any person the Hutch actually knows to be under the age of 18.</p>
+
+<h4>Use of the Arnold Digital Library</h4>
+
+
+<p>Use of the Arnold Digital Library is limited to Fred Hutch library cardholders, including Fred Hutch faculty, staff, students and scientific affiliates. All use of the Arnold Digital Library must comply with the guidelines set forth in the Arnold Digital Library's <a href="http://sharedresources.fredhutch.org/core-facilities/library">Borrowing Privileges and Policies</a>. All use of the Arnold Digital Library must also comply with all applicable laws, including but not limited to, copyright law.</p>
+
+<h4>Medical and Other Information</h4>
+
+<p>This information is designed only for research and educational purposes and is not provided as a professional service or as medical advice for specific patients. It is not a substitute for professional medical care and if you have, or suspect you may have, a health problem, you should consult your health care provider.</p>
+
+<h4>Links to Other Sites</h4>
+
+<p>The Site may contain links to third party sites. Any outside links are provided only as a convenience. Your use of outside links is at your sole risk. Any links from the Site do not constitute the Hutch's endorsement of any third party, its Web site, or its goods or services.</p>
+
+<p>Fred Hutch is not responsible for any Web sites, services or other materials linked to or from the Site, and disclaims all liability for any injury you may experience by using such materials. If you have any concerns regarding any Web site linked to or from the Site, please direct them to the owner or operator of the Web site.</p>
+
+<p>You may not create hyperlinks to the Site that portray the Hutch in a false or misleading light. You may not use any &quot;framing&quot; or similar techniques to enclose any portion of the Site.</p>
+
+<h4>User Comments and Submissions</h4>
+
+
+<p>We welcome your comments regarding our Site and services. To submit your comments regarding our Site or services, e-mail them to <a href="mailto:communications@fredhutch.org">communications@fredhutch.org</a>. However, if you are dissatisfied with the Site, any of its Content, or any of the Terms, your sole and exclusive legal remedy is to stop using the Site. Any comments, ideas, suggestions or other information you transmit to the Site are not confidential or proprietary. Fred Hutch will be free to use any comment, idea, suggestion or other information you transmit to us through the Site on an unrestricted basis. This may include personal information about you and your use of the Site. Please review the Hutch's <a href="#privacy">Privacy Policy</a> for more information.</p>
+
+<h4>Copyright</h4>
+
+<p>Fred Hutch respects the intellectual property of others. If you believe that your work has been infringed on the Site, please send a statutory notice to the Hutch's copyright agent for notice of claims of copyright infringement:</p>
+
+<p><b>[Add individual's name if desired]<br />
+ Fred Hutchinson Cancer Research Center<br />
+ Communications and Marketing<br />
+ J5-300<br />
+ P.O. Box 19024<br />
+ Seattle, WA 98109-1024</b><br />
+</p>
+
+<h4>Trademarks</h4>
+
+<p>The Double Helix Design FRED HUTCHINSON CANCER RESEARCH CENTER, ADVANCING KNOWLEDGE, SAVING LIVES, FRED HUTCH, THE HUTCH, THE GREGORY FUND and CLIMB TO FIGHT BREAST CANCER and  graphical icons associated with the Hutch's logo are registered trademarks of Fred Hutch. Other trademarks appearing on the Site are the property of their respective owners. Use of any Fred Hutch trademark is subject to the prior written permission of Fred Hutch. Fred Hutch is not affiliated with, or sponsored by, the National Foundation for Infectious Diseases.</p>
+
+<h4>Privacy Policy</h4>
+
+
+<p>Fred Hutch has a Privacy Policy that describes how we collect information from you or about you, why we collect this information, how we will use or disclose this information. In addition, Fred Hutch's Privacy Policy sets forth our general policies on information security. To review the Hutch's Privacy Policy, <a href="#privacy">click here</a>.</p>
+
+<h4>State Fundraising Notice</h4>
+
+
+<p>As a registered 501(c)(3) non-profit organization, the Fred Hutch relies on private support, applying the majority of each dollar contributed to its world-renowned research efforts. In connection with the Hutch's fundraising activities, certain states require us to advise you that a copy of our financial report is available from them. Fred Hutch's principal place of business is located at 1100 Fairview Avenue North, J5-200, Seattle WA 98109-1024. Financial disclosures may be obtained by contacting the Washington Secretary of State at 1-800-332-GIVE, or at the Washington Secretary of State's <a href="http://www.secstate.wa.gov/charities/search_detail.aspx?charity_id=1733" target="_blank">website</a>. You may obtain additional financial information by writing to the Office of the Secretary of State, Charitable Solicitations Program, P.O. Box 40234, Olympia, WA 98504-0234. Registration with a state agency does not constitute or imply endorsement, approval or recommendation by that state.</p>
+
+<h4>Disclaimers</h4>
+
+<p>YOUR USE OF THE SITE IS AT YOUR OWN RISK. TO THE FULLEST EXTENT PERMISSIBLE BY LAW, FRED HUTCH MAKES NO REPRESENTATIONS OR WARRANTIES OF ANY KIND IN CONNECTION WITH THE SITE. FRED HUTCH PROVIDES THIS SITE, ALL CONTENTS, ALL INFORMATION AND SERVICES OFFERED ON OR THROUGH THE SITE &quot;AS IS.&quot; FRED HUTCH EXPRESSLY DISCLAIMS ALL EXPRESS OR IMPLIED WARRANTIES, INCLUDING BUT NOT LIMITED TO THE ACCURACY, COMPLETENESS, IMPLIED WARRANTIES OF MERCHANTABILITY, QUIET ENJOYMENT, FITNESS FOR A PARTICULAR PURPOSE OR NONINFRINGEMENT OF ANY CONTENT OFFERED ON OR THROUGH THE SITE.</p>
+
+<p>FRED HUTCH WILL NOT BE LIABLE FOR ANY DAMAGES RELATED TO YOUR USE OF OR INABILITY TO USE THIS SITE, INCLUDING WITHOUT LIMITATION, DIRECT, INDIRECT, SPECIAL, COMPENSATORY OR CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOSS OF OR DAMAGE TO PROPERTY, EVEN IF FHCRC HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.</p>
+
+<p>Some jurisdictions may not allow the exclusion of implied warranties, so some of the above exclusions may not apply to you. Fred Hutch does not warrant that your use of the Site, the operation or function of the Site, or any services offered on or through the Site, will be uninterrupted or error free, that defects will be corrected, or that the Site or its server are free of viruses or other harmful elements. Fred Hutch does not make any representations regarding the currency, accuracy or reliability of information on the Site.</p>
+
+<h4>Indemnification</h4>
+
+<p>You assume full responsibility for any use of any information, goods or services offered on or through the Site. You understand and agree that Fred Hutch will not be responsible or liable for any claim, loss or damage arising from the use of any information, goods or services.</p>
+
+<p>You agree to defend, indemnify and hold harmless Fred Hutch and its officers, directors, owners, agents, employees, affiliates, licensees and licensors from and against any and all claims, damages, costs and expenses, including reasonable attorneys' fees, arising from or related to your use of the Site in violation of any of the Terms.</p>
+
+<h4>Termination</h4>
+
+<p>Your failure to comply with the Terms automatically revokes your authorization to use the Site and terminates any and all rights granted to you under the Terms. Your obligations to Fred Hutch will continue upon termination of your rights under the Terms, including restrictions regarding the Content, disclaimers, indemnification obligations and liability limitations under the Terms. Upon termination of your rights, you must promptly destroy all Content downloaded or obtained from this Site, as well as all copies of any Content.</p>
+
+<h4>Applicable Law</h4>
+
+<p>The Terms will be construed according to Washington law, without regard to provisions governing conflicts of laws. Any dispute arising under or relating to the Terms, the Content, the use of the Site, or any services obtained using this Site, will be resolved exclusively by the state and federal courts of the State of Washington. Your use of the Site constitutes your consent to the jurisdiction and venue of such courts with respect to any such dispute.</p>
+
+<h4>Miscellaneous</h4>
+
+<p>If for any reason a court of competent jurisdiction finds any provision of the Terms, or any portion thereof, to be unenforceable, that provision will be enforced to the maximum extent permissible so as to effect the intent of the Terms, and the remainder of the Terms will remain in full force and effect. The Terms are the entire agreement between you and Fred Hutch relating to the Site. Any other agreements between you and the Hutch regarding the subject matter of the Terms are superseded and have no force or effect. All rights not expressly granted herein are reserved.</p>
+
+<p>------------------------------------------------------------------------------</p>
+
+<p><a name="privacy"></a></p>
+
+<h3>Fred Hutchinson Cancer Research Center<a name="privacy"></a><br />
+www.fredhutch.org Web site Privacy Policy</h3>
+
+<p><b>PLEASE REVIEW THE PRIVACY POLICY FOR FRED HUTCHINSON CANCER RESEARCH CENTER [&quot;FRED HUTCH&quot;) www.<b>f</b>red<b>h</b>utch.org WEB SITE (THE &quot;SITE&quot;). BY USING THIS SITE, YOU AGREE TO FOLLOW AND BE BOUND BY THIS PRIVACY POLICY. IF YOU DO NOT AGREE WITH ANY OF THE TERMS OF THE PRIVACY POLICY, PLEASE DO NOT USE THIS SITE.</b></p>
+
+<h4>Changes to Privacy Policy</h4>
+
+<p>Please review the Privacy Policy regularly. The Privacy Policy may change at any time. By using the Site after a change in the Privacy Policy, you agree to follow and be bound by the Privacy Policy as changed.</p>
+
+<h4>Privacy Policy</h4>
+
+<p>This document describes how we may collect information from you or about you, why we collect this information, and how we may use or disclose this information. In addition, this document sets forth our general policies on information security.</p>
+
+<h4>Information Collection</h4>
+
+<p>There are several kinds of information we collect. For all visitors to the Site, we collect and log your IP address. An IP address is a number automatically assigned to your computer whenever you access the Internet. We collect IP address information to better administer our system and to gather aggregate information on visitors to our site, on how our site is being used, and on the pages visitors are viewing. This aggregate information may be shared with other organizations. To maintain your anonymity, we do not associate IP addresses with records containing personal information. We may use IP address information, however, to personally identify you in order to enforce our legal rights or when required to do so by law enforcement authorities.</p>
+
+<h4>Cookies</h4>
+
+<p>We may also place small data files, called &quot;cookies,&quot; in the browser file of your computer's hard drive. These cookies automatically identify your browser to our server when you interact with the Site. Most browsers automatically accept these cookies. We may use cookies to determine whether you are logged in to the Site, and to temporarily store application data.  We and our trusted third parties may also use cookies to serve advertisements to you after you leave the Site. Most internet browsers automatically accept cookies, but provide an option for blocking the acceptance of cookies. If you block cookies, you may not be able to use certain features or functions of the Site, or the Site may not operate in an optimal mode.</p>
+
+<h4>Third-Party Advertising Partners</h4>
+
+<p>We use third-party service providers to serve advertisements (banners or links) on our behalf across the Internet. </p>
+
+<p>These advertising service providers may collect non-personally identifiable information about your visits to our website, and your interactions with specific pages. Such non-personally identifiable information does not include your name, address, email address or other personal information. The information is collected through the use of cookies and pixel tags (also known as action tags), which is industry-standard technology used by most major websites. </p>
+
+
+<p>If you prefer that we do not collect non-personally identifiable information about your website visits for the purpose of delivering targeted advertising, <a href="/en/util/terms-privacy/third-party-opt-out.html">you may opt out</a>.</p>
+
+
+<p>If you would like more information about this practice and your choices for not having this information used by third-party service providers, please visit <a href="http://www.networkadvertising.org/managing/opt_out.asp" target="_blank">http://www.networkadvertising.org/managing/opt_out.asp</a>.</p>
+
+<h4>Personal Health Information</h4>
+
+<p>We may collect personal health information that you choose to share with us in the risk-assessment and disease management portions of the Site. This information may include e-mail addresses and your answers to health questions. This information will only be collected with your permission.</p>
+
+<h4>Surveys</h4>
+
+<p>At times, you may be asked to complete survey questions that appear on the Site. If you agree to participate in the survey, you will be asked to review and accept certain additional terms and conditions relating to use of the information you furnish, which may include personally identifiable information. Any survey terms and conditions are in addition to the Privacy Policies set forth in this Agreement.</p>
+
+<h4>E-mail Communications, Newsletters and Related Sites</h4>
+
+
+<p>The Site provides you with the opportunity to receive communications from us or third parties. Once you have decided to receive such communications, you may later decide to stop receiving them. To stop receiving communications, email <a href="mailto:communications@fredhutch.org">c</a>ommunications@fredhutch.org or visit the <a href="/en/news.html">News &amp; Publications</a> page to manage any subscriptions. Please be aware that e-mail communications may not be secure and may be susceptible to interception by third parties.</p>
+
+<h4>Information for Online Transactions</h4>
+
+<p>Some areas of the Site may allow you to make online donations or other transactions. In connection with such transactions, we collect data necessary to complete the transaction and other information that is furnished by you. This information may be furnished to a third party in order to facilitate the transaction.</p>
+
+<h4>Aggregate Information</h4>
+
+<p>We use general traffic, site usage, and length of stay information for statistical reporting and may share such reports with organizations with which we have a business relationship. This aggregate information does not personally identify you.</p>
+
+<h4>Children's Privacy</h4>
+
+<p>The Site is intended for adults aged 18 and older. It is not intended for or directed at persons under the age of 18. If you are under the age of 18, you may not register or submit personally identifiable information to or through the Site. Fred Hutch does not collect personally identifiable information through the Site from any person the Hutch actually knows to be under the age of 18.</p>
+
+<h4>Other Sites</h4>
+
+<p>Our privacy policies apply only to your use of the Site. The Site contains links to third party sites, including sites that may indicate a special relationship with us. While we do not disclose personably identifiable information to the parties operating linked sites, we are not responsible for the privacy practices of such other sites. You should read the privacy policies of each site you visit to determine what information that site may be collecting about you.</p>
+
+
+
+</div>
+<div class="text parbase section">
+
+
+
+    <p style="text-align: right;"><a href="#top">Back to Top</a></p>
+
+
+
+</div>
+
+</div>
+
+	    <!-- remote-wrap-api-marker -->
+	  </div>
+
+  
+  <!-- /content column -->
+
+    
+
+  <!-- left column (sidebar) -->
+  <div id="fh_sidebar" class="fh_sidebar grid_3 pull_9"><div id="fh_sidebar_content" class="fh_sidebar_content">
+    
+    
+
+
+
+    
+    
+    <!-- protected parsys: -->
+    <div class="relatedcontentarea">
+      <div class="parRelated protectedparsys">
+
+
+    
+    <div class="producerProtectedPar parsys">
+</div>
+
+    
+</div>
+
+    </div>
+    
+    
+
+
+  
+   </div><!-- /fh_sidebar_content -->
+  
+  </div>
+  <!-- /left column -->
+ 
+ </div><!-- /fh_body -->
+
+ 
+ 
+
+ <!-- global nav -->
+ 
+<!--googleoff: index-->
+<div id="navigation-main-container"><a name="site-wide-navigation" class="clear"></a>
+  <div id="navigation-main-wrapper">
+    <ul id="navigation-main" class="navigation-main">
+       <li class="navigation-main-item menu-diseases null"><a class="navigation-main-link" href="/en/diseases.html">Diseases / Research</a><div class='dropdown_menu'><ul>
+  <li><a href="/en/diseases.html">Overview</a></li>
+  <li><a href="/en/diseases.html#diseases">Diseases We Research</a></li>
+  <li><a href="/en/labs/profiles.html">Faculty</a></li>
+  <li><a href="/en/diseases/featured-researchers.html">Featured Researchers</a></li>
+  <li><a href="/en/labs/science-projects.html">Labs and Projects</a></li>
+  <li><a href="/en/diseases/research-highlights.html">Research Highlights</a></li>
+  <li><a href="/en/news.html">News</a></li>
+</ul>
+<dl>
+<dt>License Our Discoveries</dt>
+<dd>
+    <ul>
+<li><a href="/en/diseases/business-development.html">Business Development & Strategy</a></li>
+		</ul>
+	</dd>
+</dl></div></li>
+       <li class="navigation-main-item menu-treatment null"><a class="navigation-main-link" href="/en/treatment.html">Treatment / Support</a><div class='dropdown_menu'><ul>
+  <li><a href="/en/treatment.html">Overview</a></li>
+  <li><a href="/en/treatment/clinical-trials.html">Clinical Trials</a></li>
+  <li><a href="/en/about/share-your-story.html">Share Your Story</a></li>
+  <li><a href="/en/treatment/treatment-research.html">Treatment Research</a></li>
+  <li><a href="/en/ways-to-give/volunteer-your-time/volunteer-studies.html">Volunteer for a Study</a></li>
+</ul>
+
+<dl>
+	<dt>Support</dt>
+	<dd>
+      <ul>
+        <li><a href="/en/treatment/long-term-follow-up.html">Long-Term Follow-Up Program</a></li>
+        <li><a href="/en/labs/mpower-prostate-cancer-registry.html">Mpower Prostate Cancer Registry</a></li>
+        <li><a href="/en/treatment/survivorship.html">Survivorship Program</a></li>
+      </ul>
+  </dd>
+</dl>
+ 
+<dl>
+	<dt>Resources</dt>
+	<dd>
+    <ul>
+			<li><a href="https://www.seattlecca.org/make-an-appointment.cfm" target="_blank">Become a Patient</a></li>
+      <li><a href="/en/treatment/housing-education.html">Housing and Education</a></li>
+		</ul>
+	</dd>
+</dl>
+</div></li>
+       <li class="navigation-main-item menu-about null"><a class="navigation-main-link" href="/en/about.html">About Us</a><div class='dropdown_menu'><ul>
+  <li><a href="/en/about.html">Overview</a></li>
+  <li><a href="/en/about/about-the-center.html">About Fred Hutch</a></li>
+  <li><a href="/en/about/accountability-and-impact.html">Accountability & Impact</a></li>
+<li><a href="/en/diseases/business-development.html">Business Development & Strategy</a></li>
+<li><a href="/en/careers.html">Careers</a></li>
+<li><a href="/en/about/data-science.html">Data Science Collaborations</a></li>
+<li><a href="/en/education-training.html">Education & Training</a></li>
+  <li><a href="/en/about/leadership.html">Leadership / Board</a></li>
+</ul>
+<dl>
+	<dt>Patients / Caregivers</dt>
+	<dd>
+    <ul>
+			<li><a href="/en/treatment.html">Become A Patient</a></li>
+      <li><a href="/en/about/share-your-story.html">Share Your Story</a></li>
+    </ul>
+  </dd>
+</dl>
+
+<dl>
+	<dt>Resources</dt>
+	<dd>
+    <ul>
+ 
+      <li><a href="/en/news.html">News / Publications</a></li>
+      <li><a href="/en/news/media-relations.html">News / For the Media</a></li>
+<li><a href="/en/contact-us/visit-us/visitor-center.html">Visitor Center</a></li>
+
+		</ul>
+	</dd>
+</dl></div></li>
+       <li class="navigation-main-item menu-labs null"><a class="navigation-main-link" href="/en/labs.html">Labs / Projects</a><div class='dropdown_menu'><ul>
+  <li><a href="/en/labs.html">Overview</a></li>
+  <li><a href="/en/education-training.html">Education & Training</a></li>
+  <li><a href="/en/labs/profiles.html">Faculty</a></li>
+  <li><a href="/en/labs/science-projects.html">Labs, Programs &amp; Projects</a></li>
+  <li><a href="/en/labs/scientific-seminars.html">Scientific Seminars</a></li>
+</ul>
+<dl>
+	<dt>Divisions</dt>
+	<dd>
+    <ul>
+	<li><a href="/en/labs/basic-sciences.html">Basic Sciences</a></li>
+      <li><a href="/en/labs/clinical.html">Clinical Research</a></li>
+      <li><a href="/en/labs/humanbio.html">Human Biology</a></li>
+      <li><a href="/en/labs/phs.html">Public Health Sciences</a></li>
+      <li><a href="/en/labs/vaccine-and-infectious-disease.html">Vaccine and Infectious Disease</a></li>
+		</ul>
+	</dd>
+</dl>
+<dl>
+	<dt>Integrated Research Centers</dt>
+	<dd>
+    <ul>
+	<li><a href="/en/labs/iirc.html">Immunotherapy</a></li>
+	<li><a href="/en/labs/pam-irc.html">Pathogen-Associated Malignancies</a></li>
+	<li><a href="/en/labs/tds-irc.html">Translational Data Science</a></li>
+		</ul>
+	</dd>
+</dl>
+<dl>
+	<dt>Initiatives</dt>
+	<dd>
+    <ul>
+<li><a href="/en/labs/vaccine-and-infectious-disease/international-programs/global-oncology.html">Global Oncology</a></li>
+<li><a href="/en/labs/hicor.html">HICOR - Hutchinson Institute for Cancer Outcomes Research</a></li>
+      <li><a href="/en/labs/hiv-vaccine-trials-network.html">HVTN - HIV Vaccine Trials Network</a></li>
+      <li><a href="/en/labs/clinical/projects/project-violet.html">Project Violet</a></li>
+      <li><a href="/en/labs/seattle-translational-tumor-research.html">STTR - Seattle  Translational Tumor Research</a></li>
+		</ul>
+	</dd>
+</dl></div></li>
+       <li class="navigation-main-item menu-events null"><a class="navigation-main-link" href="/en/events.html">Events / Programs</a><div class='dropdown_menu'><ul>
+  <li><a href="/en/events.html">Overview</a></li>
+  <li><a href="/en/events.html">Calendar of Events</a></li>
+  <li><a href="/en/labs/scientific-seminars.html">Scientific Seminars</a></li>
+</ul>
+<dl>
+	<dt>Community</dt>
+	<dd>
+    <ul>
+      <li><a href="/en/ways-to-give/volunteer-your-time/plan-event/featured-fundraising-events.html">Community Partner Events</a></li>
+      <li><a href="/en/events/cancer-in-our-communities.html">Cancer in our Communities</a></li>
+      <li><a href="/en/events/healthy-living.html">Health / Fitness</a></li>
+   
+    </ul>
+
+	</dd>
+
+	<dt>Education</dt>
+	<dd>
+          <ul>
+<li><a href="/en/education-training.html">Education & Training</a></li>
+  	    <li><a href="/en/careers/internship-opportunities.html">Internship Program</a></li>
+      	    <li><a href="/en/education-training/sep.html">Science Education Partnership</a></li>
+	  </ul>
+	</dd>
+
+
+</dl></div></li>
+       <li class="navigation-main-item menu-give null"><a class="navigation-main-link" href="/en/ways-to-give.html">Ways To Give</a><div class='dropdown_menu'><ul>
+  <li><a href="/en/ways-to-give.html">Overview</a></li>
+  <li><a href="https://secure.fredhutch.org/site/SPageServer?pagename=adf_agiv&experience=may19&s_src=may19&s_subsrc=aegew1905">Donate Now</a></li>
+  <li><a href="/en/events.html">Events </a></li>
+  <li><a href="http://www.fredhutch.org/shopfredhutch" target="_blank">Fred Hutch Store</a></li>
+  <li><a href="/en/ways-to-give/fundraise-for-fred-hutch.html">Fundraise for Fred Hutch</a></li>
+  <li><a href="/en/ways-to-give/volunteer-your-time/plan-event.html">Host an Event</a></li>
+  <li><a href="/en/ways-to-give/impact.html">How Your Donation Helps</a></li>
+  <li><a href="/en/ways-to-give/volunteer-your-time/volunteer-studies.html">Volunteer for a Study</a></li>
+</ul>
+
+<dl>
+	<dt>Gifts</dt>
+	<dd>
+    <ul>
+      <li><a href="/en/ways-to-give/corporations.html">Corporate Gifts</a></li>
+      <li><a href="/en/ways-to-give/directed-giving.html">Directed Gifts</a></li>
+	  <li><a href="/en/ways-to-give/endowment.html">Endowment Gifts</a></li>
+      <li><a href="/en/ways-to-give/honor-memorial.html">Honor / Memorial Gifts</a></li>
+      <li><a href="/en/ways-to-give/planned.html">Planned Gifts /<br>Estate Planning</a></li>
+    </ul>
+  </dd>
+</dl>
+
+<dl>
+	<dt>Clubs</dt>
+	<dd>
+    <ul>
+      <li><a href="/en/ways-to-give/clubs-gifts/innovators-network.html">Innovators Network</a></li>
+      <li><a href="/en/ways-to-give/clubs-gifts/cure-starters-circle.html">Cure Starters Circle</a></li>
+      <li><a href="/en/ways-to-give/clubs-gifts/presidents-circle.html">President's Circle</a></li>
+      <li><a href="http://www.fredhutch.org/tls">Thomas Legacy Society</a></li>
+		</ul>
+	</dd>
+</dl></div></li>
+    </ul>
+  </div>
+</div>
+
+
+ 
+
+
+ <!-- logo -->
+ <div id="fh_logo"><a href="/en.html"><img src="/etc/designs/public/img/logos/fred_hutch_logo.png" alt="Fred Hutchinson Cancer Research Center" border="0"/></a></div>
+<!--  mission, global nav and logo -->
+</div><!-- /fh_container -->  
+
+<!-- helps some browsers block position the footer: -->
+<div class="clear"></div>
+ 
+ 
+<div id="footer_container" class="footer_container"><div id="footer_content" class="footer_content">
+ <div class="footerReference footerreference parbase"><div style="display:inline;" class="cq-dd-paragraph"><div class="footer">
+
+ <div class="container_12">
+ 
+ 	<div class="grid_12 horizontal_rule"></div>
+ 
+ 	<div class="grid_fifths footer_column_1">
+ 		<div class="footer_text_column_1 text parbase">
+
+
+
+    <h3>Quick Links<a href="/en/about.html"></a></h3>
+
+<p><a href="/en/about.html">About Us<br />
+ </a><a href="/en/diseases/business-development.html">Business Development &amp; Strategy</a><br />
+<a href="http://www.cancerconsortium.org/en.html" target="_blank">Cancer Consortium</a><br />
+<a href="/en/treatment/clinical-trials.html">Clinical Trials</a><br />
+<a href="/en/contact-us.html">Contact Us</a><br />
+<a href="/en/education-training.html">Education &amp; Training</a><br />
+<a target="_blank" href="http://extranet.fhcrc.org/EN/">Extranet</a><br />
+<a href="http://www.fredhutch.org/shopfredhutch" target="_blank">Fred Hutch Store</a><br />
+<a href="/en/util/information-security-policy-statement.html">Information Security Statement</a><br />
+<a href="/en/labs.html">Programs &amp; Projects</a><br />
+<a target="_blank" href="http://labs.fhcrc.org/">Lab Sites</a><br />
+<a target="_blank" href="http://www.fredhutch.org/en/redirect-stubs/office-sponsored-research.html">Office of Sponsored Research</a><br />
+<a href="https://sharedresources.fredhutch.org/" target="_blank">Shared Resources</a><br />
+<a href="/en/about/share-your-story.html">Share Your Story</a><br />
+<a href="/en/contact-us/visit-us/visitor-center.html">Visitor Center</a></p>
+
+
+
+</div>
+
+ 	</div>
+ 	
+ 	<div class="grid_fifths footer_column_2">
+ 		<div class="footer_text_column_2 text parbase">
+
+
+
+    <h3>Information For</h3>
+
+<p><a href="/en/redirect-stubs/community.html">Community</a><br />
+<a href="/en/redirect-stubs/donors-volunteers.html">Donors &amp; Volunteers</a><br />
+<a href="/en/redirect-stubs/educators-students.html">Educators &amp; Students</a><br />
+<a href="/en/employees.html">Employees</a><br />
+<a href="/en/diseases/business-development.html">Industry Partnerships</a><br />
+<a href="/en/redirect-stubs/news-media.html">News Media</a><br />
+<a href="/en/redirect-stubs/patients-families.html">Patients &amp; Families</a><br />
+<a href="/en/health-professionals.html">Physicians &amp; Health Professionals</a><br />
+<a href="/en/education-training/postdoctoral-fellows.html">Postdoctoral Fellows</a><br />
+<a href="/en/redirect-stubs/science-professionals.html">Science Professionals</a><br />
+ </p>
+
+
+
+</div>
+
+ 	</div>
+ 	
+ 	<div class="grid_fifths footer_column_3">
+ 		<div class="footer_text_column_3 text parbase">
+
+
+
+    <h3>Employee Links</h3>
+
+<p><a target="_blank" href="https://centernet.fhcrc.org/CN/">CenterNet</a><br />
+<a target="_blank" href="https://extranet.fredhutch.org/en/u/webmail.html">Check Email</a><br />
+<a href="/en/employees.html">Employee Page</a><br />
+<a target="_blank" href="https://centernet.fhcrc.org/CN/center/webvpn/">WebVPN &amp; Remote Access</a></p>
+
+
+
+</div>
+
+ 	</div>
+ 	
+ 	<div class="grid_fifths footer_column_4">
+ 		<p><a href="http://www.cancer.gov/" target="_blank"><img id="ccc_logo_footer" src="/etc/designs/public/img/logos/fred_hutch_ccc_logo_2016.png" alt="A Comprehensive Cancer Center Designated by the National Cancer Institute"></a></p>
+ 		<p><a href="http://www.nccn.org/" target="_blank"><img id="nci_logo_footer" src="/etc/designs/public/img/logos/fred_hutch_nci_logo.png" alt="National Comprehensive Cancer Network"></a></p>
+		<p><a href="http://www.aahrpp.org/" target="_blank"><img id="aahrpp_logo_footer" src="/etc/designs/public/img/logos/aahrpp_logo_footer.png" alt="AAHRPP logo"></a></p>
+		<p id="aahrpp_accreditation">Accredited by the Association for the Accreditation of Human Research Protection Programs</p>
+		<p><a href="https://www.forbes.com/best-midsize-employers/list/" target="_blank"><img id="forbes_logo_footer" src="/etc/designs/public/img/logos/forbes_logo_footer.png" alt="Forbes 2018 - America's Best Mid-Size Employers"></a></p>
+		<p id="forbes_midsize">Recognized by Forbes as one of America's Best Mid-Size Employers</p>
+ 	</div>
+ 	
+ 	<div class="grid_fifths footer_column_5">
+ 		<h3>Follow Us</h3>
+        <img id="social_media_icons_footer" src="/etc/designs/public/img/icons/socialmedia_footer.png" alt="Social media icons" usemap="#socialmap"/>
+ 		<map name="socialmap">
+     		<area shape="rect" coords="0,0,28,28" href="http://www.facebook.com/HutchinsonCenter" target="_blank" alt="Like Fred Hutch on Facebook"></area>
+     		<area shape="rect" coords="28,0,56,28" href="http://twitter.com/fredhutch" target="_blank" alt="Follow Fred Hutch on Twitter"></area>
+     		<area shape="rect" coords="56,0,83,28" href="https://www.youtube.com/channel/UCnWBh22UKMHF4VRKdsQvZqg/featured" target="_blank" alt="View the Fred Hutch YouTube channel"></area>
+     		<area shape="rect" coords="83,0,111,28" href="http://www.pinterest.com/fredhutch/" target="_blank" alt="Pin from the Fred Hutch boards on Pinterest"></area>
+     		<area shape="rect" coords="111,0,139,28" href="http://instagram.com/FredHutch" target="_blank" alt="Check out Fred Hutch photos on Instagram"></area>
+    		<area shape="rect" coords="139,0,166,28" href="https://plus.google.com/+fredhutch" target="_blank" alt="Follow Fred Hutch on Google+"></area>
+   		</map>
+   		<div class="footer_fundraise_button fundraiseButton parbase">
+
+
+
+
+      
+ <a class="fundraise_button" href="http://www.fredhutch.org/fundraise">Fundraise</a>
+</div>
+
+   		<div class="footer_donate_button donateButton">
+
+
+
+
+
+
+      
+   <a class="donate_button" href="https://secure.fredhutch.org/site/SPageServer?pagename=adf_agiv&amp;experience=may19&amp;s_src=may19&amp;s_subsrc=aegeh19052">Donate</a></div>
+
+ 	</div>
+ 	
+ </div>
+ 
+ <div class="container_12 clearfix"></div>
+ 
+<div id="copyright" class="copyright container_12" style="margin-left: 0; padding-top: 0;">
+    <div class="grid_12 horizontal_rule"></div>
+    <div class="grid_fifths grid_three_fifths">Fred Hutch is proud to be an Equal Opportunity and VEVRAA Employer. We are committed to cultivating a workplace in which diverse perspectives and experiences are welcomed and respected. We do not discriminate on the basis of race, color, religion, creed, ancestry, national origin, sex, age, disability, marital or veteran status, sexual orientation, gender identity, political ideology, or membership in any other legally protected class. We are an Affirmative Action employer. We encourage individuals with diverse backgrounds to apply and desire priority referrals of protected veterans. <span class="terms_privacy"><a href="https://www.eeoc.gov/employers/upload/poster_screen_reader_optimized.pdf" target="_blank">Read the EEO is the Law poster here.</a></span></div>
+    <div class="grid_fifths grid_two_fifths">
+        Fred Hutchinson Cancer Research Center<br/>
+        1100 Fairview Ave. N., Seattle, WA 98109<br/>
+        &copy; 2019 Fred Hutchinson Cancer Research Center, <span class="nobreak">a 501(c)(3) nonprofit organization.</span><br/>
+        <span class="terms_privacy"><a href="/en/util/terms-privacy.html">Terms of use &amp; privacy policy</a>&nbsp;|&nbsp;<a href="/en/util/conflict-of-interest.html">Conflict of <br/>interest</a>&nbsp;|&nbsp;<a href="/en/about/accountability-and-impact.html">Accountability &amp; impact</a></span>
+    </div>
+</div>
+
+ <br class="clear"/></div>
+</div></div>
+
+</div></div><!-- /footer_container -->
+
+<!--  fat footer -->
+ 
+<!-- utility nav background is outside the positioning context -->
+<div id="fh_utility_nav"><div id="utility_nav" class="utility_nav"><div class="searchBox searchbox">
+<form id="utility_search" class="utility_search" action="/en/util/search.html"><input type="text" name="q" placeholder="Search for faculty, disease research and news..." class="search_term"></input><input type="image" class="search_button" src="/etc/designs/public/img/buttons/fred_hutch_search_icon.png" alt="GO"></input></form>
+</div>
+<ul>
+   <li><a href="/en/careers.html">Careers</a></li> 
+   <li><a href="/en/news.html">News</a></li> 
+   <li><a href="/en/contact-us.html">Contact Us</a></li> 
+   <li><a id="utility_search_link" href="/en/util/search.html">Search</a></li> 
+   <li class="fundraise"><div class="utility_fundraise_button fundraiseButton parbase">
+
+
+
+
+      
+ <a class="fundraise_button" href="http://www.fredhutch.org/fundraise">Fundraise</a>
+</div>
+</li>
+   <li class="donate-now"><div class="utility_donate_button donateButton">
+
+
+
+
+
+
+      
+   <a class="donate_button" href="/en/redirect-stubs/donate.html">Donate</a></div>
+</li>
+
+  </ul></div></div>
+<!--  utility nav -->
+ 
+ 
+
+</body>
+</html>

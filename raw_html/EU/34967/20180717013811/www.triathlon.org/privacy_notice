@@ -1,0 +1,1270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var o=t[n]={exports:{}};e[n][0].call(o.exports,function(t){var o=e[n][1][t];return r(o||t)},o,o.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(e,t,n){function r(){}function o(e,t,n){return function(){return i(e,[f.now()].concat(u(arguments)),t?null:this,n),t?void 0:this}}var i=e("handle"),a=e(2),u=e(3),c=e("ee").get("tracer"),f=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,t){s[t]=o(d+t,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,o="function"==typeof t;return i(l+"tracer",[f.now(),e,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],n),o)try{return t.apply(this,arguments)}catch(e){throw c.emit("fn-err",[arguments,this,e],n),e}finally{c.emit("fn-end",[f.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=o(l+t)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,f.now()])}},{}],2:[function(e,t,n){function r(e,t){var n=[],r="",i=0;for(r in e)o.call(e,r)&&(n[i]=t(r,e[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],3:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,o=n-t||0,i=Array(o<0?0:o);++r<o;)i[r]=e[t+r];return i}t.exports=r},{}],4:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function o(e){function t(e){return e&&e instanceof r?e:e?c(e,u,i):i()}function n(n,r,o,i){if(!d.aborted||i){e&&e(n,r,o);for(var a=t(o),u=m(n),c=u.length,f=0;f<c;f++)u[f].apply(a,r);var p=s[y[n]];return p&&p.push([b,n,r,a]),a}}function l(e,t){v[e]=m(e).concat(t)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(n)}function g(e,t){f(e,function(e,n){t=t||"feature",y[n]=t,t in s||(s[t]=[])})}var v={},y={},b={on:l,emit:n,get:w,listeners:m,context:t,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",c=e("gos"),f=e(2),s={},p={},d=t.exports=o();d.backlog=s},{}],gos:[function(e,t,n){function r(e,t,n){if(o.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[t]=r,r}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){o.buffer([e],r),o.emit(e,t,n)}var o=e("ee").get("handle");t.exports=r,r.ee=o},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=h.info=NREUM.info,t=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return s.abort();f(y,function(t,n){e[t]||(e[t]=n)}),c("mark",["onload",a()+h.offset],null,"api");var n=d.createElement("script");n.src="https://"+e.agent,t.parentNode.insertBefore(n,t)}}function o(){"complete"===d.readyState&&i()}function i(){c("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),c=e("handle"),f=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1071.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=t.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),c("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Privacy Notice | Triathlon.org</title>
+
+<meta name="author" content="International Triathlon Union">
+<meta name='keywords' content="triathlon, triathlon news, triathlon results, triathlon races, triathlon photos, duathlon, multisport, aquathlon, paratriathlon, long distance triathlon, winter triathlon, olympics" />
+<meta name='description' content="The official triathlon resource. Triathlon event information, news, results, rankings, rules, education, and more from the International Triathlon Union." />
+
+
+<link rel="apple-touch-icon" sizes="57x57" href="/siteicons/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/siteicons/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/siteicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/siteicons/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/siteicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/siteicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/siteicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/siteicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/siteicons/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" href="/siteicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/siteicons/favicon-194x194.png" sizes="194x194">
+<link rel="icon" type="image/png" href="/siteicons/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/siteicons/android-chrome-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/siteicons/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/siteicons/manifest.json">
+<link rel="mask-icon" href="/siteicons/safari-pinned-tab.svg" color="#005187">
+<link rel="shortcut icon" href="/siteicons/favicon.ico" type="image/x-icon">
+<meta name="msapplication-TileColor" content="#0057b8">
+<meta name="msapplication-TileImage" content="/siteicons/mstile-144x144.png">
+<meta name="msapplication-config" content="/siteicons/browserconfig.xml">
+<meta name="theme-color" content="#005187">
+
+<meta property="og:type"         content="website"/>
+<meta property="og:site_name"    content="Triathlon.org"/>
+<meta property="og:url" content="https://www.triathlon.org/privacy_notice">
+<meta property="og:image"        content="http://www.triathlon.org/uploads/docs/triathlonorg_og_default_image.jpg"/>
+<meta property="og:image:width"  content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:title"        content="Privacy Notice | Triathlon.org"/>
+<meta property="og:description"  content="The official triathlon resource. Triathlon event information, news, results, rankings, rules, education, and more from the International Triathlon Union."/>
+
+
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@WorldTriathlon">
+<meta name="twitter:title" content="Privacy Notice | Triathlon.org">
+<meta name="twitter:description" content="The official triathlon resource. Triathlon event information, news, results, rankings, rules, education, and more from the International Triathlon Union.">
+<meta name="twitter:image" content="http://www.triathlon.org/uploads/docs/triathlonorg_og_default_image.jpg">
+
+<!--[if lte IE 9]>
+  <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
+<![endif]-->
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.5/jquery.bxslider.min.css" type="text/css">
+
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.0.0/magnific-popup.min.css" rel="stylesheet">
+	
+<link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
+<link href="/assets/css/icons/icomoon/styles.css" rel="stylesheet" type="text/css">
+
+<link href="https://www.triathlon.org/assets/css/minified/triathlon.min.css?cache=20180309" rel="stylesheet" type="text/css">
+<!--[if lte IE 9]>
+<link rel="stylesheet" href="https://www.triathlon.org/assets/css/split/triathlon.css">
+<![endif]-->
+
+	<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.1/cookieconsent.min.css" />
+
+<script charset="UTF-8" src="//cdn.sendpulse.com/28edd3380a1c17cf65b137fe96516659/js/push/8d1892d9e128b9d3361fd675e3d6c8c1_1.js" async></script>
+
+
+
+
+	
+</head>
+
+<body class="bg-white">
+
+	<div class="navbar navbar-inverse" id="main-header">
+	<div class="body-container">
+		<div class="col-lg-offset-1 col-lg-10 no-padding">
+			<div class="navbar-header">
+				<a class="mobile-menu-search-btn collapsed no-print" data-toggle="collapse" data-target="#global-search-box-container"><i class="icon-search4 menu-toggle-icon"></i></a>
+				<h1 class="navbar-brand"><a href="/">International Triathlon Union</a></h1>
+				<div class="menu-toggle">
+				<a class="text-center collapsed no-print" data-toggle="collapse" data-target="#navbar-second-toggle"><i class="icon-three-bars menu-toggle-icon"></i></a>
+				</div>
+			</div>
+
+			<div class="pull-right hidden-xs" id="secondary-navbar">
+
+	<ul class="nav navbar-nav">
+
+		<li class="navbar-icon-list ml-10">
+			<a href="//twitter.com/worldtriathlon?src=secondary_nav" target="_blank" rel="nofollow" data-popup="tooltip" data-original-title="Twitter" data-placement="bottom" class="bg-hover-twitter"><i class="icon-twitter"></i></a>
+			<a href="//instagram.com/worldtriathlon?src=secondary_nav" target="_blank" rel="nofollow" data-popup="tooltip" data-original-title="Instagram" data-placement="bottom" class="bg-hover-instagram"><i class="icon-instagram"></i></a>
+			<a href="//facebook.com/worldtriathlon?src=secondary_nav" target="_blank" rel="nofollow" data-popup="tooltip" data-original-title="Facebook" data-placement="bottom" class="bg-hover-facebook"><i class="icon-facebook"></i></a>
+			<a href="//youtube.com/worldtriathlon?src=secondary_nav" target="_blank" rel="nofollow" data-popup="tooltip" data-original-title="YouTube" data-placement="bottom" class="bg-hover-youtube"><i class="icon-youtube"></i></a>
+			<a href="http://worldtriathlonstore.com?src=secondary_nav" target="_blank">Store <i class="icon icon-bag"></i></a>
+		</li>
+
+		<li class="navbar-icon-list">
+			<a href="/admin.php" target="_blank">Login</a>
+					</li>
+
+		<li class="hidden-sm ml-15">
+			<form class="navbar-form navbar-left" onSubmit="return searchForm($(this));" id="search-box">
+				<div class="input-group">
+					<input type="search" class="form-control input-xs search-search-input" placeholder="Search" data-target-page="search">
+					<div class="input-group-btn form-submit">
+						<button class="btn btn-xs"><i class="icon-search4 text-size-base"></i></button>
+					</div>
+				</div>
+			</form>
+		</li>
+
+		<li class="visible-sm-block"><a href="/search/"><i class="icon-search4"></i></a></li>
+	</ul>
+</div>
+
+		</div>
+	</div>
+</div>
+
+	 
+<div id="global-search-box-container" class="collapse bg-grey-100 border-bottom border-grey-300">
+	<div id="global-search-box" class="visible-xs">
+		<form class="navbar-form navbar-left" onSubmit="return searchForm($(this));" id="search-box">
+			<div class="input-group">
+				<input type="search" class="form-control input-lg" placeholder="Search Events, Athletes, News, Federations..." data-target-page="search">
+				<div class="input-group-btn form-submit">
+					<button class="btn btn-default btn-lg"><i class="icon-search4 text-size-base"></i></button>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+
+<div class="navbar navbar-default" id="navbar-second">
+	<div class="row body-container">
+		<div class="col-lg-offset-1 col-lg-10">
+			<div class="navbar-collapse collapse" id="navbar-second-toggle">
+	
+				<ul class="nav navbar-nav">
+
+					<li class="">
+						<a href="/events/">Events</a>
+					</li>
+					<li class="">
+						<a href="/results/">Results</a>
+					</li>
+
+					<li class="visible-xs ">
+						<a href="/rankings/">
+							Rankings
+						</a>
+					</li>
+
+					<li class="dropdown  ">
+						<a href="/athletes/" class="dropdown-toggle">Athletes <span class="caret"></span></a>
+										
+						<ul class="dropdown-menu width-200">
+							<li ><a href="/athletes/">Athlete Search</a></li>
+							<li><a href="/about/downloads/category/athletes">Athlete Documents</a></li>
+							<li ><a href="/athletes/athlete_committee/">Athlete Committee</a></li>
+							<li class="dropdown-header">Rankings</li>
+							<li ><a href="/rankings/">Current Rankings</a></li>
+							<li><a href="/about/downloads/category/ranking_criteria">Ranking Criteria</a></li>
+							<li ><a href="/rankings/archive/">Ranking Archive</a></li>
+						</ul>
+
+					</li>
+
+					<li class="dropdown ">
+						<a href="/multisports/" class="dropdown-toggle">Multisport <span class="caret"></span></a>
+						<ul class="dropdown-menu width-200">
+							<li ><a href="/multisports/aquathlon/">Aquathlon</a></li>
+							<li ><a href="/multisports/duathlon/">Duathlon</a></li>
+							<li ><a href="/multisports/cross_triathlon/">Cross Triathlon</a></li>
+							<li ><a href="/multisports/winter_triathlon/">Winter Triathlon</a></li>
+							<li ><a href="/multisports/long_distance_triathlon/">Long Distance Triathlon</a></li>
+							<li ><a href="/multisports/triathlon_mixed_relay/">Triathlon Mixed Relay</a></li>
+							<li class="divider"></li>
+							<li><a href="https://www.fyn2018.com/?src=main_nav" target="_blank" class="text-semibold">Fyn 2018 ITU Multisport <br>World Championships Festival</a></li>
+						</ul>
+					</li>
+
+					<li >
+						<a href="/news/">
+							News
+						</a>
+					</li>
+
+					<li class="dropdown ">
+						<a href="/multimedia/" class="dropdown-toggle">Multimedia <span class="caret"></span></a>
+						<ul class="dropdown-menu width-200">
+							<li ><a href="/multimedia/videos/"><i class="icon-film4"></i> Videos</a></li>
+							<li ><a href="/multimedia/galleries/"><i class="icon-images2"></i> Event Photos</a></li>
+						</ul>
+					</li>
+					<li >
+						<a href="/paratriathlon/">
+							Paratriathlon
+						</a>
+					</li>
+
+					<li class="">
+						<a href="/development/">
+							Development
+						</a>
+					</li>
+
+					<li class="visible-xs ">
+						<a href="/federations/">
+							Federations
+						</a>
+					</li>
+
+					<li class="visible-xs ">
+						<a href="/anti-doping/">
+							Anti-Doping
+						</a>
+					</li>
+
+					<li class="visible-xs ">
+						<a href="/medical/">
+							Medical
+						</a>
+					</li>
+
+					<li class="dropdown mega-menu mega-menu-wide ">
+						<a href="/about/" class="dropdown-toggle">Inside ITU <span class="caret"></span></a>
+
+						<div class="dropdown-menu dropdown-content">
+							<div class="dropdown-content-body">
+								<div class="row">
+									<div class="col-sm-3">
+										<span class="menu-heading underlined">Organisation</span>
+										<ul class="menu-list">
+											<li ><a href="/about/governance/">Governance</a></li>
+											<li ><a href="/about/itu_executive_board/">ITU Executive Board</a></li>
+											<li ><a href="/about/committees/">Committees</a></li>
+											<li ><a href="/about/honorary_members/">Honorary Members</a></li>
+										</ul>
+									</div>
+									<div class="col-sm-6">
+										<span class="menu-heading underlined">Sport</span>
+										<div class="row">
+											<div class="col-sm-6">
+												<div class="dropdown-header">Sport Development</div>
+												<ul class="menu-list">
+													<li><a href="/development/">Development</a></li>
+													<li><a href="/federations/">Federations</a></li>
+												</ul>
+											
+												<div class="dropdown-header">ITU Congress</div>
+												<ul class="menu-list">
+													<li ><a href="/about/congress/2018_itu_congress_gold_coast">2018 Congress</a></li>
+													<li ><a href="/about/congress/">About ITU Congress</a></li>
+													<li ><a href="/about/downloads/category/congress">Congress Documents</a></li>
+												</ul>
+											</div>
+											<div class="col-sm-6">
+												<div class="dropdown-header">Clean Sport</div>
+												<ul class="menu-list">
+													<li ><a href="/anti-doping/">Anti-Doping</a></li>
+													<li ><a href="/medical/">Medical</a></li>
+												</ul>											
+												<div class="dropdown-header">Resources</div>
+												<ul class="menu-list">
+													<li ><a href="/about/downloads/">Document Downloads</a></li>
+													<li ><a href="/about/logos/">Logos &amp; Design</a></li>
+													<li><a href="http://media.triathlon.org?src=main_nav" target="_blank">Media Centre</a></li>
+												</ul>
+											</div>
+										</div>
+										
+										
+										
+									</div>
+									<div class="col-sm-3">
+										<span class="menu-heading underlined">More</span>
+										<ul class="menu-list">
+											<li ><a href="/about/contact_us/">Contact ITU</a></li>
+											<li ><a href="/about/jobs/">Jobs @ ITU</a></li>
+											<li ><a href="/hall_of_fame/">Hall of Fame</a></li>
+											<li ><a href="/about/itu_partners/">ITU Partners</a></li>
+											<li class="olympics-menu-item ">
+												<a href="/olympics/">
+													Olympics <img src="https://triathlon-images.s3.amazonaws.com/triathlonorg/logos/Olympic_rings.svg" alt="Triathlon at the Olympics" width="40" height="18" style="position:relative;top:-2px;" onerror="this.src='https://triathlon-images.s3.amazonaws.com/triathlonorg/logos/olympicrings_40x18.png'; this.onerror=null;">
+												</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</li>
+
+					<li class="visible-xs">
+						<a href="http://media.triathlon.org?src=main_nav" target="_blank">
+							Media Centre
+						</a>
+					</li>
+
+					<li class="">
+						<a href="/live/">
+							Live
+						</a>
+					</li>
+
+					<li class="olympics-menu-item  visible-xs-block">
+						<a href="/olympics/">
+							<img src="https://triathlon-images.s3.amazonaws.com/triathlonorg/logos/Olympic_rings.svg" alt="Triathlon at the Olympics" width="40" height="18" style="position:relative;top:-2px;" onerror="this.src='https://triathlon-images.s3.amazonaws.com/triathlonorg/logos/olympicrings_40x18.png'; this.onerror=null;"> Olympics
+						</a>
+					</li>
+					<li class="visible-xs-block"><a href="http://worldtriathlonstore.com?src=main_nav" target="_blank">Store</a></li>
+
+				</ul>
+
+				<div class="visible-xs-block clearfix border-bottom border-grey-300">
+					<div class="col-xs-6 p-5"><a href="https://triathlonlive.tv?src=main_nav_m" target="_blank"><div class="no-margin text-semibold">TriathlonLIVE <i class="icon-arrow-up-right3"></i></div><span class="text-muted">Stream Triathlon LIVE</span></a></div>
+					<div class="col-xs-6 border-left border-grey-300 p-5"><a href="http://wts.triathlon.org?src=main_nav_m" target="_blank"><div class="no-margin text-semibold">World Triathlon Series <i class="icon-arrow-up-right3"></i></div><span class="text-muted">The iconic ITU race series</span></a></div>
+				</div>
+
+				
+
+				<ul class="visible-xs-block list list-unstlyed list-inline list-inline-separate border-bottom pb-10 no-margin-bottom border-grey-300">
+						
+					<li><a href="http://twitter.com/worldtriathlon?src=main_nav_m" target="_blank" data-placement="bottom" class="bg-hover-twitter"><i class="icon-twitter"></i></a></li>
+					<li><a href="http://instagram.com/worldtriathlon?src=main_nav_m" target="_blank" data-placement="bottom" class="bg-hover-instagram"><i class="icon-instagram"></i></a></li>
+					<li><a href="http://facebook.com/worldtriathlon?src=main_nav_m" target="_blank" data-placement="bottom" class="bg-hover-facebook"><i class="icon-facebook"></i></a></li>
+					<li><a href="http://youtube.com/worldtriathlon?src=main_nav_m" target="_blank" data-placement="bottom" class="bg-hover-youtube"><i class="icon-youtube"></i></a></li>
+
+				</ul>
+
+	
+			</div>
+		</div>
+		
+	</div>
+	
+</div>
+
+
+
+
+
+	
+	<div class="page-container">
+
+		
+		<div class="page-content">
+
+
+
+			
+			<div class="content-wrapper">
+
+
+				<div class="row">
+					<div class="col-lg-offset-1 col-xs-12 col-lg-10">
+						
+						<div class="row">
+							<div class="col-xs-12">
+								<div class="page-header page-header-default mb-30">
+																		<ul class="breadcrumb breadcrumb-caret">
+									
+									</ul>
+																		<h1 class="no-margin-top display-inline-block text-semibold position-left">Privacy Notice</h1> <span class="text-size-small text-muted display-inline-block">Updated: 30 May, 2018 08:48 pm</span>
+																	</div>
+							</div>
+
+							<div class="col-md-8 col-sm-7 col-xs-12">
+
+           
+								
+            
+            					<div class="type-block">
+					            
+					            <ul class="list list-unstyled text-size-large">
+<li><a href="#who-we-are"><i class="icon-link"></i> Who we are</a></li>
+<li><a href="#visitors"><i class="icon-link"></i> Visitors to our website</a></li>
+<li><a href="#childrens"><i class="icon-link"></i> Children&#8217;s Privacy</a></li>
+<li><a href="#dotorg-users"><i class="icon-link"></i> Triathlon.org Registered Users</a></li>
+<li><a href="#dottv-users"><i class="icon-link"></i> Triathlonlive.tv Registered Users</a></li>
+<li><a href="#media"><i class="icon-link"></i> Media Centre Registered Users</a></li>
+<li><a href="#education"><i class="icon-link"></i> Education Hub Registered Users</a></li>
+<li><a href="#additional"><i class="icon-link"></i> Additional Information</a></li>
+</ul>
+
+<h2 class="text-semibold mt-40" id="who-we-are">WHO WE ARE</h2><hr>
+<p>This website, triathlon.org (the “Site”), and all personal information collected from users of this Site are owned solely by International Triathlon Union (ITU). In this Privacy Notice references to “we”, “us”, “our”, are references to International Triathlon Union (ITU).</p>
+
+<p>You can contact us at <a href="mailto:info@triathlon.org">info@triathlon.org</a>.</p>
+
+<p>International Triathlon Union HDQ (ITU)<br />
+Maison du Sport International<br />
+Av. de Rhodanie 54 <br />
+Lausanne CH -1007, Switzerland</p>
+
+<p>Tel: + 41 21 614 60 30</p>
+
+<p><strong>We take the privacy of all our users seriously and regularly review this privacy notice.</strong></p>
+
+<h2 class="text-semibold mt-40" id="visitors">VISITORS TO OUR WEBSITE</h2>
+<hr>
+
+<h4 class="text-semibold mt-20">What information do we collect from you?</h4>
+<p>When someone visits triathlon.org we use a third-party service, Google Analytics, to collect standard internet log information and details of visitor behaviour patterns. We do this to find out things such as the number of visitors to the various parts of the site. This information is only processed in a way which does not identify anyone. We do not make and do not allow Google to make, any attempt to find out the identities of those visiting our website. </p>
+
+<h4 class="text-semibold mt-20">Cookies</h4>
+<p>Please read more on our cookies page.</p>
+
+<h4 class="text-semibold mt-20">Search engine</h4>
+<p>Our website search engine is powered by Algolia. Queries and results are logged anonymously to improve our website and search functionality. No user-specific data is collected by either ITU or any third-party.</p>
+
+<h4 class="text-semibold mt-20">E-Newsletter</h4>
+<p>We use a third-party provider, Mailchimp, to deliver our e-newsletters. We gather statistics around email opening and clicks using industry standard technologies including clear gifs to help us monitor and improve our e-newsletter. For more information, please see Mailchimp’s privacy notice.</p>
+
+<h2 class="text-semibold mt-40" id="childrens">CHILDREN’S PRIVACY</h2>
+<hr>
+
+<p>We do not provide services to children (under 16) or proactively collect their personal information. </p>
+
+<h2 class="text-semibold mt-40" id="dotorg-users">TRIATHLON.ORG REGISTERED USERS</h2>
+<hr>
+
+<h4 class="text-semibold mt-20">What information do we collect from you?</h4>
+<ul><li>Name</li>
+<li>Date of birth</li> 
+<li>Gender</li>
+<li>Phone number</li> 
+<li>E-mail</li>
+<li>Medical information for anti-doping and paratriathlon issues.</li> 
+<li>Whereabouts information for the purposes of anti-doping.</li>
+<li>Payment details including bank accounts for paying prize money and developing grants and reinvestment of expenses.</li>
+<li>Any other personal data that you choose to upload to or post on the platform, including social media, photographs, messages, hobbies and interests and other personal details.</li></ul>
+
+<h4 class="text-semibold mt-20">Why do we collect this information?</h4>
+<p>In general, your data will be processed by the ITU for the fulfilment of the following purposes:</p><ul><li>Management of your relationship with ITU.</li>
+<li>Organization of services and events.</li>
+<li>Management of requests and applications.</li>
+<li>Sending newsletters and new features.</li>
+<li>Conducting surveys.</li>
+<li>Communication of your personal data to third-parties collaborators and sponsors.</li>
+<li>Processing of data relating to own and third-party cookies to analyze anonymous browsing habits and improve services.</li>
+<li>Carrying-out ITU’s anti-doping program.</li>
+<li>Results management both in-competition and out-of-competition</li>
+<li>Performance information from training camps and courses.</li> 
+<li>Results of education courses.</li></ul>
+
+<h4 class="text-semibold mt-20">Who might we share your information with?</h4>
+<ul><li>Event Organisers - your name, Date of birth, gender and/or disability for classification purposes.</li>
+<li>WADA for anti-doping purposes.</li>
+<li>Our API subscribers. Public facing information that we display on our site is available for our users.</li></ul>
+
+<h4 class="text-semibold mt-20">What do we do with your information?
+</h4><p>Register your participation in our events, store results &amp; rankings.<br />
+Carry out ITU’s anti-doping program to ensure a clean sport. Read more on ITU’s Anti-Doping program and data collection here.<br />
+Keep you up to date on relevant information according to your membership - event information/changes, rules etc.</p>
+
+<h4 class="text-semibold mt-20">How long do we keep hold of your information?
+</h4><p>As long as you are a registered user. You can request to delete your account at any time via <a href="mailto:info@triathlon.org">info@triathlon.org</a>.</p>
+
+<h4 class="text-semibold mt-20">How can I access the information you hold on me?</h4>
+<p>If you have a registered account you have view/access to all information ITU has on you. A private download link will be made available shortly on profile pages.<br />
+You can also directly request from <a href="mailto:info@triathlon.org">info@triathlon.org</a>. <br />
+Except as expressly stated in this Privacy Notice, we will not sell, share, trade or license your personal information to others without your express consent.</p>
+
+<h2 class="text-semibold mt-40" id="dottv-users">TRIATHLONLIVE.TV REGISTERED USERS</h2>
+<hr>
+
+<h4 class="text-semibold mt-20">What information do we collect from you?</h4>
+<p>We need your name, email address, credit card information and billing address.</p>
+
+<h4 class="text-semibold mt-20">Why do we collect this information?</h4>
+<p>We need this to create your account and process your subscription to the service.</p>
+
+<h4 class="text-semibold mt-20">Payment provider</h4>
+<p>We use a 3rd party Stripe as our payment provider. Your credit card details are held by Stripe and none are stored in our databases. As a marketing leading service, they are certified as a PCI Level 1 (the highest) payment provider.</p>
+
+<h4 class="text-semibold mt-20">Who might we share your information with?</h4>
+<p>Stripe to collect payments.<br />
+InFront our joint venture partners.</p>
+
+<h4 class="text-semibold mt-20">What do we do with your information?</h4>
+<p>We add your contact details to our mail list to keep you up to date on our services and billing.</p>
+
+<h4 class="text-semibold mt-20">How long do we keep hold of your information?</h4>
+<p>As long as you are a registered member.</p>
+
+<h4 class="text-semibold mt-20">How can I access the information you hold on me?</h4>
+<p>If you have a registered account you have access to all information ITU has on you.<br />
+A private download link will be made available shortly on profile pages.</p>
+
+<h2 class="text-semibold mt-40" id="media">MEDIA CENTRE REGISTERED USERS</h2>
+<hr>
+
+<h4 class="text-semibold mt-20">What information do we collect from you?</h4>
+<p>Your name, email and company/publication.</p>
+
+<h4 class="text-semibold mt-20">Why do we collect this information?</h4>
+<p>To verify you as accredited/approved media and keep you updated on media releases.</p>
+
+<h4 class="text-semibold mt-20">Who might we share your information with?</h4>
+<p>We use a third-party service supplier Mailchimp for mail services.</p>
+
+<h4 class="text-semibold mt-20">What do we do with your information?</h4>
+<p>Keep you updated on media releases.</p>
+
+<h4 class="text-semibold mt-20">How long do we keep hold of your information?</h4>
+<p>As long as you are a registered user. <br />
+You can request to delete your account at any time via <a href="mailto:info@triathlon.org">info@triathlon.org</a>.</p>
+
+<h4 class="text-semibold mt-20">How can I access the information you hold on me?</h4>
+<p>If you have a registered account you have access to all information ITU has on you.<br />
+A private download link will be made available shortly on profile pages.<br />
+A request can also be sent to <a href="mailto:info@triathlon.org">info@triathlon.org</a></p>
+
+<h2 class="text-semibold mt-40" id="education">EDUCATION HUB REGISTERED USERS</h2>
+<hr>
+
+<h4 class="text-semibold mt-20">What information do we collect from you?</h4>
+<p>To access the site, you will have an account created for, which will comprise the following basic personal information:<br />
+• Name, email<br />
+The following information is also likely to be recorded (depending on which course you are accessing):<br />
+• Gender, Country, Confederation, Preferred language, Official passport first name (if different from the given first name)<br />
+There are then optional pieces of personal information which a user can add/edit about themselves:<br />
+• City/town, Timezone, Description, Picture<br />
+There will then be course specific information, such as which courses have been attended (including where and when) and whether the course was passed or not.<br />
+Within each course, certain personal information may be collected. For example within face to face courses, medical information is requested that is accessible to the tutors on that course only.</p>
+
+<h4 class="text-semibold mt-20">Why do we collect this information?</h4>
+<p>In general, your data will be processed by the ITU for the fulfilment of the following purposes:<br />
+• Management of your learning on the various courses offered by the ITU.<br />
+• Sending notifications via emails regarding course activity. A user can manage their preferences regarding which emails they wish to receive at any time.</p>
+
+<h4 class="text-semibold mt-20">Who might we share your information with?</h4>
+<p>Contractors of ITU (tutors, coaches etc) will be given access to your data should you be attending a course under their charge.</p>
+
+<h4 class="text-semibold mt-20">What do we do with your information?</h4>
+<p>Organization of services and events.<br />
+Performance information from training camps and courses. <br />
+Results of education courses.</p>
+
+<h4 class="text-semibold mt-20">How long do we keep hold of your information?</h4>
+<p>As long as you are a registered user. You can request to delete your account at any time via <a href="mailto:info@triathlon.org">info@triathlon.org</a>. Though this will not include course records which must be kept for validation purposes.</p>
+
+<h4 class="text-semibold mt-20">How can I access the information you hold on me?</h4>
+<p>A request can also be sent to <a href="mailto:info@triathlon.org">info@triathlon.org</a>.</p>
+
+<h2 class="text-semibold mt-40" id="additional">ADDITIONAL INFORMATION</h2>
+<hr>
+
+<h4 class="text-semibold mt-20">Security</h4>
+<p>We take every precaution to protect your personal information. In addition, we have strict security protocols in place to protect our customer database from unauthorized access, improper use or disclosure, unauthorized modification, and unlawful destruction or accidental loss. We only allow access to the customer database when necessary, and then under strict guidelines as to what use may be made of such details. We may ask you for proof of identity before disclosing any personal information to you.</p>
+
+<h4 class="text-semibold mt-20">Surveys</h4>
+<p>We always aim to improve the services we offer. As a result, we may occasionally canvass our customers using surveys. Participation in surveys is voluntary, and you are under no obligation to reply to any survey you might receive from us. Should you choose to do so, we will treat the information you provide with the same high standard of care as all other customer information.</p>
+
+<h4 class="text-semibold mt-20">Competitions</h4>
+<p>Your participation on our Site may mean that we occasionally contact you with the opportunity to enter competitions. Entry to competitions is voluntary, and you are under no obligation to take up an invitation from us to enter. Should you choose to enter a competition, we will treat the information you provide with the same high standard of care as all other customer information.</p>
+
+<h4 class="text-semibold mt-20">Correcting and updating personal information</h4>
+<p>If your personal information changes, or if you believe that the personal data we hold about you is incorrect, you may ask us to correct or update the personal information held by us by sending an email to <a href="mailto:info@triathlon.org">info@triathlon.org</a>.</p>
+
+<h4 class="text-semibold mt-20">Your rights</h4>
+<p>You are entitled to request the following:</p><ul><li>Export all of my personal data</li>
+<li>Delete all of my personal data</li></ul>
+
+<h4 class="text-semibold mt-20">Privacy support</h4>
+<p>If you have any enquiry or concern about our privacy notice, please email us at <a href="mailto:info@triathlon.org">info@triathlon.org</a>.</p>
+					            
+					            </div>
+
+								
+
+								
+
+					            
+							</div>
+
+							<div class="col-md-4 col-sm-5 col-xs-12">
+
+								<div class="panel">
+	<div class="panel-tabs">
+		<ul class="nav nav-tabs nav-tabs-solid nav-justified nav-tabs-no-stack-xs no-margin">
+			<li class="active">
+				<a href="#panel3-tab1" data-toggle="tab">Latest News</a>
+			</li>
+			<li>
+				<a href="#panel3-tab2" data-toggle="tab">Upcoming Events</a>
+			</li>						
+		</ul>
+	</div>
+	<div class="panel-body pb-5">
+		<div class="panel-tab-content tab-content">
+			<div class="tab-pane active" id="panel3-tab1">
+												
+<article class="mb-15">
+    <header>
+        <a href="https://www.triathlon.org/news/article/french_team_shows_true_colours_to_secure_mixed_relay_world_title_in_hamburg" class="text-semibold">French team shows true colours to secure Mixed Relay World title in Hamburg</a>
+    </header>
+        If Saturday had felt like a high point for French triathlon,&hellip;
+        <footer class="text-muted">
+    15 Jul 2018    </footer>
+</article>
+
+
+<article class="mb-15">
+    <header>
+        <a href="https://www.triathlon.org/news/article/world_triathletes_racing_long_distance_in_fyn2018_as_told_by_photos" class="text-semibold">World Triathletes Racing Long Distance in #Fyn2018 as told by Photos!</a>
+    </header>
+        Long Distance triathlon is not for the faint of heart, it is&hellip;
+        <footer class="text-muted">
+    15 Jul 2018    </footer>
+</article>
+
+
+<article class="mb-15">
+    <header>
+        <a href="https://www.triathlon.org/news/article/beaugrand_powers_to_first_wts_gold_after_inspired_run_in_hamburg" class="text-semibold">Beaugrand powers to first WTS gold thanks to inspired run in Hamburg</a>
+    </header>
+        From a starting line-up packed with seriously powerful podium&hellip;
+        <footer class="text-muted">
+    14 Jul 2018    </footer>
+</article>
+
+
+								
+			</div>
+			<div class="tab-pane" id="panel3-tab2">
+				<ul class="list list-unstyled">
+				
+	
+	<li class="event-list-item">
+		<div class="event-list-item-title text-semibold"><a href="https://www.triathlon.org/events/event/2018_tartu_etu_triathlon_european_championships">2018 Tartu ETU Triathlon European Championships</a></div>
+		<div class="text-muted text-semibold">19
+			 - 22 Jul, 2018
+	</div>
+		<div class="text-muted">
+			<span class="flag flag-EE hidden-xs" title="Estonia flag"></span> Tartu, Estonia
+			
+								</div>
+	</li>
+	
+
+
+	
+	<li class="event-list-item">
+		<div class="event-list-item-title text-semibold"><a href="https://www.triathlon.org/events/event/2018_toronto_camtri_triathlon_mixed_relay_american_cup">2018 Toronto CAMTRI Triathlon Mixed Relay American Cup</a></div>
+		<div class="text-muted text-semibold">21
+	Jul, 2018
+</div>
+		<div class="text-muted">
+			<span class="flag flag-CA hidden-xs" title="Canada flag"></span> Toronto, Canada
+			
+								</div>
+	</li>
+	
+
+
+	
+	<li class="event-list-item">
+		<div class="event-list-item-title text-semibold"><a href="https://www.triathlon.org/events/event/2018_algiers_african_youth_games">2018 Algiers African Youth Games</a></div>
+		<div class="text-muted text-semibold">27
+			 - 28 Jul, 2018
+	</div>
+		<div class="text-muted">
+			<span class="flag flag-DZ hidden-xs" title="Algeria flag"></span> 5 JULY 1962 NATIONAL&hellip;, Algeria
+			
+								</div>
+	</li>
+	
+
+
+	
+	<li class="event-list-item">
+		<div class="event-list-item-title text-semibold"><a href="https://www.triathlon.org/events/event/2018_itu_world_triathlon_edmonton">2018 ITU World Triathlon Edmonton</a></div>
+		<div class="text-muted text-semibold">27
+			 - 29 Jul, 2018
+	</div>
+		<div class="text-muted">
+			<span class="flag flag-CA hidden-xs" title="Canada flag"></span> Edmonton, Canada
+			
+								</div>
+	</li>
+	
+
+
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+								
+								<div class="panel">
+		<div class="panel-tabs">
+		<ul class="nav nav-tabs nav-tabs-solid nav-justified nav-tabs-no-stack-xs no-margin">
+			<li class="active">
+				<a href="#panel4-tab1" data-toggle="tab">Latest Videos</a>
+			</li>
+			<li>
+				<a href="#panel4-tab2" data-toggle="tab">Event Photos</a>
+			</li>						
+		</ul>
+	</div>
+	<div class="panel-body pb-5">
+		<div class="panel-tab-content tab-content">
+			<div class="tab-pane active" id="panel4-tab1">
+				<ul class="media-list">
+					
+	<li class="mb-15">
+				<div class="media-left pr-10">
+						<a href="https://www.triathlon.org/multimedia/video/itu_180714_multisport_fyn_ld_women_vo/" class="thumb-with-icon thumb-with-icon-video thumb-with-icon-small">
+			
+				<img src="https://triathlon-images.s3.amazonaws.com/images/made/ffa8bc773c1e1074/2018_FYNSKE_BANK_Long_Distance_Triathlon_World_Championships_Fyn_-_Women_40_40_c1.jpg" alt="2018 FYNSKE BANK Long Distance Triathlon World Championships Fyn - Women" class="img-responsive">
+			
+			</a>
+					</div>
+				<div class="media-body">
+			<a href="https://www.triathlon.org/multimedia/video/itu_180714_multisport_fyn_ld_women_vo/" class="text-semibold">2018 FYNSKE BANK Long Distance Triathlon World Championships Fyn - Women</a>
+			<div class="text-size-small text-muted">15 Jul, 2018</div>
+		</div>
+	</li>
+
+	<li class="mb-15">
+				<div class="media-left pr-10">
+						<a href="https://www.triathlon.org/multimedia/video/itu_180714_multisport_fyn_ld_men_vo/" class="thumb-with-icon thumb-with-icon-video thumb-with-icon-small">
+			
+				<img src="https://triathlon-images.s3.amazonaws.com/images/made/ffa8bc773c1e1074/2018_FYNSKE_BANK_Long_Distance_Triathlon_World_Championships_Fyn_-_men_40_40_c1.jpg" alt="2018 FYNSKE BANK Long Distance Triathlon World Championships Fyn - Men" class="img-responsive">
+			
+			</a>
+					</div>
+				<div class="media-body">
+			<a href="https://www.triathlon.org/multimedia/video/itu_180714_multisport_fyn_ld_men_vo/" class="text-semibold">2018 FYNSKE BANK Long Distance Triathlon World Championships Fyn - Men</a>
+			<div class="text-size-small text-muted">15 Jul, 2018</div>
+		</div>
+	</li>
+
+	<li class="mb-15">
+				<div class="media-left pr-10">
+						<a href="https://www.triathlon.org/multimedia/video/fyn_multisport_festival_2018_wrap_update/" class="thumb-with-icon thumb-with-icon-video thumb-with-icon-small">
+			
+				<img src="https://triathlon-images.s3.amazonaws.com/images/made/ffa8bc773c1e1074/2018_FYNSKE_BANK_Multisport_World_Championships_Fyn_-_AG_2_40_40_c1.jpg" alt="2018 FYNSKE BANK Multisport World Championships Fyn Highlights" class="img-responsive">
+			
+			</a>
+					</div>
+				<div class="media-body">
+			<a href="https://www.triathlon.org/multimedia/video/fyn_multisport_festival_2018_wrap_update/" class="text-semibold">2018 FYNSKE BANK Multisport World Championships Fyn Highlights</a>
+			<div class="text-size-small text-muted">15 Jul, 2018</div>
+		</div>
+	</li>
+
+	<li class="mb-15">
+				<div class="media-left pr-10">
+						<a href="https://www.triathlon.org/multimedia/video/2018_fyn_itu_aquathlon_world_championships_women/" class="thumb-with-icon thumb-with-icon-video thumb-with-icon-small">
+			
+				<img src="https://triathlon-images.s3.amazonaws.com/images/made/ffa8bc773c1e1074/2018_FYNSKE_BANK_Aquathlon_World_Championships_Fyn_-_Women_40_40_c1.jpg" alt="2018 Fyn ITU Aquathlon World Championships Women" class="img-responsive">
+			
+			</a>
+					</div>
+				<div class="media-body">
+			<a href="https://www.triathlon.org/multimedia/video/2018_fyn_itu_aquathlon_world_championships_women/" class="text-semibold">2018 Fyn ITU Aquathlon World Championships Women</a>
+			<div class="text-size-small text-muted">14 Jul, 2018</div>
+		</div>
+	</li>
+
+				</ul>
+			</div>
+			<div class="tab-pane" id="panel4-tab2">
+				<ul class="media-list">
+					
+	<li class="mb-15">
+				<div class="media-left pr-10">
+						<a href="https://www.triathlon.org/multimedia/gallery/2018_hamburg_itu_triathlon_mixed_relay_world_championships/" class="thumb-with-icon thumb-with-icon-image thumb-with-icon-small">
+			
+				<img src="https://triathlon-images.s3.amazonaws.com/images/made/0cf3eecd8dc4a5bf/180715-hamburg-mixredrelay-web-msj-43__medium_40_40_c1.jpg" alt="2018 Hamburg ITU Triathlon Mixed Relay World Championships" class="img-responsive">
+			
+			</a>
+					</div>
+				<div class="media-body">
+			<a href="https://www.triathlon.org/multimedia/gallery/2018_hamburg_itu_triathlon_mixed_relay_world_championships/" class="text-semibold">2018 Hamburg ITU Triathlon Mixed Relay World Championships</a>
+			<div class="text-size-small text-muted">15 Jul, 2018</div>
+		</div>
+	</li>
+	
+
+	<li class="mb-15">
+				<div class="media-left pr-10">
+						<a href="https://www.triathlon.org/multimedia/gallery/2018_fyn_itu_long_distance_triathlon_world_championships/" class="thumb-with-icon thumb-with-icon-image thumb-with-icon-small">
+			
+				<img src="https://triathlon-images.s3.amazonaws.com/images/made/6fee9ef163008296/_ag_0064__medium_40_40_c1.jpg" alt="2018 Fyn ITU Long Distance Triathlon World Championships" class="img-responsive">
+			
+			</a>
+					</div>
+				<div class="media-body">
+			<a href="https://www.triathlon.org/multimedia/gallery/2018_fyn_itu_long_distance_triathlon_world_championships/" class="text-semibold">2018 Fyn ITU Long Distance Triathlon World Championships</a>
+			<div class="text-size-small text-muted">14 Jul, 2018</div>
+		</div>
+	</li>
+	
+
+	<li class="mb-15">
+				<div class="media-left pr-10">
+						<a href="https://www.triathlon.org/multimedia/gallery/2018_itu_world_triathlon_hamburg/" class="thumb-with-icon thumb-with-icon-image thumb-with-icon-small">
+			
+				<img src="https://triathlon-images.s3.amazonaws.com/images/made/0194880a2b0503f5/180714-hamburg-web-msj-81__medium_40_40_c1.jpg" alt="2018 ITU World Triathlon Hamburg" class="img-responsive">
+			
+			</a>
+					</div>
+				<div class="media-body">
+			<a href="https://www.triathlon.org/multimedia/gallery/2018_itu_world_triathlon_hamburg/" class="text-semibold">2018 ITU World Triathlon Hamburg</a>
+			<div class="text-size-small text-muted">14 Jul, 2018</div>
+		</div>
+	</li>
+	
+
+	<li class="mb-15">
+				<div class="media-left pr-10">
+						<a href="https://www.triathlon.org/multimedia/gallery/2018_fyn_itu_aquathlon_world_championships/" class="thumb-with-icon thumb-with-icon-image thumb-with-icon-small">
+			
+				<img src="https://triathlon-images.s3.amazonaws.com/images/made/fe7f69d68940815f/_ag_0278__medium_40_40_c1.jpg" alt="2018 Fyn ITU Aquathlon World Championships" class="img-responsive">
+			
+			</a>
+					</div>
+				<div class="media-body">
+			<a href="https://www.triathlon.org/multimedia/gallery/2018_fyn_itu_aquathlon_world_championships/" class="text-semibold">2018 Fyn ITU Aquathlon World Championships</a>
+			<div class="text-size-small text-muted">14 Jul, 2018</div>
+		</div>
+	</li>
+	
+
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+								<hr>
+
+								<h6 class="no-margin-bottom"><a href="https://twitter.com/worldtriathlon">@WorldTriathlon</a> on Twitter</h6>
+																
+
+<div class="media mb-20 mt-10 tweet">
+	<div class="media-body mw-400">
+		<div class="media-content bg-grey-100">
+		
+			
+			<div class="p-10 img-rounded media no-margin">
+			<div class="media-left">
+			<a href="http://twitter.com/worldtriathlon" title="@worldtriathlon">
+			<img src="https://pbs.twimg.com/profile_images/831092656432435202/tO0D--Hf_normal.jpg" class="img-circle border border-grey-100" alt="worldtriathlon">
+			</a>
+			</div>
+			<div class="media-body no-padding-bottom">
+			And the <a href="http://twitter.com/search/%23WetsuitYourself" target="_blank">#<span>WetsuitYourself</span></a> contest winner is...
+
+Congrats to Facu Lopez from Argentina! Thank you to everyone who ent… <a href="https://t.co/T8dso4ZkhX" title="https://twitter.com/i/web/status/1018960784192401408" target="_blank"><span>twitter.com/i/web/status/1…</span></a>
+			</div>
+			</div>
+
+		</div>
+		<a href="https://twitter.com/worldtriathlon/statuses/1018960784192401408" title="8:49 PM, Jul 16th (GMT)" target="_blank" class="text-muted media-annotation display-block mt-5">4 hours ago</a>
+	</div>
+</div>
+
+
+
+<div class="media mb-20 mt-10 tweet">
+	<div class="media-body mw-400">
+		<div class="media-content bg-grey-100">
+		
+			
+			<div class="p-10 img-rounded media no-margin">
+			<div class="media-left">
+			<a href="http://twitter.com/worldtriathlon" title="@worldtriathlon">
+			<img src="https://pbs.twimg.com/profile_images/831092656432435202/tO0D--Hf_normal.jpg" class="img-circle border border-grey-100" alt="worldtriathlon">
+			</a>
+			</div>
+			<div class="media-body no-padding-bottom">
+			What an unforgettable day in Hamburg for the 2018 Mixed Relay World Championship! Had it all: crowds cheering on al… <a href="https://t.co/J7Js6C6Gqe" title="https://twitter.com/i/web/status/1018794857375072256" target="_blank"><span>twitter.com/i/web/status/1…</span></a>
+			</div>
+			</div>
+
+		</div>
+		<a href="https://twitter.com/worldtriathlon/statuses/1018794857375072256" title="9:49 AM, Jul 16th (GMT)" target="_blank" class="text-muted media-annotation display-block mt-5">15 hours ago</a>
+	</div>
+</div>
+
+
+
+<div class="media mb-20 mt-10 tweet">
+	<div class="media-body mw-400">
+		<div class="media-content bg-grey-100">
+		
+			
+			<div class="p-10 img-rounded media no-margin">
+			<div class="media-left">
+			<a href="http://twitter.com/worldtriathlon" title="@worldtriathlon">
+			<img src="https://pbs.twimg.com/profile_images/831092656432435202/tO0D--Hf_normal.jpg" class="img-circle border border-grey-100" alt="worldtriathlon">
+			</a>
+			</div>
+			<div class="media-body no-padding-bottom">
+			'18 <a href="http://twitter.com/ITUmultisport" title="ITU Multisport" target="_blank">@<span>ITUmultisport</span></a> World Championships Festival had it all - racing action, events, inspiring performances &amp; person… <a href="https://t.co/a9WmO5L31K" title="https://twitter.com/i/web/status/1018720675362566144" target="_blank"><span>twitter.com/i/web/status/1…</span></a>
+			</div>
+			</div>
+
+		</div>
+		<a href="https://twitter.com/worldtriathlon/statuses/1018720675362566144" title="4:55 AM, Jul 16th (GMT)" target="_blank" class="text-muted media-annotation display-block mt-5">20 hours ago</a>
+	</div>
+</div>
+
+
+								
+
+
+								<hr>
+
+								<a href="https://triathlonlive.tv" target="_blank" class="display-block bg-primary p-10 img-rounded"><img src="http://wts-assets.s3.amazonaws.com/images/triathlonlive_logo_light.png" alt="TriathlonLIVE.tv" class="img-responsive center-block"><p class="text-center no-margin-bottom text-white">Stream triathlon, live & on-demand!</p></a>
+
+								<hr class="visible-xs">
+
+							</div>
+						</div>
+						
+					</div>
+				</div>
+				
+
+
+
+			</div>
+			
+
+		</div>
+		
+
+	</div>
+	
+
+		
+	<footer class="main-footer full-container hidden-xs">
+		<div class="row body-container">
+			<div class="col-lg-offset-1 col-lg-10">
+
+				<div class="row">
+					<div class="col-md-3">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<a href="//www.triathlon.org" class="text-semibold display-block">Triathlon.org</a>
+									The official triathlon resource. Triathlon event information, news, results, rankings, rules, education, and more from the International Triathlon Union.
+							</div>
+							<div class="panel-body">
+
+							<ul class="list list-unstyled">
+								<li>
+									<a href="http://wts.triathlon.org?src=footer" target="_blank" class="text-semibold display-block">World Triathlon Series <i class="icon-arrow-up-right3 link-muted"></i></a>
+									<span class="text-muted">The iconic, world-champion-crowning, ITU race series</span>
+								</li>
+								<li>
+									<a href="https://triathlonlive.tv?src=footer" target="_blank" class="text-semibold display-block">TriathlonLIVE <i class="icon-arrow-up-right3 link-muted"></i></a>
+									<span class="text-muted">Watch Elite Triathlon LIVE &amp; On-demand</span>
+								</li>
+								<li>
+									<a href="/olympics" target="_blank" class="text-semibold display-block">Olympic Triathlon Coverage <i class="icon-arrow-up-right3 link-muted"></i></a>
+									<span class="text-muted">View all of our Olympic Triathlon coverage!</span>
+								</li>
+							</ul>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-9">
+						<div class="row">
+							<div class="col-sm-3">
+								<h6>Recent <span class="text-semibold">News</span></h6>
+																
+<article class="mb-15">
+    <header>
+        <a href="https://www.triathlon.org/news/article/french_team_shows_true_colours_to_secure_mixed_relay_world_title_in_hamburg" class="text-semibold">French team shows true colours to secure Mixed Relay World title in Hamburg</a>
+    </header>
+        If Saturday had felt like a high point for French triathlon,&hellip;
+        <footer class="text-muted">
+    15 Jul 2018    </footer>
+</article>
+
+
+<article class="mb-15">
+    <header>
+        <a href="https://www.triathlon.org/news/article/world_triathletes_racing_long_distance_in_fyn2018_as_told_by_photos" class="text-semibold">World Triathletes Racing Long Distance in #Fyn2018 as told by Photos!</a>
+    </header>
+        Long Distance triathlon is not for the faint of heart, it is&hellip;
+        <footer class="text-muted">
+    15 Jul 2018    </footer>
+</article>
+
+
+<article class="mb-15">
+    <header>
+        <a href="https://www.triathlon.org/news/article/beaugrand_powers_to_first_wts_gold_after_inspired_run_in_hamburg" class="text-semibold">Beaugrand powers to first WTS gold thanks to inspired run in Hamburg</a>
+    </header>
+        From a starting line-up packed with seriously powerful podium&hellip;
+        <footer class="text-muted">
+    14 Jul 2018    </footer>
+</article>
+
+
+								
+								<a href="/news/" class="border-top">news &rarr;</a>
+							</div>
+							<div class="col-sm-3">
+								<h6>Upcoming <span class="text-semibold">Events</span></h6>
+
+								<ul class="list list-unstyled">
+									
+	
+	<li class="event-list-item">
+		<div class="event-list-item-title text-semibold"><a href="https://www.triathlon.org/events/event/2018_tartu_etu_triathlon_european_championships">2018 Tartu ETU Triathlon European Championships</a></div>
+		<div class="text-muted text-semibold">19
+			 - 22 Jul, 2018
+	</div>
+		<div class="text-muted">
+			<span class="flag flag-EE hidden-xs" title="Estonia flag"></span> Tartu, Estonia
+			
+								</div>
+	</li>
+	
+
+
+	
+	<li class="event-list-item">
+		<div class="event-list-item-title text-semibold"><a href="https://www.triathlon.org/events/event/2018_toronto_camtri_triathlon_mixed_relay_american_cup">2018 Toronto CAMTRI Triathlon Mixed Relay American Cup</a></div>
+		<div class="text-muted text-semibold">21
+	Jul, 2018
+</div>
+		<div class="text-muted">
+			<span class="flag flag-CA hidden-xs" title="Canada flag"></span> Toronto, Canada
+			
+								</div>
+	</li>
+	
+
+
+	
+	<li class="event-list-item">
+		<div class="event-list-item-title text-semibold"><a href="https://www.triathlon.org/events/event/2018_algiers_african_youth_games">2018 Algiers African Youth Games</a></div>
+		<div class="text-muted text-semibold">27
+			 - 28 Jul, 2018
+	</div>
+		<div class="text-muted">
+			<span class="flag flag-DZ hidden-xs" title="Algeria flag"></span> 5 JULY 1962 NATIONAL&hellip;, Algeria
+			
+								</div>
+	</li>
+	
+
+
+								</ul>
+								<a href="/events/" class="border-top">events &rarr;</a>
+							</div>
+							<div class="col-sm-3">
+								<h6>Latest <span class="text-semibold">Media</span></h6>
+								<ul class="media-list">
+									
+	<li class="mb-15">
+				<div class="media-left pr-10">
+						<a href="https://www.triathlon.org/multimedia/video/itu_180714_multisport_fyn_ld_women_vo/" class="thumb-with-icon thumb-with-icon-video thumb-with-icon-small">
+			
+				<img src="https://triathlon-images.s3.amazonaws.com/images/made/ffa8bc773c1e1074/2018_FYNSKE_BANK_Long_Distance_Triathlon_World_Championships_Fyn_-_Women_40_40_c1.jpg" alt="2018 FYNSKE BANK Long Distance Triathlon World Championships Fyn - Women" class="img-responsive">
+			
+			</a>
+					</div>
+				<div class="media-body">
+			<a href="https://www.triathlon.org/multimedia/video/itu_180714_multisport_fyn_ld_women_vo/" class="text-semibold">2018 FYNSKE BANK Long Distance Triathlon World Championships Fyn - Women</a>
+			<div class="text-size-small text-muted">15 Jul, 2018</div>
+		</div>
+	</li>
+
+	<li class="mb-15">
+				<div class="media-left pr-10">
+						<a href="https://www.triathlon.org/multimedia/video/itu_180714_multisport_fyn_ld_men_vo/" class="thumb-with-icon thumb-with-icon-video thumb-with-icon-small">
+			
+				<img src="https://triathlon-images.s3.amazonaws.com/images/made/ffa8bc773c1e1074/2018_FYNSKE_BANK_Long_Distance_Triathlon_World_Championships_Fyn_-_men_40_40_c1.jpg" alt="2018 FYNSKE BANK Long Distance Triathlon World Championships Fyn - Men" class="img-responsive">
+			
+			</a>
+					</div>
+				<div class="media-body">
+			<a href="https://www.triathlon.org/multimedia/video/itu_180714_multisport_fyn_ld_men_vo/" class="text-semibold">2018 FYNSKE BANK Long Distance Triathlon World Championships Fyn - Men</a>
+			<div class="text-size-small text-muted">15 Jul, 2018</div>
+		</div>
+	</li>
+
+	<li class="mb-15">
+				<div class="media-left pr-10">
+						<a href="https://www.triathlon.org/multimedia/video/fyn_multisport_festival_2018_wrap_update/" class="thumb-with-icon thumb-with-icon-video thumb-with-icon-small">
+			
+				<img src="https://triathlon-images.s3.amazonaws.com/images/made/ffa8bc773c1e1074/2018_FYNSKE_BANK_Multisport_World_Championships_Fyn_-_AG_2_40_40_c1.jpg" alt="2018 FYNSKE BANK Multisport World Championships Fyn Highlights" class="img-responsive">
+			
+			</a>
+					</div>
+				<div class="media-body">
+			<a href="https://www.triathlon.org/multimedia/video/fyn_multisport_festival_2018_wrap_update/" class="text-semibold">2018 FYNSKE BANK Multisport World Championships Fyn Highlights</a>
+			<div class="text-size-small text-muted">15 Jul, 2018</div>
+		</div>
+	</li>
+
+	<li class="mb-15">
+				<div class="media-left pr-10">
+						<a href="https://www.triathlon.org/multimedia/video/2018_fyn_itu_aquathlon_world_championships_women/" class="thumb-with-icon thumb-with-icon-video thumb-with-icon-small">
+			
+				<img src="https://triathlon-images.s3.amazonaws.com/images/made/ffa8bc773c1e1074/2018_FYNSKE_BANK_Aquathlon_World_Championships_Fyn_-_Women_40_40_c1.jpg" alt="2018 Fyn ITU Aquathlon World Championships Women" class="img-responsive">
+			
+			</a>
+					</div>
+				<div class="media-body">
+			<a href="https://www.triathlon.org/multimedia/video/2018_fyn_itu_aquathlon_world_championships_women/" class="text-semibold">2018 Fyn ITU Aquathlon World Championships Women</a>
+			<div class="text-size-small text-muted">14 Jul, 2018</div>
+		</div>
+	</li>
+
+								</ul>
+							</div>
+							<div class="col-sm-3">
+								<h6>Popular <span class="text-semibold">Content</span></h6>
+								<ul class="list text-semibold">
+									<li><a href="/results/">Recent Results</a></li>
+									<li><a href="/rankings/">Rankings</a></li>
+									<li><a href="/about/downloads/category/rules/">Rules</a></li>
+									<li><a href="/athletes/">Athlete Profiles</a></li>
+									<li><a href="/news/">News</a></li>
+									<li><a href="/about/contact_us">Contact ITU</a></li>
+									<li><a href="http://worldtriathlonstore.com?src=footer" target="_blank">Shop <i class="icon-bag"></i></a></li>
+								</ul>
+								<hr>
+								<h6 class="no-margin-bottom">Register for our <b>Newsletter</b></h6>
+								<p><em class="text-size-small">For the latest ITU news &amp; promotions</em></p>
+								<!-- Begin MailChimp Signup Form -->
+								<form action="//triathlon.us7.list-manage.com/subscribe/post?u=00aa527d930b75ed31d447d44&amp;id=be4b38ac97" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+
+									<input type="email" value="" name="EMAIL" class="required email form-control" id="mce-EMAIL" placeholder="Enter your email">
+
+									<div id="mce-responses" class="clear">
+										<div class="text-danger text-size-small" id="mce-error-response" style="display:none"></div>
+										<div class="text-success text-size-small" id="mce-success-response" style="display:none"></div>
+									</div>
+								    <div style="position: absolute; left: -5000px;" aria-hidden="true">
+								    	<input type="text" name="b_00aa527d930b75ed31d447d44_be4b38ac97" tabindex="-1" value="">
+								    </div>
+								    <div class="mt-5 text-right">
+								    <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="btn btn-primary display-block" style="width: 100%;">
+								    </div>
+								</form>
+								<script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
+								<!--End mc_embed_signup-->
+
+								
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+		
+	</footer>
+	
+
+	<div class="navbar navbar-default navbar-xs copy-footer overflow-hidden">
+	<div class="row body-container">
+		<div class="col-lg-offset-1 col-lg-10">
+			<div class="navbar-right">
+				<ul class="nav navbar-nav">
+					<li>
+						<div id="google_translate_element"></div>
+						<script type="text/javascript">
+						function googleTranslateElementInit() {
+						  new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, multilanguagePage: true, gaTrack: true, gaId: 'UA-513014-1'}, 'google_translate_element');
+						}
+						</script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+					</li>
+					<li><a href="https://developers.triathlon.org">Triathlon API</a></li>
+					<li><a href="https://www.triathlon.org/privacy_notice/">Privacy Notice</a></li>
+					<li><a href="https://www.triathlon.org/terms_and_conditions/">Terms of Use</a></li>
+					<li><a href="http://media.triathlon.org" target="_blank">Media Centre</a></li>
+				</ul>
+			</div>
+			<div class="navbar-text">&copy; International Triathlon Union</div>
+		</div>
+	</div>
+</div>
+
+	<script type="text/javascript" src="https://www.triathlon.org/assets/js/libraries/jquery.min.js"></script>
+<script type="text/javascript" src="https://www.triathlon.org/assets/js/libraries/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.1.2/js.cookie.min.js"></script>
+<script type="text/javascript" src="https://www.triathlon.org/assets/js/app.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.1/cookieconsent.min.js"></script>
+<script>window.cookieconsent.initialise({"palette":{"popup":{"background":"#dedede"},"button":{"background":"transparent","border":"#005187","text":"#005187"}},"content":{"href":"/privacy_policy"}});</script>
+<script type="text/javascript" src="https://www.triathlon.org/assets/js/plugins/autotrack.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-513014-1', 'auto');
+  ga('require', 'outboundLinkTracker');
+  ga('send', 'pageview');
+
+</script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/3.2.0/imagesloaded.pkgd.min.js"></script>
+	<script type="text/javascript" src="/assets/js/plugins/media/masonry.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.0.0/jquery.magnific-popup.min.js"></script>
+
+	<script>
+
+	var $grid = $('.gallery-grid').masonry({
+		itemSelector: '.grid-item',
+		percentPosition: true,
+		columnWidth: '.grid-sizer',
+		gutter: '.gutter-sizer',
+		transitionDuration: '0'
+	});
+
+	// layout Masonry after each image loads
+	$grid.imagesLoaded().progress( function() {$grid.masonry('layout');});
+
+
+	    var selector = 'a[data-popup="lightbox"]';
+
+	    $('.popup-gallery').magnificPopup({
+	        delegate: selector,
+	        type: 'image',
+	        mainClass: 'mfp-with-zoom mfp-img-mobile',
+
+	        gallery: {
+	            enabled: true,
+
+	        },
+	        image: {
+	            verticalFit: true,
+	            markup: '<div class="mfp-figure">'+
+	            '<div class="mfp-close"></div>'+
+	            '<div class="mfp-img"></div>'+
+	            '<div class="mfp-bottom-bar">'+
+	              '<div class="mfp-title"></div>'+
+	              '<div class="mfp-counter"></div>'+
+	            '</div>'+
+	            '</div>',
+	            titleSrc: function(item) {
+	            	var photoTitle = item.el.attr('title');
+	                var directURL = item.el.attr('href');
+
+	                return photoTitle+' &bull; <a href="'+directURL+'" target="_blank">direct link</a>';
+	            }
+	        },
+	        zoom: {
+	            enabled: false,
+	            duration: 300
+	        }
+	    });
+
+	</script>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"16a15e895e","applicationID":"2057556","transactionName":"Z1UDYEFUDEAFARBcX14fIFdHXA1dSychGlleVARM","queueTime":0,"applicationTime":981,"atts":"SxIAFglOH04=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>

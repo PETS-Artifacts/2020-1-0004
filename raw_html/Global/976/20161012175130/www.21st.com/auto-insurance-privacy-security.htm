@@ -1,0 +1,831 @@
+
+
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  
+ <script type="text/javascript">
+  var locationObj = window.location;
+      var fileref=document.createElement("link");
+      var managePolicyURL = "https://www.21st.com/esauth/login.do?method=initLogin";
+	  var billingURL = "https://www.21st.com/esauth/QuickPayLanding.do?method=initPaymentLogin";
+	  var claimsURL = "https://www.hpcs.com/eClaims/ClaimantSelfService/21st/LoginAndRegistration.action";
+	  
+	  var quoteURL = "https://www.21st.com/auto-insurance-quote/";
+	  
+	window.onload = function() {      
+	
+ 	  fileref.setAttribute("rel", "canonical");
+   	  fileref.setAttribute("href", locationObj);
+   		// alert(locationObj);
+   	 document.getElementsByTagName("head")[0].appendChild(fileref);
+      onloadbody();
+   	}
+	</script>	
+	<script type="text/javascript" src="/insurance-information/js/jquery.js"></script>
+<head>
+
+<meta http-equiv="pragma" content="no-cache, no-store, must-revalidate, max-age=0, s-max-age=0, proxy-revalidate" />
+<meta  http-equiv="expires" content="0" />
+<meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate, max-age=0, s-max-age=0, proxy-revalidate" />
+	
+
+
+
+
+
+
+
+
+
+	<title>Privacy and Security | 21st Century Car Insurance</title>
+<meta name="description" content="21st Century Insurance, a group of companies affiliated with the insurers comprising the Farmers Insurance Group of Companies recognizes and shares the privacy concerns of visitors to our Web site."/>
+<meta name="keywords" content="car insurance, auto insurance, car insurance quotes"/>
+	<link rel="stylesheet" href="/insurance-information/webpub/en/pages/css/reset.css" />
+	<link rel="stylesheet" href="/insurance-information/webpub/en/pages/css/resource.css" type="text/css" media="all" charset="utf-8" />
+	<link rel="stylesheet" href="/insurance-information/webpub/en/pages/css/modal.css" type="text/css" media="all" charset="utf-8" />
+    <link rel="stylesheet" href="/insurance-information/webpub/en/pages/css/contactform.css" type="text/css" media="all" charset="utf-8" />	
+	<link rel="icon" href="/favicon.ico" type="image/icon" />
+	<!--[if lte IE 7]>
+		<link rel="stylesheet" href="/insurance-information/webpub/en/pages/css/ie.css" type="text/css" media="all" charset="utf-8" />
+	<![endif]-->
+</head>
+
+<body class="resource">
+	<div id="content-wrapper">			
+		<!-- header global  -->									
+			
+
+
+
+
+
+
+
+
+
+
+		
+	<!-- header global  -->
+
+	<div id="hdr-wrapper">
+
+    <div id="hdr">
+
+        <div id="logo">
+            <a href="/" id="sourceHref"><img alt="21st Century Insurance" height="66" id="sourceImg" width="183"></a>
+        </div>
+
+
+        <ul id="contact">
+
+            <li class="first">
+                <a href="/about-21st-century-auto-insurance-company/">About Us</a>
+            </li>
+
+
+            <li>
+                <a href="/contact-21st-century-insurance.htm">Contact Us</a>
+            </li>
+
+
+            <li class="first">
+                <script src="http://www.google.com/jsapi" type="text/javascript"></script><script type="text/javascript">
+  google.load('search', '1');
+  google.setOnLoadCallback(function() {
+   google.search.CustomSearchControl.attachAutoCompletion(
+      '015186652454699452498:ydzg-7ifmai',
+      document.getElementById('q'),
+      'cse-search-box');
+  });
+</script>
+
+                <form action="/search-results.htm" id="cse-search-box">
+
+                    <div>
+                        <input name="cx" type="hidden" value="015186652454699452498:ydzg-7ifmai"><input name="cof" type="hidden" value="FORID:11;NB:1"><input name="ie" type="hidden" value="UTF-8"><span style=" position: relative; top: -8px;"><input autocomplete="off" id="q" name="q" size="31" type="text"></span><span style=" margin-left: 3px;"><input alt="Search" name="sa" src="/insurance-information/webpub/en/pages/img/common/search_button.gif" type="image"></span>
+                    </div>
+
+                </form>
+
+            </li>
+
+        </ul>
+
+
+        <ul id="nav">
+
+            <li id="get-quote">
+                <a class="braunav" href="#">Get an Auto Insurance Quote</a> 
+
+
+                <div class="ui-menu-item">
+                    <a class="close" href="#">Close</a> 
+
+
+                    <div class="ui-menu-content">
+
+                        <form action="#" id="zipcode-quote">
+
+                            <p>
+                                <label>Enter your ZIP Code</label>
+                            </p>
+
+
+                            <fieldset>
+                                <span class="text"><input class="zipcode" id="quick-zipcode" maxlength="5" name="quick-zipcode" type="text" value="ZIP Code"></span><button class="no-go" onclick="submitForQuote('quick-zipcode');" type="button">Go<span></span></button>
+                            </fieldset>
+
+
+                            <div id="headerZip" style=" display: none;">
+                                <label class="error">Please enter a valid ZIP Code</label>
+                            </div>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </li>
+
+
+            <li>
+                <a class="braunav" href="https://www.21st.com/esauth/login.do?method=initLogin" id="manage-policy">Manage Your Auto Policy</a>
+            </li>
+
+
+            <li id="info-center">
+                <a href="/auto-insurance-information/" class="braunav">Insurance Information Center</a>
+            </li>
+
+        </ul>
+
+    </div>
+
+</div>
+<script>
+$(document).ready(function () {
+var sourceapp = document.URL.split('sourceApp=')[1];
+if(sourceapp != undefined && sourceapp == 'FH') {
+$("#sourceImg").attr('src', '/insurance-information/webpub/en/pages/img/farmers-insurance-logo.png');
+$("a#sourceHref").attr("href", "http://www.farmershawaii.com/21st")
+}else {
+$("#sourceImg").attr('src', '/insurance-information/webpub/en/pages/img/21st-century-insurance.gif');
+}
+});
+</script>
+
+
+	<!-- end global header  -->
+		
+	
+		
+
+
+<AbtUsHeader>
+    <div id="information_bar">
+
+        <h1>Privacy &amp; Security</h1>
+
+    </div>
+</AbtUsHeader>
+
+
+
+
+
+
+
+
+
+	<!-- end header -->
+		 				
+		<!-- header end  -->
+		
+		<div class="i">
+			<div class="ii">
+				<div id="bdy">
+					<div id="article">
+						
+						<!-- main body -->
+						  
+
+
+
+
+
+
+ 
+
+	<!-- body -->
+	
+<div class="column main products">
+
+    <div class="article">
+
+        <p>
+            <a id="Back_to_Top" name="Back_to_Top">21st Century Insurance</a>, a group of companies affiliated with the insurers <a id="comprising">comprising</a> the Farmers Insurance Group of Companies recognizes and shares the privacy concerns of visitors to our Web site. This statement discloses the privacy practices of the companies identified in the privacy notices below for the 21st Century Insurance Web site. When you receive a quote, request a product or service, or buy a product or service from one of these companies, that company's privacy notice will apply. 21st Century Insurance's On-Line Privacy Policy informs Web site visitors about: 1) the type information we collect and its security; 2) how we use the collected information; and 3) the benefits to you arising out of our use of the information collected.</p>
+
+
+        <p>
+            <a href="#About_Me">About Me</a>
+            <br>
+
+            <a href="#Benefits">Benefits</a>
+            <br>
+
+            <a href="#Disclosure">Disclosure</a>
+            <br>
+
+            <a href="#NY_Residents">New York Domestic Violence Procedures</a>
+        </p>
+
+
+        <p>
+            <a id="About_Me" name="About_Me"><b>About Me</b></a>
+        </p>
+
+
+        <p>
+            <b>What personal information does 21st ask about me?</b>
+        </p>
+
+
+        <p>21st Century Insurance only asks for information necessary to underwrite and provide accurate insurance rates, and to maintain and improve customer service. Visitors to 21st Century Insurance's Web site browse the site anonymously. Visitors are not required to provide any personal information to 21st Century Insurance in order to access our Web site. 21st Century Insurance requests personal information from you in order to provide you with accurate insurance product rate(s) from us and the other affiliates that comprise the Farmers Insurance Group of Companies&reg; (Farmers). For example, a customer's name and address is captured in some of our quotes to assign the appropriate rates based on location, enabling an accurate quote to be calculated. In addition, when you request rates, 21st Century Insurance always asks for your state, as it is a key question with regard to our ability to offer the product and/or insurance coverage. 21st Century Insurance will track and store the URL of the referring Web Site you visited before visiting 21st Century Insurance's Web site. The information that we collect is more fully detailed in the privacy notices linked below.</p>
+
+
+        <p>21st Century Insurance collects non-personally-identifying information of the sort that web browsers and servers typically make available, such as the browser type, referring site, and the date and time of each visitor request. 21st Century Insurance's purpose in collecting non-personally identifying information is to better understand how 21st Century Insurance's visitors use its website and interact with our email programs. 21st Century Insurance may share this information with member companies and third party business partners and service providers.</p>
+
+
+        <p>21st Century Insurance may use third party web analytics services to help us track and optimize our email and website performance. These third parties are prohibited from using collected data for any purpose other than as a service provider to 21st Century Insurance.</p>
+
+
+        <p>Cookies allow 21st Century Insurance to evaluate what our customers want, provide adequate capacity for our visitors, and display our information in the best manner. If you disable cookies on your browser, you will not be able to access personalized information when you return to 21st.com. 21st Century Insurance may share "cookie" information with member companies and third party business partners and service providers. When you visit our website, other parties may collect personally identifiable information about your online activities over time and across different websites. Please note that we do not currently support "Do Not Track" signals but may do so in the future.</p>
+
+
+        <p>When you use the tools and calculators on this site, we may collect your state of residence, age, car make and model, and similar information. We collect this information only to provide you with customized results, including rates for our products and services. Information you enter into a calculator or tool is collected anonymously. If you sign up for a newsletter, we will only use your e-mail address to send you the "on-line" newsletter and any related communications from us. You can unsubscribe from newsletters by clicking on the "unsubscribe" link at the bottom of the newsletter. If you e-mail a page to a friend, 21st Century Insurance will not save or use the friend's address for any purpose other than sending them the information you have requested.</p>
+
+
+        <p>
+            <a href="#Back_to_Top">Back to Top</a>
+        </p>
+
+
+        <p>
+            <a id="Info_Collected_Secure" name="Info_Collected_Secure"><b>Is my information secure?</b></a>
+        </p>
+
+
+        <p>21st.com uses a secure server and security protocol to safeguard the information you provide during the purchase and payment processes.</p>
+
+
+        <p>21st.com uses a secure server implementing the Secure Sockets Layer (SSL) protocol from Verisign, Inc. to interact with you when you provide personal information during the purchase and payment processes. This state of the art technology encrypts your information to prevent third parties from reading the information while it is in transit.</p>
+
+
+        <p>21st.com handles your information securely. We limit personnel access to our servers and expect our personnel to adhere to high standards of ethics and integrity in performing their jobs and conducting the business and affairs of 21st.com.</p>
+
+
+        <p>21st Century Insurance is not responsible for the privacy practices or the content of any other Web Sites that are hyper-linked to or from this Web Site. This privacy policy applies only to information collected on 21st.com.</p>
+
+
+        <p>
+            <a href="#Back_to_Top">Back to Top</a>
+        </p>
+
+
+        <p>
+            <a id="Change_info" name="Change_info"><b>How can I change my information?</b></a>
+        </p>
+
+
+        <p>If you want to access, correct, or update your information after you have requested a quote, please send an e-mail or contact Customer Service at the address provided when you requested the quote. These addresses are listed on the following web sites:<br>
+
+            <br>
+Auto Link - <a href="/">http://www.21st.com</a>
+        </p>
+
+
+        <p>Residential Link - <a href="https://21st.homesite.com/iQuoteWeb/" target="_blank">https://21st.homesite.com/iQuoteWeb/</a>
+        </p>
+
+
+        <p>All other Inquiries Link - <a href="mailto:executive.office@21st.com">executive.office@21st.com</a> (E-Mail)</p>
+
+
+        <p>
+            <a href="#Back_to_Top" id="Back_to_Top" name="Back_to_Top">Back to Top</a>
+        </p>
+
+
+        <p>
+            <a id="Benefits" name="Benefits"><b>Benefits</b></a>
+        </p>
+
+
+        <p>
+            <b>How does 21st Century Insurance use my information and what is the benefit to me?</b>
+        </p>
+
+
+        <p>21st Century Insurance uses the information to generate accurate auto rates, provide a faster customer experience and to improve our Web Site. If you purchase insurance coverage through us, we may use the information to activate your policy.</p>
+
+
+        <p>From time to time, 21st Century Insurance will send e-mails to your e-mail address to confirm your information, provide rate and policy information to you, and update you about our services and products.</p>
+
+
+        <p>From time to time we will send e-mails concerning other products offered by affiliated third parties. You may opt-out of receiving promotional e-mails from 21st Century Insurance by sending an e-mail to <a href="mailto:executive.office@21st.com?subject=Executive%20Office">executive.office@21st.com</a>. In addition, 21st.com uses your postal address to send a quote fulfillment kit on quotes you have completed.</p>
+
+
+        <p>
+            <a href="#Back_to_Top">Back to Top</a>
+        </p>
+
+
+        <p>
+            <a id="Disclosure" name="Disclosure"><b>Disclosure</b></a>
+        </p>
+
+
+        <p>Does 21st Century Insurance disclose collected information to third parties and do I have a choice how 21st Century Insurance uses the information?</p>
+
+
+        <p>21st Century Insurance may transfer your information to third parties providing support services to 21st.com (for example, Internet service providers). These third parties are under obligations of confidentiality to us and are not permitted to use your data for any purpose other than performing services related to 21st Century Insurance.</p>
+
+
+        <p>We participate in several insurance industry supported databases of reported claims and additional driver information. We may share information about you in the normal business of conducting insurance operations. We are permitted by law to share information about you when and if you become a customer or claimant, even without your authorization, with: 1) a third party if it is reasonably necessary to enable the party to perform services for us, such as claims investigations, appraisals, or the detection of fraud or material misrepresentations; 2) any of our subsidiary or affiliated companies who provide service to you; 3) insurance regulatory authorities; 4) law enforcement agencies or other governmental authorities to protect our interest or to report illegal activities; 5) organizations conducting actuarial or research studies; and 6) as otherwise as permitted by law. Information about the types of disclosures 21st Century Insurance may make, as well as opt-out options, are detailed in the privacy notices linked below.</p>
+
+
+        <p>
+            <a href="#Back_to_Top">Back to Top</a>
+        </p>
+
+
+        <p>
+            <b>Updates To This Privacy Policy</b>
+        </p>
+
+
+        <p>If we change our privacy policy, we will post a notice on this site. If at any point we decide to use your personally identifiable information in a manner different from that stated at the time it was collected, we will notify you. You will be able to opt out of any new uses of your previously disclosed information. We will use your information in accordance with the privacy policy under which the information was collected.</p>
+
+
+        <p>
+            <a href="#Back_to_Top">Back to Top</a>
+        </p>
+
+
+        <p>
+            <b>Privacy Policies</b>
+        </p>
+
+
+        <p>We recognize the importance of respecting the privacy of our policyholders and want to make sure that you know the steps we take to protect the privacy of the customer information we collect and, in some cases, disclose.</p>
+
+
+        <p>We encourage you to read the following information about how we collect, disclose and protect your information.</p>
+
+
+        <p>
+            <b>I. If you are insured by one of the companies listed below, please click on the link to see the applicable privacy policy</b>
+        </p>
+
+
+        <p>21st Century Insurance Company: CA</p>
+
+
+        <p>21st Century Casualty Company: CA</p>
+
+
+        <p>
+            <a href="/insurance-information/webpub/en/pages/pdf/FPN-CA_0716.pdf" target="_blank">Link to Acquired Companies Privacy Notice and Opt-out form</a>
+        </p>
+
+
+        <p>21st Century Insurance Company: AK</p>
+
+
+        <p>21st Century Casualty Company: OH, TN</p>
+
+
+        <p>21st Century Advantage Insurance Company: AZ, CO, MI, MN, NV, NY, UT, WA</p>
+
+
+        <p>21st Century Centennial Insurance Company: AL, AK, AR, AZ, CO, CT, DE, DC, FL, GA, ID, IL, IN, KS, LA, ME, MD, MI, MN, MO, MS, MT, NC, NH, NJ, NM, NV, OH, OK, OR, RI, SC, TN, VA, VT, WA, WI, WV, WY</p>
+
+
+        <p>21st Century Indemnity Insurance Company: AZ, FL, MD, NH, NY, OK, PA</p>
+
+
+        <p>21st Century Preferred Insurance Company: AZ, CT, FL, IL, NY, OR, PA, WA</p>
+
+
+        <p>21st Century North America Insurance Company: AL, AK, AZ, AR, CO, CT, FL, GA, ID, IL, IN, IA, KY, LA, MD, MI, MN, MS, MO, MT, ND, NE, NM, NV, NY, OK, RI, SC, SD, UT, WA, WI</p>
+
+
+        <p>21st Century Assurance Company: IN, NJ, NV, OK, VA</p>
+
+
+        <p>21st Century Pinnacle Insurance Company: NJ</p>
+
+
+        <p>
+            <a href="#Back_to_Top">Back to Top</a>
+        </p>
+
+
+        <p>21st Century Premier Insurance Company: AK, AZ, CO, CT, IL, KS, LA, ME, MD, MI, MN, MT, NE, NH, NV, NY, OH, OR, PA, VA, WA</p>
+
+
+        <p>21st Century Pacific Insurance Company: AK, DC, IA, ND, NE, OK, OR, SD, WV, WY</p>
+
+
+        <p>21st Century Security Insurance Company: NY</p>
+
+
+        <p>21st Century National Insurance Company: NY</p>
+
+
+        <p>
+            <a href="/insurance-information/webpub/en/pages/pdf/FPN-a_0716.pdf" target="_blank">Link to Acquired Companies Privacy Notice and Opt-out form</a>
+        </p>
+
+
+        <p>
+            <b>II. If you are insured by one of the companies listed below, please click on the link to see the applicable privacy policy:</b>
+        </p>
+
+
+        <p>Foremost County Mutual Insurance Company: TX</p>
+
+
+        <p>
+            <a href="/insurance-information/webpub/en/pages/pdf/FPN-FC_0513.pdf" target="_blank">Link to Foremost County Mutual Insurance Company Privacy Notice and Opt-out form</a>
+        </p>
+
+
+        <p>Old American County Mutual Fire Insurance Company: TX</p>
+
+
+        <p>
+            <a href="/insurance-information/webpub/en/pages/pdf/GLBA-TXOA_0214.pdf" target="_blank">Link to Old American County Mutual Fire Insurance Company Privacy Notice</a>
+        </p>
+
+
+        <p>
+            <b>III.  If you are insured by one of the companies listed below, please click on the link to see the applicable privacy policy</b>
+        </p>
+
+
+        <p>21st Century Centennial Insurance Company: TX</p>
+
+
+        <p>21st Century Preferred Insurance Company: TX</p>
+
+
+        <p>21st Century North America Insurance Company: TX</p>
+
+
+        <p>
+            <a href="/insurance-information/webpub/en/pages/pdf/FPN-a_0513.pdf" target="_blank">Link to Acquired Companies Privacy Notice and Opt-out form</a>
+        </p>
+
+
+        <p>These Privacy Policies relate only to policyholders who have purchased, through direct marketing methods, personal insurance such as private passenger automobile, homeowners and personal umbrella liability insurance. If you have purchased another type of policy from one of the companies listed above, please contact that company to receive a copy of the relevant privacy policy.</p>
+
+
+        <p>
+            <a href="#Back_to_Top">Back to Top</a>
+        </p>
+
+
+        <p>
+            <b>Questions and Suggestions</b>
+        </p>
+
+
+        <p>If you have any questions or suggestions regarding our privacy policy, please contact us at executive.office@21st.com. You can also reach us by phone at 800-241-1188, or by mail at 3 Beaver Valley Road, Wilmington, DE 19803, Attention: 21st Century Insurance Privacy.</p>
+
+
+        <p>
+            <a href="#Back_to_Top">Back to Top</a>
+        </p>
+
+
+        <p>
+            <b>Personal Auto Group Social Security Number Protection Policy</b>
+        </p>
+
+
+        <p>
+            <b>Important Information About Your Social Security Number</b>
+        </p>
+
+
+        <p>The companies that comprise the Farmers Insurance Group of Companies<sup>&reg;</sup> recognize the importance of respecting the privacy of our policyholders. We at 21st Century Insurance want you to understand what information we collect, how we protect it, and how we may use it. 21st Century Insurance treats your Social Security number (&amp;quotSSN&amp;quot) and all nonpublic personal information (&amp;quotNPI&amp;quot) that identifies you with respect, and in accordance with the applicable Privacy Notice and this Social Security Number Protection Policy. Ensuring that your SSN and other NPI are secure and private is vital to 21st Century Insurance in meeting our goal of providing you with high quality insurance products and services.</p>
+
+
+        <p>We at 21st Century Insurance value your trust, and we are committed to the responsible protection of your Social Security number. This notice applies to any SSN that 21st Century Insurance collects in the course of our business. 21st Century Insurance uses customers' SSNs to request accurate credit reports in order to properly rate and underwrite policies. We may also collect SSN during the claims process in order to determine Medicare eligibility and/or comply with other Federal reporting requirements. 21st Century Insurance protects the confidentiality of SSNs, including the maintenance of physical and electronic security procedures to guard against unauthorized access to SSNs. We also limit access to SSNs by, among other measures, only granting access to SSNs to our employees who use that information to perform their job-related duties. 21st Century Insurance employees who handle a SSN in violation of a 21st Century Insurance policy or procedure may be subject to discipline, up to and including, termination. In addition, we do not disclose SSNs to third parties, except where required or permitted by law.</p>
+
+
+        <p>For additional information on how 21st Century Insurance uses and secures your Social Security number and other nonpublic personal information, please see the Privacy Notice posted on the applicable 21st Century Insurance Web Site.</p>
+
+
+        <p>
+            <a href="#Back_to_Top">Back to Top</a>
+        </p>
+
+
+        <p>
+            <a id="NY_Residents" name="NY_Residents"><b>New York Domestic Violence Procedures</b></a>
+        </p>
+
+
+        <p>
+            <strong>Confidentiality of Information for New York Domestic Violence Victims and Endangered Individuals</strong>
+        </p>
+
+
+        <p>New York Insurance Law provides that if any person covered by an insurance policy delivers to the insurer a valid order of protection against another policyholder or other person covered by the policy requesting that their information be kept confidential then the insurer is prohibited for the duration of that order from disclosing to that policyholder or other person the address and telephone number of the victim, or of any person or entity providing covered services to the victim. If a child is a covered person, then the right may be asserted by the child&rsquo;s parent or guardian.</p>
+
+
+        <p>The request should be made by faxing a copy of the order of protection to 21st Century at (302) 252-2465. If you are unable to fax a copy of the order, please email the request to specialservices2@21st.com or mail it to us at 21st Century Insurance, 3 Beaver Valley Road, Wilmington, DE 19803, Attention: Special Services.</p>
+
+
+        <p>Once a valid request has been received and implemented, a requestor may only revoke the prior request by submitting to us a written sworn statement revoking the request.</p>
+
+
+        <p>For additional assistance, please contact the New York State Domestic and Sexual Violence Hotline:</p>
+
+
+        <p>NYS Domestic and Sexual Violence Hotline: 1-800-942-6906<br>
+Spanish Language: 1-800-942-6908<br>
+In NYC: 1-800-621-HOPE (4673) or dial 311<br>
+TTY: 1-866-604-5350</p>
+
+
+        <p>
+            <strong>Please be advised that 21st Century has up to three business days to implement the necessary protocol to secure your contact information and other confidential identifying information.</strong>
+        </p>
+
+
+        <p>
+            <a href="#Back_to_Top">Back to Top</a>
+        </p>
+
+    </div>
+
+</div>
+
+<p>
+    <script src="https://auto.21st.com/AutoQuote/webpub/esales/en/pages/js/ntpagetag.js" type="text/javascript"></script>
+</p>
+
+	
+	 <script type="text/javascript">
+function printpage()
+	{ 
+	  var urltoPrint = "/print.do?view=/insurance-information/webpub/en/pages/html/common-html/Privacy_Security.htm";
+ 	//  alert(urltoPrint);
+ 		 window.location.href = urltoPrint;
+ 		 }
+
+
+</script>
+ 
+ 
+						<!-- main body -->	
+						
+    		 			
+				   </div>
+						
+					<div id="help">
+						<!-- common right -->
+								
+
+
+
+
+
+
+
+<div class="option" id="freequote">
+
+        <div class="top">
+
+            <h2>Get a <strong>Free</strong> Auto Insurance Quote:</h2>
+
+
+            <p>You're just a click away from seeing how 21st Century can save you money on your auto insurance.</p>
+
+        </div>
+
+
+        <form action="#" id="zipcode-left">
+
+            <fieldset>
+                <label>Enter your ZIP Code</label> 
+
+
+                <div id="left-zipcode_e" style=" display: none;">
+                    <label class="error">Please enter a valid ZIP Code</label>
+                </div>
+
+                <span class="text"><input class="zipcode" id="left-zipcode" maxlength="5" name="left-zipcode" type="text" value="ZIP Code"></span> <a class="button alt go zipcode-check" href="#" onclick="submitForQuote('left-zipcode')"></a>
+            </fieldset>
+
+        </form>
+
+    </div>	
+
+  	
+	<!-- End LP Button Code-->  		 
+		            	<!-- common right -->
+					</div>		
+			  </div>
+			</div>
+		</div>
+		<div id="ftr-wrapper">
+		  
+
+
+
+
+
+	<div id="ftr">
+
+    <div class="section">
+
+        <div class="link-set">
+
+            <h2>Services</h2>
+
+
+            <ul>
+
+                <li>
+                    <a href="/retrieve-auto-insurance-quote.htm">Retrieve a Quote</a>
+                </li>
+
+
+                <li>
+                    <a href="https://www.21st.com/esauth/drcLogin.do" id="manage-policy-ft">Manage Your Auto Policy</a>
+                </li>
+
+
+                <li>
+                    <a href="https://www.hpcs.com/eClaims/ClaimantSelfService/21st/LoginAndRegistration.action" id="claimsLink" target="_blank">Claims Services</a>
+                </li>
+
+
+                <li>
+                    <a href="https://www.21st.com/esauth/QuickPayLanding.do?method=initPaymentLogin" id="billingLink">Pay Your Insurance Bill</a>
+                </li>
+
+
+                <li>
+                    <a href="javascript:;" id="co-browse">LIVE EXPERT Co-Browse</a>
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <div class="link-set" style=" width: 157px;">
+
+            <h2>About Us</h2>
+
+
+            <ul>
+
+                <li>
+                    <a href="/about-21st-century-auto-insurance-company/">About Us</a>
+                </li>
+
+
+                <li>
+                    <a href="/insurance-products/">Additional Insurance Products</a>
+                </li>
+
+
+                <li>
+                    <a href="/contact-21st-century-insurance.htm">Contact Us</a>
+                </li>
+
+
+                <li>
+                    <a href="/auto-insurance-jobs-and-careers.htm">Insurance Careers</a>
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <div class="link-set" style=" width: 163px;">
+
+            <h2>Legal</h2>
+
+
+            <ul>
+
+                <li>
+                    <a href="/auto-insurance-information/what-21st-century-insurance-affiliated-insurance-companies-are-used-to-write-auto-insurance-direct-to-the-consumer.htm">Underwriting Companies by State</a>
+                </li>
+
+
+                <li>
+                    <a href="/terms-of-use.htm">Terms of Use</a>
+                </li>
+
+
+                <li>
+                    <a href="/auto-insurance-privacy-security.htm">Privacy &amp; Security</a>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+
+    <div class="section">
+
+        <p>Insurance underwritten by affiliated and non-affiliated companies of 21st Century Insurance, Wilmington, DE. Copyright &copy; 2012 <a href="/21st-century-farmers-insurance.htm" target="_blank" title="Farmers Insurance">Farmers Insurance</a>.</p>
+
+    </div>
+
+
+    <script src="/insurance-information/webpub/en/pages/js/rc-tags.js" type="text/javascript"></script>
+<script src="/insurance-information/webpub/en/pages/js/global-tags.js" type="text/javascript"></script> 
+
+</div>
+	
+ 
+			<!-- end footer  -->
+		</div>
+	</div>
+
+	<script type="text/javascript" src="/insurance-information/js/jquery.masked.js"></script>
+	<script type="text/javascript" src="/insurance-information/js/jquery.validate.js"></script>
+	<script type="text/javascript" src="/insurance-information/js/roundies.js"></script>
+	<script type="text/javascript" src="/insurance-information/js/modal.js"></script>
+	<script type="text/javascript" src="/insurance-information/js/initialize.js"></script>
+	<script type="text/javascript" src="/insurance-information/js/swfobject.js"></script>
+	<script type="text/javascript" src="/insurance-information/js/advisor.js"></script>
+	<script type="text/javascript" src="/insurance-information/js/custom.js"></script>
+	<script type="text/javascript" src="/insurance-information/js/onloadbody.js"></script>
+	<script type="text/javascript" src="/insurance-information/js/contact.js"></script>	
+	<script type="text/javascript" src="/insurance-information/js/hover-intent.js"></script>	
+	<script type="text/javascript" src="/insurance-information/js/jcarousellite_1.0.1.js"></script>	
+	<script type="text/javascript" src="/insurance-information/webpub/en/pages/js/functions.js"></script>	
+	<script type="text/javascript" src="/insurance-information/js/main.js"></script>	
+
+	
+
+	<script type="text/javascript">
+ 
+  
+  function submitForQuote(comingFrom) {
+	//  alert("divToDisplay" + comingFrom);
+		    
+	   var divToDisplay = comingFrom +"_e";
+	//    alert("divToDisplay" + divToDisplay);
+	
+		  if(comingFrom == "quick-zipcode")
+	      	divToDisplay = "headerZip";
+	      	
+		    
+	      var toURL = "https://www.21st.com/auto-insurance-quote/";
+	    
+		 var zip= document.getElementById(comingFrom).value;
+	//	alert(zip.value);
+		  var zip_error = 0;
+		
+		if (IsNumeric(zip) == false || zip.length < 5 )
+		
+			{
+				zip_error = 1;
+			}		
+		   
+		    if(zip_error == 1)
+		    {
+		      showTarget(divToDisplay,true) ;
+		     }else{
+		      showTarget(divToDisplay,false) ;		    
+		      toURL = toURL + "?postalCode=" + zip;		        
+		      window.location.href=toURL;
+				
+			}
+		}
+			
+ 
+
+  </script>	
+
+</body>
+</html>

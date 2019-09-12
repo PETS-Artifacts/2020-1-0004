@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var o=t[n]={exports:{}};e[n][0].call(o.exports,function(t){var o=e[n][1][t];return r(o||t)},o,o.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(e,t,n){function r(){}function o(e,t,n){return function(){return i(e,[f.now()].concat(u(arguments)),t?null:this,n),t?void 0:this}}var i=e("handle"),a=e(2),u=e(3),c=e("ee").get("tracer"),f=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,t){s[t]=o(d+t,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,o="function"==typeof t;return i(l+"tracer",[f.now(),e,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],n),o)try{return t.apply(this,arguments)}catch(e){throw c.emit("fn-err",[arguments,this,e],n),e}finally{c.emit("fn-end",[f.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=o(l+t)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,f.now()])}},{}],2:[function(e,t,n){function r(e,t){var n=[],r="",i=0;for(r in e)o.call(e,r)&&(n[i]=t(r,e[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],3:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,o=n-t||0,i=Array(o<0?0:o);++r<o;)i[r]=e[t+r];return i}t.exports=r},{}],4:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function o(e){function t(e){return e&&e instanceof r?e:e?c(e,u,i):i()}function n(n,r,o,i){if(!d.aborted||i){e&&e(n,r,o);for(var a=t(o),u=m(n),c=u.length,f=0;f<c;f++)u[f].apply(a,r);var p=s[y[n]];return p&&p.push([b,n,r,a]),a}}function l(e,t){v[e]=m(e).concat(t)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(n)}function g(e,t){f(e,function(e,n){t=t||"feature",y[n]=t,t in s||(s[t]=[])})}var v={},y={},b={on:l,emit:n,get:w,listeners:m,context:t,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",c=e("gos"),f=e(2),s={},p={},d=t.exports=o();d.backlog=s},{}],gos:[function(e,t,n){function r(e,t,n){if(o.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[t]=r,r}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){o.buffer([e],r),o.emit(e,t,n)}var o=e("ee").get("handle");t.exports=r,r.ee=o},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=h.info=NREUM.info,t=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return s.abort();f(y,function(t,n){e[t]||(e[t]=n)}),c("mark",["onload",a()+h.offset],null,"api");var n=d.createElement("script");n.src="https://"+e.agent,t.parentNode.insertBefore(n,t)}}function o(){"complete"===d.readyState&&i()}function i(){c("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),c=e("handle"),f=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1071.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=t.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),c("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="description" content="Beautiful client photo gallery designed for professional photographers to share, deliver, proof and sell online." />
+<meta name="keywords" content="pixieset, client galleries, client gallery, photo gallery, online gallery, best online photo gallery, deliver photos, digital delivery, online proofing, sell photography, sell photos online, digital download, photo gallery hosting, free photo gallery, professional photographers" />
+<meta id="meta_fb_app_id" property="fb:app_id" name="" content="166910080133465" />
+<meta id="meta_og_type" property="og:type" name="" content="website" />
+<meta id="meta_og_site_name" property="og:site_name" name="" content="Pixieset" />
+<meta id="meta_og_title" property="og:title" name="" content="Pixieset - Privacy" />
+<meta id="meta_og_description" property="og:description" name="" content="Beautiful client photo gallery designed for professional photographers to share, deliver, proof and sell online." />
+<meta id="meta_og_image" property="og:image" name="" content="https://assets.pixieset.com/images/site/sales/sales-share.jpg" />
+<meta property="twitter:account_id" name="" content="4503599629607151" />
+<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.6/cookieconsent.min.css" media="all" />
+<link rel="stylesheet" type="text/css" href="//static.pixieset.com/release/css/site.combined.min.css?88632287ea591cbec3876d469ff4ee30" media="all" />
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.6/cookieconsent.min.js"></script>
+<script type="text/javascript" src="//use.typekit.net/bpr3nex.js"></script>
+<script type="text/javascript">
+/*<![CDATA[*/
+try{Typekit.load();}catch(e){}
+/*]]>*/
+</script>
+<title>Pixieset - Privacy</title>
+
+
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=166910080133465";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
+
+<div class="pushy-site-overlay"></div>
+
+<nav class="pushy pushy-right">
+<span class="toggle-menu-close">×</span>
+<div id="nav-primary">
+<span class="nav-label">PRODUCT</span>
+<a href="/">Client Gallery</a>
+<a href="/mobile-gallery-app/">Mobile Gallery App</a>
+<a href="/example/">Examples</a>
+<a href="/upgrade/">Upgrade</a>
+<a href="/features/">Feature List</a>
+<a href="https://accounts.pixieset.com/login/?spId=client_gallery" class="visible-xs">Login</a>
+<a href="/registration/" class="visible-xs">Sign Up</a>
+</div>
+<div id="nav-secondary">
+<span class="nav-label">COMPANY</span>
+<a href="/about/">About Us</a>
+<a href="/careers/">Careers</a>
+<a href="https://help.pixieset.com/hc/en-us" target="_blank" rel="noopener noreferrer">Help &amp; Support</a>
+<a href="/terms/">Terms of Service</a>
+<a href="/privacy/">Privacy Policy</a>
+</div>
+<div id="nav-social">
+<span class="nav-label">CONNECT</span>
+<a href="https://www.facebook.com/pixieset" target="_blank" rel="noopener noreferrer" class="facebook"><i class="fab fa-facebook-square"></i></a>
+<a href="https://twitter.com/pixiesetapp" target="_blank" rel="noopener noreferrer" class="twitter"><i class="fab fa-twitter-square"></i></a>
+<a href="https://plus.google.com/+Pixieset/" target="_blank" rel="noopener noreferrer" class="google"><i class="fab fa-google-plus-square"></i></a>
+<a href="https://pixieset.tumblr.com/" target="_blank" rel="noopener noreferrer"><i class="fab fa-tumblr-square"></i></a>
+</div>
+</nav>
+
+<div id="content" class="pushy-container">
+<div class="info-page">
+<div class="container-fluid intro tint spacer-bottom-35" style="background-image: url('//assets.pixieset.com/images/site/sales/privacy-intro-bg.jpg')">
+
+<div id="nav-logo">
+<a class="logo" href="/">PIXIESET</a>
+</div>
+
+<div id="nav-actions" class="js-scroll-prevent-shift">
+<a href="/" class="tour-link hidden-xs ">Tour</a>
+<a href="/example/" class="hidden-xs ">Examples</a>
+<a href="/upgrade/" class="hidden-xs ">Upgrade</a>
+<a href="https://accounts.pixieset.com/login/?spId=client_gallery" class="header-login hidden-xs">Login</a>
+<a href="/registration/" class="header-signup hidden-xs hidden-sm">Sign Up</a>
+<a href="#side-menu" class="pushy-menu-btn hidden-sm hidden-md hidden-lg"><i class="fas fa-bars"></i></a>
+</div>
+<div class="row content">
+<div class="col-lg-12 text-center">
+<h1 class="primary-heading about-heading ttn tracked-0 antialiased">Privacy Policy</h1>
+</div>
+</div>
+</div>
+<div class="spacer-bottom-30 center spacer-inner-right-12 spacer-inner-left-12 navigation-tab f-18 tc">
+<span class=" spacer-inner-bottom-30 spacer-right-30"><a href="/terms/">Terms <span class="hidden-xs">of Service</span></a></span>
+<span class="navigation-tab-active spacer-inner-bottom-30 spacer-right-30"><a href="/privacy/">Privacy <span class="hidden-xs">Policy</span></a></span>
+<span class=" spacer-inner-bottom-30 spacer-right-30"><a href="/dpa/">DPA</a></span>
+<span class=" spacer-inner-bottom-30"><a href="/cookies/">Cookie <span class="hidden-xs">Policy</span></a></span>
+</div> <hr class="separator wider no-spacer-top spacer-bottom-50" />
+<div class="container">
+<div class="row">
+<div class="col-xs-12 col-sm-10 col-sm-offset-1">
+<h1 class="lh-1_2 c-000 spacer-bottom-50">Privacy Policy</h1>
+<p class="f-16 lh-1_75 ff-adobe-garamond-pro c-4a4a4a spacer-top-25">
+Thank you for using Pixieset or visiting our website. We are committed to protecting the privacy of your data and this policy explains what we collect and how we use your personal information. This policy may be amended as we release new features, or when legal requirements arise. We encourage you to review this policy from time to time to stay informed of any changes that might affect you.
+</p>
+<h2 class="no-spacer-bottom lh-1_2 f-20 fw7 c-000 spacer-top-50 spacer-bottom-15">1. Definitions</h2>
+<p class="f-16 lh-1_75 ff-adobe-garamond-pro c-4a4a4a spacer-top-25">
+When we say “Pixieset”, “we”, or “us”, we are referring to Pixieset Media Inc. Pixieset provides users with tools to help them create and manage client galleries and more through the use of its web application, website hosting services and other tools and services (the "Services”). When we say “Users”, we are referring to customers who are visiting our site or are using our Services. When we say “Clients”, we are referring to customers who are visiting or using our Users’ sites.
+</p>
+<h2 class="no-spacer-bottom lh-1_2 f-20 fw7 c-000 spacer-top-50 spacer-bottom-15">2. What information do we collect?</h2>
+<p class="f-16 lh-1_75 ff-adobe-garamond-pro c-4a4a4a spacer-top-25">
+<strong class="c-111">Account Information:</strong> To create an account, we collect your email address, business name, business website. To use the Services, we collect the information you voluntarily provided through your Account, including information about your Clients that you share with us (email addresses, names). For Clients who use the store functionalities in your gallery, we collect the information Clients provide during checkout.
+</p>
+<p class="f-16 lh-1_75 ff-adobe-garamond-pro c-4a4a4a spacer-top-25">
+<strong class="c-111">Log data:</strong> When you access or use our website or services, our servers will automatically record log data which may include IP addresses, device and browser configurations, date and time of access, browsing times and loading errors if applicable.
+</p>
+<p class="f-16 lh-1_75 ff-adobe-garamond-pro c-4a4a4a spacer-top-25">
+<strong class="c-111">Usage data:</strong> We may collect data on how you use the Services, such as gallery creation date and time, timestamps of communications you sent out via the account.
+</p>
+<p class="f-16 lh-1_75 ff-adobe-garamond-pro c-4a4a4a spacer-top-25">
+<strong class="c-111">Information from third party services:</strong> We may collect information through other services you integrate with (such as Lightroom), information collected will be all in accordance with the authorization procedures of the services.
+</p>
+<p class="f-16 lh-1_75 ff-adobe-garamond-pro c-4a4a4a spacer-top-25">
+<strong class="c-111">Additional information:</strong> We may collect additional information when you contact us for support, communicate with us via social media channels or contact us through third-party services.
+</p>
+<h2 class="no-spacer-bottom lh-1_2 f-20 fw7 c-000 spacer-top-50 spacer-bottom-15">3. How do we collect your information?</h2>
+<p class="f-16 lh-1_75 ff-adobe-garamond-pro c-4a4a4a spacer-top-25">
+<strong class="c-111">Information you provided directly:</strong> When you sign up for an account or use the Services, you provide account and transaction related information through your account. These may include your profile information, Client’s name, email and photos, your communication preferences. For Clients, these may include billing/shipping information provided when purchasing from a gallery.
+</p>
+<p class="f-16 lh-1_75 ff-adobe-garamond-pro c-4a4a4a spacer-top-25">
+<strong class="c-111">Information from your use of the site and Services:</strong> When you visit the website or use the Services, we collect information of your activity and usage from your interaction with the site. These may include your IP address, browser and device information, timestamps of your interactions on the site. These information is mainly collected automatically using cookies or other similar technology. You can read more about our Cookie Policy here.
+</p>
+<p class="f-16 lh-1_75 ff-adobe-garamond-pro c-4a4a4a spacer-top-25">
+<strong class="c-111">Information from other sources:</strong> We may collect information from other services such as third party service providers, payment processors, or advertising services. These may include device and location information, limited information on your card used for payment, prior visits to our website, or whether you opened an email campaign.
+</p>
+<h2 class="no-spacer-bottom lh-1_2 f-20 fw7 c-000 spacer-top-50 spacer-bottom-15">4. How do we use the information we collect?</h2>
+<p class="f-16 lh-1_75 ff-adobe-garamond-pro c-4a4a4a spacer-top-25">
+We use the information collected primarily to provide you with the Services you signed up for and to support our legitimate interests in operating our Services and business.
+</p>
+<p class="f-16 lh-1_75 ff-adobe-garamond-pro c-4a4a4a spacer-top-25">
+<strong class="c-111">To provide you with the services you signed up for:</strong> We will use the information you provided to enable you to create galleries, websites, to communicate with your Clients, to facilitate payment and order processing and any other services requested by you. This also includes sharing this information with third-party service providers in order to provide the services (such as emailing a Client). When we need to share information, we take the steps to ensure that only the necessary information is shared, and the information is protected and being used in accordance with this policy.
+</p>
+<p class="f-16 lh-1_75 ff-adobe-garamond-pro c-4a4a4a spacer-top-25">
+<strong class="c-111">To maintain and improve our services:</strong> We use the information collected to analyze our site performance and measure the usage of features.
+</p>
+<p class="f-16 lh-1_75 ff-adobe-garamond-pro c-4a4a4a spacer-top-25">
+<strong class="c-111">To verify your identity:</strong> When we need to authenticate your account to provide you support, or if concerns arise in regards to identity theft. We use the information to verify your identity.
+</p>
+<p class="f-16 lh-1_75 ff-adobe-garamond-pro c-4a4a4a spacer-top-25">
+<strong class="c-111">To personalize your experience and advertise our services:</strong> We may use the information to conduct our advertising and marketing campaigns and referral program. You may opt out of certain ad targeting and retargeting services with the third-party advertising networks directly.
+</p>
+<p class="f-16 lh-1_75 ff-adobe-garamond-pro c-4a4a4a spacer-top-25">
+<strong class="c-111">To communicate with you about our services:</strong> We will send you emails about transactions on your account, technical notices, and feature announcements. You may change your notification settings in your account, or contact us at any time.
+</p>
+<p class="f-16 lh-1_75 ff-adobe-garamond-pro c-4a4a4a spacer-top-25">
+<strong class="c-111">To provide you with support:</strong> When you contact us for help, we will use the information to assist you in your use of the Services.
+</p>
+<p class="f-16 lh-1_75 ff-adobe-garamond-pro c-4a4a4a spacer-top-25">
+<strong class="c-111">To meet legal requirements:</strong> We may need to use the information to comply with legal requests such as court orders, request by public authorities, and any other other appropriate legal mechanisms.
+</p>
+<h2 class="no-spacer-bottom lh-1_2 f-20 fw7 c-000 spacer-top-50 spacer-bottom-15">5. How do we share the information we collect?</h2>
+<p class="f-16 lh-1_75 ff-adobe-garamond-pro c-4a4a4a spacer-top-25">
+<strong class="c-111">Third-party Service Providers:</strong> We share your information with our third-party Service Providers who provide and support our Services. We will only share information that is necessary for the third-party to complete the service and require them to use the information a manner that is consistent with this policy. Examples of Service Providers include hosting and content delivery services, customer support management services and payment processors.
+</p>
+<p class="f-16 lh-1_75 ff-adobe-garamond-pro c-4a4a4a spacer-top-25">
+<strong class="c-111">User’s instruction:</strong> We will share and disclose the personal information only on your instruction, provided the are part of the functionality of the Services and they are in compliance with applicable law.
+</p>
+<p class="f-16 lh-1_75 ff-adobe-garamond-pro c-4a4a4a spacer-top-25">
+<strong class="c-111">Change in business:</strong> In the case of a merger, acquisition, financing, reorganization or sale, information collected may be shared on the basis that it is subject to standard confidentiality arrangements.
+</p>
+<p class="f-16 lh-1_75 ff-adobe-garamond-pro c-4a4a4a spacer-top-25">
+<strong class="c-111">To comply with the law:</strong> Information may be disclosed if it is deemed necessary to comply with the law and court order, to protect the rights of individuals and to fulfill law enforcement requirements.
+</p>
+<p class="f-16 lh-1_75 ff-adobe-garamond-pro c-4a4a4a spacer-top-25">
+<strong class="c-111">Marketing:</strong> We may share information with third-party advertising networks (such as Facebook and Instagram) in order to deliver relevant advertisements to you and to manage our communications with you. We do not use your content for this purpose.
+</p>
+<h2 class="no-spacer-bottom lh-1_2 f-20 fw7 c-000 spacer-top-50 spacer-bottom-15">6. How do we protect the information we collect?</h2>
+<p class="f-16 lh-1_75 ff-adobe-garamond-pro c-4a4a4a spacer-top-25">
+Pixieset follows industry standards on the management of personal information. We employ technical and administrative safeguards intended to protect against accidental or unlawful destruction, loss, alteration and disclosure of personal information. We maintain security measures such as the use of redundancies and employ firewalls to protect against unlawful access and network vulnerabilities. No method of storage and transfer of information over the Internet is absolute secure, while we have safeguards in place, we cannot guarantee the absolute security of your personal information.
+</p>
+<h2 class="no-spacer-bottom lh-1_2 f-20 fw7 c-000 spacer-top-50 spacer-bottom-15">7. Data Retention </h2>
+<p class="f-16 lh-1_75 ff-adobe-garamond-pro c-4a4a4a spacer-top-25">
+We will retain your information for as long as your account is active or as long as needed to provide you with the Services. We may also retain and use your information in order to comply with our legal obligations, resolve disputes, to enforce our agreements and to protect our and others’ interests. We may continue to store your information for a reasonable amount of time after you cancel your paid subscription or becomes inactive, in the case that you wish to reactivate your account. You may delete your Account in your account dashboard or by contact us at privacy@pixieset.com, in which case your information will be deleted. Anonymized information that are not identifiable to a person might be retained to help us improve our Services.
+</p>
+<h2 class="no-spacer-bottom lh-1_2 f-20 fw7 c-000 spacer-top-50 spacer-bottom-15">8. International information transfer</h2>
+<p class="f-16 lh-1_75 ff-adobe-garamond-pro c-4a4a4a spacer-top-25">
+As part of providing the Services to you, your personal information might be transferred, stored or processed in a country other than where you are located. Pixieset will ensure the transfers will be completed in compliance with mechanisms that is recognized under the relevant Data Protection Legislation as providing an adequate level of protection for data transfers. Specifically for residents of the EEA, we will ensure the data transfer is completed in accordance to the Standard Contractual Clauses (EU Model Clauses) and Canada’s Personal Information Protection and Electronic Documents Act (PIPEDA).
+</p>
+<h2 class="no-spacer-bottom lh-1_2 f-20 fw7 c-000 spacer-top-50 spacer-bottom-15">9. Your Rights</h2>
+<p class="f-16 lh-1_75 ff-adobe-garamond-pro c-4a4a4a spacer-top-25">
+You have the rights over your personal information. Subject to any exemptions provided by law, we take reasonable steps to allow you to access, correct, amend, delete, port, or limit the use of your personal information. You can usually manage your information simply by logging into your account and editing your information directly in the dashboard. If you cannot perform these actions yourself, you can contact us at privacy@pixieset.com for assistance. Please note that we may ask you for proof of account ownership and/or identity before fulfilling your request.
+</p>
+<p class="f-16 lh-1_75 ff-adobe-garamond-pro c-4a4a4a spacer-top-25">
+If you are located in the European Economic Area (EEA), we will normally collect personal information from you only where, a) we have your consent to do so, b) where we need your personal information to fulfill a contract with you, or c) where the processing is in our legitimate interest in providing the services. In most cases, if you do not provide the requested information, we will not be able to provide the service to you.
+</p>
+<p class="f-16 lh-1_75 ff-adobe-garamond-pro c-4a4a4a spacer-top-25">
+If you are a User and wish to exercise these rights, please reach out to us at privacy@pixieset.com. If you are a Client of a User and wish to exercise these rights, please contact the User you interacted with directly -- we serve as a processor on their behalf, and can only forward your request to them to allow them to respond.
+</p>
+<h2 class="no-spacer-bottom lh-1_2 f-20 fw7 c-000 spacer-top-50 spacer-bottom-15">10. Contact information</h2>
+<p class="f-16 lh-1_75 ff-adobe-garamond-pro c-4a4a4a spacer-top-25">
+If you have any questions about this Privacy Policy or Pixieset's practices, or if you are looking to exercise any of your rights. You may contact us at privacy@pixieset.com.
+</p>
+<p class="spacer-top-80 spacer-bottom-100 fw6">Last updated: May 22, 2018	</p>
+</div>
+</div>
+</div>
+</div> </div>
+
+<div id="footer">
+<div class="bg-color-concrete container-fluid get-started">
+<div class="row">
+<div class="col-md-12 text-center">
+<h4 class="primary-heading">CREATE YOUR FIRST GALLERY NOW.</h4>
+<p class="secondary-heading"><span style="border-bottom: 2px solid #1abc9c;">Free</span> forever. Upgrade when you need to.</p>
+<a href="/registration/" class="btn btn-primary">GET STARTED</a>
+</div>
+</div>
+</div>
+<div class="container-fluid footer-nav">
+<div class="row">
+<div class="col-xs-6 col-sm-3 col-sm-offset-1 col-md-2 col-md-offset-3 footer-group">
+<h6>PRODUCT</h6>
+<ul>
+<li><a href="/">Client Gallery</a></li>
+<li><a href="/mobile-gallery-app/">Mobile Gallery App</a></li>
+<li><a href="/example/">Examples</a></li>
+<li><a href="/upgrade/">Upgrade</a></li>
+<li><a href="/features/">Feature List</a></li>
+<li><a href="/tools/">Tools</a></li>
+</ul>
+</div>
+<div class="col-xs-6 col-sm-3 col-md-2 footer-group">
+<h6>COMPANY</h6>
+<ul>
+<li><a href="/about/">About Us</a></li>
+<li><a href="/careers/">Careers</a></li>
+<li><a href="https://help.pixieset.com/" target="_blank" rel="noopener noreferrer">Help &amp; Support</a></li>
+<li><a href="/terms/">Terms of Service</a></li>
+<li><a href="/privacy/">Privacy Policy</a></li>
+</ul>
+</div>
+<div class="col-xs-6 col-sm-3 col-md-2 footer-group footer-social" style="overflow: hidden;">
+<h6>CONNECT</h6>
+<a href="https://www.facebook.com/pixieset" target="_blank" rel="noopener noreferrer" class="facebook"><i class="fab fa-facebook-square"></i></a>
+<a href="https://twitter.com/pixiesetapp" target="_blank" rel="noopener noreferrer" class="twitter"><i class="fab fa-twitter-square"></i></a>
+<a href="https://plus.google.com/+Pixieset/" target="_blank" rel="noopener noreferrer" class="google"><i class="fab fa-google-plus-square"></i></a>
+<a href="https://pixieset.tumblr.com/" target="_blank" rel="noopener noreferrer"><i class="fab fa-tumblr-square"></i></a>
+<a href="https://instagram.com/pixieset/" target="_blank" rel="noopener noreferrer" class="instagram"><i class="fab fa-instagram"></i></a>
+<div class="fb-like" data-href="https://facebook.com/pixieset" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false" data-width="250"></div>
+<a href="https://twitter.com/PixiesetApp?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-screen-name="false" data-dnt="true">Follow</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+</div>
+</div>
+<div class="container-fluid copyright">
+<div class="row">
+<div class="col-md-12 text-center">
+<p class="muted">&copy; 2018 Pixieset Inc. Made with love in Vancity.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="flash"></div>
+
+<script>
+        var _gaq=[['_setAccount','UA-39686919-1'],['_trackPageview']];
+        (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g,s)}(document,'script'));
+    </script>
+<script type="text/javascript" src="//static.pixieset.com/release/js/site.combined.min.js?88632287ea591cbec3876d469ff4ee30"></script>
+<script type="text/javascript">
+/*<![CDATA[*/
+jQuery(function($) {
+PixiesetCookieConsent.init({'country_code':'US','layout':'ps-cc-options','auto_dismiss':false,'info_url':'/cookies/','fb_pixel_html':'<script>\n!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version=\'2.0\';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,\'script\',\'//connect.facebook.net/en_US/fbevents.js\');\nfbq(\'init\', \'806893599422802\');\nfbq(\'track\', \'PageView\');\n<\/script>\n<noscript><img height=\"1\" width=\"1\" style=\"display:none\" src=\"https://www.facebook.com/tr?id=806893599422802&ev=PageView&noscript=1\"/><\/noscript>'});
+PixiesetSales.init({'isMobile':0,'isTablet':0});
+});
+/*]]>*/
+</script>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"2131890c87","applicationID":"112083524","transactionName":"b1xVZhdZCkUCUUUIClYWdlERUQtYTGFYFQB7VllGF1cIWgZAHhIRWU1eUQ==","queueTime":0,"applicationTime":9,"atts":"QxtWEF9DGUs=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>

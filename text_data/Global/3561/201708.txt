@@ -1,0 +1,427 @@
+
+ 
+
+Dans Tools - About the site.
+
+ 
+    var PREBID_TIMEOUT = 1000;
+    var adUnits = [{
+      code: 'div-gpt-ad-1490987047563-0',
+      sizes: [[728, 90],[970,90], [ 320,50 ], [ 468,60 ]],
+      bids: [{
+            bidder: 'conversant',
+            params: {
+                site_id: '',
+		bidfloor: .01
+            }},
+                {
+            bidder: 'sovrn',
+            params: {
+                tagid: 453656,
+		bidfloor: .01
+            }}
+        ]
+    },
+	{
+      code: 'div-gpt-ad-1491271781423-0',
+      sizes: [[728, 90],[970,90], [ 320,50 ], [ 468,60 ]],
+      bids: [{
+            bidder: 'conversant',
+            params: {
+                site_id: '',
+		bidfloor: .01
+            }},
+                {
+            bidder: 'sovrn',
+            params: {
+                tagid: 453656,
+		bidfloor: .01
+            }}
+        ]
+    },
+    {
+      code: 'div-gpt-ad-1490987467028-0',
+      sizes: [[300,600],[300,942],[300,250]],
+      bids: [{
+            bidder: 'conversant',
+            params: {
+                site_id: '',
+		bidfloor: .01
+            }},
+                {
+            bidder: 'sovrn',
+            params: {
+                tagid: 454495,
+		bidfloor: .01
+            }}
+        ]
+    },
+    ];
+
+
+    var pbjs = pbjs || {};
+    pbjs.que = pbjs.que || [];
+
+    pbjs.que.push(function() {
+        pbjs.setPriceGranularity("medium");
+	pbjs.enableSendAllBids();
+    });
+
+  
+
+
+
+    var googletag = googletag || {};
+    googletag.cmd = googletag.cmd || [];
+    googletag.cmd.push(function() {
+        googletag.pubads().disableInitialLoad();
+    });
+
+    pbjs.que.push(function() {
+        pbjs.addAdUnits(adUnits);
+        pbjs.requestBids({
+            bidsBackHandler: sendAdserverRequest
+        });
+    });
+
+    function sendAdserverRequest() {
+        if (pbjs.adserverRequestSent) return;
+        pbjs.adserverRequestSent = true;
+        googletag.cmd.push(function() {
+            pbjs.que.push(function() {
+                pbjs.setTargetingForGPTAsync();
+                googletag.pubads().refresh();
+            });
+        });
+    }
+
+    setTimeout(function() {
+        sendAdserverRequest();
+    }, PREBID_TIMEOUT);
+
+  
+
+
+    (function () {
+        var gads = document.createElement('script');
+        gads.async = true;
+        gads.type = 'text/javascript';
+        var useSSL = 'https:' == document.location.protocol;
+        gads.src = (useSSL ? 'https:' : 'http:') +
+                '//www.googletagservices.com/tag/js/gpt.js';
+        var node = document.getElementsByTagName('script')[0];
+        node.parentNode.insertBefore(gads, node);
+    })();
+  
+
+    googletag.cmd.push(function () {
+	googletag.defineSlot('/93850733/TopLeaderboard', [[728, 90], [320, 50], [468, 60], [970, 90]], 'div-gpt-ad-1490987047563-0').addService(googletag.pubads());
+	googletag.defineSlot('/93850733/TopLeaderboard', [[728, 90], [320, 50], [468, 60], [970, 90]], 'div-gpt-ad-1491271781423-0').addService(googletag.pubads());
+	googletag.defineSlot('/93850733/WideSide', [[300, 600], [300, 250]], 'div-gpt-ad-1490987467028-0').addService(googletag.pubads());
+        googletag.pubads().enableSingleRequest();
+        googletag.enableServices();
+    });
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ins {
+	text-decoration:none;
+}
+code {
+white-space: pre-wrap;
+word-break: normal;
+}
+#social_buttons {
+position: fixed;
+z-index: 100;
+bottom: 0;
+right: 0;
+width: 80px;
+background: rgba(255,255,255,.65);
+-webkit-box-shadow: 0px 0px 4px 1px rgba(0,0,0,0.45);
+-moz-box-shadow: 0px 0px 4px 1px rgba(0,0,0,0.45);
+box-shadow: 0px 0px 4px 1px rgba(0,0,0,0.45);
+padding: 15px;
+}
+#social_buttons .socialbutton {
+padding: 10px 0;
+}
+
+
+      window.onload = function() {
+        setTimeout(function() {
+          var ad = document.querySelector("ins.adsbygoogle[data-ad-slot='5700240528']");
+          var promos = document.querySelectorAll(".bttxqn");
+	  for (var i = 0; i < promos.length; i++) {
+		  var promo = promos[i];
+		  if (ad && ad.innerHTML.replace(/\s/g, "").length == 0) {
+	//            ad.style.cssText = 'display:block !important';
+	            ad.parentElement.style.cssText = 'display:none !important';
+		    promo.innerHTML = '<center><a href=\"http://www.semrush.com/?ref=15287479\"><img src=\"/img/smr.png\" /></a></center><p>';
+		    promo.style.maxWidth= '';
+		  } else if (promo) {
+		    promo.innerHTML = '<center>\
+<div class="bttxqn2" style="background-color:#FCFCFC;width: 728px;height:90px;padding:10px;border:1px solid #cccccc;text-align:left;">\
+<h5 style="margin-top:0px;margin-bottom:2px">\
+<i class="fa fa-area-chart glyphicon glyphicon-area-chart"></i> <a href="http://www.semrush.com/?ref=15287479">Competitive SEO Data</a></h5>\
+Get competitive SEO intelligence, backlinks, rankings, keyword research, with SEMrush.\
+</div>\
+</center>';
+		    var promotwo = document.querySelector(".bttxqn2");
+		    promotwo.style.width= '';
+		  }
+	  }
+        }, 1000); 
+      }; 
+
+	    
+
+
+
+
+
+
+
+
+
+
+Dan's Tools
+
+
+
+
+ 
+About the site.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Development
+
+
+HTML/JS/CSS PlaygroundColor PickerCSS FontsConvert Files.htaccess GeneratorJavascript Error LoggerRegEx TestingTimeStamp ConverterWebsite Speed Test 
+
+
+
+
+Encode/Decoders
+
+
+Base64 Encode/DecodeBinary ConverterOnline Diff ToolHTML Entities EscapeMD5 Hash GeneratorSHA-1 Hash GeneratorURL Encode/Decode 
+
+
+
+
+Formatters
+
+
+CSS FormatterGO FormatterHTML FormatterJavascript FormatterJavascript ObfuscateJSON FormatterJSON EditorJSON ValidatorPerl FormatterPHP FormatterPython FormatterRuby FormatterSQL FormatterXML Formatter 
+
+
+
+
+Images
+
+
+Favicon.ico & App Icon GeneratorOnline Image EditorCSS Sprite Generator 
+
+
+
+
+Internet
+
+
+Color Palette ExplorerUnit ConverterEmail ValidatorData Size ConverterIs It Up Or DownDefault Router SettingsWhat is my IP 
+
+
+
+
+Minifiers
+
+
+CSS MinifyJavascript MinifyJSON Minify 
+
+
+
+
+SEO
+
+
+Adblock Monitor & NotificationKeyword Tool 
+
+
+
+
+
+
+
+
+#breadcrumb {
+padding: 0;
+line-height: 40px;
+background: #525252;
+background: #5A8DB6 url(//dpidudyah7i0b.cloudfront.net/devops/img/devoops_pattern_b10.png) 0 0 repeat;
+}
+.breadcrumb > li > a:hover, .breadcrumb > li:last-child > a {
+color: #D8D8D8;
+}
+.breadcrumb > li > a {
+color: #D8D8D8;
+}
+.breadcrumb > li + li::before {
+padding: 0 5px;
+content:"";
+}
+
+
+
+
+
+
+
+
+
+(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=76272549551&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+
+
+
+
+
+
+
+
+!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+Tweet
+Follow @danstools00
+!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+ 
+
+
+
+
+
+
+
+
+
+We use third-party advertising companies to serve ads when you visit our Website. These companies may use information (not including your name, address email address or telephone number) about your visits to this and other Web sites in order to provide advertisements about goods and services of interest to you. If you would like more information about this practice and to know your choices about not having this information used by these companies, click here http://www.networkadvertising.org/
+
+
+
+© Dan's Tools | Contact | Privacy | About | For more dev tools, check out danstools.com
+
+
+
+
+
+
+
+
+
+×Close
+Please Share!
+
+
+
+Thank you for using my tool.  If you could share this tool with your friends, that would be a huge help:
+
+Tweet
+
+  
+
+
+Or follow us to learn about our latest tools:
+
+Follow @danstools00
+
+
+
+
+Close
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+$(document).ready(function() {
+	// Make all JS-activity for dashboard
+	DashboardTabChecker();
+});
+
+
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-55581850-1', 'auto', {'allowLinker': true});
+  ga('require', 'linker');
+  ga('linker:autoLink', ['danstools.com','unixtimestamp.com','url-encode-decode.com','cssfontstack.com','hexcolortool.com','htaccessredirect.net','jspretty.com','jsmini.com','jsobfuscate.com','md5hashgenerator.com','regexpal.com','regextester.com','cleancss.com','favicon-generator.org','website-performance.org','permissions-calculator.org','conversoes.org','convertissez.fr','convertitore.net','elconvertidor.com','files-conversion.com','henkan-muryo.com','konvertirung.org','konvertor.org','tahwil.net','zhuan-huan.com'] );
+  ga('send', 'pageview');
+
+
+
+
+
+

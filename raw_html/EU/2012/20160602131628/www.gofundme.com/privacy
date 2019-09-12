@@ -1,0 +1,750 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+        
+        <meta name="viewport" content="width=1000" />
+
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8" /><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"UwIGUFdSGwoAVFVRDwY="};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o||e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(t,e,n){function r(t){try{s.console&&console.log(t)}catch(e){}}var o,i=t("ee"),a=t(14),s={};try{o=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(s.console=!0,-1!==o.indexOf("dev")&&(s.dev=!0),-1!==o.indexOf("nr_dev")&&(s.nrDev=!0))}catch(c){}s.nrDev&&i.on("internal-error",function(t){r(t.stack)}),s.dev&&i.on("fn-err",function(t,e,n){r(n.stack)}),s.dev&&(r("NR AGENT IN DEVELOPMENT MODE"),r("flags: "+a(s,function(t,e){return t}).join(", ")))},{}],2:[function(t,e,n){function r(t,e,n,r,o){try{d?d-=1:i("err",[o||new UncaughtException(t,e,n)])}catch(s){try{i("ierr",[s,(new Date).getTime(),!0])}catch(c){}}return"function"==typeof f?f.apply(this,a(arguments)):!1}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function o(t){i("err",[t,(new Date).getTime()])}var i=t("handle"),a=t(15),s=t("ee"),c=t("loader"),f=window.onerror,u=!1,d=0;c.features.err=!0,t(1),window.onerror=r;try{throw new Error}catch(l){"stack"in l&&(t(8),t(7),"addEventListener"in window&&t(5),c.xhrWrappable&&t(9),u=!0)}s.on("fn-start",function(t,e,n){u&&(d+=1)}),s.on("fn-err",function(t,e,n){u&&(this.thrown=!0,o(n))}),s.on("fn-end",function(){u&&!this.thrown&&d>0&&(d-=1)}),s.on("internal-error",function(t){i("ierr",[t,(new Date).getTime(),!0])})},{}],3:[function(t,e,n){t("loader").features.ins=!0},{}],4:[function(t,e,n){function r(t){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var o=t("ee"),i=t("handle"),a=t(8),s=t(7);t("loader").features.stn=!0,t(6);var c=NREUM.o.EV;o.on("fn-start",function(t,e){var n=t[0];n instanceof c&&(this.bstStart=Date.now())}),o.on("fn-end",function(t,e){var n=t[0];n instanceof c&&i("bst",[n,e,this.bstStart,Date.now()])}),a.on("fn-start",function(t,e,n){this.bstStart=Date.now(),this.bstType=n}),a.on("fn-end",function(t,e){i("bstTimer",[e,this.bstStart,Date.now(),this.bstType])}),s.on("fn-start",function(){this.bstStart=Date.now()}),s.on("fn-end",function(t,e){i("bstTimer",[e,this.bstStart,Date.now(),"requestAnimationFrame"])}),o.on("pushState-start",function(t){this.time=Date.now(),this.startPath=location.pathname+location.hash}),o.on("pushState-end",function(t){i("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),"addEventListener"in window.performance&&(window.performance.clearResourceTimings?window.performance.addEventListener("resourcetimingbufferfull",function(t){i("bstResource",[window.performance.getEntriesByType("resource")]),window.performance.clearResourceTimings()},!1):window.performance.addEventListener("webkitresourcetimingbufferfull",function(t){i("bstResource",[window.performance.getEntriesByType("resource")]),window.performance.webkitClearResourceTimings()},!1)),document.addEventListener("scroll",r,!1),document.addEventListener("keypress",r,!1),document.addEventListener("click",r,!1)}},{}],5:[function(t,e,n){function r(t){for(var e=t;e&&!e.hasOwnProperty(u);)e=Object.getPrototypeOf(e);e&&o(e)}function o(t){s.inPlace(t,[u,d],"-",i)}function i(t,e){return t[1]}var a=t("ee").get("events"),s=t(16)(a),c=t("gos"),f=XMLHttpRequest,u="addEventListener",d="removeEventListener";e.exports=a,"getPrototypeOf"in Object?(r(document),r(window),r(f.prototype)):f.prototype.hasOwnProperty(u)&&(o(window),o(f.prototype)),a.on(u+"-start",function(t,e){if(t[1]){var n=t[1];if("function"==typeof n){var r=c(n,"nr@wrapped",function(){return s(n,"fn-",null,n.name||"anonymous")});this.wrapped=t[1]=r}else"function"==typeof n.handleEvent&&s.inPlace(n,["handleEvent"],"fn-")}}),a.on(d+"-start",function(t){var e=this.wrapped;e&&(t[1]=e)})},{}],6:[function(t,e,n){var r=t("ee").get("history"),o=t(16)(r);e.exports=r,o.inPlace(window.history,["pushState","replaceState"],"-")},{}],7:[function(t,e,n){var r=t("ee").get("raf"),o=t(16)(r);e.exports=r,o.inPlace(window,["requestAnimationFrame","mozRequestAnimationFrame","webkitRequestAnimationFrame","msRequestAnimationFrame"],"raf-"),r.on("raf-start",function(t){t[0]=o(t[0],"fn-")})},{}],8:[function(t,e,n){function r(t,e,n){t[0]=a(t[0],"fn-",null,n)}function o(t,e,n){this.method=n,this.timerDuration="number"==typeof t[1]?t[1]:0,t[0]=a(t[0],"fn-",this,n)}var i=t("ee").get("timer"),a=t(16)(i);e.exports=i,a.inPlace(window,["setTimeout","setImmediate"],"setTimer-"),a.inPlace(window,["setInterval"],"setInterval-"),a.inPlace(window,["clearTimeout","clearImmediate"],"clearTimeout-"),i.on("setInterval-start",r),i.on("setTimer-start",o)},{}],9:[function(t,e,n){function r(t,e){d.inPlace(e,["onreadystatechange"],"fn-",s)}function o(){var t=this,e=u.context(t);t.readyState>3&&!e.resolved&&(e.resolved=!0,u.emit("xhr-resolved",[],t)),d.inPlace(t,v,"fn-",s)}function i(t){w.push(t),h&&(g=-g,b.data=g)}function a(){for(var t=0;t<w.length;t++)r([],w[t]);w.length&&(w=[])}function s(t,e){return e}function c(t,e){for(var n in t)e[n]=t[n];return e}t(5);var f=t("ee"),u=f.get("xhr"),d=t(16)(u),l=NREUM.o,p=l.XHR,h=l.MO,m="readystatechange",v=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],w=[];e.exports=u;var y=window.XMLHttpRequest=function(t){var e=new p(t);try{u.emit("new-xhr",[e],e),e.addEventListener(m,o,!1)}catch(n){try{u.emit("internal-error",[n])}catch(r){}}return e};if(c(p,y),y.prototype=p.prototype,d.inPlace(y.prototype,["open","send"],"-xhr-",s),u.on("send-xhr-start",function(t,e){r(t,e),i(e)}),u.on("open-xhr-start",r),h){var g=1,b=document.createTextNode(g);new h(a).observe(b,{characterData:!0})}else f.on("fn-end",function(t){t[0]&&t[0].type===m||a()})},{}],10:[function(t,e,n){function r(t){var e=this.params,n=this.metrics;if(!this.ended){this.ended=!0;for(var r=0;l>r;r++)t.removeEventListener(d[r],this.listener,!1);if(!e.aborted){if(n.duration=(new Date).getTime()-this.startTime,4===t.readyState){e.status=t.status;var i=o(t,this.lastSize);if(i&&(n.rxSize=i),this.sameOrigin){var a=t.getResponseHeader("X-NewRelic-App-Data");a&&(e.cat=a.split(", ").pop())}}else e.status=0;n.cbTime=this.cbTime,u.emit("xhr-done",[t],t),c("xhr",[e,n,this.startTime])}}}function o(t,e){var n=t.responseType;if("json"===n&&null!==e)return e;var r="arraybuffer"===n||"blob"===n||"json"===n?t.response:t.responseText;return i(r)}function i(t){if("string"==typeof t&&t.length)return t.length;if("object"==typeof t){if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if(!("undefined"!=typeof FormData&&t instanceof FormData))try{return JSON.stringify(t).length}catch(e){return}}}function a(t,e){var n=f(e),r=t.params;r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.sameOrigin=n.sameOrigin}var s=t("loader");if(s.xhrWrappable){var c=t("handle"),f=t(11),u=t("ee"),d=["load","error","abort","timeout"],l=d.length,p=t("id"),h=t(13),m=window.XMLHttpRequest;s.features.xhr=!0,t(9),u.on("new-xhr",function(t){var e=this;e.totalCbs=0,e.called=0,e.cbTime=0,e.end=r,e.ended=!1,e.xhrGuids={},e.lastSize=null,h&&(h>34||10>h)||window.opera||t.addEventListener("progress",function(t){e.lastSize=t.loaded},!1)}),u.on("open-xhr-start",function(t){this.params={method:t[0]},a(this,t[1]),this.metrics={}}),u.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),u.on("send-xhr-start",function(t,e){var n=this.metrics,r=t[0],o=this;if(n&&r){var a=i(r);a&&(n.txSize=a)}this.startTime=(new Date).getTime(),this.listener=function(t){try{"abort"===t.type&&(o.params.aborted=!0),("load"!==t.type||o.called===o.totalCbs&&(o.onloadCalled||"function"!=typeof e.onload))&&o.end(e)}catch(n){try{u.emit("internal-error",[n])}catch(r){}}};for(var s=0;l>s;s++)e.addEventListener(d[s],this.listener,!1)}),u.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),u.on("xhr-load-added",function(t,e){var n=""+p(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),u.on("xhr-load-removed",function(t,e){var n=""+p(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),u.on("addEventListener-end",function(t,e){e instanceof m&&"load"===t[0]&&u.emit("xhr-load-added",[t[1],t[2]],e)}),u.on("removeEventListener-end",function(t,e){e instanceof m&&"load"===t[0]&&u.emit("xhr-load-removed",[t[1],t[2]],e)}),u.on("fn-start",function(t,e,n){e instanceof m&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=(new Date).getTime()))}),u.on("fn-end",function(t,e){this.xhrCbStart&&u.emit("xhr-cb-time",[(new Date).getTime()-this.xhrCbStart,this.onload,e],e)})}},{}],11:[function(t,e,n){e.exports=function(t){var e=document.createElement("a"),n=window.location,r={};e.href=t,r.port=e.port;var o=e.href.split("://");!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=e.hostname||n.hostname,r.pathname=e.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname);var i=!e.protocol||":"===e.protocol||e.protocol===n.protocol,a=e.hostname===document.domain&&e.port===n.port;return r.sameOrigin=i&&(!e.hostname||a),r}},{}],12:[function(t,e,n){function r(t,e){return function(){o(t,[(new Date).getTime()].concat(a(arguments)),null,e)}}var o=t("handle"),i=t(14),a=t(15);"undefined"==typeof window.newrelic&&(newrelic=NREUM);var s=["setPageViewName","setCustomAttribute","finished","addToTrace","inlineHit"],c=["addPageAction"],f="api-";i(s,function(t,e){newrelic[e]=r(f+e,"api")}),i(c,function(t,e){newrelic[e]=r(f+e)}),e.exports=newrelic,newrelic.noticeError=function(t){"string"==typeof t&&(t=new Error(t)),o("err",[t,(new Date).getTime()])}},{}],13:[function(t,e,n){var r=0,o=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);o&&(r=+o[1]),e.exports=r},{}],14:[function(t,e,n){function r(t,e){var n=[],r="",i=0;for(r in t)o.call(t,r)&&(n[i]=e(r,t[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],15:[function(t,e,n){function r(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(0>o?0:o);++r<o;)i[r]=t[e+r];return i}e.exports=r},{}],16:[function(t,e,n){function r(t){return!(t&&"function"==typeof t&&t.apply&&!t[a])}var o=t("ee"),i=t(15),a="nr@original",s=Object.prototype.hasOwnProperty,c=!1;e.exports=function(t){function e(t,e,n,o){function nrWrapper(){var r,a,s,c;try{a=this,r=i(arguments),s="function"==typeof n?n(r,a):n||{}}catch(u){d([u,"",[r,a,o],s])}f(e+"start",[r,a,o],s);try{return c=t.apply(a,r)}catch(l){throw f(e+"err",[r,a,l],s),l}finally{f(e+"end",[r,a,c],s)}}return r(t)?t:(e||(e=""),nrWrapper[a]=t,u(t,nrWrapper),nrWrapper)}function n(t,n,o,i){o||(o="");var a,s,c,f="-"===o.charAt(0);for(c=0;c<n.length;c++)s=n[c],a=t[s],r(a)||(t[s]=e(a,f?s+o:o,i,s))}function f(e,n,r){if(!c){c=!0;try{t.emit(e,n,r)}catch(o){d([o,e,n,r])}c=!1}}function u(t,e){if(Object.defineProperty&&Object.keys)try{var n=Object.keys(t);return n.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(r){d([r])}for(var o in t)s.call(t,o)&&(e[o]=t[o]);return e}function d(e){try{t.emit("internal-error",e)}catch(n){}}return t||(t=o),e.inPlace=n,e.flag=a,e}},{}],ee:[function(t,e,n){function r(){}function o(t){function e(t){return t&&t instanceof r?t:t?s(t,a,i):i()}function n(n,r,o){t&&t(n,r,o);for(var i=e(o),a=l(n),s=a.length,c=0;s>c;c++)a[c].apply(i,r);var u=f[v[n]];return u&&u.push([w,n,r,i]),i}function d(t,e){m[t]=l(t).concat(e)}function l(t){return m[t]||[]}function p(t){return u[t]=u[t]||o(n)}function h(t,e){c(t,function(t,n){e=e||"feature",v[n]=e,e in f||(f[e]=[])})}var m={},v={},w={on:d,emit:n,get:p,listeners:l,context:e,buffer:h};return w}function i(){return new r}var a="nr@context",s=t("gos"),c=t(14),f={},u={},d=e.exports=o();d.backlog=f},{}],gos:[function(t,e,n){function r(t,e,n){if(o.call(t,e))return t[e];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return t[e]=r,r}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],handle:[function(t,e,n){function r(t,e,n,r){o.buffer([t],r),o.emit(t,e,n)}var o=t("ee").get("handle");e.exports=r,r.ee=o},{}],id:[function(t,e,n){function r(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:a(t,i,function(){return o++})}var o=1,i="nr@id",a=t("gos");e.exports=r},{}],loader:[function(t,e,n){function r(){if(!m++){var t=h.info=NREUM.info,e=u.getElementsByTagName("script")[0];if(t&&t.licenseKey&&t.applicationID&&e){c(l,function(e,n){t[e]||(t[e]=n)});var n="https"===d.split(":")[0]||t.sslForHttp;h.proto=n?"https://":"http://",s("mark",["onload",a()],null,"api");var r=u.createElement("script");r.src=h.proto+t.agent,e.parentNode.insertBefore(r,e)}}}function o(){"complete"===u.readyState&&i()}function i(){s("mark",["domContent",a()],null,"api")}function a(){return(new Date).getTime()}var s=t("handle"),c=t(14),f=window,u=f.document;NREUM.o={ST:setTimeout,CT:clearTimeout,XHR:f.XMLHttpRequest,REQ:f.Request,EV:f.Event,PR:f.Promise,MO:f.MutationObserver},t(12);var d=""+location,l={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-943.min.js"},p=window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&!/CriOS/.test(navigator.userAgent),h=e.exports={offset:a(),origin:d,features:{},xhrWrappable:p};u.addEventListener?(u.addEventListener("DOMContentLoaded",i,!1),f.addEventListener("load",r,!1)):(u.attachEvent("onreadystatechange",o),f.attachEvent("onload",r)),s("mark",["firstbyte",a()],null,"api");var m=0},{}]},{},["loader",2,10,4,3]);</script>
+
+        
+        <title>GoFundMe Privacy Policy</title>
+        <meta content="This page contains the privacy policy for the online fundraising service GoFundMe." name="Description">
+
+        <meta content="GoFundMe, online fundraising, donation website, donations online, accept donations" name="Keywords">
+
+        <link rel="stylesheet" href="//www.gofundme.com/mvc/css/style14_newmarketing.css?ver=14.21" type="text/css" media="all" />
+        <link href='//fonts.googleapis.com/css?family=Lato:400,700,300|Montserrat:400,700|Roboto:400,300,700' rel='stylesheet' type='text/css'>
+
+        <meta property="fb:admins" content="710166738" />
+        <meta property="fb:admins" content="2516177" />
+        <meta property="fb:app_id" content="407682420960"/>
+
+        
+
+                        <script src="//funds.gofundme.com/js/2.0/jquery-1.4.min.js" type="text/javascript"></script>
+                <script src="//funds.gofundme.com/js/2.0/jquery.client.js" type="text/javascript"></script>
+                <script src="//funds.gofundme.com/js/2.0/jquery.plugin.cookie.js" type="text/javascript"></script>
+                <script src="//funds.gofundme.com/js/2.0/fns.js?v=14.21" type="text/javascript"></script>
+                <script src="//funds.gofundme.com/js/2.0/search_www.js?v=14.21" type="text/javascript"></script>
+                <!-- global_b x -->
+        <!-- start Analytics -->
+<script type="text/javascript">
+    (function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable time_event track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.union people.track_charge people.clear_charges people.delete_user".split(" ");for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;}})(document,window.mixpanel||[]);
+</script>
+<script src="//funds.gofundme.com/js/3.0/mixpanel-2.7.5.min.js" type="text/javascript"></script>
+<script src="//funds.gofundme.com/js/3.0/jquery.cookie.js" type="text/javascript"></script>
+<script src="//funds.gofundme.com/js/3.0/visitorCookie.js" type="text/javascript"></script>
+<script>
+    mixpanel.init("gfm_js", {"api_host":"https://gofundme.alooma.io", track_links_timeout: 300, track_pageview: false});
+    mixpanel.unregister('fund_id');
+    mixpanel.unregister('fund_url');
+    mixpanel.unregister('user_id');
+    mixpanel.unregister('person_id');
+    mixpanel.unregister('rcid');
+    mixpanel.unregister('donation');
+    mixpanel.unregister('experimentvariant_ids');
+    mixpanel.unregister('viewid');
+    mixpanel.unregister('viewrid');
+    mixpanel.unregister('pc_code');
+    mixpanel.unregister('rendered_at');
+    mixpanel.unregister('gfm');
+    mixpanel.unregister('flows');
+    mixpanel.unregister('flow');
+    mixpanel.unregister('testing');
+</script>
+
+<script src="//funds.gofundme.com/js/4.0/analytics.js?v=14.21" type="text/javascript"></script>
+<script src="//funds.gofundme.com/js/5.0/components/gaEventTracking.js"></script>
+<script type="text/javascript">
+
+try {
+
+GFM.analytics.setData("u", "");
+GFM.analytics.setData("p", "");
+GFM.analytics.setData("fud", "f62b7c3a180911e6a84fbc764e065880");
+GFM.analytics.setData("flw", "");
+GFM.analytics.setData("a", "f8d98a8a180911e69f5abc764e065880");
+GFM.analytics.setData("pcd", "");
+GFM.analytics.setData("vri", "f8d983d2180911e69f5abc764e065880");
+GFM.analytics.setData('vi', 'pg_index_privacy');
+GFM.analytics.setData('ra', $.now());
+GFM.analytics.setData("gfm", {"os":"Windows","browser":"Chrome49","platform":"desktop","country":"US"});
+
+package = GFM.analytics.getPackage();
+mixpanel.register(package);
+
+GFM.analytics.track_event('mp_page_view', package, false);
+
+} catch(e) {
+    if (window.console) {
+        window.console.log("Broken load: " + e);
+    }
+} // begun immediately after <script>
+
+</script>
+
+</head>
+<body class="">
+<script>
+window.dataLayer = window.dataLayer || [ ];
+try {
+    dataLayer.push(GFM.analytics.getGaDataLayer());
+} catch(e) {}
+
+</script>
+
+<!-- GO Tag Manager -->
+<noscript><iframe src="https://www.google-analytics.com/gtm/ns?id=GTM-KJFLHK"
+style="display:none;visibility:hidden" height="0" width="0"></iframe>
+</noscript><script>(function(p,a,l,i,n,d,r,o,m,e){r={id:'GTM-KJFLHK',l:'dataLayer',m:'sync'};
+if(!r.gac){o=/;((__utma=)|([^;=]+=GAX?\d+\.))[^;]*/g;m=l.cookie.replace(
+/^|(; +)/g,';').match(o);if(m)r.gac=m.sort().join('').substring(1)};e=
+'https://www.google-analytics.com/gtm/js?';r.m=='sync'||(p['event']='gtm.js');
+for(d in r)if(r.hasOwnProperty(d))e+=n(d)+'='+n(r[d])+'&';a[r.l]=a[r.l]||[];
+a[r.l].push(p);if(r.m=='sync'){l.write('<'+i+' src="'+e+'"><\/'+i+'>');}else{
+j=l.createElement(i);j.async=!0;j.src=e;f=l.getElementsByTagName(i)[0];
+f.parentNode.insertBefore(j,f);}})({'gtm.start':1*new Date()},window,document,
+'script',encodeURIComponent);</script>
+<!-- End GO Tag Manager -->
+
+<!-- Production Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-TDTFTZ" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>try{(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src= '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TDTFTZ');} catch (ignore) {}</script>
+<!-- End Production Google Tag Manager -->
+
+<div class="hd" >
+        <div class="hd_main">
+                <a class="logo" href="//www.gofundme.com"></a>
+                <div class="br" style="float:left; margin-right: 0;"></div >
+                <div class="grntop" >Over $2 Billion Raised!</div>
+
+                
+                                        <a href="//www.gofundme.com/sign-up/?pc=index_privacy_hd13" class="newsu"></a>
+                        <a href="https://www.gofundme.com/sign-in" class="menu si" style="">Sign In</a>
+                    
+        </div><!-- hd_main -->
+</div>
+
+        <div style="float:left; width:100%; margin-top:59px;"> </div>
+<!-- top of homepage -->
+<div class="head_contain_small">
+        <div class="head_main">
+                <h1>Privacy Policy</h1>
+                <h2><span class="">Questions about our privacy policy? <a href="http://www.gofundme.com/contact/">Contact Us</a></span></h2>
+
+        </div>
+</div>
+<!-- END top of homepage -->
+
+<div style="clear: both;"></div>
+<!-- Outter container for marketing page content -->
+<div class="a">
+
+<div class="b">
+        <div class="n">
+
+                
+
+                
+                <a href="//www.gofundme.com/tour/" class="">How it Works</a>
+
+                <div class="sub_n "><!-- sub nav -->
+                        <a href="//www.gofundme.com/tour/" class="">Personal Campaigns</a>
+                        <a href="//www.gofundme.com/charity/" class="">Charity Fundraising</a>
+                </div><!-- end sub nav -->
+
+                <a href="//www.gofundme.com/crowdfunding-websites/" class="">Success Stories</a>
+
+                <div class="sub_n "><!-- sub nav -->
+                        <a href="//www.gofundme.com/success" class="">Recent Stories</a>
+<!--                        <a href="//www.gofundme.com/stories" class="--><!--">Best Of GoFundMe</a>-->
+                        <a href="//www.gofundme.com/most" class="">Most Raised</a>
+                </div><!-- end sub nav -->
+
+                <a href="//www.gofundme.com/questions/" class="">Questions</a>
+                <a href="//www.gofundme.com/press/" class="">Recent Press</a>
+                <a href="//www.gofundme.com/mobile" class="">Mobile App</a>
+                <a href="//www.gofundme.com/charity-donations" class="">Charity Fundraising</a>
+
+                <a href="//www.gofundme.com/about-us/" class="">About Us</a>
+
+                <div class="sub_n ">
+                        <a href="//www.gofundme.com/about-us" class=" " >Overview</a>
+                        <a href="//www.gofundme.com/team" class="">Meet the Team</a>
+                        <a href="//www.gofundme.com/jobs" class="">We're Hiring!</a>
+                        <a href="//www.gofundme.com/mvc.php?route=contact/suggest&pq=PR" class="" rel="nofollow">Media Contact</a>
+                </div><!-- end sub nav -->
+
+                <a href="//www.gofundme.com/pricing" class="">Pricing</a>
+                <a href="//www.gofundme.com/safety" class="">Safety &amp; Security</a>
+                <a href="//www.gofundme.com/contact/" class="">Contact Us</a>
+
+                                        <a href="//www.gofundme.com/sign-up/?pc=index_privacy_hd14" class="su">Sign Up Now</a>
+                        </div>
+</div>
+        <!-- Main Content Container -->
+        <div class="c small">
+
+            <div class="txt">
+               <strong>This Privacy Policy was last updated on November 18, 2015.</strong><br/><br/>
+Welcome to the web site (the <strong>"Site"</strong>) of GoFundMe, Inc. (<strong>"GoFundMe"</strong>, "we", "us" and/or "our"). This Site is operated by GoFundMe and has been created to provide information about our company and our online platform designed to permit users to post a fundraising campaign to accept monetary donations, our mobile applications, and our related services (together with the Site, the <strong>"Services"</strong>) to our Services visitors ("you", "your"). This Privacy Policy sets forth GoFundMe's policy with respect to information including personally identifiable data (<strong>"Personal Data"</strong>) and other information that is collected from visitors to the Site and Services.
+            </div>
+
+
+            <div class="content_head">
+                <div class="lbl1" >
+                    <div class="lbl2">
+                        <div class="left"></div>
+                        <div class="label">INFORMATION WE COLLECT</div>
+                        <div class="right"></div>
+                    </div>
+                </div>
+            </div>
+            <div style="clear:both;"></div>
+            <div class="txt mt20">
+When you interact with us through the Services, we may collect Personal Data and other information from you, as further described below:
+<br><br>
+<strong>Personal Data That You Provide Through the Services:</strong> We collect Personal Data from you when you voluntarily provide such information, such as when you contact us with inquiries, respond to one of our surveys, register for access to the Services or use certain Services. Wherever GoFundMe collects Personal Data we make an effort to provide a link to this Privacy Policy.
+<br><br>
+<strong>By voluntarily providing us with Personal Data, you are consenting to our use of it in accordance with this Privacy Policy. If you provide Personal Data to the Services, you acknowledge and agree that such Personal Data may be transferred from your current location to the offices and servers of GoFundMe and the authorized third parties referred to herein located in the United States.</strong>
+<br><br>
+<strong>Other Information:</strong>
+<br><br>
+<strong>Non-Identifiable Data:</strong> When you interact with GoFundMe through the Services, we receive and store certain personally non-identifiable information. Such information, which is collected passively using various technologies, cannot presently be used to specifically identify you. GoFundMe may store such information itself or such information may be included in databases owned and maintained by GoFundMe affiliates, agents or service providers. The Services may use such information and pool it with other information to track, for example, the total number of visitors to our Site, the number of visitors to each page of our Site, and the domain names of our visitors' Internet service providers. It is important to note that no Personal Data is available or used in this process. 
+<br><br>
+In operating the Services, we may use a technology called "cookies." A cookie is a piece of information that the computer that hosts our Services gives to your browser when you access the Services. Our cookies help provide additional functionality to the Services and help us analyze Services usage more accurately. For instance, our Site may set a cookie on your browser that allows you to access the Services without needing to remember and then enter a password more than once during a visit to the Site. In all cases in which we use cookies, we will not collect Personal Data except with your permission. On most web browsers, you will find a "help" section on the toolbar. Please refer to this section for information on how to receive notification when you are receiving a new cookie and how to turn cookies off. We recommend that you leave cookies turned on because they allow you to take advantage of some of the Service features.
+<br><br>
+<strong>Aggregated Personal Data:</strong> In an ongoing effort to better understand and serve the users of the Services, GoFundMe often conducts research on its customer demographics, interests and behavior based on the Personal Data and other information provided to us. This research may be compiled and analyzed on an aggregate basis, and GoFundMe may share this aggregate data with its affiliates, agents and business partners. This aggregate information does not identify you personally. GoFundMe may also disclose aggregated user statistics in order to describe our services to current and prospective business partners, and to other third parties for other lawful purposes.
+<br><br>
+<strong>Location Information:</strong> When you use the Services to organize a fundraising campaign, the Services may request that you provide your city and state of residence.  Please keep in mind that other users of the Services may be able to view your city and state of residence in connection with the campaign, if it is made available within GoFundMe's Public Search Directory. We may also use your location information in an aggregate way, as described above in the "Aggregated Personal Data" section.
+<br><br>
+<strong>Google Analytics and Similar Technologies:</strong> We may allow third party service providers to use cookies or similar technologies to collect information about your browsing activities over time and across different websites following your use of the Services. For example, we use Google Analytics, a web analytics service provided by Google, Inc. ("Google"). Google Analytics uses cookies to help us analyze how users use the Site and enhance your experience when you use the Service. For more information on how Google uses this data, go to <a href="http://www.google.com/policies/privacy/partners/">www.google.com/policies/privacy/partners/</a>. We have also implemented third party advertising features (such as Remarketing with Google Analytics and Facebook Remarketing) that rely on data collected via advertising cookies and anonymous identifiers in order to provide relevant online advertising. You can learn more about their choices related to online targeted advertising, and opt out of receiving such targeted advertisements, by visiting the following sites:
+<br><br>
+<a href="https://tools.google.com/dlpage/gaoptout/">https://tools.google.com/dlpage/gaoptout/</a><br>
+<a href="http://www.aboutads.info/choices/">http://www.aboutads.info/choices/</a><br>
+<a href="http://www.networkadvertising.org/choices/">http://www.networkadvertising.org/choices/</a>
+<br><br>
+<strong>Social Networking Integrations:</strong> One of the special features of the Services is that it allows you to enable or log in to the Services via various social networking services like Facebook or Twitter ("Social Networking Service(s)"). By directly integrating these services, we make your online experiences richer and more personalized. To take advantage of this feature, we will ask you to log into or grant us permission via the relevant Social Networking Service. When you add a Social Networking Services account to the Service or log into the Service using your Social Networking Services account, we will collect relevant information necessary to enable the Service to access that Social Networking Service and your data contained within that Social Networking Service. As part of such integration, the Social Networking Service will provide us with access to certain information that you have provided to the Social Networking Service, and we will use, store and disclose such information in accordance with this Privacy Policy.  However, please remember that the manner in which Social Networking Services use, store and disclose your information is governed by the policies of such third parties, and GoFundMe shall have no liability or responsibility for the privacy practices or other actions of any Social Networking Services that may be enabled within the Service. 
+<br><br>
+You may also have the option of posting your Services activities to Social Networking Services when you access content through the Services (for example, you may post to Facebook that you performed an activity on the Service); you acknowledge that if you choose to use this feature, your friends, followers and subscribers on any Social Networking Services you have enabled will be able to view such activity.
+<br><br>
+<strong>Mobile Device Address Book:</strong>  The Services may also collect the Personal Data relating to third parties stored in your mobile device address book, including without limitation email addresses and phone numbers.  Depending on your mobile device operating system, the Services may request your permission to access such Personal Data.
+
+            </div>
+
+
+            <div class="content_head">
+                <div class="lbl1" >
+                    <div class="lbl2">
+                        <div class="left"></div>
+                        <div class="label">OUR USE OF YOUR PERSONAL DATA AND OTHER INFORMATION</div>
+                        <div class="right"></div>
+                    </div>
+                </div>
+            </div>
+            <div style="clear:both;"></div>
+            <div class="txt mt20">
+GoFundMe uses the Personal Data you provide in a manner that is consistent with this Privacy Policy. If you provide Personal Data for a certain reason, we may use the Personal Data in connection with the reason for which it was provided. For instance, if you contact us by email, we will use the Personal Data you provide to answer your question or resolve your problem. Also, if you provide Personal Data about yourself, or have provided (or otherwise permitted the Services to access) the Personal Data of Third Parties, including the names and email addresses of your personal contacts (collectively, "Third Party Personal Data"), in order to obtain access to or make use of particular features of the Services, we will use your Personal Data and any such Third Party Personal Data to provide you with access to such services and to monitor your use of such services.
+<br><br>
+GoFundMe and its subsidiaries and affiliates (the "Related Companies") may also use your Personal Data and other personally non-identifiable information collected through the Services to help us improve the content and functionality of the Services, to better understand our users and to improve the Services. GoFundMe and its affiliates may use this information to contact you in the future to tell you about services we believe will be of interest to you. If we do so, each marketing communication we send you will contain instructions permitting you to "opt-out" of receiving future marketing communications. In addition, if at any time you wish not to receive any future marketing communications or you wish to have your name deleted from our mailing lists, please contact us as indicated below. 
+<br><br>   
+We may also use your Personal Data and Third Party Personal Data to send communications relating to the Services.  For example, we may send periodic emails to registered users of the service relating to their recent interactions with the Services, such as donating to a campaign or "hearting" a campaign.  Also, if you use any feature of the Services permitting you to communicate with third parties (such as to refer a third party to the services or to communicate with them regarding a Campaign or a Donation), either by submitting Third Party Personal Data to the Services or otherwise permitting the Services to automatically access Third Party Personal Data in your possession, you acknowledge and agree that we may use Third Party Personal Data to (1) contact such third party using the Third Party Personal Data provided, and/or (2) provide you with a template message designed to facilitate communication between you and such third party through the Services.  In addition to sending the foregoing communications, we may also send reminders or related messages to you and third parties from time to time.  In each case, any such communications sent to third parties using Third Party Personal will provide a means to "opt-out" of receiving further communication of the same nature.
+<br><br>      
+If GoFundMe intends on using any Personal Data in any manner that is not consistent with this Privacy Policy, you will be informed of such anticipated use prior to or at the time at which the Personal Data is collected.
+
+            </div>
+
+
+            <div class="content_head">
+                <div class="lbl1" >
+                    <div class="lbl2">
+                        <div class="left"></div>
+                        <div class="label">OUR DISCLOSURE OF YOUR PERSONAL DATA AND OTHER INFORMATION</div>
+                        <div class="right"></div>
+                    </div>
+                </div>
+            </div>
+            <div style="clear:both;"></div>
+            <div class="txt mt20">
+GoFundMe is not in the business of selling your information. We consider this information to be a vital part of our relationship with you. There are, however, certain circumstances in which we may share your Personal Data with certain third parties without further notice to you, as set forth below:
+<br><br> 
+<strong>Business Transfers:</strong> As we develop our business, we might sell or buy businesses or assets. In the event of a corporate sale, merger, reorganization, dissolution or similar event, Personal Data may be part of the transferred assets. 
+<br><br> 
+<strong>Related Companies:</strong> We may also share your Personal Data with our Related Companies for purposes consistent with this Privacy Policy.
+<br><br> 
+<strong>Agents, Consultants and Related Third Parties:</strong> GoFundMe, like many businesses, sometimes hires other companies to perform certain business-related functions. Examples of such functions include mailing information, maintaining databases and processing payments. When we employ another entity to perform a function of this nature, we only provide them with the information that they need to perform their specific function.
+<br><br> 
+<strong>Legal Requirements:</strong> GoFundMe may disclose your Personal Data if required to do so by law or in the good faith belief that such action is necessary to (i) comply with a legal obligation, (ii) protect and defend the rights or property of GoFundMe, (iii) act in urgent circumstances to protect the personal safety of users of the Services or the public, or (iv) protect against legal liability.
+            </div>
+
+
+
+
+            <div class="content_head">
+                <div class="lbl1" >
+                    <div class="lbl2">
+                        <div class="left"></div>
+                        <div class="label">YOUR CHOICES</div>
+                        <div class="right"></div>
+                    </div>
+                </div>
+            </div>
+            <div style="clear:both;"></div>
+            <div class="txt mt20">
+You can visit the Site without providing any Personal Data. If you choose not to provide any Personal Data, you may not be able to use certain Services.
+            </div>
+
+
+
+            <div class="content_head">
+                <div class="lbl1" >
+                    <div class="lbl2">
+                        <div class="left"></div>
+                        <div class="label">EXCLUSIONS</div>
+                        <div class="right"></div>
+                    </div>
+                </div>
+            </div>
+            <div style="clear:both;"></div>
+            <div class="txt mt20">
+This Privacy Policy does not apply to any Personal Data collected by GoFundMe other than Personal Data collected through the Services. This Privacy Policy shall not apply to any unsolicited information you provide to GoFundMe through the Services or through any other means. This includes, but is not limited to, information posted to any public areas of the Services, such as forums, any ideas for new products or modifications to existing products, and other unsolicited submissions (collectively, "Unsolicited Information"). All Unsolicited Information shall be deemed to be non-confidential and GoFundMe shall be free to reproduce, use, disclose, and distribute such Unsolicited Information to others without limitation or attribution.
+            </div>
+
+            
+
+            <div class="content_head">
+                <div class="lbl1" >
+                    <div class="lbl2">
+                        <div class="left"></div>
+                        <div class="label">CHILDREN</div>
+                        <div class="right"></div>
+                    </div>
+                </div>
+            </div>
+            <div style="clear:both;"></div>
+            <div class="txt mt20">
+GoFundMe does not knowingly collect Personal Data from children under the age of 13. If you are under the age of 13, please do not submit any Personal Data through the Services. We encourage parents and legal guardians to monitor their children's Internet usage and to help enforce our Privacy Policy by instructing their children never to provide Personal Data on the Services without their permission. If you have reason to believe that a child under the age of 13 has provided Personal Data to GoFundMe through the Services, please contact us at <a href="mailto:support@gofundme.com">support@gofundme.com</a>, and we will endeavor to delete that information from our databases.
+            </div>
+
+
+            <div class="content_head">
+                <div class="lbl1" >
+                    <div class="lbl2">
+                        <div class="left"></div>
+                        <div class="label">LINKS TO OTHER WEB SITES</div>
+                        <div class="right"></div>
+                    </div>
+                </div>
+            </div>
+            <div style="clear:both;"></div>
+            <div class="txt mt20">
+This Privacy Policy applies only to the Services. The Services may contain links to other web sites not operated or controlled by GoFundMe (the "Third Party Sites"). The policies and procedures we described here do not apply to the Third Party Sites. The links from the Services do not imply that GoFundMe endorses or has reviewed the Third Party Sites. We suggest contacting those sites directly for information on their privacy policies.
+            </div>
+
+
+            <div class="content_head">
+                <div class="lbl1" >
+                    <div class="lbl2">
+                        <div class="left"></div>
+                        <div class="label">SECURITY</div>
+                        <div class="right"></div>
+                    </div>
+                </div>
+            </div>
+            <div style="clear:both;"></div>
+            <div class="txt mt20">
+GoFundMe takes reasonable steps to protect the Personal Data provided via the Services from loss, misuse, and unauthorized access, disclosure, alteration, or destruction. However, no Internet or email transmission is ever fully secure or error free. In particular, email sent to or from the Services may not be secure. Therefore, you should take special care in deciding what information you send to us via email. Please keep this in mind when disclosing any Personal Data to GoFundMe via the Internet.
+            </div>
+
+
+            <div class="content_head">
+                <div class="lbl1" >
+                    <div class="lbl2">
+                        <div class="left"></div>
+                        <div class="label">OTHER TERMS AND CONDITIONS</div>
+                        <div class="right"></div>
+                    </div>
+                </div>
+            </div>
+            <div style="clear:both;"></div>
+            <div class="txt mt20">
+Your access to and use of the Services is subject to the Terms of Service at <a href="https://www.gofundme.com/terms">https://www.gofundme.com/terms</a>.
+            </div>
+
+
+            <div class="content_head">
+                <div class="lbl1" >
+                    <div class="lbl2">
+                        <div class="left"></div>
+                        <div class="label">CHANGES TO GOFUNDME'S PRIVACY POLICY</div>
+                        <div class="right"></div>
+                    </div>
+                </div>
+            </div>
+            <div style="clear:both;"></div>
+            <div class="txt mt20">
+The Services and our business may change from time to time. As a result, at times it may be necessary for GoFundMe to make changes to this Privacy Policy. GoFundMe reserves the right to update or modify this Privacy Policy at any time and from time to time without prior notice. Please review this policy periodically, and especially before you provide any Personal Data. This Privacy Policy was last updated on the date indicated above. Your continued use of the Services after any changes or revisions to this Privacy Policy shall indicate your agreement with the terms of such revised Privacy Policy.
+            </div>
+
+
+            <div class="content_head">
+                <div class="lbl1" >
+                    <div class="lbl2">
+                        <div class="left"></div>
+                        <div class="label">ACCESS TO INFORMATION; CONTACTING GOFUNDME</div>
+                        <div class="right"></div>
+                    </div>
+                </div>
+            </div>
+            <div style="clear:both;"></div>
+            <div class="txt mt20">
+To keep your Personal Data accurate, current, and complete, please contact us as specified below. We will take reasonable steps to update or correct Personal Data in our possession that you have previously submitted via the Services.
+<br><br> 
+Please also feel free to contact us if you have any questions about GoFundMe's Privacy Policy or the information practices of the Services.
+<br><br> 
+You may contact us as follows: <a href="mailto:questions@gofundme.com">questions@gofundme.com</a>.
+            </div>
+
+
+
+        </div><!-- END c-->
+        <div style="clear:both;"></div>
+
+    </div><!-- END a-->
+    <!-- Footer Call to Action-->
+    <div class="btm_call">
+        <div class="btmmain">
+            <a href="//www.gofundme.com" class="gfmlg"></a>
+            <div class="btmcallout">
+                WORLD’S #1 FUNDRAISING SITE
+            </div>
+            <div class="checksbox">
+                <div class="check ml25">5-Minute Email Support</div>
+                <div class="check ml25">No deadlines or goal requirements</div>
+                <div class="check ml25">Mobile-Friendly Campaigns</div>
+                <div class="check ml25">Keep every donation you receive</div>
+                <div class="check ml25">GoFundMe Mobile App</div>
+                <div class="check ml25 mb">No penalties for missing goal</div>
+            </div>
+            <div style="clear:both;"></div>
+
+                            <a href="//www.gofundme.com/sign-up/?pc=index_privacy_ft14"
+                   class="suif"></a>
+                    </div>
+    </div>
+    <!-- END Footer Call to Action-->
+
+<!-- Begin Footer -->
+<div class="footbase">
+        <div class="footmain">
+                <div class="footsec footfeatured">
+
+                        <a href="//www.gofundme.com/press/" class="footnews "></a>
+                </div>
+                <div class="footdiv"></div>
+
+                <div class="footsec footlinks">
+                        <div class="linkbox" style="width: 188px;">
+                                <span class="txt1">GET STARTED</span>
+                                <a href="//www.gofundme.com/tour/" class="mt_10">How it Works</a>
+                                <a href="//www.gofundme.com/success/" >Success Stories</a>
+                                <a href="//www.gofundme.com/questions/">Common Questions</a>
+                                <a href="//www.gofundme.com/contact" rel="nofollow">Ask a Question</a>
+                                <a href="//funds.gofundme.com/index.php?route=edit2/customize&start=1">Sign Up Now</a>
+                        </div>
+
+                        <div class="linkbox" style="width: 199px;">
+                                <span class="txt1">LEARN MORE</span>
+                                <a href="//www.gofundme.com/tour" class="mt_10">Watch the Video</a>                                <a href="//www.gofundme.com/press/">GoFundMe Reviews</a>
+                                <a href="//www.gofundme.com/pricing/">Pricing &amp; Fees</a>
+                                <a href="//www.gofundme.com/fundraising-ideas/">Fundraising Ideas</a>
+                                <a href="//www.gofundme.com/jobs/">We're Hiring!</a>
+                        </div>
+
+                        <div class="linkbox" style="width: 212px;">
+                                <span class="txt1">MAJOR EVENTS</span>
+                            <a href="//www.gofundme.com/flint-water-crisis/" class="mt_10">Flint Crisis</a>
+                            <a href="//www.gofundme.com/2015-Storms">Southern US Storms</a>
+                            <a href="//www.gofundme.com/Carolina-Flood-Relief/">Carolina Flood Relief</a>
+                            <a href="//www.gofundme.com/Nepal-Earthquake-Relief">Nepal Earthquake</a>
+                            <a href="//www.gofundme.com/Help-Ferguson-Rebuild">Ferguson Rebuilds</a>
+                        </div>
+
+                        <div class="linkbox" style="width: 175px;">
+                                <span class="txt1">CONNECT WITH US</span>
+                                <a href="//www.gofundme.com/contact" class="mt_10" rel="nofollow">Ask a Question</a>
+                                <a href="//www.gofundme.com/questions/">Common Questions</a>
+                                <a href="//www.gofundme.com/contact">Help Center</a>
+                                <a href="//www.gofundme.com/team/">Meet the Team</a>
+                                <a href="//www.gofundme.com/media/">Media Center</a>
+                        </div>
+
+                        <a href="//www.gofundme.com/contact" rel="nofollow" class="ft5"></a>
+                </div>
+
+                <div class="footdiv"></div>
+
+                <a href="https://gofundme.zendesk.com/entries/22590777-Is-my-country-supported-" class="footcntry">Supported Currencies</a>
+
+                <!-- Facebook -->
+                <div class="footsocial" style="width: 100px; height: 19px; margin-left: 10px;">
+                        <iframe class="home-fb-like" src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2Fgofundme&amp;send=false&amp;layout=button_count&amp;width=100&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:100px; height:21px;margin-bottom: 10px;" allowTransparency="true"></iframe>
+                </div><!-- End Facebook -->
+
+                <!-- Twitter -->
+                <div class="footsocial">
+                        <a href="https://twitter.com/gofundme" class="twitter-follow-button">Follow @gofundme</a>
+                        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                </div><!-- End Twitter-->
+                <div class="cl"></div>
+
+                <div class="footdiv"></div>
+
+                <div class="footcopy">
+
+                        <a class="mr10" href="//www.gofundme.com/blog/">Blog</a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a class="mr10" href="//www.gofundme.com/legal/">Legal</a>&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a class="mr10" href="/terms/">Terms</a>&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="//www.gofundme.com/privacy/">Privacy Policy </a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&copy; 2010-2016 GoFundMe                </div>
+        </div>
+</div>
+
+<!-- End Footer -->
+<script>
+    if (!$('#fb-root').length) {
+        $('body').append('<div id="fb-root"></div>');
+    }
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId      : '407682420960',
+            xfbml      : true,
+            version    : 'v2.3',
+            cookie     : true,
+            status     : true
+        });
+    };
+
+    (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+<script>
+
+        $(window).load(function() {
+
+            var fblike_callback = function() {
+                var fbid = '';
+                fbid = FB.getUserID();
+                if (!fbid && FB.getAuthResponse()) {
+                    fbid = FB.getAuthResponse().userID || '';
+                }
+
+                $.ajax({
+                    type: 'GET',
+                    url: '//www.gofundme.com/iapi/index.php?route=share3/record_fbshare',
+                    data: {
+                        cat: 1,
+                        page: 4,
+                        platform: 0,
+                        fbid: fbid
+                    }
+                });
+            };
+
+            // workaround to detect when someone clicks on iframe first time
+            var fbOnBlurFunction = function() {
+                try {
+                    if (document.activeElement === document.getElementsByClassName('home-fb-like')[0]) {
+                        fblike_callback();
+                    }
+                } catch (err) {
+                }
+                removeEventListener('blur', fbOnBlurFunction);
+            };
+            addEventListener('blur', fbOnBlurFunction);
+        });
+
+        $(document).ready(function(){
+                $('.pg_msg a').attr('target', '_blank');
+                $('.update_content a:not(.shareopts a)').attr('target', '_blank');
+
+                //SIGN UP MOD
+                $('body').click(function() {
+                        $('.currency-select-div').hide();
+
+                });
+                $('.currency-select').click(function() {
+                        $('.currency-select-div').show();
+                        return false;
+                });
+
+                $('.currency-item').click(function() {
+                        $('.currency-select-div').hide();
+                        $('.currency-select').text($(this).text());
+                        $('.currency-mark').val($(this).attr('mark'));
+                        $('.currency-select').removeClass('c_usd c_gbp c_cad c_aud c_eur');
+                        $('.currency-select').addClass('c_'+$(this).text().toLowerCase());
+                        $('#currencyfield').val($(this).text());
+
+
+
+                        return false;
+                });
+                $('.pricefield-2').click(function () {
+                        setTimeout(function () {
+                                $('.pricefield-1').focus();
+                        }, 100);
+                        return false;
+                });
+                $('.pricefield-2').focusin(function () {
+                        setTimeout(function () {
+                                $('.pricefield-1').focus();
+                        }, 100);
+                        return false;
+                });
+
+                $('.signupmod-link').click(function () {
+                        $('form.signup-mod-form').eq(0).submit();
+                        return false;
+                });
+
+/*
+
+                //SEARHC MOD
+                $('.search-top').click(function() {
+
+                        if($('.search-term-top').val()==$('.search-term-top').attr('title'))
+                                return false;
+
+                        top.location='//www.gofundme.com/mvc.php?route=&term='+$('.search-term-top').val();
+                        return false;
+                });
+
+                $('.search-term-top').keypress( function(event) {
+                        if (event.keyCode == 13)
+                        {
+                                if($('.search-term-top').val()==$('.search-term-top').attr('title'))
+                                        return false;
+
+                                top.location='//www.gofundme.com/mvc.php?route=&term='+$('.search-term-top').val();
+
+                                return false;
+                        }
+                });
+
+                $('.search-left').click(function() {
+                        var searchVal = $('.search-term-left').val();
+
+                        if(searchVal==$('.search-term-left').attr('title') || searchVal == "")
+                                return false;
+
+                        var destination = '//www.gofundme.com/mvc.php?route=';
+
+                        var searchTerm = $("#subsearchTerm").val();
+
+                        if(searchTerm !== undefined && !isPotentialPostalCode(searchVal)){
+                                searchTerm += " AND " + val;
+                        }else{
+                                searchTerm = val;
+                        }
+
+
+
+                        if ($('.search_location_zip_filter').length > 0){
+                                destination +="&addterm="+encodeURIComponent(searchTerm)
+                                    +"&term="+$('.search_location_zip_filter').val()
+                                    +"&country="+$('.search_location_country_filter').val();
+                        }else if ($('.search_partner_filter').length > 0) {
+                                destination ="//www.gofundme.com/partner/"+$('.search_partner_filter').val()+"?term="+encodeURIComponent(searchTerm);
+                        }else if ($('.search_category_filter').length > 0){
+                                destination ="//www.gofundme.com/"+$('.search_category_filter').val()+"?term="+encodeURIComponent(searchTerm);
+                        }else{
+                                destination +="&term="+encodeURIComponent(searchTerm);
+                        }
+
+                        top.location=destination;
+                        return false;
+                });
+
+                $('.search-term-left').keypress( function(event) {
+                        if (event.keyCode == 13)
+                        {
+                                $('.search-left').click();
+                                return false;
+                        }
+                });
+
+                $('.search-main').click(function() {
+
+
+                        if($('.search-term-main').val()==$('.search-term-main').attr('title'))
+                                return false;
+
+                        top.location='//www.gofundme.com/mvc.php?route=&term='+$('.search-term-main').val();
+                        return false;
+                });
+
+                $('.search-term-main').keypress( function(event) {
+                        if (event.keyCode == 13)
+                        {
+                                if($('.search-term-main').val()==$('.search-term-main').attr('title'))
+                                        return false;
+
+                                top.location='//www.gofundme.com/mvc.php?route=&term='+$('.search-term-main').val();
+
+                                return false;
+                        }
+                });
+
+*/
+
+        });
+
+</script>
+
+<script type="text/javascript">
+    if (typeof(_gat) == 'object')
+    {
+        var pageTracker = _gat._getTracker("");
+                pageTracker._trackPageview();
+            }
+</script>
+<script type="text/javascript">
+    
+
+    var _sf_async_config={uid:10613,domain:"www.gofundme.com",useCanonical:true
+                    };
+    (function(){
+        function loadChartbeat() {
+            window._sf_endpt=(new Date()).getTime();
+            var e = document.createElement('script');
+            e.setAttribute('language', 'javascript');
+            e.setAttribute('type', 'text/javascript');
+            e.setAttribute('src', '//static.chartbeat.com/js/chartbeat.js');
+            document.body.appendChild(e);
+        }
+        var oldonload = window.onload;
+        window.onload = (typeof window.onload != 'function') ?
+            loadChartbeat : function() { oldonload(); loadChartbeat(); };
+    })();
+
+</script>
+
+<!--script>
+    window.intercomSettings = {
+        app_id: "yps4hvnc"
+            };
+</script>
+<script>(function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/oqir6j0k';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})()</script-->
+
+
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"313ceb8fb7","applicationID":"9004387","transactionName":"MQMDMBcAWRdQV0RYCQhJNBYMTloSUhpAWRY=","queueTime":0,"applicationTime":24,"atts":"HUQARl8aShk=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+<script src="//funds.gofundme.com/js/5.0/components/gaEventTracking.js"></script>
+</html>
+
+

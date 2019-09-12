@@ -1,0 +1,292 @@
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o||n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({1:[function(e,n,t){function r(){}function o(e,n,t){return function(){return i(e,[c.now()].concat(u(arguments)),n?null:this,t),n?void 0:this}}var i=e("handle"),a=e(2),u=e(3),f=e("ee").get("tracer"),c=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,n){s[n]=o(d+n,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,o="function"==typeof n;return i(l+"tracer",[c.now(),e,t],r),function(){if(f.emit((o?"":"no-")+"fn-start",[c.now(),r,o],t),o)try{return n.apply(this,arguments)}finally{f.emit("fn-end",[c.now()],t)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=o(l+n)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,c.now()])}},{}],2:[function(e,n,t){function r(e,n){var t=[],r="",i=0;for(r in e)o.call(e,r)&&(t[i]=n(r,e[r]),i+=1);return t}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],3:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(o<0?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=r},{}],4:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function o(e){function n(e){return e&&e instanceof r?e:e?f(e,u,i):i()}function t(t,r,o,i){if(!d.aborted||i){e&&e(t,r,o);for(var a=n(o),u=m(t),f=u.length,c=0;c<f;c++)u[c].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function l(e,n){v[e]=m(e).concat(n)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(t)}function g(e,n){c(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var v={},y={},b={on:l,emit:t,get:w,listeners:m,context:n,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",f=e("gos"),c=e(2),s={},p={},d=n.exports=o();d.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(o.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){o.buffer([e],r),o.emit(e,n,t)}var o=e("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!x++){var e=h.info=NREUM.info,n=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();c(y,function(n,t){e[n]||(e[n]=t)}),f("mark",["onload",a()+h.offset],null,"api");var t=d.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function o(){"complete"===d.readyState&&i()}function i(){f("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),f=e("handle"),c=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1044.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=n.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),f("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script>
+    <title>Privacy Policy | CrosswordGiant.com</title>
+    <meta name="description" content="Privacy Policy" />
+<meta name="keywords" content="privacy,policy,crossword, puzzle, clue, answer, crossword solver, giant crosswords, crosswordgiant.com, crossword clues, crossword clue search, crossword puzzle, crossword solutions, crossword key, crosswords, puzzles, clues, answers, crossword puzzle solver" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800%7CShadows+Into+Light" rel="stylesheet" type="text/css">
+    <link rel="apple-touch-icon" sizes="76x76" href="//d293feum2rxfl5.cloudfront.net/v2/img/apple-touch-icon-76x76.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="//d293feum2rxfl5.cloudfront.net/v2/img/apple-touch-icon-152x152.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="//d293feum2rxfl5.cloudfront.net/v2/img/apple-touch-icon-180x180.png" />
+
+    
+        <link rel="stylesheet" href="//d293feum2rxfl5.cloudfront.net/v2/css/cwg.min.1.css">
+
+
+    <style>
+
+      @media print {
+        a:after {
+          content: none !important;
+        }
+      }
+
+      .padding0 { padding:0; }
+      .top10 { margin-top:10px; }
+
+      .social-header {
+          float: right;
+          position: relative;
+          margin: 0;
+          padding: 15px 0;
+          width: auto;
+      }
+      .social-header .social-google {
+          float:right;
+          margin:-1px 1px 5px 0;
+          padding-top:4px;
+          border-radius: 100%;
+          overflow: visible;
+          list-style-type:none;
+      }
+      .social-header .social-fb {
+          float:right;
+          line-height:25px;
+          margin:-2px 5px 5px 0;
+          padding: 0;
+          border-radius: 100%;
+          overflow: visible;
+          list-style-type:none;
+      }
+      .language-header {
+          float: right;
+          position: relative;
+          margin: 0 10px 0 0;
+          padding: 0;
+          width: auto;
+      }
+
+      .badge-calendar {
+        background-color: #E36159;
+      }
+
+      /* Medium devices (ie Tablet in landscape) make logo smaller to fit menu (specifically french) */
+      @media (min-width: 992px) and (max-width: 1199px) {
+        #header h1.logo img {
+          max-width:216px;
+          max-height:none!important;
+          height:auto!important;
+        }
+      }
+
+
+      /* Extra-small devices (767px and below) */
+      @media (max-width: 767px) {
+          div[class^="col-xs-"] {
+              padding-left: 0;
+              padding-right: 0;
+          }
+          #header,
+          #header .logo {
+            /* no extra padding on header */
+            padding:0;
+          }
+          .page-top {
+          margin-bottom:20px;
+          min-height:15px;
+          padding:0;
+          }
+          li {
+            /* more vertical spacing between links on clues/answers */
+            line-height:28px;
+          }
+      }
+
+      
+          </style>
+
+    <!--[if IE]>
+      <link rel="stylesheet" href="//d293feum2rxfl5.cloudfront.net/v2/css/ie.css">
+    <![endif]-->
+
+    <!--[if lte IE 8]>
+      <script src="//d293feum2rxfl5.cloudfront.net/v2/vendor/respond/respond.js"></script>
+      <script src="//d293feum2rxfl5.cloudfront.net/v2/vendor/excanvas/excanvas.js"></script>
+    <![endif]-->
+
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+
+    
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-24438480-2']);
+      _gaq.push(['_setDomainName', '.crosswordgiant.com']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+    </script>
+    <script src="//d293feum2rxfl5.cloudfront.net/v2/vendor/modernizr/modernizr.js"></script>
+
+    <script async='async' src='https://www.googletagservices.com/tag/js/gpt.js'></script>
+    <script>
+      var googletag = googletag || {};
+      googletag.cmd = googletag.cmd || [];
+    </script>
+
+          <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-8224949708781159",
+        enable_page_level_ads: true
+        });
+      </script>
+      </head>
+  <body>
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0&appId=1592537840981051";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+    <div class="body">
+      <header id="header">
+        <div class="container">
+          <h1 class="logo">
+            <a href="//www.crosswordgiant.com/">
+              <img alt="CrosswordGiant Logo" width="277" data-sticky-width="82" data-sticky-height="40" src="//d293feum2rxfl5.cloudfront.net/v2/img/logo.png" />
+            </a>
+          </h1>
+          <div class="search">
+            <form id="searchForm" action="//www.crosswordgiant.com/search" method="get">
+              <div class="input-group">
+                <input type="text" class="form-control search" name="clue" id="q" placeholder="Search for a clue..." required>
+                <span class="input-group-btn">
+                  <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+                </span>
+              </div>
+            </form>
+          </div>
+          <ul class="social-header">
+              <li class="social-google">
+                <div class="g-plusone" data-size="tall" data-annotation="none"></div></li>
+              <li class="social-fb">
+                <div class="fb-like" data-href="http://www.crosswordgiant.com/" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>
+              </li>
+          </ul>
+          <button class="btn btn-responsive-nav btn-inverse" data-toggle="collapse" data-target=".nav-main-collapse">
+            <i class="fa fa-bars"></i>
+          </button>
+        </div>
+        <div class="navbar-collapse nav-main-collapse collapse">
+          <div class="container">
+            <div class="hidden-xs hidden-sm language-header">
+              <select name='language-select'>
+                <option value=''>English</option>
+                <option value='fr'>French</option>
+              </select>
+            </div>
+            <nav class="nav-main mega-menu">
+              <ul class="nav nav-pills nav-main" id="mainMenu">
+                <li>
+                  <a href="//www.crosswordgiant.com/">Home</a>
+                </li>
+                <li>
+                  <a href="//www.crosswordgiant.com/search">Search</a>
+                </li>
+                <li>
+                  <a href="//www.crosswordgiant.com/browse">Crossword Lookup</a>
+                </li>
+                <li>
+                  <a href="//www.crosswordgiant.com/links">Links</a>
+                </li>
+                <li>
+                  <a href="//www.crosswordgiant.com/contact">Contact Us</a>
+                </li>
+                <li class="visible-xs visible-sm">
+                                  <a href="http://www.crosswordgiant.com/fr">NEW: View our French crosswords</a>
+                                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </header>
+
+<div role="main" class="main">
+  <section class="page-top">
+    <div class="container hidden-xs">
+      <div class="row">
+        <div class="col-md-12">
+          <ul class="breadcrumb">
+            <li><a href="//www.crosswordgiant.com/">Home</a></li>
+            <li class="active">Privacy Policy</li>
+          </ul>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <h2>Privacy Policy</h2>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="container">
+    <h2><strong>Privacy Policy</strong></h2>
+    <div class="row">
+      <div class="col-md-12">
+        <h3><strong>Introduction</strong></h3>
+        <p>Your privacy is essential to us. At CrosswordGiant.com, we believe that privacy is a top priority. We know that you care about the way information about you is used and shared. Thus, we provide this Privacy Policy to summarize our procedures and practices as regards to information collection and use. By visiting CrosswordGiant.com, you agree to be bound by this Privacy Policy and hereby accept the procedures and practices stated in this herein.</p>
+        <h3><strong>Scope</strong></h3>
+        <p>This Privacy Policy applies only within this website and other pages where this policy appears. This would describe and explain how we take care and handle your personal information you shared to us. By accepting the Privacy Policy, you expressly consent to our collection, storage, use and disclosure of your information as described in this Privacy Policy.</p>
+        <h3><strong>Collection & How Use</strong></h3>
+        <p>If you attempt to use the services and applications of our website and or choose to provide information to us, this website shall collect Personal Information from you. This information includes, but is not limited to: Internet Protocol Address, Service Provider, Browser Type, Full Name and Email Addresses. Once collected, we will store your information for record keeping purposes.</p>
+        <h3><strong>Disclosure</strong></h3>
+        <p>We may share information with governmental agencies or other companies. We may do so when: (1) permitted or required by law; or, (2) trying to protect against or prevent actual or potential fraud or unauthorized transactions; or, (3) investigating fraud which has already taken place.</p>
+        <h3><strong>Cookies</strong></h3>
+        <p>CrosswordGiant.com may use cookie and tracking technology depending on the features offered. Cookie and tracking technology are useful for gathering information such as browser type and operating system, tracking the number of visitors to the Site, and understanding how visitors use the Site. Cookies can also help customize the Site for visitors.</p>
+        <h3><strong>Security</strong></h3>
+        <p>All collected information is stored in a technically and physically secure environment. While we use SSL encryption to protect Sensitive Information online, we also do everything in our power to protect PII (including Sensitive Information) off-line. Unfortunately, no data transmission over the Internet can be guaranteed to be 100% secure. As a result, while we strive to protect our end-users' personal information, we cannot ensure or warrant the security of any information that you transmit to us, and you do so at your own risk.</p>
+        <h3><strong>Third Parties</strong></h3>
+        <p>We provide links to Web sites outside of our web site, as well as to third party Web sites. These linked sites are not under our control, and we cannot accept responsibility for the conduct of companies linked to our website. Before disclosing your personal information on any other website, we advise you to examine the terms and conditions of using that Web site and its privacy statement.</p>
+        <h3><strong>Changes & Amendments / Notification of Changes</strong></h3>
+        <p>CrosswordGiant.com reserves the right to change or update this Privacy Policy at any time. All Privacy Policy changes will take effect immediately upon their posting on the Website. Please check the Website periodically for any changes.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+      <footer id="footer" style="border: 0; padding: 0;margin: 0;">
+        <div class="footer-copyright">
+          <div class="container">
+            <div class="row">
+              <div class="col-xs-12 col-sm-6 col-md-6">
+                <p>&copy; 2017 CROSSWORDGIANT.com. ALL RIGHTS RESERVED</p>
+              </div>
+              <div class="col-xs-6 col-md-6">
+                <nav id="sub-menu">
+                  <ul>
+                    <li><a href="//www.crosswordgiant.com/">Home</a></li>
+                    <li><a href="//www.crosswordgiant.com/terms-and-conditions">Terms & Conditions</a></li>
+                    <li><a href="//www.crosswordgiant.com/privacy-policy">Privacy Policy</a></li>
+                    <li><a href="//www.crosswordgiant.com/contact">Contact Us</a></li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+        <script src="//d293feum2rxfl5.cloudfront.net/v2/js/cwg.min.1.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $('select[name=language-select]').on('change', function() {
+          window.location='http://www.crosswordgiant.com/' + $('select[name=language-select] option:selected').val();
+        });
+      });
+    </script>
+
+      <script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"7162847374","applicationID":"2459203","transactionName":"bl0BNhZVDEAABRcMWlcXIgEQXQ1dTjUXBEFQWxBNFEYLRQAFGg==","queueTime":0,"applicationTime":17,"atts":"QhoCQF5PH04=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>

@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Eldo.lu -  - Privacy Policy</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,minimum-scale=1, initial-scale=1">
+    <link rel="shortcut icon" href="/assets/images/favicons/eldoradio.ico">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicons/180x180.png">
+    <link rel="apple-touch-icon" sizes="167x167" href="/assets/images/favicons/167x167.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/favicons/152x152.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/assets/images/favicons/144x144.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/assets/images/favicons/120x120.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/assets/images/favicons/114x114.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/assets/images/favicons/76x76.png">
+    <link rel="apple-touch-icon" href="/assets/images/favicons/60x60.png">
+    <meta name="apple-mobile-web-app-title" content="Eldoradio.lu">
+
+    <meta name="msapplication-TileImage" content="/assets/images/favicons/ms144x144.png">
+    <meta name="msapplication-TileColor" content="#f28c00">
+
+    <!--<meta name="theme-color" content="#f28c00">-->
+
+    <link rel="manifest" href="/assets/eldo-manifest.json">
+
+    <meta name="description" content="Luxembourg's Hitradio - Homepage" />
+    <meta name="keywords" content="Get The Music, Eldoradio, Eldo, radio, chat, news, services, fun, party, internet, business, high tech, live, livestream, sport, meteo, traffic, what's up, tv, kino, tv tip, music, musek, musék, musik, comedy, games, spiller, nei op, powerplay, exklusiv, hot spot, postcards, vip, computer, entertainment, erotic, lifestyle, media, science, shopping, hollywood, oliver tanson, acl, traffic, portal, sound check, szen, microfilm, celebrate the weekend, the beat goes on, clique vun der woch, search, luxembourg, luxemburg, chartbreaker, coffeebreak, crew, youth, jugend, animateur, ip, Top 10, rock, pop, soul, hip hop, rap, stars" />
+
+    <meta property="og:title" content="Eldo.lu - Privacy Policy" />
+    <meta property="og:description" content=" Version du 23.05.2018 The Privacy Policy applies to all the online services and offers provided on the eldo.lu internet site, and to all personal ..." />
+    
+    <meta property="og:type" content="article" />
+    
+        <meta property="og:image" content="http://www.eldo.lu/assets/images/default_share.jpg" />
+        
+        
+    
+
+
+    <link rel="stylesheet" href="/assets/styles/main.css?v=56">
+
+    <script language="Javascript">
+
+        function eldo_isAndroidApp() {
+
+            if (
+                typeof(rtl) == "undefined" &&
+                typeof(window.rtl) == "undefined"
+            ) return false;
+
+            if(typeof(rtl) != "undefined") {
+                return typeof(rtl.resize) != "undefined";
+            }
+
+            return typeof(window.rtl.resize) != "undefined";
+
+        }
+
+        function eldo_isIOSApp() {
+
+            if(typeof(window.webkit) == "undefined") return false;
+            if(typeof(window.webkit.messageHandlers) == "undefined") return false;
+
+            return (
+                typeof(window.webkit.messageHandlers.sizeNotification) != "undefined" ||
+                typeof(window.webkit.messageHandlers.getFontSize) != "undefined" ||
+                typeof(window.webkit.messageHandlers.setFontSize) != "undefined"
+            );
+
+        }
+
+        function eldo_isApp() {
+            if(window.location.search.indexOf('app=1')>=0) return true;
+            return eldo_isAndroidApp() || eldo_isIOSApp();
+        }
+
+        function eldo_navi_node(id, parentId, label, uri) {
+            return {
+                id: id,
+                parentId: parentId,
+                label: label,
+                uri: uri
+            };
+        }
+
+
+
+        window.eldo = {
+            config: {
+                ads: true,
+                page: {
+                    tags: [],
+                    path: "/privacy"
+                },
+                isApp: eldo_isApp(),
+                sitemap: {}
+            },
+            cookies: null,
+
+            readCookie: function(name,c,C,i){
+                if(window.eldo.cookies != null){ return window.eldo.cookies[name]; }
+
+                c = document.cookie.split('; ');
+                window.eldo.cookies = {};
+
+                for(i=c.length-1; i>=0; i--){
+                    C = c[i].split('=');
+                    window.eldo.cookies[C[0]] = C[1];
+                }
+
+                return window.eldo.cookies[name];
+
+            },
+            isAuthenticated: function() {
+
+                var _info = {
+                    "token": null,
+                    "name": null,
+                    "authenticated": false
+                };
+
+
+                _info['name'] = window.eldo.readCookie('nm_name');
+                _info['token'] = window.eldo.readCookie('nmtoken');
+
+
+                if(typeof(_info.token) == "undefined") {
+                    _info.token = null;
+                }
+
+                if(typeof(_info.name) == "undefined") {
+                    _info.name = null;
+                }
+
+                if(_info.token == null || _info.name == null) {
+                    _info.token = null;
+                    _info.name = null;
+                } else {
+                    _info.authenticated = true;
+                }
+
+                if(_info.authenticated == false) return false;
+
+                return _info;
+
+            },
+
+        }
+
+
+
+
+        window.eldo.config.sitemap = {
+            // Homepage
+            'home': eldo_navi_node('home', null, 'Home', '/'),
+
+            // Radio Rubrik
+            'radio': eldo_navi_node('radio', null, 'Radio', '/radio/'),
+            'radio-livestream': eldo_navi_node('radio-livestream', 'radio', 'Livestream', '/radio/livestream/eldoradio/'),
+            'radio-livestream-eldoradio': eldo_navi_node('radio-livestream-eldoradio', 'radio-livestream', 'Live', '/radio/livestream/eldoradio/'),
+            'radio-livestream-alternative': eldo_navi_node('radio-livestream-alternative', 'radio-livestream', 'Alternative', '/radio/livestream/alternative/'),
+            'radio-livestream-chill': eldo_navi_node('radio-livestream-chill', 'radio-livestream', 'Chill', '/radio/livestream/chill/'),
+            'radio-livestream-80s': eldo_navi_node('radio-livestream-80s', 'radio-livestream', '80s', '/radio/livestream/80s/'),
+            'radio-livestream-top25': eldo_navi_node('radio-livestream-top25', 'radio-livestream', 'Top 25', '/radio/livestream/top25/'),
+            'radio-reportagen': eldo_navi_node('radio-reportagen', 'radio', 'Reportagen', '/radio/reportagen/'),
+            'radio-rubriken': eldo_navi_node('radio-rubriken', 'radio', 'Rubriken', '/radio/rubriken'),
+            'radio-rubriken-an-hei': eldo_navi_node('radio-rubriken-an-hei', 'radio-rubriken', 'An hei?!', '/radio/rubriken/an-hei/'),
+            'radio-rubriken-mister-science': eldo_navi_node('radio-rubriken-mister-science', 'radio-rubriken', 'Mister Sciene', '/radio/rubriken/mister-science/'),
+            'radio-rubriken-lifestyle': eldo_navi_node('radio-rubriken-lifestyle', 'radio-rubriken', 'Lifestyle', '/radio/rubriken/lifestyle/'),
+            'radio-rubriken-technews': eldo_navi_node('radio-rubriken-technews', 'radio-rubriken', 'Tech News', '/radio/rubriken/tech-news/'),
+            'radio-rubriken-booklook': eldo_navi_node('radio-rubriken-booklook', 'radio-rubriken', 'Book Look', '/radio/rubriken/book-look/'),
+            'radio-rubriken-coffeebreak': eldo_navi_node('radio-rubriken-coffeebreak', 'radio-rubriken', 'Coffeebreak', '/radio/rubriken/coffeebreak/'),
+            'radio-rubriken-highscore': eldo_navi_node('radio-rubriken-highscore', 'radio-rubriken', 'Highscore', '/radio/rubriken/highscore/'),
+            'radio-rubriken-money-checker': eldo_navi_node('radio-rubriken-money-checker', 'radio-rubriken', 'Money Checker', '/radio/rubriken/money-checker/'),
+            'radio-shows': eldo_navi_node('radio-shows', 'radio', 'Shows', '/radio/shows/'),
+            'radio-shows-morningshow-xl': eldo_navi_node('radio-shows-morningshow-xl', 'radio-shows', 'Morningshow XL', '/radio/shows/morningshow-xl/'),
+            'radio-shows-teif': eldo_navi_node('radio-shows-teif', 'radio-shows', 'TEIF', '/radio/shows/teif/'),
+            'radio-shows-dance-club': eldo_navi_node('radio-shows-dance-club', 'radio-shows', 'Dance Club', '/radio/shows/dance-club/'),
+            'radio-shows-dezibel': eldo_navi_node('radio-shows-dezibel', 'radio-shows', 'Dezibel', '/radio/shows/dezibel/'),
+            'radio-shows-saturday-nightlife': eldo_navi_node('radio-shows-saturday-nightlife', 'radio-shows', 'Saturday Nightlife', '/radio/shows/saturday-nightlife/'),
+            'radio-shows-event-navigator': eldo_navi_node('radio-shows-event-navigator', 'radio-shows', 'Event Navigator', '/radio/shows/event-navigator/'),
+            'radio-team': eldo_navi_node('radio-team', 'radio', 'Team', '/radio/team/'),
+            'radio-team-animatioun': eldo_navi_node('radio-team-animatioun', 'radio-team', 'Animatioun', '/radio/team/'),
+
+            // Musik Rubrik
+            'musek': eldo_navi_node('musek', null, 'Musek', '/musek/'),
+            'musek-xclusiv': eldo_navi_node('musek-xclusiv', 'musek', 'Xclusiv', '/musek/xclusiv/'),
+            'musek-charts': eldo_navi_node('musek-charts', 'musek', 'Charts', '/musek/charts/'),
+            'musek-news': eldo_navi_node('musek-news', 'musek', 'Musek News', '/musek/news/'),
+            'musek-this-day-in-music': eldo_navi_node('musek-this-day-in-music', 'musek', 'This Day In Music', '/musek/this-day-in-music/'),
+            'musek-albumcheck': eldo_navi_node('musek-albumcheck', 'musek', 'Albumcheck', '/musek/albumcheck/'),
+            'musek-last-songs': eldo_navi_node('musek-last-songs', 'musek', 'Last songs', '/musek/last-songs/'),
+
+            // News Rubrik
+            'aktuell': eldo_navi_node('aktuell', null, 'Aktuell', '/aktuell/'),
+            'aktuell-news': eldo_navi_node('aktuell-news', 'aktuell', 'News', '/aktuell/news/'),
+            'aktuell-meteo': eldo_navi_node('aktuell-meteo', 'aktuell', 'Meteo', '/aktuell/meteo/'),
+            'aktuell-trafic': eldo_navi_node('aktuell-trafic', 'aktuell', 'Trafic', '/aktuell/trafic/'),
+            'aktuell-trafic-info': eldo_navi_node('aktuell-trafic-info', 'aktuell-trafic', 'Info', '/aktuell/trafic/info/'),
+            'aktuell-trafic-radar': eldo_navi_node('aktuell-trafic-radar', 'aktuell-trafic', 'Info', '/aktuell/trafic/radar/'),
+            'aktuell-trafic-cams': eldo_navi_node('aktuell-trafic-cams', 'aktuell-trafic', 'Info', '/aktuell/trafic/cams/'),
+            'aktuell-trafic-reporter': eldo_navi_node('aktuell-trafic-reporter', 'aktuell-traffik', 'Info', '/aktuell/trafic/reporter/'),
+
+            // Events Rubrik
+            'events': eldo_navi_node('events', null, 'Events', '/events/'),
+            'events-gewennspiller': eldo_navi_node('events-gewennspiller', 'events', 'Gewënnspiller', '/events/gewennspiller/'),
+            'events-agenda': eldo_navi_node('events-agenda', 'events', 'Agenda', '/events/agenda/'),
+            'events-fotoen': eldo_navi_node('events-fotoen', 'events', 'Fotoen', '/events/fotoen/alleguer/'),
+            'events-fotoen-alleguer': eldo_navi_node('events-fotoen-alleguer', 'events-fotoen', 'Alleguer', '/events/fotoen/alleguer/'),
+            'events-fotoen-nightlife': eldo_navi_node('events-fotoen-nightlife', 'events-fotoen', 'Nightlife', '/events/fotoen/nightlife/'),
+            'events-fotoen-eldoradio': eldo_navi_node('events-fotoen-eldoradio', 'events-fotoen', 'Eldoradio', '/events/fotoen/eldoradio/'),
+            'events-fotoen-concerts': eldo_navi_node('events-fotoen-conerts', 'events-fotoen', 'Concerts', '/events/fotoen/concerts/'),
+            'events-fotoen-sport': eldo_navi_node('events-fotoen-sports', 'events-fotoen', 'Sports', '/events/fotoen/sport/'),
+            'events-kino': eldo_navi_node('events-kino', 'events', 'Kino', '/events/kino/'),
+            'events-kino-news':  eldo_navi_node('events-kino-news', 'events-kino', 'News', '/events/kino/news/'),
+            'events-ticket-bourse': eldo_navi_node('events-ticket-bourse', 'events', 'Ticket-Bourse', '/events/ticket-bourse/'),
+            'events-ticket-shop': eldo_navi_node('events-shop', 'events', 'Ticket-Shop', '/events/ticket-shop'),
+            'events-concerten': eldo_navi_node('events-concerten', 'events', 'Concerten', '/events/concerten/'),
+
+            // Tickets Rubrik
+            //'tickets': eldo_navi_node('tickets', null, 'Tickets', '/tickets/'),
+            //'tickets-gewannen': eldo_navi_node('tickets-gewannen', 'tickets', 'Gewannen', '/tickets/gewannen'),
+
+
+        };
+
+
+
+        //console.log("isApp: " + window.eldo.config.isApp);
+
+        if(window.eldo.config.isApp) {
+            console.log("adding is-app  to html tag");
+            document.getElementsByTagName("html")[0].className += " is-app";
+        }
+
+
+        // Pathname
+        var path = document.location.pathname;
+
+        // remove leading and trailing slash from the path
+        path = path.replace(/^\/+|\/+$/g, "");
+
+        // Split
+        var path_chunks = path.split("/");
+
+        if (path_chunks.length > 0) {
+            document.getElementsByTagName('html')[0].className += " " + path_chunks[0];
+        }
+
+        // Tags
+        window.eldo.config.page.tags = ['default'];
+
+        
+    </script>
+
+
+    <script src="/assets/js/bundle.js?v=57"></script>
+
+    <!--gdprs-->
+    <script src="/assets/js/adtech_async.js"></script>
+    <!--gdpre-->
+
+    <!-- Flowplayer -->
+    <link rel="stylesheet" href="/assets/js/vendor/flowplayer/flowplayer.commercial-7.2.6/skin/skin.css">
+    <link rel="stylesheet" href="//releases.flowplayer.org/audio/flowplayer.audio.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/hls.js/0.10.1/hls.light.min.js"></script>
+    <script src="/assets/js/vendor/flowplayer/flowplayer.commercial-7.2.6/flowplayer.min.js"></script>
+    <script src="//releases.flowplayer.org/audio/flowplayer.audio.min.js"></script>
+    
+
+    <script src="//imasdk.googleapis.com/js/sdkloader/ima3.js"></script>
+    <script src="//releases.flowplayer.org/vast/eldo.lu/vast.min.js"></script>
+    <!--<script src="//cdn.flowplayer.com/releases/ads/eldo.lu/flowplayer.ads.js"></script>-->
+
+
+    <style>
+        .flowplayer .fp-color {
+            background-color: #f08b1f;
+        }
+
+        .flowplayer .fp-controls {
+            background-color: rgba(30,30,30,0.7);
+            height: 2.2em;
+        }
+
+
+        .is-audio-only.flowplayer .fp-controls {
+            background-color: rgba(30,30,30,1);
+        }
+    </style>
+
+
+    <!--gdprs-->
+    <script>
+
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+
+        ga('create', 'UA-1316751-5', 'auto');
+
+        if(!window.eldo.config.isApp) {
+            ga('send', 'pageview');
+        }
+
+    </script>
+    <!--gdpre-->
+
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+
+</head>
+<body class="">
+<!--gdprs-->
+
+    <script type="text/javascript">
+					<!--//--><![CDATA[//><!--
+                    if(!window.eldo.config.isApp) {
+					    var pp_gemius_identifier = 'bPdFZse1mWjDMVDz2PA3Obe_DmyYAJsmKQBILxAJuGX..7';
+					    var pp_gemius_extraparameters = new Array('lan=LU', 'key=browser', 'subs=browser/privacy');
+
+					    // lines below shouldn't be edited
+					    (function(d,t) {try {var gt=d.createElement(t),s=d.getElementsByTagName(t)[0],l='http'+((location.protocol=='https:')?'s':''); gt.setAttribute('async','async');gt.setAttribute('defer','defer'); gt.src=l+'://gabe.hit.gemius.pl/xgemius.js'; s.parentNode.insertBefore(gt,s);} catch (e) {}})(document,'script');
+                    }
+					//--><!]]>
+					</script>
+
+<!--gdpre-->
+
+<div class="ad-slot ad-slot-body">
+    <div class="ad-slot__content ad-slot__content--background js-ad" data-tags="" data-position="background" id="ipl-background"></div>
+    <div class="ad-slot__content ad-slot__content--splashpage js-ad" data-tags="" data-position="splashpage" id="ipl-splashpage"></div>
+    <div class="ad-slot__content ad-slot__content--overlayer js-ad" data-tags="" data-position="overlayer" id="ipl-overlayer"></div>
+</div>
+
+<header class="l-header app-hide" role="banner">
+
+    <div class="l-header__inner">
+        <div class="l-header__top">
+            <div class="l-header__outer">
+                <div class="grid-container">
+                    <a class="logo" href="/">
+                        <!--[if (gt IE 8)|(IEMobile)]><!-->
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1290.13 705.4"><defs><radialGradient id="a" cx="689.97" cy="245.19" r="63.01" gradientTransform="matrix(1 -.06 -.06 -1 49.1 578.84)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#fff"/><stop offset=".64" stop-color="#f7b05a"/><stop offset="1" stop-color="#f18b00"/></radialGradient></defs><title>logo_eldolu_25</title><g opacity=".2"><path d="M661.5 368.25c-47.2-97.8-9.6-214.6 83.6-267.3a314.42 314.42 0 0 0-262.9 4.9c-157 75.8-222.8 264.2-147.2 421.1s264.1 222.7 421 147.1a314.56 314.56 0 0 0 168.3-205.4c-99.7 41.3-215.4-1.9-262.8-100.4z"/><path d="M795.4 305.45a74.29 74.29 0 1 1-97.8-38.4 74.31 74.31 0 0 1 97.8 38.4zM864.1 233.85a5.94 5.94 0 0 0-.8.4 6.81 6.81 0 0 0-2.4.8c-7.8 3.4-17.9 11.3-22.1 18.9-8 15.3-2.6 35.4 4.8 52.2 4.8 10.9 10.4 20.5 12.9 25.6a9.74 9.74 0 0 1 .5 1.1c4.3 9.9.8 17.4-5.7 20.2-4.6 2-10.7 1.7-16.8-2.4-18.4-12.3-33.5-33.2-41.9-52.5a86.08 86.08 0 0 1-6.8-22.5c-2.5-16.1-.6-24.2 5-28.2a9.41 9.41 0 0 1 2.2-1.2c4.4-1.9 8.6-.5 14-2.9a2.61 2.61 0 0 1 .8-.3c6.7-3.5 8.9-8.9 14.8-13.7a69.75 69.75 0 0 1 12.7-7.6c9.7-4.2 18.5-4.6 25-3.4 4.5 1 7.4 3.3 8.6 5.8 1.5 3.5-.1 7.7-4.8 9.7zM1014 240.85c8.8 14.4 5.9 23.2-1 27.5-6.1 3.8-15.1 4.4-22.1 2.8-8-1.6-15.1-1.4-21.3 2.6a31.37 31.37 0 0 0-10 10.9c-5.4 8.2-15 22.7-27.2 30.5-7 4.4-14.7 6.5-22.7 4.7a36.34 36.34 0 0 1-24.6-17.4c-26.7-45.3 10.9-95.5 35.5-115.9a20.69 20.69 0 0 1 2.7-2c5.2-3.3 8.8-2.3 10.7.8 2.2 3.5 2.2 9.2-.1 14.2-9.3 21.6-28.4 43.2-16.3 62.1 4 6.2 9.4 9.5 15.5 8.3a15.89 15.89 0 0 0 5.3-2.1c9.3-5.9 10.7-21.3 7.7-37.5-2.9-16.6-3.7-30.6 3.5-35.1 3.7-2.3 9.7-1.9 18.4 2.3 15.1 7.1 31 19.4 44.8 41.2a22.43 22.43 0 0 0 1.2 2.1zM1174.3 193.55c-4.7 1.2-11-.2-15.8-4.9-16.7-15.7-29.3-40.9-35.2-63.5-3.3-12.4-4.7-24.1-3.5-33.2 1.1-10.2 7.5-16.7 14.6-18.5 8-2.1 17.1 1.9 20.2 13.6a18.6 18.6 0 0 1 .8 4.1 323.44 323.44 0 0 0 7.4 36.2c5.2 19.7 11.8 38.4 17.1 49.5q.9 2 1.5 3.6c1.8 7.2-1.7 11.7-7.1 13.1zm-27.5-158.6a23.11 23.11 0 0 1-16.1 18 14.69 14.69 0 0 1-6.6.3c-5.9-.8-9.7-5.3-11.3-11.3a30.72 30.72 0 0 1-.4-12.2c1.4-9.1 7.4-16.2 14.2-18a14 14 0 0 1 6.1-.2c6.4.9 11.6 6.2 13.5 13.3a24.26 24.26 0 0 1 .6 10.1zM1288.5 108.75c-4.3 22.5-19.3 41.2-37.9 49.3a50.5 50.5 0 0 1-29.1 3.4c-16.7-3.4-29.5-15.7-36.4-31.6a74.82 74.82 0 0 1-4.4-43.9c4.4-22.3 20.3-41.1 39.2-49.3 9.7-4.3 20-5.9 30.3-3.9 15.9 3.3 27.2 14.4 33.8 29.4 6 13.7 7.8 30.2 4.5 46.6zm-55.2-52.9a9.54 9.54 0 0 0-4.1 1c-7.4 3.2-12.5 14-11.8 26.1a34.92 34.92 0 0 0 2.7 12.7c3.4 7.8 9.3 12.9 15.7 12.7a12.3 12.3 0 0 0 4.3-1c7.4-3.2 12.3-13.9 11.8-26.1a33 33 0 0 0-2.7-12.7c-3.4-8-9.3-13.1-15.9-12.7zM1111.3 136.95a156.54 156.54 0 0 0-17-29.3c-28.8-40-71.1-43.8-87.9-36.5-3.5 1.5-5.9 3.4-7 5.7a13.47 13.47 0 0 0 0 10.8c4.7 10.8 25 16.4 33.9 27.2a32.45 32.45 0 0 1 4.3 6.8c3.1 7 1.4 14.6-13.5 23.2-19.9 11.6-24.2 28.2-17.5 52.5a62.43 62.43 0 0 0 2.4 6.8c9.8 22.5 38.8 51.1 74.6 35.5 2.2-1 4.3-2.2 6.6-3.4 34-19.8 38.4-59.6 21.1-99.3zm-27.1 56.3a14.38 14.38 0 0 1-3.6 3c-7.8 4.2-20.7 1.4-30.7-7.5a38.2 38.2 0 0 1-9.2-10.9c-4.5-8.3-4.9-16.9-.3-22.3a19 19 0 0 1 3.9-3.1c7.8-4.2 20.4-1.3 30.7 7.4a38.2 38.2 0 0 1 9.2 10.9c4.4 8.4 4.8 17 0 22.5z"/></g><path d="M653.8 357.05c-47.2-97.8-9.6-214.6 83.6-267.3a314.42 314.42 0 0 0-262.9 4.9c-157 75.7-222.8 264.2-147.2 421.1s264.1 222.7 421 147.1a314.56 314.56 0 0 0 168.3-205.4c-99.7 41.3-215.4-2-262.8-100.4z" fill="#f18b00"/><path d="M787.7 294.2a74.29 74.29 0 1 1-97.8-38.4 74.31 74.31 0 0 1 97.8 38.4z" transform="translate(0 .05)" fill="url(#a)"/><path d="M856.5 222.65a5.94 5.94 0 0 0-.8.4 6.81 6.81 0 0 0-2.4.8c-7.8 3.4-17.9 11.3-22.1 18.9-8 15.3-2.6 35.4 4.8 52.2 4.8 10.9 10.4 20.5 12.9 25.6a9.74 9.74 0 0 1 .5 1.1c4.3 9.9.8 17.4-5.7 20.2-4.6 2-10.7 1.7-16.8-2.4-18.4-12.3-33.5-33.2-41.9-52.5a86.08 86.08 0 0 1-6.8-22.5c-2.5-16.1-.6-24.2 5-28.2a9.41 9.41 0 0 1 2.2-1.2c4.4-1.9 8.6-.5 14-2.9a2.61 2.61 0 0 1 .8-.3c6.7-3.5 8.9-8.9 14.8-13.7a69.75 69.75 0 0 1 12.7-7.6c9.7-4.2 18.5-4.6 25-3.4 4.5 1 7.4 3.3 8.6 5.8 1.5 3.5-.2 7.7-4.8 9.7zM1006.3 229.65c8.8 14.4 5.9 23.2-1 27.5-6.1 3.8-15.1 4.4-22.1 2.8-8-1.6-15.1-1.4-21.3 2.6a31.37 31.37 0 0 0-10 10.9c-5.4 8.2-15 22.7-27.2 30.5-7 4.4-14.7 6.5-22.7 4.7a36.34 36.34 0 0 1-24.6-17.4c-26.7-45.3 10.9-95.5 35.5-115.9a20.69 20.69 0 0 1 2.7-2c5.2-3.3 8.8-2.3 10.7.8 2.2 3.5 2.2 9.2-.1 14.2-9.3 21.6-28.4 43.2-16.3 62.1 4 6.2 9.4 9.5 15.5 8.3a15.89 15.89 0 0 0 5.3-2.1c9.3-5.9 10.7-21.3 7.7-37.5-2.9-16.6-3.7-30.6 3.5-35.1 3.7-2.3 9.7-1.9 18.4 2.3 15.1 7.1 31 19.4 44.8 41.2a22.46 22.46 0 0 0 1.2 2.1zM1166.7 182.35c-4.7 1.2-11-.2-15.8-4.9-16.7-15.7-29.3-40.9-35.2-63.5-3.3-12.4-4.7-24.1-3.5-33.2 1.1-10.2 7.5-16.7 14.6-18.5 8-2.1 17.1 1.9 20.2 13.6a18.6 18.6 0 0 1 .8 4.1 323.44 323.44 0 0 0 7.4 36.2c5.2 19.7 11.8 38.4 17.1 49.5q.9 2 1.5 3.6c1.8 7.2-1.8 11.7-7.1 13.1zm-27.6-158.7a23.11 23.11 0 0 1-16.1 18 14.69 14.69 0 0 1-6.6.3c-5.9-.8-9.7-5.3-11.3-11.3a30.72 30.72 0 0 1-.4-12.2c1.4-9.1 7.4-16.2 14.2-18a14 14 0 0 1 6.1-.2c6.4.9 11.6 6.2 13.5 13.3a24.47 24.47 0 0 1 .6 10.1zM1280.8 97.55c-4.3 22.5-19.3 41.2-37.9 49.3a50.5 50.5 0 0 1-29.1 3.4c-16.7-3.4-29.5-15.7-36.4-31.6a74.82 74.82 0 0 1-4.4-43.9c4.4-22.3 20.3-41.1 39.2-49.3 9.7-4.3 20-5.9 30.3-3.9 15.9 3.3 27.2 14.4 33.8 29.4 6 13.7 7.8 30.2 4.5 46.6zm-55.2-53a9.54 9.54 0 0 0-4.1 1c-7.4 3.2-12.5 14-11.8 26.1a34.92 34.92 0 0 0 2.7 12.7c3.4 7.8 9.3 12.9 15.7 12.7a12.3 12.3 0 0 0 4.3-1c7.4-3.2 12.3-13.9 11.8-26.1a33 33 0 0 0-2.7-12.7c-3.4-8-9.3-13-15.9-12.7zM1103.6 125.75a156.54 156.54 0 0 0-17-29.3c-28.8-40-71.1-43.8-87.9-36.5-3.5 1.5-5.9 3.4-7 5.7a13.47 13.47 0 0 0 0 10.8c4.7 10.8 25 16.4 33.9 27.2a32.45 32.45 0 0 1 4.3 6.8c3.1 7 1.4 14.6-13.5 23.2-19.9 11.6-24.2 28.2-17.5 52.5a62.43 62.43 0 0 0 2.4 6.8c9.8 22.5 38.8 51.1 74.6 35.5 2.2-1 4.3-2.2 6.6-3.4 34-19.8 38.4-59.6 21.1-99.3zm-27.1 56.3a14.38 14.38 0 0 1-3.6 3c-7.8 4.2-20.7 1.4-30.7-7.5a38.2 38.2 0 0 1-9.2-10.9c-4.5-8.3-4.9-16.9-.3-22.3a19 19 0 0 1 3.9-3.1c7.8-4.2 20.4-1.3 30.7 7.4a38.2 38.2 0 0 1 9.2 10.9c4.4 8.4 4.8 16.9 0 22.5zM461.9 521.05c-12.5 18.6-27.3 30.7-41.5 36.9-15.3 6.7-29.5 6.4-38.4-.1-4.9-3.7-10-8-13.3-15.5-4.6-10.6-5.7-27.5 2.4-56.8 1.7-6.1 4-15.2 1-22a14 14 0 0 0-8.6-7.8c-11.4-4.3-18.4-11-21.9-19.1-10.7-24.5 11.6-61.8 38.1-78.9a59 59 0 0 1 9.2-5.1c11-4.8 17-2.7 18.8 1.3 1.4 3.3.3 7.5-3.1 10.9-12.7 12.5-22.9 37.2-17.7 49a11.56 11.56 0 0 0 3.6 4.6c3.3 1.9 7.1 1.4 11.5-.5 6.9-3 15-9.3 22-12.4 4.8-2.1 9.4-2.7 12.9.3a11.36 11.36 0 0 1 2.8 3.8c6.3 14.4-25.6 39.8-25.3 69.7a25.45 25.45 0 0 0 1.9 10.6c3.1 7.1 9.6 9.6 16.9 6.4 5-2.2 10.1-6.7 15-14.1 8.1-11.9 19.7-36.3 29.3-40.5a5.51 5.51 0 0 1 5.9.5 8.3 8.3 0 0 1 3.2 4.2c5.1 11.6-2.3 40.7-24.7 74.6zM496.7 329.45c8.7 29.5 20 57.8 30.6 82 11.2 25.4 21.7 45.8 28 57.3.7 1.2 1.3 2.4 1.9 3.7 4.3 9.7 2.3 16.5-2.9 18.8-5.5 2.4-14.2.3-23-7.7-20.2-18.6-43-56.7-58.6-91.9-9.5-21.6-16.4-42.3-18.1-56.4-2.5-18.7 3.7-27.4 11.3-30.8a25.12 25.12 0 0 1 5.5-1.7c8.2-.8 15.5 2.7 21.6 16.5a89.94 89.94 0 0 1 3.7 10.2zM646.9 347.25a151.22 151.22 0 0 0-17-29.3c-28.7-40-71.1-43.8-87.9-36.5-3.5 1.5-5.9 3.4-7 5.7a13.47 13.47 0 0 0 0 10.8c4.7 10.8 25 16.4 33.9 27.2a32.45 32.45 0 0 1 4.3 6.8c3.1 7.1 1.4 14.6-13.5 23.2-19.9 11.6-24.2 28.2-17.5 52.5a47.8 47.8 0 0 0 2.5 6.8c9.8 22.5 38.8 51.1 74.6 35.5 2.2-1 4.3-2.2 6.6-3.4 33.9-19.8 38.4-59.6 21-99.3zm-27 56.3a12.11 12.11 0 0 1-3.6 2.9c-7.8 4.2-20.7 1.4-30.7-7.5a35.76 35.76 0 0 1-9.2-11c-4.5-8.3-4.9-16.9-.3-22.2a14.42 14.42 0 0 1 3.9-3.1c7.8-4.2 20.4-1.3 30.7 7.5a38.2 38.2 0 0 1 9.2 10.9c4.4 8.4 4.7 17 0 22.5zM0 419.88c.9-1.29 1.73-2.65 2.72-3.87q24.83-30.53 49.69-61 34.18-41.96 68.38-83.82a166.31 166.31 0 0 0 16.9-24.07 54.42 54.42 0 0 0 6.41-16.43c2.37-12.76.35-24.79-6.8-35.69-8.17-12.45-19.2-21.31-33.89-24.77-34.06-8-61.16 16.23-65.61 43.49-.28 1.73-.65 3.45-1 5.29a18.58 18.58 0 0 1-1.85.19H4.8c-2.12 0-2.57-.44-2.29-2.38 2-13.69 5.66-26.86 12.69-38.9 9.57-16.37 22.89-28.47 40.78-35.22a101.43 101.43 0 0 1 25.31-5.57 91.77 91.77 0 0 1 37.29 3.55c22 6.85 44.15 25.53 53.26 46.51a81.5 81.5 0 0 1 6.51 35c-.53 21.74-8.69 40.58-22 57.35-7.5 9.42-15.35 18.56-23 27.87-17.61 21.46-35.11 43-52.81 64.41-13 15.71-26.29 31.2-39.41 46.83a4.34 4.34 0 0 1-3.71 1.72c-11.58-.06-23.17 0-34.75 0H.37zM71.53 544.21l22.94-27.16c.42.6.69 1 .93 1.34 11.21 17.47 27.13 27.6 47.7 30.16 30.93 3.85 62.08-16.76 69.7-47.87 8.5-34.72-13.13-72.81-52.33-79.33a76.6 76.6 0 0 0-12.13-.94c-18.79-.1-37.58 0-56.37 0H89c.57-.81.89-1.36 1.3-1.84 7.76-9.21 15.55-18.39 23.26-27.63a4.11 4.11 0 0 1 3.53-1.6c15.26 0 30.53.13 45.78-.18 19.77-.4 37.05 6 52.22 18.38a94.74 94.74 0 0 1 34.78 60.14c5 30.78-3.09 58.25-23.53 81.59-14.86 17-33.92 27.57-56.06 32.26-16.94 3.59-33.57 1.8-49.83-3.81-16.08-5.67-30.45-14-42.45-26.28-2.23-2.29-4.27-4.76-6.47-7.23zM129.19 373.05a36.21 36.21 0 0 1 2-3c7.65-9.1 15.35-18.16 23-27.29a4.13 4.13 0 0 1 3.61-1.47q26.35.06 52.69.08h59.13c1.12 0 2.24.17 3.36.25a4.54 4.54 0 0 1-1.21 3.57q-9.95 12.42-19.87 24.86a8 8 0 0 1-6.59 3.16h-15.19l-97.54-.16z" fill="#fff"/></svg>
+                        <!--<![endif]-->
+                        <!--[if (lt IE 9)&(!IEMobile)]>
+                        <span class="logo__fallback"></span>
+                        <![endif]-->
+                    </a>
+                    <div class="nav-container nav-container--top">
+                        <div class="nav-top">
+                            <div class="nav-top__item nav-top__item--search nav-top__item--highlight">
+                                <a href="/search/" class="nav-top__item--link">
+                                        <span class="icon icon-search">
+                                            <!--[if (gt IE 8)|(IEMobile)]><!-->
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><path fill="#F08B1F" d="M97.5 181.4c-45.3 0-82.2-36.9-82.2-82.2C15.3 53.9 52.2 17 97.5 17c45.4 0 82.2 36.9 82.2 82.2 0 45.3-36.9 82.2-82.2 82.2zm0-140.6c-32.2 0-58.4 26.2-58.4 58.4s26.2 58.4 58.4 58.4 58.4-26.2 58.4-58.4-26.2-58.4-58.4-58.4zM216.4 235.5l-45-45c-4.8-4.8-4.8-12.6 0-17.4 4.8-4.8 12.6-4.8 17.4 0l45 45c4.8 4.8 4.8 12.6 0 17.4-4.8 4.8-12.6 4.8-17.4 0z"/></svg>
+                                            <!--<![endif]-->
+                                            <!--[if (lt IE 9)&(!IEMobile)]>
+                                            <span class="icon-search__fallback"></span>
+                                            <![endif]-->
+                                        </span>
+                                    <span class="icon__info">Search</span>
+                                </a>
+                            </div>
+
+                            <div class="nav-top__item nav-top__item--login nav-top__item--highlight">
+
+                            </div>
+
+                            <div class="nav-top__item nav-top__item--facebook">
+                                <a href="https://www.facebook.com/eldoradiolux" target="_blank" class="nav-top__item--link">
+                                        <span class="icon icon-facebook">
+                                            <!--[if (gt IE 8)|(IEMobile)]><!-->
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><path fill="#FFF" d="M145.7 241.4V138.1h34.7l5.2-40.3h-39.9V72.1c0-11.7 3.2-19.6 20-19.6H187v-36c-3.7-.5-16.4-1.6-31.1-1.6-30.8 0-51.8 18.8-51.8 53.2v29.7H69.3v40.3h34.8v103.4h41.6z"/></svg>
+                                            <!--<![endif]-->
+                                            <!--[if (lt IE 9)&(!IEMobile)]>
+                                            <span class="icon-facebook__fallback"></span>
+                                            <![endif]-->
+                                        </span>
+                                </a>
+                            </div>
+
+                            <div class="nav-top__item nav-top__item--twitter">
+                                <a href="https://twitter.com/eldoradio_lux" target="_blank" class="nav-top__item--link">
+                                        <span class="icon icon-twitter">
+                                            <!--[if (gt IE 8)|(IEMobile)]><!-->
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><path fill="#FFF" d="M252.4 50.8c-9.2 4.1-19 6.8-29.3 8 10.5-6.3 18.6-16.3 22.4-28.2-9.9 5.8-20.8 10.1-32.4 12.4-9.3-9.9-22.6-16.1-37.3-16.1-28.2 0-51 22.9-51 51 0 4 .5 7.9 1.3 11.6-42.4-2.1-80-22.5-105.2-53.3-4.4 7.6-6.9 16.3-6.9 25.7 0 17.7 9 33.3 22.7 42.5-8.4-.3-16.2-2.6-23.1-6.4v.6c0 24.7 17.6 45.4 40.9 50.1-4.3 1.2-8.8 1.8-13.4 1.8-3.3 0-6.5-.3-9.6-.9 6.5 20.3 25.3 35 47.7 35.5C61.7 198.8 39.7 207 15.8 207c-4.1 0-8.2-.2-12.2-.7 22.6 14.5 49.4 22.9 78.3 22.9 93.9 0 145.2-77.8 145.2-145.2 0-2.2 0-4.4-.1-6.6 9.9-7.3 18.6-16.3 25.4-26.6z"/></svg>
+                                            <!--<![endif]-->
+                                            <!--[if (lt IE 9)&(!IEMobile)]>
+                                            <span class="icon-twitter__fallback"></span>
+                                            <![endif]-->
+                                        </span>
+                                </a>
+                            </div>
+
+                            <div class="nav-top__item nav-top__item--youtube">
+                                <a href="https://www.youtube.com/channel/UCgtVSYB7EuKjPckT5EKa21g" target="_blank" class="nav-top__item--link">
+                                        <span class="icon icon-youtube">
+                                            <!--[if (gt IE 8)|(IEMobile)]><!-->
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 519.9 256"><path fill="#FFF" d="M198.7 190.9h-19v-11c-7.2 8.3-13.3 12.4-20 12.4-5.8 0-9.9-2.8-11.9-7.7-1.2-3-2.1-7.8-2.1-14.7v-80h19v82c.4 2.8 1.6 3.8 4.1 3.8 3.6 0 6.9-3.2 10.9-8.8v-77h19v101zM131.7 122.9c0-10.8-2.2-18.9-6-24-5.1-6.9-13-9.7-21-9.7-9.1 0-15.9 2.8-21 9.7-3.9 5.1-6 13.3-6 24.1v35.9c0 10.7 1.9 18.1 5.8 23.2 5.1 6.9 13.2 10.5 21.2 10.5s16.3-3.6 21.4-10.5c3.8-5.1 5.6-12.5 5.6-23.2v-36zm-19 38c1 10-2.1 15-8 15s-9-5-8-15v-40c-1-10 2.1-14.7 8-14.7s9 4.7 8 14.7v40zM56.7 135.9v55h-20v-55s-20.7-67.4-25-80h21l14 52.7 14-52.7h21l-25 80z"/><g fill="#FFF"><path d="M394.1 105.9c-3 0-6.4 1.6-9.4 4.6v60.6c3 3 6.5 4.6 9.4 4.6 5.2 0 7.6-3.8 7.6-13.8v-43c0-10-2.4-13-7.6-13zM468.7 117.9c0-9.2-2.4-12-8.4-12s-8.6 2.5-8.6 11.9v11.1h17v-11z"/><path d="M509.7 66.8s-2.9-20.5-11.9-29.5c-11.4-11.8-24.1-11.9-29.9-12.6-41.8-3-104.5-3-104.5-3h-.1s-62.7 0-104.5 3c-5.8.7-18.6.8-29.9 12.6-9 9-11.9 29.5-11.9 29.5s-3 24.1-3 48.1v22.6c0 24.1 3 48.1 3 48.1s3 20.4 12 29.4c11.4 11.8 26.3 11.5 32.9 12.7 23.9 2.3 101.5 3 101.5 3s62.7-.1 104.5-3.1c5.8-.7 18.6-.8 29.9-12.6 9-9 11.9-29.5 11.9-29.5s3-24.1 3-48.1v-22.6c0-24-3-48-3-48zm-230 124.1h-20v-115h-21v-19h63v19h-22v115zm72 0h-19v-11c-7.2 8.3-13.3 12.4-20 12.4-5.8 0-9.9-2.8-11.9-7.7-1.2-3-2.1-7.8-2.1-14.7v-79h19v81c.4 2.8 1.6 3.8 4.1 3.8 3.6 0 6.9-3.2 10.9-8.8v-76h19v100zm69-30c0 9.2-.8 15.8-2 20-2.4 7.4-7.7 11.3-14.9 11.3-6.4 0-13-3.9-19.1-11.4v10.1h-18v-134h18v43.7c5.8-7.2 12.5-11.3 19.1-11.3 7.2 0 12.1 4.2 14.5 11.6 1.2 4 2.4 10.5 2.4 20v40zm39.8 14.8c4.5 0 7.1-2.4 8.1-7.3.2-1 .1-5.3.1-12.6h19v2.8c0 5.8-.5 10-.6 11.8-.6 4-2 7.6-4.2 10.8-5 7.3-12.4 10.8-21.9 10.8-9.5 0-16.7-3.4-21.9-10.2-3.8-5-6.3-12.4-6.3-23.1v-35c0-10.7 2.2-18.9 6.1-24 5.2-6.8 12.4-10.5 21.7-10.5 9.1 0 16.3 3.6 21.4 10.5 3.8 5.1 5.9 12.9 5.9 23.5v20.4h-36v18c-.3 9.4 2.4 14.1 8.6 14.1z"/></g></svg>
+                                            <!--<![endif]-->
+                                            <!--[if (lt IE 9)&(!IEMobile)]>
+                                            <span class="icon-youtube__fallback"></span>
+                                            <![endif]-->
+                                        </span>
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- ON AIR -->
+                    
+<div class="onair">
+    <div class="onair__song js-marquee"><div class="onair__songtext js-marquee-text">DADDY YANKEE - Dura</div></div>
+
+    <div class="onair__animateur animateur">
+        <div class="animateur__shadow">
+            <svg viewBox="0 0 110 110" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="55" cy="55" r="55"/>
+            </svg>
+        </div>
+        <img class="animateur__image" src="http://images.newmedia.lu/eldoradio.lu/cms/crew_onair_2007/onair_studio.gif" width="110" height="110" />
+        <span class="animateur__show">Eldo Special</span>
+        <span class="animateur__name">mam Dani</span>
+    </div>
+
+    <button class="onair__play button button--rounded button-play" onclick="location.href='http://www.eldo.lu/radio/livestream/'">PLAY</button>
+</div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="l-header__main">
+            <div class="l-header__outer">
+                <div class="grid-container">
+                    <nav class="nav-container js-nav-container nav-container--main">
+                        <ul class="nav-main">
+                            <li class="nav-main__item js-nav-main__item nav-main__item--home js-nav-main__item--home">
+                                <a class="nav-main__link" href="/">
+                                        <span class="icon icon-home">
+                                            <!--[if (gt IE 8)|(IEMobile)]><!-->
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><path fill="#F08B1F" d="M132.2 1L27 102.4V256h64v-87.7c0-11.8 8.8-23.3 20.5-23.3h40.3c11.8 0 21.2 11.6 21.2 23.3V256h64V105.7L132.2 1z"/></svg>
+                                            <!--<![endif]-->
+                                            <!--[if (lt IE 9)&(!IEMobile)]>
+                                            <span class="icon-home__fallback"></span>
+                                            <![endif]-->
+                                        </span>
+                                    <span class="icon-home-label">Home</span>
+                                </a>
+                            </li>
+                            <li class="nav-main__item js-nav-main__item js-nav-main__item--radio">
+                                <div class="nav-main__link" aria-expanded="false">Radio</div>
+                                <ul class="nav-main-sub js-nav-main-sub">
+                                    <li class="nav-main-sub__item"><a href="/radio/livestream/" class="nav-main-sub__link">Livestream</a></li>
+                                    <li class="nav-main-sub__item"><a href="/radio/reportagen/" class="nav-main-sub__link">Reportagen</a></li>
+                                    <li class="nav-main-sub__item"><a href="/radio/rubriken/" class="nav-main-sub__link">Rubriken</a></li>
+                                    <li class="nav-main-sub__item"><a href="/radio/shows/" class="nav-main-sub__link">Shows</a></li>
+                                    <li class="nav-main-sub__item"><a href="/radio/team/" class="nav-main-sub__link">Team</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-main__item js-nav-main__item js-nav-main__item--musek">
+                                <div class="nav-main__link" aria-expanded="false">Musek</div>
+                                <ul class="nav-main-sub js-nav-main-sub">
+                                    <li class="nav-main-sub__item"><a href="/musek/news/" class="nav-main-sub__link">Musek News</a></li>
+                                    <li class="nav-main-sub__item"><a href="/musek/xclusiv/" class="nav-main-sub__link">Xclusiv</a></li>
+                                    <li class="nav-main-sub__item"><a href="/musek/this-day-in-music/" class="nav-main-sub__link">This Day In Music</a></li>
+                                    <li class="nav-main-sub__item"><a href="/musek/charts/" class="nav-main-sub__link">Charts</a></li>
+                                    <li class="nav-main-sub__item"><a href="/musek/albumcheck/" class="nav-main-sub__link">Albumcheck</a></li>
+                                    <li class="nav-main-sub__item"><a href="/musek/last-songs/" class="nav-main-sub__link">Last Songs</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-main__item js-nav-main__item js-nav-main__item--aktuell">
+                                <div class="nav-main__link" aria-expanded="false">Aktuell</div>
+                                <ul class="nav-main-sub js-nav-main-sub">
+                                    <li class="nav-main-sub__item"><a href="/aktuell/news/" class="nav-main-sub__link">News</a></li>
+                                    <li class="nav-main-sub__item"><a href="/aktuell/meteo/" class="nav-main-sub__link">Meteo</a></li>
+                                    <li class="nav-main-sub__item"><a href="/aktuell/trafic/" class="nav-main-sub__link">Trafic</a></li>
+                                    <li class="nav-main-sub__item"><a href="/aktuell/thema/" class="nav-main-sub__link">Thema</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-main__item js-nav-main__item js-nav-main__item js-nav-main__item--events">
+                                <div class="nav-main__link" aria-expanded="false">Events</div>
+                                <ul class="nav-main-sub js-nav-main-sub">
+                                    <li class="nav-main-sub__item"><a href="/events/gewennspiller/" class="nav-main-sub__link">Gewënnspiller</a></li>
+                                    <li class="nav-main-sub__item"><a href="/events/fotoen/" class="nav-main-sub__link">Fotoen</a></li>
+                                    <li class="nav-main-sub__item"><a href="/events/agenda/" class="nav-main-sub__link">Agenda</a></li>
+                                    <li class="nav-main-sub__item"><a href="/events/kino/" class="nav-main-sub__link">Kino</a></li>
+                                    <li class="nav-main-sub__item"><a href="/events/concerten/" class="nav-main-sub__link">Concerten</a></li>
+                                    <li class="nav-main-sub__item"><a href="/events/ticket-bourse/" class="nav-main-sub__link">Ticket-Bourse</a></li>
+                                    <li class="nav-main-sub__item"><a href="/events/ticket-shop/" class="nav-main-sub__link">Ticket-Shop</a></li>
+                                    <li class="nav-main-sub__item"><a href="/radio/shows/event-navigator/" class="nav-main-sub__link">Event Navigator</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-main__item js-nav-main__item js-nav-main__item--radio">
+                                <a href="/radio/livestream/" class="nav-main__link" aria-expanded="false">Livestream</a>
+                            </li>
+                            
+                        </ul>
+                        <div class="nav-container-close js-nav-toggle">Close</div>
+                    </nav>
+                    <div class="nav-hamburger js-nav-hamburger js-nav-toggle">
+                        <div class="nav-hamburger__icon"></div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="l-header__bottom">
+            <div class="l-header__outer">
+                <div class="grid-container">
+                    <div class="nav-container nav-container--breadcrumb js-breadcrumb"></div>
+                    <script language="Javascript">
+
+                        ( function() {
+
+                            var _doBreadcrumb = function(elm) {
+                                var config = window.eldo.config;
+                                var startPageId =
+                                    typeof(config.page.path) == "undefined" ?
+                                        "home" :  config.page.path.substr(1).split("/").join("-");
+
+                                console.log("[breadcrumb] startPageId before check: " + startPageId);
+
+                                if(startPageId == "") startPageId = "home";
+                                if(typeof(config.sitemap[startPageId]) == "undefined") startPageId = "home";
+
+                                var curPageId = startPageId;
+
+                                console.log("[breadcrumb] startPageId: " + startPageId);
+
+                                var stack = [];
+                                var iterationLimit = 5;
+                                var iterationCount = 0;
+                                var html = [];
+
+                                do {
+
+                                    stack.push(config.sitemap[curPageId]);
+                                    curPageId = config.sitemap[curPageId].parentId;
+
+                                    if(iterationCount++>iterationLimit) {
+                                        break;
+                                    }
+
+                                } while(curPageId != null);
+
+                                if(stack.length == 0) return;
+
+                                if(startPageId != "home") {
+                                    stack.push(config.sitemap["home"]);
+                                }
+
+                                console.log("[breadcrumb] stack is: " + JSON.stringify(stack.reverse()));
+
+                                html.push("<ul class=\"breadcrump\">");
+
+                                stack.forEach(function(item) {
+                                    if (item.label == "Home") {
+                                        html.push("<li class=\"breadcrump__item breadcrump__item--first\"><a class=\"breadcrump__action\" href='" + item.uri + "'>" + item.label + "</a></li>" );
+                                    } else {
+                                        html.push("<li class=\"breadcrump__item\"><span class=\"breadcrump__separator\" aria-hidden=\"true\">&rang;</span> <a class=\"breadcrump__action\" href='" + item.uri + "'>" + item.label + "</a></li>" );
+                                    }
+
+                                });
+
+                                html.push("</ul>");
+
+                                elm.innerHTML = html.join("");
+
+
+                            };
+
+
+                            [].forEach.call(document.querySelectorAll('.js-breadcrumb'), _doBreadcrumb);
+
+                        })();
+
+                    </script>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</header>
+
+
+
+<div class="l-main-wrapper" id="ipl-l-main-wrapper">
+    <div class="l-page-wrapper">
+
+        <div class="ad-container ad-container-top">
+            <div class="ad-slot ad-slot-top">
+                <div class="ad-slot__content ad-slot__content--banner js-ad" data-tags="" data-position="banner" id="ipl-banner"></div>
+                <div class="ad-slot__content ad-slot__content--leaderboard js-ad" data-tags="" data-position="leaderboard" id="ipl-leaderboard"></div>
+                <div class="ad-slot__content ad-slot__content--skyscraper-left js-ad" data-tags="" data-position="skyscraper-left" id="ipl-skyscraper-left"></div>
+                <div class="ad-slot__content ad-slot__content--skyscraper js-ad" data-tags="" data-position="skyscraper" id="ipl-skyscraper"></div>
+            </div>
+        </div>
+
+        
+
+<script>
+    var partner = "RTL";
+ </script>
+
+<article class="article">
+    
+    <header class="article__header">
+        <div class="article__outer">
+            <div class="article__inner">
+                <div class="article__page">
+                    <h1 class="article-header"><span class="article-header__title">Privacy Policy</span></h1>                </div>
+        </div>
+    </header>
+
+    <section class="article__content">
+        <div class="article__outer">
+            <div class="article__inner">
+                <div class="article__page">
+                                        <div class="article__meta">
+                        <!-- social sidebar -->
+                        <div class="socialbar js-sticky app-hide">
+    <h2 class="socialbar__title">Share</h2>
+    <div class="socialbar__item">
+        
+        <!-- https://www.facebook.com/share.php?url=http%3A%2F%2Fwww.eldo.lu%2Fprivacy%2F&title=Privacy+Policy -->
+        <a href="https://www.facebook.com/dialog/share?app_id=1136530983064083&display=popup&href=http%3A%2F%2Fwww.eldo.lu%2Fprivacy%2F&redirect_uri=http%3A%2F%2Fwww.eldo.lu%2Fprivacy%2F" target="_blank" class="footer-container__link">
+            <span class="icon icon-facebook icon-facebook--colored icon--round">
+                <!--[if (gt IE 8)|(IEMobile)]><!-->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><path fill="#FFF" d="M145.7 241.4V138.1h34.7l5.2-40.3h-39.9V72.1c0-11.7 3.2-19.6 20-19.6H187v-36c-3.7-.5-16.4-1.6-31.1-1.6-30.8 0-51.8 18.8-51.8 53.2v29.7H69.3v40.3h34.8v103.4h41.6z"/></svg>
+                <!--<![endif]-->
+                <!--[if (lt IE 9)&(!IEMobile)]>
+                    <span class="icon-facebook__fallback"></span>
+                <![endif]-->
+                </a>
+            </span>
+        </a>
+    </div>
+
+    <div class="socialbar__item">
+        <a href="https://www.twitter.com/intent/tweet?status=Privacy+Policy%0Ahttp%3A%2F%2Fwww.eldo.lu%2Fprivacy%2F" target="_blank" class="footer-container__link">
+            <span class="icon icon-twitter icon-twitter--colored icon--round">
+                <!--[if (gt IE 8)|(IEMobile)]><!-->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><path fill="#FFF" d="M252.4 50.8c-9.2 4.1-19 6.8-29.3 8 10.5-6.3 18.6-16.3 22.4-28.2-9.9 5.8-20.8 10.1-32.4 12.4-9.3-9.9-22.6-16.1-37.3-16.1-28.2 0-51 22.9-51 51 0 4 .5 7.9 1.3 11.6-42.4-2.1-80-22.5-105.2-53.3-4.4 7.6-6.9 16.3-6.9 25.7 0 17.7 9 33.3 22.7 42.5-8.4-.3-16.2-2.6-23.1-6.4v.6c0 24.7 17.6 45.4 40.9 50.1-4.3 1.2-8.8 1.8-13.4 1.8-3.3 0-6.5-.3-9.6-.9 6.5 20.3 25.3 35 47.7 35.5C61.7 198.8 39.7 207 15.8 207c-4.1 0-8.2-.2-12.2-.7 22.6 14.5 49.4 22.9 78.3 22.9 93.9 0 145.2-77.8 145.2-145.2 0-2.2 0-4.4-.1-6.6 9.9-7.3 18.6-16.3 25.4-26.6z"/></svg>
+                <!--<![endif]-->
+                <!--[if (lt IE 9)&(!IEMobile)]>
+                    <span class="icon-twitter__fallback"></span>
+                <![endif]-->
+            </span>
+        </a>
+    </div>
+
+    <div class="socialbar__item">
+        <a href="mailto:?subject=Link%20op%20ELDORADIO.lu&body=Salut,,%0D%0A%0D%0Aop Eldo.lu kinnt Iech dëse Contenu interesséieren: http%3A%2F%2Fwww.eldo.lu%2Fprivacy%2F%0D%0A%0D%0AMat beschte Gréiss" target="_blank" class="footer-container__link">
+            <span class="icon icon-email icon-email--colored icon--round">
+                <!--[if (gt IE 8)|(IEMobile)]><!-->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><path d="M233.9 60.5v137.8H21V60.5h212.9m0-12.6H21c-6.9 0-12.5 5.6-12.5 12.5v137.8c0 6.9 5.6 12.5 12.5 12.5h212.9c6.9 0 12.5-5.6 12.5-12.5V60.5c0-6.9-5.6-12.6-12.5-12.6z" fill="#FFF"/><path fill="#FFF" d="M133.4 147.8L13.3 65.6l7-10.3L133 132.4l101.3-76.9 7.6 9.9z"/><path fill="#FFF" d="M13.15 197.966l66.76-94.004L90.1 111.2l-66.757 94.004zM166.116 111.216l10.186-7.243 66.816 93.958-10.186 7.244z"/></svg>
+                <!--<![endif]-->
+                <!--[if (lt IE 9)&(!IEMobile)]>
+                    <span class="icon-email__fallback"></span>
+                <![endif]-->
+            </span>
+        </a>
+    </div>
+
+    <div class="socialbar__item">
+        <a href="#" onclick="window.print();" target="_blank" class="footer-container__link">
+            <span class="icon icon-print icon-print--colored icon--round">
+                <!--[if (gt IE 8)|(IEMobile)]><!-->
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><path d="M63 67.4V18h125.8v49.4h12V18c0-6.6-5.4-12-12-12H63c-6.6 0-12 5.4-12 12v49.4h12zM190.3 152.1v85.8H64.5v-85.8h-12v85.8c0 6.6 5.4 12 12 12h125.8c6.6 0 12-5.4 12-12v-85.8h-12z" fill="#FFF"/><g fill="#FFF"><path d="M39.7 152.1h172M211.7 158.1h-172c-3.3 0-6-2.7-6-6s2.7-6 6-6h171.9c3.3 0 6 2.7 6 6 .1 3.3-2.6 6-5.9 6z"/></g><g fill="#FFF"><path d="M87.9 215h79M166.9 221h-79c-3.3 0-6-2.7-6-6s2.7-6 6-6h79c3.3 0 6 2.7 6 6s-2.7 6-6 6z"/></g><path d="M235.3 56.2H19.5c-6.6 0-12 5.4-12 12V180c0 6.6 5.4 12 12 12h37.1v-12H19.5V68.2h215.7V180h-37.1v12h37.1c6.6 0 12-5.4 12-12V68.2c0-6.6-5.3-12-11.9-12z" fill="#FFF"/><g fill="#FFF"><path d="M87.9 184.3h79M166.9 190.3h-79c-3.3 0-6-2.7-6-6s2.7-6 6-6h79c3.3 0 6 2.7 6 6s-2.7 6-6 6z"/></g><circle cx="194.3" cy="108.9" r="7.4" fill="#FFF"/></svg>
+                <!--<![endif]-->
+                <!--[if (lt IE 9)&(!IEMobile)]>
+                    <span class="icon-email__fallback"></span>
+                <![endif]-->
+            </span>
+        </a>
+    </div>
+
+
+    <!--
+    
+    -->
+</div>
+
+                    </div>
+                    <div class="article__paragraph">
+                        
+                        <div class="ad-slot ad-slot-article">
+                            <div class="ad-slot__content ad-slot__content--imu js-ad" data-category="cat_info_privacy" data-tags="" data-position="imu" id="ipl-imu"></div>
+                        </div>
+                        
+                        <p><i>Version du 23.05.2018</i></p> <p>The Privacy Policy applies to all the online services and offers provided on the eldo.lu internet site, and to all personal information collected from users of the above-mentioned Website (the “Website”).</p> <p>Luxradio sàrl takes the processing of personal data very seriously and is committed to protecting the rights and freedoms of data subjects in accordance with all the legal obligations. Thus, Luxradio sàrl, may amend this Privacy Policy at any time and we advise you to check the website periodically to review the latest version applicable.</p> <p>Luxradio sàrl. processes personal data in accordance with the Regulation (EU) 2016/679 of the European Parliament and of the Council of 27 April 2016 on the protection of natural persons with regard to the processing of personal data and on the free movement of such data (General Data Protection Regulation). This Privacy Policy explains how personal information is obtained, stored and used, when you interact with our Website. As the processing of personal data depends on how you interact with the online services and offers, not all parts of this Privacy Policy may apply to you.</p> <br /> <h2>Collection and Processing of Personal Data</h2> <p>The responsible controller with regard to the protection of your Personal Data is:</p> <p>Luxradio sàrl.<br /> Eldoradio <br /> 43 bd Pierre Frieden<br /> L-1543 Luxembourg.</p> <p>Luxradio sàrl may be contacted with regard to the content of the Website at privacy@eldo.lu and with questions.</p> <p>“Personal Data” means any information that can be attributed to you, such as your name, your address, e-mail or postal addresses. Luxradio sàrl does not collect personal data from you except when you specifically provide it, e.g. when you create an account, order information material or subscribe to newsletters/games/quizzes. Luxradio sàrl is responsible for personal data collected, as a controller, therefore determines the purpose and the means for its usage.</p> <br /> <h2>Why do we process personal data?</h2> <p>Luxradio sàrl collects and processes your personal data only for specific and limited purposes intended to:</p> <ol> <li>Enable and offer games / contests / quizzes in which you participate by SMS, on our Website or any other way;</li> <li>Manage our relationship with you, Internet users, listeners and viewers and advertising for our services or those of Luxradio sàrl partners, for example, to address you personally with your name when sending you our newsletters and keeping you informed of our contests, tips and promotions that may interest you;</li> <li>Individualize your experience by recommending content that may interest you according to your interests or your age category and to offer variety by avoiding that you constantly see the same stories and banners when visiting our website;</li> <li>Offer you personalized content and adapt our Website and services as well as the content and advertising to the characteristics that you have indicated about yourself;</li> <li>Improve our content with information about who (and how) our content is viewed;</li> <li>Evaluate the effectiveness and usability of our Website and its improvement for the benefit of our Internet users, to prevent hacker and virus attacks, to detect system malfunction and to prevent you from receiving unsolicited e-mails from us;</li> <li>Conduct internal statistical surveys and market studies: for example, to evaluate your interests and to better define the development of our competitions, games and quizzes and our marketing strategies;</li> <li>Finance our website, we place advertisements and therefore share your data with third parties; this allows us to generate advertisement revenues to pay our journalists, photographers, technicians etc. and to offer you the content of our website free of charge;</li> <li>Comply with legal obligations and requests from authorities, law enforcement agencies as well as for the defense and enforcement of legal claims.</li> </ol><br /> <h2>Legal basis for processing:</h2> <p>We process personal data about you when:</p> <ul> <li>You have consented or;</li> <li>Luxradio sàrl has legitimate interest of:</li> <li>improving user experience on the Website; and</li> <li>developing new service features.</li> </ul> <p>We have identified which of these grounds for processing we are relying upon, for each of the ways of processing of your personal data.</p> <br /> <h2>Processing under consent</h2> <p>When you have consented, we collect and use the following information about you:</p> <h3>Contact Information</h3> <p>We use contact information to respond to your inquiries, send you information as part of the services, and send you marketing information (as long as you have agreed to this at the point of providing your information and for as long as you do not opt-out).</p> <h3>How you use our services</h3> <p>We collect information about the webpages you have visited and your activity on our sites. We collect this information so that we can track the most visited and most useful parts of our website to identify what are our most popular services and improve them.</p> <h3>Publicity/Communication via Email</h3> <p>Luxradio sàrl will share with you, on our Website or by e-mail, information regarding contests, games or promotions. In case of a game or a contest with a winning price, offered by one of our partners, Luxradio sàrl will share your personal data with the partner, who will then contact you regarding the conditions for receiving your price. This will be the case, if Luxradio sàrl does not have the possibility to contact you and deliver the winning price personally to you, without sharing your information with the partner.</p> <p>All our partners are bound by our Privacy Policy and also sign a confidentiality statement regarding user’s personal data.</p> <p>However, if you do not wish to be contacted by our partners for any of the above-mentioned purposes, please send an email to: privacy@eldo.lu, informing us that you withdraw your consent.</p> <h3>Processing under legitimate interest</h3> <p>Your personal data are used exclusively for purposes of technical website administration, to operate, maintain and provide all features of our services, to provide support and give you access to special information, or for general communication with you. We use the information to understand and analyze the usage trends and preferences of our Visitors and Users.</p> <p>Our legitimate interest is to improve the services and develop new functionalities. We have undertaken appropriate measures to ensure that we place clear limitations and only the information necessary to achieve these legitimate aims is used.</p> <p>We process your personal information under the following categories of data and on the basis of legitimate interest:</p> <h3>Device data.</h3> <p>We collect device and browser information from you to troubleshoot website functionality issues and to fix bugs.</p> <h3>Log data.</h3> <p>We use log data for different business purposes to:</p> <ul> <li>track your preferences and create new services, features, content or make recommendations personalized for you.</li> <li>fix bugs and troubleshoot product functionality.</li> </ul> <h3>To manage our services, we will also internally use your information and data, for the following limited purposes:</h3> <ul> <li>To prevent potentially illegal activities.</li> <li>To screen for and prevent undesirable or abusive activity. For example, we have automated systems that screen content for phishing activities, spam, and fraud.</li> </ul> <h3>Legal uses:</h3> <ul> <li>To respond to legal requests or prevent fraud, we may need to disclose any information or data we hold about you. If we receive a legal request, we may need to inspect the data we hold to determine how to respond.</li> </ul> <br /> <h2>Types of personal data collected and processed:</h2> <p>The following types of personal information may be collected, stored, and used:</p> <ul> <li>Name</li> <li>First name</li> <li>Username</li> <li>Nickname</li> <li>Address</li> <li>Phone</li> <li>Mobile Phone</li> <li>Photo</li> <li>Email Address</li> <li>Gender</li> <li>Birthday</li> <li>Interests</li> <li>Spoken Languages</li> <li>Newsletters</li> <li>Any other personal information that you send to us.</li> </ul> <p>If you have any additional questions about the collection and storage of your personal data, please contact us at:</p> <p>Luxradio sàrl.<br /> Eldoradio<br /> Conc. : Données personnelles - Accès<br /> 43, bd Pierre Frieden<br /> L-1543 Luxembourg</p> <p>Email address: <a href="mailto:privacy@eldo.lu">privacy@eldo.lu</a></p> <br /> <h2>Transfer to third parties</h2> <p>Luxradio sàrl might share your personal data with its third-party service providers such as IT services providers or marketing service providers, to provide you with high-quality services.</p> <p>Third parties, acting in our name and on our account will receive your personal information, only for the specific purposes for which they have been appointed. Luxradio sàrl makes sure that those third parties have the same legal obligations to protect your personal data and keeps them accountable for any possible breach of confidentiality, discretion and security.</p> <p>We enter into confidentiality and data processing terms with partners to ensure that they comply with high levels of confidentiality and best practice in privacy and security standards, and we regularly review these standards and practices.</p> <p>We also have to share information or data in order to:</p> <ul> <li>meet any applicable law, regulation, legal process or enforceable governmental request.</li> <li>enforce applicable policies, including investigation of potential violations.</li> <li>detect, prevent, or otherwise address fraud, security or technical issues.</li> <li>protect against harm to the rights, property or safety of our users, the public and/or as required or permitted by law.</li> </ul> <p>Regarding non-personally identifiable information, we may share it with interested third parties to help them understand the usage patterns of our services and those of our partners. Such non-personally identifiable information is anonymous usage data, as platform types, number of clicks, exit pages, etc. In addition, non-personally identifiable information may be stored indefinitely.</p> <br /> <h2>Comments and posts on our Website</h2> <p>If you place a comment or post on our Website, we will process your personal data, such as your name, username, photo and IP address, because it is necessary for compliance with legal obligations. If your comment violates applicable laws, your identity as author of the comment or post will be relevant.</p> <br /> <h2>Storage and processing</h2> <p>The personal data collected through the different Website will be stored and processed on servers European Union The information is stored in password – protected and limited access databases. The personal data will be stored no longer than necessary to carry out the specific purposes for which the information was collected.</p> <br /> <h2>Your rights as data subject</h2> <p>You have the legal rights to obtain information about whether we hold your personal data, to access it, and to obtain its correction, update, amendment or deletion within reasonable means.</p> <p>We will respond to your request to exercise these rights within a reasonable time (and in all cases within 30 days of receiving a request).</p> <p>Rights which you are entitled to are:</p> <ul> <li>Data access rights</li> <li>Right to correction</li> <li>Right to deletion</li> <li>Right to object to processing</li> <li>Right to restrict processing</li> <li>Right to withdraw consent; and</li> <li>Data portability rights</li> </ul> <p>You may exercise any of these rights by contacting us at: <a href="mailto:privacy@eldo.lu">privacy@eldo.lu</a></p> <p>You control the information you provide about yourself. Most of our services do not require any form of registration, allowing you to visit our Website without telling us who you are. However, if you choose not to share your information, please be aware that you may be unable to access some of the areas of the Website and it may not be possible for us to respond to your query.</p> <br /> <h2>Access to information</h2> <p>You have the right to confirmation as to whether or not we process your personal data and, where we do, access to the personal data, together with certain additional information. That additional information includes details of the purposes of the processing, the categories of personal data concerned and the recipients of the personal data. Providing that the rights and freedoms of others are not affected, we will supply to you a copy of your personal data.</p> <p>One request per year will be free of charge, more frequent requests may be subject to a reasonable fee. We will fulfil your request by sending you a copy electronically, unless the request expressly specifies a different method.</p> <p>You have the right to request access to the information we have on you. You can do this by contacting us at <a href="mailto:privacy@eldo.lu">privacy@eldo.lu</a>. In order to comply with your request, we may ask you to verify your identity.</p> <br /> <h2>Correction and deletion</h2> <p>You have the right to have any inaccurate personal data about you rectified and, taking into account the purposes of the processing, to have any incomplete personal data about you completed.</p> <p>At any time, you can access and amend your personal data in the Privacy Center in your account on our Website. However, if you still believe that the information we have about you is incorrect, you are welcome to contact us, so we can update it and keep your data accurate.</p> <p>If your personal information changes (e.g. zip code, e-mail, postal address), please update the data in our Privacy Center online, or e-mail the changes to us in order to correct or update your personal data.</p> <p>If at any point you wish for Luxradio sàrl to delete your information, or you wish to withdraw your consent on a specific purpose of processing your personal data, you can do so in our Privacy Center online or by simply contacting us at this email: <a href="mailto:privacy@eldo.lu">privacy@eldo.lu</a></p> <br /> <h2>Objection or restriction of processing</h2> <p>At any time, you can <b><u>object</u></b> to the processing of your personal data, that is based on our legitimate interest, or are processed for direct marketing purposes, in which case the personal data will no longer be processed for such purposes.</p> <p>If you believe your right to privacy granted by applicable data protection laws has been infringed upon, please contact Luxradio sàrl at this email address: privacy@eldo.lu</p> <p>In some circumstances you have the right to <b><u>restrict</u></b> the processing of your personal data. Those circumstances are:</p> <ul> <li>You contest the accuracy of the personal data;</li> <li>Processing is unlawful;</li> <li>We no longer need the personal data for the purposes of our processing, but you require personal data for the establishment, exercise or defense of legal claims;</li> <li>And you have objected to processing, pending the verification of that objection.</li> </ul> <p>If you consider that the processing of your personal data infringes data protection laws, you have a legal right to lodge a complaint with the supervisory authority responsible for data protection. You may do so in the EU Member state of your habitual residence, your place of work or the place of the alleged infringement.</p> <br /> <h2>Minors</h2> <p>Luxradio sàrl strongly advises all parents and guardians to teach their children safe and responsible handling of personal data on the Internet. Minors should not transmit any personal data to our Website without the permission of their parents or guardians. Luxradio sàrl will never knowingly collect personal data from minors, or use it in any way, or disclose it to third parties without permission.</p> <br /> <h2>Security measures</h2> <p>Luxradio sàrl takes great care to ensure the security of personal data, by maintaining suitable safeguards, including reasonable physical, administrative and technical safeguards to protect its database from unauthorized access, disclosure, alteration, loss or destruction. All data collected by is stored in accordance with the security regulations.</p> <br /> <h2>Links to other Website</h2> <p>Our Website may contain links to other providers, to which this Privacy Policy statement does not extend. When you leave our Website, please be aware of and read the privacy statements of each and every website that collects personally identifiable information. We are not responsible for the content or privacy and security practices, and policies of third-party sites or services to which links or access are provided through our website. We encourage you to learn about third parties’ privacy and security policies before providing them with information.</p> <p>If you are using the functionalities of social media plug-ins, such as the ones provided by Facebook Inc. (1 Hacker Way, Menlo Park, California 94025, USA), they may store your IP address, and if you are logged in your Facebook account while visiting our website, both information will be linked. The plug-in will create a direct link between your browser and the Facebook servers. We have no influence regarding the nature and the amount of data, which the plug-in will transmit to Facebook servers. Further information on this you will find here:</p> <p><a href="https://www.facebook.com/help/186325668085084">https://www.facebook.com/help/186325668085084</a></p> <p>If you are recommending, sharing or liking our content on Facebook, this information will also be transmitted to Facebook Inc. If you want to prevent Facebook from linking this data with your account, then make sure that you log out from your Facebook account prior to visiting our website and delete the saved cookies. In your Facebook profile, you can use further restrictions regarding the sharing of data for advertising purposes. If you want to change the settings in Facebook, you can use the following hyperlinks:</p> <p><a href="https://www.facebook.com/ads/preferences/?entry_product=ad_settings_screen">https://www.facebook.com/ads/preferences/?entry_product=ad_settings_screen</a></p> <p><a href="http://optout.aboutads.info/?c=2#!/">http://optout.aboutads.info/?c=2#!/</a></p> <p><a href="http://optout.networkadvertising.org/?c=1#!/">http://optout.networkadvertising.org/?c=1#!/</a></p> <br /> <h2>Law Enforcement, Legal Process and Compliance</h2> <p>We may disclose personal data or other information if required to do so by law or in the good-faith belief that such action is necessary to comply with applicable laws, in response to a valid court order, judicial or other government warrant, or to otherwise cooperate with law enforcement or other governmental agencies.</p> <br /> <h2>Transfer to third countries</h2> <p>Luxradio sàrl does not transfer your personal data outside of the European Union, to a country which does not assure an adequate level of protection of Personal Data, according to the EU Regulation 2016/679 applicable from the 25th of May 2018.</p> <p>Your Personal Data might be transferred to a company in a third country outside of the European Union, under one of the following circumstances:</p> <ul> <li>The European Commission has adopted an "adequacy decision" with respect to the data protection laws of the respective country;</li> <li>Transfers to the respective country will be protected by appropriate safeguards, namely the use of standard data protection clauses adopted or approved by the European Commission.</li> </ul> <p>Facebook Inc. complies with the European data protection laws and it is certified under the EU – US Privacy Shield: <a href="https://www.privacyshield.gov/participant?id=a2zt0000000GnywAA&amp;status=Active">https://www.privacyshield.gov/participant?id=a2zt0000000GnywAA&amp;status=Active</a></p> <p>You acknowledge that personal data that you submit for publication through our website or services may be available, via the internet, around the world. We cannot prevent the use (or misuse) of such personal data by others.</p> <br /> <h2>Cookies Policy</h2> <p>A cookie is a small unit of data issued by the server of the website that you are viewing and which is registered on the hard disk of your computer or mobile device. The cookie contains a unique code to recognize your browser during your visit to the website or during future visits. Cookies can be placed by the server of the website you visit or by partners with whom this website collaborates. The server of a website can only read the cookies it has placed itself; it does not have access to any other information on your computer or mobile device.</p> <p>The content of a cookie typically consists of the name of the server that placed the cookie, an expiration date, and a unique encrypted code. Cookies provide generally easier and faster interaction between the visitor and the website (a cookie may retain the user's chosen language, for example). Indeed, they memorize your preferences and allow you to accelerate your subsequent access to the site and facilitate your visits.</p> <p>In addition, they help you navigate between different parts of the website. Cookies may also be used to make the content of a website or advertisement on this site more relevant to the visitor and to adapt the website to the personal tastes and needs of the visitor.</p> <p>The use of cookies requires your prior and explicit consent. You can always return to it later and refuse these cookies and / or delete them at any time, by modifying the settings of your browser.</p> <p>Our Website is using different types of cookies, namely:</p> <h3>Navigation cookies:</h3> <p>These cookies are required to allow the visit of our Website and the use of certain parts of them. They allow you to navigate between the different sections of the Website, complete forms, securely verify your identity before granting access to your personal information, when a personal account has been created. If you later refuse these cookies, some sections of the website will not work as they should, or at all.</p> <h3>Functional cookies:</h3> <p>These cookies are intended to facilitate and analyze the operation of our Website and to make their use more pleasant and personalized. They allow to customize the services by memorizing your preferences (choice of a language, currency, location, etc ...), to prevent you from repeating your choices during each visit to the site. They are useful for collecting the information provided in the online forms, compiling statistics (ex. number of unique visitors) and analyzing the use of the site and the popularity of our pages.</p> <h3>Commercial cookies:</h3> <p>When you visit our Website socio-demographic data and profile data are collected to be stored anonymously in a commercial cookie. Commercial cookies are installed by advertisers when their ad is served. Commercial cookies do not contain any personal data. They allow to avoid being repeatedly confronted with the same ads. They measure the effectiveness of our different marketing actions, advertising and help to customize advertising on our Website.</p> <h3>Third-Party Cookies</h3> <p>Third-party cookies are placed on our Website by:</p> <ul> <li>Google (Analytics / DFP)</li> <li>Gemius Prism / Metriweb</li> <li>AdTech</li> <li>Linkedin</li> <li>Facebook</li> </ul> <p>For example, Luxradio sàrl uses Google Analytics to collect information about how visitors use the website. The cookies collect information anonymously, including the number of visitors to the site, where visitors have come to the site from and the pages they have visited. Luxradio sàrl uses this information to compile reports and to improve the site. It is subject to Google’s current cookie policy, which you can find here: http://www.google.com/intl/en/policies/</p> <p>We take measures to protect the technical information collected by our use of Google Analytics. The data collected will only be used on a need to know basis to resolve technical issues, administer the Site and identify visitor preferences;but in this case, the data will be in non-identifiable form. We do not use any of this information to identify Visitors or Users. However, Google Analytics uses the cookie to identify you as a specific user on whatever other page you use where Google Analytics is activated. Your privacy is ensured. However, you may change your browser settings at any time and choose to access the Website without accepting Cookies.</p>                    </div>
+                                                            
+                    <div class="ad-slot ad-slot-article">
+                        <div class="ad-slot__content ad-slot__content--imu-m js-ad" data-category="cat_info_privacy" data-tags="" data-position="imu-m" id="ipl-imu-m"></div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="article__footer">
+        <div class="article__outer">
+            <div class="article__inner">
+                                <div class="ad-slot ad-slot-aktiounen">
+                        <div class="ad-slot-aktiounen__footer" data-category="cat_info_privacy" data-tags="" data-position="aktiounen-footer" id="ipl-aktiounen-footer"></div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</article>
+
+
+
+<script>
+    var handler = 1;
+
+    var trackDiv = document.createElement('script');
+    trackDiv.src = 'https://nodejs.rtl.lu/l/?h=1&p=783&i=84348&r=100&ctx=eldo';
+    document.body.appendChild(trackDiv);
+
+
+    if(typeof("ga") != "undefined") {
+        if(handler == 1) {
+            ga('send', 'event', 'Article', 'view', 84348);
+        }
+    }
+
+</script>
+
+
+
+    </div>
+</div>
+
+
+<script defer src="https://rtl-sites-assets.rtl.lu/js/cookie_consent.js?v=20180601155312"></script>
+
+
+<footer class="l-footer app-hide">
+ 
+        <div class="l-footer__outer">
+            <div class="l-footer__inner grid-container">
+                <div class="footer-container footer-container--nav">
+                    <h1 class="footer-container__title">A propos</h1>
+                    <div class="footer-container__inner">
+                        <ul class="nav-container nav-container--footer">
+                            <li class="nav-container__item"><a href="https://newsletter.eldo.lu" class="nav-container__link">Newsletter</a></li>
+                            <li class="nav-container__item"><a href="/disclaimer" class="nav-container__link">Conditions d'Utilisation</a></li>
+                            <li class="nav-container__item"><a href="/privacy" class="nav-container__link">Privacy Policy</a></li>
+                            <li class="nav-container__item"><a href="/frequenzen" class="nav-container__link">Frequenzen</a></li>
+                            <li class="nav-container__item"><a href="/kontakt" class="nav-container__link">Kontakt</a></li>
+                            <li class="nav-container__item"><a href="/feedback" class="nav-container__link">Feedback</a></li>
+                            <li class="nav-container__item"><a href="/jobs" class="nav-container__link">Jobs</a></li>
+                        </ul>
+
+                        <!--<div class="partner partner__cim"><a href=""><img src="/images/partner/cim.png" /></a></div>-->
+                    </div>
+                </div>
+
+                <div class="footer-container footer-container--ipl">
+                    <h1 class="footer-container__title">Espace publicitaire</h1>
+                    <div class="footer-container__inner">
+                        <p>Vous souhaitez faire de la publicité sur eldo.lu? Prenez contact directement avec notre régie publicitaire IPLuxembourg.</p>
+                        <a href="http://www.ipl.lu" target="_blank" class="footer-container__link">
+                            <span class="logo-ipl">
+                                <!--[if (gt IE 8)|(IEMobile)]><!-->
+                                <svg version="1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1970 355"><g fill="#809598"><path d="M318.4 106.1c-6.4 3.8-12.9 8.4-19.2 13.8l-101-58.7c12.1-4.8 24.6-8.5 37.5-11l82.7 55.9zM282.2 136.5c-5.1 5.7-10.2 11.9-15.1 18.5l-131.4-54.8c9.2-8.1 18.9-15.5 29.1-21.9l117.4 58.2zM253.7 175c-4.1 6.7-8.1 13.8-12 21.2l-152-41a244 244 0 0 1 20.9-29.1L253.7 175zM231.1 218.6c-3.3 7.5-6.3 15.2-9.2 23.1l-161-21.4c3.4-11.5 7.5-22.7 12.3-33.5l157.9 31.8zM213.9 265.9c-.1.5-.3 1-.4 1.5-2.3 7.9-4.4 15.7-6.2 23.5H49.5c.4-12 1.6-23.9 3.4-35.4l161 10.4zM331.4 141.9c8.4 0 15.2-6.8 15.2-15.2 0-8.4-6.8-15.2-15.2-15.2-8.4 0-15.2 6.8-15.2 15.2 0 8.4 6.8 15.2 15.2 15.2M300.6 173c8.4 0 15.2-6.8 15.2-15.2 0-8.4-6.8-15.2-15.2-15.2-8.4 0-15.2 6.8-15.2 15.2 0 8.4 6.8 15.2 15.2 15.2M274.5 209.8c8.4 0 15.2-6.8 15.2-15.2 0-8.4-6.8-15.2-15.2-15.2-8.4 0-15.2 6.8-15.2 15.2 0 8.4 6.8 15.2 15.2 15.2M255.6 249.8c8.4 0 15.2-6.8 15.2-15.2 0-8.4-6.8-15.2-15.2-15.2-8.4 0-15.2 6.8-15.2 15.2 0 8.4 6.8 15.2 15.2 15.2M242.4 293.2c8.4 0 15.2-6.8 15.2-15.2s-6.8-15.2-15.2-15.2c-8.4 0-15.2 6.8-15.2 15.2s6.8 15.2 15.2 15.2M381.4 200.2l25.8 36.4c.5.8.5.7.5 1.6 0 .5-1.1 1-1.1 1s-2 0-6.6 2-5.9 16.5-5.9 16.5-2.8 12.6-6 14.6c-4.2 2.7-7.3 2-7.3 2s-64.2-.7-81.4 1.3c-17.2 2-24.5 29.1-24.5 29.1 1.7-2 5.3-4 12.2-8.9 6.9-5 15.2-5 15.2-5H385c16.2 0 20.2-7 21.8-10.6 1.7-3.6 3.7-25.6 4.6-28.1.8-2.2 4-3.1 8.9-4 4.8-.8 6.6-3.6 6.6-3.6s.7-4.3-.7-8.6c-1.3-4.3-30.1-43.7-30.1-43.7.3-1 1-5.6-.3-7.9-1.3-2.3-36.4-43.2-38.1-43.7-1.2-.3-2.3.7-2.3.7l-9.3 10.6 28.8 32.1-6.6 1c-24.2 5-29.5 17.2-29.5 17.2 9.9-3.3 39.7-3.3 39.7-3.3s1.2 0 1.7.3c.8.4 1.2 1 1.2 1M548.7 106.1h11.6v167.8h-11.6V106.1zM625.7 106.1H697c35.1 0 53.7 13.4 53.7 48 0 34.9-18.3 50.5-53.2 50.5h-60v69.3h-11.8V106.1zm72 87.6c26.1 0 41.2-10.6 41.2-39.4 0-28.5-14.7-37.4-42.1-37.4h-59.4v76.8h60.3zM1042.7 106.1h36.9v167.8h-36.9V106.1zM1129.2 189.9c0-60.7 31.7-86.5 88.3-86.5 34 0 54.6 10 68 23.8l-25.4 25.6c-8.6-8.2-19.7-15.4-42.8-15.4-36.7 0-51 18.1-51 53 0 36.7 10 54.8 50.5 54.8 32.6 0 42.1-10.9 42.1-34.4v-3.6H1212v-30.8h83.6v27.4c0 47.8-19 72.7-80.6 72.7-67-.1-85.8-30.9-85.8-86.6zM1344.4 106.1h36.9v167.8h-36.9V106.1zM1484.5 139.6h-58.2v-33.5h153.6v33.5h-58v134.3h-37.4V139.6zM1653 104.9h37.6l67.7 169h-38.5l-10.9-27.6h-76.1l-10.9 27.6h-36.2l67.3-169zm44.2 110.8l-26.3-66.8-26.3 66.8h52.6zM1800.9 106.1h37.2v135.7h82.5V274H1801V106.1zM769.5 241.5h70.1v32.4h-70.1z"/><path d="M993.4 189.9c0-66.6-27.4-83.8-93.6-83.8h-60.3v135.5h37.2V139.3h23.6c48 0 55.7 12.7 55.7 50.5s-9.3 51.6-55 51.6h-.6v32.4c65-.2 93-19 93-83.9z"/></g></svg>
+                                <!--<![endif]-->
+                                <!--[if (lt IE 9)&(!IEMobile)]>
+                                    <span class="logo-ipl__fallback"></span>
+                                <![endif]-->
+                            </span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div class="footer-container footer-container--social">
+                    <h1 class="footer-container__title footer-container__title--center">Follow us</h1>
+                    <div class="footer-container__inner">
+
+                        <div class="footer-container__item footer-container__item--float">
+                            <a href="https://www.facebook.com/eldoradiolux" target="_blank" class="footer-container__link">
+                                <span class="icon icon-facebook icon-facebook--colored icon--round">
+                                    <!--[if (gt IE 8)|(IEMobile)]><!-->
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><path fill="#FFF" d="M145.7 241.4V138.1h34.7l5.2-40.3h-39.9V72.1c0-11.7 3.2-19.6 20-19.6H187v-36c-3.7-.5-16.4-1.6-31.1-1.6-30.8 0-51.8 18.8-51.8 53.2v29.7H69.3v40.3h34.8v103.4h41.6z"/></svg>
+                                    <!--<![endif]-->
+                                    <!--[if (lt IE 9)&(!IEMobile)]>
+                                        <span class="icon-facebook__fallback"></span>
+                                    <![endif]-->
+                                    </a>
+                                </span>
+                            </a>
+                        </div>
+
+                        <div class="footer-container__item footer-container__item--float">
+                            <a href="https://twitter.com/eldoradio_lux" target="_blank" class="footer-container__link">
+                                <span class="icon icon-twitter icon-twitter--colored icon--round">
+                                    <!--[if (gt IE 8)|(IEMobile)]><!-->
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><path fill="#FFF" d="M252.4 50.8c-9.2 4.1-19 6.8-29.3 8 10.5-6.3 18.6-16.3 22.4-28.2-9.9 5.8-20.8 10.1-32.4 12.4-9.3-9.9-22.6-16.1-37.3-16.1-28.2 0-51 22.9-51 51 0 4 .5 7.9 1.3 11.6-42.4-2.1-80-22.5-105.2-53.3-4.4 7.6-6.9 16.3-6.9 25.7 0 17.7 9 33.3 22.7 42.5-8.4-.3-16.2-2.6-23.1-6.4v.6c0 24.7 17.6 45.4 40.9 50.1-4.3 1.2-8.8 1.8-13.4 1.8-3.3 0-6.5-.3-9.6-.9 6.5 20.3 25.3 35 47.7 35.5C61.7 198.8 39.7 207 15.8 207c-4.1 0-8.2-.2-12.2-.7 22.6 14.5 49.4 22.9 78.3 22.9 93.9 0 145.2-77.8 145.2-145.2 0-2.2 0-4.4-.1-6.6 9.9-7.3 18.6-16.3 25.4-26.6z"/></svg>
+                                    <!--<![endif]-->
+                                    <!--[if (lt IE 9)&(!IEMobile)]>
+                                        <span class="icon-twitter__fallback"></span>
+                                    <![endif]-->
+                                </span>
+                            </a>
+                        </div>
+                    
+                        <div class="footer-container__item footer-container__item--float">
+                            <a href="https://www.instagram.com/eldoradio_lux/" target="_blank" class="footer-container__link">
+                                <span class="icon icon-instagram icon-instagram--colored icon--round">
+                                    <!--[if (gt IE 8)|(IEMobile)]><!-->
+                                    <svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><style>.st0{fill:#fff}</style><path class="st0" d="M127.5 41.1c28.2 0 31.5.1 42.6.6 10.3.5 15.9 2.2 19.6 3.6 4.9 1.9 8.4 4.2 12.1 7.9 3.7 3.7 6 7.2 7.9 12.1 1.4 3.7 3.2 9.3 3.6 19.6.5 11.1.6 14.5.6 42.6s-.1 31.5-.6 42.6c-.5 10.3-2.2 15.9-3.6 19.6-1.9 4.9-4.2 8.4-7.9 12.1-3.7 3.7-7.2 6-12.1 7.9-3.7 1.4-9.3 3.2-19.6 3.6-11.1.5-14.5.6-42.6.6s-31.5-.1-42.6-.6c-10.3-.5-15.9-2.2-19.6-3.6-4.9-1.9-8.4-4.2-12.1-7.9-3.7-3.7-6-7.2-7.9-12.1-1.4-3.7-3.2-9.3-3.6-19.6-.5-11.1-.6-14.5-.6-42.6s.1-31.5.6-42.6c.5-10.3 2.2-15.9 3.6-19.6 1.9-4.9 4.2-8.4 7.9-12.1 3.7-3.7 7.2-6 12.1-7.9 3.7-1.4 9.3-3.2 19.6-3.6 11.1-.5 14.5-.6 42.6-.6m0-19c-28.6 0-32.2.1-43.5.6-11.2.5-18.9 2.3-25.6 4.9-6.9 2.7-12.8 6.3-18.7 12.2-5.9 5.9-9.5 11.7-12.2 18.7-2.6 6.7-4.4 14.4-4.9 25.6-.5 11.2-.6 14.8-.6 43.5 0 28.6.1 32.2.6 43.5.5 11.2 2.3 18.9 4.9 25.6 2.7 6.9 6.3 12.8 12.2 18.7 5.9 5.9 11.7 9.5 18.7 12.2 6.7 2.6 14.4 4.4 25.6 4.9 11.2.5 14.8.6 43.5.6s32.2-.1 43.5-.6c11.2-.5 18.9-2.3 25.6-4.9 6.9-2.7 12.8-6.3 18.7-12.2 5.9-5.9 9.5-11.7 12.2-18.7 2.6-6.7 4.4-14.4 4.9-25.6.5-11.2.6-14.8.6-43.5s-.1-32.2-.6-43.5c-.5-11.2-2.3-18.9-4.9-25.6-2.7-6.9-6.3-12.8-12.2-18.7-5.9-5.9-11.7-9.5-18.7-12.2-6.7-2.6-14.4-4.4-25.6-4.9-11.2-.5-14.8-.6-43.5-.6z"/><path class="st0" d="M127.5 73.4c-29.9 0-54.2 24.2-54.2 54.2s24.2 54.2 54.2 54.2 54.2-24.2 54.2-54.2-24.3-54.2-54.2-54.2zm0 89.3c-19.4 0-35.2-15.7-35.2-35.2 0-19.4 15.7-35.2 35.2-35.2 19.4 0 35.2 15.7 35.2 35.2 0 19.5-15.7 35.2-35.2 35.2z"/><circle class="st0" cx="183.8" cy="71.2" r="12.7"/></svg>
+                                    <!--<![endif]-->
+                                    <!--[if (lt IE 9)&(!IEMobile)]>
+                                        <span class="icon-instagram__fallback"></span>
+                                    <![endif]-->
+                                </span>
+                            </a>
+                        </div>
+
+                        <div class="footer-container__item footer-container__item--float">
+                            <a href="http://www.eldo.lu/whatsapp/" target="_blank" class="footer-container__link">
+                                <span class="icon icon-whatsapp icon-whatsapp--colored icon--round">
+                                    <!--[if (gt IE 8)|(IEMobile)]><!-->
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><path fill-rule="evenodd" clip-rule="evenodd" fill="#FFF" d="M204.8 53.1c-20.4-20.4-47.5-31.6-76.3-31.6C69 21.4 20.6 69.8 20.6 129.3c0 19 5 37.6 14.4 53.9l-15.3 55.9 57.2-15c15.8 8.6 33.5 13.1 51.6 13.1 59.5 0 107.9-48.4 107.9-107.9 0-28.7-11.3-55.8-31.6-76.2zm-76.3 166c-16.1 0-31.9-4.3-45.7-12.5l-3.3-1.9-33.9 8.9 9.1-33.1-2.1-3.4c-9-14.3-13.7-30.8-13.7-47.7 0-49.4 40.3-89.7 89.7-89.7 24 0 46.5 9.3 63.4 26.3s26.3 39.5 26.2 63.4c-.1 49.4-40.3 89.7-89.7 89.7zm49.1-67.2c-2.7-1.3-16-7.9-18.4-8.8-2.5-.9-4.3-1.3-6.1 1.3-1.8 2.7-7 8.8-8.5 10.6-1.6 1.8-3.1 2-5.8.7-2.7-1.3-11.4-4.2-21.7-13.4-8-7.1-13.4-16-15-18.7-1.6-2.7-.2-4.2 1.2-5.5 1.2-1.2 2.7-3.1 4-4.7 1.3-1.6 1.8-2.7 2.7-4.5.9-1.8.4-3.4-.2-4.7-.7-1.3-6.1-14.6-8.3-20-2.2-5.3-4.4-4.5-6.1-4.6-1.6-.1-3.4-.1-5.2-.1-1.8 0-4.7.7-7.2 3.4s-9.4 9.2-9.4 22.5 9.7 26.1 11 27.9c1.3 1.8 19 29 46.1 40.7 6.4 2.8 11.5 4.4 15.4 5.7 6.5 2.1 12.3 1.8 17 1.1 5.2-.8 16-6.5 18.2-12.8 2.2-6.3 2.2-11.7 1.6-12.8-.8-1.3-2.6-1.9-5.3-3.3z"/></svg>
+                                    <!--<![endif]-->
+                                    <!--[if (lt IE 9)&(!IEMobile)]>
+                                        <span class="icon-whatsapp__fallback"></span>
+                                    <![endif]-->
+                                </span>
+                            </a>
+                        </div>
+
+                        <div class="footer-container__item footer-container__item--float">
+                            <a href="https://www.youtube.com/channel/UCgtVSYB7EuKjPckT5EKa21g" target="_blank" class="footer-container__link">
+                                <span class="icon icon-youtube icon-youtube--colored icon--round">
+                                    <!--[if (gt IE 8)|(IEMobile)]><!-->
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 519.9 256"><path fill="#FFF" d="M198.7 190.9h-19v-11c-7.2 8.3-13.3 12.4-20 12.4-5.8 0-9.9-2.8-11.9-7.7-1.2-3-2.1-7.8-2.1-14.7v-80h19v82c.4 2.8 1.6 3.8 4.1 3.8 3.6 0 6.9-3.2 10.9-8.8v-77h19v101zM131.7 122.9c0-10.8-2.2-18.9-6-24-5.1-6.9-13-9.7-21-9.7-9.1 0-15.9 2.8-21 9.7-3.9 5.1-6 13.3-6 24.1v35.9c0 10.7 1.9 18.1 5.8 23.2 5.1 6.9 13.2 10.5 21.2 10.5s16.3-3.6 21.4-10.5c3.8-5.1 5.6-12.5 5.6-23.2v-36zm-19 38c1 10-2.1 15-8 15s-9-5-8-15v-40c-1-10 2.1-14.7 8-14.7s9 4.7 8 14.7v40zM56.7 135.9v55h-20v-55s-20.7-67.4-25-80h21l14 52.7 14-52.7h21l-25 80z"/><g fill="#FFF"><path d="M394.1 105.9c-3 0-6.4 1.6-9.4 4.6v60.6c3 3 6.5 4.6 9.4 4.6 5.2 0 7.6-3.8 7.6-13.8v-43c0-10-2.4-13-7.6-13zM468.7 117.9c0-9.2-2.4-12-8.4-12s-8.6 2.5-8.6 11.9v11.1h17v-11z"/><path d="M509.7 66.8s-2.9-20.5-11.9-29.5c-11.4-11.8-24.1-11.9-29.9-12.6-41.8-3-104.5-3-104.5-3h-.1s-62.7 0-104.5 3c-5.8.7-18.6.8-29.9 12.6-9 9-11.9 29.5-11.9 29.5s-3 24.1-3 48.1v22.6c0 24.1 3 48.1 3 48.1s3 20.4 12 29.4c11.4 11.8 26.3 11.5 32.9 12.7 23.9 2.3 101.5 3 101.5 3s62.7-.1 104.5-3.1c5.8-.7 18.6-.8 29.9-12.6 9-9 11.9-29.5 11.9-29.5s3-24.1 3-48.1v-22.6c0-24-3-48-3-48zm-230 124.1h-20v-115h-21v-19h63v19h-22v115zm72 0h-19v-11c-7.2 8.3-13.3 12.4-20 12.4-5.8 0-9.9-2.8-11.9-7.7-1.2-3-2.1-7.8-2.1-14.7v-79h19v81c.4 2.8 1.6 3.8 4.1 3.8 3.6 0 6.9-3.2 10.9-8.8v-76h19v100zm69-30c0 9.2-.8 15.8-2 20-2.4 7.4-7.7 11.3-14.9 11.3-6.4 0-13-3.9-19.1-11.4v10.1h-18v-134h18v43.7c5.8-7.2 12.5-11.3 19.1-11.3 7.2 0 12.1 4.2 14.5 11.6 1.2 4 2.4 10.5 2.4 20v40zm39.8 14.8c4.5 0 7.1-2.4 8.1-7.3.2-1 .1-5.3.1-12.6h19v2.8c0 5.8-.5 10-.6 11.8-.6 4-2 7.6-4.2 10.8-5 7.3-12.4 10.8-21.9 10.8-9.5 0-16.7-3.4-21.9-10.2-3.8-5-6.3-12.4-6.3-23.1v-35c0-10.7 2.2-18.9 6.1-24 5.2-6.8 12.4-10.5 21.7-10.5 9.1 0 16.3 3.6 21.4 10.5 3.8 5.1 5.9 12.9 5.9 23.5v20.4h-36v18c-.3 9.4 2.4 14.1 8.6 14.1z"/></g></svg>
+                                    <!--<![endif]-->
+                                    <!--[if (lt IE 9)&(!IEMobile)]>
+                                        <span class="icon-youtube__fallback"></span>
+                                    <![endif]-->
+                                    </a>
+                                </span>
+                            </a>
+                        </div>
+
+                         
+
+                        <div class="footer-container__item footer-container__item--float">
+                            <a href="/aktiounen/events//71473.html" class="footer-container__link">
+                                <span class="icon icon-snapchat icon-snapchat--colored icon--round">
+                                    <!--[if (gt IE 8)|(IEMobile)]><!-->
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="183.9 388.3 458.6 432.1"><path fill="#FFF" d="M416.1 814.6c-1.3 0-2.5 0-3.4-.2-.7.2-1.5.2-2.3.2-26.7 0-44.5-12.6-60.4-23.7-11.3-8-21.9-15.6-34.4-17.7-6.1-1.1-12.3-1.5-18-1.5-10.6 0-19 1.6-25 2.8-3.8.7-7 1.3-9.5 1.3-2.6 0-5.9-.7-7.2-5.1-1.1-3.6-1.8-7-2.5-10.3-1.8-8.3-3.3-13.4-6.4-13.9-33.4-5.1-53.4-12.8-57.3-21.9-.3-1-.7-2-.7-2.8-.2-2.8 1.8-5.1 4.6-5.6 26.5-4.4 50.3-18.5 70.4-41.7 15.6-18 23.2-35.4 23.9-37.3 0-.2.2-.2.2-.2 3.8-7.9 4.6-14.6 2.3-20.1-4.3-10.3-18.5-14.7-28.2-17.7-2.5-.7-4.6-1.5-6.4-2.1-8.3-3.3-22.1-10.3-20.3-20 1.3-7 10.6-12 18.2-12 2.1 0 3.9.3 5.4 1.1 8.5 3.9 16.2 5.9 22.8 5.9 8.2 0 12.1-3.1 13.1-4.1-.2-4.4-.5-9-.8-13.3-2-30.6-4.3-68.6 5.4-90.4 29.1-65.2 90.9-70.4 109.2-70.4.5 0 8-.2 8-.2h1.1c18.3 0 80.1 5.1 109.2 70.4 9.8 21.8 7.4 59.9 5.4 90.4l-.2 1.5c-.2 4.1-.5 8-.7 12 1 .8 4.6 3.8 12 3.9 6.4-.2 13.4-2.3 21.4-5.9 2.5-1.1 5.1-1.5 7-1.5 2.8 0 5.6.7 8 1.5h.2c6.7 2.5 11.1 7.2 11.1 12.1.2 4.6-3.4 11.6-20.5 18.5-1.8.7-3.9 1.5-6.4 2.1-9.5 2.9-23.7 7.5-28.2 17.7-2.5 5.4-1.5 12.3 2.3 20.1 0 .2.2.2.2.2 1.1 2.8 30 68.4 94.3 79.1 2.8.5 4.6 2.8 4.6 5.6 0 1-.2 2-.7 2.9-3.9 9.2-23.7 16.7-57.3 21.9-3.1.5-4.6 5.6-6.4 13.9-.7 3.4-1.5 6.7-2.5 10.3-1 3.3-3.1 5.1-6.7 5.1h-.5c-2.3 0-5.4-.3-9.5-1.1-7.2-1.5-15.1-2.6-25-2.6-5.9 0-12 .5-18 1.5-12.4 2-23.1 9.7-34.4 17.7-16.1 11-34 23.6-60.5 23.6"/><path fill="#020202" d="M417.6 399c17.2 0 76.5 4.6 104.5 67.3 9.2 20.6 6.7 58 5.1 87.9-.2 4.7-.7 9.3-.8 13.8l-.2 2 1.3 1.5c.5.7 5.2 5.6 15.9 5.9h.4c7-.2 15.1-2.5 23.6-6.4 1.3-.7 2.9-.8 4.7-.8 2 0 4.1.3 5.9 1.1l.2.2c4.6 1.5 7.7 4.6 7.7 7.2 0 1.5-1.1 7-17.2 13.3-1.5.7-3.6 1.3-5.9 2-10.3 3.3-26 8.3-31.4 20.6-2.9 7-2.1 15.4 2.5 24.6 2 4.4 31.6 71.2 98.2 82.2 0 .3-.2.7-.2 1.1-1.1 2.6-8.3 12-53 18.8-7 1.1-8.7 9-10.6 18-.7 3.3-1.5 6.5-2.5 10-.3 1.1-.3 1.1-1.5 1.1h-.5c-2 0-5.1-.3-8.5-1.1-6.4-1.1-15.1-2.8-26.2-2.8-6.2 0-12.6.7-19 1.6-13.8 2.3-24.9 10.2-36.7 18.5-15.9 10.8-32.3 22.4-57.3 22.4-1.1 0-2.1 0-3.3-.2h-.4c-.7 0-1.1.2-2 .2-25 0-41.4-11.6-57.3-22.8-11.8-8.3-22.9-16.2-36.7-18.5-6.4-1.1-12.9-1.6-19-1.6-11.1 0-19.8 1.6-26.2 2.9-3.4.7-6.5 1.3-8.5 1.3-1.6 0-1.6-.2-2-1.3-1-3.4-1.8-6.7-2.5-10-2-9.2-3.8-17-10.6-18-44.7-6.9-52.1-16.2-53-18.8-.2-.5-.2-.8-.2-1.1 66.8-11 96.4-77.8 98.2-82.2 4.6-9.3 5.4-17.7 2.5-24.6-5.2-12.4-21-17.5-31.4-20.6-2.5-.7-4.4-1.5-5.9-2-13.4-5.4-17.7-10.6-17-13.9.7-3.8 7.2-7.7 12.9-7.7 1.3 0 2.5.2 3.3.7 9.2 4.3 17.7 6.5 25 6.5 11.6 0 16.7-5.4 17.4-6.1l1.3-1.5-.2-2c-.2-4.4-.5-9-.8-13.8-2-30-4.3-67.3 5.1-87.9 27.8-62.4 86.8-67.1 104.1-67.1.5 0 8-.2 8-.2 0 .3.3.3.7.3m0-10.7h-1.1c-2.8 0-7.5.2-7.9.2-10.3 0-30.6 1.5-52.6 11.1-12.4 5.4-23.7 12.9-33.4 22.3-11.6 11-21 24.6-28 40.3-10.3 22.9-7.9 61.7-5.9 93 .2 3.3.5 6.7.7 10.3-1.5.7-3.9 1.5-7.5 1.5-5.9 0-12.6-2-20.5-5.4-2.3-1.1-4.9-1.5-7.7-1.5-4.6 0-9.5 1.3-13.8 3.8-5.4 3.1-8.8 7.5-9.8 12.4-.7 3.3-.7 9.7 6.5 16.2 3.9 3.6 9.7 6.9 17.2 9.8 2 .7 4.3 1.5 6.7 2.3 8.5 2.8 21.4 6.7 24.7 14.6 1.6 4.1 1 9.3-2.1 15.6-.2.2-.2.3-.2.5-.8 1.8-8 18.5-23.1 36-8.5 9.8-18 18.2-27.8 24.7-12.1 7.9-25.4 12.9-39.1 15.4-5.4.8-9.3 5.7-9 11.1.2 1.5.5 3.3 1.1 4.6 2.1 5.1 7.2 9.5 15.6 13.3 10.2 4.6 25.2 8.7 44.9 11.8 1 2 2 6.7 2.8 9.8.7 3.4 1.5 7 2.6 10.8 1.1 4.1 4.3 9 12.3 9 2.9 0 6.5-.7 10.6-1.5 5.9-1.1 14.1-2.8 24.1-2.8 5.6 0 11.5.5 17.2 1.5 11.3 2 21 8.7 32.1 16.7 16.4 11.6 35 24.7 63.4 24.7.8 0 1.5 0 2.3-.2 1 0 2.1.2 3.3.2 28.5 0 47-13.1 63.4-24.7 11.1-8 21-14.7 32.1-16.7 5.9-1 11.6-1.5 17.2-1.5 9.7 0 17.2 1.1 24.1 2.6 4.4.8 7.9 1.3 10.6 1.3h.4c5.9 0 10.2-3.3 11.8-8.8 1.1-3.8 2-7.2 2.6-10.6.7-3.1 1.8-8 2.8-9.8 19.8-3.1 34.7-7 44.9-11.6 8.2-3.8 13.3-8.2 15.6-13.3.7-1.5 1.1-3.1 1.1-4.7.3-5.4-3.6-10.3-9-11.1-61.4-10.2-89.1-73.2-90.2-76-.2-.2-.2-.3-.2-.5-3.1-6.4-3.8-11.6-2.1-15.6 3.3-7.9 16.2-12 24.7-14.6 2.5-.8 4.7-1.5 6.7-2.3 8.3-3.3 14.4-6.9 18.3-11 4.7-4.9 5.6-9.5 5.6-12.6-.2-7.4-5.9-13.9-14.7-17.2-2.9-1.3-6.4-2-10-2-2.5 0-5.9.3-9.3 2-7.2 3.3-13.6 5.2-19.2 5.4-2.9-.2-5.1-.8-6.4-1.5.2-2.8.3-5.9.7-9l.2-1.3c2-31.1 4.4-69.9-5.9-93-7-15.9-16.5-29.5-28.2-40.3-9.8-9.2-21.1-16.7-33.6-22.3-21.9-10.1-42.3-11.4-52.6-11.4"/></svg>
+                                    <!--<![endif]-->
+                                    <!--[if (lt IE 9)&(!IEMobile)]>
+                                        <span class="icon-snapchat__fallback"></span>
+                                    <![endif]-->
+                                </span>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="footer-container footer-container--apps">
+                    <h1 class="footer-container__title footer-container__title--center">Mobile App</h1>
+                    <div class="footer-container__inner">
+                        <a href="http://itunes.apple.com/app/eldoradio/id305966737?mt=8" target="_blank" class="footer-container__link">
+                            <span class="store-badge store-badge-appstore">
+                                <!--[if (gt IE 8)|(IEMobile)]><!-->
+                                <svg xmlns="http://www.w3.org/2000/svg" width="230" height="68" viewBox="0 0 135 40"><path fill="#A6A6A6" d="M130.197 40H4.73A4.74 4.74 0 0 1 0 35.267V4.727A4.733 4.733 0 0 1 4.73 0h125.467C132.803 0 135 2.12 135 4.726v30.54c0 2.606-2.197 4.734-4.803 4.734z"/><path d="M134.032 35.268a3.83 3.83 0 0 1-3.834 3.83H4.728a3.835 3.835 0 0 1-3.838-3.83V4.725A3.84 3.84 0 0 1 4.73.89h125.467c2.12 0 3.834 1.72 3.834 3.835l.002 30.543z"/><g fill="#FFF"><path d="M30.128 19.784c-.03-3.223 2.64-4.79 2.76-4.864-1.51-2.203-3.852-2.504-4.675-2.528-1.967-.207-3.875 1.177-4.877 1.177-1.022 0-2.565-1.158-4.228-1.124-2.14.033-4.142 1.272-5.24 3.196-2.266 3.923-.576 9.688 1.595 12.86 1.086 1.552 2.355 3.286 4.016 3.225 1.624-.067 2.23-1.036 4.192-1.036 1.943 0 2.513 1.037 4.207.998 1.743-.028 2.84-1.56 3.89-3.127 1.254-1.78 1.758-3.532 1.778-3.622-.04-.014-3.387-1.29-3.42-5.154zM26.928 10.306c.874-1.093 1.472-2.58 1.306-4.09-1.265.057-2.847.876-3.758 1.945-.806.943-1.526 2.487-1.34 3.94 1.42.105 2.88-.718 3.792-1.794z"/></g><g fill="#FFF"><path d="M53.645 31.504h-2.27l-1.245-3.91h-4.324l-1.185 3.91h-2.21l4.284-13.308h2.646l4.305 13.308zm-3.89-5.55L48.63 22.48c-.12-.355-.342-1.19-.67-2.507h-.04a96.75 96.75 0 0 1-.633 2.507l-1.105 3.475h3.573zM64.662 26.588c0 1.632-.44 2.922-1.323 3.87-.79.842-1.772 1.263-2.943 1.263-1.264 0-2.172-.453-2.725-1.36h-.04v5.054H55.5V25.067c0-1.026-.027-2.08-.08-3.16h1.876l.12 1.522h.04c.71-1.147 1.79-1.72 3.237-1.72 1.132 0 2.077.448 2.833 1.343.758.896 1.136 2.074 1.136 3.535zm-2.172.078c0-.934-.21-1.704-.632-2.31-.46-.632-1.08-.948-1.856-.948-.526 0-1.004.176-1.43.523-.43.35-.71.808-.84 1.374-.066.264-.1.48-.1.65v1.6c0 .698.215 1.287.643 1.768s.984.72 1.668.72c.803 0 1.428-.31 1.875-.927.448-.62.672-1.435.672-2.45zM75.7 26.588c0 1.632-.442 2.922-1.325 3.87-.79.842-1.77 1.263-2.94 1.263-1.265 0-2.173-.453-2.725-1.36h-.04v5.054h-2.132V25.067c0-1.026-.027-2.08-.08-3.16h1.876l.12 1.522h.04c.71-1.147 1.788-1.72 3.237-1.72 1.132 0 2.077.448 2.835 1.343.755.896 1.134 2.074 1.134 3.535zm-2.173.078c0-.934-.21-1.704-.633-2.31-.46-.632-1.078-.948-1.855-.948a2.22 2.22 0 0 0-1.433.523c-.428.35-.707.808-.838 1.374-.066.264-.1.48-.1.65v1.6c0 .698.214 1.287.64 1.768.428.48.984.72 1.67.72.803 0 1.428-.31 1.875-.927.448-.62.672-1.435.672-2.45zM88.04 27.772c0 1.132-.394 2.053-1.183 2.764-.867.777-2.074 1.165-3.625 1.165-1.432 0-2.58-.275-3.45-.828l.495-1.777c.936.566 1.963.85 3.082.85.802 0 1.427-.182 1.876-.544.447-.36.67-.847.67-1.453 0-.54-.184-.995-.553-1.364-.367-.37-.98-.712-1.836-1.03-2.33-.868-3.494-2.14-3.494-3.815 0-1.094.408-1.99 1.225-2.69.814-.698 1.9-1.047 3.258-1.047 1.21 0 2.217.212 3.02.633l-.533 1.738c-.75-.407-1.598-.61-2.547-.61-.75 0-1.336.184-1.756.552a1.58 1.58 0 0 0-.533 1.205c0 .526.203.96.61 1.303.356.316 1 .658 1.937 1.027 1.145.46 1.986 1 2.527 1.618.54.616.81 1.387.81 2.307zM95.088 23.508h-2.35v4.66c0 1.184.414 1.776 1.244 1.776.38 0 .697-.033.947-.1l.058 1.62c-.42.157-.973.236-1.658.236-.842 0-1.5-.257-1.975-.77-.473-.514-.71-1.376-.71-2.587v-4.837h-1.4v-1.6h1.4V20.15l2.093-.633v2.39h2.35v1.6zM105.69 26.627c0 1.475-.42 2.686-1.263 3.633-.883.975-2.055 1.46-3.516 1.46-1.407 0-2.528-.466-3.364-1.4s-1.254-2.113-1.254-3.534c0-1.487.43-2.705 1.293-3.652.86-.948 2.023-1.422 3.484-1.422 1.407 0 2.54.467 3.395 1.402.818.907 1.226 2.078 1.226 3.513zm-2.21.07c0-.886-.19-1.645-.573-2.278-.447-.767-1.086-1.15-1.914-1.15-.857 0-1.508.384-1.955 1.15-.383.633-.572 1.404-.572 2.316 0 .885.19 1.644.572 2.276.46.766 1.105 1.148 1.936 1.148.814 0 1.453-.39 1.914-1.168.393-.645.59-1.412.59-2.296zM112.62 23.783c-.21-.04-.435-.06-.67-.06-.75 0-1.33.284-1.74.85-.354.5-.532 1.133-.532 1.896v5.034h-2.13l.02-6.574c0-1.106-.028-2.113-.08-3.02h1.856l.078 1.835h.06c.224-.63.58-1.14 1.065-1.52a2.578 2.578 0 0 1 1.54-.514c.198 0 .376.015.534.04v2.033zM122.156 26.252a5 5 0 0 1-.078.967h-6.396c.025.947.334 1.672.928 2.172.54.447 1.236.67 2.092.67.947 0 1.81-.15 2.588-.453l.334 1.48c-.908.395-1.98.592-3.217.592-1.488 0-2.656-.438-3.506-1.313-.847-.876-1.272-2.05-1.272-3.525 0-1.447.395-2.652 1.186-3.613.828-1.026 1.947-1.54 3.355-1.54 1.382 0 2.43.514 3.14 1.54.563.815.846 1.823.846 3.02zm-2.033-.553c.014-.633-.125-1.18-.414-1.64-.37-.593-.937-.89-1.7-.89-.697 0-1.264.29-1.697.87-.355.46-.566 1.014-.63 1.658h4.44z"/></g><g fill="#FFF"><path d="M49.05 10.01c0 1.176-.353 2.062-1.058 2.657-.653.55-1.58.824-2.783.824-.597 0-1.107-.025-1.534-.077v-6.43c.557-.09 1.157-.137 1.805-.137 1.146 0 2.01.25 2.59.747.653.563.98 1.368.98 2.416zm-1.105.028c0-.763-.202-1.348-.606-1.756-.405-.407-.995-.61-1.772-.61-.33 0-.61.02-.844.067v4.888c.13.02.365.03.708.03.802 0 1.42-.224 1.857-.67s.655-1.096.655-1.95zM54.91 11.037c0 .725-.208 1.32-.622 1.785-.434.48-1.01.718-1.727.718-.69 0-1.242-.23-1.653-.69-.41-.458-.615-1.037-.615-1.735 0-.73.21-1.33.635-1.794s.994-.697 1.712-.697c.69 0 1.247.23 1.668.688.4.447.6 1.023.6 1.727zm-1.088.034c0-.434-.094-.807-.28-1.118-.22-.376-.534-.564-.94-.564-.422 0-.742.188-.962.564-.188.31-.28.69-.28 1.138 0 .435.093.808.28 1.12.227.375.543.563.95.563.4 0 .715-.19.94-.574.195-.318.292-.694.292-1.13zM62.765 8.72l-1.475 4.713h-.96l-.61-2.047a15.32 15.32 0 0 1-.38-1.523h-.02a11.15 11.15 0 0 1-.378 1.523l-.65 2.047h-.97L55.935 8.72h1.077l.533 2.24c.13.53.235 1.035.32 1.513h.02c.077-.394.206-.896.388-1.503l.67-2.25h.853l.64 2.202c.156.537.282 1.054.38 1.552h.028c.07-.485.178-1.002.32-1.552l.572-2.202h1.03zM68.198 13.433H67.15v-2.7c0-.832-.316-1.248-.95-1.248a.946.946 0 0 0-.757.343c-.193.23-.29.5-.29.808v2.796h-1.05v-3.366a26.4 26.4 0 0 0-.037-1.35h.92l.05.738h.03c.12-.23.303-.418.542-.57a1.77 1.77 0 0 1 .95-.264c.44 0 .806.142 1.097.427.362.35.543.87.543 1.562v2.823zM71.088 13.433H70.04V6.556h1.048v6.877zM77.258 11.037c0 .725-.207 1.32-.62 1.785-.435.48-1.01.718-1.728.718-.693 0-1.244-.23-1.654-.69-.41-.458-.615-1.037-.615-1.735 0-.73.212-1.33.636-1.794s.994-.697 1.71-.697c.694 0 1.25.23 1.67.688.4.447.602 1.023.602 1.727zm-1.088.034c0-.434-.094-.807-.28-1.118-.22-.376-.534-.564-.94-.564-.422 0-.742.188-.96.564-.19.31-.282.69-.282 1.138 0 .435.094.808.28 1.12.228.375.544.563.952.563.4 0 .713-.19.94-.574.194-.318.29-.694.29-1.13zM82.33 13.433h-.94l-.08-.543h-.028c-.322.433-.78.65-1.377.65-.445 0-.805-.143-1.076-.427a1.34 1.34 0 0 1-.37-.96c0-.576.24-1.015.723-1.32.482-.303 1.16-.452 2.033-.445V10.3c0-.62-.326-.93-.98-.93-.464 0-.874.116-1.228.348l-.213-.688c.438-.27.98-.407 1.617-.407 1.232 0 1.85.65 1.85 1.95v1.736c0 .47.023.845.068 1.123zm-1.088-1.62v-.727c-1.156-.02-1.734.297-1.734.95 0 .246.066.43.2.553a.733.733 0 0 0 .513.183c.23 0 .446-.073.642-.218a.893.893 0 0 0 .38-.742zM88.285 13.433h-.93l-.05-.757h-.028c-.297.576-.803.864-1.514.864-.568 0-1.04-.223-1.416-.67s-.562-1.024-.562-1.735c0-.763.203-1.38.61-1.853.396-.44.88-.66 1.456-.66.634 0 1.077.213 1.33.64h.02V6.556h1.048v5.607c0 .46.012.882.037 1.27zM87.2 11.445v-.786a1.194 1.194 0 0 0-.408-.965 1.03 1.03 0 0 0-.702-.258c-.39 0-.697.155-.922.466-.223.31-.336.708-.336 1.193 0 .466.107.844.322 1.135.227.31.533.466.916.466.344 0 .62-.13.828-.388.202-.24.3-.527.3-.863zM97.248 11.037c0 .725-.207 1.32-.62 1.785-.435.48-1.01.718-1.728.718-.69 0-1.242-.23-1.654-.69-.41-.458-.615-1.037-.615-1.735 0-.73.212-1.33.636-1.794s.994-.697 1.713-.697c.69 0 1.247.23 1.667.688.4.447.6 1.023.6 1.727zm-1.086.034c0-.434-.094-.807-.28-1.118-.222-.376-.534-.564-.942-.564-.42 0-.74.188-.96.564-.19.31-.282.69-.282 1.138 0 .435.094.808.28 1.12.228.375.544.563.952.563.4 0 .715-.19.94-.574.194-.318.292-.694.292-1.13zM102.883 13.433h-1.047v-2.7c0-.832-.316-1.248-.95-1.248-.312 0-.563.114-.757.343s-.292.5-.292.808v2.796h-1.05v-3.366c0-.414-.01-.863-.036-1.35h.92l.05.738h.028a1.53 1.53 0 0 1 .543-.57c.285-.175.602-.264.95-.264.44 0 .806.142 1.097.427.363.35.543.87.543 1.562v2.823zM109.936 9.504h-1.154v2.29c0 .582.205.873.61.873.19 0 .345-.016.468-.05l.027.796c-.207.078-.48.117-.814.117-.414 0-.736-.126-.97-.378-.233-.252-.35-.676-.35-1.27V9.503h-.688V8.72h.69v-.865l1.026-.31v1.173h1.155v.786zM115.484 13.433h-1.05v-2.68c0-.845-.315-1.268-.948-1.268-.486 0-.818.245-1 .735-.03.103-.05.23-.05.377v2.835h-1.046V6.556h1.047v2.84h.02c.33-.516.803-.774 1.416-.774.434 0 .793.142 1.078.427.356.354.534.882.534 1.58v2.803zM121.207 10.853c0 .188-.014.346-.04.475h-3.142c.014.466.164.82.455 1.067.266.22.61.33 1.03.33.464 0 .888-.074 1.27-.223l.164.728c-.447.194-.973.29-1.582.29-.73 0-1.305-.214-1.72-.644-.42-.43-.626-1.007-.626-1.73 0-.712.193-1.304.582-1.776.406-.504.955-.756 1.648-.756.678 0 1.193.252 1.54.756.282.4.42.895.42 1.483zm-1-.27a1.41 1.41 0 0 0-.203-.806c-.182-.29-.46-.437-.834-.437a.995.995 0 0 0-.834.427 1.586 1.586 0 0 0-.31.815h2.18z"/></g></svg>
+                                <!--<![endif]-->
+                                <!--[if (lt IE 9)&(!IEMobile)]>
+                                    <span class="store-badge-appstore__fallback"></span>
+                                <![endif]-->
+                            </span>
+                        </a>
+
+                        <a href="https://play.google.com/store/apps/details?id=lu.rtl.newmedia.eldo" target="_blank" class="footer-container__link">
+                            <span class="store-badge store-badge-playstore">
+                                <!--[if (gt IE 8)|(IEMobile)]><!-->
+                                <svg id="Layer_1" width="230" height="68" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 229.33 67.95"><defs><linearGradient id="linear-gradient" x1="37.37" y1="55.2" x2="8.86" y2="26.7" gradientTransform="matrix(1, 0, 0, -1, 0, 70)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#00a0ff"/><stop offset="0.01" stop-color="#00a1ff"/><stop offset="0.26" stop-color="#00beff"/><stop offset="0.51" stop-color="#00d2ff"/><stop offset="0.76" stop-color="#00dfff"/><stop offset="1" stop-color="#00e3ff"/></linearGradient><linearGradient id="linear-gradient-2" x1="57.81" y1="36.02" x2="16.71" y2="36.02" gradientTransform="matrix(1, 0, 0, -1, 0, 70)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#ffe000"/><stop offset="0.41" stop-color="#ffbd00"/><stop offset="0.78" stop-color="orange"/><stop offset="1" stop-color="#ff9c00"/></linearGradient><linearGradient id="linear-gradient-3" x1="42.51" y1="32.12" x2="3.85" y2="-6.54" gradientTransform="matrix(1, 0, 0, -1, 0, 70)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#ff3a44"/><stop offset="1" stop-color="#c31162"/></linearGradient><linearGradient id="linear-gradient-4" x1="12.73" y1="69.7" x2="29.99" y2="52.44" gradientTransform="matrix(1, 0, 0, -1, 0, 70)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#32a071"/><stop offset="0.07" stop-color="#2da771"/><stop offset="0.48" stop-color="#15cf74"/><stop offset="0.8" stop-color="#06e775"/><stop offset="1" stop-color="#00f076"/></linearGradient></defs><title>play_store</title><rect width="229.33" height="67.95" rx="8.49" ry="8.49"/><path d="M221.17,1.36a7.14,7.14,0,0,1,7.13,7.14v51a7.14,7.14,0,0,1-7.13,7.14H8.83a7.14,7.14,0,0,1-7.13-7.14v-51A7.14,7.14,0,0,1,8.83,1.36H221.17m0-1.36H8.83A8.52,8.52,0,0,0,.33,8.49v51A8.52,8.52,0,0,0,8.83,68H221.17a8.52,8.52,0,0,0,8.49-8.49v-51A8.52,8.52,0,0,0,221.17,0h0Z" transform="translate(-0.33 0)" fill="#a6a6a6"/><path d="M80.89,17.4a4.6,4.6,0,0,1-1.27,3.4,4.94,4.94,0,0,1-3.74,1.51A5.25,5.25,0,0,1,70.58,17a5.25,5.25,0,0,1,5.3-5.32,5.26,5.26,0,0,1,2.09.43,4.2,4.2,0,0,1,1.59,1.14l-0.9.9a3.44,3.44,0,0,0-2.79-1.21,3.94,3.94,0,0,0-4,4.07,4,4,0,0,0,6.8,2.93,3.21,3.21,0,0,0,.85-2.06h-3.7V16.63h4.94A4.32,4.32,0,0,1,80.89,17.4Z" transform="translate(-0.33 0)" fill="#fff" stroke="#fff" stroke-miterlimit="10" stroke-width="0.2"/><path d="M88.72,13.14H84.07v3.23h4.19V17.6H84.07v3.23h4.64v1.25h-6V11.89h6v1.25Z" transform="translate(-0.33 0)" fill="#fff" stroke="#fff" stroke-miterlimit="10" stroke-width="0.2"/><path d="M94.24,22.08H92.93V13.14H90.08V11.89h7v1.25H94.24v8.94Z" transform="translate(-0.33 0)" fill="#fff" stroke="#fff" stroke-miterlimit="10" stroke-width="0.2"/><path d="M102.15,22.08V11.89h1.31V22.08h-1.31Z" transform="translate(-0.33 0)" fill="#fff" stroke="#fff" stroke-miterlimit="10" stroke-width="0.2"/><path d="M109.27,22.08H108V13.14h-2.85V11.89h7v1.25h-2.85v8.94Z" transform="translate(-0.33 0)" fill="#fff" stroke="#fff" stroke-miterlimit="10" stroke-width="0.2"/><path d="M125.38,20.77a5.29,5.29,0,0,1-7.47,0A5.21,5.21,0,0,1,116.4,17a5.21,5.21,0,0,1,1.5-3.78,5.27,5.27,0,0,1,7.47,0A5.21,5.21,0,0,1,126.88,17,5.22,5.22,0,0,1,125.38,20.77Zm-6.51-.85a3.92,3.92,0,0,0,5.54,0A4,4,0,0,0,125.54,17a4,4,0,0,0-1.13-2.93,3.92,3.92,0,0,0-5.54,0A4,4,0,0,0,117.74,17,4,4,0,0,0,118.87,19.91Z" transform="translate(-0.33 0)" fill="#fff" stroke="#fff" stroke-miterlimit="10" stroke-width="0.2"/><path d="M128.72,22.08V11.89h1.59l5,7.93h0.06l-0.06-2v-6h1.31V22.08h-1.37L130,13.77H130l0.06,2v6.35h-1.31Z" transform="translate(-0.33 0)" fill="#fff" stroke="#fff" stroke-miterlimit="10" stroke-width="0.2"/><path d="M116.08,37a7.23,7.23,0,1,0,7.25,7.22A7.12,7.12,0,0,0,116.08,37Zm0,11.6a4.39,4.39,0,1,1,4.08-4.38A4.18,4.18,0,0,1,116.08,48.55ZM100.26,37a7.23,7.23,0,1,0,7.25,7.22A7.12,7.12,0,0,0,100.26,37Zm0,11.6a4.39,4.39,0,1,1,4.08-4.38A4.18,4.18,0,0,1,100.26,48.55ZM81.44,39.17v3.07h7.33a6.4,6.4,0,0,1-1.67,3.86,7.51,7.51,0,0,1-5.67,2.24,8.16,8.16,0,0,1,0-16.31A7.82,7.82,0,0,1,87,34.21l2.16-2.16A10.69,10.69,0,0,0,81.44,29a11.22,11.22,0,1,0,0,22.44,10.26,10.26,0,0,0,7.83-3.15,10.13,10.13,0,0,0,2.65-7.17,10,10,0,0,0-.16-1.92H81.44Zm77,2.38a6.71,6.71,0,0,0-6.19-4.6,6.87,6.87,0,0,0-6.81,7.22,7.07,7.07,0,0,0,7.17,7.23,7.19,7.19,0,0,0,6-3.2l-2.46-1.64a4.13,4.13,0,0,1-3.56,2,3.68,3.68,0,0,1-3.5-2.19l9.66-4ZM148.55,44a4,4,0,0,1,3.78-4.21A2.8,2.8,0,0,1,155,41.27Zm-7.85,7h3.17V29.73H140.7V51Zm-5.2-12.4h-0.11a5,5,0,0,0-3.8-1.61,7.23,7.23,0,0,0,0,14.45,4.93,4.93,0,0,0,3.8-1.64h0.11v1c0,2.76-1.48,4.24-3.86,4.24A4,4,0,0,1,128,52.47l-2.76,1.15a6.89,6.89,0,0,0,6.4,4.27c3.72,0,6.87-2.19,6.87-7.53v-13h-3v1.18Zm-3.64,10a4.39,4.39,0,0,1,0-8.76c2.16,0,3.86,1.86,3.86,4.41S134,48.55,131.86,48.55Zm41.42-18.83h-7.6V51h3.17v-8h4.43A6.61,6.61,0,1,0,173.28,29.73ZM173.36,40h-4.51V32.68h4.51A3.64,3.64,0,1,1,173.36,40Zm19.59-3a6,6,0,0,0-5.66,3.25l2.81,1.17a3,3,0,0,1,2.9-1.56c1.64,0,3.31,1,3.33,2.73v0.22a7,7,0,0,0-3.31-.82c-3,0-6.12,1.67-6.12,4.78,0,2.84,2.49,4.67,5.27,4.67a4.47,4.47,0,0,0,4-2.08h0.11v1.64h3.06V42.79C199.4,39,196.58,36.91,192.95,36.91Zm-0.38,11.64c-1,0-2.49-.52-2.49-1.8,0-1.64,1.8-2.27,3.36-2.27a5.65,5.65,0,0,1,2.9.71A3.84,3.84,0,0,1,192.57,48.55Zm18-11.17-3.63,9.21H206.8L203,37.38h-3.42l5.66,12.87L202,57.4h3.31l8.72-20h-3.52ZM182,51h3.17V29.73H182V51Z" transform="translate(-0.33 0)" fill="#fff"/><path d="M18.06,12.81a3.4,3.4,0,0,0-.79,2.39V52.76a3.4,3.4,0,0,0,.79,2.39l0.13,0.12,21-21v-0.5l-21-21Z" transform="translate(-0.33 0)" fill="url(#linear-gradient)"/><path d="M46.25,41.24l-7-7v-0.5l7-7,0.16,0.09,8.31,4.72c2.37,1.35,2.37,3.56,0,4.91l-8.31,4.72Z" transform="translate(-0.33 0)" fill="url(#linear-gradient-2)"/><path d="M46.41,41.15L39.23,34,18.06,55.15c0.78,0.83,2.07.93,3.53,0.1l24.82-14.1" transform="translate(-0.33 0)" fill="url(#linear-gradient-3)"/><path d="M46.41,26.8L21.59,12.7c-1.46-.83-2.75-0.72-3.53.1L39.23,34Z" transform="translate(-0.33 0)" fill="url(#linear-gradient-4)"/><path d="M46.25,41L21.59,55c-1.38.78-2.61,0.73-3.4,0h0l-0.13.13h0l0.13,0.12h0c0.79,0.71,2,.77,3.4,0l24.82-14.1Z" transform="translate(-0.33 0)" opacity="0.2" style="isolation:isolate"/><path d="M18.06,54.9a3.4,3.4,0,0,1-.79-2.39v0.25a3.4,3.4,0,0,0,.79,2.39L18.19,55Z" transform="translate(-0.33 0)" opacity="0.12" style="isolation:isolate"/><path d="M54.72,36.18L46.25,41l0.16,0.16,8.31-4.72A3,3,0,0,0,56.5,34h0A3.16,3.16,0,0,1,54.72,36.18Z" transform="translate(-0.33 0)" opacity="0.12" style="isolation:isolate"/><path d="M21.59,12.95L54.72,31.77A3.16,3.16,0,0,1,56.5,34h0a3,3,0,0,0-1.78-2.45L21.59,12.7c-2.37-1.35-4.32-.23-4.32,2.49v0.25C17.28,12.72,19.22,11.6,21.59,12.95Z" transform="translate(-0.33 0)" fill="#fff" opacity="0.25" style="isolation:isolate"/></svg>
+                                <!--<![endif]-->
+                                <!--[if (lt IE 9)&(!IEMobile)]>
+                                    <span class="store-badge-playstore__fallback"></span>
+                                <![endif]-->
+                            </span>
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+   
+    <div class="ad-slot ad-slot-bottom">
+        <div class="ad-slot__content ad-slot__content--footer js-ad" data-tags="" data-position="footer" id="ipl-footer"></div>
+    </div>
+
+     
+    <script>
+        var test = document.createElement('div');
+        test.innerHTML = '&nbsp;';
+        test.className = 'adsbox';
+        document.body.appendChild(test);
+        window.setTimeout(function() {
+          if (test.offsetHeight === 0) {
+             ga('send', 'event', {
+                eventCategory: 'Adblock',
+                eventAction: 'blocking',
+                eventLabel: 'Home'
+              });
+          } else {
+              ga('send', 'event', {
+                eventCategory: 'Adblock',
+                eventAction: 'noblocking',
+                eventLabel: 'Home'
+              });
+          }
+          test.remove();
+        }, 100);
+    </script>
+    
+                        
+    
+</body>
+</html>
+

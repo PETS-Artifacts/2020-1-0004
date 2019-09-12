@@ -1,0 +1,329 @@
+
+
+
+Warmerise - Privacy Policy
+
+
+
+
+
+
+
+if (window.location.hash == '#_=_')window.location.hash = '';
+
+
+
+
+
+
+
+
+
+    //<![CDATA[
+    
+    Date.setServerOffset('Thu, 24 Mar 2016 2:05:47 +0000');
+    
+    en4.orientation = 'ltr';
+    en4.core.environment = 'production';
+    en4.core.language.setLocale('en');
+    en4.core.setBaseUrl('/');
+    en4.core.staticBaseUrl = '/';
+    en4.core.loader = new Element('img', {src: en4.core.staticBaseUrl + 'application/modules/Core/externals/images/loading.gif'});
+    
+            if( false ) {
+      en4.core.runonce.add(function() {
+        en4.core.dloader.attach();
+      });
+    }
+    
+        //]]>
+
+
+
+
+    //<![CDATA[
+    var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-38018467-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();    //]]>
+
+
+    //<![CDATA[
+    if (typeof window.janrain !== 'object') window.janrain = {};
+window.janrain.settings = {};
+// Extra
+janrain.settings.appId = '';
+janrain.settings.appUrl = 'https://';
+janrain.settings.language = 'en';
+janrain.settings.tokenUrl = 'http://warmerise.com/user/auth/janrain';    //]]>
+
+
+
+
+
+    if(DetectIpad()){
+      $$('a.album_main_upload').setStyle('display', 'none');
+      $$('a.album_quick_upload').setStyle('display', 'none');
+      $$('a.icon_photos_new').setStyle('display', 'none');
+    }
+  
+
+
+
+
+
+
+Log In
+Sign Up
+
+
+
+
+
+
+
+
+  var notificationUpdater;
+
+  en4.core.runonce.add(function(){
+    if($('global_search_field')){
+      new OverText($('global_search_field'), {
+        poll: true,
+        pollInterval: 500,
+        positionOptions: {
+          position: ( en4.orientation == 'rtl' ? 'upperRight' : 'upperLeft' ),
+          edge: ( en4.orientation == 'rtl' ? 'upperRight' : 'upperLeft' ),
+          offset: {
+            x: ( en4.orientation == 'rtl' ? -4 : 4 ),
+            y: 2
+          }
+        }
+      });
+    }
+
+    if($('notifications_markread_link')){
+      $('notifications_markread_link').addEvent('click', function() {
+        //$('notifications_markread').setStyle('display', 'none');
+        en4.activity.hideNotifications('0 Updates');
+      });
+    }
+
+      });
+
+
+  var toggleUpdatesPulldown = function(event, element, user_id) {
+    if( element.className=='updates_pulldown' ) {
+      element.className= 'updates_pulldown_active';
+      showNotifications();
+    } else {
+      element.className='updates_pulldown';
+    }
+  }
+
+  var showNotifications = function() {
+    en4.activity.updateNotifications();
+    new Request.HTML({
+      'url' : en4.core.baseUrl + 'activity/notifications/pulldown',
+      'data' : {
+        'format' : 'html',
+        'page' : 1
+      },
+      'onComplete' : function(responseTree, responseElements, responseHTML, responseJavaScript) {
+        if( responseHTML ) {
+          // hide loading icon
+          if($('notifications_loading')) $('notifications_loading').setStyle('display', 'none');
+
+          $('notifications_menu').innerHTML = responseHTML;
+          $('notifications_menu').addEvent('click', function(event){
+            event.stop(); //Prevents the browser from following the link.
+
+            var current_link = event.target;
+            var notification_li = $(current_link).getParent('li');
+
+            // if this is true, then the user clicked on the li element itself
+            if( notification_li.id == 'core_menu_mini_menu_update' ) {
+              notification_li = current_link;
+            }
+
+            var forward_link;
+            if( current_link.get('href') ) {
+              forward_link = current_link.get('href');
+            } else{
+              forward_link = $(current_link).getElements('a:last-child').get('href');
+            }
+
+            if( notification_li.get('class') == 'notifications_unread' ){
+              notification_li.removeClass('notifications_unread');
+              en4.core.request.send(new Request.JSON({
+                url : en4.core.baseUrl + 'activity/notifications/markread',
+                data : {
+                  format     : 'json',
+                  'actionid' : notification_li.get('value')
+                },
+                onSuccess : function() {
+                  window.location = forward_link;
+                }
+              }));
+            } else {
+              window.location = forward_link;
+            }
+          });
+        } else {
+          $('notifications_loading').innerHTML = 'You have no new updates.';
+        }
+      }
+    }).send();
+  };
+
+  /*
+  function focusSearch() {
+    if(document.getElementById('global_search_field').value == 'Search') {
+      document.getElementById('global_search_field').value = '';
+      document.getElementById('global_search_field').className = 'text';
+    }
+  }
+  function blurSearch() {
+    if(document.getElementById('global_search_field').value == '') {
+      document.getElementById('global_search_field').value = 'Search';
+      document.getElementById('global_search_field').className = 'text suggested';
+    }
+  }
+  */
+
+
+
+
+
+
+Home
+
+
+Play Now
+
+
+Top 100
+
+
+Clans
+
+
+Polls
+
+
+Videos
+
+
+Forum
+
+
+
+
+
+
+
+
+					(adsbygoogle = window.adsbygoogle || []).push({});
+					
+
+
+
+
+
+
+					(adsbygoogle = window.adsbygoogle || []).push({});
+					
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy
+Third party advertisers, including Google, use cookies to serve ads based on a user's prior visits to this website.
+Google's use of the DART cookie enables it and its partners to serve ads to you based on your visit to this site and/or other sites on the Internet.
+You may opt out of the use of the DART cookie by visiting the advertising opt-out page.
+
+
+
+
+
+
+
+
+
+Copyright ©2016   -  Privacy   -  Terms of Service   -  Contact   -  Mobile Site   -  Warmerise On Your Site
+
+
+		
+		#cookieclearbar {			
+			color: #DDD;			
+			font: normal 13px/28px sans-serif;			
+			min-height: 30px;			
+			position: fixed;			
+			top: 0;			
+			left: 0;			
+			width: 100%;			
+			z-index: 99999;			
+			padding: 2px 3px 0;			
+			background-color: #464646;		
+		}				
+		
+		button#CookieClear {			
+			margin: 0 20px;			
+			line-height: 20px;			
+			background: #45AE52;			
+			border: none;			
+			color: #fff;			
+			padding: 0 12px;			
+			border-radius: 3px;			
+			cursor: pointer;			
+			font-size: 13px;			
+			font-weight: bold;			
+			font-family: sans-serif;			
+			text-shadow: #555 1px 1px;		
+		}				
+		
+		#cookieclearbar a {			
+			color: #fff;		
+		}	
+		
+		html {			
+			margin-top: 30px;		
+		}	
+	
+This website uses cookies to ensure you get the best experience on our website.	
+	OK
+Learn More.
+
+		
+		function CookieClearAccept() {			
+			days = 365;			
+			var date = new Date();			
+			date.setTime(date.getTime()+(days*24*60*60*1000));			
+			var expires = "; expires="+date.toGMTString();			
+			document.cookie = "ccAccCookies17=true"+expires+"; path=/";						
+			/*$('#cookie-clear-bar').remove();			
+			$('html').css('margin-top','0');*/						
+			document.getElementById("cookieclearbar").style.display = "none";			
+			document.querySelector("html").setAttribute("style", "margin-top: 0px");		
+		}		
+	
+
+
+
+
+Share
+

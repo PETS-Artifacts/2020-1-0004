@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="p:domain_verify" content="74fb19398a91c4d498a3a18347e0e18c"/>
+  <meta name="msvalidate.01" content="C076CC9EF700AC7B451B9CEA026B75A9" />
+  <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700,900' rel='stylesheet' type='text/css'>
+ <meta name=viewport content="width=device-width, initial-scale=1">
+ <link rel="shortcut icon" href="/favicon.ico?v=2" />
+ <meta property="fb:pages" content="252674101507273" />
+
+
+<script async='async' src='https://www.googletagservices.com/tag/js/gpt.js'></script>
+<script>
+! function(e, t, n, i, r) {
+window[e] = window[e] || function() {
+  window[e].opts.queue.push(arguments)
+}, window[e].opts = {
+  url: n,
+  bidPriceKey: i,
+  pubId: r,
+  queue: []
+};
+var o = document.createElement("script");
+o.src = t, o.async = !0, o.type = "text/javascript";
+var s = document.getElementsByTagName("script");
+s[0].parentNode.insertBefore(o, s[0])
+}("PulsePointPrebidAnalytics", "https://ads.contextweb.com/pba.js", "https://bh.contextweb.com/hba", "hb_pb", "561574");
+</script>
+<script>
+var PREBID_TIMEOUT = 800;
+var MAX_RETRIES = 20;
+
+var googletag = googletag || {};
+googletag.cmd = googletag.cmd || [];
+googletag.cmd.push(function () {
+  googletag.pubads().disableInitialLoad();
+});
+
+var pbjs = pbjs || {};
+
+pbjs.cmd = pbjs.cmd || [];
+pbjs.retries = 0;
+
+function initAdserver(){
+  if (pbjs.initAdserverSet) return;
+
+  if (!googletag.pubadsReady
+    && pbjs.retries <= MAX_RETRIES) {
+    setTimeout(initAdserver, 50); //poll ms can be adjusted as desired.
+    pbjs.retries++;
+    return;
+  }
+  googletag.cmd.push(function(){
+    pbjs.cmd.push(function(){
+      pbjs.setTargetingForGPTAsync();
+    });
+    googletag.pubads().refresh();
+  });
+  pbjs.initAdserverSet = true;
+}
+
+// Load GPT when timeout is reached.
+setTimeout(initAdserver, PREBID_TIMEOUT);
+
+(function(){
+  var d = document, pbs = d.createElement('script'), pro = d.location.protocol;
+  pbs.type = 'text/javascript';
+  pbs.src = ((pro === 'https:') ? 'https' : 'http') + '://www.pcgamesn.com/js/prebid_networkn_201801231528.js';
+  
+  var target = document.getElementsByTagName('head')[0];
+  target.insertBefore(pbs, target.firstChild);
+})();
+//load GPT library here
+(function(){
+    var gads = document.createElement('script');
+    gads.async = true;
+    gads.type = 'text/javascript';
+    var useSSL = 'https:' == document.location.protocol;
+    gads.src = (useSSL ? 'https:' : 'http:') +
+            '//www.googletagservices.com/tag/js/gpt.js';
+    var node = document.getElementsByTagName('script')[0];
+    node.parentNode.insertBefore(gads, node);
+})();
+
+pbjs.cmd.push(function(){
+  var adUnits = [{
+    code: 'pcgamesn_ad_billboard',
+    sizes: [[728, 90], [970, 250]],
+    bids: [{
+      bidder: 'pulsepoint',
+      params: {
+        cf: '970X250',
+        cp: 561574,
+        ct: 625692
+      }
+    }, {
+      bidder: 'sovrn',
+      params: {
+        tagid: '544456'
+      }
+    }, {
+      bidder: 'pulsepoint',
+      params: {
+        cf: '728X90',
+        cp: 561574,
+        ct: 625691
+      }
+    }, {
+      bidder: 'sovrn',
+      params: {
+        tagid: '544455'
+      }
+    }]
+  },{
+    code: 'pcgamesn_ad_mputop',
+    sizes: [[300, 250], [300, 600]],
+    bids: [{
+      bidder: 'pulsepoint',
+      params: {
+        cf: '300X250',
+        cp: 561574,
+        ct: 625689
+      }
+    }, {
+      bidder: 'sovrn',
+      params: {
+        tagid: '544459'
+      }
+    }, {
+      bidder: 'pulsepoint',
+      params: {
+        cf: '300X600',
+        cp: 561574,
+        ct: 625693
+      }
+    }, {
+      bidder: 'sovrn',
+      params: {
+        tagid: '544458'
+      }
+    }]
+  }, {
+    code: 'pcgamesn_ad_mpubottom',
+    sizes: [300, 250],
+    bids: [{
+      bidder: 'pulsepoint',
+      params: {
+        cf: '300X250',
+        cp: 561574,
+        ct: 628513
+      }
+    }, {
+      bidder: 'sovrn',
+      params: {
+        tagid: '544457'
+      }
+    }]
+  }];
+
+  pbjs.addAdUnits(adUnits); // supported AdUnits
+
+  //register a callback handler (debugging)
+  // pbjs.addCallback('adUnitBidsBack', function (adUnitCode) {
+  //   console.debug('ad unit bids back for:', adUnitCode);
+  // });
+
+  //pbjs.enableSendAllBids();
+  pbjs.cmd.push(function() {
+    pbjs.enableAnalytics(
+      { provider: 'pulsepoint' } 
+    );
+  });
+
+  var customGranularity = {
+    'buckets': [{
+      'min' : 0,
+      'max' : 20,
+      'precision': 2,  //default is 2 if omitted - means 2.1234 rounded to 2 decimal places = 2.12
+      'increment' : 0.01
+    }]
+  };
+
+  pbjs.setConfig({
+    "enableSendAllBids":true,
+    "priceGranularity": "high",
+    "currency": {
+      "adServerCurrency": "GBP",
+      "granularityMultiplier": 1,
+      "conversionRateFile": "https://www.pcgamesn.com/js/latest.json",
+      "bidderCurrencyDefault": { "pulsepoint": "GBP", "sovrn": "GBP" }
+    }
+  });
+
+  pbjs.requestBids({
+    bidsBackHandler: function(bidResponses){
+      initAdserver();
+    }
+  });
+  // end queue
+});
+
+
+    // Edit these settings if the units need changing
+  var skin_path = '/6928793/PCGamesN-Skin(1570x970)-T';
+  var skin_size = [1570, 970];
+  var adScreenWidth = document.documentElement.clientWidth;
+  var showSkin = true;
+  var showLeader = true;
+  var showMPUTop = true;
+
+  var slot_skin;
+  var slot_billboard;
+  var slot_mpu_top;
+  var slot_mpu_bottom;
+
+  if(adScreenWidth < 1300) {
+   showSkin = false; 
+  }
+  if(adScreenWidth < 900) {
+   showLeader = false; 
+  }
+  if(adScreenWidth < 940) {
+   // Sidebar appears below, don't show main mpu
+    showMPUTop = false;
+  }
+ 
+  if(showLeader) {
+    var billboard_path = '/6928793/PCGamesN-BB1-T(Flex)';
+    var billboard_size = [[970, 250], [728, 90]];
+    var mpu_top_path = '/6928793/PCGamesN-MPU1-T(Flex)';
+    var mpu_top_size = [[300, 600], [300, 250]];
+    var mpu_left_path = '/6928793/PCGamesN-MPU2';
+    var mpu_left_size = [300, 250];
+  } else {
+    var billboard_path = '/6928793/PCGamesN-Mobile-MPU1';
+    var billboard_size = [[300, 250], [300, 50]];
+  }
+  
+   var uricomp = window.location.pathname.split("/");
+
+  // Don't edit anything below this line
+
+googletag.cmd.push(function() {
+  if(document.getElementById("pcgamesn_ad_skin") != null) {
+    if(showSkin) {
+       slot_skin = googletag.defineSlot(skin_path , skin_size, 'pcgamesn_ad_skin').addService(googletag.pubads()); 
+    }
+  }
+  if(document.getElementById("pcgamesn_ad_billboard") != null) {
+    slot_billboard = googletag.defineSlot(billboard_path , billboard_size, 'pcgamesn_ad_billboard').addService(googletag.pubads());
+  }
+  if(showLeader) {
+
+    if(document.getElementById("pcgamesn_ad_mputop") != null) {
+      slot_mpu_top = googletag.defineSlot(mpu_top_path , mpu_top_size, 'pcgamesn_ad_mputop').addService(googletag.pubads());  
+    }
+    if(document.getElementById("pcgamesn_ad_mpubottom") != null) {
+      slot_mpu_bottom = googletag.defineSlot(mpu_left_path , mpu_left_size, 'pcgamesn_ad_mpubottom').addService(googletag.pubads());
+    }
+  }
+  if(document.getElementById("pcgamesn_ad_sidebar") != null) {
+    googletag.defineSlot('/6928793/PCGamesN-TestSidebar', [[300, 250], [300, 600]], 'pcgamesn_ad_sidebar').addService(googletag.pubads());
+  }
+  var uricomp = window.location.pathname.split("/");
+  var urlIndex = uricomp.length;
+  if(uricomp.length > 0){
+    googletag.pubads().setTargeting("urlkeyword", uricomp[1]);
+    var urlFragment = uricomp[(urlIndex-1)].substring(0,40)
+    googletag.pubads().setTargeting("url",urlFragment);
+  }
+  googletag.pubads().enableSingleRequest();
+  googletag.enableServices();
+});
+ 
+  if(showSkin) {
+
+    googletag.cmd.push(function() { googletag.display('pcgamesn_ad_skin'); });  
+  }
+
+  googletag.cmd.push(function() { googletag.display('pcgamesn_ad_billboard'); });
+  if(showLeader) {
+
+    googletag.cmd.push(function() { googletag.display('pcgamesn_ad_mputop'); });  
+
+    googletag.cmd.push(function() { googletag.display('pcgamesn_ad_mpubottom'); });
+  }
+  if(document.getElementById("pcgamesn_ad_sidebar") != null) {
+
+    googletag.cmd.push(function() { googletag.display('pcgamesn_ad_sidebar'); });
+  } 
+</script>
+<!-- Begin comScore Tag -->
+<script>
+  var _comscore = _comscore || [];
+  _comscore.push({ c1: "2", c2: "25110922" });
+  (function() {
+    var s = document.createElement("script"), el = document.getElementsByTagName("script")[0]; s.async = true;
+    s.src = (document.location.protocol == "https:" ? "https://sb" : "http://b") + ".scorecardresearch.com/beacon.js";
+    el.parentNode.insertBefore(s, el);
+  })();
+</script>
+<noscript>
+  <img src="https://sb.scorecardresearch.com/p?c1=2&c2=25110922&cv=2.0&cj=1" />
+</noscript>
+<!-- End comScore Tag -->
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortlink" href="/node/167417" />
+<link rel="canonical" href="https://www.pcgamesn.com/privacy-policy" />
+   <link type="text/css" rel="stylesheet" href="https://www.pcgamesn.com/sites/default/files/css/css_hEC-Gq3O7Ejje4X9pG9TCOY9aIIyKQdUXupz8Bl_Yuw.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://www.pcgamesn.com/sites/default/files/css/css_pJrjlTCQYxONS4cH7zbz6b5jUVNs6jJyg9rubORVZBw.css" media="screen" />
+<link type="text/css" rel="stylesheet" href="https://www.pcgamesn.com/sites/default/files/css/css_xH4ZuLHhuIwSJfx_Z1klWkZfHiPQq3kdfOUpK_BA_J4.css" media="all" />
+<style type="text/css" media="all">
+<!--/*--><![CDATA[/*><!--*/
+.inm080218{padding:20px 0px;border-bottom:1px dotted #b2b2b2;width:610px;}.inm080218 div:first-child{margin-right:5px;}.inm080218 .widget{padding:0px;margin:0px;}.inm080218 .article_mpu1,.article_mpu2{float:none;display:inline-block;width:300px;vertical-align:top;}.inm080218 .article_mpu1{margin-right:5px;}.page-node .inm080218{padding:0px 0px 20px 0px;border-bottom:none;}@media (max-width:600px){.inm080218{width:300px;.article_mpu1{margin-bottom:20px;}}}
+#bsk080218{position:fixed;top:60px;left:50%;margin-left:-715px;z-index:0;width:1430px;height:970px;}body.hasCarousel #bsk080218{top:330px;}
+
+/*]]>*/-->
+</style>
+<link type="text/css" rel="stylesheet" href="https://www.pcgamesn.com/sites/default/files/css/css_lvHShG76JuSBtlKE4yLO7X0DxIhWlN2OpMcrmdenQLE.css" media="all" />
+<link type="text/css" rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://www.pcgamesn.com/sites/default/files/css/css_lUmJuEVA_Oql7GbY1K4KyOBO5PhIXvytGpVmjk-bcdU.css" media="screen" />
+   
+  <!--
+<script src="https://apis.google.com/js/plusone.js"></script>
+<script src="https://apis.google.com/js/client:plusone.js"></script>
+-->
+
+  <title>Privacy policy | PCGamesN</title>
+ <script>/*(function() {
+  var _fbq = window._fbq || (window._fbq = []);
+  if (!_fbq.loaded) {
+    var fbds = document.createElement('script');
+    fbds.async = true;
+    fbds.src = '//connect.facebook.net/en_US/fbds.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(fbds, s);
+    _fbq.loaded = true;
+  }
+  
+})();
+window._fbq = window._fbq || [];
+*/</script>
+<!--[if lt IE 9]>
+<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<script async src="https://apis.google.com/js/client.js?onload=init"></script>
+<!-- TradeDoubler site verification 2277944 -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  	ga('create', 'UA-31105670-2', 'auto');
+  	ga('send', 'pageview');
+  	setTimeout(ga('send', 'event', '15_seconds', 'read'));
+</script>
+<script>
+/**
+* Function that tracks a click on an outbound link in Analytics.
+* This function takes a valid URL string as an argument, and uses that URL string
+* as the event label. Setting the transport method to 'beacon' lets the hit be sent
+* using 'navigator.sendBeacon' in browser that support it.
+*/
+var trackOutboundLink = function(url, linkType) {
+   ga('send', 'event', 'outbound', 'click-' + linkType, url, {
+     'transport': 'beacon',
+     'hitCallback': function(){}
+   });
+   return false;
+}
+</script>
+
+</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KJV9C7D');</script>
+<!-- End Google Tag Manager -->
+</head>
+<body class="html not-front not-logged-in no-sidebars page-node page-node- page-node-167417 node-type-page"  >
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KJV9C7D"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+  
+    <div id="skip-link">
+    <a href="#content" class="element-invisible element-focusable">Skip to main content</a>
+</div>
+<header id="site-header">
+    <!-- Start Block -->
+<div id="header-wrapper"><h2 id="header-logo"><a href="/">PC Games news and reviews from PCGamesN.com</a></h2><div id="header-sections"><ul><li><a href="https://www.pcgamesn.com/reviews" title="PC games reviews" class="first leaf">Reviews</a></li><li><a href="https://www.pcgamesn.com/hardware" title="Hardware" class="leaf">Hardware</a></li><li><a href="https://www.pcgamesn.com/about" title="About" class="last leaf">About</a></li></ul></div><div id="header-search-form"><form class="search-form" action="/search/node" method="post" id="search-form" accept-charset="UTF-8"><div><div class="container-inline form-wrapper" id="edit-basic"><div class="form-item form-type-textfield form-item-keys">
+ <input type="text" id="edit-keys" name="keys" value="Search PCGamesN" size="40" maxlength="255" class="form-text" />
+</div>
+<input type="submit" id="edit-submit" name="op" value="Search" class="form-submit" /></div><input type="hidden" name="form_build_id" value="form-_PY5zm9ryvMm8Gdt6lbO8VtgYgXos8CJjtTqMr6qCMw" />
+<input type="hidden" name="form_id" value="search_form" />
+</div></form></div><div id="header-aside"><div id="header-search" class="header-aside-section"></div><div id="header-share" class="header-aside-section"><a href="https://www.facebook.com/PCGamesNetwork" target="_blank" class="fa fa-facebook"></a><a href="https://twitter.com/pcgamesn" target="_blank" class="fa fa-twitter"></a><a href="https://www.youtube.com/user/PCGamesN" target="_blank" class="fa fa-youtube"></a><a href="https://steamcommunity.com/groups/pcgamesn" target="_blank" class="fa fa-steam"></a><a href="/mainrss.xml" class="fa fa-rss-square"></a></div><a href="/user/login?destination=privacy-policy" id="header-profile" class="header-aside-section" rel="lightframe[|width: 576px]"></a></div></div></header>
+	
+<div class="section-advert-banner">
+	<div id="resp_unit_dest"></div><div id="pcgamesn_ad_billboard"></div>
+<script>if(showLeader) { } else {}</script></div>
+<div id="site-wrapper">
+	<header class="article-header">
+				<h1>Privacy policy</h1>
+	</header>
+	<div id="content" class="full-width m-content"><!--smart_paging_filter--><!--smart_paging_autop_filter--><p><strong>1. Introduction</strong></p><p>1.1 We are committed to safeguarding the privacy of our website visitors; in this policy we explain how we will treat your personal information.</p><p><strong>2. Credit</strong></p><p>2.1 This document was created using a template from Docular (https://docular.net).</p><p><strong>3. Collecting personal information</strong></p><p>3.1 We may collect, store and use the following kinds of personal information:&nbsp;</p><p>(a) information about your computer and about your visits to and use of this website (including your IP address, geographical location, browser type and version, operating system, referral source, length of visit, page views and website navigation paths);</p><p>(b) information that you provide to us when registering with our website (including your email address);</p><p>(c) information that you provide when completing your profile on our website (including your name, profile pictures, gender, date of birth, relationship status, interests and hobbies, educational details and employment details);</p><p>(d) information that you provide to us for the purpose of subscribing to our email notifications and/or newsletters (including your name and email address);</p><p>(e) information that you provide to us when using the services on our website, or that is generated in the course of the use of those services (including the timing, frequency and pattern of service use);</p><p>(f) information that you post to our website for publication on the internet (including your user name, your profile pictures and the content of your posts);</p><p>(g) information contained in or relating to any communication that you send to us or send through our website (including the communication content and metadata associated with the communication); and</p><p>(h) any other personal information that you choose to send to us.</p><p>3.2 Before you disclose to us the personal information of another person, you must obtain that person's consent to both the disclosure and the processing of that personal information in accordance with this policy.</p><p><strong>4. Using personal information</strong></p><p>4.1 Personal information submitted to us through our website will be used for the purposes specified in this policy or on the relevant pages of the website.</p><p>4.2 We may use your personal information to:&nbsp;</p><p>(a) administer our website and business;</p><p>(b) personalise our website for you;</p><p>(c) enable your use of the services available on our website;</p><p>(d) send you email notifications that you have specifically requested;</p><p>(e) send you our email newsletter, if you have requested it (you can inform us at any time if you no longer require the newsletter);</p><p>(f) send you marketing communications relating to our business &nbsp;which we think may be of interest to you, by post or, where you have specifically agreed to this, by email or similar technology (you can inform us at any time if you no longer require marketing communications);</p><p>(g) provide third parties with statistical information about our users (but those third parties will not be able to identify any individual user from that information);</p><p>(h) deal with enquiries and complaints made by or about you relating to our website;</p><p>(i) keep our website secure and prevent fraud; and</p><p>(j) verify compliance with the terms and conditions governing the use of our website .</p><p>4.3 If you submit personal information for publication on our website, we will publish and otherwise use that information in accordance with the licence you grant to us.</p><p>4.4 We will not, without your express consent, supply your personal information to any third party for the purpose of their or any other third party's direct marketing.</p><p><strong>5. Disclosing personal information</strong></p><p>5.1 We may disclose your personal information to any of our employees, officers, insurers, professional advisers, agents, suppliers or subcontractors insofar as reasonably necessary for the purposes set out in this policy.</p><p>5.2 We may disclose your personal information:&nbsp;</p><p>(a) to the extent that we are required to do so by law;</p><p>(b) in connection with any ongoing or prospective legal proceedings;</p><p>(c) in order to establish, exercise or defend our legal rights (including providing information to others for the purposes of fraud prevention and reducing credit risk); and</p><p>(d) to the purchaser (or prospective purchaser) of any business or asset that we are (or are contemplating) selling.</p><p>5.3 Except as provided in this policy, we will not provide your personal information to third parties.</p><p><strong>6. Retaining personal information</strong></p><p>6.1 This Section 6 sets out our data retention policies and procedure, which are designed to help ensure that we comply with our legal obligations in relation to the retention and deletion of personal information.</p><p>6.2 Personal information that we process for any purpose or purposes shall not be kept for longer than is necessary for that purpose or those purposes.</p><p>6.3 Notwithstanding the other provisions of this Section 6, we will retain documents (including electronic documents) containing personal data:&nbsp;</p><p>(a) to the extent that we are required to do so by law;</p><p>(b) if we believe that the documents may be relevant to any ongoing or prospective legal proceedings; and</p><p>(c) in order to establish, exercise or defend our legal rights (including providing information to others for the purposes of fraud prevention and reducing credit risk).</p><p><strong>7. Security of personal information</strong></p><p>7.1 We will take reasonable technical and organisational precautions to prevent the loss, misuse or alteration of your personal information.</p><p>7.2 We will store all the personal information you provide on our secure (password- and firewall-protected) servers.</p><p>7.3 You acknowledge that the transmission of information over the internet is inherently insecure, and we cannot guarantee the security of data sent over the internet.</p><p>7.4 You are responsible for keeping the password you use for accessing our website confidential; we will not ask you for your password (except when you log in to our website).</p><p><strong>8. Amendments</strong></p><p>8.1 We may update this policy from time to time by publishing a new version on our website.</p><p>8.2 You should check this page occasionally to ensure you are happy with any changes to this policy.</p><p><strong>9. Your rights</strong></p><p>9.1 You may instruct us to provide you with any personal information we hold about you; provision of such information will be subject to:&nbsp;</p><p>(a) the payment of a fee (currently fixed at GBP 10); and</p><p>(b) the supply of appropriate evidence of your identity (for this purpose, we will usually accept a photocopy of your passport certified by a solicitor or bank plus an original copy of a utility bill showing your current address).</p><p>9.2 We may withhold personal information that you request to the extent permitted by law.</p><p>9.3 You may instruct us at any time not to process your personal information for marketing purposes.</p><p>9.4 In practice, you will usually either expressly agree in advance to our use of your personal information for marketing purposes, or we will provide you with an opportunity to opt out of the use of your personal information for marketing purposes.</p><p><strong>10. Third party websites</strong></p><p>10.1 Our website includes hyperlinks to, and details of, third party websites.</p><p>10.2 We have no control over, and are not responsible for, the privacy policies and practices of third parties.</p><p><strong>11. Updating information</strong></p><p>11.1 Please let us know if the personal information that we hold about you needs to be corrected or updated.</p><p><strong>12. Our details</strong></p><p>12.1 This website is owned and operated by Network N Limited.</p><p>12.2 We are registered in England and Wales under registration number 08063183, and our registered office is at Circus Mews House, Circus Mews, Bath, England, BA1 2PW.</p><p>12.3 Our principal place of business is at Circus Mews House, Circus Mews, Bath, BA1 2PW, England, UK.</p><p>12.4 You can contact us:</p><p>(a) by post, using the postal address given above; or</p><p>(b) by email, using the email address published on our website from time to time.</p></div>	
+</div>    	
+<footer id="site-footer">
+	<ul class="links">
+		<a href="/" id="pcgamesn-footer">PCGamesN</a>			
+		<li class="first">&copy;  Network N Ltd</li>
+		<li><a href="/cdn-cgi/l/email-protection#086d6c617c677a48786b6f69656d7b66266b6765" title="Contact PCGamesN">Contact Us</a></li>
+		<li><a href="/careers">Careers</a></li>
+		<li><a href="http://steampowered.com" id="steamFooterLink">Powered by Steam</a></li>
+	</ul>
+	
+	<div id="footer-aside">
+		<ul id="footer-rss">
+			<li>Full RSS <a href="/mainrss.xml"><img src="/sites/all/themes/pcgamesn/images/icons/rss_24.png" alt="RSS" title="PCGamesN RSS" width="24" height="24"></a></li>
+					</ul>
+	</div>
+	<ul id="footer-submenu"><li><a href="https://www.pcgamesn.com/best-pc-games" title="Best PC games" class="first leaf">Best PC games</a></li><li><a href="https://www.pcgamesn.com/15-best-pc-first-person-shooters" title="Best FPS" class="leaf">Best FPS</a></li><li><a href="https://www.pcgamesn.com/10-best-pc-mmos" title="Best MMORPGs" class="leaf">Best MMORPGs</a></li><li><a href="https://www.pcgamesn.com/100-best-free-pc-games" title="Best free PC games" class="leaf">Best free PC games</a></li><li><a href="https://www.pcgamesn.com/nine-best-free-play-games-steam" title="Best free Steam games" class="leaf">Best free Steam games</a></li><li><a href="https://www.pcgamesn.com/10-best-racing-games-pc" title="Best racing games" class="leaf">Best racing games</a></li><li><a href="https://www.pcgamesn.com/15-great-strategy-games-you-really-should-play-or-else" title="Best strategy games" class="leaf">Best strategy games</a></li><li><a href="http://steamidfinder.com/" title="Steam ID" class="leaf">Steam ID</a></li><li><a href="http://steamprofile.com/" title="Steam Profile" class="last leaf">Steam Profile</a></li></ul>	
+</footer>  <div id="bsk080218"></div><div id="pcgn_1987199" class="ad_bgskin"><div id="pcgamesn_ad_skin"></div></div>
+<script data-cfasync="false" src="/cdn-cgi/scripts/d07b1474/cloudflare-static/email-decode.min.js"></script><script>if(showSkin) { }</script>
+  <div style="display:none;" id="pcgnab_lb" data-link="https://www.deckbound.com/heroes/?r=nt-rnga" data-img="https://www.pcgamesn.com/sites/default/files/DeckboundL.jpg"></div>
+      				<div style="display:none;" id="pcgnab_mp1" data-link="http://www.pcgamesn.com" data-img="https://www.pcgamesn.com/sites/default/files/IEMM%20test.jpg"></div>
+      				<div style="display:none;" id="pcgnab_mp2" data-link="http://bit.ly/2kUEkbZ" data-img="https://www.pcgamesn.com/sites/default/files/IEMM_0.jpg"></div>
+      				<div style="display:none;" id="pcgnab_mp3" data-link="http://bit.ly/2kUEkbZ" data-img="https://www.pcgamesn.com/sites/default/files/IEMM_1.jpg"></div>
+      				<div style="display:none;" id="pcgnab_sk" data-link="https://www.pcgamesn.com/" data-img="https://www.pcgamesn.com/sites/default/files/WTS.jpg"></div>
+      
+      <script type="text/javascript">
+
+	setTimeout(function(){var a=document.createElement("script");
+	var b=document.getElementsByTagName("script")[0];
+	a.src=document.location.protocol+"//dnn506yrbagrg.cloudfront.net/pages/scripts/0017/2880.js?"+Math.floor(new Date().getTime()/3600000);
+	a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
+</script>
+<!-- Quantcast Tag -->
+<script type="text/javascript">
+var _qevents = _qevents || [];
+(function() {
+var elem = document.createElement('script');
+elem.src = (document.location.protocol == "https:" ? "https://secure" : "http://edge") + ".quantserve.com/quant.js";
+elem.async = true;
+elem.type = "text/javascript";
+var scpt = document.getElementsByTagName('script')[0];
+scpt.parentNode.insertBefore(elem, scpt);
+})();
+_qevents.push({
+qacct:"p-RjEjuLgJaKFyH"
+});
+</script>
+<noscript>
+<div style="display:none;">
+<img src="//pixel.quantserve.com/pixel/p-RjEjuLgJaKFyH.gif" border="0" height="1" width="1" alt="Quantcast"/>
+</div>
+</noscript>
+<!-- End Quantcast tag -->
+<script type="text/javascript" src="https://www.pcgamesn.com/sites/default/files/js/js_I7on7ZpAgZq7ft7hc9onjXLljbOYJ6msuVTtBlBR8dY.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"pcgamesn","theme_token":"pl-VQlfjcXJrmyvm32_Nrkb9E8X1tqj7FMtuJg1LXRk","js":{"misc\/jquery.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"misc\/ui\/jquery.ui.core.min.js":1,"misc\/ui\/jquery.ui.widget.min.js":1,"misc\/ui\/jquery.ui.position.min.js":1,"misc\/ui\/jquery.ui.autocomplete.min.js":1,"misc\/jquery.cookie.js":1,"misc\/jquery.form.js":1,"misc\/ui\/jquery.ui.datepicker.min.js":1,"misc\/ui\/jquery.ui.mouse.min.js":1,"misc\/ui\/jquery.ui.slider.min.js":1,"sites\/all\/libraries\/jquery-ui-timepicker\/jquery-ui-sliderAccess.js":1,"sites\/all\/libraries\/jquery-ui-timepicker\/jquery-ui-timepicker-addon.js":1,"misc\/ajax.js":1,"sites\/all\/modules\/custom\/gamesn_ads\/fancybox\/source\/jquery.fancybox.js":1,"sites\/all\/modules\/custom\/gamesn_commenting\/js\/gamesn_commenting.js":1,"sites\/all\/modules\/custom\/gamesn_games\/js\/gamesn_games_forms.js":1,"sites\/all\/modules\/custom\/gamesn_profile\/gamesn_profile.js":1,"sites\/all\/modules\/custom\/gamesn_reviews\/js\/gamesn_reviews.js":1,"sites\/all\/modules\/custom\/pcgamesn_adblock\/pcgamesn_adblock.js":1,"sites\/all\/modules\/custom\/pcgamesn_adverts\/pcgamesn_adverts.js":1,"sites\/all\/modules\/custom\/pcgamesn_archives\/pcgamesn_archives.js":1,"sites\/all\/modules\/custom\/pcgamesn_cookie_bar\/pcgamesn_cookie_bar.js":1,"sites\/all\/modules\/custom\/pcgamesn_facebook\/pcgamesn_facebook.js":1,"sites\/all\/modules\/custom\/pcgamesn_google_search\/pcgamesn_google_search.js":1,"sites\/all\/modules\/custom\/pcgamesn_header\/header_v2.js":1,"sites\/all\/modules\/custom\/pcgamesn_next_page\/pcgamesn_next_page.js":1,"sites\/all\/modules\/custom\/pcgamesn_pagespeed\/pcgamesn_pagespeed.js":1,"sites\/all\/modules\/custom\/pcgamesn_scheduler\/pcgamesn_scheduler.js":1,"sites\/all\/modules\/custom\/pcgamesn_social\/pcgamesn_social.js":1,"sites\/all\/modules\/custom\/pcgamesn_steam\/pcgamesn_steam.js":1,"sites\/all\/modules\/custom\/pcgamesn_submit_story\/pcgamesn_submit_story.js":1,"sites\/all\/modules\/custom\/pcgamesn_v2_sidebar\/pcgamesn_v2_sidebar.js":1,"sites\/all\/modules\/custom\/pcgamesn_youtube_api\/pcgamesn_youtube_api.js":1,"sites\/all\/themes\/pcgamesn\/js\/social.js":1,"sites\/all\/themes\/pcgamesn\/js\/scripts.js":1,"sites\/all\/themes\/pcgamesn\/js\/responsive.js":1,"misc\/progress.js":1,"":1,"sites\/all\/modules\/lightbox2\/js\/lightbox_video.js":1,"sites\/all\/modules\/lightbox2\/js\/lightbox.js":1,"sites\/all\/modules\/date\/stanford_date_timepicker\/js\/stanford_date_timepicker.js":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"misc\/ui\/jquery.ui.core.css":1,"misc\/ui\/jquery.ui.theme.css":1,"misc\/ui\/jquery.ui.autocomplete.css":1,"misc\/ui\/jquery.ui.datepicker.css":1,"misc\/ui\/jquery.ui.slider.css":1,"sites\/all\/libraries\/jquery-ui-timepicker\/jquery-ui-timepicker-addon.css":1,"modules\/comment\/comment.css":1,"sites\/all\/modules\/date\/date_api\/date.css":1,"sites\/all\/modules\/date\/date_popup\/themes\/datepicker.1.7.css":1,"modules\/field\/theme\/field.css":1,"sites\/all\/modules\/custom\/gamesn_ads\/fancybox\/source\/jquery.fancybox.css":1,"sites\/all\/modules\/custom\/gamesn_ads\/fancybox_custom.css":1,"sites\/all\/modules\/custom\/gamesn_games\/css\/gamesn_games.css":1,"sites\/all\/modules\/custom\/gamesn_profile\/css\/gamesn_profile.css":1,"sites\/all\/modules\/custom\/gamesn_reviews\/css\/gamesn_reviews3.css":1,"sites\/all\/modules\/custom\/gamesn_user_manager\/user_manager.css":1,"modules\/node\/node.css":1,"sites\/all\/modules\/custom\/pcgamesn_adblock\/pcgamesn_adblock.css":1,"sites\/all\/modules\/custom\/pcgamesn_adverts\/pcgamesn_adverts.css":1,"sites\/all\/modules\/custom\/pcgamesn_affiliates\/pcgamesn_affiliates.css":1,"sites\/all\/modules\/custom\/pcgamesn_archives\/pcgamesn_archives.css":1,"sites\/all\/modules\/custom\/pcgamesn_cookie_bar\/pcgamesn_cookie_bar.css":1,"sites\/all\/modules\/custom\/pcgamesn_facebook\/pcgamesn_facebook.css":1,"sites\/all\/modules\/custom\/pcgamesn_google_search\/pcgamesn_google_search.css":1,"sites\/all\/modules\/custom\/pcgamesn_header\/header_v2.css":1,"sites\/all\/modules\/custom\/pcgamesn_iframe_pages\/pcgamesn_iframe_pages.css":1,"sites\/all\/modules\/custom\/pcgamesn_next_page\/pcgamesn_next_page.css":1,"sites\/all\/modules\/custom\/pcgamesn_pagespeed\/pcgamesn_pagespeed.css":1,"sites\/all\/modules\/custom\/pcgamesn_scheduler\/pcgamesn_scheduler.css":1,"sites\/all\/modules\/custom\/pcgamesn_social\/pcgamesn_social.css":1,"sites\/all\/modules\/custom\/pcgamesn_submit_story\/pcgamesn_submit_story.css":1,"sites\/all\/modules\/custom\/pcgamesn_v2_sidebar\/pcgamesn_v2_sidebar.css":1,"sites\/all\/modules\/custom\/pcgamesn_youtube_api\/pcgamesn_youtube_api.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"modules\/forum\/forum.css":1,"sites\/all\/modules\/views\/css\/views.css":1,"0":1,"1":1,"sites\/all\/modules\/ctools\/css\/ctools.css":1,"sites\/all\/modules\/lightbox2\/css\/lightbox.css":1,"\/\/maxcdn.bootstrapcdn.com\/font-awesome\/4.3.0\/css\/font-awesome.min.css":1,"sites\/all\/themes\/pcgamesn\/style.css":1,"sites\/all\/themes\/pcgamesn\/screen.css":1}},"ajax-login":{"modalSize":{"type":"fixed","width":800,"height":500},"modalTheme":"loginModal","animation":"fadeIn"},"lightbox2":{"rtl":0,"file_path":"\/(\\w\\w\/)public:\/","default_image":"\/sites\/all\/modules\/lightbox2\/images\/brokenimage.jpg","border_size":0,"font_color":"000","box_color":"000","top_position":"","overlay_opacity":"0.8","overlay_color":"000","disable_close_click":1,"resize_sequence":0,"resize_speed":400,"fade_in_speed":400,"slide_down_speed":600,"use_alt_layout":0,"disable_resize":0,"disable_zoom":0,"force_show_nav":0,"show_caption":1,"loop_items":0,"node_link_text":"View Image Details","node_link_target":0,"image_count":"Image !current of !total","video_count":"Video !current of !total","page_count":"Page !current of !total","lite_press_x_close":"press \u003Ca href=\u0022#\u0022 onclick=\u0022hideLightbox(); return FALSE;\u0022\u003E\u003Ckbd\u003Ex\u003C\/kbd\u003E\u003C\/a\u003E to close","download_link_text":"","enable_login":false,"enable_contact":false,"keys_close":"c x 27","keys_previous":"p 37","keys_next":"n 39","keys_zoom":"z","keys_play_pause":"32","display_image_size":"original","image_node_sizes":"()","trigger_lightbox_classes":"","trigger_lightbox_group_classes":"","trigger_slideshow_classes":"","trigger_lightframe_classes":"","trigger_lightframe_group_classes":"","custom_class_handler":0,"custom_trigger_classes":"","disable_for_gallery_lists":true,"disable_for_acidfree_gallery_lists":true,"enable_acidfree_videos":true,"slideshow_interval":5000,"slideshow_automatic_start":true,"slideshow_automatic_exit":true,"show_play_pause":true,"pause_on_next_click":false,"pause_on_previous_click":true,"loop_slides":false,"iframe_width":600,"iframe_height":400,"iframe_border":1,"enable_video":1,"flvPlayer":"\/","flvFlashvars":"autoplay=1"},"stanford_date_timepicker":{"classes":"","default_date_format":"yy-mm-dd","default_time_format":"hh:mm","default_separator":" "}});
+//--><!]]>
+</script>
+<div id="fb-root"></div>
+<!-- Google Code for Remarketing Tag -->
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 988691481;
+var google_custom_params = window.google_tag_params;
+var google_remarketing_only = true;
+/* ]]> */
+</script>
+<div style="position: absolute;bottom:0;">
+<script type="text/javascript" src="//
+www.googleadservices.com/pagead/conversion.js">
+</script>
+</div>
+<noscript>
+<div style="display:inline;">
+<img height="1" width="1" style="border-style:none;" alt="Google remarketing image" src="//
+googleads.g.doubleclick.net/pagead/viewthroughconversion/988691481/?value=0&amp;guid=ON&amp;script=0
+"/>
+</div>
+</noscript>
+<script  type="text/javascript">
+window.addEventListener('load',function(){	 
+jQuery('[href="/counter-strike-global-offensive/csgo-update"]').click(function(){
+ga('send','event','link','click','latest best FPS');
+})
+
+
+jQuery('[href="/civilization-vi/civilization-6-america-strategy-guide-roosevelt"]').click(function(){
+ga('send','event','link','click','Civilization');
+})
+
+jQuery('[href="/this-week-in-user-reviews"]').click(function(){
+ga('send','event','link','click','user reviews');
+})
+});
+</script>
+<script type="text/javascript">
+	window.addEventListener('message',function(event) {
+		var source = event.origin;
+		if(event.origin.slice(-12) == 'pcgamesn.com') {
+			if (event.data == "Resize_register") {
+				document.getElementById('lightboxFrame').height = '560';
+				document.getElementById('outerImageContainer').style.height = '540px';
+			}
+		}
+},false);
+</script>
+<script src="https://ads.avocet.io/s?add=58aed95a08dd7d6b0a6c4156&ty=j"></script>
+</body>
+</html>
+
+<!-- Page cached by Boost @ 2018-02-08 22:47:18, expires @ 2018-02-09 04:47:18, lifetime 6 hours -->

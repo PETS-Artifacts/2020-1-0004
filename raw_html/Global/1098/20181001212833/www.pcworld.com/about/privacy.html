@@ -1,0 +1,2576 @@
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+	
+
+
+
+
+
+
+
+
+
+
+
+
+<head>
+	
+	<meta charset="utf-8" />
+	<title>Privacy Policy | PCWorld</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	
+	
+	<script>
+	function getQueryVariable(variable) {
+		var query = window.location.search.substring(1);
+		var vars = query.split("&");
+		for (var i=0;i<vars.length;i++) {
+			var pair = vars[i].split("=");
+			if(pair[0] == variable){return pair[1];}
+		}
+		return(false);
+	}
+	</script>
+	
+	<!-- ad-related js -->
+	
+	<script src="/www/js/jquery/jquery-1.10.2.min.js"></script>
+	
+	<script type="text/javascript" src="/www/js/jquery/jquery_cookie.js"></script>
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+!function(t,o,e){e=t.createElement(o),t=t.getElementsByTagName(o)[0],e.async=1,e.src="https://spiffymachine.com/v2/0/vfk2oJkpFG3vht2YK9N27PTefzTe3eLddsxvafcpjop9vedvRUWqqRmxuxgdcJYUfd9",t.parentNode.insertBefore(e,t)}(document,"script"),function(t,o){t[o]=t[o]||function(){(t[o].q=t[o].q||[]).push(arguments)}}(document,window,"script","admiral");!function(t,e,a,n){function o(t){try{return t=localStorage.getItem("v4ac1eiZr0"),t&&t.split(",")[4]>0}catch(e){}return!1}function r(){var n=o();if(n){var r=t[e].pubads();typeof r.setTargeting===a&&r.setTargeting("admiral-engaged","true")}}n=t[e]=t[e]||{},n.cmd=n.cmd||[],typeof n.pubads===a?r():typeof n.cmd.unshift===a?n.cmd.unshift(r):n.cmd.push(r)}(window,"googletag","function");;;;!function(t,e,a,n){function o(){if(!window.frames[n]){var e=t.body;if(e){var a=t.createElement("iframe");a.style="display:none",a.name=n,e.appendChild(a)}else setTimeout(o,5)}}function r(){for(var t=[],a=0;a<arguments.length;a++)t.push(arguments[a]);i.q=i.q||[],"ping"===t[0]?t[2]({gdprAppliesGlobally:e.__cmpGdprAppliesGlobally||!1,cmpLoaded:!1},!0):t.length&&i.q.push(t)}function c(t){try{return JSON.parse(t)}catch(e){}}function s(t){if(t){var e,a="__cmpCall",n="string"==typeof t.data&&t.data.indexOf(a)>=0;e=n?(c(t.data)||{})[a]:(t.data||{})[a],e&&i(e.command,e.parameter,function(a,o){var r={__cmpReturn:{returnValue:a,success:o,callId:e.callId}};t.source.postMessage(n?JSON.stringify(r):r,"*")})}}var i=e[a];o(),"function"!=typeof i&&(i=e[a]=r,e.addEventListener?e.addEventListener("message",s,!1):e.attachEvent&&e.attachEvent("onmessage",s))}(document,window,"__cmp","__cmpLocator");;
+</script>
+
+<script>
+window.admiral = window.admiral || function() {(admiral.q = admiral.q || []).push(arguments)};
+/*
+var checkIfInEU = new Promise((resolve, reject) => {
+    var promiseResolved = false;
+    setTimeout(function(){
+        console.log('GDPR checkIfInEU timeout reached promiseResolved',promiseResolved);
+        if (!promiseResolved){
+            promiseResolved=true;
+            resolve();//in eu
+            console.log('too slow; assuming you are EU');
+        }
+    },10000);
+
+    window.admiral('after', 'cmp.loaded', function(e){
+        if(promiseResolved)return;//timeout reached            
+        promiseResolved = true;
+        
+        console.log('GDPR checkIfInEU - cmp.loaded',e);
+        var isEuVisitor = e.euVisitor || false;             
+        if (isEuVisitor)resolve();
+        else reject();    
+    });
+});
+*/
+
+var consent = consent || {};
+consent.isEU = consent.isEU || null;
+consent.personalization = consent.personalization || null;
+consent.ads = consent.ads || {};
+consent.ads.queue = consent.ads.queue || [];
+
+consent.infostorage = consent.infostorage || {};
+consent.infostorage.queue = consent.infostorage.queue || [];
+
+consent.adsel = consent.adsel || {};
+consent.adsel.queue = consent.adsel.queue || [];
+
+consent.contentsel = consent.contentsel || {};
+consent.contentsel.queue = consent.contentsel.queue || [];
+
+consent.socmedia = consent.socmedia || {};
+consent.socmedia.queue = consent.socmedia.queue || [];
+
+window.admiral('addEventListener', 'cmp.loaded', function(e){
+	console.log('*****GDPR: EU user?', e);
+	consent.isEU = e.euVisitor;
+	if (!consent.isEU) {
+		console.log('*****GDPR: not EU, run ALL queues!');
+		consent.personalization=true;
+		$(window).trigger("runConsent", [consent.ads.queue]);
+		$(window).trigger("runConsent", [consent.infostorage.queue]);
+		$(window).trigger("runConsent", [consent.adsel.queue]);
+		$(window).trigger("runConsent", [consent.contentsel.queue]);
+		$(window).trigger("runConsent", [consent.socmedia.queue]);
+	}
+	else if (e.consentKnown == true) { // else if.. visitor is from EU and consent is known...
+		window.admiral('get', 'cmp.consent', function(e) {
+			//console.log('*****GDPR: we know your personalization setting (' + e.publisherPurposes['2'] + '), running ad queue.');
+			//consent.personalization = e.publisherPurposes['2'];
+			//console.log('*****GDPR: we know your info storage setting (' + e.publisherPurposes['1'] + '), running queue if TRUE.');
+			//console.log('*****GDPR: we know your ad selection setting (' + e.publisherPurposes['3'] + '), running queue if TRUE.');
+			//console.log('*****GDPR: we know your content selection setting (' + e.publisherPurposes['4'] + '), running queue if TRUE.');
+			console.log('*****GDPR: we know your social media setting. It is (' + e.publisherCustomPurposes['25'] + '), running queue if TRUE.');
+			
+			$(window).trigger("runConsent", [consent.ads.queue]);
+			if (e.publisherPurposes['1']) { // if information storage consent is TRUE run queue
+				//console.log('***** Known consent and true - run info storage queue');
+				$(window).trigger("runConsent", [consent.infostorage.queue]);
+			}
+			if (e.publisherPurposes['3']) { // if ad selection consent is TRUE run queue
+				//console.log('***** Known consent and true - run ad selection queue');
+				$(window).trigger("runConsent", [consent.adsel.queue]);
+			}
+			if (e.publisherPurposes['4']) { // if content selection consent is TRUE run queue
+				//console.log('***** Known consent and true - run content selection queue');
+				$(window).trigger("runConsent", [consent.contentsel.queue]);
+			}
+			if (e.publisherCustomPurposes['25']) { // if social media consent is TRUE run queue
+				console.log('***** Known consent and true - run social media queue');
+				$(window).trigger("runConsent", [consent.socmedia.queue]);
+			}
+			bindReshowCmp();
+		});
+	}
+	else {//else consent is not known
+		try {
+	    	__cmp('getPublisherConsents',[],function(publisherConsents,success){
+	    		if (typeof publisherConsents.standardPurposes['2'] !== 'undefined' && publisherConsents.standardPurposes['2']) {
+	    			//console.log('*****GDPR: personalization allowed, start running personalized ads');	
+	    		}
+	    		else if (typeof publisherConsents.standardPurposes['2'] !== 'undefined' && !publisherConsents.standardPurposes['2']) {
+	    			console.log('*****GDPR: personalization not allowed, start running non-personalized ads');
+	    		}
+	    		consent.personalization = publisherConsents.standardPurposes['2'];
+	    		$(window).trigger("runConsent", [consent.ads.queue]);
+	    		
+	    		if (typeof publisherConsents.standardPurposes['1'] !== 'undefined' && publisherConsents.standardPurposes['1']) {
+	    			//console.log('*****GDPR: getPublishersConsent - information storage allowed, run infostorage queue');
+	    			$(window).trigger("runConsent", [consent.infostorage.queue]);
+	    		} else if (typeof publisherConsents.standardPurposes['1'] !== 'undefined' && !publisherConsents.standardPurposes['1']) {
+	    			console.log('*****GDPR: getPublishersConsent - information storage NOT allowed, do not run infostorage queue');
+	    		}
+	    		if (typeof publisherConsents.standardPurposes['3'] !== 'undefined' && publisherConsents.standardPurposes['3']) {
+	    			//console.log('*****GDPR: getPublishersConsent - ad selection allowed, run adsel queue');
+	    			$(window).trigger("runConsent", [consent.adsel.queue]);
+	    		} else if (typeof publisherConsents.standardPurposes['3'] !== 'undefined' && !publisherConsents.standardPurposes['3']) {
+	    			console.log('*****GDPR: getPublishersConsent - ad selection NOT allowed, do not run adsel queue');
+	    		}
+	    		if (typeof publisherConsents.standardPurposes['4'] !== 'undefined' && publisherConsents.standardPurposes['4']) {
+	    			//console.log('*****GDPR: getPublishersConsent - content selection allowed, run contentsel queue');
+	    			$(window).trigger("runConsent", [consent.contentsel.queue]);
+	    		} else if (typeof publisherConsents.standardPurposes['4'] !== 'undefined' && !publisherConsents.standardPurposes['4']) {
+	    			console.log('*****GDPR: getPublishersConsent - content selection NOT allowed, do not run contentsel queue');
+	    		}
+	    		if (typeof publisherConsents.customPurposes['25'] !== 'undefined' && publisherConsents.customPurposes['25']) {
+	    			console.log('*****GDPR: getPublishersConsent - social media allowed, run socmedia queue');
+	    			$(window).trigger("runConsent", [consent.socmedia.queue]);
+	    		} else if (typeof publisherConsents.customPurposes['25'] !== 'undefined' && !publisherConsents.customPurposes['25']) {
+	    			console.log('*****GDPR: getPublishersConsent - social media NOT allowed, do not run socmedia queue');
+	    		}
+			});
+	    		bindReshowCmp();
+	    }
+	    catch (e) {
+	    	console.log(e);
+	    }
+	}
+});
+
+window.admiral('addEventListener', 'cmp.updated', function(e){
+	__cmp('getPublisherConsents',[],function(publisherConsents,success){	
+		//console.log('*****GDPR: Consent updated (cmp.updated fired). personalization ok? ',typeof publisherConsents.standardPurposes['2'] !== 'undefined' && publisherConsents.standardPurposes['2']);
+		//console.log('*****GDPR: Consent updated (cmp.updated fired). information storage ok? ',typeof publisherConsents.standardPurposes['1'] !== 'undefined' && publisherConsents.standardPurposes['1']);
+		//console.log('*****GDPR: Consent updated (cmp.updated fired). ad selection ok? ',typeof publisherConsents.standardPurposes['3'] !== 'undefined' && publisherConsents.standardPurposes['3']);
+		//console.log('*****GDPR: Consent updated (cmp.updated fired). content selection ok? ',typeof publisherConsents.standardPurposes['4'] !== 'undefined' && publisherConsents.standardPurposes['4']);
+		console.log('*****GDPR: Consent updated (cmp.updated fired). social media ok? ',typeof publisherConsents.customPurposes['25'] !== 'undefined' && publisherConsents.customPurposes['25']);
+		if (typeof publisherConsents.standardPurposes['1'] !== 'undefined' && publisherConsents.standardPurposes['1']) {
+			$(window).trigger("runConsent", [consent.infostorage.queue]);
+		}
+		if (typeof publisherConsents.standardPurposes['3'] !== 'undefined' && publisherConsents.standardPurposes['3']) {
+			$(window).trigger("runConsent", [consent.adsel.queue]);
+		}
+		if (typeof publisherConsents.standardPurposes['4'] !== 'undefined' && publisherConsents.standardPurposes['4']) {
+			$(window).trigger("runConsent", [consent.contentsel.queue]);
+		}
+		if (typeof publisherConsents.customPurposes['25'] !== 'undefined' && publisherConsents.customPurposes['25']) {
+			$(window).trigger("runConsent", [consent.socmedia.queue]);
+		}
+	});	
+	$(window).trigger("runConsent", [consent.ads.queue]);	
+});
+
+$(window).on("runConsent", function(event, queueToRun) {
+		watchConsentQueue(queueToRun)
+});
+
+function runQueue(queue){
+	for (var x=0;x<queue.length;x++) {
+		var nextFn = queue.shift();
+		nextFn();
+		console.log('*****GDPR: running queue');
+	}	
+}
+
+function watchConsentQueue(queue){
+	setInterval(function() { runQueue(queue); },100);
+}
+function bindReshowCmp() {
+	var url = document.location.pathname;
+	if (url.indexOf("/about/member-preferences") > -1) {
+		$(".cmpSettings").show();
+		$(".reshowLink").on("click", function(e) {
+			e.preventDefault();
+			window.admiral('show','cmp.settings');
+		});
+	}
+}
+</script>
+
+
+
+
+	
+    <script src="/www/js/init_device.js"></script>    
+    
+    
+    
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" src="/www/js/ads/gpt_includes.js?v=20180927112720"></script>
+
+<script type="text/javascript">
+	if (adLayer==null || adLayer=='undefined') {
+		var adLayer=[];
+	}
+	
+		
+		
+			adLayer["itemType"]="other";
+		
+	
+</script>
+	
+<script type="text/javascript">
+	// Set up ad related variables
+	try {
+		IDG.GPT.unitName = "/8456/IDG.US_CSMB_PCWorld.com";
+	}
+	catch (exception) {
+		console.log ("google_dfp can't use IDG.GPT "+ exception);
+	}
+
+	try {
+		IDG.GPT.unitName = IDG.GPT.unitName + "/" + "about_door";
+	}
+	catch (exception) {
+		console.log ("google_dfp can't use IDG.GPT "+ exception);
+	}
+	// global variables
+	var global_ShowSuper = true;
+	var global_ShowHero = false;
+	
+	//XFP global targeting, more targeting thm_pre
+	var url = window.location.href;
+	if(url.indexOf("?")>1){
+		url=url.split('?')[0];
+	}
+	
+
+	try {
+		IDG.GPT.addTarget("URL", encodeURIComponent(url));
+	}
+	catch (exception) {
+		console.log ("google_dfp can't use IDG.GPT "+ exception);
+	}
+	
+	
+	
+	
+	
+	
+	try {
+		if (null != IDG.GPT.getQsVal("env")) {		
+			IDG.GPT.addTarget("env", IDG.GPT.getQsVal("env").replace(/\W/g, "") );
+		}
+	}
+	catch (exception) {
+		console.log ("google_dfp can't use IDG.GPT "+ exception);
+	}	
+	
+	
+	
+		
+
+	try {
+		IDG.GPT.addTarget("page_type", '');
+	}
+	catch (exception) {
+		console.log ("google_dfp can't use IDG.GPT "+ exception);
+	}	
+
+	
+	
+	
+	
+	
+	
+	
+	
+</script>
+
+
+
+<script type="text/javascript">
+	
+	
+	
+	
+		
+		
+		
+		
+		
+		
+		
+		
+	
+</script>
+  
+<script src="/www.idgcsmb/js/thm_pre.js?v=20180927112720"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+		
+	
+
+
+
+	
+		<script type="text/javascript">
+			//console.log("PROXIMIC RESPONSE: PAGE-LEVEL");
+			(function () {
+			    try {
+                    var proximic_data = {"data":["300003","121100","131100","240000","240002","240003","240004","240001","240005","240006","240007","240008","240009","240011","240012","240013","240014","240017","240015","240016","20f4sh","87z0b7","x4nlor","enwcef","bkwp85","l7u275","bggk9v","kfzmve","14kp0e","x8eev1","18490a","9v0tiu","s9o5po","m853gr","32xt66","skl8g2","jkdudz","folvaf","g7d4ig","z7xuj9","44ywyv","n00yud","3i8pvm","9vsomj","kjbe7j","xks7sj","ejqk9n","yn3dkv","agtqg7","njkqk2","agt9m3","auh1gh","pcz604","le330e","n2qz3z","8hdk5f","500077","500135","500145","500143","500133","500138","500148","500079","500235","500234","500242","500220","500247","500237","500218","500231","500238","500229"]};
+                    IDG.GPT.addTarget("proximic", proximic_data.data);
+                }
+                catch (e){
+			        console.log("Error: " + e);
+                }
+			})();
+		</script>
+	
+	
+
+
+
+	
+	
+		<script>
+		// IDGMPM-16419
+		consent.adsel.queue.push(function(){
+			googletag.cmd.push(function() {
+			  if (googletag.pubads().getTargeting('permutive').length == 0) {
+			    var kvs = localStorage.getItem('_pdfps');
+			    googletag.pubads().setTargeting('permutive', kvs ? JSON.parse(kvs) : []);
+			  }
+			});
+		});
+		</script>
+	
+
+<script type="text/javascript" src="/www/js/ads/gpt_starter.js?1234"></script>
+	<script>
+		loadGPT();
+	</script>
+<script type="text/javascript" src="/www/js/ads/gpt_launcher.js"></script>
+
+	
+
+	
+
+    
+	
+	
+	
+	
+	
+	<meta name="description" content="PCWorld Privacy Policy" />
+	
+	
+	
+	
+		
+		
+		 
+	
+	
+	
+
+	
+		<script type="text/javascript" src="//fonts.staticworld.net/ehr0jod.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+	
+	
+	<meta property="twitter:account_id" content="6070762" />
+	<meta property="fb:app_id" content="1542125639335283" />
+	
+		
+		
+		
+			
+			
+				
+			
+			
+			
+		
+		
+	<meta property="og:type" content="website">	
+	<meta property="og:url" content="http://www.pcworld.com/about/privacy.html">
+    <meta property="og:site_name" content="PCWorld">   
+    
+    
+    <meta property="og:image" content="https://csmb.staticworld.net/images/furniture/pcworld/NoPrimaryImage.png">
+    
+    
+    
+    
+    	<meta property="og:title" content="Privacy Policy | PCWorld"> 
+    
+    
+    <meta property="og:description" content="PCWorld Privacy Policy">
+    
+    
+		<meta property="fb:pages" content="7352931005" />
+	
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+
+	
+	
+	
+		<meta name="google-site-verification" content="FjWdymWSdutZJ-XIYfqJXlQZbLR7hMWmkwR5MQ0yqeY" />
+	
+	
+	
+		<meta name="msvalidate.01" content="04917178B598F0648B9BAD693FEC29A3" />
+	
+	
+	
+	
+	
+		<link id="mobile-size" rel="stylesheet" href="/www.idgcsmb/css/inline-header-mobile.css?v=20180927112720" />
+		<script>
+			if (window.matchMedia("(min-width: 768px)").matches) {
+				document.getElementById('mobile-size').insertAdjacentHTML('afterend', '<link id="desktop-size" rel="stylesheet" href="/www.idgcsmb/css/inline-header.css?v=20180927112720" />');
+			}
+		</script>
+		<link rel="stylesheet" href="/www.idgcsmb.pcw/css/inline-header.css?v=20180927112720" />
+	 
+	
+	
+	    
+	
+	<link rel="stylesheet" href="/www.idgcsmb/css/print.css" media="print" />
+	
+	<!-- this must be first -->
+	<link href="/www.idgcsmb/css/colorbox.css" rel="stylesheet" />
+	<!-- <link href="/www.idgcsmb/css/equalizer.css" rel="stylesheet" /> -->
+	<link href="/www.idgcsmb/css/global-layout.css?v=20180927112720" rel="stylesheet" />
+	<link href="/www.idgcsmb.pcw/css/global-layout.css?v=20180927112720" rel="stylesheet" />
+	<link href="/www.idgcsmb/css/global-colors.css?v=20180927112720" rel="stylesheet" />
+	<link href="/www.idgcsmb.pcw/css/global-colors.css?v=20180927112720" rel="stylesheet" />
+	<link href="/www.idgcsmb/css/global-typography.css?v=20180927112720" rel="stylesheet" />
+	<link href="/www.idgcsmb.pcw/css/global-typography.css?v=20180927112720" rel="stylesheet" />
+	
+	
+		<link rel="stylesheet" href="/www.idgcsmb/css/static.css" />
+	
+	
+	
+	
+	<link href="/www.idgcsmb/css/video.player.css?v=20180927112720" rel="stylesheet" media="all" />
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	  
+	<!-- this must be last -->
+	<link href="/www.idgcsmb/css/helpers.css" rel="stylesheet" />
+	
+	
+		<script>
+		try {
+			performance.mark("mark_head_css_done_blocking");
+		}
+		catch(e) {
+			console.log("Error saving performance mark -- this function may not be supported in this browser");
+		}
+		</script>
+	
+	<!--  fav and touch icons -->
+	<link rel="shortcut icon" href="/www.idgcsmb.pcw/favicon.ico"/>
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://csmb.staticworld.net/images/furniture/pcworld/pcw-apple-touch-icon-precomposed-144.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="129x129" href="https://csmb.staticworld.net/images/furniture/pcworld/pcw-apple-touch-icon-precomposed-129.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://csmb.staticworld.net/images/furniture/pcworld/pcw-apple-touch-icon-precomposed-114.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://csmb.staticworld.net/images/furniture/pcworld/pcw-apple-touch-icon-precomposed-72.png" />
+	<link rel="apple-touch-icon" href="https://csmb.staticworld.net/images/furniture/pcworld/pcw-apple-touch-icon-precomposed.png" />
+	
+	
+
+	
+		
+	
+	
+	
+	
+	<script type="text/javascript">
+	var _sf_async_config={};
+	_sf_async_config.uid = 29363;
+	
+	
+	
+	
+		_sf_async_config.useCanonical = false;
+	
+	
+		
+			
+		
+			
+		
+		
+		
+		
+	_sf_async_config.domain = "pcworld.com";
+	</script>
+	
+	
+	
+	
+	
+	<!-- <link href="/www.idgcsmb/webfonts/ss-social.css" rel="stylesheet" />
+	<link href="/www.idgcsmb/webfonts/ss-standard.css" rel="stylesheet" />  -->
+	<!--[if lte IE 8]>  
+		<link href="/www.idgcsmb/webfonts/ss-ie8.css" rel="stylesheet" />
+	<![endif]-->
+
+
+	
+	<!-- Use Twitter Summary Card with Large Image for articles and videos; summary otherwise -->
+	
+		
+		
+			<meta name="twitter:card" content="summary">
+		
+	
+	<meta property="twitter:description" content="PCWorld Privacy Policy">
+	
+	
+		
+		
+			<meta name="twitter:site" content="@pcworld">
+			
+				
+				
+					<meta name="twitter:image" content="https://images.pcworld.com/images/pcworld_300.jpg">
+				
+						
+			
+				
+				
+					<meta name="twitter:title" content="Privacy Policy | PCWorld">
+				
+				
+			
+			
+				
+					<meta name="twitter:url" content="www.pcworld.com/about/privacy.html">
+				
+				
+			
+		
+		
+		
+		
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="application/ld+json">
+	{
+		"@context": "http://schema.org",
+		"@type": "WebSite",
+		"url": "https://www.pcworld.com/",
+		"potentialAction": {
+		"@type": "SearchAction",
+		"target": "https://www.pcworld.com/search?query={search_term}",
+		"query-input": "required name=search_term"
+		}
+	}
+</script>
+	
+	
+	<script type="text/javascript" src="//s.ntv.io/serve/load.js" async></script>
+	
+	
+	<script src="/www/js/ads/ads.js"></script>
+	
+	<script>var oneRegPlacementID = "";</script>
+	
+	
+	
+	
+	
+		
+		
+		
+	
+	
+	
+		
+		
+		
+		
+		  
+		
+	
+	
+	
+	
+	
+	 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+	
+	
+	
+	
+	
+		
+		
+		
+			
+		
+	
+	
+	
+		
+	
+	
+	
+	
+	
+	
+	
+	<script>
+	var sincePublished = '';
+	sincePublished = sincePublished.split(" ")[0];
+	var idg_uuid = $.cookie('idg_uuid') || "";
+	
+	dataLayer=[{
+		'articleId': '',
+		'articleDisplayId':'',
+		'articleTitle': '',
+		'articleType': '',
+		'audience':'consumer',
+		'author':'',
+		'blogName':'',
+		'brandpost': '',
+		'categoryIdList':'',
+		'categoryIdPrimary': '',
+		'contentStrategy': '',
+		'contentType':'resource',
+		'datePublished':'',
+		'dateUpdated':'',
+		'daysSincePublished':sincePublished,
+		'daysSinceUpdated':'',
+		'displayType':'resource',
+		'environment':'production',
+		'ga_enabled':'true',
+		'gaTrackingId':'UA-739745-1',
+		'geolocEnabled':'true',
+		'goldenTaxonomyIdPrimary': '',
+		'goldenTaxonomyIdList': '',
+		'isBlog':'false',
+		'isInsiderContent':'',
+		'isICN': 'false',
+		'oneRegPlacementID':oneRegPlacementID,
+		'pageNumber':'',
+		'platform':'Web',
+		'podcastSponsored': 'false',
+		'primaryCategory': '',
+		'primaryCategoryList': '',
+		'property': 'pcworld',
+		'propertyCountry':'US',
+		'purchaseIntent':'',
+		'sailthruCustomerId':'a841735ab7e4f4b8f650940b8615ccd1',
+		'skimlinksId':'111346X1569483',
+		'source':'',
+		'sponsorName':'',
+		'tags': '',
+		'userId':idg_uuid,
+		'videoAutoplay':'false',
+		'articleHasVideo':''	
+	}];
+	</script>
+	 
+	
+	
+	
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+			<!-- Page hiding snippet (recommended)  -->
+			<style>.async-hide { opacity: 0 !important} </style>
+			<script>(function(a,s,y,n,c,h,i,d,e){s.className+=' '+y;h.start=1*new Date;
+			h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
+			(a[n]=a[n]||[]).hide=h;setTimeout(function(){i();h.end=null},c);h.timeout=c;
+			})(window,document.documentElement,'async-hide','dataLayer',4000,
+			{'GTM-KVP87FZ':true});</script>
+			<!-- Modified Analytics tracking code with Optimize plugin -->
+			    <script>
+			    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+			
+			 // We need to create the UA tracker here in order to link it to Optimize - even though everything else is in GTM
+			  ga('create', 'UA-739745-1', 'auto', {'useAmpClientId': true});  
+			  ga('require', 'GTM-KVP87FZ');           
+			  
+			</script>
+
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+<script>
+	var dataLayer = window.dataLayer = window.dataLayer || [];
+	var adBlockStatus = 'false';
+	
+	function AdBlockEnabled() {
+		var ad = document.createElement('ins');
+		ad.className = 'AdSense';
+		ad.style.display = 'block';
+		ad.style.position = 'absolute';
+		ad.style.top = '-1px';
+		ad.style.height = '1px';
+
+		if (document.body != null) {
+			document.body.appendChild(ad);
+			var isAdBlockEnabled = !ad.clientHeight;
+			document.body.removeChild(ad);
+		}
+
+		return isAdBlockEnabled; 
+	}
+	// AdBlockEnabled() was successful document.body not null
+	if (AdBlockEnabled() != undefined) {
+		adBlockStatus = AdBlockEnabled().toString();
+	}
+	// not successful - look for ads.js
+	if (document.body == null) {
+		if (window.canRunAds === undefined) {
+			adBlockStatus = 'true';
+		} else {
+			adBlockStatus = 'false';
+		}
+	}
+	
+	dataLayer.push({
+		'adBlockStatus': adBlockStatus
+	});
+</script>
+
+
+
+
+	<!-- Google Tag Manager -->
+	<noscript><iframe src="//www.googletagmanager.com/ns.html?GTM-K7239P"
+	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-K7239P');</script>
+	<!-- End Google Tag Manager -->
+
+	
+		<script>
+			try {
+				performance.mark("mark_head_js_done_blocking");
+			}
+			catch(e) {
+				console.log("Error saving performance mark -- this function may not be supported in this browser");
+
+			}
+		</script>
+	
+	
+	
+	
+		<script>
+						function bindPerformanceMarks(){
+							//even though it's called slotRenderEnded, it's the first thing to happen -  corresponds to when we get a response back from DFP
+							googletag.pubads().addEventListener('slotRenderEnded', function(event) {
+								var slotId = event.slot.getSlotElementId();
+								//console.log("slotId = "+slotId);
+								
+								if (slotId == 'gpt-superstitial' && !event.isEmpty) {//also ensure it's not an empty ad response
+									performance.mark("mark_welcome_render_begin");
+								}
+							});
+							googletag.pubads().addEventListener('slotOnload', function(event) {
+								var slotId = event.slot.getSlotElementId();
+								//console.log("slotId = "+slotId);
+								
+								if (slotId == 'gpt-superstitial') {
+									performance.mark("mark_welcome_render_end");
+								}
+							});
+							googletag.pubads().addEventListener('impressionViewable', function(event) {
+								var slotId = event.slot.getSlotElementId();
+								//console.log("slotId = "+slotId);
+								
+								if (slotId == 'gpt-superstitial') {
+									performance.mark("mark_welcome_impression_viewable");
+									
+									//send user timings here; otherwise we can't guarantee these events will have fired
+									w = performance.getEntriesByType("mark").filter(function(mrk) {
+										return mrk.name.indexOf("mark_welcome") > -1; //filter to only get welcome-ad-related marks
+									});
+									gtmEvent = {'event': 'gatherWelcomeAdMarks'};
+								  	for (var j=0; j < w.length; j++) {
+									    console.log ("+++Mark only entry[" + j + "]: name = " + w[j].name + "; startTime = " + w[j].startTime);
+									    gtmEvent[w[j].name] = w[j].startTime;
+									  }
+								  	var dataLayer = window.dataLayer = window.dataLayer || [];
+									dataLayer.push(gtmEvent);
+								}
+							});
+						}
+							try {
+								IDG.GPT.googleCommandPush(bindPerformanceMarks);
+							}
+							catch(e){
+								console.log('error binding performance marks: ' + e);
+							}
+		</script>
+	
+	
+	<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+	
+	
+	
+		<script async src="//js-sec.indexww.com/ht/p/187051-133464700288038.js"></script>
+	
+	
+	
+	
+		
+
+
+
+
+
+
+
+
+
+
+<script>
+// IDGMPM-16419
+consent.adsel.queue.push(function(){
+
+	var numberFromDataLayer = function(property) {
+	  if (window.dataLayer && dataLayer[0] && typeof dataLayer[0][property] == "number") {
+	    return dataLayer[0][property];
+	  }
+	  return null;
+	};
+	
+	var stringFromDataLayer = function(property) {
+	  if (window.dataLayer && dataLayer[0] && typeof dataLayer[0][property] == "string") {
+	    return dataLayer[0][property];
+	  }
+	  return "";
+	};
+	
+	var proximic = [];
+	if (window.IDG && IDG.GPT && IDG.GPT.targets) {
+	  proximic = IDG.GPT.targets["proximic"];
+	}
+	
+	var tpcsArray = [];
+	
+	
+	!function(n,e,o,r,i){if(!e){e=e||{},window.permutive=e,e.q=[],e.config=i||{},e.config.projectId=o,e.config.apiKey=r,e.config.environment=e.config.environment||"production";for(var t=["addon","identify","track","trigger","query","segment","segments","ready","on","once","user"],c=0;c<t.length;c++){var f=t[c];e[f]=function(n){return function(){var o=Array.prototype.slice.call(arguments,0);e.q.push({functionName:n,arguments:o})}}(f)}}}(document,window.permutive,"a0e9f437-2ae2-4bdb-a8d7-e43f280573eb","348f8f3f-cefa-402a-b4b9-84633dd1b66b",{});
+	permutive.addon("web", { page: {
+	  proximic: proximic,
+	  property: stringFromDataLayer('property'),
+	  property_country: stringFromDataLayer('propertyCountry'),
+	  article_id: numberFromDataLayer('articleId'),
+	  article_display_id: stringFromDataLayer('articleDisplayId'),
+	  article_title: stringFromDataLayer('articleTitle'),
+	  audience: stringFromDataLayer('audience'),
+	  platform: stringFromDataLayer('platform'),
+	  source: stringFromDataLayer('source'),
+	  display_type: stringFromDataLayer('displayType'),
+	  content_type: stringFromDataLayer('contentType'),
+	  primary_category: stringFromDataLayer('primaryCategory'),
+	  primary_category_list: stringFromDataLayer('primaryCategoryList').split(","),
+	  category_id_list: stringFromDataLayer('categoryIdList').split(","),
+	  category_id_primary: stringFromDataLayer('categoryIdPrimary'),
+	  tags: stringFromDataLayer('tags').split(","),
+	  cmscatnms: [],
+	  cmscatids: [],
+	  wpt: [],
+	  tpcs: tpcsArray
+	}});
+
+});
+</script>
+
+<script>
+consent.adsel.queue.push(function(){
+	$.ajax({
+		url: 'https://cdn.permutive.com/a0e9f437-2ae2-4bdb-a8d7-e43f280573eb-async.js',
+	  	dataType: 'script',
+	  	cache: true, // default is false
+	  	async: true // default is true
+	});
+});
+</script>
+	
+	
+</head>
+
+	<body id="staticPage" class="static pcworld">
+		 
+		
+			<div id="skinAdTarget"></div>
+		
+		
+			<div id="superadunit" class="hidden">
+			    <div class="ad">
+			    	<div class="ad-header">
+						<div class="brand-logo"></div>
+								<a href="javascript:unhide('superadunit');" id="superstitial-text">Close Ad</a>
+					</div>
+					
+						
+						
+						
+					
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+		
+		
+		
+		
+			
+		  		<script type="text/javascript">
+		  		
+		  		
+				document.write('<div id="gpt-superstitial" class=" ad-container"></div>');
+				consent.ads.queue.push(function(){
+			  		try {			  			
+			   			IDG.GPT.addDisplayedAd("gpt-superstitial", "true");
+			   			$('#gpt-superstitial').responsiveAd({screenSize:'971 1115', scriptTags: []});
+			   			IDG.GPT.log("Creating ad: gpt-superstitial [971 1115]");
+			   		}
+					catch (exception) {
+						console.log("Error with IDG.GPT: " + exception);
+					}
+		  		});
+				
+				</script>
+		
+		
+	
+ 
+ 
+	
+			    </div><!-- / ad -->
+			</div><!-- / super -->		
+		
+
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+		
+			
+		
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="page-top">
+		<div class="page-top-inner" itemscope itemtype="http://schema.org/Organization">
+		<link itemprop="url" href="http://www.pcworld.com"> 
+	    
+
+
+
+
+<div class="network-header">
+		<div class="network-header-inner">
+			<div id="network-tools">
+
+				<div id="saved-comparisons"></div>				
+				<ul class="hmenu" id="heroLogin">				
+					<li class="subscribeHeader"><a href="/magazines">Subscribe</a><div class="subscribe-hover" style="">
+                        <div class="pointer">&#9650;</div>
+                        <span>Learn more about PCWorld's Digital Editions</span>
+                        <img alt="PCWorld Magazine Cover" src="//alt.idgesg.net/images/furniture/pcworld/footer-subscribe-mag-pcw.png">
+                      </div></li>
+					
+				</ul>
+			</div><!-- /#network-tools -->
+
+				<div id="network-social">					
+                  
+					
+					<a href="http://www.facebook.com/PCWorld" class="network-fb ss-icon ss-social-circle banner-social banner-fb" alt="Facebook" itemprop="sameAs" rel="nofollow">
+						&#xF610;
+					</a>
+					<a href="https://twitter.com/pcworld" class="network-tw ss-icon ss-social-circle banner-social banner-tw" alt="Twitter" itemprop="sameAs" rel="nofollow">
+						&#xF611;
+					</a>
+					<a href="https://plus.google.com/+PCWorld/posts" class="network-google ss-icon ss-social-circle banner-social banner-google" alt="Google+" itemprop="sameAs" rel="publisher">
+						&#xF613;
+					</a>
+					<a href="https://www.youtube.com/user/PCWorldVideos" class="network-youtube ss-icon ss-social-circle banner-social banner-youtube" alt="YouTube">
+						&#xF630;
+					</a>
+
+				<form id="search-form" action="/search">
+					<input type="search" name="query" id="banner-search-term" class="inactive searchbox-input-class" value="">
+					<input type="submit" name="submit" id="banner-search-submit" value="search" />
+					<a id="magGlassClick" class="ss-icon ss-standard" type="submit">&#x1F50E;</a>
+				</form>
+
+				</div><!-- /#network-social -->
+			
+				
+		</div>
+	</div><!-- /.network-header -->
+
+
+	<header id="banner">
+		<a id="mobile-offscreen-toggle" class="ss-standard ss-rows" href="javascript://"></a>
+		<div id="logo">
+			<a href="/" class="ir banner-logo" id="logoImage">Home</a>		
+		</div>
+		<div id="mobile-search-toggle" class="ss-standard ss-search"></div>
+	</header>
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="main-nav">
+	<div class="container clearfix">
+		<ul class="fmenu" id="panel-nav">
+			<li class="newsNav"><a href="/news/" id="whatsHotNav">News</a></li>
+			<li class="reviewsNav"><a href="/reviews/" id="reviewsNav">Reviews</a></li>
+			<li class="howtoNav"><a href="/howto/" id="howtoNav">How-To</a></li>
+			<li class="videoNav"><a href="/video/" id="videoNav">Video</a></li>
+		</ul>
+
+		<ul class="fmenu" id="site-nav">
+			
+				<li><a href="/category/business/">Business</a>
+					
+				</li>
+			
+				<li><a href="/category/laptop-computers/">Laptops</a>
+					
+				</li>
+			
+				<li><a href="/category/tablets/">Tablets</a>
+					
+				</li>
+			
+				<li><a href="/category/smartphones/">Smartphones</a>
+					
+				</li>
+			
+				<li><a href="/category/hardware/">Hardware</a>
+					
+				</li>
+			
+				<li><a href="/category/security/">Security</a>
+					
+				</li>
+			
+				<li><a href="/category/software/">Software</a>
+					
+				</li>
+			
+				<li><a href="/category/gadgets/">Gadgets</a>
+					
+				</li>
+			
+			
+					<li class="displayMobileOnly"><a href="/magazines">Subscribe</a></li>
+					
+		</ul>
+		
+			<div id="extra-nav-toggle"><a href="#extra-nav" class="ss-dropdown"></a></div>
+			
+			<div id="extra-nav">
+				<ul>
+					
+						<li><a href="/resources/">Resources</a></li>
+					
+						<li><a href="/category/computers/">PCs</a></li>
+					
+						<li><a href="/category/smartphones/">Smartphones</a></li>
+					
+						<li><a href="/category/printers/">Printers</a></li>
+					
+						<li><a href="/category/ultrabooks/">Ultrabooks</a></li>
+					
+					<li><a href="/blogs">Blogs</a></li>
+				</ul>
+				<ul>
+					
+						<li><a href="/category/antivirus-software/">Viruses</a></li>
+					
+						<li><a href="/category/cameras/">Cameras</a></li>
+					
+						<li><a href="/category/components/">Components</a></li>
+					
+						<li><a href="/category/computers-accessories/">Computer Accessories</a></li>
+					
+						<li><a href="/category/consumer-advice/">Consumer Advice</a></li>
+					
+						<li><a href="/category/digital-assistants/">Digital Assistants</a></li>
+					
+						<li><a href="/category/displays/">Displays</a></li>
+					
+						<li><a href="/category/e-readers/">E-readers</a></li>
+					
+				</ul>
+				<ul>
+					
+						<li><a href="/category/components-graphics/">Graphics Cards</a></li>
+					
+						<li><a href="/category/storage-drives/">Hard Drives</a></li>
+					
+						<li><a href="/category/home-theater/">Home Theater</a></li>
+					
+						<li><a href="/category/input-devices/">Input Devices</a></li>
+					
+						<li><a href="/category/input-keyboards/">Keyboards</a></li>
+					
+						<li><a href="/category/laptop-accessories/">Laptop Accessories</a></li>
+					
+						<li><a href="/category/mobile/">Mobile</a></li>
+					
+						<li><a href="/category/networking/">Networking</a></li>
+					
+				</ul>
+				<ul>
+					
+						<li><a href="/category/operating-systems/">Operating Systems</a></li>
+					
+						<li><a href="/category/storage-optical/">Optical Drives</a></li>
+					
+						<li><a href="/category/components-processors/">Processors</a></li>
+					
+						<li><a href="/category/servers/">Server Hardware</a></li>
+					
+						<li><a href="/category/smartwatches/">Smartwatches</a></li>
+					
+						<li><a href="/category/streaming-services/">Streaming Services</a></li>
+					
+						<li><a href="/category/storage/">Storage</a></li>
+					
+						<li><a href="/category/tablets/">Tablets</a></li>
+					
+						<li><a href="/category/windows/">Windows</a></li>
+					
+				</ul>
+			</div>
+		
+	</div>
+</div>	<!--/#main-nav-->
+
+
+
+
+
+
+
+
+
+
+
+		</div> 
+	</div> 
+
+
+
+
+			<!-- Events Header -->
+		
+			
+				
+				 
+					
+					
+					
+					
+					
+				
+				 
+				 
+				 
+				 
+				  
+				  
+				 
+				 
+			
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+		
+
+<div id="homepageLeaderboardWrapper">
+	<div id="homepageLeaderboardInner">
+			<!-- IDGMPM-11812, category.getCategoryType() returns an integer, and 9 stands for tentpole-->
+			
+					
+						
+					
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+		
+		
+		
+		
+			<div id="gpt-leaderboard" class=" ad-container"></div>
+    		<script type="text/javascript">
+    		consent.ads.queue.push(function(){	
+    			try {
+	    			IDG.GPT.addDisplayedAd("gpt-leaderboard", "true");
+	    			$('#gpt-leaderboard').responsiveAd({screenSize:'971 1115', scriptTags: []});
+	    			IDG.GPT.log("Creating ad: gpt-leaderboard [971 1115]");
+	    		}
+				catch (exception) {
+					console.log("Error with IDG.GPT: " + exception);
+				}
+    		});
+    		</script>
+    	
+	
+ 
+ 
+	
+			
+	</div>
+</div>
+
+
+<script>
+$(document).ready(function(){
+	$('.searchbox-input-class').each(function(){
+	    $(this).change(function(){
+	    	var qStr=$(this).val();
+	    	if($(this).val().indexOf('@')!=-1){
+	    		qStr=qStr.replace(/@/g,' ');
+	    		$(this).val(qStr);
+	    	}
+	    });
+	});
+});
+</script>
+
+
+
+		<div id="page-wrapper" class="page-wrapper">
+
+			
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+
+
+
+			<div class="container clearfix" id="main-content">
+
+				
+					
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="static-block">
+<h1>Privacy Policy</h1>
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		<!-- blx4 #2660 blox4.html  -->
+			
+
+		
+			
+				
+					
+					
+					
+						
+							
+					
+						
+					
+					
+					
+					
+					
+				
+				
+			
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+		
+		
+			<div id="" class="blx blxPstaticpagebody blxM2660  blox4_html  blxC36535">   <div class="static-main-col">
+
+<h2>Welcome</h2>
+
+<p>We’re glad you chose to visit an IDG Communications, Inc. (“IDGC”) site! We care about your privacy and the information you share with us and want you to understand how we are using and protecting the information we collect about you. IDGC is respectful of data privacy and adopts best practice in compliance with applicable privacy law and regulations, including the EU General Data Protection Regulation (“GDPR”).</p>
+
+<h2>Use of this website</h2>
+	
+<p>This privacy policy describes the information we collect from you and how it may be stored and processed in the United States of America and across the IDG Communications Publishing Network as described below. 
+</p>
+<p>This website, and associated IDGC events and publications provide products, content, and services for a professional and consumer audience and is not intended for individuals under the age of 13 years old. We do not knowingly collect or store personal data provided by anyone under 13 years of age.
+</p>
+<p><i>If you are a European Union (EU) resident, please note that there are a number of provisions in this privacy policy that apply uniquely to you.</i> 
+</p>
+
+<h2>This Document Describes 
+</h2>
+
+<p><a href=#collect>What information we collect and how we collect it</a><br>
+<a href=#safeguard>How we safeguard your personal data</a><br>
+<a href=#personal>What we do with the personal data we collect</a><br>
+<a href=#legal>The legal basis we have for processing your personal data</a><br>
+<a href=#whenwhere>When and how we share your personal data with others</a><br>
+<a href=#howlong>How long we keep your personal data</a><br>
+<a href=#rights>Your rights and preferences</a><br>
+<a href=#help>How can we help? Getting in touch</a></p>
+
+
+<a name=collect></a><h2>What information we collect
+</h2>
+<p>IDGC collects data about you that is limited to the kind of information that can be found on a typical business card: first name, last name, job title, employer/company name, work address, work email, and work phone number. In some cases, we may ask you to provide additional professional information such as the size of the company you work for, and industry type. 
+</p>
+<p>To enhance and/or update the information that you have provided to us, we may combine it with professional information or personal data that we collect from third party sources. The personal data that we refer to in this document is the personal and professional information you provide, as well as information that we obtain from third party sources, both of which we typically combine as one user record.
+</p>
+<p>This site also collects and stores certain information automatically using cookies and similar technologies, including IP addresses, the region or general location of a computer or device accessing the internet, browser type, operating system, page view history, and other usage information. See our <a href="/about/cookie-policy.html">Cookie Policy</a> for further details.  
+</p>
+<p><i>However, to the extent that any cookie can uniquely identify a computer, mobile device, or tablet (“Device”), or the person using that Device, and you are a EU resident, under the GDPR, this is personal data.  Therefore, this privacy policy shall apply to such personal data collected by IDGC.
+</i></p>
+<h2>How we collect it
+</h2>
+<p>We may collect your personal data when you register to receive any of the products, content or services offered by IDGC or its third-party sponsors (“sponsors”) such as publications, subscriptions, contests, newsletters, memberships, premium content, webcasts, video, white papers, online seminars, conferences and events.
+</p>
+<h4>What happens if you don’t provide personal data?
+</h4>
+<p>In order for us to provide the products, content or services you request, we need your personal data. Therefore, if you do not provide such personal data, we cannot deliver the products, content or services. 
+</p>
+<h4>IDG Communications Publishing Network
+</h4>
+<p>This website is one of many that IDGC and its group of undertakings operates, all of which we collectively refer to as the IDG Communications Publishing Network. Where permitted by law, we may share the personal data we collect about you with another IDG Communications Publishing Network company so that we can provide you with information about products, content and services that might interest you, and for internal analytical and business development purposes. Please click here for a list of the online and print publications included in the IDG Communications Publishing Network.
+</p>
+<a name=safeguard></a><h2>How do we safeguard your personal data?
+</h2>
+<h4>Security of your personal data
+</h4>
+<p>IDGC maintains safeguards which include technical and organizational security measures to protect your personal data from loss, misuse, unauthorized use, access, inadvertent disclosure, alteration, and destruction, and we require the third parties we contract with to support IDGC’s business operations to employ reasonable security measures as well (see “When and how we share your information with others” below). 
+</p>
+<p>We update and test security on an ongoing basis and restrict access to your personal data to only those who need to know in order to provide IDGC’s products, content or services to you. 
+</p>
+<h4>Storage of your personal data
+</h4>
+<p>We may store your personal data using IDGC’s own secure on-site servers or other internally hosted technology.  Your personal data may also be stored by third parties, via cloud services or other technology, to whom IDGC has contracted with, to support IDGC’s business operations (see “When and how we share your information with others” below).  
+</p>
+<p>These third parties do not use or have access to your personal data other than for cloud storage and retrieval, and IDGC requires such parties to employ at least the same level of security that we use to protect your personal data (see “Security of your personal data” above).  
+</p>
+<a name=personal></a><h2>What we do with the personal data we collect
+</h2>
+<p>We use the personal data that we collect to communicate with you, deliver what you request, improve our service, and to present other information and offers that may be of interest. 
+</p>
+  
+<h4>To communicate with you</h4>
+<p>We may use your personal data to send you important notices, such as communications about your registration, transactions, and changes to IDGC’s terms, conditions, policies, and/or other 
+internal purposes.</p>
+  
+<h4>To deliver what you request</h4>
+<p>We may use your personal data to provide the products, content or services you request. If you enter a sweepstake, contest, or similar IDGC promotion, we may use your personal data to administer such promotion.</p>
+
+<h4>To improve our service</h4>
+
+<p>We may use your personal data for auditing, data analysis, and research to improve IDGC’s products, content and services. </p>
+
+<h4>To present offers that may be of interest to you</h4>
+
+<p>We may contact you to offer you additional IDGC or third-party products, content or services that may be of interest to you.</p>
+
+<a name=legal></a><h2>The legal basis we have for processing your personal data</h2>
+
+  <p><i>The GDPR requires data collectors, such as IDGC, to have a legal basis to use the personal data of EU residents. Therefore, this section shall apply to any such personal data collected by IDGC.</i></p>
+
+<p>IDGC uses the personal data that you provide to supply you with high-quality products, content and services as you request, to send important notices, and for internal purposes such as auditing, data analysis, and research to provide you with the information you need to make the most informed technology purchasing decisions. </p>
+
+<p>We may also use your personal data to offer you products, content or services that may be of interest to you, based upon your interests or the preferences you shared with us, and may share your personal data with third party sponsors of content, events, and other services or offers. </p> 
+
+<p>The legal basis for processing your personal data is your consent. In certain circumstances we may otherwise process your personal data if IDGC has a legitimate interest in doing so and IDGC is not infringing any of your rights and freedoms. </p>
+
+<p>When IDGC processes your personal data for IDGC’s legitimate interests, IDGC will consider and balance any potential impact on you and your rights under data protection and any other relevant law. Our legitimate business interests do not override your interests. IDGC will not use your personal data in circumstances where your rights and freedoms override our legitimate interests, unless we have your consent or are otherwise required or permitted to by law.</p>
+
+<a name=whenwhere></a><h2>When and how we share your personal data with others</h2>
+
+<p>IDGC may share your personal data to deliver content and services from our sites, affiliated companies and third parties services that might interest you, including sponsored content and events, for business operations, and to comply with valid legal processes.</p>
+
+<p><i>If you are an EU resident, IDGC will only share your personal data with third parties outside of the IDG Communications Publishing Network, with your consent.</i></p>
+
+<h4>For content and services that may interest you or that you request</h4>
+
+<p>As we mention above, your personal data may be shared within the IDG Communications Publishing Network to provide you with information about products, content and services that might interest you and for internal analytical and business development purposes (see “IDG Communications Publishing Network” above).  We may also share your personal data with third parties to deliver third party sponsored content or other services that you request (see “third party sponsored content and events” below).</p>
+
+<h4>For business operations</h4>
+
+<p>We may also share your personal data with third parties we have contracted with to support IDGC’s business operations including delivery, fulfillment, payment processing, email deployment, suppression list management and data processing.</p>
+
+<h4>For third party sponsored content and events</h4>
+
+<p>IDGC partners with third party sponsors to make available a large library of content to our users, such as white papers, professional events (live or online), as well as other services or offers.  In return for access to such offers, we may ask you to provide us with personal data as part of the registration.</p> 
+
+<p>We may use your personal data to send you the offer you request. In addition, your personal data may be shared with the sponsor(s) of the offer to communicate with you regarding the offer, as well as additional products, content or services that may be of interest to you.  Please note that once your personal data is shared with the sponsor, the sponsor’s privacy policy, including information on how to opt-out in the future, will apply to your personal data.</p> 
+
+<h4>As required by law</h4>
+
+<p>Your personal data may be shared when authorized by law or necessary to comply with a valid legal process.</p>
+
+<h4>In the event of new ownership</h4>
+
+<p>If part or all the ownership of IDGC or any of its products or services are sold or transferred, your personal data will be transferred to the new owner. </p>
+
+<h4>International Data Transfers</h4>
+
+<p><i>This section shall apply to any personal data collected by IDGC from EU residents.</i></p>
+
+<p>If IDGC shares your personal data within the IDG Communications Publishing Network or with any other third party as described in this privacy policy and your personal data will be transferred to a State which is not a Member State of either the European Union or the EEA, or deemed adequate by the European Commission, IDGC (as a data controller/data exporter) will only conduct such transfer (to a data processor/data importer) if there are suitable safeguards in place, such as binding corporate rules, standard contractual clauses, approved Codes of Conduct, or approved certification mechanism.  For more information, please contact IDGC’s Data Protection Officer (See contact details below). </p>
+
+<a name=howlong></a><h2>How long we keep your personal data</h2>
+
+<p>We retain your personal data for the duration of your business relationship with us, and we hold your information only as long as necessary for each purpose we use it, unless we have obtained your consent to use for another or similar purpose.</p>
+
+<a name=rights></a><h2>Your rights and preferences</h2>
+
+<p>If you inform us that you want your personal data erased (if you are an EU resident), or that you no longer wish for us to communicate with you for marketing purposes, or to otherwise restrict IDGC’s processing of your personal data, we may retain some basic information in order to avoid sending you unwanted materials in the future, and to keep a record of your request and our response.</p>
+
+<h4>Confirming your personal data</h4>
+
+<p><i>This section shall apply to any personal data collected by IDGC from EU residents.</i></p>
+<p>To confirm that IDGC is processing your personal data, or to access, update or correct the personal data IDGC holds about you, or to obtain a copy to reuse for your own purposes, please send an email to: <a href="mailto:datarequest@idg.com">datarequest@idg.com.</a></p>
+
+<h4>Erasing your personal data</h4>
+
+<p>This section shall apply to any personal data collected by IDGC from EU residents.</p>
+
+<p>If you want your personal data erased, please send an email to: <a href="mailto:preferences@idg.com?Subject=Requesting%20to%20be%20forgotten">preferences@idg.com.</a></p>
+
+<h4>To opt-out of marketing communications</h4>
+
+<p>If you want IDGC to stop communicating with you for marketing purposes, please visit our <a href="/about/member-preferences.html">Member Preferences Center</a></p>
+
+<h4>To restrict processing of your personal data</h4>
+
+<p>If you want to otherwise restrict IDGC’s processing of your personal data, please send an email to: <a href="mailto:websites@idg.com">websites@idg.com.</a></p>
+
+<a name=help></a><h2>How can we help? Getting in touch</h2>
+
+<h4>Questions, concerns or complaints:</h4>
+
+<p>If you have any questions, concerns or complaints about IDGC’s personal data practices or this Privacy Policy, we encourage you to get in touch with our Data Protection Officer. </p> 
+
+<p>If you believe you have suffered harm due to a breach of your rights by IDGC under this Privacy Policy, and IDGC has not handled your complaint in a reasonably sufficient manner, any EU resident may also file a complaint with the applicable supervisory authority.</p>
+
+<p>The contact information for IDGC’s Data Protection Officer is: </p>
+
+<p><b>Mr. Keith Arnot</b><br>
+c/o IDG Communications Ltd.<br>
+101 Euston Road<br>
+London NW1 2RA<br>
+United Kingdom <br>
+Email: <a href="mailto:GDPR@idgcommunications.com">GDPR@idgcommunications.com</a></p>
+
+
+<p>IDGC has also designated a Representative in the EU:</p>
+
+<p><b>Mr. John McGill</b><br>
+c/o IDG Direct<br>
+Millennium House<br>
+Great Strand Street<br>
+Dublin 1<br>
+Ireland<br>
+Email: <a href="mailto:GDPRrepresentative@idgcommunications.com">GDPRrepresentative@idgcommunications.com</a></p>
+
+
+<h2>Feedback</h2>
+
+<p>Your feedback is important to us. We’d love to hear your ideas, opinions and comments about IDGC’s services. Please email: <a href="mailto:websites@idg.com">websites@idg.com</a></p>
+
+<p><a href="https://alt.idgesg.net/policies/privacy/pcworldcom_privacy_policy_PP-050818001.pdf">Download Privacy Policy</a>
+
+<p>Last Updated: May 8 2018 [Version PP-050818001]
+  
+</div>
+      
+                </div>
+		
+	
+
+	
+
+
+</div>
+					
+					
+				
+
+
+		   	</div>
+
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="panel-loader"></div>
+<!-- IDGMPM-11812, category.getCategoryType() returns an integer, and 9 stands for tentpole-->
+ 
+
+
+
+	
+		
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/www.idgcsmb/css/tso-links.css?v=20180927112720" />
+
+	<div id="tso-wrapper"><div id="tso" style="display:none"></div></div>
+	<script type="text/javascript">
+	function renderTSO(ads, requireHttps) {
+		$thm.debug("renderTSO:"+ads.length);
+		if (ads && ads.length > 0) {
+			var selectedAds = selectTSOAds(ads,6);
+			if (null != selectedAds && selectedAds.length > 0) {
+				var html = "<h3>Today's Special Offers</h3>";
+				html += "<ul>";
+				for (var i=0; i<selectedAds.length;i++) {
+					html += "<li>";
+					html += "<a href='"+selectedAds[i].url+"'> "+selectedAds[i].title+"</a>";
+					html += "<span>"+selectedAds[i].body+"</span>";
+					if (null != selectedAds[i].pixel && selectedAds[i].pixel.length > 0 && selectedAds[i].pixel.indexOf('http') == 0) {
+						if(!requireHttps || selectedAds[i].pixel.indexOf('https://') == 0){
+							html += "<img src='"+selectedAds[i].pixel+"' style='height:0;width:0;'/>";
+						}
+					}
+					html += "</li>";
+				}
+				html += "</ul>";
+				$("#tso").html(html).show();
+			}
+		}
+	}
+	function selectTSOAds(ads,max) {
+		if (ads.length <= max) {
+			return ads;
+		} else {
+			var uniq = {};
+			var found = 0;
+			var selectedAds = [];
+			while (found < max) {
+				var ad = ads[Math.floor(Math.random()*ads.length)];
+				if (uniq[ad.id] != null) {
+					continue;
+				} else {
+					uniq[ad.id] = true;
+					found++;
+					selectedAds.push(ad);
+				}
+			}
+			return selectedAds;
+		}
+		return null;
+	}
+	</script>
+	
+
+	
+
+
+
+
+
+		</div>
+	
+		
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/www.idgcsmb/css/footer.css?v=20180927112720" />
+<link rel="stylesheet" href="/www.idgcsmb.pcw/css/footer.css?v=20180927112720" />
+<div id="network"></div>
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+<footer id="footer" class="clearfix">
+    <div class="container clearfix">
+    	<div class="footer-col">
+    		<a href="http://pcworld.com" id="footer-logo-pcw" class="ir">PCWorld</a>
+    		<p>PCWorld helps you navigate the PC ecosystem to find the products you want and the advice you need to get the job done.</p>
+    		<ul>
+    			<li><a href="/about/about.html">About Us</a></li>
+				<li><a href="/about/contact.html">Contact Us</a></li>
+				<li><a href="/faq" rel="nofollow">Digital Magazine</a></li>
+				<li><a href="https://ssl.palmcoastd.com/31402/apps/PCWDIGITALGIFT?ikey=I**GF2">Gift Subscription</a></li>
+				<li><a href="https://www.idg.com/about-adchoices-pcworld/" rel="nofollow">Ad Choices</a></li>
+				<li><a href="/about/member-preferences.html">Member Preferences</a></li>
+				<li><a href="/about/cookie-policy.html">Cookie Policy</a></li>
+			</ul>
+			<ul class="right">
+				<li><a href="/newsletters/signup.html">Newsletters</a></li>
+				<li><a href="/about/privacy.html" rel="nofollow">Privacy Policy</a></li>
+				<li><a href="/index.rss">RSS</a></li>
+				<li><a href="https://www.idg.com/terms-of-service-agreement/" rel="nofollow">Terms of Service Agreement</a></li>
+				<li><a href="/about/affiliates.html">E-commerce Affiliate Relationships</a></li>
+			</ul>
+    	</div>
+    	<div class="footer-col">
+    		<h2>PCWorld Categories</h2>
+    		<ul>
+    			<li><a href="/category/business/">Business</a></li>
+				
+				<li><a href="/category/laptop-computers/">Laptops</a></li>
+				<li><a href="/category/mobile/">Mobile</a></li>
+				<li><a href="/category/computers-all/">PC Hardware</a></li>
+				
+			</ul>
+			<ul class="right">
+				<li><a href="/category/printers/">Printers</a></li>
+				<li><a href="/category/security/">Security</a></li>
+				<li><a href="/category/software/">Software</a></li>
+				<li><a href="/video/">Videos</a></li>
+				<li><a href="/category/windows/">Windows</a></li>
+			</ul>
+
+			<h3>IDG Network Sites</h3>
+			<ul>
+				<li><a href="http://resources.idg.com/contact/contact-idg" rel="nofollow">Advertise</a></li>
+				<li><a href="https://www.idg.com/technetwork/technetwork-permissions-guildelines/" rel="nofollow">Permissions</a></li>
+				<li><a href="http://www.macworld.com/" rel="nofollow">Macworld</a></li>
+				<li><a href="http://www.techadvisor.co.uk/">Tech Advisor</a></li>
+				<li><a href="http://www.techhive.com/" rel="nofollow">TechHive</a></li>
+			</ul>
+			<ul class="right">
+				<li><a href="https://www.idg.com/technetwork/" rel="nofollow">IDG TechNetwork</a></li>
+				<li><a href="https://www.idg.com/" rel="nofollow">IDG</a></li>
+				<li><a href="http://blog.idg.com/" rel="nofollow">IDG Blog</a></li>
+				<li><a href="https://www.idg.com/work-here/" rel="nofollow">Careers at IDG</a></li>
+			</ul>
+    	</div>
+    	<div class="footer-col">
+    		<div id="footer-subscribe" class="clearfix">
+	    		<a href="https://ssl.palmcoastd.com/31402/apps/PCWDIGITAL?ikey=I**A02">
+	    			<img src="//alt.idgesg.net/images/furniture/pcworld/footer-subscribe-mag-pcw.png" alt="PCWorld Magazine Cover">
+	    			<h2>Get PCWorld's Digital Editions</h2>
+	    			<span class="btn-link">Subscribe Now</span>
+	    		</a>
+    		</div>
+    		<div id="footer-social">
+    			<span>Follow us</span> <a href="http://www.facebook.com/PCWorld" class="network-fb ss-icon ss-social-circle banner-social banner-fb" alt="Facebook" itemprop="sameAs" rel="nofollow">
+						&#xF610;
+					</a>
+					<a href="https://twitter.com/pcworld" class="network-tw ss-icon ss-social-circle banner-social banner-tw" alt="Twitter" itemprop="sameAs" rel="nofollow">
+						&#xF611;
+					</a>
+					<a href="https://plus.google.com/+PCWorld/posts" class="network-google ss-icon ss-social-circle banner-social banner-google" alt="Google+" itemprop="sameAs" rel="publisher">
+						&#xF613;
+					</a> 
+					
+						<a href="https://www.youtube.com/user/PCWorldVideos" class="network-youtube ss-icon ss-social-circle banner-social banner-youtube" alt="YouTube">
+							&#xF630;
+						</a>
+					 			    			
+    		</div>
+    		
+    		 <p>Visit other IDG sites:</p>
+    		
+    		<div id="idgInfo" class="styled-select">		
+		            <select onchange="location = this.options[this.selectedIndex].value;" id="jumpMenu" name="jumpMenu" d30tagged="1" style="visibility: visible;">
+		                <option value="">Select One</option>
+		                
+		                	
+		                
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+		<option value="https://www.cio.com">CIO</option>
+	
+		<option value="https://www.cio-asia.com">CIO Asia</option>
+	
+		<option value="https://www.computerworld.com">Computerworld</option>
+	
+		<option value="https://www.csoonline.com">CSO</option>
+	
+		<option value="https://www.gamestar.com">Gamestar</option>
+	
+		<option value="https://www.greenbot.com">Greenbot</option>
+	
+		<option value="https://www.idgconnect.com">IDG Connect</option>
+	
+		<option value="https://www.idg.tv">IDG.tv</option>
+	
+		<option value="https://www.infoworld.com">InfoWorld</option>
+	
+		<option value="https://www.itnews.com">IT News</option>
+	
+		<option value="https://www.itworld.com">ITworld</option>
+	
+		<option value="https://www.javaworld.com">JavaWorld</option>
+	
+		<option value="https://www.macworld.com">Macworld</option>
+	
+		<option value="https://www.networkworld.com">Network World</option>
+	
+		<option value="https://www.pcworld.com">PCWorld</option>
+	
+		<option value="https://www.techhive.com">TechHive</option>
+	
+		<option value="https://www.thefullnerd.com/">The Full Nerd</option>
+	
+
+		            </select>
+		    </div>
+		    
+		    <div class="copyright">
+		    	<img src="https://alt.idgesg.net/images/logos/logo-footer-white.png" alt="IDG Communications" />
+				<p><small><a href="http://idgcsmb.com/terms-of-service-agreement/">Copyright</a> &copy; 2018 IDG Communications, Inc.</small></p>		    
+			</div>
+    	</div>
+    </div> 
+</footer>
+ 
+
+
+		
+				
+		
+			
+				
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+		
+		
+		
+		
+			<div id="gpt-infunnel" class=" ad-container"></div>
+    		<script type="text/javascript">
+    		consent.ads.queue.push(function(){	
+    			try {
+	    			IDG.GPT.addDisplayedAd("gpt-infunnel", "true");
+	    			$('#gpt-infunnel').responsiveAd({screenSize:'971 1115', scriptTags: []});
+	    			IDG.GPT.log("Creating ad: gpt-infunnel [971 1115]");
+	    		}
+				catch (exception) {
+					console.log("Error with IDG.GPT: " + exception);
+				}
+    		});
+    		</script>
+    	
+	
+ 
+ 
+	
+		
+		
+			
+		
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/www/js/analytics/mouse_down.js"></script> 
+
+
+
+<script type="text/javascript" src="/www/js/jquery/jquery_cookie.js"></script> 
+
+<script src="/www.idgcsmb/js/jquery/jquery-ui-tools.js"></script>
+
+
+	<script>
+		$(document).ready(function() {
+			if (typeof $.cookie("geoPromoDontShow") === 'undefined' && typeof $.cookie("geoPromoSeen") === 'undefined' && navigator.languages.indexOf("es") > -1 && $thm.deviceWidthAtLeast($thm.deviceBreakpoints.wide)) {
+				$.get("/napi/tile?def=international.promo", 
+					function(data) {
+						$("body").prepend(data);
+						var visitTime = new Date();
+						visitTime.setTime(visitTime.getTime()+1000*60*60*24); //24 hours
+				      	$.cookie('geoPromoSeen', 'true', { expires: visitTime, path: '/' });
+						$(".geo-promo .ss-delete, a.cont-here, a.dont-show").click(function(e) {
+							e.preventDefault();
+							if ($(this).is(".dont-show")) {
+								visitTime.setTime(visitTime.getTime()+1000*60*60*24*30); //30 days
+						      	$.cookie('geoPromoDontShow', 'true', { expires: visitTime, path: '/' });
+							}
+							$(".geo-promo").fadeOut(function() {$(".geo-promo").remove()})
+						});
+					}
+				);
+			}
+		});
+	</script>
+
+<script src="/www.idgcsmb/js/thm_post.js?v=20180927112720"></script>
+
+<script src="/www.idgcsmb/js/jquery/plug-ins/jquery.md5.js"></script>
+
+
+<script src="/www.idgcsmb/js/autocomplete.js"></script>
+
+
+
+
+	<script src="/www/js/jquery/jquery.timeago.js"></script>
+	
+	<script>
+	$(document).ready(function(){
+		$(".timeago").timeago();
+	});
+	</script>
+
+
+
+
+
+
+
+
+
+
+
+	<!-- LiveRamp Sources -->
+	<script type="text/javascript"src="//storage.googleapis.com/cdn.pippio.com/sdk/pippio.min.js" async></script>
+	<script src="/www/js/utils/liveRamp.js"></script>
+	<!-- End of LiveRamp -->
+
+
+<script type='text/javascript'>
+
+	
+	$(document).ready(function(){
+
+	$('#extra-nav-toggle a').click(function(){
+		if($(this).hasClass('open')){
+			$('#extra-nav').hide();
+			$(this).removeClass('open');
+			$('#extra-nav-toggle a').removeClass('ss-delete');
+			$('#extra-nav-toggle a').addClass('ss-dropdown');		
+		} else {
+			$('#extra-nav').show();
+			$(this).addClass('open');
+			$('#extra-nav-toggle a').removeClass('ss-dropdown');
+			$('#extra-nav-toggle a').addClass('ss-delete');					
+		}
+		return false;
+	});
+		   
+						  
+	});//-- end document Ready
+		
+	
+
+$(".promoBannerFrame").remove();
+$("#homepageLeaderboardWrapper").remove();
+
+	g_bRequireHttps = true;
+	 
+		$.ajax('/ads/tso',{
+			dataType: 'json',
+			success: function(data){
+				renderTSO(data.tsoLinks, g_bRequireHttps);
+			},
+			error: function(jqXHR,error,thrown){
+				$thm.debug("TSO AJAX Status: "+error+": "+thrown,true);
+			}
+		});
+	
+</script>
+
+		
+		<script type="text/javascript">
+			a=top;f=self;
+			var acceptedDomains = ["lookbookhq.com"];
+			var cleanedHost = a.location.hostname.split(".").slice(-2).join(".");
+			if(a!=f && acceptedDomains.indexOf(cleanedHost) < 0) {
+				a.location=f.location;
+			}
+		</script>	
+
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	    
+	    
+    	
+    	
+	    
+	
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+<!-- Begin BlueKai Tag-->
+<iframe name="__bkframe" height="0" width="0" frameborder="0" src="javascript:void(0)"></iframe>
+<script type="text/javascript" src="https://tags.bkrtx.com/js/bk-coretag.js"></script>
+<!-- CryptoJS -->
+<script src="/www/js/utils/md5.js"></script>
+<script type="text/javascript" src="/www/js/analytics/idg_bk_coreapi.js"></script>
+
+<script type="text/javascript">
+bk_allow_multiple_calls=true;
+var blueKaiId=13979;
+var blueKaiPort=10;
+var brandCode = "pcw";
+var regUrl="https://regdev.idge.int/api/"
+var daysToRefresh=30;
+var bk_debug_log=false;
+
+
+regUrl="https://reg.idgenterprise.com/api/";
+
+
+
+daysToRefresh=30;
+
+
+	
+
+
+
+
+
+
+
+bk_addPageCtx("cmpy", "[]");
+
+bk_addPageCtx('tid', '');
+
+	
+
+
+
+
+
+
+
+
+
+
+try{
+	consent.adsel.queue.push(function(){
+		console.log('*****GDPR: running queue for bluekai ad selection');
+		IDG.bkCoreApi.start();
+	});
+}
+catch(e){
+	//alert("Triggering catch")
+	consent.adsel.queue.push(function(){
+		bk_doJSTag(blueKaiId ,blueKaiPort);
+	});
+	if (window.console && window.console.log){
+		window.console.log("Error Occured While Processing Profile Siubmission")
+	}
+}
+
+
+
+//bk_doJSTag(13979, 10);
+
+
+
+
+
+
+
+
+
+
+
+$('article, #slideshowCarousel').on('click', '.product-list-price, .btn-amazon, .productLink', function(e) {
+	var $linkEl = $(e.target);
+	var po = $linkEl.data('po');
+	if ($.inArray(po, ['amazon', 'vendor', 'other']) >= 0) {
+		if (po == 'amazon') {
+			var prCat = $linkEl.data('bkc');
+			if (typeof prCat != 'undefined') {
+				bk_addPageCtx('event', 'AmazonClick'+prCat);
+			}
+			
+		}
+		var prMfr = $linkEl.data('bkmfr');
+		if (typeof prMfr != 'undefined') {
+			bk_addPageCtx('event', 'eCommerceMFR'+prMfr);
+		}
+		var prVndr = $linkEl.data('bkvndr');
+		if (typeof prVndr != 'undefined') {
+			bk_addPageCtx('event', 'eCommerceClickVendor'+prVndr);
+		}
+		consent.adsel.queue.push(function(){
+			bk_doJSTag(34202, 1);
+		});
+	}
+});
+</script>
+<!-- End BlueKai Tag -->
+
+ 		
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+
+
+
+
+
+
+
+
+
+
+
+<!-- Begin comScore Tag -->
+<script>
+var _comscore = _comscore || [];
+_comscore.push(
+{ c1: "2", c2: "6035308", c3: "" });
+(function()
+{
+	var s = document.createElement("script"), el = document.getElementsByTagName("script")[0];
+	s.async = true; s.src = (document.location.protocol == "https:" ? "https://sb" : "http://b") + ".scorecardresearch.com/beacon.js";
+	el.parentNode.insertBefore(s, el);
+})();
+</script>
+<noscript>
+<img src="https://sb.scorecardresearch.com/p?c1=2&c2=6035308&cv=2.0&cj=1" />
+</noscript>
+<!-- End comScore Tag -->
+	
+		<div id="loginModal"></div>
+		<div id="logoffModal"></div>
+		<div id="abuseModal"></div>
+
+		
+			<!-- rev: 20180927112720  -->
+		
+		
+		
+		
+			
+				
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+		
+			<div id="gpt-skin" class=" ad-container"></div>
+    			<script type="text/javascript">
+    			consent.ads.queue.push(function(){
+    				try {
+	    				IDG.GPT.addDisplayedAd("gpt-skin", "true");
+	    				IDG.GPT.displayGoogleTagSlot('gpt-skin');
+	    			}
+	    			catch (exception) {
+	    				console.log("Error with IDG.GPT: " + exception);
+	    			}
+    			});
+    			</script>
+		
+		
+		
+		
+	
+ 
+ 
+			
+		
+	</body>
+</html>

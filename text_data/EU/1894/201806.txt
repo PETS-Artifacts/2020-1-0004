@@ -1,0 +1,205 @@
+
+
+
+
+Privacy Policy | HBO
+
+
+
+
+        function getCookie(name) {
+            var dcookie = document.cookie;
+            var cname = name + "=";
+            var clen = dcookie.length;
+            var cbegin = 0;
+            while (cbegin < clen) {
+                var vbegin = cbegin + cname.length;
+                if (dcookie.substring(cbegin, vbegin) === cname) {
+                    var vend = dcookie.indexOf (";", vbegin);
+                    if (vend === -1) vend = clen;
+                    return unescape(dcookie.substring(vbegin, vend));
+                }
+                cbegin = dcookie.indexOf(" ", cbegin) + 1;
+                if (cbegin === 0) break;
+            }
+            return null;
+        }
+
+		var navigatorLanguage = window.navigator.language;
+		if (navigatorLanguage === "en-CA" || navigatorLanguage === "fr-CA") {
+			var c = getCookie("country");
+			if (c === "canada") {
+			    window.location.replace("http://www.hbocanada.com");
+			}
+			if (!c) {
+				window.location.replace("/corpinfo/international/hbocanada.html");
+			}
+		}
+	
+
+
+	    var hbo = window.hbo || {};
+
+		try {
+			hbo.frontendProxyUrl = "https:\/\/proxy.cms.hbo.com";
+			hbo.searchResultsPageUrl = "\/search";
+            hbo.scheduleSearchPageUrl = "\/schedule\u002Dsearch\u002Dresults";
+            hbo.schedulePageUrl = "\/schedule";
+            hbo.embedPageUrl = "\/embed";
+            hbo.eloquaSignUpServiceUrl = "https:\/\/emailnotify.api.hbo.com\/e\/f2";
+            hbo.eloquaFormName = "hbosampling";
+            hbo.convivaServiceUrl = "https:\/\/cws.conviva.com";
+            hbo.convivaCustomerKey = "087e7b908badc02e88d336eec159b32008e89501";
+		} catch(err) {
+			console.error("Unable to parse head.js into window.hbo object from model:", err);
+		}
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+SeriesMoviesSpecialsBoxingKidsFree EpisodesScheduleSign InGet HBOSeriesMoviesSpecialsBoxingKidsFree EpisodesScheduleSign InGet HBO
+
+
+
+
+
+
+
+
+
+Watch Anytime, AnywhereEnjoy HBO?s original series, hit movies, and more. HBO is available through your TV provider, existing digital subscriptions, or in our stand-alone app.
+ORDER IT TODAYDid You Know?HBO GO is a free streaming service for those who subscribe to HBO through a TV provider.
+Get Started
+
+
+
+
+Follow HBOfacebook-logotwitter-logoinstagram-logoyoutube-logoAboutHelpShopCareers� 2018 Home Box Office, Inc. All Rights Reserved.This website may contain mature content.Privacy Policy - UpdatedTermsAd ChoicesCookie Settings
+
+
+
+
+
+		var twc = window.twc || {},
+			countryCodeHeaderName = 'countryCode',
+			hboSessionIdName = 'hbo-session-id',
+			sessionId = localStorage.getItem(hboSessionIdName),
+			countryCode = localStorage.getItem(countryCodeHeaderName);
+
+		function generateUUID() {
+			return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g,
+				function(c) {
+					var r = Math.random() * 16 | 0,
+						v = c == 'x' ? r : (r & 0x3 | 0x8);
+					return v.toString(16);
+				}).toUpperCase();
+		}
+
+		if (!sessionId) {
+			sessionId = generateUUID();
+			localStorage.setItem(hboSessionIdName, sessionId);
+		}
+
+		try {
+			twc.dataLayer = JSON.parse("{\x22pageInfo\x22:{\x22seriesEpisodeNumber\x22:null,\x22seriesEpisodeTitle\x22:null,\x22seriesSeasonNumber\x22:null,\x22seriesName\x22:null,\x22nonSeriesTitle\x22:null,\x22boxingEvent\x22:null,\x22boxingFighter\x22:null,\x22tvMA\x22:null,\x22pageType\x22:\x22Content\x22,\x22numBands\x22:\x224\x22,\x22bands\x22:{},\x22bandsArray\x22:[],\x22pageCategory\x22:\x22Content\x22,\x22hboWebCmsDataStructure\x22:\x22privacy\u002Dpolicy\x22,\x22currentUrlHash\x22:\x22\/content\/hboweb\/en\/privacy\u002Dpolicy.html\x22,\x22templatePath\x22:\x22\/apps\/hboweb\/templates\/contentpage\x22,\x22templateName\x22:\x22\/apps\/hboweb\/templates\/contentpage\x22},\x22account\x22:{\x22authenticated\x22:null,\x22customerID\x22:null,\x22marketingOptIn\x22:null,\x22entitlementLevel\x22:null},\x22session\x22:{\x22date\x22:\x222018\u002D06\u002D28\x22,\x22dayOfWeek\x22:\x22Thursday\x22,\x22geographicRegion\x22:null,\x22language\x22:\x22English\x22,\x22sessionId\x22:null,\x22time\x22:\x2211:53:45.428\u002D0400\x22,\x22systemEnvironment\x22:\x22prod,www.hbo.com\x22}}");
+
+			if (twc.dataLayer.pageInfo) {
+				twc.dataLayer.pageInfo.previousUrlHash = document.referrer ? document.referrer : "";
+			}
+
+			if (twc.dataLayer.session) {
+				if (sessionId) {
+					twc.dataLayer.session.sessionId = sessionId;
+				}
+
+				if (countryCode) {
+					twc.dataLayer.session.geographicRegion = countryCode;
+				} else {
+					var client = new XMLHttpRequest();
+					client.open("GET", "/services/hbo/headers.json", true);
+					client.onreadystatechange = function() {
+						if (this.readyState == 2) {
+							var countryCode = client.getResponseHeader(countryCodeHeaderName);
+							if (countryCode !== null) {
+								twc.dataLayer.session.geographicRegion = countryCode;
+								localStorage.setItem(countryCodeHeaderName, countryCode);
+							}
+							client.abort();
+						}
+					}
+					client.send(null);
+				}
+			}
+		} catch (err) {
+			console.error("Unable to parse dataLayer from model:", err);
+		}
+	
+
+            var dtmDomainUri = "//assets.adobedtm.com/4615156ad6187de5077eba9aa1f362407b42a1c8/satelliteLib-abed3b291c970fdde676602ff145ec3cbf274c21.js";
+            var dtmOptanonWrapper = function() {
+                Optanon.InsertScript(dtmDomainUri, "head", function() {
+                    _satellite.pageBottom();
+                }, null, 4);
+            }
+		
+
+			var gtmOptanonWrapper = function() {
+				<!-- Google Tag Manager -->
+				(function(w, d, s, l, i) {
+					w[l] = w[l] || [];
+					w[l].push({
+						'gtm.start': new Date().getTime(),
+						event: 'gtm.js'
+					});
+					var f = d.getElementsByTagName(s)[0],
+						j = d.createElement(s),
+						dl = l != 'dataLayer' ? '&l=' + l : '';
+					j.async = true;
+					j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+					f.parentNode.insertBefore(j, f);
+				})(window, document, 'script', 'dataLayer', 'GTM-WT49NQW');
+				<!-- End Google Tag Manager -->
+			}
+		
+
+        function getCookieConsentGroups() {
+            if (typeof OptanonActiveGroups !== 'string') {
+                return {}
+            }
+            return OptanonActiveGroups
+                .split(',')
+                .filter(function(g) { return g.length > 0 })
+                .reduce(function(acc, group) {
+                    acc[group] = true;
+                    return acc;
+                }, {})
+        }
+
+        var init = false;
+		function OptanonWrapper() {
+            var groups = getCookieConsentGroups();
+
+            if (groups[2] && groups[3] && groups[4] && !init) {
+                if (typeof dtmOptanonWrapper !== 'undefined') dtmOptanonWrapper();
+				if (typeof gtmOptanonWrapper !== 'undefined' ) gtmOptanonWrapper();
+				init = true;
+            }
+		}
+	
+
+

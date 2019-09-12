@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="ie ie6 " lang="en" dir="ltr"> <![endif]-->
+<!--[if IE 7]>    <html class="ie ie7 " lang="en" dir="ltr"> <![endif]-->
+<!--[if IE 8]>    <html class="ie ie8 " lang="en" dir="ltr"> <![endif]-->
+<!--[if gt IE 8]> <!--> <html class=" boxed" lang="en" dir="ltr"> <!--<![endif]-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o||n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({1:[function(e,n,t){function r(){}function o(e,n,t){return function(){return i(e,[c.now()].concat(u(arguments)),n?null:this,t),n?void 0:this}}var i=e("handle"),a=e(3),u=e(4),f=e("ee").get("tracer"),c=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,n){s[n]=o(d+n,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,o="function"==typeof n;return i(l+"tracer",[c.now(),e,t],r),function(){if(f.emit((o?"":"no-")+"fn-start",[c.now(),r,o],t),o)try{return n.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],t),e}finally{f.emit("fn-end",[c.now()],t)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=o(l+n)}),newrelic.noticeError=function(e,n){"string"==typeof e&&(e=new Error(e)),i("err",[e,c.now(),!1,n])}},{}],2:[function(e,n,t){function r(e,n){if(!o)return!1;if(e!==o)return!1;if(!n)return!0;if(!i)return!1;for(var t=i.split("."),r=n.split("."),a=0;a<r.length;a++)if(r[a]!==t[a])return!1;return!0}var o=null,i=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var u=navigator.userAgent,f=u.match(a);f&&u.indexOf("Chrome")===-1&&u.indexOf("Chromium")===-1&&(o="Safari",i=f[1])}n.exports={agent:o,version:i,match:r}},{}],3:[function(e,n,t){function r(e,n){var t=[],r="",i=0;for(r in e)o.call(e,r)&&(t[i]=n(r,e[r]),i+=1);return t}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],4:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(o<0?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=r},{}],5:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function o(e){function n(e){return e&&e instanceof r?e:e?f(e,u,i):i()}function t(t,r,o,i){if(!d.aborted||i){e&&e(t,r,o);for(var a=n(o),u=v(t),f=u.length,c=0;c<f;c++)u[c].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function l(e,n){h[e]=v(e).concat(n)}function m(e,n){var t=h[e];if(t)for(var r=0;r<t.length;r++)t[r]===n&&t.splice(r,1)}function v(e){return h[e]||[]}function g(e){return p[e]=p[e]||o(t)}function w(e,n){c(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var h={},y={},b={on:l,addEventListener:l,removeEventListener:m,emit:t,get:g,listeners:v,context:n,buffer:w,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",f=e("gos"),c=e(3),s={},p={},d=n.exports=o();d.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(o.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){o.buffer([e],r),o.emit(e,n,t)}var o=e("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!E++){var e=x.info=NREUM.info,n=l.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();c(y,function(n,t){e[n]||(e[n]=t)}),f("mark",["onload",a()+x.offset],null,"api");var t=l.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function o(){"complete"===l.readyState&&i()}function i(){f("mark",["domContent",a()+x.offset],null,"api")}function a(){return O.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-x.offset}var u=(new Date).getTime(),f=e("handle"),c=e(3),s=e("ee"),p=e(2),d=window,l=d.document,m="addEventListener",v="attachEvent",g=d.XMLHttpRequest,w=g&&g.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:g,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var h=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1118.min.js"},b=g&&w&&w[m]&&!/CriOS/.test(navigator.userAgent),x=n.exports={offset:u,now:a,origin:h,features:{},xhrWrappable:b,userAgent:p};e(1),l[m]?(l[m]("DOMContentLoaded",i,!1),d[m]("load",r,!1)):(l[v]("onreadystatechange",o),d[v]("onload",r)),f("mark",["firstbyte",u],null,"api");var E=0,O=e(5)},{}]},{},["loader"]);</script>
+<link rel="shortcut icon" href="https://www.setgame.com/sites/default/files/squiggle-icon.png" type="image/png" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="Your privacy is important to us. At Set Enterprises, Inc., we value your privacy and have made it our policy to provide a secure online environment and to provide online content that requires minimal collection of information from our visitors. We have adopted an Online Privacy Policy (&quot;Privacy Policy&quot;) that guides how we collect, store and use information you provide us" />
+<style type='text/css'>body {background-color: #CCCCCC !important;}</style> <meta name="generator" content="Drupal 7 (https://www.drupal.org)" />
+<link rel="canonical" href="https://www.setgame.com/privacy-policy" />
+<link rel="shortlink" href="https://www.setgame.com/node/1787" />
+<meta property="og:site_name" content="America&#039;s Favorite Card Games®" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.setgame.com/privacy-policy" />
+<meta property="og:title" content="Privacy Policy" />
+<meta property="og:description" content="Your privacy is important to us. At Set Enterprises, Inc., we value your privacy and have made it our policy to provide a secure online environment and to provide online content that requires minimal collection of information from our visitors. We have adopted an Online Privacy Policy (&quot;Privacy Policy&quot;) that guides how we collect, store and use information you provide us online." />
+<meta property="og:updated_time" content="2018-07-17T14:25:49-07:00" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:url" content="https://www.setgame.com/privacy-policy" />
+<meta name="twitter:title" content="Privacy Policy" />
+<meta name="twitter:description" content="Your privacy is important to us. At Set Enterprises, Inc., we value your privacy and have made it our policy to provide a secure online environment and to provide online content that" />
+<meta property="article:published_time" content="2015-06-30T18:41:38-07:00" />
+<meta property="article:modified_time" content="2018-07-17T14:25:49-07:00" />
+<meta name="google-site-verification" content="qhkgr5eXUS7PDMy038W-SHz8KSbV4gpCdFwzPDTJCto" />
+
+<!-- Facebook Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','//connect.facebook.net/en_US/fbevents.js');
+
+fbq('init', '294289658079715');
+fbq('track', 'PageView');
+fbq('track', 'ViewContent', {"content_type":"product","content_ids":"1787"});
+</script>
+<noscript><img height='1' width='1' style='display:none' src='https://www.facebook.com/tr?id=294289658079715&ev=PageView&noscript=1' /></noscript>
+<!-- End Facebook Pixel Code -->
+<title>Privacy Policy | America's Favorite Card Games®</title>
+<!-- Call bootstrap.css before $scripts to resolve @import conflict with respond.js -->
+<link rel="stylesheet" href="/sites/all/themes/Porto/vendor/bootstrap/css/bootstrap.min.css">
+
+
+<link type="text/css" rel="stylesheet" href="https://www.setgame.com/sites/default/files/css/css_xE-rWrJf-fncB6ztZfd2huxqgxu4WO-qwma6Xer30m4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://www.setgame.com/sites/default/files/css/css_vv4pljwlvwdCGPcixhZ126582XBUyQM6Fs-F_c0Bkt0.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://www.setgame.com/sites/default/files/css/css_C_SQABuBdGiVCxHQPw9X54uHTdL3WsTU6ipF7E5XBe0.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://www.setgame.com/sites/default/files/css/css_k6zrs2IeIuMWzSNnekTKqKYlSd79Y-f-X18yybTBOTg.css" media="all" />
+<style type="text/css" media="all">
+<!--/*--><![CDATA[/*><!--*/
+.tb-megamenu.animate .mega > .mega-dropdown-menu,.tb-megamenu.animate.slide .mega > .mega-dropdown-menu > div{transition-delay:200ms;-webkit-transition-delay:200ms;-ms-transition-delay:200ms;-o-transition-delay:200ms;transition-duration:400ms;-webkit-transition-duration:400ms;-ms-transition-duration:400ms;-o-transition-duration:400ms;}
+
+/*]]>*/-->
+</style>
+<link type="text/css" rel="stylesheet" href="https://www.setgame.com/sites/default/files/css/css_Bp8v8roxozRUTw7SVprtkcoInpGQ0B0RC3jWoNdx5OY.css" media="all" />
+<style type="text/css" media="all">
+<!--/*--><![CDATA[/*><!--*/
+.md-layer-6-0-0{z-index:1000!important;}.md-layer-6-1-0{z-index:1000!important;}.md-layer-6-2-0{z-index:999!important;}
+
+/*]]>*/-->
+</style>
+<link type="text/css" rel="stylesheet" href="https://www.setgame.com/sites/default/files/css/css_bXD_KwDY4Uxf2ADDnUfO7XE540GTrR5Wdcv4k3-RX2A.css" media="all" />
+<style type="text/css" media="all">
+<!--/*--><![CDATA[/*><!--*/
+@media (max-width:480px){#md-slider-6-block .md-objects{display:none;}}
+@media (max-width:480px){.hideonmobile{display:none !important;}}
+
+/*]]>*/-->
+</style>
+<link type="text/css" rel="stylesheet" href="https://www.setgame.com/sites/default/files/css/css_FSyfqU0P2TPUt7sENcIWrO3LrOi86BfrCLnrzYazK7Y.css" media="all" />
+<style type="text/css" media="all">
+<!--/*--><![CDATA[/*><!--*/
+#sliding-popup.sliding-popup-bottom,#sliding-popup.sliding-popup-bottom .eu-cookie-withdraw-banner,.eu-cookie-withdraw-tab{background:#bd0707;}#sliding-popup.sliding-popup-bottom.eu-cookie-withdraw-wrapper{background:transparent}#sliding-popup .popup-content #popup-text h1,#sliding-popup .popup-content #popup-text h2,#sliding-popup .popup-content #popup-text h3,#sliding-popup .popup-content #popup-text p,.eu-cookie-compliance-secondary-button,.eu-cookie-withdraw-tab{color:#fff !important;}.eu-cookie-withdraw-tab{border-color:#fff;}.eu-cookie-compliance-more-button{color:#fff !important;}
+
+/*]]>*/-->
+</style>
+<link type="text/css" rel="stylesheet" href="https://www.setgame.com/sites/default/files/css/css_ws07CNGbno3BODl2xJcKD3nSH0WiamEgtXkvw-De_C4.css" media="all" />
+    <script type="text/javascript" src="https://www.setgame.com/sites/all/libraries/respondjs/respond.min.js?po2j1r"></script>
+<script type="text/javascript" src="https://www.setgame.com/sites/default/files/js/js_2hoh0v0y6B2TInaEIHI3XwA7E31uiNqpq69BJ97pODY.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.migrateMute=true;jQuery.migrateTrace=false;
+//--><!]]>
+</script>
+<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.4.1.min.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+window.jQuery && window.jQuery.migrateWarnings || document.write("<script src='/sites/all/modules/jquery_update/replace/jquery-migrate/1/jquery-migrate.min.js'>\x3C/script>")
+//--><!]]>
+</script>
+<script type="text/javascript" src="https://www.setgame.com/sites/default/files/js/js_vSmhpx_T-AShyt_WMW5_TcwwxJP1imoVOa8jvwL_mxE.js"></script>
+<script type="text/javascript" src="https://www.setgame.com/sites/default/files/js/js_jzrKzEcBmsKY5BP7i5FChf3qQl_1KZCQmET3PSlpVKM.js"></script>
+<script type="text/javascript" src="https://www.setgame.com/sites/default/files/js/js_Tik8PIaz_eQ5I4FMzmjkWoPEs9jKBgTSauo1jgsNa6g.js"></script>
+<script type="text/javascript" src="https://www.setgame.com/sites/default/files/js/js_yTWBdVB5AL9mm31tiZDwoanb04q4Kdwn1AaXLuv7YHc.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+(function($) {
+      $(document).ready(function() {
+          effectsIn = Drupal.settings.inEffects;
+          effectsOut = Drupal.settings.outEffects;
+          var options_6 = Drupal.settings.md_slider_options_6;
+          if(!window.listMegaSlide){window.listMegaSlide = [];} $('.md-slide-items').each(function(index, item){
+            if($(item).attr('id') == 'md-slider-6-block'){
+              listMegaSlide[index] = $('#md-slider-6-block').mdSlider(options_6);
+            }
+          });
+      });
+    })(jQuery);
+//--><!]]>
+</script>
+<script type="text/javascript" src="https://www.setgame.com/sites/default/files/js/js_rsGiM5M1ffe6EhN-RnhM5f3pDyJ8ZAPFJNKpfjtepLk.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","https://www.setgame.com/sites/default/files/googleanalytics/analytics.js?po2j1r","ga");ga("create", "UA-4384385-1", {"cookieDomain":"auto"});ga("set", "anonymizeIp", true);ga("send", "pageview");
+//--><!]]>
+</script>
+<script type="text/javascript" src="https://www.setgame.com/sites/default/files/js/js_E6gXc_w0HlnaKJdWJNVVikQ7VioSk7pu0sfYuw1oQQs.js"></script>
+<script type="text/javascript" src="https://www.setgame.com/sites/default/files/js/js_ueEgIV_K-HI8eJRsMchLT06R7DaMeV-bk-a3ULqjt0M.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"porto","theme_token":"VcuBgFpqT6W0_JtgxqVDeyl4UVb11qcq9-e1ERFXXAc","jquery_version":"1.11","js":{"0":1,"1":1,"sites\/all\/themes\/Porto\/js\/theme.js":1,"sites\/all\/themes\/Porto\/js\/views\/view.home.js":1,"sites\/all\/themes\/Porto\/js\/theme.init.js":1,"sites\/all\/themes\/Porto\/js\/examples\/examples.portfolio.js":1,"sites\/all\/modules\/commerce_ajax_cart\/js\/commerce_ajax_cart.js":1,"sites\/all\/modules\/eu_cookie_compliance\/js\/eu_cookie_compliance.js":1,"sites\/all\/libraries\/respondjs\/respond.min.js":1,"sites\/all\/modules\/jquery_update\/replace\/jquery\/1.11\/jquery.min.js":1,"2":1,"\/\/code.jquery.com\/jquery-migrate-1.4.1.min.js":1,"3":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/modules\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.core.min.js":1,"sites\/all\/modules\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.widget.min.js":1,"sites\/all\/modules\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.button.min.js":1,"sites\/all\/modules\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.mouse.min.js":1,"sites\/all\/modules\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.draggable.min.js":1,"sites\/all\/modules\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.position.min.js":1,"sites\/all\/modules\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.resizable.min.js":1,"sites\/all\/modules\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.dialog.min.js":1,"sites\/all\/modules\/jquery_update\/replace\/ui\/external\/jquery.cookie.js":1,"sites\/all\/modules\/jquery_update\/js\/jquery_update.js":1,"sites\/all\/modules\/extlink\/extlink.js":1,"misc\/ajax.js":1,"sites\/all\/libraries\/colorbox\/jquery.colorbox-min.js":1,"sites\/all\/modules\/colorbox\/js\/colorbox.js":1,"sites\/all\/modules\/colorbox\/styles\/default\/colorbox_style.js":1,"sites\/all\/modules\/colorbox\/js\/colorbox_load.js":1,"sites\/all\/modules\/colorbox\/js\/colorbox_inline.js":1,"sites\/all\/modules\/tb_megamenu\/js\/tb-megamenu-frontend.js":1,"sites\/all\/modules\/tb_megamenu\/js\/tb-megamenu-touch.js":1,"sites\/all\/modules\/md_slider\/js\/jquery.touchwipe.js":1,"sites\/all\/modules\/md_slider\/js\/modernizr.js":1,"sites\/all\/modules\/md_slider\/js\/jquery-migrate-1.2.1.min.js":1,"sites\/all\/modules\/md_slider\/js\/jquery.easing.js":1,"sites\/all\/modules\/md_slider\/js\/md-slider.js":1,"4":1,"sites\/all\/modules\/google_analytics\/googleanalytics.js":1,"5":1,"misc\/progress.js":1,"sites\/all\/modules\/colorbox_node\/colorbox_node.js":1,"sites\/all\/themes\/Porto\/vendor\/modernizr\/modernizr.min.js":1,"sites\/all\/themes\/Porto\/vendor\/jquery.appear\/jquery.appear.js":1,"sites\/all\/themes\/Porto\/vendor\/jquery.easing\/jquery.easing.js":1,"sites\/all\/themes\/Porto\/vendor\/jquery-cookie\/jquery-cookie.js":1,"sites\/all\/themes\/Porto\/vendor\/bootstrap\/js\/bootstrap.min.js":1,"sites\/all\/themes\/Porto\/vendor\/common\/common.js":1,"sites\/all\/themes\/Porto\/vendor\/jquery.validation\/jquery.validation.js":1,"sites\/all\/themes\/Porto\/vendor\/jquery.stellar\/jquery.stellar.js":1,"sites\/all\/themes\/Porto\/vendor\/jquery.easy-pie-chart\/jquery.easy-pie-chart.js":1,"sites\/all\/themes\/Porto\/vendor\/jquery.gmap\/jquery.gmap.js":1,"sites\/all\/themes\/Porto\/vendor\/jquery.lazyload\/jquery.lazyload.js":1,"sites\/all\/themes\/Porto\/vendor\/isotope\/jquery.isotope.min.js":1,"sites\/all\/themes\/Porto\/vendor\/owl.carousel\/owl.carousel.js":1,"sites\/all\/themes\/Porto\/vendor\/jflickrfeed\/jflickrfeed.js":1,"sites\/all\/themes\/Porto\/vendor\/magnific-popup\/jquery.magnific-popup.js":1,"sites\/all\/themes\/Porto\/vendor\/vide\/vide.js":1,"sites\/all\/themes\/Porto\/vendor\/circle-flip-slideshow\/js\/jquery.flipshow.js":1,"sites\/all\/themes\/Porto\/js\/custom.js":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"misc\/ui\/jquery.ui.core.css":1,"misc\/ui\/jquery.ui.theme.css":1,"misc\/ui\/jquery.ui.button.css":1,"misc\/ui\/jquery.ui.resizable.css":1,"misc\/ui\/jquery.ui.dialog.css":1,"sites\/all\/modules\/colorbox_node\/colorbox_node.css":1,"sites\/all\/modules\/commerce_ajax_cart\/css\/commerce_ajax_cart.css":1,"sites\/all\/modules\/date\/date_api\/date.css":1,"sites\/all\/modules\/date\/date_popup\/themes\/datepicker.1.7.css":1,"modules\/field\/theme\/field.css":1,"sites\/all\/modules\/logintoboggan\/logintoboggan.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/extlink\/extlink.css":1,"sites\/all\/modules\/views\/css\/views.css":1,"sites\/all\/modules\/media\/modules\/media_wysiwyg\/css\/media_wysiwyg.base.css":1,"sites\/all\/modules\/colorbox\/styles\/default\/colorbox_style.css":1,"sites\/all\/modules\/ctools\/css\/ctools.css":1,"sites\/all\/modules\/panels\/css\/panels.css":1,"sites\/all\/modules\/tb_megamenu\/css\/bootstrap.css":1,"sites\/all\/modules\/tb_megamenu\/css\/base.css":1,"sites\/all\/modules\/tb_megamenu\/css\/default.css":1,"sites\/all\/modules\/tb_megamenu\/css\/compatibility.css":1,"0":1,"sites\/all\/modules\/md_slider\/css\/animate.css":1,"sites\/all\/modules\/md_slider\/css\/md-slider.css":1,"1":1,"sites\/all\/modules\/md_slider\/css\/md-slider-style.css":1,"2":1,"3":1,"sites\/all\/modules\/commerce\/modules\/line_item\/theme\/commerce_line_item.theme.css":1,"sites\/all\/modules\/eu_cookie_compliance\/css\/eu_cookie_compliance.css":1,"4":1,"sites\/all\/themes\/Porto\/vendor\/owl.carousel\/assets\/owl.carousel.css":1,"sites\/all\/themes\/Porto\/vendor\/font-awesome\/css\/font-awesome-legacy.css":1,"sites\/all\/themes\/Porto\/vendor\/font-awesome\/css\/font-awesome.css":1,"sites\/all\/themes\/Porto\/vendor\/simple-line-icons\/css\/simple-line-icons.css":1,"sites\/all\/themes\/Porto\/vendor\/owl.carousel\/assets\/owl.theme.default.css":1,"sites\/all\/themes\/Porto\/vendor\/prettyPhoto\/css\/prettyPhoto.css":1,"sites\/all\/themes\/Porto\/vendor\/circle-flip-slideshow\/css\/component.css":1,"sites\/all\/themes\/Porto\/vendor\/magnific-popup\/magnific-popup.css":1,"sites\/all\/themes\/Porto\/vendor\/isotope\/jquery.isotope.css":1,"sites\/all\/themes\/Porto\/css\/theme.css":1,"sites\/all\/themes\/Porto\/css\/theme-elements.css":1,"sites\/all\/themes\/Porto\/css\/theme-animate.css":1,"sites\/all\/themes\/Porto\/css\/theme-blog.css":1,"sites\/all\/themes\/Porto\/css\/theme-shop.css":1,"sites\/all\/themes\/Porto\/css\/drupal-styles.css":1,"sites\/all\/themes\/Porto\/css\/custom.css":1,"sites\/all\/themes\/Porto\/css\/less\/skin.less":1}},"colorbox":{"opacity":"0.85","current":"{current} of {total}","previous":"\u00ab Prev","next":"Next \u00bb","close":"Close","maxWidth":"98%","maxHeight":"98%","fixed":true,"mobiledetect":true,"mobiledevicewidth":"480px"},"shortcode_wysiwyg":{"current_form":"form-cuLS3GZNKeqqzDUXiS-W8itU9SXpsC9QtQGoBRK2jg0"},"inEffects":["bounceIn","bounceInDown","bounceInUp","bounceInLeft","bounceInRight","fadeIn","fadeInUp","fadeInDown","fadeInLeft","fadeInRight","fadeInUpBig","fadeInDownBig","fadeInLeftBig","fadeInRightBig","flipInX","flipInY","foolishIn","lightSpeedIn","puffIn","rollIn","rotateIn","rotateInDownLeft","rotateInDownRight","rotateInUpLeft","rotateInUpRight","twisterInDown","twisterInUp","swap","swashIn","tinRightIn","tinLeftIn","tinUpIn","tinDownIn","vanishIn"],"outEffects":["bombRightOut","bombLeftOut","bounceOut","bounceOutDown","bounceOutUp","bounceOutLeft","bounceOutRight","fadeOut","fadeOutUp","fadeOutDown","fadeOutLeft","fadeOutRight","fadeOutUpBig","fadeOutDownBig","fadeOutLeftBig","fadeOutRightBig","flipOutX","flipOutY","foolishOut","hinge","holeOut","lightSpeedOut","puffOut","rollOut","rotateOut","rotateOutDownLeft","rotateOutDownRight","rotateOutUpLeft","rotateOutUpRight","rotateDown","rotateUp","rotateLeft","rotateRight","swashOut","tinRightOut","tinLeftOut","tinUpOut","tinDownOut","vanishOut"],"md_slider_options_6":{"fullwidth":false,"transitionsSpeed":800,"width":"1200","height":"200","enableDrag":true,"responsive":true,"pauseOnHover":true,"loop":true,"showLoading":false,"loadingPosition":"bottom","showArrow":true,"showBullet":false,"showNavigationLinks":false,"posBullet":"5","showThumb":false,"posThumb":"1","slideShowDelay":"3000","slideShow":true,"styleBorder":"0","styleShadow":"0","videoBox":false,"autoplayVideo":false},"eu_cookie_compliance":{"popup_enabled":1,"popup_agreed_enabled":0,"popup_hide_agreed":0,"popup_clicking_confirmation":false,"popup_scrolling_confirmation":false,"popup_html_info":"\u003Cdiv\u003E\n  \u003Cdiv class=\u0022popup-content info\u0022\u003E\n    \u003Cdiv id=\u0022popup-text\u0022\u003E\n      \u003Ch2\u003EWe use cookies on this site to enhance your user experience\u003C\/h2\u003E\n\u003Cp\u003EBy clicking any link on this page you are giving your consent for us to set cookies.\u003C\/p\u003E\n              \u003Cbutton type=\u0022button\u0022 class=\u0022find-more-button eu-cookie-compliance-more-button\u0022\u003EMore info\u003C\/button\u003E\n          \u003C\/div\u003E\n    \u003Cdiv id=\u0022popup-buttons\u0022\u003E\n      \u003Cbutton type=\u0022button\u0022 class=\u0022agree-button eu-cookie-compliance-secondary-button\u0022\u003EOK, I agree\u003C\/button\u003E\n              \u003Cbutton type=\u0022button\u0022 class=\u0022decline-button eu-cookie-compliance-default-button\u0022 \u003EDecline\u003C\/button\u003E\n          \u003C\/div\u003E\n  \u003C\/div\u003E\n\u003C\/div\u003E","use_mobile_message":false,"mobile_popup_html_info":"\u003Cdiv\u003E\n  \u003Cdiv class=\u0022popup-content info\u0022\u003E\n    \u003Cdiv id=\u0022popup-text\u0022\u003E\n                    \u003Cbutton type=\u0022button\u0022 class=\u0022find-more-button eu-cookie-compliance-more-button\u0022\u003EMore info\u003C\/button\u003E\n          \u003C\/div\u003E\n    \u003Cdiv id=\u0022popup-buttons\u0022\u003E\n      \u003Cbutton type=\u0022button\u0022 class=\u0022agree-button eu-cookie-compliance-secondary-button\u0022\u003EOK, I agree\u003C\/button\u003E\n              \u003Cbutton type=\u0022button\u0022 class=\u0022decline-button eu-cookie-compliance-default-button\u0022 \u003EDecline\u003C\/button\u003E\n          \u003C\/div\u003E\n  \u003C\/div\u003E\n\u003C\/div\u003E\n","mobile_breakpoint":"768","popup_html_agreed":"\u003Cdiv\u003E\n  \u003Cdiv class=\u0022popup-content agreed\u0022\u003E\n    \u003Cdiv id=\u0022popup-text\u0022\u003E\n      \u003Ch2\u003EThank you for accepting cookies\u003C\/h2\u003E\n\u003Cp\u003EYou can now hide this message or find out more about cookies.\u003C\/p\u003E\n    \u003C\/div\u003E\n    \u003Cdiv id=\u0022popup-buttons\u0022\u003E\n      \u003Cbutton type=\u0022button\u0022 class=\u0022hide-popup-button eu-cookie-compliance-hide-button\u0022\u003EHide\u003C\/button\u003E\n              \u003Cbutton type=\u0022button\u0022 class=\u0022find-more-button eu-cookie-compliance-more-button-thank-you\u0022 \u003EMore info\u003C\/button\u003E\n          \u003C\/div\u003E\n  \u003C\/div\u003E\n\u003C\/div\u003E","popup_use_bare_css":false,"popup_height":"auto","popup_width":"100%","popup_delay":1000,"popup_link":"\/privacy-policy","popup_link_new_window":1,"popup_position":null,"popup_language":"en","store_consent":true,"better_support_for_screen_readers":0,"reload_page":0,"domain":"","popup_eu_only_js":0,"cookie_lifetime":"100","cookie_session":false,"disagree_do_not_show_popup":0,"method":"opt_in","whitelisted_cookies":"","withdraw_markup":"\u003Cbutton type=\u0022button\u0022 class=\u0022eu-cookie-withdraw-tab\u0022\u003EPrivacy settings\u003C\/button\u003E\n\u003Cdiv class=\u0022eu-cookie-withdraw-banner\u0022\u003E\n  \u003Cdiv class=\u0022popup-content info\u0022\u003E\n    \u003Cdiv id=\u0022popup-text\u0022\u003E\n      \u003Ch2\u003EWe use cookies on this site to enhance your user experience\u003C\/h2\u003E\n\u003Cp\u003EYou have given your consent for us to set cookies.\u003C\/p\u003E\n    \u003C\/div\u003E\n    \u003Cdiv id=\u0022popup-buttons\u0022\u003E\n      \u003Cbutton type=\u0022button\u0022 class=\u0022eu-cookie-withdraw-button\u0022\u003EWithdraw consent\u003C\/button\u003E\n    \u003C\/div\u003E\n  \u003C\/div\u003E\n\u003C\/div\u003E\n","withdraw_enabled":false},"extlink":{"extTarget":"_blank","extClass":0,"extLabel":"(link is external)","extImgClass":0,"extIconPlacement":"append","extSubdomains":1,"extExclude":"","extInclude":"","extCssExclude":"","extCssExplicit":"","extAlert":0,"extAlertText":"This link will take you to an external web site.","mailtoClass":"mailto","mailtoLabel":"(link sends e-mail)"},"googleanalytics":{"trackOutbound":1,"trackMailto":1,"trackDownload":1,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc(x|m)?|dot(x|m)?|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt(x|m)?|pot(x|m)?|pps(x|m)?|ppam|sld(x|m)?|thmx|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls(x|m|b)?|xlt(x|m)|xlam|xml|z|zip","trackColorbox":1},"urlIsAjaxTrusted":{"\/privacy-policy":true},"colorbox_node":{"width":"600px","height":"600px"},"commerce_ajax_cart":{"position":{"my":"left top","at":"left bottom","collision":""},"update_url":"\/cart\/ajax\/update","update_url_block":"\/cart\/ajax\/block","ajax_url":"\/cart\/ajax","text":"There is no product in your cart"}});
+//--><!]]>
+</script>
+<!-- IE Fix for HTML5 Tags -->
+<!--[if lt IE 9]>
+<![endif]-->
+
+<!--[if IE]>
+  <link rel="stylesheet" href="/sites/all/themes/Porto/css/ie.css">
+<![endif]-->
+
+<!--[if lte IE 8]>
+  <script src="/sites/all/themes/Porto/vendor/respond.js"></script>
+<![endif]-->
+
+<!-- Web Fonts  -->
+<link href="//fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800&subset=latin,latin-ext" type="text/css" rel="stylesheet">
+<link href='//fonts.googleapis.com/css?family=Shadows+Into+Light' rel='stylesheet' type='text/css'>
+
+<!-- User defined CSS --><style type='text/css'>#edit-customer-profile-shipping-commerce-customer-address-und-0-thoroughfare,
+#edit-customer-profile-shipping-commerce-customer-address-und-0-premise,
+#edit-customer-profile-billing-commerce-customer-address-und-0-thoroughfare,
+#edit-customer-profile-billing-commerce-customer-address-und-0-premise,
+#edit-customer-profile-shipping-commerce-customer-address-und-0-name-line,
+#edit-customer-profile-billing-commerce-customer-address-und-0-name-line,
+#edit-customer-profile-billing-addressbook,
+#edit-customer-profile-shipping-addressbook,
+#edit_customer_profile_billing_commerce_customer_address_und_0_country_chosen,
+#edit_customer_profile_shipping_commerce_customer_address_und_0_country_chosen,
+#edit-account-login-mail,
+#edit-commerce-coupon-coupon-code,
+#edit-account-login-mail
+
+ {
+
+width: 327px;
+
+}
+
+#edit_customer_profile_shipping_commerce_customer_address_und_0_administrative_area_chosen,
+#edit_customer_profile_billing_commerce_customer_address_und_0_administrative_area_chosen {
+
+width: 70px;
+
+}
+
+#edit-customer-profile-shipping-commerce-customer-address-und-0-locality,
+#edit-customer-profile-billing-commerce-customer-address-und-0-locality {
+width: 200px;
+}
+</style><!-- End user defined CSS -->
+<!-- BEGIN ROBLY WIDGET CODE
+<script type='text/javascript'>
+  var _d_site = _d_site || 'e6336bd52e54bf60eb827719f0a12049';
+  (function(w, d, p, s, s2) {
+    w[p] = w[p] || function() { (w[p].q = w[p].q || []).push(arguments) };
+    s = d.createElement('script'); s.async = 1; s.src = '//s3.amazonaws.com/roblyimages/accounts/9601/forms/29864/signup_popup.js';
+    s2 = d.getElementsByTagName('script')[0]; s2.parentNode.insertBefore(s, s2);
+  })(window, document, 'Robly');
+</script>
+ END ROBLY WIDGET CODE -->
+
+</head>
+<body class="html not-front not-logged-in no-sidebars page-node page-node- page-node-1787 node-type-page boxed"  data-target="#header" data-spy="scroll" data-offset="100">
+
+<div class="body">
+  
+<header id="header" class="header-no-border-bottom" data-plugin-options='{"stickyEnabled": true, "stickyEnableOnBoxed": true, "stickyEnableOnMobile": true, "stickyStartAt": 245, "stickySetTop": "-220px", "stickyChangeLogo": false}'>
+<div class="header-body">
+<div class="header-container container">
+    <div class="header-row">
+        <div class="header-column">
+
+                          <table width="100%" border="0"><tr>
+                <td class="social-media-icons">
+                                          <div class="region region-social-media-icons">
+    <div id="block-block-71" class="block block-block">
+
+    
+  <div class="content">
+    <p><a href="https://www.facebook.com/Set.Enterprises" target="_blank"><img alt="Facebook Social Media Icon" class="social-media-icons-images" data-delta="1" data-fid="11666" data-media-element="1" src="/sites/default/files/facebook_icon.png" style="height: 33px; width: 32px;" title="Facebook Social Media Icon" typeof="foaf:Image" /></a><a href="https://www.instagram.com/set_game/" target="_blank"><img alt="Instagram Social Media Icon" class="social-media-icons-images" data-delta="2" data-fid="11671" data-media-element="1" src="/sites/default/files/instagram_icon.png" style="height: 33px; width: 32px;" title="Instagram Social Media Icon" typeof="foaf:Image" /></a><a href="https://twitter.com/set_game" target="_blank"><img alt="Twitter Social Media Icon" class="social-media-icons-images" data-delta="3" data-fid="11676" data-media-element="1" src="/sites/default/files/twitter_icon.png" style="height: 33px; width: 32px;" title="Twitter Social Media Icon" typeof="foaf:Image" /></a><a href="https://www.youtube.com/c/setenterprisesfountainhills" target="_blank"><img alt="YouTube Social Media Icon" class="social-media-icons-images" data-delta="4" data-fid="11681" data-media-element="1" src="/sites/default/files/youtube_icon.png" style="height: 33px; width: 32px;" title="YouTube Social Media Icon" typeof="foaf:Image" /></a></p>
+  </div>
+</div>
+  </div>
+                                  </td>
+                <td class="header-login">
+                                              <a class="colorbox-node" href="/user/login?width=450&height=275">Login/Register</a>
+                      
+                </td>
+              </tr><tr>
+                <td width="100%" border="0" colspan="2">
+                  <div class="header-logo" align="center">
+                    <a href="/" title="Home" rel="home" id="logo">
+                        <img alt="Home" width="" height="125" data-sticky-width="82" data-sticky-height="40" data-sticky-top="33" src="https://www.setgame.com/sites/default/files/SETLogo.gif">
+                    </a>
+                </div>
+              </td>
+            </tr>
+
+          </table>
+                                        <div id="name-and-slogan" class="hidden">
+
+                                                                        <div id="site-name" class="hidden">
+                                <a href="/" title="Home" rel="home"><span>America's Favorite Card Games®</span></a>
+                            </div>
+                                            
+                                            <div id="site-slogan" class="hidden">
+                            Celebrating 25 Years                        </div>
+                    
+                </div> <!-- /#name-and-slogan -->
+                    </div>
+    </div>
+</div>
+<div class="header-container header-nav header-nav-bar">
+<div class="container">
+<button class="btn header-btn-collapse-nav" data-toggle="collapse" data-target=".header-nav-main">
+    <i class="fa fa-bars"></i>
+</button>
+    
+    <table class="header-nav-main-table"><tr><td><div class="header-nav-main header-nav-main-effect-1 header-nav-main-sub-effect-1 collapse">
+    <nav>  
+<ul class="nav nav-pills" id="mainNav"><li class="tb-megamenu-item level-1 mega dropdown parent">
+  <a href="/products/games" class=" dropdown-toggle ">
+
+    Games            </a>
+  <ul  data-class="" data-width="250" style="width: 250px;" class="tb-megamenu-submenu dropdown-menu mega-dropdown-menu nav-child">
+  <li  data-class="" data-width="12" data-hidewcol="0" id="tb-megamenu-column-6" class="tb-megamenu-column megamenu-column-single  mega-col-nav">
+  <ul  class="tb-megamenu-subnav mega-nav level-1 items-7">
+  <li class="tb-megamenu-item level-2 mega dropdown-submenu parent">
+  <a href="/products/games/fivecrownsbrand" class=" dropdown-toggle ">
+
+    The FIVE CROWNS Brand            </a>
+  <ul  data-class="" data-width="250" style="width: 250px;" class="tb-megamenu-submenu dropdown-menu mega-dropdown-menu nav-child">
+  <li  data-class="" data-width="12" data-hidewcol="0" id="tb-megamenu-column-1" class="tb-megamenu-column megamenu-column-single  mega-col-nav">
+  <ul  class="tb-megamenu-subnav mega-nav level-2 items-3">
+  <li class="tb-megamenu-item level-3 mega">
+  <a href="/fivecrowns" class="  ">
+
+    FIVE CROWNS            </a>
+  </li>
+
+<li class="tb-megamenu-item level-3 mega">
+  <a href="/fivecrownsjr" class="  ">
+
+    FIVE CROWNS JUNIOR            </a>
+  </li>
+
+<li class="tb-megamenu-item level-3 mega">
+  <a href="/fivecrownsminiround" class="  ">
+
+    FIVE CROWNS Mini Round            </a>
+  </li>
+</ul>
+</li>
+</ul>
+</li>
+
+<li class="tb-megamenu-item level-2 mega dropdown-submenu parent">
+  <a href="/products/games/karmabrand" class=" dropdown-toggle ">
+
+    The KARMA Brand            </a>
+  <ul  data-class="" data-width="250" style="width: 250px;" class="tb-megamenu-submenu dropdown-menu mega-dropdown-menu nav-child">
+  <li  data-class="" data-width="12" data-hidewcol="0" id="tb-megamenu-column-2" class="tb-megamenu-column megamenu-column-single  mega-col-nav">
+  <ul  class="tb-megamenu-subnav mega-nav level-2 items-4">
+  <li class="tb-megamenu-item level-3 mega">
+  <a href="/karma" class="  ">
+
+    KARMA            </a>
+  </li>
+
+<li class="tb-megamenu-item level-3 mega">
+  <a href="/karma-king" class="  ">
+
+    KARMA KING - only at Target            </a>
+  </li>
+
+<li class="tb-megamenu-item level-3 mega">
+  <a href="/karmaminiround" class="  ">
+
+    KARMA Mini Round            </a>
+  </li>
+
+<li class="tb-megamenu-item level-3 mega">
+  <a href="/karma-sticker" class="  ">
+
+    KARMA Sticker            </a>
+  </li>
+</ul>
+</li>
+</ul>
+</li>
+
+<li class="tb-megamenu-item level-2 mega dropdown-submenu parent">
+  <a href="/products/games/quiddlerbrand" class=" dropdown-toggle ">
+
+    The QUIDDLER Brand            </a>
+  <ul  data-class="" data-width="250" style="width: 250px;" class="tb-megamenu-submenu dropdown-menu mega-dropdown-menu nav-child">
+  <li  data-class="" data-width="12" data-hidewcol="0" id="tb-megamenu-column-3" class="tb-megamenu-column megamenu-column-single  mega-col-nav">
+  <ul  class="tb-megamenu-subnav mega-nav level-2 items-4">
+  <li class="tb-megamenu-item level-3 mega">
+  <a href="/quiddler" class="  ">
+
+    QUIDDLER            </a>
+  </li>
+
+<li class="tb-megamenu-item level-3 mega">
+  <a href="/quiddlerjr" class="  ">
+
+    QUIDDLER JUNIOR            </a>
+  </li>
+
+<li class="tb-megamenu-item level-3 mega">
+  <a href="/quiddlerminiround" class="  ">
+
+    QUIDDLER Mini Round            </a>
+  </li>
+
+<li class="tb-megamenu-item level-3 mega">
+  <a href="/quiddlerdictionary" class="  ">
+
+    Quiddler Dictionary            </a>
+  </li>
+</ul>
+</li>
+</ul>
+</li>
+
+<li class="tb-megamenu-item level-2 mega dropdown-submenu parent">
+  <a href="/products/games/setbrand" class=" dropdown-toggle ">
+
+    The SET Brand            </a>
+  <ul  data-class="" data-width="250" style="width: 250px;" class="tb-megamenu-submenu dropdown-menu mega-dropdown-menu nav-child">
+  <li  data-class="" data-width="12" data-hidewcol="0" id="tb-megamenu-column-4" class="tb-megamenu-column megamenu-column-single  mega-col-nav">
+  <ul  class="tb-megamenu-subnav mega-nav level-2 items-5">
+  <li class="tb-megamenu-item level-3 mega">
+  <a href="/set" class="  ">
+
+    SET            </a>
+  </li>
+
+<li class="tb-megamenu-item level-3 mega">
+  <a href="/setdice" class="  ">
+
+    SET DICE            </a>
+  </li>
+
+<li class="tb-megamenu-item level-3 mega">
+  <a href="/setjunior" class="  ">
+
+    SET JUNIOR            </a>
+  </li>
+
+<li class="tb-megamenu-item level-3 mega">
+  <a href="/setminiround" class="  ">
+
+    SET Mini Round            </a>
+  </li>
+
+<li class="tb-megamenu-item level-3 mega">
+  <a href="/setpuzzlebook" class="  ">
+
+    SET Puzzle Book            </a>
+  </li>
+</ul>
+</li>
+</ul>
+</li>
+
+<li class="tb-megamenu-item level-2 mega">
+  <a href="/wordspiel" class="  ">
+
+    WORDSPIEL            </a>
+  </li>
+
+<li class="tb-megamenu-item level-2 mega">
+  <a href="/zangle" class="  ">
+
+    ZANGLE            </a>
+  </li>
+
+<li class="tb-megamenu-item level-2 mega dropdown-submenu parent">
+  <a href="/products" class=" dropdown-toggle ">
+
+    Apparel            </a>
+  <ul  data-class="" data-width="250" style="width: 250px;" class="tb-megamenu-submenu dropdown-menu mega-dropdown-menu nav-child">
+  <li  data-class="" data-width="12" data-hidewcol="0" id="tb-megamenu-column-5" class="tb-megamenu-column megamenu-column-single  mega-col-nav">
+  <ul  class="tb-megamenu-subnav mega-nav level-2 items-5">
+  <li class="tb-megamenu-item level-3 mega">
+  <a href="/five-crowns-t-shirt" class="  ">
+
+    FIVE CROWNS T-shirt            </a>
+  </li>
+
+<li class="tb-megamenu-item level-3 mega">
+  <a href="/karma-t-shirt" class="  ">
+
+    KARMA T-shirt            </a>
+  </li>
+
+<li class="tb-megamenu-item level-3 mega">
+  <a href="/red-set-t-shirt" class="  ">
+
+    Red SET T-shirt            </a>
+  </li>
+
+<li class="tb-megamenu-item level-3 mega">
+  <a href="/purple-set-sweatshirt" class="  ">
+
+    Purple SET Sweatshirt            </a>
+  </li>
+
+<li class="tb-megamenu-item level-3 mega">
+  <a href="/purple-set-t-shirt" class="  ">
+
+    Purple SET t-shirt            </a>
+  </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+
+<li class="tb-megamenu-item level-1 mega">
+  <a href="/apps" class="  ">
+
+    Apps            </a>
+  </li>
+
+<li class="tb-megamenu-item level-1 mega dropdown parent">
+  <a href="#" class=" dropdown-toggle ">
+
+    Play Online            </a>
+  <ul  data-class="" data-width="250" style="width: 250px;" class="tb-megamenu-submenu dropdown-menu mega-dropdown-menu nav-child">
+  <li  data-class="" data-width="12" data-hidewcol="0" id="tb-megamenu-column-7" class="tb-megamenu-column megamenu-column-single  mega-col-nav">
+  <ul  class="tb-megamenu-subnav mega-nav level-1 items-3">
+  <li class="tb-megamenu-item level-2 mega">
+  <a href="/set/puzzle" class="  ">
+
+    The Daily SET Puzzle            </a>
+  </li>
+
+<li class="tb-megamenu-item level-2 mega">
+  <a href="/quiddler/puzzle" class="  ">
+
+    The Daily QUIDDLER Puzzle            </a>
+  </li>
+
+<li class="tb-megamenu-item level-2 mega">
+  <a href="/karma/puzzle" class="  ">
+
+    The Daily KARMA Puzzle            </a>
+  </li>
+</ul>
+</li>
+</ul>
+</li>
+
+<li class="tb-megamenu-item level-1 mega">
+  <a href="/find_a_store" class="  ">
+
+    Find a Store            </a>
+  </li>
+
+<li class="tb-megamenu-item level-1 mega">
+  <a href="/learn-to-play" class="  ">
+
+    Learn to Play            </a>
+  </li>
+
+<li class="tb-megamenu-item level-1 mega dropdown parent">
+  <a href="#" class=" dropdown-toggle ">
+
+    Skill Connections            </a>
+  <ul  data-class="" data-width="250" style="width: 250px;" class="tb-megamenu-submenu dropdown-menu mega-dropdown-menu nav-child">
+  <li  data-class="" data-width="12" data-hidewcol="0" id="tb-megamenu-column-8" class="tb-megamenu-column megamenu-column-single  mega-col-nav">
+  <ul  class="tb-megamenu-subnav mega-nav level-1 items-2">
+  <li class="tb-megamenu-item level-2 mega">
+  <a href="/ot" class="  ">
+
+    Occupational Therapy            </a>
+  </li>
+
+<li class="tb-megamenu-item level-2 mega">
+  <a href="/teacherscorner" class="  ">
+
+    Teachers' Corner            </a>
+  </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav></div></td><td>        <div class="header-search hidden-xs">
+              
+<form onsubmit="if(this.search_block_form.value==&#039;Search&#039;){ alert(&#039;Please enter a search&#039;); return false; }" action="/privacy-policy" method="post" id="search-block-form" accept-charset="UTF-8"><div>
+<div class="input-group"> 
+  <input title="Enter the terms you wish to search for." class="form-control search form-text" onblur="if (this.value == &#039;&#039;) {this.value = &#039;Search...&#039;;}" onfocus="if (this.value == &#039;Search&#039;) {this.value = &#039;&#039;;}" placeholder="Search..." type="text" id="edit-search-block-form--2" name="search_block_form" value="" size="40" maxlength="128" /><span class="input-group-btn"><button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button></span><input type="hidden" name="form_build_id" value="form-cuLS3GZNKeqqzDUXiS-W8itU9SXpsC9QtQGoBRK2jg0" />
+<input type="hidden" name="form_id" value="search_block_form" />
+</div>
+</div></form>        </div>
+    </td></tr></table>
+
+
+</div>
+</div>
+</div>
+</header>
+
+	<!-- end header --> 
+
+	<div role="main" class="main">
+      <!--breadcrumbs-->
+	  
+	    <div class="region region-before-content">
+    <div id="block-md-slider-md-slider-5c36cd41e4c0c" class="block block-md-slider">
+
+    
+  <div class="content">
+    <div id="md-slider-6-block" class="md-slide-items" data-thumb-width='100' data-thumb-height='75' style='min-height:200px;'>
+    <div class="wrap-loader-slider animated">
+        <div class="wrap-cube">
+            <div class="sk-cube-grid">
+                <div class="sk-cube sk-cube1"></div>
+                <div class="sk-cube sk-cube2"></div>
+                <div class="sk-cube sk-cube3"></div>
+                <div class="sk-cube sk-cube4"></div>
+                <div class="sk-cube sk-cube5"></div>
+                <div class="sk-cube sk-cube6"></div>
+                <div class="sk-cube sk-cube7"></div>
+                <div class="sk-cube sk-cube8"></div>
+                <div class="sk-cube sk-cube9"></div>
+            </div>
+        </div>
+    </div>
+          
+  <div class="md-slide-item slide-1" data-timeout='3000' data-transition="top-curtain" data-thumb-type='image' data-thumb-alt='' data-thumb='https://www.setgame.com/sites/default/files/styles/md_slider_6_thumb/public/Zangle-banner-slide01.png?itok=BNkd15WP'>
+    <div class="md-mainimg" style="">
+              
+        <img src="https://www.setgame.com/sites/default/files/styles/md_slider_6_bg/public/Zangle-banner-slide01.png?itok=lxxT5UWW" alt="" />        
+          </div>
+            <div class="md-objects"
+          >
+                <div class="md-object md-layer-6-0-0 fdsfds" data-x='0' data-y='0' data-width='1200' data-height='200' data-start='0' data-stop='3000'>
+                        <a href="https://www.setgame.com/zangle" target='_self'></a>
+              </div>
+          </div>    
+  </div>
+          
+  <div class="md-slide-item slide-2" data-timeout='3000' data-transition="left-curtain" data-thumb-type='image' data-thumb-alt='' data-thumb='https://www.setgame.com/sites/default/files/styles/md_slider_6_thumb/public/2018-Zangle-1.png?itok=6GmFpAjq'>
+    <div class="md-mainimg" style="">
+              
+        <img src="https://www.setgame.com/sites/default/files/styles/md_slider_6_bg/public/2018-Zangle-1.png?itok=eKPvAJHz" alt="" />        
+          </div>
+            <div class="md-objects"
+          >
+                <div class="md-object md-layer-6-1-0 fdsfds" data-x='0' data-y='0' data-width='1200' data-height='200' data-start='0' data-stop='3000'>
+                        <a href="https://www.setgame.com/zangle" target='_self'></a>
+              </div>
+          </div>    
+  </div>
+          
+  <div class="md-slide-item slide-3" data-timeout='3000' data-transition="right-curtain" data-thumb-type='image' data-thumb-alt='' data-thumb='https://www.setgame.com/sites/default/files/styles/md_slider_6_thumb/public/2018-Zangle-3.png?itok=7sKeHC_I'>
+    <div class="md-mainimg" style="">
+              
+        <img src="https://www.setgame.com/sites/default/files/styles/md_slider_6_bg/public/2018-Zangle-3.png?itok=Rz-MEGxt" alt="" />        
+          </div>
+            <div class="md-objects"
+          >
+                <div class="md-object md-layer-6-2-0 fdsfds" data-x='0' data-y='0' data-width='1200' data-height='200' data-start='0' data-stop='3000'>
+                        <a href="https://www.setgame.com/zangle" target='_self'></a>
+              </div>
+          </div>    
+  </div>
+    </div>
+  </div>
+</div>
+  </div>
+	  <div id="content" class="content full">
+	    <div class="container">
+	      <div class="row">
+		        
+			    			
+					<div class="col-md-9">
+					  
+			     				      			      		
+					    <div class="region region-content">
+    <div id="block-system-main" class="block block-system">
+
+    
+  <div class="content">
+    <div id="node-1787" class="node node-page clearfix" about="/privacy-policy" typeof="foaf:Document">
+
+  
+      <span property="dc:title" content="Privacy Policy" class="rdf-meta element-hidden"></span>
+  
+  <div class="content">
+    <div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p>Your privacy is important to us. At Set Enterprises, Inc., we value your privacy and have made it our policy to provide a secure online environment and to provide online content that requires minimal collection of information from our visitors. We have adopted an Online Privacy Policy ("Privacy Policy") that guides how we collect, store and use information you provide us online.</p>
+<p><strong>Submission of any form on our site constitutes acceptance of the <a href="https://www.mollom.com/web-service-privacy-policy" target="_blank">Mollom privacy policy</a></strong><strong>.</strong></p>
+<p><strong style="font-size: 13.008px;">Children</strong><br /><span style="font-size: 13.008px;">We take seriously our responsibility to our many young consumers. Our website has been designed to be accessible, safe for kids of all ages, and to adhere to all applicable laws and regulations. Children under the age of 13 and their parents should review the section of this policy called "Note to Parents About Children's Privacy" which discusses the special steps we take for young children who visit our site.</span></p>
+<p><strong>What type of information does Set Enterprises, Inc. collect?</strong><br /><span style="font-size: 13.008px;">Set Enterprises, Inc. does not require you to share personal information to enjoy our website. That means you can visit our website without any need to register with us. However, registration is required to participate in contests on our website.</span></p>
+<p>The information we gather falls into two categories: (1) personal information you voluntarily supply when you order, enter the daily puzzle contest, or provide your e-mail address and (2) tracking information collected as you navigate through our site.</p>
+<p><em>Personally Identifiable Information (PII)</em><br /><span style="font-size: 13.008px;">Anyone can view our website, but a free registration process is required to enter our daily puzzle contest. You must be at least 18 years old to enter our daily puzzle contest.  If you wish to enter our daily puzzle contest you must register by supplying an e-mail address, creating a username and password and providing us with your name and address. </span></p>
+<p>To enable the purchase of items from our online store, we collect billing and credit card information, including your name, address, telephone number, and credit card number. You must be at least 18 years old to purchase items from our online store. This information will only be shared with third parties who perform tasks required to complete the purchase transaction. Examples of this include processing credit card payments.</p>
+<p><em>Aggregate Information Collected Through Technology</em><br /><span style="font-size: 13.008px;">A "cookie" is a small file that we save on your computer's hard drive that contains non-personal information. Set Enterprises, Inc. uses cookies to store login information to allow easier and faster access for returning users.</span></p>
+<p><strong>Google Analytics Privacy Notice</strong><br />Our website uses Google Analytics to collect information about the use of our website. Google Analytics collects information from users such as age, gender, interests, demographics, how often they visit our website, what pages they visit, and what other websites they have used before coming to our website. We use the information we get from Google Analytics to analyze traffic, remarket our products and services to users, improve our marketing, advertising, and to improve our website. We have enabled Google Analytics features such as Google Analytics Demographics and Interest Reporting. Google Analytics collects only the IP address assigned to you on the date you visit our website, not your name or other identifying information. We do not combine the information collected using Google Analytics with PII. Although Google Analytics plants a permanent cookie on your web browser to identify you as a unique user the next time you visit our website, the cookie cannot be used by anyone but Google. Google also uses specific identifiers to help collect information about the use of our website. For more information on how Google collects and processes your data, visit <a href="https://www.google.com/policies/privacy/partners/" target="_blank">https://www.google.com/policies/privacy/partners/</a></p>
+<p>You can prevent Google Analytics from using your information by opting out at this link: <a href="https://www.google.com/policies/privacy/partners/" target="_blank">https://tools.google.com/dlpage/gaoptout</a></p>
+<p><strong>Who is collecting the information?</strong><br /><span style="font-size: 13.008px;">Set Enterprises, Inc. collects the personal information you share on our website. We will use the information you submit to send you advertising or promotional materials, including information about new products, contests, features and enhancements, special offers and other events of interest. We also use your personal information for our internal marketing and demographic studies so we can improve the products and services we provide.</span></p>
+<p><strong>With whom does Set Enterprises, Inc. share my personal information?</strong><br /><span style="font-size: 13.008px;">Set Enterprises, Inc. will only share your personally identifiable information with entities that use it solely to provide support for the internal operations of the Set Enterprises, Inc. website (i.e., email services, credit card processing or technical support). These entities will not use your personally identifiable information for any other purpose, and have agreed to maintain the confidentiality, security, and integrity of the personal information they obtain from us.</span></p>
+<p>We may disclose your personally identifiable information in the good faith belief that we are required to do so by law, including but not limited to disclosure to law enforcement or other government officials in connection with an investigation of fraud, intellectual property infringements, or other activity that is illegal or may expose you or us to legal liability.</p>
+<p>Set Enterprises, Inc. does not sell, rent or otherwise disclose personally identifiable information collected from our website to third parties other than stated above. However, in the event of a merger, acquisition, reorganization, bankruptcy, or other similar event, Set Enterprises, Inc.'s customer information may be transferred to Set Enterprises, Inc.'s successor or assign, if permitted by and done in accordance with applicable law.</p>
+<p><strong>Our commitment to data security</strong><br /><span style="font-size: 13.008px;">To prevent unauthorized access, maintain data accuracy, and ensure the correct use of information, we have put in place appropriate physical, electronic, and managerial procedures to safeguard and secure the information we collect online.</span></p>
+<p><strong>Review, update and removal of personal information</strong><br /><span style="font-size: 13.008px;">If you have registered with our site, you may at any time review, update and/or delete the contact information we have for you in our database. This can be accomplished by editing your user profile from our website.</span></p>
+<p><strong>Changes to this policy</strong><br /><span style="font-size: 13.008px;">This Privacy Policy may be amended from time to time. Any such changes will be posted on this page. If we make a significant or material changes in the way we use your personal information, the change will be posted on this page thirty (30) days prior to taking effect and registered users will be notified via e-mail.</span></p>
+<p><strong>Questions or comments</strong><br /><span style="font-size: 13.008px;">Set Enterprises, Inc.</span><br /><span style="font-size: 13.008px;">Attn: Privacy Policy Administrator</span><br /><span style="font-size: 13.008px;">16537 E. Laser Drive, Suite 10</span><br /><span style="font-size: 13.008px;">Fountain Hills, AZ 85268</span><br /><span style="font-size: 13.008px;">1-800-351-7765</span></p>
+<p><strong style="font-size: 13.008px;">NOTE TO PARENTS ABOUT CHILDREN'S PRIVACY</strong><br /><span style="font-size: 13.008px;">Set Enterprises, Inc. has made every effort to ensure that both adults and children can use and enjoy our website. We do not collect personal information from children under the age of 13. We encourage you to discuss this privacy statement with your children.</span></p>
+<p><strong>Collection and use of children's personal information</strong><br /><span style="font-size: 13.008px;">Only those 18 and older are allowed to register for the daily puzzle contest or create an account to purchase items from our online store.</span></p>
+</div></div></div>  </div>
+
+  
+  
+</div>
+  </div>
+</div>
+  </div>
+			      
+					</div>
+			  
+				  				  <div class="col-md-3">
+				      <div class="region region-sidebar-right">
+    
+<div id="block-views-shopping-cart-block" class="block block-views">
+
+    <h4>Shopping Cart</h4>
+  
+  <div class="content">
+    <div class="view view-shopping-cart view-id-shopping_cart view-display-id-block view-dom-id-d3e47e054b19cf3e83ca0e7e579f9159">
+        
+  
+  
+      <div class="view-empty">
+      <p>Empty</p>
+<div class="line-item-summary">
+  <a href="https://www.setgame.com/cart" class="greytext">
+  <span class="cart-head">
+      <span class="cart-total-wrap">Total:</span> $0.00  </span>
+  </a>
+    <ul class="links inline"><li class="line-item-summary-checkout first last"><a href="/checkout" rel="nofollow">Checkout</a></li>
+</ul></div>    </div>
+  
+  
+  
+  
+  
+  
+</div>  </div>
+</div>
+<div id="block-block-41" class="block block-block">
+
+    <h4>Free Daily Puzzles</h4>
+  
+  <div class="content">
+    <table align="center" border="0" cellpadding="0" cellspacing="2" class="puzzle-block-table" style="width: 100%"><tbody><tr><td style="width: 33%; text-align: center; vertical-align: middle;"><a href="/set/puzzle" style="text-decoration-line: underline; font-size: 13.008px; text-align: center;"><img alt="SET Play now Image" data-delta="1" data-fid="1561" data-media-element="1" src="https://www.setgame.com/sites/default/files/SET-Play-Now-button-6-30-15.png" style="width: 100%;" title="SET Play Now Image" typeof="foaf:Image" /></a></td>
+<td style="width: 33%; text-align: center; vertical-align: middle;"><a href="/quiddler/puzzle" style="text-decoration-line: underline; font-size: 13.008px; text-align: center;"><img alt="FREE Daily QUIDDLER Puzzle" src="/sites/default/files/Quiddler-Play-Now-button-6-30-15.png" style="width: 100%;" /></a></td>
+<td style="width: 33%; text-align: center; vertical-align: middle;"><a href="/karma/puzzle"><img alt="Karma Play Now" data-delta="1" data-fid="11701" data-media-element="1" src="/sites/default/files/Karma-Play-Now-button-7-25-16.png" style="width: 100%;" title="Karma Play now" typeof="foaf:Image" /></a></td>
+</tr><tr><td colspan="3" style="width: 100%;"> </td>
+</tr><tr><td colspan="3" style="width: 100%;"><a href="http://www.nytimes.com/set" style="text-decoration-line: underline; font-size: 13.008px;" target="_blank"><img alt="Play SET at the NY TIMES!" src="/sites/default/files/nytimessetpuzzlehashtag.png" style="width: 100%;" /></a></td>
+</tr></tbody></table><p> </p>
+  </div>
+</div>
+<div id="block-block-46" class="block block-block">
+
+    <h4>Canine Epilepsy and Purple Squiggles: The Unexpected Success Story of SET</h4>
+  
+  <div class="content">
+    <p><a href="http://gizmodo.com/canine-epilepsy-and-purple-squiggles-the-unexpected-su-1828527912"><img src="https://www.setgame.com/sites/default/files/gizmodo_image.jpg" /></a></p>
+<p><a href="http://gizmodo.com/canine-epilepsy-and-purple-squiggles-the-unexpected-su-1828527912">Read the rest of the story at Gizmodo.com</a></p>
+  </div>
+</div>  </div>
+				  </div>
+				  			    
+			  </div>
+	    </div>  
+	  </div>  
+	  
+	</div>
+
+  
+  <footer id="footer" class="">
+            <div class="container main-footer">
+            <div class="row">
+
+                                    <div class="footer-ribbon">
+                        <span><em class="placeholder">More Information</em></span>
+                    </div>
+                
+                                    <div class="col-md-3">
+                          <div class="region region-footer-11">
+      <div class="region region-footer-11">
+      <div class="region region-footer-11">
+    <div id="block-menu-menu-about-us" class="block block-menu">
+
+    <h2>More About Us</h2>
+  
+  <div class="content">
+    <ul class="menu"><li class="first leaf"><a href="/companyinformation" title="">Company Information</a></li>
+<li class="leaf"><a href="/location" title="">Company Location</a></li>
+<li class="leaf"><a href="/founder-inventor" title="Marsha J. Falco">Our Founder &amp; Game Inventor</a></li>
+<li class="leaf"><a href="/press-releases" title="">Press Releases</a></li>
+<li class="last leaf"><a href="/media" title="">Media Kits</a></li>
+</ul>  </div>
+</div>
+  </div>
+  </div>
+  </div>
+                    </div>
+                
+                                    <div class="col-md-3">
+                          <div class="region region-footer-12">
+      <div class="region region-footer-12">
+    <div id="block-menu-menu-customer-service" class="block block-menu">
+
+    <h2>Customer Service</h2>
+  
+  <div class="content">
+    <ul class="menu"><li class="first leaf"><a href="/contact" title="Send us your questions, comments or concerns.">Contact Us</a></li>
+<li class="leaf"><a href="/newsletter-signup" title="">Join our Newsletter</a></li>
+<li class="leaf"><a href="/instructions" title="Download instructions for any of our games here.">Game Instructions</a></li>
+<li class="leaf"><a href="/replacement-parts" title="">Replacement Parts</a></li>
+<li class="leaf"><a href="/setawards" title="View our awards here.">Game Awards</a></li>
+<li class="last leaf"><a href="/retailertools" title="Game images and descriptions, catalog, product specs, videos and information about promotional support we provide.">Retailer Tools</a></li>
+</ul>  </div>
+</div>
+  </div>
+  </div>
+                    </div>
+                
+                                    <div class="col-md-3">
+                          <div class="region region-footer-13">
+      <div class="region region-footer-13">
+    <div id="block-menu-menu-safety-security" class="block block-menu">
+
+    <h2>Safety &amp; Security</h2>
+  
+  <div class="content">
+    <ul class="menu"><li class="first leaf active-trail"><a href="/privacy-policy" title="" class="active-trail active">Privacy Policy</a></li>
+<li class="leaf"><a href="/product-safety" title="">Product Safety</a></li>
+<li class="leaf"><a href="/terms-and-conditions" title="">Terms and Conditions of Use</a></li>
+<li class="leaf"><a href="/official-rules" title="Official rules for Set Enterprises, Inc. contests.">Official Contest Rules</a></li>
+<li class="last leaf"><a href="/official-rules/weekly-drawing" title="">Official Sweepstakes Rules</a></li>
+</ul>  </div>
+</div>
+  </div>
+  </div>
+                    </div>
+                
+                                    <div class="col-md-3">
+                          <div class="region region-footer-14">
+      <div class="region region-footer-14">
+    <div id="block-block-5" class="block block-block">
+
+    <h2>#hashtags</h2>
+  
+  <div class="content">
+    <p>#setgame #setjunior #setdice #quiddler #quiddlerjr #fivecrowns #fivecrownsjr #karmacardgame #karmaking #xactika #minirounds #wednesdayendgame #wordspiel #cardgames #CreateYourKarma</p>
+  </div>
+</div>
+  </div>
+  </div>
+                    </div>
+                
+            </div>
+        </div>
+            <div class="footer-copyright">
+        <div class="container">
+            <div class="row">
+                 <div class="region region-footer-bottom">
+    <div id="block-block-6" class="block block-block">
+
+    
+  <div class="content">
+    <p>© 2017 Set Enterprises, Inc. All rights reserved. SET, QUIDDLER, FIVE CROWNS, KARMA, SET CUBED, <span style="font-size: 13.0080003738403px; line-height: 20.0063037872314px;">MINI ROUND, AMERICA'S FAVORITE CARD GAMES, Triple Matching Mania, The Family Game of Visual Perception, For the Fun of Words, The Short Word Game, The Game Isn't Over 'Til the Kings Go Wild, What Goes Around...Comes Around!, Where the END...is just the BEGINNING, and the KARMA and SET logos </span><span style="font-size: 13.0080003738403px; line-height: 1.538em;">are registered trademarks of Cannei, LLC.  Target and The Bullseye Design are registered trademarks of Target Brands, Inc.  All video, audio, visual and textual content on this website (including all names, characters, trademarks and logos) is protected by copyright, trademark and other intellectual property rights. No content from this site is authorized to be posted on Steam. By using this site, you agree to the <a href="http://setgame.com/terms-and-conditions" target="_blank">Terms and Conditions of Use</a><span style="font-size: 13.0080003738403px; line-height: 1.538em;">.</span></span></p>
+  </div>
+</div>
+  </div>
+            </div>
+        </div>
+    </div>
+    </footer>
+
+
+
+	
+</div>	<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+function euCookieComplianceLoadScripts() {Drupal.attachBehaviors();}
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+var eu_cookie_compliance_cookie_name = "";
+//--><!]]>
+</script>
+<script type="text/javascript" src="https://www.setgame.com/sites/default/files/js/js_wVsHowK7pypCpuV2xQyUJ5-qC5NlcfH5Q4sWUZj23go.js"></script>
+<script type="text/javascript" src="https://www.setgame.com/sites/default/files/js/js_2lJC5gTZ8B3-P19n2LPEd0viiCEmLJ5gcIAFYex1r0U.js"></script>
+
+<!-- <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyC7Pjsikj52mFixaUDjcMvd0pV3khU8qDo"></script> -->
+
+
+
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"b38b6bff97","applicationID":"18429856","transactionName":"ZVxSbUBXDUVVB0RZDFwWcVpGXwxYGwpfVAZtSVFeV2kVX1ET","queueTime":0,"applicationTime":193,"atts":"SRtRGwhNHks=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+
+</html>

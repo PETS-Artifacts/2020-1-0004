@@ -1,0 +1,1175 @@
+
+
+
+<!DOCTYPE html>
+<!--[if lt IE 8 ]>  <html class="no-js ie lt-ie10 lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie lt-ie10 lt-ie9" lang="en"> <![endif]-->
+<!--[if IE 9]>    <html class="no-js ie lt-ie10" lang="en"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html class="no-js modern" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<!--<![endif]-->
+<head><link rel="stylesheet" type="text/css" href="/WorkArea/FrameworkUI/css/ektron.stylesheet.ashx?id=-1759591071+-914034194+-731554408+1064114300+-300771134+1985268503" /><script type="text/javascript" src="/WorkArea/FrameworkUI/js/ektron.javascript.ashx?id=-569449246+-1939951303+-1080527330+-1687560804+-1793043690+1338359439+1743165108+1531089627"></script><script type='text/javascript'>
+if (window.BEJSSDKObserver === undefined) {
+(function(BEJSSDKObserver, $, undefined) {
+  var observer = void 0;
+  var listeners = [];
+  var doc = window.document;
+  var MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
+
+  function checkSelector(selector, fn, indexList) {
+    var elements = doc.querySelectorAll(selector);
+    // issues on IE @see https://www.codesd.com/item/javascript-es6-not-a-function-error.html
+//    elements = Array.from(elements);
+    for (var i = 0, len = elements.length; i < len; i++) {
+      // -1 means all instances
+      if (indexList != -1 && !(i in indexList)) {
+        continue;
+      }
+      var element = elements[i];
+      if (!element.ready || MutationObserver==null) {
+        element.ready = true;
+         fn.call(element, element);
+      }
+    }
+  }
+
+  function checkListeners() {
+    listeners.forEach(function (listener) {
+        return checkSelector(listener.selector, listener.fn, listener.indexList);
+    });
+  }
+
+  function removeListener(selector, fn) {
+    var i = listeners.length;
+    while (i--) {
+      var listener = listeners[i];
+      if (listener.selector === selector && listener.fn === fn) {
+        listeners.splice(i, 1);
+        if (!listeners.length && observer) {
+          observer.disconnect();
+          observer = null;
+        }
+      }
+    }
+  }
+
+  /**
+   * Fire event on first js selector
+   * @param selector string to watch on
+   * @param fn       callback function
+   * @param index_list can be undefined which means only first one
+   *                   or -1 which means all
+   *                   or a list of allowable indexes
+   */
+  BEJSSDKObserver.jsElementReady = function(selector, fn, index_list) {
+    if (index_list === undefined) {
+        index_list = [];
+        index_list.push(0);
+    }
+
+    if (MutationObserver != null) {
+      if (!observer) {
+        observer = new MutationObserver(checkListeners);
+        observer.observe(doc.documentElement, {
+            childList: true,
+            subtree: true
+        });
+      }
+      listeners.push({ selector: selector, fn: fn, indexList: index_list });
+    } else {
+      // <= IE8
+      if (!document.addEventListener) {
+        // log("<=IE8 attachEvent assignment");
+        document.addEventListener = document.attachEvent;
+      }
+      document.addEventListener("DOMContentLoaded", function(event) {
+        var elements = doc.querySelectorAll(selector);
+//        elements = Array.from(elements);
+        for (var i = 0, len = elements.length; i < len; i++) {
+          // -1 means all instances
+          if (index_list != -1 && !(i in index_list)) {
+            continue;
+          }
+          var element = elements[i];
+          element.ready = true;
+          fn.call(element, element);
+        }
+      });
+    }
+
+    checkSelector(selector, fn, index_list);
+    return function () {
+      return removeListener(selector, fn);
+    };
+  }
+}(window.BEJSSDKObserver = window.BEJSSDKObserver || {}));
+}
+var jsElementReady = window.BEJSSDKObserver.jsElementReady;
+
+if (window.BELinkBlockGenerator === undefined) {
+(function(BELinkBlockGenerator, $, undefined) {
+  BELinkBlockGenerator.MAXIMUM_HEADLINE_LENGTH = 100;
+  BELinkBlockGenerator.MAXIMUM_DESC_LENGTH = 200;
+
+  BELinkBlockGenerator.IND_LINK_BLOCK_TYPE_URL_TYPE = 0;
+  BELinkBlockGenerator.IND_LINK_BLOCK_TYPE_HEADLINE_TYPE = 1;
+  BELinkBlockGenerator.IND_LINK_BLOCK_TYPE_DESCRIPTION_TYPE = 2;
+  BELinkBlockGenerator.IND_LINK_BLOCK_TYPE_IMAGE_TYPE = 3;
+
+  BELinkBlockGenerator.REPLACEMENT_STRATEGY_OVERWRITE = 0;
+  BELinkBlockGenerator.REPLACEMENT_STRATEGY_POST_APPEND_ELEMENT = 1;
+  BELinkBlockGenerator.REPLACEMENT_STRATEGY_PRE_APPEND_ELEMENT = 2;
+  BELinkBlockGenerator.REPLACEMENT_STRATEGY_PRE_APPEND_PARENT = 3;
+					  
+  BELinkBlockGenerator.setMaximumHeadlineLength = function(length) {
+    BELinkBlockGenerator.MAXIMUM_HEADLINE_LENGTH = length;
+  }
+
+  BELinkBlockGenerator.setMaximumDescriptionLength = function(length) {
+    BELinkBlockGenerator.MAXIMUM_DESC_LENGTH = length;
+  }
+  
+  BELinkBlockGenerator.generateIndividualLinks = function(parentElement, linkStructure, link) {
+  var link_level_element_tag = linkStructure[0];
+  var link_level_element = document.createElement(link_level_element_tag);
+  var link_attribute_dictionary = linkStructure[1];
+  var allowable_elements = linkStructure[2];
+  var children_link_structures = linkStructure[3];
+  for (var link_attribute_key in link_attribute_dictionary) {
+    link_level_element.setAttribute(link_attribute_key, link_attribute_dictionary[link_attribute_key]);
+  }
+  
+  var added_something = false;
+  if (allowable_elements.indexOf(BELinkBlockGenerator.IND_LINK_BLOCK_TYPE_URL_TYPE)>=0) {
+    link_level_element.setAttribute('href', link.url);
+	added_something = true;
+  }
+  if (allowable_elements.indexOf(BELinkBlockGenerator.IND_LINK_BLOCK_TYPE_HEADLINE_TYPE)>=0 && link.h1) {
+    var headline_text = link.h1;
+	if (headline_text.length > BELinkBlockGenerator.MAXIMUM_HEADLINE_LENGTH) {
+      headline_text = headline_text.substring(0, BELinkBlockGenerator.MAXIMUM_HEADLINE_LENGTH) + '...';
+    }						
+    var text_node = document.createTextNode(headline_text);
+	link_level_element.appendChild(text_node);
+	added_something = true;
+  }
+  if (allowable_elements.indexOf(BELinkBlockGenerator.IND_LINK_BLOCK_TYPE_DESCRIPTION_TYPE)>=0 && link.desc) {
+    var desc_text = link.desc;
+	if (desc_text.length > BELinkBlockGenerator.MAXIMUM_DESC_LENGTH) {
+      desc_text = desc_text.substring(0, BELinkBlockGenerator.MAXIMUM_DESC_LENGTH) + '...';
+    }
+//    console.log("Got text " + desc_text + ", max=" + BELinkBlockGenerator.MAXIMUM_DESC_LENGTH);
+    var text_node = document.createTextNode(desc_text);
+	link_level_element.appendChild(text_node);
+	added_something = true;
+  }
+  if (allowable_elements.indexOf(BELinkBlockGenerator.IND_LINK_BLOCK_TYPE_IMAGE_TYPE)>=0 && link.image) {
+//    console.log("added image " + JSON.stringify(allowable_elements) + " for " + link_level_element_tag);
+    link_level_element.setAttribute('src', link.image);
+	added_something = true;
+  }
+  // don't emit for empty links, desc, headline, image
+  // except for parent structures where allowable_length=0
+  if (!added_something && allowable_elements.length != 0) {
+//    console.log("did not added anything for " + link_level_element_tag);
+
+    return;
+  }
+  // go depth first
+  for (var childrenIndex=0; childrenIndex<children_link_structures.length; childrenIndex++) {
+    var childLinkStructure = children_link_structures[childrenIndex];
+    BELinkBlockGenerator.generateIndividualLinks(link_level_element, childLinkStructure, link);
+  }
+  parentElement.appendChild(link_level_element);	
+}
+
+ BELinkBlockGenerator.insertLinkBlocks = function(targetElement, replacementStrategy, overallStructure, linkStructure, links,
+                                                  titleStructure) {
+  if (targetElement == null) {
+    return;
+  }
+
+  if (replacementStrategy == BELinkBlockGenerator.REPLACEMENT_STRATEGY_OVERWRITE) {
+    while (targetElement.firstChild) {
+      targetElement.removeChild(targetElement.firstChild);
+    }
+  }
+
+  var previousElement = targetElement;
+  for (var i=0;i<overallStructure.length;i++) {
+    var level_definition = overallStructure[i];
+    var level_element_tag = level_definition[0]
+	var level_element = document.createElement(level_element_tag);
+	var attribute_dictionary = level_definition[1]
+    for (var attribute_key in attribute_dictionary) {
+	  level_element.setAttribute(attribute_key, attribute_dictionary[attribute_key]);
+    }
+
+    // need to place title structure	
+	if (titleStructure && titleStructure[0] == i) {
+	  var title_element_tag = titleStructure[1];
+	  var title_element = document.createElement(title_element_tag);
+  	  var title_attribute_dictionary = titleStructure[2];
+	  var title_text_content = titleStructure[3];
+      for (var title_attribute_key in title_attribute_dictionary) {
+	    title_element.setAttribute(title_attribute_key, title_attribute_dictionary[title_attribute_key]);
+      }
+
+	  var title_text_node = document.createTextNode(title_text_content);
+   	  title_element.appendChild(title_text_node);
+
+	
+	  level_element.appendChild(title_element);
+    }
+	
+	// last level place links
+	if (i == overallStructure.length-1) {
+      for (var link_i=0; link_i < links.length; link_i++) {
+  	    var link = links[link_i];
+		for (var linkStructureIndex=0;linkStructureIndex < linkStructure.length; linkStructureIndex++) {
+		  BELinkBlockGenerator.generateIndividualLinks(level_element, linkStructure[linkStructureIndex], link)
+		}
+	  }
+	}
+
+	// first level child we need to check placement
+    if (previousElement == targetElement) {
+      if (replacementStrategy == BELinkBlockGenerator.REPLACEMENT_STRATEGY_PRE_APPEND_ELEMENT) {
+	    // 2 means insert right before
+  	    previousElement.insertBefore(level_element, targetElement.firstChild);
+      } else if (replacementStrategy == BELinkBlockGenerator.REPLACEMENT_STRATEGY_PRE_APPEND_PARENT) {
+	    // 3 means insert right before at parent level
+		var parentElement = previousElement.parentElement;
+  	    parentElement.insertBefore(level_element, previousElement);
+  	  } else {
+    	previousElement.appendChild(level_element);
+	  }
+    } else {
+  	  previousElement.appendChild(level_element);
+	}
+	previousElement = level_element;
+  }
+}
+}(window.BELinkBlockGenerator = window.BELinkBlockGenerator || {}));
+};
+
+</script>
+
+<style>
+.be-outer-container {background-color: #231f20; clear:both; text-align:center; padding:50px 60px;}
+.be-container {text-align:left; max-width:1100px;}
+.be-heading {color:#fff!important;}
+.be-ul {padding:0;}
+.be-li-wrap {padding:10px 0; margin-right:2%; transition-duration: 0.2s; float:left; width:32%;}
+.be-li {background-color:grey; padding:32px; margin:0; height:210px; transition-duration: 0.2s;}
+.be-li-wrap:hover {padding:0; transition-duration: 0.2s;}
+.be-li-wrap:hover .be-li {height:230px; transition-duration: 0.2s;}
+.be-li-chev-row {display:block; text-align:center; background-color:grey; padding-bottom:10px;}
+.be-li-last {margin-right:0px;}	
+.be-link-h {padding-bottom:9px;}
+.be-link-d {color:#e6e6e6!important; line-height:20px;}
+@media (max-width:1200px){
+	.be-outer-container {text-align:left; padding:40px 60px;}
+	.be-heading {display:block;}
+	.be-ul {display:block;}
+	.be-li {width:100%; height:130px;}
+	.be-li-wrap:hover .be-li {height:150px;}
+	.be-li-wrap {float:none; width:100%}
+}	
+@media (max-width:992px) {
+	.be-outer-container {padding:40px 40px;}	
+	.be-li {width:100%; height:140px;}
+	.be-li-wrap:hover .be-li {height:160px;}    	
+}
+
+@media (max-width:768px) {
+	.be-outer-container {padding:40px 30px;}		
+	.be-heading {margin-bottom:25px;}
+	.be-li {width:100%; height:170px;}
+	.be-li-wrap:hover .be-li {height:190px;}
+}
+</style>
+
+    <script>
+      (function() {
+      var bec = document.createElement('script');
+      bec.type = 'text/javascript';
+      bec.async = true;
+      bec.setAttribute("data-id", "bec");
+      bec.setAttribute("org-id", "f00000000107113");
+      bec.setAttribute("domain", ".dolby.com");
+      bec.setAttribute("session-timeout", 86400000);
+      bec.src = document.location.protocol + '//cdn.b0e8.com/conv_v3.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(bec, s);
+})();
+</script>
+<title>
+	Dolby Privacy Policy
+</title>
+    
+    
+    <!-- SD-212 -->
+    <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui" /><meta name="apple-mobile-web-app-capable" content="yes" /><meta name="format-detection" content="telephone=no" /><meta property="og:type" content="website" /><link rel="shortcut icon" href="/img/site-icons/favicon.ico" /><link rel="apple-touch-icon" href="/img/site-icons/apple-touch-icon-57x57.png" /><link rel="apple-touch-icon" sizes="72x72" href="/img/site-icons/apple-touch-icon-72x72.png" /><link rel="apple-touch-icon" sizes="114x114" href="/img/site-icons/apple-touch-icon-114x114.png" />
+
+    <!--[if IE 8]>
+    <link rel="stylesheet" href="/fonts/icons-eot.css" />
+    
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".PBViewing").each(function () {
+                $(this).removeClass("PBViewing");
+            });
+        });
+    </script>
+    <![endif]-->
+
+    <!--[if (gte IE 9)|!(IE)]><!-->
+    <script type="text/javascript">
+        // Android needs ttf fonts; everybody else is good with woff.
+        var fontType = navigator.userAgent.toLowerCase().match(/android|vita|playstation/g) !== null ? "ttf" : "woff";
+        var fontString = unescape("%3Clink rel='stylesheet' href='/fonts/b64-icons-" + fontType + ".css'%3E");
+        document.write(fontString);
+    </script>
+    <!--<![endif]-->
+    <script src="/js/libs/modernizr.js"></script>
+    <script type="application/ld+json">
+      {
+      "@context": "http://schema.org/",
+      "@type": "Organization",
+      "url": "https://www.dolby.com/",
+      "logo": "https://www.dolby.com/logo.png"
+      }
+    </script>
+    <script>
+        window.isDebugMode = true;
+    </script>
+   
+    
+    
+
+<link rel="stylesheet" href="/css/modules/n1-top-header.css" /><link rel="stylesheet" href="/css/modules/n2-footer.css" /><link rel="stylesheet" href="/css/modules/c0-content-container.css" />
+
+
+    <!--[if lt IE 9]>
+    <script src="/js/libs/polyfill/html5shiv.js"></script>
+    <script src="/js/libs/polyfill/lte-ie8.js"></script>
+    <script src="/js/libs/polyfill/nwmatcher-1.3.0.js"></script><![endif]-->
+    <!--[if lt IE 8]>
+    <script src="/js/libs/polyfill-lte-ie7/lte-ie7-fonticons.js"></script>
+    <script src="/js/libs/polyfill-lte-ie7/qsa-polyfill-ie7.js"></script><![endif]-->
+
+    <script src="/js/libs/jquery.js"></script>
+    <script src="/js/functions.js"></script>
+    <script src="/js/libs/jquery-ui.js"></script>
+    <script src="/js/cookieconsent.js"></script>
+    <link rel="stylesheet" href="/css/cookie.css" />
+
+    <style>
+        .h4-tab-content [data-ux-pagebuilder-column-data] > ul > li.widgetMoveLocation,
+        .c0-content-container [data-ux-pagebuilder-column-data] > ul > li.widgetMoveLocation {
+            z-index: 999 !important;
+        }
+
+        a[data-ektron-editorsmenu-id], .EktronEditorsMenu {
+            position: relative;
+            z-index: 999;
+        }
+
+        .lt-ie9 .PBViewing {
+            margin: 0 !important;
+            float: none !important;
+        }
+
+        .lt-ie9 div.PBViewing div.widget div.content {
+            margin: inherit !important;
+        }
+
+        .lt-ie9 ul.columnwidgetlist {
+            margin-left: 0 !important;
+            margin-bottom: 0 !important;
+        }
+    </style>
+    <link rel="alternate" href="http://www.dolby.com/" hreflang="x-default" /><meta name="keywords" content="privacy" /><meta name="description" content="We collect passively tracked data primarily for purposes of administering, protecting, and improving the Dolby website and systems." /><meta property="og:url" content="/us/en/about/privacy/privacy-policy.html" /><script src="/js/libs/require.js" data-main="https://www.dolby.com/"></script><link rel="stylesheet" type="text/css" href="/css/styles.css" /><link rel="stylesheet" type="text/css" href="/css/styles-persistent.css" /><link rel="stylesheet" type="text/css" href="/css/styles-en-us.css" /><link rel="stylesheet" type="text/css" href="/css/themes.css" /><link rel="stylesheet" type="text/css" href="/css/modules/n1-top-header.css" /><link rel="stylesheet" type="text/css" href="/css/modules/n1-top-header-persistent.css" /><link rel="stylesheet" type="text/css" href="/css/modules/n1-top-header-en-us.css" /><!--[if (gt IE 9)|!(IE)]><!--><link rel="stylesheet" type="text/css" href="/css/responsive.css" /><!--<![endif]--><!--[if (gt IE 9)|!(IE)]><!--><link rel="stylesheet" type="text/css" href="/css/responsive-en-us.css" /><!--<![endif]--><link rel="stylesheet" type="text/css" href="/css/modules/n2-footer.css" /></head>
+<body id="ctl00_ctl00_BodyTag">
+    <ul id="be_sdkms_capsule_target" style="display:none!important"><li id="be_sdkms_target">ixf_target_enabled</li></ul>
+
+<script type='text/javascript'>
+	function positionLinkBlock(targetContainer) {
+		if (targetContainer != null) {
+			var strLinkBlock = '<div class="be-outer-container"><div class="be-container container"><div class="be-heading t2">Also of Interest</div><div class="be-ul"><div class="be-li-wrap"><a href="https://www.dolby.com/us/en/about/conflict-minerals-policy.html"><div class="be-li copy dark-box light-text"><div class="be-link-h t6">Dolby Conflict Minerals Policy</div><div class="be-link-d p5">Dolby is committed to high standards that minimize the use of conflict minerals that finance or benefit armed groups.</div></div><div class="be-li-chev-row"><span class="solid btn-round colored small"><i class="fonticon-10-chevron"></i></span></div></a></div><div class="be-li-wrap"><a href="http://www.dolby.com/us/en/about/privacy/privacy-policy.html"><div class="be-li copy dark-box light-text"><div class="be-link-h t6">Global Privacy Policy</div><div class="be-link-d p5">We collect passively tracked data primarily for purposes of administering, protecting, and improving the Dolby website and systems.</div></div><div class="be-li-chev-row"><span class="solid btn-round colored small"><i class="fonticon-10-chevron"></i></span></div></a></div><div class="be-li-wrap be-li-last"><a href="https://www.dolby.com/us/en/about/privacy/cookie-policy.html"><div class="be-li copy dark-box light-text"><div class="be-link-h t6">Cookie Policy</div><div class="be-link-d p5">Dolby Laboratories, Inc. and our affiliates (collectively, “Dolby”) respect your concerns about privacy. We obtain certain information through the use of cookies and similar technologies on your...</div></div><div class="be-li-chev-row"><span class="solid btn-round colored small"><i class="fonticon-10-chevron"></i></span></div></a></div></div></div></div>';
+			targetContainer.insertAdjacentHTML('afterbegin', strLinkBlock);
+		}
+	}
+
+	jsElementReady('.be-ix-link-block', positionLinkBlock)
+	
+</script>
+
+<ul id="be_sdkms_capsule_open" style="display:none!important">
+    <li id="be_sdkms_sdk_version">be_ixf; dotnet_sdk; dotnet_sdk_1.4.9</li>
+    <li id="be_sdkms_capsule_connect_timer">250 ms</li>
+    <li id="be_sdkms_capsule_index_time">iy_2019; im_01; id_17; ih_13; imh_45; i_epoch:1547761518033</li>
+    <li id="be_sdkms_capsule_pub">ixf-compiler; ixf-compiler_1.0.0.0</li>
+    <li id="be_sdkms_capsule_date_modified">py_2019; pm_01; pd_05; ph_01; pmh_48; p_epoch:1546681706771</li>
+</ul>
+<ul class"be_sdkms_node" style="display:none!important">
+   <li class="be_sdkms_pub">link-block-publisher; link-block-publisher_1.0.0.0; bodystr</li>
+   <li class="be_sdkms_date_modified">pn_tstr:Sat Jan 05 01:48:26 PST 2019; pn_epoch:1546681706771</li>
+   <li class="be_sdkms_timer">0 ms</li>
+</ul>
+
+    
+<ul id="be_sdkms_capsule" style="display:none!important">
+    <li id="be_sdkms_sdk_version">be_ixf; dotnet_sdk; dotnet_sdk_1.4.9</li>
+    <li id="be_sdkms_original_url">https://www.dolby.com/us/en/about/privacy/privacy-policy.html</li>
+    <li id="be_sdkms_capsule_url">https://ixf2-api.bc0a.com/api/ixf/1.0.0/get_capsule/f00000000107113/1432235610?client=dotnet_sdk&client_version=1.4.9&orig_url=https%3A%2F%2Fwww.dolby.com%2Fus%2Fen%2Fabout%2Fprivacy%2Fprivacy-policy.html&base_url=https%3A%2F%2Fwww.dolby.com%2Fus%2Fen%2Fabout%2Fprivacy%2Fprivacy-policy.html&user_agent=Mozilla%2F5.0+(compatible%3B+YandexBot%2F3.0%3B+%2Bhttp%3A%2F%2Fyandex.com%2Fbots)</li>
+    <li id="be_sdkms_normalized_url">https://www.dolby.com/us/en/about/privacy/privacy-policy.html</li>
+    <li id="be_sdkms_configuration">sdk.environment=production;sdk.charset=UTF-8;api.endpoint=https://ixf2-api.bc0a.com;sdk.account=f00000000107113;sdk.connectTimeout=2000;sdk.socketTimeout=2000;sdk.crawlerConnectTimeout=10000;sdk.crawlerSocketTimeout=10000;whitelist.parameter.list=ixf;flat.file=true;sdk.proxyPort=0;sdk.proxyProtocol=http;crawler.useragents=google|bingbot|msnbot|slurp|duckduckbot|baiduspider|yandexbot|sogou|exabot|facebot|ia_archiver;forcedirectapi.parameter.list=ixf-api|ixf;capsule.mode=remote.prod.capsule;page.independent=false;page.alias.url=https://www.dolby.com/us/en/about/privacy/privacy-policy.html</li>
+</ul>
+
+    <form method="post" action="/us/en/about/privacy/privacy-policy.html" id="aspnetForm">
+<div class="aspNetHidden">
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="EktronClientManager" id="EktronClientManager" value="-1759591071,-914034194,-731554408,1064114300,-1687560804,-1080527330,-1939951303,-569449246,-1793043690,1338359439,1743165108,1531089627,-300771134,1985268503" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwULLTExMDg0NjA5NThkGBEFoQFjdGwwMCRjdGwwMCRNYXN0ZXJDb250ZW50UGxhY2VIb2xkZXIkTWFpbkNvbnRlbnRQbGFjZUhvbGRlciRSaWdodENvbERyb3Bab25lJHV4Q29sdW1uRGlzcGxheSRjdGwwMCR1eENvbnRyb2xDb2x1bW4kY3RsMDAkdXhXaWRnZXRIb3N0JHV4V2lkZ2V0SG9zdF93aWRnZXQkVmlld1NldA8PZGZkBVpjdGwwMCRjdGwwMCRNYXN0ZXJDb250ZW50UGxhY2VIb2xkZXIkTWFpbkNvbnRlbnRQbGFjZUhvbGRlciRSaWdodExvY2tlZERyb3Bab25lJHV4VVhTd2l0Y2gPD2QCAWQFV2N0bDAwJGN0bDAwJE1hc3RlckNvbnRlbnRQbGFjZUhvbGRlciRNYWluQ29udGVudFBsYWNlSG9sZGVyJFJpZ2h0Q29sRHJvcFpvbmUkdXhVWFN3aXRjaA8PZAIBZAU4Y3RsMDAkY3RsMDAkTWFzdGVyQ29udGVudFBsYWNlSG9sZGVyJHVjTWVudTEkbmF2SGVhZGVyTFYPFCsADmRkZGRkZGQ8KwAGAAIGZGRkZgL/////D2QFT2N0bDAwJGN0bDAwJE1hc3RlckNvbnRlbnRQbGFjZUhvbGRlciRNYWluQ29udGVudFBsYWNlSG9sZGVyJFBhZ2VIb3N0JHV4VVhTd2l0Y2gPD2QCAWQFkAFjdGwwMCRjdGwwMCRNYXN0ZXJDb250ZW50UGxhY2VIb2xkZXIkTWFpbkNvbnRlbnRQbGFjZUhvbGRlciRSaWdodENvbERyb3Bab25lJHV4Q29sdW1uRGlzcGxheSRjdGwwMCR1eENvbnRyb2xDb2x1bW4kY3RsMDAkdXhXaWRnZXRIb3N0JHV4VVhTd2l0Y2gPD2QCAWQFnwFjdGwwMCRjdGwwMCRNYXN0ZXJDb250ZW50UGxhY2VIb2xkZXIkTWFpbkNvbnRlbnRQbGFjZUhvbGRlciRIZWFkZXJEcm9wWm9uZSR1eENvbHVtbkRpc3BsYXkkY3RsMDAkdXhDb250cm9sQ29sdW1uJGN0bDAwJHV4V2lkZ2V0SG9zdCR1eFdpZGdldEhvc3Rfd2lkZ2V0JFZpZXdTZXQPD2RmZAVVY3RsMDAkY3RsMDAkTWFzdGVyQ29udGVudFBsYWNlSG9sZGVyJE1haW5Db250ZW50UGxhY2VIb2xkZXIkTG9ja2VkRHJvcFpvbmUkdXhVWFN3aXRjaA8PZAIBZAVWY3RsMDAkY3RsMDAkTWFzdGVyQ29udGVudFBsYWNlSG9sZGVyJE1haW5Db250ZW50UGxhY2VIb2xkZXIkTGVmdENvbERyb3Bab25lJHV4VVhTd2l0Y2gPD2QCAWQFjwFjdGwwMCRjdGwwMCRNYXN0ZXJDb250ZW50UGxhY2VIb2xkZXIkTWFpbkNvbnRlbnRQbGFjZUhvbGRlciRMZWZ0Q29sRHJvcFpvbmUkdXhDb2x1bW5EaXNwbGF5JGN0bDAwJHV4Q29udHJvbENvbHVtbiRjdGwwMCR1eFdpZGdldEhvc3QkdXhVWFN3aXRjaA8PZAIBZAWOAWN0bDAwJGN0bDAwJE1hc3RlckNvbnRlbnRQbGFjZUhvbGRlciRNYWluQ29udGVudFBsYWNlSG9sZGVyJEhlYWRlckRyb3Bab25lJHV4Q29sdW1uRGlzcGxheSRjdGwwMCR1eENvbnRyb2xDb2x1bW4kY3RsMDEkdXhXaWRnZXRIb3N0JHV4VVhTd2l0Y2gPD2QCAWQFnwFjdGwwMCRjdGwwMCRNYXN0ZXJDb250ZW50UGxhY2VIb2xkZXIkTWFpbkNvbnRlbnRQbGFjZUhvbGRlciRIZWFkZXJEcm9wWm9uZSR1eENvbHVtbkRpc3BsYXkkY3RsMDAkdXhDb250cm9sQ29sdW1uJGN0bDAxJHV4V2lkZ2V0SG9zdCR1eFdpZGdldEhvc3Rfd2lkZ2V0JFZpZXdTZXQPD2RmZAU4Y3RsMDAkY3RsMDAkTWFzdGVyQ29udGVudFBsYWNlSG9sZGVyJHVjTWVudTEkbmF2TGlzdFZpZXcPFCsADmRkZGRkZGQ8KwAFAAIFZGRkZgL/////D2QFVWN0bDAwJGN0bDAwJE1hc3RlckNvbnRlbnRQbGFjZUhvbGRlciRNYWluQ29udGVudFBsYWNlSG9sZGVyJEZvb3RlckRyb3Bab25lJHV4VVhTd2l0Y2gPD2QCAWQFoAFjdGwwMCRjdGwwMCRNYXN0ZXJDb250ZW50UGxhY2VIb2xkZXIkTWFpbkNvbnRlbnRQbGFjZUhvbGRlciRMZWZ0Q29sRHJvcFpvbmUkdXhDb2x1bW5EaXNwbGF5JGN0bDAwJHV4Q29udHJvbENvbHVtbiRjdGwwMCR1eFdpZGdldEhvc3QkdXhXaWRnZXRIb3N0X3dpZGdldCRWaWV3U2V0Dw9kZmQFVWN0bDAwJGN0bDAwJE1hc3RlckNvbnRlbnRQbGFjZUhvbGRlciRNYWluQ29udGVudFBsYWNlSG9sZGVyJEhlYWRlckRyb3Bab25lJHV4VVhTd2l0Y2gPD2QCAWQFjgFjdGwwMCRjdGwwMCRNYXN0ZXJDb250ZW50UGxhY2VIb2xkZXIkTWFpbkNvbnRlbnRQbGFjZUhvbGRlciRIZWFkZXJEcm9wWm9uZSR1eENvbHVtbkRpc3BsYXkkY3RsMDAkdXhDb250cm9sQ29sdW1uJGN0bDAwJHV4V2lkZ2V0SG9zdCR1eFVYU3dpdGNoDw9kAgFkt2XhZ3HKKyiokUh5SjzXhM7moi9KMphiu4o9xrkXbCA=" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['aspnetForm'];
+if (!theForm) {
+    theForm = document.aspnetForm;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/WebResource.axd?d=9_ZkG7YZ-bnGOowGCa3JyOMReRhsRZ0ROlbT5WduHeEzKRT61KDx1y5LrWkYlVXwSgwU6ICv-A_63jPpN2qu5eqa-NpKc41vaKlpR2KbzfM1&amp;t=636765211280000000" type="text/javascript"></script>
+
+<!-- Google Tag Manager --><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-KD8M86" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-KD8M86');</script><!-- End Google Tag Manager -->
+<script src="/ScriptResource.axd?d=SOolK86qh_SQbBZAe6YxVBpc1JBhxkXILNhPeFD542s-h67c5Mz87ZnbC7daJIGARlMynlCIunpP0MYp19AgU8krAX2mhI6Q9OMQ0XbcjUkiXKiYX_PreXBKLq_QENJTOa8uwx2sK_62wKydw9kkApiUiSVqR1iBDk7uAE9B3qU1&amp;t=ffffffff999c3159" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=Otu464VGV-3iIihb0nrDDxEgkZLeQFIuHemJMe_angclB333nSp2bvAk2wOJtLpHfjnxJLk4d1MLG_zGSvupfTXZEk4D7_-aeSwaEwx_2BdanSmU3lwyJcn9wetbz40rxbzIDascu1w0kljq_qnp4fhvYh6NqdcuSnuFZSX-pvbnlCdt2IITj-jXvpffeqqh0&amp;t=ffffffff999c3159" type="text/javascript"></script>
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="4C24DBC7" />
+</div>
+        
+        <div id="page-wrap-outer" class="page-wrap-outer">
+            <div id="page-wrap-inner" class="page-wrap-inner">
+                
+    
+
+<nav id="nav-wrapper" role="navigation" class="container full-bleed-no-max m-full-bleed nav-wrapper no-grid-at-767 ">
+    <div class="container navbar-mobile visible-phone"><a id="btn-mobile-nav" href="#" class="btn-round opaque-alt btn-mobile-nav"><i class="fonticon-15-mobile-menu l-o-d"></i></a><a href="/us/en/index.html" title="DOLBY" class="dolby-logo"><i class="fonticon-60-dolby dolby-icon l-o-d"></i><span class="hidden-text">DOLBY</span></a></div>
+    <div id="nav-outer-container" class="nav-outer-container">
+        <div class="nav-mobile-scroller">
+            <div class="navtray-slider">
+                
+
+            <div id="navtray-w-search" class="navtray-w navtray-w-tall input-outer-wrapper navtray-w-search alternate-theme-dark">
+                <div class="navtray-top-bar"></div>
+                <div id="navtray-search" class="navtray container">
+                    <div class="navtray-section navtray-section-main no-grid-at-767">
+                        <div class="nav-mobile-search">
+                            <a href="" id="dolby-home-mobile" class="dolby-home"><img src="/img/n1-top-header/dolby-mobile-logo.png" alt="DOLBY Logo"></a> 
+                            <a href="#" class="btn-round"><span class="fonticon-10-search"></span></a>
+                        </div>
+                        <section>
+                            <div class="navtray-search-section-form theme-dark">
+                                <div class="navtray-search-section-input input-group">
+                                    <i class="fonticon-10-search input-icon"></i>
+                                    <label for='nav-search-input' class='visuallyhidden'>Search</label><input id='nav-search-input' type='text' name='navSearch' tabindex='701' autocomplete='off' data-mobile-watermark='Search' data-desktop-watermark='What are you looking for?' />
+                                    <a tabindex="702" class="btn-search-go btn-round solid colored"><i class="fonticon-10-search"></i></a>
+                                    <a href="#" title="clear input" class="btn-clear-search-input input-clear-btn btn-round solid-trans colored xsmall"><i class="fonticon-10-x-skinny"></i></a>
+                                </div>
+                            </div>
+                            <div class="navtray-search-section-results">
+                                <div class="navtray-search-popular-searches">
+                                    <div class='headline'><h4 class='t1'>Popular Searches</h4></div>
+                                    <ul class="navtray-list navtray-list-extended theme-silver alternate-theme-dark">
+                                        
+                                                <li class="search-result-line lt1"><a href="/us/en/brands/dolby-atmos.html" title="Dolby Atmos" target="_self" tabindex="750">Dolby Atmos</a></li>
+                                            
+                                                <li class="search-result-line lt1"><a href="/us/en/guide/speaker-setup/index.html" title="Speaker Setup Guide" target="_self" tabindex="751">Speaker Setup Guide</a></li>
+                                            
+                                                <li class="search-result-line lt1"><a href="/us/en/experience/dolby-atmos/bluray-and-streaming.html" title="Dolby Atmos Blu-rays" target="_self" tabindex="752">Dolby Atmos Blu-rays</a></li>
+                                            
+                                                <li class="search-result-line lt1"><a href="/us/en/drivers.html" title="Drivers" target="_self" tabindex="753">Drivers</a></li>
+                                            
+                                                <li class="search-result-line lt1"><a href="/us/en/technologies/dolby-digital.html" title="AC-3" target="_self" tabindex="754">AC-3</a></li>
+                                            
+                                                <li class="search-result-line lt1"><a href="/us/en/technologies/dolby-digital-plus.html" title="Dolby Digital Plus" target="_self" tabindex="755">Dolby Digital Plus</a></li>
+                                            
+                                    </ul>
+                                </div>
+                                <div class="navtray-search-results">
+                                    <ul class="navtray-list-extended"></ul>
+                                    <a href='' tabindex='799' class='btn btn-show-all-results'>Show All Results</a>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+
+                
+                        <div id="navtray-w-cinema"
+                            class="navtray-w navtray-w-tall navtray-w-cinema theme-purple allow-mobile-toggle">
+                            <div class="navtray-top-bar"></div>
+                            <div class='navtray-mobile-toggle'><div class='t7'><a href='/us/en/cinema/index.html'>Cinema</a><i class='fonticon-10-plus-skinny l-o-d'></i></div></div>
+                            <div id="navtray-cinema" class="navtray container">
+                                <div class='navtray-section navtray-section-main no-grid-at-767'><section class='subsection3 mobile-toggleable'><div class='headline'><h4 class='t1'>Cinema Experiences</h4><i class='fonticon-10-plus-skinny l-o-d'></i></div><article><p class='lt1'><a href='/us/en/platforms/dolby-cinema.html' title='Dolby Cinema' tabindex='601'>Dolby <span class='nowrap'><span>Cinema</span><i class='fonticon-10-chevron-sm'></i></span></a></p><p class='lt1'><a href='/us/en/filmmaker-profiles/index.html' title='Filmmaker Profiles' tabindex='601'>Filmmaker <span class='nowrap'><span>Profiles</span><i class='fonticon-10-chevron-sm'></i></span></a></p><p class='lt1'><a href='/us/en/dolby-institute.html' title='Dolby Institute' tabindex='601'>Dolby <span class='nowrap'><span>Institute</span><i class='fonticon-10-chevron-sm'></i></span></a></p><p class='lt1'><a href='/us/en/about/2018-oscars.html' title='2018 Oscars' tabindex='601'>2018 <span class='nowrap'><span>Oscars</span><i class='fonticon-10-chevron-sm'></i></span></a></p><p class='lt1'><a href='/us/en/professionals/content-creation/dolby-screening-rooms.html' title='Dolby Screening Rooms' tabindex='601'>Dolby Screening <span class='nowrap'><span>Rooms</span><i class='fonticon-10-chevron-sm'></i></span></a></p></article><div class='rule'></div></section><section class='subsection3 mobile-toggleable'><div class='headline'><h4 class='t1'>Cinema Products for Exhibitors</h4><i class='fonticon-10-plus-skinny l-o-d'></i></div><article><p class='lt1'><a href='/us/en/professional/cinema/products.html' title='Professional Products' tabindex='601'>Professional <span class='nowrap'><span>Products</span><i class='fonticon-10-chevron-sm'></i></span></a></p><p class='lt1'><a href='/us/en/technologies/cinema/dolby-atmos.html' title='Dolby Atmos' tabindex='601'>Dolby <span class='nowrap'><span>Atmos</span><i class='fonticon-10-chevron-sm'></i></span></a></p><p class='lt1'><a href='http://www.dolby.com/us/en/professional/cinema/products/dolby-3d-cinema-bundle.html' title='Dolby 3D' tabindex='601'>Dolby <span class='nowrap'><span>3D</span><i class='fonticon-10-chevron-sm'></i></span></a></p></article><div class='rule'></div></section><section class='subsection3 mobile-toggleable'><div class='headline'><h4 class='t1'>Tools for Content Creators</h4><i class='fonticon-10-plus-skinny l-o-d'></i></div><article><p class='lt1'><a href='/us/en/technologies/dolby-vision/dolby-vision-for-creative-professionals.html' title='Dolby Vision' tabindex='601'>Dolby <span class='nowrap'><span>Vision</span><i class='fonticon-10-chevron-sm'></i></span></a></p><p class='lt1'><a href='/us/en/professional/cinema/industry/content-services.html' title='Content Services' tabindex='601'>Content <span class='nowrap'><span>Services</span><i class='fonticon-10-chevron-sm'></i></span></a></p></article></section></div>
+                            </div>
+                        </div>
+                    
+                        <div id="navtray-w-home"
+                            class="navtray-w navtray-w-tall navtray-w-home theme-green allow-mobile-toggle">
+                            <div class="navtray-top-bar"></div>
+                            <div class='navtray-mobile-toggle'><div class='t7'><a href='/us/en/home/index.html'>Home</a><i class='fonticon-10-plus-skinny l-o-d'></i></div></div>
+                            <div id="navtray-home" class="navtray container">
+                                <div class='navtray-section navtray-section-main no-grid-at-767'><section class='subsection3 mobile-toggleable'><div class='headline'><h4 class='t1'>Home Technologies</h4><i class='fonticon-10-plus-skinny l-o-d'></i></div><article><p class='lt1'><a href='http://products.dolby.com/dimension' title='Dolby Dimension' tabindex='601'>Dolby <span class='nowrap'><span>Dimension</span><i class='fonticon-10-chevron-sm'></i></span></a></p><p class='lt1'><a href='/us/en/brands/dolby-vision.html' title='Dolby Vision' tabindex='601'>Dolby <span class='nowrap'><span>Vision</span><i class='fonticon-10-chevron-sm'></i></span></a></p><p class='lt1'><a href='/us/en/brands/dolby-atmos.html' title='Dolby Atmos' tabindex='601'>Dolby <span class='nowrap'><span>Atmos</span><i class='fonticon-10-chevron-sm'></i></span></a></p><p class='lt1'><a href='/us/en/brands/dolby-audio.html' title='Dolby Audio' tabindex='601'>Dolby <span class='nowrap'><span>Audio</span><i class='fonticon-10-chevron-sm'></i></span></a></p><p class='lt1'><a href='/us/en/technologies/dolby-digital-plus.html' title='Dolby Digital Plus' tabindex='601'>Dolby Digital <span class='nowrap'><span>Plus</span><i class='fonticon-10-chevron-sm'></i></span></a></p><p class='lt1'><a href='/us/en/apps/access.html' title='Dolby Access' tabindex='601'>Dolby <span class='nowrap'><span>Access</span><i class='fonticon-10-chevron-sm'></i></span></a></p></article><div class='rule'></div></section><section class='subsection3 mobile-toggleable'><div class='headline'><h4 class='t1'>How to Get It</h4><i class='fonticon-10-plus-skinny l-o-d'></i></div><article><p class='lt1'><a href='/us/en/speaker-setup-guides/index.html' title='Speaker Setup Guides' tabindex='601'>Speaker Setup <span class='nowrap'><span>Guides</span><i class='fonticon-10-chevron-sm'></i></span></a></p><p class='lt1'><a href='/us/en/categories/avr.html' title='AVRs' tabindex='601'><span class='nowrap'><span>AVRs</span><i class='fonticon-10-chevron-sm'></i></span></a></p><p class='lt1'><a href='/us/en/categories/blu-ray.html' title='Blu-ray' tabindex='601'><span class='nowrap'><span>Blu-ray</span><i class='fonticon-10-chevron-sm'></i></span></a></p><p class='lt1'><a href='/us/en/categories/games.html' title='Games' tabindex='601'><span class='nowrap'><span>Games</span><i class='fonticon-10-chevron-sm'></i></span></a></p><p class='lt1'><a href='/us/en/categories/pc.html' title='PCs' tabindex='601'><span class='nowrap'><span>PCs</span><i class='fonticon-10-chevron-sm'></i></span></a></p><p class='lt1'><a href='/us/en/categories/sound-bar.html' title='Sound Bars' tabindex='601'>Sound <span class='nowrap'><span>Bars</span><i class='fonticon-10-chevron-sm'></i></span></a></p><p class='lt1'><a href='/us/en/categories/tv.html' title='TVs' tabindex='601'><span class='nowrap'><span>TVs</span><i class='fonticon-10-chevron-sm'></i></span></a></p></article><div class='rule'></div></section><section class='subsection3 mobile-toggleable'><div class='headline'><h4 class='t1'>For Professionals</h4><i class='fonticon-10-plus-skinny l-o-d'></i></div><article><p class='lt1'><a href='/us/en/professional/broadcast/industry.html' title='Broadcast' tabindex='601'><span class='nowrap'><span>Broadcast</span><i class='fonticon-10-chevron-sm'></i></span></a></p><p class='lt1'><a href='/us/en/professional/content-creation/industry.html' title='Content Creation' tabindex='601'>Content <span class='nowrap'><span>Creation</span><i class='fonticon-10-chevron-sm'></i></span></a></p><p class='lt1'><a href='/us/en/professional/licensing.html' title='Licensing' tabindex='601'><span class='nowrap'><span>Licensing</span><i class='fonticon-10-chevron-sm'></i></span></a></p><p class='lt1'><a href='/us/en/professional/streaming/industry.html' title='Streaming' tabindex='601'><span class='nowrap'><span>Streaming</span><i class='fonticon-10-chevron-sm'></i></span></a></p></article></section></div>
+                            </div>
+                        </div>
+                    
+                        <div id="navtray-w-mobile"
+                            class="navtray-w navtray-w-tall navtray-w-mobile theme-red allow-mobile-toggle">
+                            <div class="navtray-top-bar"></div>
+                            <div class='navtray-mobile-toggle'><div class='t7'><a href='/us/en/mobile/index.html'>Mobile</a><i class='fonticon-10-plus-skinny l-o-d'></i></div></div>
+                            <div id="navtray-mobile" class="navtray container">
+                                <div class='navtray-section navtray-section-main no-grid-at-767'><section class='subsection3 mobile-toggleable'><div class='headline'><h4 class='t1'>Mobile Technologies</h4><i class='fonticon-10-plus-skinny l-o-d'></i></div><article><p class='lt1'><a href='/us/en/brands/dolby-atmos.html' title='Dolby Atmos' tabindex='601'>Dolby <span class='nowrap'><span>Atmos</span><i class='fonticon-10-chevron-sm'></i></span></a></p><p class='lt1'><a href='/us/en/brands/dolby-audio.html' title='Dolby Audio' tabindex='601'>Dolby <span class='nowrap'><span>Audio</span><i class='fonticon-10-chevron-sm'></i></span></a></p><p class='lt1'><a href='/us/en/technologies/mobile/dolby-vision.html' title='Dolby Vision' tabindex='601'>Dolby <span class='nowrap'><span>Vision</span><i class='fonticon-10-chevron-sm'></i></span></a></p><p class='lt1'><a href='/us/en/technologies/dolby-digital-plus.html' title='Dolby Digital Plus' tabindex='601'>Dolby Digital <span class='nowrap'><span>Plus</span><i class='fonticon-10-chevron-sm'></i></span></a></p><p class='lt1'><a href='/us/en/apps/access.html' title='Dolby Access' tabindex='601'>Dolby <span class='nowrap'><span>Access</span><i class='fonticon-10-chevron-sm'></i></span></a></p></article><div class='rule'></div></section><section class='subsection3 mobile-toggleable'><div class='headline'><h4 class='t1'>How To Get It</h4><i class='fonticon-10-plus-skinny l-o-d'></i></div><article><p class='lt1'><a href='/us/en/apps/index.html' title='Apps' tabindex='601'><span class='nowrap'><span>Apps</span><i class='fonticon-10-chevron-sm'></i></span></a></p><p class='lt1'><a href='/us/en/categories/smartphone.html' title='Smartphones' tabindex='601'><span class='nowrap'><span>Smartphones</span><i class='fonticon-10-chevron-sm'></i></span></a></p><p class='lt1'><a href='/us/en/categories/tablet.html' title='Tablets' tabindex='601'><span class='nowrap'><span>Tablets</span><i class='fonticon-10-chevron-sm'></i></span></a></p><p class='lt1'><a href='/us/en/categories/pc.html' title='PCs' tabindex='601'><span class='nowrap'><span>PCs</span><i class='fonticon-10-chevron-sm'></i></span></a></p><p class='lt1'><a href='/us/en/categories/games.html' title='Games' tabindex='601'><span class='nowrap'><span>Games</span><i class='fonticon-10-chevron-sm'></i></span></a></p></article><div class='rule'></div></section><section class='subsection3 mobile-toggleable'><div class='headline'><h4 class='t1'>For Professionals</h4><i class='fonticon-10-plus-skinny l-o-d'></i></div><article><p class='lt1'><a href='/us/en/professional/games/industry.html' title='Game Development' tabindex='601'>Game <span class='nowrap'><span>Development</span><i class='fonticon-10-chevron-sm'></i></span></a></p><p class='lt1'><a href='/us/en/professional/mobile-devices/industry.html' title='PC and Mobile' tabindex='601'>PC and <span class='nowrap'><span>Mobile</span><i class='fonticon-10-chevron-sm'></i></span></a></p><p class='lt1'><a href='/us/en/professional/streaming/industry.html' title='Streaming' tabindex='601'><span class='nowrap'><span>Streaming</span><i class='fonticon-10-chevron-sm'></i></span></a></p></article></section></div>
+                            </div>
+                        </div>
+                    
+                        <div id="navtray-w-office"
+                            class="navtray-w navtray-w-tall navtray-w-office theme-blue allow-mobile-toggle">
+                            <div class="navtray-top-bar"></div>
+                            <div class='navtray-mobile-toggle'><div class='t7'><a href='/us/en/work/index.html'>Office</a><i class='fonticon-10-plus-skinny l-o-d'></i></div></div>
+                            <div id="navtray-office" class="navtray container">
+                                <div class='navtray-section navtray-section-main no-grid-at-767'><section class='subsection3 mobile-toggleable'><div class='headline'><h4 class='t1'>Conferencing solutions</h4><i class='fonticon-10-plus-skinny l-o-d'></i></div><article><p class='lt1'><a href='/us/en/brands/dolby-voice.html' title='Dolby Voice overview' tabindex='601'>Dolby Voice <span class='nowrap'><span>overview</span><i class='fonticon-10-chevron-sm'></i></span></a></p><p class='lt1'><a href='/us/en/technologies/dolby-voice.html' title='Dolby Voice software platform' tabindex='601'>Dolby Voice software <span class='nowrap'><span>platform</span><i class='fonticon-10-chevron-sm'></i></span></a></p><p class='lt1'><a href='/us/en/professional/products/dolby-conference-phone.html' title='Dolby Conference Phone' tabindex='601'>Dolby Conference <span class='nowrap'><span>Phone</span><i class='fonticon-10-chevron-sm'></i></span></a></p><p class='lt1'><a href='/us/en/work/index.html' title='News and related articles' tabindex='601'>News and related <span class='nowrap'><span>articles</span><i class='fonticon-10-chevron-sm'></i></span></a></p></article><div class='rule'></div></section><section class='subsection3 mobile-toggleable'><div class='headline'><h4 class='t1'>Get the Dolby Voice experience</h4><i class='fonticon-10-plus-skinny l-o-d'></i></div><article><p class='lt1'><a href='/us/en/professional/products/dolby-conference-phone/resellers.html' title='Dolby Conference Phone resellers' tabindex='601'>Dolby Conference Phone <span class='nowrap'><span>resellers</span><i class='fonticon-10-chevron-sm'></i></span></a></p><p class='lt1'><a href='/us/en/professional/technologies/dolby-voice/service-providers.html' title='Dolby Voice service providers' tabindex='601'>Dolby Voice service <span class='nowrap'><span>providers</span><i class='fonticon-10-chevron-sm'></i></span></a></p><p class='lt1'><a href='/us/en/professional/technologies/dolby-voice/case-studies.html' title='Case studies' tabindex='601'>Case <span class='nowrap'><span>studies</span><i class='fonticon-10-chevron-sm'></i></span></a></p></article><div class='rule'></div></section><section class='subsection3 mobile-toggleable'><div class='headline'><h4 class='t1'>For professionals</h4><i class='fonticon-10-plus-skinny l-o-d'></i></div><article><p class='lt1'><a href='/us/en/professional/products/dolby-conference-phone/become-a-reseller.html' title='Become a reseller' tabindex='601'>Become a <span class='nowrap'><span>reseller</span><i class='fonticon-10-chevron-sm'></i></span></a></p><p class='lt1'><a href='/us/en/professional/technologies/dolby-voice/become-a-service-provider.html' title='Become a service provider' tabindex='601'>Become a service <span class='nowrap'><span>provider</span><i class='fonticon-10-chevron-sm'></i></span></a></p><p class='lt1'><a href='/us/en/technologies/dolby-voice.html#3' title='Documentation' tabindex='601'><span class='nowrap'><span>Documentation</span><i class='fonticon-10-chevron-sm'></i></span></a></p><p class='lt1'><a href='/us/en/support/conferencing-support.html' title='Support' tabindex='601'><span class='nowrap'><span>Support</span><i class='fonticon-10-chevron-sm'></i></span></a></p></article></section></div>
+                            </div>
+                        </div>
+                    
+                        <div id="navtray-w-professionals"
+                            class="navtray-w navtray-w-tall navtray-w-professionals theme-silver allow-mobile-toggle">
+                            <div class="navtray-top-bar"></div>
+                            <div class='navtray-mobile-toggle'><div class='t7'><a href='/us/en/professional/index.html'>Professionals</a><i class='fonticon-10-plus-skinny l-o-d'></i></div></div>
+                            <div id="navtray-professionals" class="navtray container">
+                                <div class='navtray-section navtray-section-main no-grid-at-767'><section class='subsection3 mobile-toggleable'><div class='headline'><h4 class='t1'>Industry Solutions</h4><i class='fonticon-10-plus-skinny l-o-d'></i></div><article><p class='lt1'><a href='/us/en/professional/av-installers/industry.html' title='A/V Installers and Retailers' tabindex='601'>A/V Installers and <span class='nowrap'><span>Retailers</span><i class='fonticon-10-chevron-sm'></i></span></a></p><p class='lt1'><a href='/us/en/professional/broadcast/industry.html' title='Broadcast' tabindex='601'><span class='nowrap'><span>Broadcast</span><i class='fonticon-10-chevron-sm'></i></span></a></p><p class='lt1'><a href='/us/en/professional/content-creation/industry.html' title='Content Creation' tabindex='601'>Content <span class='nowrap'><span>Creation</span><i class='fonticon-10-chevron-sm'></i></span></a></p><p class='lt1'><a href='/us/en/professional/games/industry.html' title='Game Development' tabindex='601'>Game <span class='nowrap'><span>Development</span><i class='fonticon-10-chevron-sm'></i></span></a></p></article><div class='rule'></div></section><section class='subsection3'><article><p class='lt1'><a href='/us/en/professional/cinema/industry.html' title='Cinema' tabindex='601'><span class='nowrap'><span>Cinema</span><i class='fonticon-10-chevron-sm'></i></span></a></p><p class='lt1'><a href='/us/en/professional/sls-pro-audio/industry.html' title='SLS Professional Audio' tabindex='601'>SLS Professional <span class='nowrap'><span>Audio</span><i class='fonticon-10-chevron-sm'></i></span></a></p><p class='lt1'><a href='/us/en/professional/mobile-devices/industry.html' title='PC and Mobile' tabindex='601'>PC and <span class='nowrap'><span>Mobile</span><i class='fonticon-10-chevron-sm'></i></span></a></p><p class='lt1'><a href='/us/en/professional/streaming/industry.html' title='Streaming' tabindex='601'><span class='nowrap'><span>Streaming</span><i class='fonticon-10-chevron-sm'></i></span></a></p></article><div class='rule'></div></section><section class='subsection3 mobile-toggleable'><div class='headline'><h4 class='t1'>Services and Support</h4><i class='fonticon-10-plus-skinny l-o-d'></i></div><article><p class='lt1'><a href='/us/en/professional/licensing.html' title='Licensing' tabindex='601'><span class='nowrap'><span>Licensing</span><i class='fonticon-10-chevron-sm'></i></span></a></p><p class='lt1'><a href='https://www.dolbycustomer.com/login.aspx' title='Dolby Customer Portal' tabindex='601'>Dolby Customer <span class='nowrap'><span>Portal</span><i class='fonticon-10-chevron-sm'></i></span></a></p><p class='lt1'><a href='/us/en/professional/products/dolby-conference-phone.html#4' title='Dolby Conference Phone Support' tabindex='601'>Dolby Conference Phone <span class='nowrap'><span>Support</span><i class='fonticon-10-chevron-sm'></i></span></a></p><p class='lt1'><a href='/us/en/about/warranty-and-maintenance-policies.html' title='Warranty and Maintenance' tabindex='601'>Warranty and <span class='nowrap'><span>Maintenance</span><i class='fonticon-10-chevron-sm'></i></span></a></p><p class='lt1'><a href='/us/en/about/contact-us/email-us.aspx' title='Contact Us' tabindex='601'>Contact <span class='nowrap'><span>Us</span><i class='fonticon-10-chevron-sm'></i></span></a></p></article></section></div>
+                            </div>
+                        </div>
+                    
+            </div>
+            <div class="navbar-outer">
+                <div id="navbar" class="container navbar full-bleed-at-767">
+                    <div class="grid full-bleed-at-767">
+                        <ul role="navigation" class="nav nav-primary">
+                            <li class="nav-li nav-li-search nav-right"><a data-target="navtray-w-search" href="#nav-search-input" tabindex="700" class="nav-li-link nav-dropdown-toggle">
+                                <div class="btn-round opaque"><i class="fonticon-10-search"></i></div>
+                                <span class="global-nav-indicator-bar indicator-silver indicator-dark"></span></a></li>
+                            <li class="nav-vrule"></li>
+                            
+                                    <li class='nav-li nav-li-about'><a href='/us/en/index.html' tabindex='100' class='nav-li-link' onclick="window.location='/us/en/index.html'; return false;"><i class='fonticon-60-dolby dolby-icon l-o-d'></i><span class='hidden-text'>DOLBY</span><span class='global-nav-indicator-bar indicator-none'></span></a></li>
+                                
+                                    <li class='nav-li nav-li-cinema'><a data-target='navtray-w-cinema' href='/us/en/cinema/index.html' tabindex='100' class='nav-li-link nav-dropdown-toggle' onclick="window.location='/us/en/cinema/index.html'; return false;"><span data-text='Cinema' class='section-text'>Cinema</span><span data-text='Cinema' class='section-text-bold'></span><span class='global-nav-indicator-bar indicator-purple'></span></a></li>
+                                
+                                    <li class='nav-li nav-li-home'><a data-target='navtray-w-home' href='/us/en/home/index.html' tabindex='100' class='nav-li-link nav-dropdown-toggle' onclick="window.location='/us/en/home/index.html'; return false;"><span data-text='Home' class='section-text'>Home</span><span data-text='Home' class='section-text-bold'></span><span class='global-nav-indicator-bar indicator-green'></span></a></li>
+                                
+                                    <li class='nav-li nav-li-mobile'><a data-target='navtray-w-mobile' href='/us/en/mobile/index.html' tabindex='100' class='nav-li-link nav-dropdown-toggle' onclick="window.location='/us/en/mobile/index.html'; return false;"><span data-text='Mobile' class='section-text'>Mobile</span><span data-text='Mobile' class='section-text-bold'></span><span class='global-nav-indicator-bar indicator-red'></span></a></li>
+                                
+                                    <li class='nav-li nav-li-office'><a data-target='navtray-w-office' href='/us/en/work/index.html' tabindex='100' class='nav-li-link nav-dropdown-toggle' onclick="window.location='/us/en/work/index.html'; return false;"><span data-text='Office' class='section-text'>Office</span><span data-text='Office' class='section-text-bold'></span><span class='global-nav-indicator-bar indicator-blue'></span></a></li>
+                                
+                                    <li class='nav-li nav-li-professionals nav-right'><a data-target='navtray-w-professionals' href='/us/en/professional/index.html' tabindex='100' class='nav-li-link nav-dropdown-toggle' onclick="window.location='/us/en/professional/index.html'; return false;"><span data-text='Professionals' class='section-text'>Professionals</span><span data-text='Professionals' class='section-text-bold'></span><span class='global-nav-indicator-bar indicator-silver'></span></a></li>
+                                
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+<script>
+    require(["js/common"], function () {
+        require(["require/index"], function () {
+            require(["modules/n1-top-header/index"]);
+            require(["secondary/dolby-scrolltotop"]);
+        });
+    });
+
+</script>
+
+    <div id="main" role="main">
+        
+    <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ctl00$ctl00$MasterContentPlaceHolder$MainContentPlaceHolder$PageHost$ctl04', 'aspnetForm', ['tctl00$ctl00$MasterContentPlaceHolder$MainContentPlaceHolder$HeaderDropZone$uxUpdatePanel','','tctl00$ctl00$MasterContentPlaceHolder$MainContentPlaceHolder$LeftColDropZone$uxUpdatePanel','','tctl00$ctl00$MasterContentPlaceHolder$MainContentPlaceHolder$RightColDropZone$uxUpdatePanel','','tctl00$ctl00$MasterContentPlaceHolder$MainContentPlaceHolder$RightLockedDropZone$uxUpdatePanel','','tctl00$ctl00$MasterContentPlaceHolder$MainContentPlaceHolder$FooterDropZone$uxUpdatePanel','','tctl00$ctl00$MasterContentPlaceHolder$MainContentPlaceHolder$LockedDropZone$uxUpdatePanel','','tctl00$ctl00$MasterContentPlaceHolder$MainContentPlaceHolder$HeaderDropZone$uxColumnDisplay$ctl00$uxControlColumn$ctl00$uxWidgetHost$uxUpdatePanel','','tctl00$ctl00$MasterContentPlaceHolder$MainContentPlaceHolder$HeaderDropZone$uxColumnDisplay$ctl00$uxControlColumn$ctl01$uxWidgetHost$uxUpdatePanel','','tctl00$ctl00$MasterContentPlaceHolder$MainContentPlaceHolder$LeftColDropZone$uxColumnDisplay$ctl00$uxControlColumn$ctl00$uxWidgetHost$uxUpdatePanel','','tctl00$ctl00$MasterContentPlaceHolder$MainContentPlaceHolder$RightColDropZone$uxColumnDisplay$ctl00$uxControlColumn$ctl00$uxWidgetHost$uxUpdatePanel',''], [], [], 90, 'ctl00$ctl00');
+//]]>
+</script>
+
+
+    <script type="text/javascript">
+        Ektron.PBSettings = { 'dontClose': false }
+    </script>
+
+
+
+
+        <div class="ektron-ux-UITheme ux-app-siteApppageBuilder-setSizeTemplate">
+            
+        </div>
+        <script id="EktronScriptBlockbquno" type="text/javascript">
+
+Ektron.ready(function(event, eventName){
+
+                $ektron(".ux-app-siteApppageBuilder-setSizeTemplate .ui-dialog-buttonpane a").button();
+                $ektron(".ux-app-siteApppageBuilder-setSizeTemplate .framework").accordion({
+                    heightStyle: "content",
+                    activate: function(event, ui){
+                        $ektron(ui).closest(".ui-accordion").accordion("refresh");
+                    }
+                });
+                $ektron(".ux-app-siteApppageBuilder-setSizeTemplate").draggable({ handle: "div.ui-dialog-titlebar ", containment: $ektron("body") });
+            
+});
+
+
+</script>
+        
+        
+    
+    
+        <div id="ctl00_ctl00_MasterContentPlaceHolder_MainContentPlaceHolder_HeaderDropZone_uxUpdatePanel" class="">
+	
+                <div id="ctl00_ctl00_MasterContentPlaceHolder_MainContentPlaceHolder_HeaderDropZone_uxDropZone" data-ux-pagebuilder="DropZone">
+                    
+                            <div data-ux-pagebuilder="Column">
+                                
+                                <ul>
+                                    
+                                            <li>
+                                                
+        <div id="ctl00_ctl00_MasterContentPlaceHolder_MainContentPlaceHolder_HeaderDropZone_uxColumnDisplay_ctl00_uxControlColumn_ctl00_uxWidgetHost_uxUpdatePanel">
+		
+                <div data-ux-pagebuilder="Widget">
+                    
+                    <div class="widgetBody">
+                        
+        <link rel="stylesheet" href="/css/modules/h3-simple-header.css" />
+
+        
+        <section class='h3-simple-header with-bg noise theme-bg-blue'><div class='container'><div class='grid'><div data-src-desktop='/uploadedImages/wwwdolbycom/Content/Categories/h3-blue-bokeh.jpg' data-src-tablet='/uploadedImages/wwwdolbycom/Content/Categories/h3-blue-bokeh.jpg' data-src-phone='/uploadedImages/wwwdolbycom/Content/Categories/h3-blue-bokeh.jpg' data-src-desktop-highres='/uploadedImages/wwwdolbycom/Content/Categories/h3-blue-bokeh.jpg' data-src-tablet-highres='/uploadedImages/wwwdolbycom/Content/Categories/h3-blue-bokeh.jpg' data-src-phone-highres='/uploadedImages/wwwdolbycom/Content/Categories/h3-blue-bokeh.jpg'  class='iq-img bg-container'></div><div class='header-title-wrap'><h1 class='t1 header-title'>Global Privacy Policy</h1></div></div></div></section>
+        <script>
+            require(["js/common"], function () {
+                require(["require/index"], function () {
+                    require();
+                    require(["secondary/dolby-scrolltotop"]);
+                });
+            });
+
+        </script>
+    
+                    </div>
+                </div>
+            
+	</div>
+    
+                                            </li>
+                                        
+                                            <li>
+                                                
+        <div id="ctl00_ctl00_MasterContentPlaceHolder_MainContentPlaceHolder_HeaderDropZone_uxColumnDisplay_ctl00_uxControlColumn_ctl01_uxWidgetHost_uxUpdatePanel">
+		
+                <div data-ux-pagebuilder="Widget">
+                    
+                    <div class="widgetBody">
+                        
+        <link rel="stylesheet" href="/css/modules/o1-overview.css" />
+
+        
+        <section class='o1-overview align-center background-color-gray90 '><div class='container'><div class='grid m-grid-at-767'><div class='span10 offset1 m-span6'></div><div class='container'></div></div></div></section>
+        <script>
+            require(["js/common"], function () {
+                require(["require/index"], function () {
+                    require();
+                    require(["secondary/dolby-scrolltotop"]);
+                });
+            });
+
+        </script>
+    
+                    </div>
+                </div>
+            
+	</div>
+    
+                                            </li>
+                                        
+                                </ul>
+                            </div>
+                        
+                </div>
+            
+</div>
+    
+    <section class="c0-content-container marginless-top background-color-gray90">
+        <div class="container">
+            <div class="grid no-grid-at-767 m-grid-at-767 full-bleed">
+                <div class="inline span8">
+                    
+        <div id="ctl00_ctl00_MasterContentPlaceHolder_MainContentPlaceHolder_LeftColDropZone_uxUpdatePanel" class="">
+	
+                <div id="ctl00_ctl00_MasterContentPlaceHolder_MainContentPlaceHolder_LeftColDropZone_uxDropZone" data-ux-pagebuilder="DropZone">
+                    
+                            <div data-ux-pagebuilder="Column">
+                                
+                                <ul>
+                                    
+                                            <li>
+                                                
+        <div id="ctl00_ctl00_MasterContentPlaceHolder_MainContentPlaceHolder_LeftColDropZone_uxColumnDisplay_ctl00_uxControlColumn_ctl00_uxWidgetHost_uxUpdatePanel">
+		
+                <div data-ux-pagebuilder="Widget">
+                    
+                    <div class="widgetBody">
+                        
+        <link href="/css/modules/c1-inline-content.css" rel="stylesheet" />
+
+        <section class='c1-inline-content'>
+            <span id="ctl00_ctl00_MasterContentPlaceHolder_MainContentPlaceHolder_LeftColDropZone_uxColumnDisplay_ctl00_uxControlColumn_ctl00_uxWidgetHost_uxWidgetHost_widget_accessPoint" class="accessPoint"><script id="EktronScriptBlockhlspr" type="text/javascript">
+		
+		$ektron.extend(true, Ektron, {Context:{Cms:{"SitePath":"","WorkareaPath":"/WorkArea","UIPath":"/WorkArea/FrameworkUI","UXPath":"/UX","ServerControlTemplatePath":"/WorkArea/FrameworkUI/Templates","Version":"9.00","Build":"9.0.0.249","IsPresentationServer":false,"IsToolbarEnabledForTemplate":true,"IsDeviceHTML5":true}}});
+		
+		
+		</script></span>
+            <div class='container'>
+                <div class='grid full-bleed-at-767'>
+                    <p><em>Effective Date: November 14, 2018</em></p>
+<p>Dolby Laboratories, Inc. and our affiliates, listed <a href="/us/en/about/contact-us/dolby-offices-worldwide.html">here</a> (collectively, “Dolby”) respect your concerns about privacy. This Global Privacy Policy (“Policy”) applies to the information we collect through <a href="/us/en/index.html">dolby.com</a> and the websites, mobile apps, products, and other online services listed <a href="/us/en/about/privacy/appendix-a.html">here</a> (collectively, the “Services”). This Policy does not apply to any website, mobile app or product operated by Dolby that has a separate privacy policy or notice.</p>
+<p>This Policy describes the types of personal information we obtain when you use the Services, how we may use the information, with whom we may share it, and the choices available regarding our use of the information. The Policy also describes the measures we take to safeguard the personal information we process, how long we retain it and how you can exercise your rights and contact us about our privacy practices. </p>
+<p>Click on one of the links below to jump to the listed section:</p>
+<ul class="content">
+<li><a href="#information-we-obtain">Information We Obtain</a></li>
+<li><a href="#how-we-use-the-information-we-obtain">How We Use the Information We Obtain</a></li>
+<li><a href="#third-party-analytics-services">Third-Party Analytics Services</a></li>
+<ul class="content" style="margin-bottom: 25px;">
+<li><a href="#online-tracking-and-interest-based-advertising">Online Tracking and Interest-Based Advertising</a></li>
+<li><a href="#information-sharing">Information Sharing</a></li>
+</ul>
+<li><a href="#data-transfers">Data Transfers</a></li>
+<li><a href="#your-choices">Your Choices</a></li>
+<li><a href="#other-online-services-and-third-party-features">Other Online Services and Third-Party Features</a></li>
+<li><a href="#how-we-protect-personal-information">How We Protect Personal Information</a></li>
+<li><a href="#retention-of-personal-information">Retention of Personal Information</a></li>
+<li><a href="#notice-to-california-residents">Notice to California Residents</a></li>
+<li><a href="#childrens-personal-information">Children’s Personal Information</a></li>
+<li><a href="#updates-to-our-global-privacy-policy">Updates to Our Global Privacy Policy</a></li>
+<li><a href="#how-to-contact-us">How to Contact Us</a></li>
+</ul>
+<h2><a style="color: inherit; text-decoration: none;" name="information-we-obtain">Information We Obtain</a></h2>
+<p>We may obtain certain information in connection with your use of the Services.</p>
+<h4>Information You Submit</h4>
+<p>When you sign up to receive certain types of information (such as email newsletters, product software upgrades, and some licensee-related documents) or otherwise actively send us data (such as to participate in a contest or engage with a website we operate for business partners like our voice partner network), we obtain data such as your name, email address, mailing address, telephone number, login credentials, business details, and any other information you provide.  This may include personal information to create an account or submitted through our surveys, registrations, reviews, and “Support” and “Contact Us” features. </p>
+<p>If you contact us directly, we may receive additional information about you. For example, if you use our customer support tools or services, we may obtain any other information you choose to provide.</p>
+<p>If you purchase a product from our <a href="https://products.dolby.com/dimension">online store</a>, we will request that you provide name, email address, company name, billing and shipping address, phone number, and payment card details (including card number, expiration date and security code). Your payment-related details are collected and stored by our third-party payment processor on our behalf. Dolby only has access to the last four digits of your payment card and the expiration date. 
+</p>
+<h4>Data Collected By Automated Means</h4>
+<p>When you access the Services, we may obtain certain information by automated means. The information we obtain in this manner may include information about how you interact with our Services, the IP address of your computer and/or Internet service provider, identifiers associated with your devices, the date and time you access our Services, the Internet address of websites from which you link to our Services, the computer technology you are using, and your interactions with and preferences on our Services. To collect this information, we use technology such as browser cookies, web beacons, device identifiers, server logs, and other similar technologies. You can learn more about these technologies and how to manage your preferences by visiting our <a href="/us/en/about/privacy/cookie-policy.html">Cookie Policy</a>.</p>
+<p>We may automatically obtain analytics information relating to products you purchase from us, such as usage statistics, the type of devices you connect to your product, dates and times of app visits, and technical information about your product.</p>
+<p>We also may obtain other information about you, your devices and apps, and your use of our Services, in ways that we describe at the time of collection or otherwise with your consent. 
+</p>
+<h2><a style="color: inherit; text-decoration: none;" name="how-we-use-the-information-we-obtain">How We Use the Information We Obtain</a></h2>
+<p>We may use the information we obtain about you to:</p>
+<ul class="content">
+<li>Provide and update our products and services;</li>
+<li>Process and fulfill claims and orders in connection with our Services and keep you informed about the status of your order;</li>
+<li>Personalize your experience with our products and services;</li>
+<li>Establish and manage your Dolby account and profile;</li>
+<li>Communicate about and administer our products, services, events, surveys, programs and promotions (such as by sending alerts, promotional materials, newsletters and other marketing communications, and by providing customer support);</li>
+<li>Facilitate your interaction with certain third-party services as described below;</li>
+<li>Track and understand how you use and interact with our products and services;</li>
+<li>Perform analytics (including market and consumer research, trend analysis, financial analysis, and anonymization and aggregation of personal information);</li>
+<li>Operate, evaluate, develop, manage and improve our business (including operating, administering, analyzing and improving our products and services; developing new products and services; managing and evaluating the effectiveness of our communications; and performing accounting, auditing, billing reconciliation and collection activities and other internal functions);</li>
+<li>Increase and maintain the safety and security of our products and services and prevent misuse;</li>
+<li>Protect against, identify and prevent fraud and other criminal activity, claims and other liabilities; and</li>
+<li>Comply with and enforce applicable legal requirements, relevant industry standards and policies, including this Policy, our Terms of Use and other terms and conditions associated with our Services.</li>
+</ul>
+<br /><p>As required by applicable law, we use the personal information we obtain about you to comply with relevant legal requirements, carry out our contractual obligations and, as permitted by law, pursue our legitimate interests (such as managing our Services and operating, evaluating and improving our business), or we obtain consent to process personal information. We also may use personal information in other ways for which we provide specific notice at the time of collection. You are not required to provide to Dolby any of the personal information described above but, if you choose not to do so, you may not be able to receive any of the products and services described above, access certain parts of our Services, participate in our promotions, or receive information from us that you have requested. We may combine information we obtain about you (such as through our Services or from third parties) for the purposes described above.</p>
+<h3><a style="color: inherit; text-decoration: none;" name="third-party-analytics-services">Third-Party Analytics Services</a></h3>
+<p>We may use third-party web analytics tools on our Services, such as Google Analytics, OpinionLab, Brightedge, Facebook, DoubleClick, Twitter and YouTube. The service providers that administer these tools use automated technologies to collect data (such as identifiers associated with your device) to evaluate use of our Services. To learn more about Google Analytics, and how to opt out, please visit <a href="http://www.google.com/policies/privacy/partners/" target="_blank">http://www.google.com/policies/privacy/partners/</a>, or any other URL that Google may provide from time to time.</p>
+<h3><a style="color: inherit; text-decoration: none;" name="online-tracking-and-interest-based-advertising">Online Tracking and Interest-Based Advertising</a></h3>
+<p>You may see our ads on other websites or mobile apps because we participate in advertising networks (“ad networks”). Ad networks allow us to target our messaging to users considering individuals’ interests, demographics data, and browsing context. This process also helps us track the effectiveness of our marketing efforts.</p>
+<p>In order to provide you with tailored advertising, we may collect information about your online activities. This data collection takes place both on our Services and by certain third parties on the third-party websites and apps that participate in ad networks.</p>
+<p>The information our ad networks may collect includes data about users’ visits to websites and apps that participate in the relevant ad networks, such as the pages or ads viewed, and the actions taken on the websites or apps. These networks also track users’ online activities across multiple websites and apps over time to build a profile of users’ online browsing and app usage activities.</p>
+<p>Ad networks collect information through automated means, including through the use of browser cookies, Flash cookies, web beacons, device identifiers, server logs, web beacons and other similar technologies.
+</p>
+<p>To learn how to opt out of ad network interest-based advertising in the U.S., please visit <a href="http://www.aboutads.info/choices/" target="_blank">www.aboutads.info/choices</a> and <a href="http://www.networkadvertising.org/choices/" target="_blank">http://www.networkadvertising.org/choices/</a>. In the European Union, please visit <a href="http://www.youronlinechoices.eu/" target="_blank">www.youronlinechoices.eu</a>, and in Canada, visit <a href="http://www.youradchoices.ca/choices" target="_blank">http://www.youradchoices.ca/choices</a>. Our <a href="/us/en/about/privacy/cookie-policy.html">Cookie Policy</a> provides details about the purposes of this data collection via cookies and other technologies and how to exercise your choices (such as changing your cookie preferences).</p>
+<h2><a style="color: inherit; text-decoration: none;" name="information-sharing">Information Sharing</a></h2>
+<p>We do not sell or otherwise share personal information about you except as described in this Policy. We may share your personal information with (1) our affiliates and subsidiaries and (2) our service providers who perform services on our behalf, such as order fulfillment and data storage. We do not authorize our service providers to use or disclose the information except as necessary to perform services on our behalf or comply with legal requirements.</p>
+<p>When you use our Services to access or interact with third-party apps and services, we may send certain personal information to these third parties to provide you with the services you request. These third parties also may collect certain personal information directly from your devices. Please see the “Other Online Services and Third-Party Features” section below for additional information on the use of these services.</p>
+<p>If you choose to post a product review on the Services, the content you post along with your first name and last initial will be displayed on the Services and will be viewable by other users. We are not responsible for other users’ use of available information, so you should carefully consider whether and what to post or how you identify yourself on the Services. You may delete your product reviews at any time by contacting <a href="mailto:productsupport@dolby.com">productsupport@dolby.com</a>.</p>
+<p>We also may disclose information about you (1) if we are required to do so by law or legal process (such as a court order or subpoena); (2) in response to requests by government agencies, such as law enforcement authorities; (3) to establish, exercise or defend our legal rights; (4) when we believe disclosure is necessary or appropriate to prevent physical or other harm or financial loss; (5) in connection with an investigation of suspected or actual illegal activity; or (6) otherwise with your consent.</p>
+<p>We reserve the right to transfer any information we have about you in the event we sell or transfer all or a portion of our business or assets (including in the event of a merger, acquisition, joint venture, reorganization, divestiture, dissolution or liquidation).
+</p>
+<h2><a style="color: inherit; text-decoration: none;" name="data-transfers">Data Transfers</a></h2>
+<p>We may transfer the personal information we obtain about you to the United States, which may have different data protection laws than the country in which you initially provided the information. To the extent required by applicable law, when we transfer your personal information to recipients in the U.S., we will take measures to protect that information. </p>
+<p>If you are located outside the U.S., by submitting personal information to us, you understand that this information will be transferred to Dolby in the U.S. If you do not want your personal information transferred to the U.S., please do not submit any information to us.</p>
+<p>If you are located in the European Economic Area (“EEA”) or Switzerland, we will comply with applicable legal requirements providing adequate protection for the transfer of personal information to recipients in countries outside the EEA or Switzerland.
+</p>
+<h2><a style="color: inherit; text-decoration: none;" name="your-choices">Your Choices</a></h2>
+<p>We offer you certain choices in connection with the personal information we obtain about you. To update your preferences, correct your information, limit the communications you receive from us, or submit a request, please contact us as specified in the <a href="#how-to-contact-us">How to Contact Us</a> section of this Policy. To opt out of receiving further commercial emails or to unsubscribe from Services, please contact us at unsubscribe (at) dolby.com.</p>
+<p>You can manage how your mobile device shares certain device data by adjusting the privacy and security settings on your mobile device. Some Dolby apps allow you to opt out of the sharing of analytics data with Dolby. Please visit your app settings.</p>
+<p>As required by law, you may have the right to (1) request access to certain personal information we maintain about you; (2) request that we update, correct, amend, erase or restrict certain personal information; and (3) exercise your right to data portability. To exercise these rights, please contact us as indicated in the <a href="#how-to-contact-us">How to Contact Us</a> section of this Policy. Depending on your location, you may have the right to file a complaint with a government regulator if you are not satisfied with our response. Where provided by law, you may withdraw any consent you previously provided to us or object at any time to the processing of your personal information on legitimate grounds relating to your particular situation, and we will apply your preferences going forward as appropriate. To help protect your privacy and maintain security, we may take steps to verify your identity before granting you access to the information. To the extent permitted by applicable law, a charge may apply before we provide you with a copy of any of your personal information that we maintain.</p>
+<p>Our <a href="/us/en/about/privacy/cookie-policy.html">Cookie Policy</a> provides information about how you can manage your cookie preferences and the choices you can make in connection with the personal information we collect about you through cookies.</p>
+<p>We currently do not respond to “Do Not Track” signals.</p>
+<h2><a style="color: inherit; text-decoration: none;" name="other-online-services-and-third-party-features">Other Online Services and Third-Party Features</a></h2>
+<p>Our Services may provide links to other online services for your convenience and information, and may include third-party features such as apps, tools, widgets and plug-ins. These online services and third-party features may operate independently from us. The privacy practices of the relevant third parties, including details on the information they may collect about you, is subject to the privacy statements of these parties, which we strongly suggest you review. To the extent any linked or embedded online services or third-party features are not owned or controlled by us, Dolby is not responsible for these third parties’ information practices.</p>
+<h2><a style="color: inherit; text-decoration: none;" name="how-we-protect-personal-information">How We Protect Personal Information</a></h2>
+<p>We maintain administrative, technical and physical safeguards designed to protect personal information against accidental, unlawful or unauthorized destruction, loss, alteration, access, disclosure or use.</p>
+<h2><a style="color: inherit; text-decoration: none;" name="retention-of-personal-information">Retention of Personal Information</a></h2>
+<p>To the extent permitted by applicable law, we retain personal information we obtain about you as long as (1) it is needed for the purposes for which we obtained it, in accordance with the provisions of this Policy or (2) we have another lawful basis for retaining that data beyond the period for which it is necessary to serve the original purpose for collecting the data.</p>
+<h2><a style="color: inherit; text-decoration: none;" name="notice-to-california-residents">Notice to California Residents</a></h2>
+<p>Subject to certain limitations under California Civil Code § 1798.83, California residents may ask us to provide them with (i) a list of certain categories of personal information that we have disclosed to third parties for their direct marketing purposes during the immediately preceding calendar year, and (ii) the identity of those third parties. To make this request, California residents may contact us as specified in the “How to Contact Us” section below.</p>
+<h2><a style="color: inherit; text-decoration: none;" name="childrens-personal-information">Children’s Personal Information</a></h2>
+<p>We recognize the importance of protecting children's online privacy. Dolby’s Services are intended for a general audience and are not directed to children. We do not knowingly collect personal information online from children under the age of 13. If we become aware that we have collected personal information from a child under the age of 13, we will promptly delete the information from our records. If you believe that a child under the age of 13 may have provided us with personal information, please contact us as specified in the <a href="#how-to-contact-us">How to Contact Us</a> section of this Policy. </p>
+<h2><a style="color: inherit; text-decoration: none;" name="updates-to-our-global-privacy-policy">Updates to Our Global Privacy Policy</a></h2>
+<p>This Policy may be updated periodically to reflect changes in our personal information practices. We will indicate at the top of the Policy when it was most recently updated.  </p>
+<h2><a style="color: inherit; text-decoration: none;" name="how-to-contact-us">How to Contact Us</a></h2>
+<p>If you have any questions about this Policy, or if you would like to exercise your rights, please feel free to send us an email, or write to <a href="mailto:privacy@dolby.com">Privacy@dolby.com</a>, or to:</p>
+<p><strong>Dolby Laboratories, Inc.<br />
+    Attn: Privacy – Legal<br />
+    1275 Market Street<br />
+    San Francisco, CA 94103-1410<br />
+    USA</strong></p>
+<p>Residents of the European Union may write to:
+    </p>
+<p><strong>Dolby Europe Limited<br />
+    Attn: Legal EMEA<br />
+    4-6 Soho Square<br />
+    London W1D 3PZ<br />
+    United Kingdom
+</strong></p>
+                </div>
+            </div>
+        </section>
+        <script>
+            require(["js/common"], function () {
+                require(["require/index"], function () {
+                    require();
+                    require(["secondary/dolby-scrolltotop"]);
+                });
+            });
+
+        </script>
+    
+                    </div>
+                </div>
+            
+	</div>
+    
+                                            </li>
+                                        
+                                </ul>
+                            </div>
+                        
+                </div>
+            
+</div>
+    
+                </div>
+                <div class="gutter span4">
+                    
+        <div id="ctl00_ctl00_MasterContentPlaceHolder_MainContentPlaceHolder_RightColDropZone_uxUpdatePanel" class="">
+	
+                <div id="ctl00_ctl00_MasterContentPlaceHolder_MainContentPlaceHolder_RightColDropZone_uxDropZone" data-ux-pagebuilder="DropZone">
+                    
+                            <div data-ux-pagebuilder="Column">
+                                
+                                <ul>
+                                    
+                                            <li>
+                                                
+        <div id="ctl00_ctl00_MasterContentPlaceHolder_MainContentPlaceHolder_RightColDropZone_uxColumnDisplay_ctl00_uxControlColumn_ctl00_uxWidgetHost_uxUpdatePanel">
+		
+                <div data-ux-pagebuilder="Widget">
+                    
+                    <div class="widgetBody">
+                        
+        <link rel="stylesheet" href="/css/modules/c7-gutter-list.css" />
+        
+        <section class="c7-gutter-list">
+            <div class="container">
+                <h2 class='t8 title'>Cookie Policy</h2>
+                <ul>
+                    
+                            <li class="p5">
+                                <a href="/us/en/about/privacy/cookie-policy.html" target="">
+                                    <span>Read More</span>
+                                    <i class="fonticon-10-chevron-sm"></i>
+                                </a>
+                            </li>
+                        
+                </ul>
+            </div>
+        </section>
+        <script>
+            require(["js/common"], function () {
+                require(["require/index"], function () {
+                    require();
+                    require(["secondary/dolby-scrolltotop"]);
+                });
+            });
+
+        </script>
+    
+                    </div>
+                </div>
+            
+	</div>
+    
+                                            </li>
+                                        
+                                </ul>
+                            </div>
+                        
+                </div>
+            
+</div>
+    
+                    
+        <div id="ctl00_ctl00_MasterContentPlaceHolder_MainContentPlaceHolder_RightLockedDropZone_uxUpdatePanel" class="">
+	
+                <div id="ctl00_ctl00_MasterContentPlaceHolder_MainContentPlaceHolder_RightLockedDropZone_uxDropZone" data-ux-pagebuilder="DropZone">
+                    
+                            <div data-ux-pagebuilder="Column">
+                                
+                                <ul>
+                                    
+                                </ul>
+                            </div>
+                        
+                </div>
+            
+</div>
+    
+                </div>
+            </div>
+        </div>
+    </section>
+    
+        <div id="ctl00_ctl00_MasterContentPlaceHolder_MainContentPlaceHolder_FooterDropZone_uxUpdatePanel" class="">
+	
+                <div id="ctl00_ctl00_MasterContentPlaceHolder_MainContentPlaceHolder_FooterDropZone_uxDropZone" data-ux-pagebuilder="DropZone">
+                    
+                            <div data-ux-pagebuilder="Column">
+                                
+                                <ul>
+                                    
+                                </ul>
+                            </div>
+                        
+                </div>
+            
+</div>
+    
+    
+        <div id="ctl00_ctl00_MasterContentPlaceHolder_MainContentPlaceHolder_LockedDropZone_uxUpdatePanel" class="">
+	
+                <div id="ctl00_ctl00_MasterContentPlaceHolder_MainContentPlaceHolder_LockedDropZone_uxDropZone" data-ux-pagebuilder="DropZone">
+                    
+                            <div data-ux-pagebuilder="Column">
+                                
+                                <ul>
+                                    
+                                </ul>
+                            </div>
+                        
+                </div>
+            
+</div>
+    
+    <script>
+        var $firstUL = $('.c0-content-container.marginless-top.background-color-gray90 ul li').first();
+        if ($firstUL.length === 0) {
+            var $target = $('.c0-content-container.marginless-top.background-color-gray90');
+            $target.removeClass('background-color-gray90');
+        }
+     </script>
+
+        <div class="scroll-to-top container opacity0 false"><a href="#"><i class="fonticon-10-chevron-up"></i></a></div>
+        <div class="n2-footer noise relative">
+            
+
+<div class="background-image">
+    <div data-src-desktop="/img/n2-footer/footer-bokeh.jpg" data-src-tablet="/img/n2-footer/footer-bokeh.jpg" data-src-phone="/img/n2-footer/footer-bokeh.jpg" data-src-desktop-highres="/img/n2-footer/footer-bokeh.jpg" data-src-tablet-highres="/img/n2-footer/footer-bokeh.jpg" data-src-phone-highres="/img/n2-footer/footer-bokeh.jpg" class="iq-img bg-bokeh"></div>
+</div>
+<section id="footer-wrapper" class="container full-bleed-no-max m-full-bleed footer-wrapper phone-at-568 ">
+    <div id="ctl00_ctl00_MasterContentPlaceHolder_ucUpperFooter1_upper" class="container full-bleed-at-568">
+        <div class="grid grid-footer no-grid-at-568 footer-top">
+            <div role='navigation' class='span3 mobile-container-padded'><div class='footer-mobile-section'><p class='t7 footer-section-title'><i class='fonticon-40-dolby-full dolby-full-icon-fix'></i>&nbsp;<i class='fonticon-10-plus-skinny visible-phone'></i></p><ul class='footer-links-list'><li class='footer-link-li'><a title='Dolby Dimension' href='/dimension/index.html' class='p5'><span>Dolby Dimension</span></a></li><li class='footer-link-li'><a title='Cinema' href='/us/en/cinema/index.html' class='p5'><span>Cinema</span></a></li><li class='footer-link-li'><a title='Home Theater' href='/us/en/home/index.html' class='p5'><span>Home Theater</span></a></li><li class='footer-link-li'><a title='Mobile' href='/us/en/mobile/index.html' class='p5'><span>Mobile</span></a></li><li class='footer-link-li'><a title='Office' href='/us/en/work/index.html' class='p5'><span>Office</span></a></li></ul></div></div><div role='navigation' class='span3 mobile-container-padded'><div class='footer-mobile-section'><p class='t7 footer-section-title'><span>Professionals</span><i class='fonticon-10-plus-skinny visible-phone'></i></p><ul class='footer-links-list'><li class='footer-link-li'><a title='AV Installers and Retailers' href='/us/en/professional/av-installers/industry.html' class='p5'><span>AV Installers and Retailers</span></a></li><li class='footer-link-li'><a title='Broadcast' href='/us/en/professional/broadcast/industry.html' class='p5'><span>Broadcast</span></a></li><li class='footer-link-li'><a title='Cinema' href='/us/en/professional/cinema/industry.html' class='p5'><span>Cinema</span></a></li><li class='footer-link-li'><a title='Content Creation' href='/us/en/professional/content-creation/industry.html' class='p5'><span>Content Creation</span></a></li><li class='footer-link-li'><a title='Content Services' href='/us/en/professional/cinema/industry/content-services.html' class='p5'><span>Content Services</span></a></li><li class='footer-link-li'><a title='Game Development' href='/us/en/professional/games/industry.html' class='p5'><span>Game Development</span></a></li><li class='footer-link-li'><a title='PC' href='/us/en/professional/pc/industry.html' class='p5'><span>PC</span></a></li><li class='footer-link-li'><a title='Streaming' href='/us/en/professional/streaming/industry.html' class='p5'><span>Streaming</span></a></li></ul></div></div><div role='navigation' class='span3 mobile-container-padded'><div class='footer-mobile-section'><p class='t7 footer-section-title'><span>Who We Are</span><i class='fonticon-10-plus-skinny visible-phone'></i></p><ul class='footer-links-list'><li class='footer-link-li'><a title='Leadership' href='/us/en/about/leadership/senior-management-officers.html' class='p5'><span>Leadership</span></a></li><li class='footer-link-li'><a title='Worldwide Offices' href='/us/en/about/contact-us/dolby-offices-worldwide.html' class='p5'><span>Worldwide Offices</span></a></li><li class='footer-link-li'><a title='Dolby Cares' href='/us/en/about/dolby-cares.html' class='p5'><span>Dolby Cares</span></a></li><li class='footer-link-li'><a title='Environmental Commitment' href='/us/en/about/environmental-commitment.html' class='p5'><span>Environmental Commitment</span></a></li><li class='footer-link-li'><a title='Brand Identity' href='/us/en/about/brand-identity.html' class='p5'><span>Brand Identity</span></a></li></ul></div><div class='footer-mobile-section'><p class='t7 footer-section-title'><span>Careers</span><i class='fonticon-10-plus-skinny visible-phone'></i></p><ul class='footer-links-list'><li class='footer-link-li'><a title='Working at Dolby' href='/us/en/about/careers/landing.html' class='p5'><span>Working at Dolby</span></a></li></ul></div></div><div role='navigation' class='span3 mobile-container-padded'><div class='footer-mobile-section'><p class='t7 footer-section-title'><span>News</span><i class='fonticon-10-plus-skinny visible-phone'></i></p><ul class='footer-links-list'><li class='footer-link-li'><a title='Press Releases' href='/us/en/about/news-and-events/press-releases.html' class='p5'><span>Press Releases</span></a></li><li class='footer-link-li'><a title='Newsroom' href='/news/index.html' class='p5'><span>Newsroom</span></a></li></ul></div><div class='footer-mobile-section'><p class='t7 footer-section-title'><span>Investors</span><i class='fonticon-10-plus-skinny visible-phone'></i></p><ul class='footer-links-list'><li class='footer-link-li'><a title='Company Financials' href='/us/en/about/investors/company-financials.html' class='p5'><span>Company Financials</span></a></li><li class='footer-link-li'><a title='Corporate Governance' href='/us/en/about/investors/corporate-governance.html' class='p5'><span>Corporate Governance</span></a></li><li class='footer-link-li'><a title='Stock Information' href='/us/en/about/investors/stock-information.html' class='p5'><span>Stock Information</span></a></li><li class='footer-link-li'><a title='Investor Resources' href='/us/en/about/investors/investor-resources.html' class='p5'><span>Investor Resources</span></a></li></ul></div></div>
+            <div class="footer-ex clearfix"></div>
+        </div>
+    </div>
+    
+
+<footer class="container full-bleed-no-max m-full-bleed footer-signature-w mobile-container-padded">
+    <div class="container full-bleed-at-568">
+        <div class="links-region no-grid-at-767 grid clearfix">
+            <div class="span6 footer-region mobile-container-padded">
+                <p class="p6 region-content">Region :</p>
+                <span class="langDropdown">
+                    <select name="ctl00$ctl00$MasterContentPlaceHolder$ucUpperFooter1$ucLowerFooter1$source" id="ctl00_ctl00_MasterContentPlaceHolder_ucUpperFooter1_ucLowerFooter1_source" class="dlsource">
+	<option value="/georedirect.aspx?r=www.dolby.com&amp;cc=br&amp;lc=pt&amp;lid=1046">Brasil</option>
+	<option value="/georedirect.aspx?r=www.dolby.com&amp;cc=cn&amp;lc=cn&amp;lid=2052">中国</option>
+	<option value="/georedirect.aspx?r=www.dolby.com&amp;cc=fr&amp;lc=fr&amp;lid=1036">France</option>
+	<option value="/georedirect.aspx?r=www.dolby.com&amp;cc=de&amp;lc=de&amp;lid=1031">Deutschland</option>
+	<option value="/georedirect.aspx?r=www.dolby.com&amp;cc=in&amp;lc=en&amp;lid=16393">India</option>
+	<option value="/georedirect.aspx?r=www.dolby.com&amp;cc=it&amp;lc=it&amp;lid=1040">Italia</option>
+	<option value="/georedirect.aspx?r=www.dolby.com&amp;cc=jp&amp;lc=jp&amp;lid=1041">日本</option>
+	<option value="/georedirect.aspx?r=www.dolby.com&amp;cc=kr&amp;lc=ko&amp;lid=1042">대한민국</option>
+	<option value="/georedirect.aspx?r=www.dolby.com&amp;cc=es&amp;lc=es&amp;lid=1034">Espa&#241;a</option>
+	<option value="/georedirect.aspx?r=www.dolby.com&amp;cc=EC&amp;lc=es&amp;lid=12298">Latinoam&#233;rica</option>
+	<option value="/georedirect.aspx?r=www.dolby.com&amp;cc=ru&amp;lc=ru&amp;lid=1049">Россия</option>
+	<option selected="selected" value="/georedirect.aspx?r=www.dolby.com&amp;cc=en&amp;lc=en&amp;lid=1033">United States</option>
+</select>
+                </span>
+                <div class="footer-ex clearfix"></div>
+            </div>
+            <div role="navigation" class="span6 footer-contact mobile-container-padded">
+                <p class="p5">
+                    <a title='' href='/us/en/index.html' class='dolby-icon p5'><i class='fonticon-30-dolby dolby-fix'></i></a><a title='Support' href='/us/en/support.html' class='p5'><span>Support</span></a><span>|</span><a title='EU Funding' href='/us/en/about/european-union-funding-poland.html' class='p5'><span>EU Funding</span></a><span>|</span><a title='Privacy Policy' href='/us/en/about/privacy/privacy-policy.html' class='p5'><span>Privacy Policy</span></a><span>|</span><a title='Cookie Policy' href='/us/en/about/privacy/cookie-policy.html' class='p5'><span>Cookie Policy</span></a><span>|</span><a title='Terms of Use' href='/us/en/about/terms-of-use.html' class='p5'><span>Terms of Use</span></a>
+                </p>
+            </div>
+        </div>
+        <div class="signature grid no-grid-at-767 clearfix">
+            <div class="span4 footer-social-links">
+                <a href='https://www.facebook.com/dolby' title='Facebook' target='_blank' class='btn-social facebook'><i class='old-ie-cleartype-fix-gray05 fonticon-15-facebook-sm'></i><span class='visuallyhidden'>Facebook</span></a><a href='https://twitter.com/dolby' title='Twitter' target='_blank' class='btn-social twitter'><i class='old-ie-cleartype-fix-gray05 fonticon-15-twitter'></i><span class='visuallyhidden'>Twitter</span></a><a href='https://www.linkedin.com/company/6229' title='LinkedIn' target='_blank' class='btn-social linkedin'><i class='old-ie-cleartype-fix-gray05 fonticon-15-linkedin'></i><span class='visuallyhidden'>LinkedIn</span></a><a href='https://www.youtube.com/user/DolbyInsider' title='YouTube' target='_blank' class='btn-social youtube'><i class='old-ie-cleartype-fix-gray05 fonticon-15-youtube'></i><span class='visuallyhidden'>YouTube</span></a><a href='https://instagram.com/dolbylabs' title='Instagram' target='_blank' class='btn-social instagram'><i class='old-ie-cleartype-fix-gray05 fonticon-15-instagram'></i><span class='visuallyhidden'>Instagram</span></a><a href='https://vimeo.com/dolby' title='Vimeo' target='_blank' class='btn-social vimeo'><i class='old-ie-cleartype-fix-gray05 fonticon-15-vimeo'></i><span class='visuallyhidden'>Vimeo</span></a>
+            </div>
+            <div class="span8 footer-signature">
+                <div id="ctl00_ctl00_MasterContentPlaceHolder_ucUpperFooter1_ucLowerFooter1_ContentBlock1">
+	<span class="footer-copyright">Dolby and the double-D symbol are registered trademarks of Dolby Laboratories. All other trademarks remain the property of their respective owners. © 2018 Dolby Laboratories, Inc. All rights reserved.</span>
+</div>
+            </div>
+            <div class="footer-ex clearfix"></div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            createDropDown();
+            $(".langDropdown a").click(function () {
+                if ($(this).parent().hasClass('open in')) {
+                    $(this).parent().removeClass('open in');
+                    $(this).parent().find('.dropdown-menu').css('display', 'none');
+                }
+                else {
+                    $(this).parent().addClass('open in');
+                    $(this).parent().find('.dropdown-menu').css('display', 'block');
+                }
+            });
+            $(document).bind('click', function (e) {
+                var $clicked = $(e.target);
+                if (!$clicked.parents().hasClass("langDropdown"))
+                    $(".langDropdown ul").hide();
+            });
+        });
+
+        function createDropDown() {
+            var source = $(".dlsource");
+            var selected = source.find("option[selected]");
+            var options = $("option", source);
+
+            $(".langDropdown").append('<a class="btn dropdown-toggle"><span class="js-toggle-text">' + selected.text() + '</span><i class="fonticon-10-chevron-up"></i></a>')
+            $(".langDropdown").append('<ul role="menu" class="dropdown-menu"></ul>')
+
+            options.each(function () {
+                $(".langDropdown ul").append('<li><a href="' + $(this).val() + '">' +
+                    $(this).text() + '</a></li>');
+            });
+
+            // remove the old <select> now that we've built our new ul
+            $('select.dlsource').css('display', 'none');
+        }
+    </script>
+</footer>
+
+</section>
+<script>
+    require(["js/common"], function () {
+        require(["require/index"], function () {
+            require(["modules/n2-footer/index"]);
+            require(["secondary/dolby-scrolltotop"]);
+        });
+    });
+
+</script>
+
+        </div>
+    </div>
+
+            </div>
+        </div>
+        
+    
+
+
+        <!--[if lt IE 9]>
+            <script src="js/libs/polyfill/selectivizr-1.0.3b.js"></script>
+        <![endif]
+-->
+        <!--[if (gt IE 9)|!(IE)]><!-->
+        <link rel="stylesheet" href="/css/responsive-modules.css" />
+        <!--<![endif]-->
+        
+        
+    </form>
+    <script>
+        require(["js/common"], function () {
+            require(["require/index"], function () {
+                require(["modules/n1-top-header/index"]);
+                require(["secondary/dolby-scrolltotop"]);
+            });
+        });
+        $(document).ready(function () {
+			<!--WEBNET-182 Hiding the language drop down on One Page Regional Dolby Cinema Pages based on URL -->
+			var curUrl = $(location).attr('href');
+            if (curUrl.indexOf('/ae/en/platforms/dolby-cinema.html') != -1
+                || curUrl.indexOf('/nl/nl/platforms/dolby-cinema.html') != -1
+                    || curUrl.indexOf('/at/de/platforms/dolby-cinema.html') != -1) {
+                $(".span6.footer-region").hide();
+                $(".grid.grid-footer").hide();
+				//$(".links-region").hide();
+            }
+			<!--WEBNET-182 Ends here -->
+			<!--WEBNET-61 Hiding the upper footer links for Medium Sites -->
+	if (       curUrl.indexOf('/fr/fr/') != -1
+                    || curUrl.indexOf('/br/pt/') != -1
+                    || curUrl.indexOf('/xl/es/') != -1
+                    || curUrl.indexOf('/ru/ru/') != -1
+                    || curUrl.indexOf('/de/de/') != -1
+                    || curUrl.indexOf('/it/it/') != -1
+                    || curUrl.indexOf('/es/es/') != -1
+                )
+            {
+                $(".grid.grid-footer").hide();
+            }
+
+	<!--WEBNET-61 Ends here -->
+            $('body').on('click', '.jumpLoc', function (e) {
+                e.preventDefault();
+                var loc = $(this).attr('href');
+                if (loc.indexOf('#') != -1) {
+                    loc = loc.replace('#', '');
+                }
+                $('html,body').animate({ scrollTop: $('a[name=' + loc + ']').offset().top }, 'slow');
+            });
+        });
+    </script>
+</body>
+</html>

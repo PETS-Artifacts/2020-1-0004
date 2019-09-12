@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+
+<!--[if lt IE 7]>   <html class="ie6 ie" lang="en"> <![endif]-->
+<!--[if IE 7]>      <html class="ie7 ie" lang="en"> <![endif]-->
+<!--[if IE 8]>      <html class="ie8 ie" lang="en"> <![endif]-->
+<!--[if IE]>        <html class="ie" lang="en">     <![endif]-->
+<!--[if !IE]><!-->  <html lang="en">              <!--<![endif]-->
+<!-- MasterPage master: ~/Components/MasterPages/Inner.master -->
+<head><script type="text/javascript"><!--
+
+var ua = navigator.userAgent;
+window.isIOS = (ua.match(/iPhone/i) || ua.match(/iPad/i));
+window.isiPhone = (ua.match(/iPhone/i));
+window.isiPad = (ua.match(/iPad/i));
+window.isMobile = ua.match(/ipad/i)
+	|| ua.match(/ipod/)
+	|| ua.match(/iphone/i)
+	|| ua.match(/android/i)
+	|| ua.match(/opera mini/i)
+	|| ua.match(/blackberry/i)
+	|| ua.match(/(pre\/|palm os|palm|hiptop|avantgo|plucker|xiino|blazer|elaine)/i)
+	|| ua.match(/(iris|3g_t|windows ce|opera mobi|windows ce; smartphone;|windows ce; iemobile)/i)
+	|| ua.match(/(mini 9.5|vx1000|lge |m800|e860|u940|ux840|compal|wireless| mobi|ahong|lg380|lgku|lgu900|lg210|lg47|lg920|lg840|lg370|sam-r|mg50|s55|g83|t66|vx400|mk99|d615|d763|el370|sl900|mp500|samu3|samu4|vx10|xda_|samu5|samu6|samu7|samu9|a615|b832|m881|s920|n210|s700|c-810|_h797|mob-x|sk16d|848b|mowser|s580|r800|471x|v120|rim8|c500foma:|160x|x160|480x|x640|t503|w839|i250|sprint|w398samr810|m5252|c7100|mt126|x225|s5330|s820|htil-g1|fly v71|s302|-x113|novarra|k610i|-three|8325rc|8352rc|sanyo|vx54|c888|nx250|n120|mtk |c5588|s710|t880|c5005|i;458x|p404i|s210|c5100|teleca|s940|c500|s590|foma|samsu|vx8|vx9|a1000|_mms|myx|a700|gu1100|bc831|e300|ems100|me701|me702m-three|sd588|s800|8325rc|ac831|mw200|brew |d88|htc\/|htc_touch|355x|m50|km100|d736|p-9521|telco|sl74|ktouch|m4u\/|me702|8325rc|kddi|phone|lg |sonyericsson|samsung|240x|x320|vx10|nokia|sony cmd|motorola|up.browser|up.link|mmp|symbian|smartphone|midp|wap|vodafone|o2|pocket|kindle|mobile|psp|treo)/i);
+window.isTablet =window.isiPad
+    || ua.match(/tablet/)
+	|| ua.match(/^.*Android.*Nexus(((?:(?!Mobile))|(?:(\s(7|10).+))).)*$/)
+	|| ua.match(/SAMSUNG.*Tablet|Galaxy.*Tab|SC-01C|GT-P1000|GT-P1003|GT-P1010|GT-P3105|GT-P6210|GT-P6800|GT-P6810|GT-P7100|GT-P7300|GT-P7310|GT-P7500|GT-P7510|SCH-I800|SCH-I815|SCH-I905|SGH-I957|SGH-I987|SGH-T849|SGH-T859|SGH-T869|SPH-P100|GT-P3100|GT-P3108|GT-P3110|GT-P5100|GT-P5110|GT-P6200|GT-P7320|GT-P7511|GT-N8000|GT-P8510|SGH-I497|SPH-P500|SGH-T779|SCH-I705|SCH-I915|GT-N8013|GT-P3113|GT-P5113|GT-P8110|GT-N8010|GT-N8005|GT-N8020|GT-P1013|GT-P6201|GT-P7501|GT-N5100|GT-N5110|SHV-E140K|SHV-E140L|SHV-E140S|SHV-E150S|SHV-E230K|SHV-E230L|SHV-E230S|SHW-M180K|SHW-M180L|SHW-M180S|SHW-M180W|SHW-M300W|SHW-M305W|SHW-M380K|SHW-M380S|SHW-M380W|SHW-M430W|SHW-M480K|SHW-M480S|SHW-M480W|SHW-M485W|SHW-M486W|SHW-M500W|GT-I9228|SCH-P739|SCH-I925/)
+	|| ua.match(/Kindle|Silk.*Accelerated|Android.*\b(KFTT|KFOTE)\b/)
+	|| ua.match(/Windows NT [0-9.]+; ARM;/)
+	|| ua.match(/Transformer|TF101|PadFone|ME301T|ME371MG/)
+	|| ua.match(/PlayBook|RIM Tablet/)
+	|| ua.match(/HTC Flyer|HTC Jetstream|HTC-P715a|HTC EVO View 4G|PG41200/)
+    || ua.match(/xoom|sholest|MZ615|MZ605|MZ505|MZ601|MZ602|MZ603|MZ604|MZ606|MZ607|MZ608|MZ609|MZ615|MZ616|MZ617/)
+	|| ua.match(/Android.*Nook|NookColor|nook browser|BNRV200|BNRV200A|BNTV250|BNTV250A|LogicPD Zoom2/)
+	|| ua.match(/Android.*\b97D\b|Tablet(?!.*PC)|ViewPad7|BNTV250A|MID-WCDMA|LogicPD Zoom2|\bA7EB\b|CatNova8|A1_07|CT704|CT1002|\bM721\b|hp-tablet|rk30sdk/);
+
+
+function readcookie (key, options)
+{
+    // key and possibly options given, get cookie...
+    options = options || {};
+    var result, decode = options.raw ? function (s) { return s; } : decodeURIComponent;
+    return (result = new RegExp('(?:^|; )' + encodeURIComponent(key) + '=([^;]*)').exec(document.cookie)) ? decode(result[1]) : null;
+};
+
+var mobswitchingdisabled = readcookie('mobswitchingdisabled');
+
+if (window.isMobile && !window.isTablet && !mobswitchingdisabled) {
+    location.href = 'http://m.tottenhamhotspur.com/information/privacy-policy/';
+}
+
+//--></script><meta http-equiv="X-UA-Compatible" content="IE=edge" /><link rel="stylesheet" type="text/css" media="all" href="/WorkArea/FrameworkUI/css/ektron.stylesheet.ashx?id=587725940+-299988140+975973089+1514748663+-1510701721+-1759591071+395185562+-164328284+-893698887+903749141+-491600734+137309523+-29775248" /><link rel="stylesheet" type="text/css" media="print" href="/WorkArea/FrameworkUI/css/ektron.stylesheet.ashx?id=107513038" /><script type="text/javascript" src="/WorkArea/FrameworkUI/js/ektron.javascript.ashx?id=-1028355414+1948574407+702653030+-2102521468+-10828826+1328095523+-744922478+1077454793+289526501+-1884344366+-930413265+-1253165105+1617524923+287753462+1025286258"></script><script type="text/javascript" src="/components/handlers/share.ashx"></script><script type="text/javascript" src="/WorkArea/FrameworkUI/js/ektron.javascript.ashx?id=1574546025+-1572948616+1208878718"></script><script type="text/javascript" src="http://imagesrv.adition.com/js/adition.js"></script><script type="text/javascript" src="/WorkArea/FrameworkUI/js/ektron.javascript.ashx?id=659787066+-1965253052"></script>
+<!-- ascx: ~/Components/UserControls/MetaData/MetaData.ascx --><link rel="canonical" href="http://www.tottenhamhotspur.com/information/privacy-policy/"/>
+<meta name="description" content="Tottenham Hotspur is fully committed to protecting your privacy and any personal information that you provide to us" />
+<meta name="keywords" content="" />
+<!-- ascx: ~/Components/UserControls/AlternativeLinks/AlternativeLinks.ascx --><link rel="alternate" hreflang="en" href="/information/privacy-policy/" /><link rel="alternate" hreflang="es" href="/es/information/privacy-policy/" /><link rel="icon" type="image/x-icon" href="/favicon.ico" />
+<!-- Begin BlockAdBlock plugin https://github.com/sitexw/BlockAdBlock -->
+<script type="text/javascript" src="/Components/js/plugins/BlockAdBlock/blockadblock.js"></script>
+<script type="text/javascript" src="/Components/js/plugins/BlockAdBlock/blockadblock-ui.js"></script>
+
+    <style type="text/css">
+        .bab_banner-wrapper .bab_btn.bab_btn_accept_all
+        {
+            background-color: #021F5B;
+            color: #fff;
+        }
+        
+        .bab_banner-wrapper .bab_btn:hover.bab_btn_accept_all
+        {
+            background-color: #021F5B;
+            color: #fff;
+        }
+    </style>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            // Function called if AdBlock is not detected
+            function adBlockNotDetected() {
+                console.log('AdBlocker is not enabled');
+            }
+            // Function called if AdBlock is detected
+            function adBlockDetected() {
+                console.log('AdBlocker is enabled');
+                var message = 'We can see you’ve got an ad-blocker switched on. Did you know we never display ads from external advertisers? <br /><br /> Instead, we promote club information and suggestions from our partners.';
+                var dismiss = 'Got it!';
+                var learnMore = 'Find out more >';
+                window.blockadblockui_options = {
+                    "message": message,
+                    "dismiss": dismiss,
+                    "learnMore": learnMore,
+                    "link": "/the-club/our-ads/",
+                    "theme": "/Components/UserControls/BlockAdBlock/blockadblockui.css"
+                };
+            }
+
+            // Recommended audit because AdBlock lock the file 'blockadblock.js' 
+            // If the file is not called, the variable does not exist 'blockAdBlock'
+            // This means that AdBlock is present
+            if (typeof blockAdBlock === 'undefined') {
+                if (window.location.href.indexOf('/home/') == -1) {
+                    adBlockDetected();
+                }
+            } else {
+                blockAdBlock.onDetected(function () {
+                    if (window.location.href.indexOf('/home/') == -1) {
+                        adBlockDetected();
+                    }
+                });
+                blockAdBlock.onNotDetected(adBlockNotDetected);
+                blockAdBlock.check();
+            }
+        });
+    </script>
+    <!-- End BlockAdBlock plugin -->
+
+
+<!-- Begin Cookie Consent plugin by Silktide - http://silktide.com/cookieconsent -->
+    
+    
+    <style>
+    .cc_banner-wrapper .cc_btn.cc_btn_accept_all
+    {
+        background-color:#42B5E6;
+        color:#fff;
+        }
+        
+        .cc_banner-wrapper .cc_btn:hover.cc_btn_accept_all
+    {
+        background-color:#42B5E6;
+        color:#fff;
+        }
+    
+    </style>
+
+        <script type="text/javascript">
+        var message = "This website uses cookies to ensure you get the best experience on our website";
+        var dismiss = "Got it!";
+        var learnMore = "More info";
+    
+        window.cookieconsent_options = {"message":message,"dismiss":dismiss,"learnMore":learnMore,"link":"/information/privacy-policy/#cookies","theme":"light-floating"};
+        </script>
+        <script type="text/javascript" src="/components/usercontrols/cookiepolicynew/cookieconsent.js"></script>
+        <!-- End Cookie Consent plugin -->
+    <title>
+	Privacy Policy - Tottenham Hotspur - tottenhamhotspur.com
+</title></head>
+<body id="ctl00_body" style="background-image:url(/uploadedImages/Shared_Assets/Images/Backgrounds/2013-2014_Season/flags-new.jpg?n=7787);" class="langDef lang-en">
+    
+    
+<!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-PD3H6N"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script type="text/javascript">    (function (w, d, s, l, i) {
+        w[l] = w[l] || []; w[l].push({ 'gtm.start':
+new Date().getTime(), event: 'gtm.js'
+        }); var f = d.getElementsByTagName(s)
+[0],
+j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+'//www.googletagmanager.com/gtm.js?id=' + i
++ dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-PD3H6N');</script>
+<!-- End Google Tag Manager -->
+
+    <!-- ascx: ~/Components/UserControls/JavaScriptVariables/JavaScriptVariables.ascx --><script type="text/javascript">
+global_domain = 'pmsales.origin.cdn.level3.net';
+global_homeUrl = '/home/';
+global_languagePrefixUrl = '';
+global_cultureCode = 'en';
+global_languageCode = 'en';
+global_ekpageId = 6442451036;
+global_eklanguageId = 2057;
+global_facebookPage = 'http://www.facebook.com/TottenhamHotspur';
+global_translations = { 'Hello':'Hi', 'Menu':'Menu', 'Close':'Close', 'Expand':'Expand', 'Hide':'Hide', 'MoreInfo':'More Info', 'HideInfo':'Hide Info', 'HideInfo_WithAbbriv':'Hide <abbr title="Information">info</abbr>', 'ReadMore':'Read more', 'Month_1': 'January', 'Month_2': 'February', 'Month_3': 'March', 'Month_4': 'April', 'Month_5': 'May', 'Month_6': 'June', 'Month_7': 'July', 'Month_8': 'August', 'Month_9': 'September', 'Month_10': 'October', 'Month_11': 'November', 'Month_12': 'December', 'MinutesPlayed':'Minutes played', 'GoalsConceded':'Goals Conceded', 'Saves':'Saves', 'PassingAccuracy':'Passing Accuracy', 'Clearances':'Clearances', 'GoalKicks':'GoalKicks', 'Goals':'Goals', 'Assists':'Assists', 'Tackles':'Tackles', 'ShootingAccuracy':'Shooting Accuracy', 'ShotsOnTarget':'Shots on target', 'ViewMatchReport':'View match report', 'SeasonStart':'Season Start', 'SeasonEnd':'Season End', 'LastMatchStatsUnavailable':'Last match stats are not available for this player.', 'StatsForSeasonWillBeAvailableOnceTheSeasonHasBegun':'Stats for the 2013/2014 Season will be available once the season has begun.', 'SeasonStatsAreNotAvailableForThisPlayer':'Sorry, season stats are not available for this player', 'PresentedBy':'Presented by', 'OtherMatchesToday':'Other Matches Today', 'Match':'Match', 'Score':'Score', 'ThereAreCurrentlyNoOtherGamesTakingPlace':'There are currently no other games taking place', 'ViewFullStatsAndCompare':'View full stats and compare', 'Team':'Team', 'Player':'Player', 'TotalShots':'Total Shots', 'Offside':'Offside', 'Fouls':'Fouls', 'Corners':'Corners', 'YellowCards':'Yellow cards', 'RedCards':'Red cards', 'UnusedSubs':'Unused subs', 'Minutes':'minutes', 'LoginForAudioCommentary':'Login for audio commentary', 'Player':'Player', 'AdvancedSearch':'Advanced search', 'SearchSite':'Search site', 'Return_To_Homepage':'Return to home page' };
+var addthis_config = addthis_config || {};
+addthis_config.ui_language = 'en';
+</script>
+
+    <form method="post" action="/information/privacy-policy/" id="aspnetForm">
+<div class="aspNetHidden">
+<input type="hidden" name="EktronClientManager" id="EktronClientManager" value="587725940,702653030,1948574407,-1028355414,-299988140,975973089,-2102521468,-10828826,1328095523,-744922478,1077454793,289526501,-1884344366,1514748663,-930413265,-1253165105,-1510701721,-1759591071,395185562,-164328284,-893698887,903749141,1617524923,287753462,1025286258,-1659806399,1574546025,-491600734,-1146173262,137309523,-29775248,-1572948616,1208878718,107513038,838422485,659787066,-1965253052" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwULLTIxMzQ4NzMzODRkGAEFemN0bDAwJENvbnRlbnRQbGFjZUhvbGRlcjEkRHJvcFpvbmVNYWluQ29udGVudCRjb2x1bW5EaXNwbGF5JGN0bDAwJGNvbnRyb2xjb2x1bW4kY3RsMDAkV2lkZ2V0SG9zdCRXaWRnZXRIb3N0X3dpZGdldCRWaWV3U2V0Dw9kZmTglfVM+ieNyXvYo6mtrOcCz0f88N5aueRcuvYmXzueEQ==" />
+</div>
+
+
+<script src="/ScriptResource.axd?d=w17smqfKFhOP69xx5-F7nzHILp9JQPR2fQurnEFUZIVKFZGj6DFpHXDYsMxmylINJcgYiYt-Hg4aLPXd3d10DDDZoxzFottNLabHYE4bU94ATi08oqkL3oPAZD_6pLV5KBKokNTMXqQsd4xxya1FoAaU1-nnTy3-TBYfv8F2XeYeOnA6qVKpxvs9GGg3VDuJ0&amp;t=5f9d5645" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+if (typeof(Sys) === 'undefined') throw new Error('ASP.NET Ajax client-side framework failed to load.');
+//]]>
+</script>
+
+<script src="/ScriptResource.axd?d=bSwUpcYm_JzOv7xqnLqsOgsNWGkxyYofADJi_w2bDnAtL6hC13IsS-YTVhrhseJp_dc_flqwCPcxNoO3Fq6sMD5wtQQnXglQGFyl_60vpTatfTmFO_o5359lPhlAfuNe9xezj1ESfQzICrYHdYL4XNOzequi_2e6fCEGfTSfwJg-1aXbPX09LHGPtJx-Oke_0&amp;t=5f9d5645" type="text/javascript"></script>
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="C0AD3ACD" />
+</div>
+    <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ctl00$ScriptManager1', 'aspnetForm', ['tctl00$ContentPlaceHolder1$DropZoneAside$updatepanel','','tctl00$ContentPlaceHolder1$DropZoneMainContent$updatepanel','','tctl00$ContentPlaceHolder1$DropZoneMainContent$columnDisplay$ctl00$controlcolumn$ctl00$WidgetHost$updatepanel',''], [], [], 90, 'ctl00');
+//]]>
+</script>
+
+    
+    <img src="/Components/images/logo-spurs-print.png" alt="Tottenham Hotspur" width="90"
+        height="185" class="print-logo" />
+    <a href="#content-panel" class="skiplinks">
+        Skip to main content</a>
+    
+
+<div id="headContainer">
+    
+    <div id="advertContainer">
+        <div width="991px" height="39px" style="position:relative">
+            <div id= "AAC12_Icon" style="position:absolute; top:0px; left:0px;">
+                <script type="text/javascript">
+                    var AAC12_Width = '991';
+                    var AAC12_Height = '39';
+                    var RNS = (new String(Math.random())).substring(2, 11);
+                    document.write('<scr' + 'ipt  type="text/javascript" language="javascript1.1" src=//static-tagr.gd1.mookie1.com/s1/sas/eprivacy/ac.js?width=' + AAC12_Width + '&height=' + AAC12_Height + '></scri' + 'pt>');
+                </script>
+            </div>
+        </div>
+        <script type="text/javascript" language='JavaScript1.1' src='https://fw.adsafeprotected.com/rjss/dc/51595/7621770/ddm/adj/N4892.419334.SPORTQUAKE.COM/B5577249.198;sz=991x39;ord=050420161005;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=?'>
+        </script>
+        <noscript>
+        <a href="https://ad.doubleclick.net/ddm/jump/N4892.419334.SPORTQUAKE.COM/B5577249.198;sz=991x39;ord=050420161005?">
+        <img src='https://fw.adsafeprotected.com/rfw/dc/51595/7621768/ddm/ad/N4892.419334.SPORTQUAKE.COM/B5577249.198;sz=991x39;ord=050420161005;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=?' border="0" width="991" height="39" alt="Advertisement'></a>
+        </noscript>
+
+    </div>
+    
+
+    <div id="head">
+        <div class="menus">
+            <div id="logo">
+                <a href="/home/" id="ctl00_ctlHeader_logolink">
+                    <img id="ctl00_ctlHeader_imgLogo" class="logo-img" src="/components/images/logo-spurs.png" alt="Tottenham Hotspur" />
+                </a>
+            </div>
+     	    <div>
+                
+                <ul id="ctl00_ctlHeader_accountToobar" class="account-toolbar toolbar">
+                    <li id="ctl00_ctlHeader_Li1"><a href="../../Components/UserControls/Header/#" id="ctl00_ctlHeader_test"><span class="icon ic-login"></span> Test</a></li>
+                    <li id="ctl00_ctlHeader_login" class="login"><a id="ctl00_ctlHeader_lnkLogin" href="javascript:__doPostBack(&#39;ctl00$ctlHeader$lnkLogin&#39;,&#39;&#39;)"><span class="icon ic-login"></span> Login</a></li>
+                    <li id="ctl00_ctlHeader_register"><a id="ctl00_ctlHeader_lnkRegister" href="javascript:__doPostBack(&#39;ctl00$ctlHeader$lnkRegister&#39;,&#39;&#39;)">Register</a></li>
+                    <li id="ctl00_ctlHeader_welcome"></li>
+                    <li id="logout" class="my-account"><a id="ctl00_ctlHeader_lnkLogout" href="javascript:__doPostBack(&#39;ctl00$ctlHeader$lnkLogout&#39;,&#39;&#39;)">Logout</a></li>
+                </ul>
+                <ul class="social-toolbar toolbar">
+                    <li class="qqtencent"><a href="//t.qq.com/tottenhamhotspur"><img src="/components/images/icons/social/tencent.gif" alt="Tencent" /></a></li>
+                    <li class="weibo"><a href="//weibo.com/tottenhamhotspur"><img src="/components/images/icons/social/weibo.gif" alt="Sina Weibo" /></a></li>
+                    <li class="youku"><a href="//i.youku.com/tottenhamhotspur"><img src="/components/images/icons/social/youku.gif" alt="Youku" /></a></li>
+                    <li class="weixin"><img src="/components/images/icons/social/weixin.gif" alt="Weixin ID: TottenhamHotspur" title="Weixin ID: TottenhamHotspur" /></li>
+                    <li id="ctl00_ctlHeader_facebookItem" class="like">
+                        <a href="http://www.facebook.com/TottenhamHotspur" id="ctl00_ctlHeader_facebookLink" class="social-facebook" target="_blank">
+                            <img src="/components/images/clear.gif" alt="Facebook" width="25" height="25" />
+                        </a>
+                    </li>
+                    <li class="twitFollow">
+                        <a href="//twitter.com/SpursOfficial" id="ctl00_ctlHeader_twitterLink" class="social-twitter" target="_blank">
+                            <img src="/components/images/clear.gif" alt="Twitter" width="25" height="25" />
+                        </a>
+                    </li>
+                    <li id="ctl00_ctlHeader_gplusItem" class="gplus">
+                        <a href="//plus.google.com/109368880984358777249?prsrc=3" id="ctl00_ctlHeader_gplusLink" class="social-googleplus" target="_blank" rel="publisher">
+                            <img src="/components/images/clear.gif" alt="Google+" width="25" height="25" />
+                        </a>
+                    </li>
+			        <li id="ctl00_ctlHeader_ytubeItem" class="ytube">
+                        <a href="http://www.youtube.com/user/spursofficial" id="ctl00_ctlHeader_ytubeLink" class="social-youtube" target="_blank">
+                            <img src="/components/images/clear.gif" alt="YouTube" width="25" height="25" />
+                        </a>
+                    </li>
+                    <li id="ctl00_ctlHeader_igramItem" class="igram">
+                        <a href="http://instagram.com/spursofficial?ref=badge" id="ctl00_ctlHeader_igramLink" class="social-instagram" target="_blank">
+                            <img src="/components/images/clear.gif" alt="Instagram" width="25" height="25" />
+                        </a>
+                    </li>
+                    <li id="search">
+                        <fieldset class="search">
+                            <div id="ctl00_ctlHeader_searchBox">
+	
+                                
+                                <input name="ctl00$ctlHeader$searchInput" type="text" value="Search site" id="ctl00_ctlHeader_searchInput" class="box searchInput" title="Search site" />
+                                <input type="submit" name="ctl00$ctlHeader$searchSubmit" value="" onclick="return $(&quot;.searchInput&quot;).val() != &quot;&quot; &amp;&amp; $(&quot;.searchInput&quot;).val() != getGlobalTranslation(&quot;SearchSite&quot;, &quot;Search site&quot;);WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$ctlHeader$searchSubmit&quot;, &quot;&quot;, true, &quot;headerSearch&quot;, &quot;&quot;, false, false))" id="ctl00_ctlHeader_searchSubmit" class="btn" />
+                            
+</div>
+                        </fieldset>
+                    </li>
+                    <li id="ctl00_ctlHeader_LanguageChangerWrapper" class="languageSelectorWrapper">
+                        <!-- ascx: ~/Components/UserControls/LanguageChanger/LanguageChanger.ascx --><div class="languageSelector nojs"><ul><li class="selected" onclick="toggleGlobalLinks(0)"><span class="text"><img src="/uploadedImages/Shared_Assets/Images/Flags/ukFlag.png?n=5143" alt="English" />English</span><span class="arrow"> </span></li><li><a href="/es/information/privacy-policy/"><img src="/uploadedImages/Shared_Assets/Images/Flags/spainFlag.png?n=2509" alt="Español" />Español</a></li></ul></div>
+                    </li>
+                </ul>
+                
+                    <a class="tottenhamturfies" href="http://www.tottenhamturfies.com/turfies?utm_source=top-nav&utm_medium=thfc-site&utm_campaign=turfies" title="Play Tottenham Turfies"><img src="/Components/images/small_animated_button_v1.gif"/></a>
+                
+     	    </div>
+        </div>
+        <div class="globalLinks"></div>
+        
+        <div class="menus">
+            <!-- ascx: ~/Components/UserControls/Navigation/TaxonomyMenu.ascx --><!-- Start XSLT: /Components/UserControls/Navigation/Xslt/MegaMenu.xslt --><ul class="nav limit">
+      
+      <li><a href="/news/" class="top-nav-link "><span>News</span></a><ul><li><a href="/news/" class="">Latest News</a></li><li><a href="/news/spurs-media-watch/" class="">Spurs Media Watch</a></li><li><a href="/news-archive/" class="">News Archive</a></li> </ul></li><li><a href="http://shop.tottenhamhotspur.com" class="top-nav-link "><span>Shop</span></a><ul><li><a href="http://shop.tottenhamhotspur.com/branch/kit" class="">Replica Kit</a></li><li><a href="http://shop.tottenhamhotspur.com/branch/mens" class="">Mens</a></li><li><a href="http://shop.tottenhamhotspur.com/branch/womens?TRE00000" class="">Ladies</a></li><li><a href="http://shop.tottenhamhotspur.com/branch/kids" class="">Kids</a></li><li><a href="http://shop.tottenhamhotspur.com/branch/souvenirs" class="">Souvenirs</a></li><li><a href="http://shop.tottenhamhotspur.com/branch/home-and-garden" class="">Home</a></li><li><a href="/programme-subscription/" class="">Programme Subscription</a></li> </ul></li><li><a href="/myspurs/" class="top-nav-link "><span>MySpurs</span></a><ul><li><a href="/myspurs/" class="">Free Sign Up</a></li><li><a href="/myspurs/archive/" class="">Magazine Archive</a></li><li><a href="/myspurs/wallpapers/" class="">Wallpapers</a></li> </ul></li><li><a href="/tickets/" class="top-nav-link "><span>Tickets</span></a><ul><li><a href="https://www.eticketing.co.uk/tottenhamhotspur/default.aspx?utm_source=top-navigation&amp;utm_medium=thfc-site-new&amp;utm_campaign=buy-tickets" class="">Buy Tickets</a></li><li><a href="/tickets/" class="">Ticket news</a></li><li><a href="/tickets/ticket-prices/" class="">Ticket prices</a></li><li><a href="/tickets/ticket-on-sale-dates/" class="">Ticket on sale dates</a></li><li><a href="/tickets/u21s-at-whl/" class="">U21s at the Lane</a></li><li><a href="/hospitality/matchday/" class="">Hospitality Packages</a></li><li><a href="http://www.thomascooksport.com/Football/Premier-League/Tottenham-Hotspur?utm_source=tottenhamhotspur.com&amp;utm_medium=Club%2BWebsite%2BLink%2C%2BDrop%2BDown%2BMenu%2BLink&amp;utm_campaign=Football%2C%2BTottenham%2BHotspur" class="" target="_blank">Ticket &amp; Hotel Packages</a></li><li><a href="/tickets/stubhub/" class="">StubHub Tickets</a></li><li><a href="/tickets/junior-matchday-experience/" class="">Junior Matchday Experience</a></li><li><a href="/tickets/ticket-faqs/" class="">Ticket FAQs</a></li><li><a href="/tickets/stadium-seating/" class="">Stadium Seating</a></li> </ul></li><li><a href="/membership/" class="top-nav-link "><span>Membership</span></a><ul><li><a href="/membership/register/" class="">Register for 2016/2017</a></li><li><a href="/hospitality-and-events-video/" class="">Hospitality membership</a></li><li><a href="/membership/newsletter/" class="">Members Newsletter</a></li><li><a href="/membership/my-account/" class="">My Account</a></li><li><a href="/membership/gift-voucher/" class="">Gift Voucher</a></li><li><a href="/membership/free-spurs-tv/" class="">Access Spurs TV</a></li><li><a href="/membership/membership-faqs/" class="">Membership FAQs</a></li><li><a href="/membership/loyalty-points/" class="">Loyalty Points</a></li> </ul></li><li><a href="/matches/" class="top-nav-link "><span>Matches</span></a><ul><li><a href="/matches/" class="">Fixtures &amp; Results</a></li><li><a href="/matchcentre/tottenham-hotspur-vs-manchester-united-10042016/" class="">Next Match: <span style="text-transform: none;">vs</span> Man Utd</a></li><li><a href="/matches/calendar/" class="">Download Calendar</a></li><li><a href="/matches/league-table/" class="">Premier League Table</a></li><li><a href="/matches/europa-league-table/" class="">Europa League Table</a></li><li><a href="/matches/spurs-on-tv/" class="">Matches on TV</a></li><li><a href="/programme/" class="">Matchday Programme</a></li> </ul></li><li><a href="/first-team-profiles/" class="top-nav-link "><span>Team</span></a><ul><li><a href="/first-team-profiles/" class="">First Team Profiles</a></li><li><a href="/first-team-statistics/" class="">First Team Statistics</a></li><li><a href="/first-team/coaching-staff/" class="">Coaching Staff</a></li><li><a href="/professionals-profiles/" class="">Development Squad</a></li> </ul></li><li><a href="/academy/second-year-profiles" class="top-nav-link "><span>Academy</span></a><ul><li><a href="/academy/second-year-profiles/" class="">The Team</a></li><li><a href="/academy/u21-league/" class="">U21 Fixtures &amp; Results</a></li><li><a href="/academy/u21-league-table/" class="">U21 League Table</a></li><li><a href="/academy/u18-league/" class="">U18 Fixtures &amp; Results</a></li><li><a href="/academy/u18-league-table/" class="">U18 League Table</a></li><li><a href="/academy/development-centre/" class="">Development Centre</a></li><li><a href="/academy/about-the-academy/" class="">About the Academy</a></li><li><a href="/academy/trials/" class="">Trials</a></li> </ul></li><li><a href="/spurs-tv/" class="top-nav-link "><span>Spurs TV</span></a><ul><li><a href="/spurs-tv/highlights/" class="">Highlights</a></li><li><a href="/spurs-tv/interviews/" class="">Interviews</a></li><li><a href="/spurs-tv/features/" class="">Features</a></li><li><a href="/spurs-tv/vault/top-20-premier-league/" class="">The Vault</a></li><li><a href="/spurs-tv/extra-time/" class="">Extra Time</a></li><li><a href="/audio-commentary/" class="">Live Audio Commentary</a></li><li><a href="/king-of-the-lane/" class="">Ledley King Testimonial</a></li><li><a href="/spurs-tv/help/" class="">Spurs TV Help</a></li><li><a href="/spurs-tv/ipb-broadcasters/" class="">IPB Broadcasters</a></li> </ul></li><li><a href="/junior/" class="top-nav-link "><span>Junior</span></a><ul><li><a href="/junior/membership/" class="">Register for Junior Membership</a></li><li><a href="/junior/competitions/" class="">Competitions</a></li><li><a href="http://www.tottenhamturfies.com/" class="" target="_blank">Tottenham Turfies</a></li><li><a href="/junior/matchday-experience/" class="">Matchday Experience</a></li><li><a href="/junior/become-a-mascot/" class="">Become A Mascot</a></li><li><a href="/junior/newsletter/" class="">Junior Newsletter</a></li><li><a href="/junior/photos/" class="">Junior Galleries</a></li><li><a href="/junior/videos/" class="">Junior Videos</a></li> </ul></li><li><a href="/fans/" class="top-nav-link "><span>Fans</span></a><ul><li><a href="/hotspur-heroes/" class="">Hotspur Heroes</a></li><li><a href="/photographer-of-the-season/" class="">Photographer of the Season</a></li><li><a href="/gotm/" class="">Goal of the Month</a></li><li><a href="/spurs-tv/vault/top-20-premier-league/" class="">The Vault</a></li> </ul></li><li><a href="/history/honours/" class="top-nav-link "><span>History</span></a><ul><li><a href="/history/honours/" class="">Club Honours</a></li><li><a href="/history/year-by-year/" class="">Year By Year</a></li> </ul></li><li class="last"><a href="/new-scheme/" class="top-nav-link "><span>New Scheme</span></a></li> </ul><!-- End XSLT: /Components/UserControls/Navigation/Xslt/MegaMenu.xslt -->
+        </div>
+    </div>
+</div><script id="EktronScriptBlockvmatl" type="text/javascript">
+
+Ektron.ready(function(event, eventName){
+
+             $(document).ready(function () {
+                setUpSearchAutocomplete('#ctl00_ctlHeader_searchInput');               
+            });
+});
+
+
+</script><script id="EktronScriptBlockqmyff" type="text/javascript">
+
+Ektron.ready(function(event, eventName){
+try {
+            Sys.WebForms.PageRequestManager.getInstance().add_endRequest(function(){ setUpSearchAutocomplete('#ctl00_ctlHeader_searchInput'); });
+            } catch(e) {}
+});
+
+
+</script>
+    <div id="content">
+        <!-- ascx: ~/Components/UserControls/Banner/Banner.ascx -->
+<div id="crumb" class="cf2">
+    <!-- ascx: ~/Components/UserControls/Navigation/TaxonomyMenu.ascx --><!-- Start XSLT: /Components/UserControls/Navigation/Xslt/CrumbTrail.xslt --><div class="component"><h2 class="spurs-font">Information</h2></div><div class="home-link"><a href="/home/"><img src="/components/images/furniture/icon-home.png" alt="Home" /></a></div><div class="component"><ul><li itemtype="http://data-vocabulary.org/Breadcrumb"><a title="Information" itemprop="url" href="/information/contact-us/"><span itemprop="title">Information</span></a></li><li itemtype="http://data-vocabulary.org/Breadcrumb"><em><span itemprop="title">Privacy Policy</span></em></li></ul></div><!-- End XSLT: /Components/UserControls/Navigation/Xslt/CrumbTrail.xslt -->
+</div>
+
+        
+    
+
+    <script type="text/javascript" language="JavaScript">
+        Ektron.PBSettings = { 'dontClose': false }
+    </script>
+
+
+
+
+
+
+	  <div class="pageContainer cf2">
+   		  <div id="nav-panel">
+          	<div class="component">
+                <!-- ascx: ~/Components/UserControls/Navigation/TaxonomyMenu.ascx --><!-- Start XSLT: /Components/UserControls/Navigation/Xslt/SecondaryNavigation.xslt --><map id="inside-nav" name="inside-nav"><ul>
+<li class="&#xA;          first&#xA;        "><a title="Contact Us" href="/information/contact-us/" class=""><span>Contact Us</span></a></li>
+<li class=""><a title="Cookie Policy" href="/information/privacy-policy/#cookies" class=""><span>Cookie Policy</span></a></li>
+<li class=""><a title="My Account Help" href="/information/my-account-help/" class=""><span>My Account Help</span></a></li>
+<li class="&#xA;          active&#xA;        "><em><a title="Privacy Policy" href="/information/privacy-policy/" class="active"><span>Privacy Policy</span></a></em></li>
+<li class="&#xA;          last&#xA;        "><a title="Terms and Conditions" href="/information/terms-and-conditions/" class=""><span>Terms and Conditions</span></a></li> </ul>
+		  </map><!-- End XSLT: /Components/UserControls/Navigation/Xslt/SecondaryNavigation.xslt -->
+
+                    
+<div id="ctl00_ContentPlaceHolder1_DropZoneAside_updatepanel">
+	
+        <div id="ctl00_ContentPlaceHolder1_DropZoneAside_dzcontainer" class="dropzone PBClear">
+            
+            
+                    <div id="ctl00_ContentPlaceHolder1_DropZoneAside_columnDisplay_ctl00_zone" class="PBViewing" style="width:100%;">
+                        <ul id="ctl00_ContentPlaceHolder1_DropZoneAside_columnDisplay_ctl00_column" class="columnwidgetlist">
+                            
+                            
+                        </ul>
+                    </div>
+                
+        </div>
+    
+</div>
+
+
+              </div>
+              
+<div id="ctl00_ContentPlaceHolder1_rlLeftPanel_pnlJsAditionWp_Id" class="ad-panel">
+	  
+    <div class="component">
+        <div class="nav-panel-banner">
+            
+            <script type='text/javascript' src='http://adfarm1.adition.com/js?wp_id=3143978'></script>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+           </div>
+           <div id="content-panel">
+           		
+<div id="ctl00_ContentPlaceHolder1_DropZoneMainContent_updatepanel">
+	
+        <div id="ctl00_ContentPlaceHolder1_DropZoneMainContent_dzcontainer" class="dropzone PBClear">
+            
+            
+                    <div id="ctl00_ContentPlaceHolder1_DropZoneMainContent_columnDisplay_ctl00_zone" class="PBViewing" style="width:100%;">
+                        <ul id="ctl00_ContentPlaceHolder1_DropZoneMainContent_columnDisplay_ctl00_column" class="columnwidgetlist">
+                            
+                            
+                                    <li class="PBItem">
+                                        <div id="ctl00_ContentPlaceHolder1_DropZoneMainContent_columnDisplay_ctl00_controlcolumn_ctl00_WidgetHost_dropcontainer" class="widget">
+    <span id="ctl00_ContentPlaceHolder1_DropZoneMainContent_columnDisplay_ctl00_controlcolumn_ctl00_WidgetHost_lblErrorMessage"></span>
+    <div id="ctl00_ContentPlaceHolder1_DropZoneMainContent_columnDisplay_ctl00_controlcolumn_ctl00_WidgetHost_updatepanel">
+		
+            
+            <div id="ctl00_ContentPlaceHolder1_DropZoneMainContent_columnDisplay_ctl00_controlcolumn_ctl00_WidgetHost_dvContent" class="content">
+                <!-- xslt:  -->
+        
+        <span style='display:none' class='hiddenContentBlockId' title='6442451035'>6442451035</span>
+
+        <h1 class="spurs-font">PRIVACY POLICY</h1>
+<p>Tottenham Hotspur is fully committed to protecting your privacy and any personal information that you provide to us when using our website at <a href="http://www.tottenhamhotspur.com/">http://www.tottenhamhotspur.com</a> (the “Site”), including our online shop at <a href="http://shop.tottenhamhotspur.com/index.php">http://shop.tottenhamhotspur.com</a> (the “Shop”).</p>
+<p>This Privacy Policy outlines how we use the personal information that we collect and is devised to help you feel more confident about the privacy and security of your personal details. The Privacy Policy also gives you information about how we use cookies.</p>
+<p>In this Privacy Policy, we use the term “Tottenham Hotspur” (and “we”, “us” and “our”) to refer to Tottenham Hotspur plc, Tottenham Hotspur Football &amp; Athletic Co. Limited and/or Tottenham Hotspur Foundation. Full details about Tottenham Hotspur plc, Tottenham Hotspur Football &amp; Athletic Co. Limited and Tottenham Hotspur Foundation are provided in the section “Legal notice” below.</p>
+<p><strong>Legal notice</strong></p>
+<p>When collecting and using your personal information, Tottenham Hotspur will process it only in strict compliance with the Data Protection Act 1998 and associated legislation.</p>
+<p>We are registered as a data controller in the United Kingdom under the Data Protection Act 1998 and our registration numbers are Z7035828 for Tottenham Hotspur plc, Z7256683 for Tottenham Hotspur Football and Athletic Co Ltd and Z1034030 for Tottenham Hotspur Foundation. Our Registered Office address is Bill Nicholson Way, 748 High Road, Tottenham, London, N17 0AP. The English company registration numbers are 1706358, 57186 and 5760570 respectively . Tottenham Hotspur Foundation is a UK registered charity with number 113725.</p>
+<p><a name="cookies" title="cookies" id="cookies"><strong>Cookies</strong></a></p>
+<p>Our Site and Shop uses cookies to collect certain information about our website visitors automatically. Cookies are small text files that store basic information that a website can use to track on-line traffic flows, recognise repeat site visits and record information about your on-line preferences. They often include an anonymous unique identifier that is sent to your browser from our Site and/or Shop, which is then stored on your computer's hard drive. Cookies do not attach to your system and damage your files but observe user behaviour and compile aggregate data that we then use in order to improve the Site and the Shop. We also use cookies to measure the effectiveness of advertising.</p>
+<p>There are two broad categories of cookies – ‘first party cookies’ and ‘third party cookies’. First party cookies are cookies that are served directly by the website operator to your computer, and are used only by the website operator to recognise your computer when it revisits that site. Third party cookies are served by a service provider on behalf of the website operator, and can be used by the service provider to recognise your computer when it visits other websites. Third party cookies are most commonly used for website analytics or advertising purposes.</p>
+<p><strong>Collection of personal information</strong></p>
+<p>To access certain areas of the Site and the Shop, you will need to register with us. During the registration process you will be asked to submit personal information about yourself (e.g. name and email address). By entering your details in the fields requested, you enable Tottenham Hotspur and/or our sponsors to provide you with the services you select. When you provide such personal information, you accept that we may retain your personal information and that it may be held by us or any third party that processes it on our behalf for the purposes of providing the information, goods or services which you have requested. Any third parties who process personal information on our behalf are required to maintain the confidentiality and privacy of the personal information that they process for us.</p>
+<p>In addition, we may also collect personal information from you when you correspond with us (for example, when you send us e-mail communications or send letters to us). We also collect certain information automatically about visitors to our Site and Shop, as described in the section headed “<strong>Cookies</strong>” below. </p>
+<table style="width: 100%;">
+<tbody>
+<tr>
+<th width="90">Cookie type</th>
+<th width="140">Name</th>
+<th width="140">Website used</th>
+<th width="180">Purpose</th>
+<th width="180">More Information</th>
+</tr>
+<tr>
+<td>Memory cookie (a first party cookie)</td>
+<td>PHPSESSID<br />SUB00001_SBASKET<br />ServerID</td>
+<td>Spurs Shop, Soccer schools<br /></td>
+<td>This cookie allows you to use our Site and Shop in a way that makes your browsing experience more convenient, for example, by allowing you to store items in an electronic shopping basket between visits. If you register with us, we will use cookies to remember your details during your current visit, and any future visits provided the cookie was not deleted between visits.</td>
+<td><br /></td>
+</tr>
+<tr>
+<td>Google Analytics (a third party cookie)</td>
+<td>•   _utma<br />•   _utmb<br />•   _utmc<br />•   _utmz<br />• _pk_id..23f9<br />• _pk_ses..23f9<br /></td>
+<td>Spurs Shop</td>
+<td>These cookies are set by Google, Inc. and are used to collect information about how visitors use our Site and Shop. We use this information to compile reports and to help us improve the Site and Shop. The cookies collect information in an anonymous form, including the number of visitors to the Site and Shop, where visitors have come to the Site and Shop from and the pages they visited.</td>
+<td>View an<a href="http://www.google.co.uk/intl/en/analytics/privacyoverview.html" title=" overview of privacy at Google"> overview of privacy at Google</a> and how this applies to Google Analytics </td>
+</tr>
+<tr>
+<td>Optimost Testing Cookie (Online Testing Cookie)</td>
+<td>Cookies Starting With - op674</td>
+<td>Spurs Shop<br /></td>
+<td>These cookies are used to test different layouts of pages to enhance your experience on the website.</td>
+<td><br /></td>
+</tr>
+<tr>
+<td colspan="1">Google Analytics Demographics and Interest Reporting</td>
+<td colspan="1"> </td>
+<td colspan="1">Spurs websites</td>
+<td colspan="1">Includes data on your users' demographics (age, gender) and interests (affinity categories, other categories)</td>
+<td colspan="1">Anonymised data used to look at trending. Google gives users the<a href="  https://tools.google.com/dlpage/gaoptout/" title=" ability to prevent their data from being collected" target="_blank"> ability to prevent their data from being collected</a> and used by Google Analytics<br /><br />For more information on Policy requirements for Google Analytics Advertising Features, <a href="http://www.google.co.uk/policies/privacy/" title="click here">click here</a></td>
+</tr>
+<tr>
+<td>Google Remarketing Cookie (third party cookie)</td>
+<td><br /></td>
+<td> Spurs Shop and spurs website</td>
+<td>Webgains Affiliates - We sometimes advertise on third party websites and these cookies give us information on how you found our website and which website you came from. This helps us identify which websites are sending us the best traffic and we reward them based on this.</td>
+<td><br /></td>
+</tr>
+<tr>
+<td>Memory cookie (a first party cookie)</td>
+<td><br /></td>
+<td>Spurs Shop and spurs website</td>
+<td>Google Remarketing Cookie -  On some of our pages online we place tags to see what you are viewing. Using this information we use this in our online marketing to help make sure that the ads you see around the web are relevant to what you have been viewing and are interested in.<br /></td>
+<td><br /></td>
+</tr>
+<tr>
+<td>Memory cookie (a first party cookie)</td>
+<td>sf_sso<br /></td>
+<td>Soccer Schools<br /></td>
+<td>Currently in place to retain the signed in status for soccer school site only.</td>
+<td><br /></td>
+</tr>
+<tr>
+<td colspan="1"> </td>
+<td colspan="1"> </td>
+<td colspan="1"> </td>
+<td colspan="1"> </td>
+<td colspan="1"> </td>
+</tr>
+<tr>
+<td>Session cookie</td>
+<td> UIC<br /></td>
+<td>Spurs TV<br /></td>
+<td>shows that a user is logged in and contains no identifying information</td>
+<td> <br /></td>
+</tr>
+<tr>
+<td>Memory cookie (a first party cookie)</td>
+<td>TBC</td>
+<td>Tottenhamhotspur.com<br /></td>
+<td>Retains members being signed into Tottenhamhotspur.com only for 30 days<br /></td>
+<td><br /></td>
+</tr>
+<tr>
+<td>Session cookie</td>
+<td>SIC</td>
+<td>Spurs TV</td>
+<td>shows that a user is logged in and contains no identifying information for SSL domains<br /><br /></td>
+<td><br /></td>
+</tr>
+<tr>
+<td colspan="1">Session cookie</td>
+<td colspan="1"><span style="font-size: 11pt; font-family: Calibri, sans-serif;">uv_******</span></td>
+<td colspan="1">Spurs TV</td>
+<td colspan="1"><span style="font-size: 11pt; font-family: Calibri, sans-serif;">Tracks the users recommended bit rate and also the
+recommended settings i.e Captions</span></td>
+<td colspan="1"> </td>
+</tr>
+<tr>
+<td>Memory cookie (a first party cookie)</td>
+<td>USER</td>
+<td>Spurs TV</td>
+<td>contains information: user name, email, login name, subscription status.<br /><br /></td>
+<td><br /></td>
+</tr>
+<tr>
+<td>Session cookie</td>
+<td>cq-sync-tottenhamhotspur</td>
+<td>eticketing<br /></td>
+<td>created on landing on the site. <br /><br /></td>
+<td><br /></td>
+</tr>
+<tr>
+<td>Session cookie</td>
+<td>tottenhamhotspur <br /></td>
+<td>eticketing</td>
+<td>created when logged in or basket created<br /></td>
+<td><br /></td>
+</tr>
+<tr>
+<td>Google Analytics (a third party cookie)</td>
+<td>•   _utma<br />•   _utmb<br />•   _utmc<br />•   _utmz</td>
+<td>eticketing</td>
+<td><br /></td>
+<td>•  __utma - Google Analytics tracking cookie, expires immediately<br />•  __utmb - Google Analytics tracking cookie, expires in 30minutes<br />•   __utmc - Google Analytics tracking cookie, session cookie, expires at end of session<br />•   __utmz - Google Analytics tracking cookie, expires in 6 months, 12 hours and 30minutes</td>
+</tr>
+<tr>
+<td>Session Cookie<br /></td>
+<td>•    JSESSIONID<br />•    TESTCOOKIE<br />•    cy_track_user<br />•    new_id<br />•    other<br />•    trx_id</td>
+<td>eticketing</td>
+<td>For electronic transactions<br /></td>
+<td>•  JSESSIONID - secure.barclaycard.co.uk - 3rd party, used for payment<br />•    TESTCOOKIE - secure.barclaycard.co.uk - 3rd party, used for payment<br />•    cy_track_user - secure.barclaycard.co.uk - 3rd party, used for payment, expires 2079<br />•    new_id - secure.barclaycard.co.uk - 3rd party, used for payment<br />•    other - secure.barclaycard.co.uk - 3rd party, used for payment<br />•    trx_id - secure.barclaycard.co.uk - 3rd party, used for payment</td>
+</tr>
+<tr>
+<td>Session cookie</td>
+<td>•    uid<br />•    uvc<br />•    uit<br />•    psc <br />•    pid</td>
+<td>eticketing </td>
+<td>For bookmarking<br /></td>
+<td>•    uid - addthis.com, bookmark and share cookies from addthis, facebook, twitter etc.<br />•    uvc - addthis.com, bookmark and share cookies from addthis, facebook, twitter etc.<br />•    uit - addthis.com, bookmark and share cookies from addthis, facebook, twitter etc.<br />•    psc - addthis.com, bookmark and share cookies from addthis, facebook, twitter etc.<br />•    pid - addthis.com, bookmark and share cookies from addthis, facebook, twitter etc.</td>
+</tr>
+<tr>
+<td colspan="1">Session Cookie</td>
+<td colspan="1">_atuvc</td>
+<td colspan="1">main website</td>
+<td colspan="1">For bookmarking via social </td>
+<td colspan="1">AddThis: The __atuvc cookie is created and read by the AddThis social sharing site JavaScript on the client side in order to make sure the user sees the updated count if they share a page and return to it before our share count cache is updated. No data from that cookie is sent back to AddThis and removing it when disabling cookies would cause unexpected behaviour for users.</td>
+</tr>
+<tr>
+<td colspan="1">Session cookie</td>
+<td colspan="1">EkAnalytics<br /><br />EktGUID</td>
+<td colspan="1">main website</td>
+<td colspan="1"> </td>
+<td colspan="1">CMS Analytics - not used<br /><br />Unique session identifier</td>
+<td colspan="1"> </td>
+</tr>
+<tr>
+<td colspan="1">session cookie</td>
+<td colspan="1">thcfn<br />thcid<br />thcn<br />thmn<br />ths<br />thtype<br />vmb</td>
+<td colspan="1">main website</td>
+<td colspan="1"> <br />Membership Login cookies</td>
+<td colspan="1"> </td>
+</tr>
+<tr>
+<td colspan="1">session cookie</td>
+<td colspan="1">Session_id</td>
+<td colspan="1">spurs tv video player (Invideous player)</td>
+<td colspan="1"> </td>
+<td colspan="1">retains users login details for monthly subscription player</td>
+</tr>
+</tbody>
+</table>
+<p>All modern browsers allow you to change your cookie settings. These settings will typically be found in the 'options' or 'preferences' menu of your browser. In order to understand these settings, the following links may be helpful, otherwise you should use the 'Help' option in your browser for more details.</p>
+<p><a href="http://support.microsoft.com/kb/196955" target="_blank">Cookie settings in Internet Explorer</a><br /><a href="http://support.mozilla.com/en-US/kb/Cookies" target="_blank">Cookie settings in Firefox</a><br /><a href="http://docs.info.apple.com/article.html?path=Safari/3.0/en/9277.html" target="_blank">Cookie settings in Chrome</a><br /><a href="http://docs.info.apple.com/article.html?path=Safari/3.0/en/9277.html" title="Cookie settings in Safari" target="_blank">Cookie settings in Safari</a></p>
+<p>We do not recommend turning cookies off when visiting tottenhamhotspur.com, as this will prevent you from signing in, and using many of the services on the site.</p>
+<p>To opt out of being tracked by Google Analytics across all websites visit <a target="_blank" href="http://tools.google.com/dlpage/gaoptout">http://tools.google.com/dlpage/gaoptout</a>   </p>
+<p>You have the right to choose whether or not to accept cookies and to set your own cookie preferences on your computer. These preferences can be to accept all cookies, to notify you when a cookie is issued, or not to receive cookies at any time. However, by opting not to receive cookies at any time, certain features of the Site and Shop cannot be provided and so accordingly you may not be able to enjoy the Site and Shop to their fullest. All web browsers are different and to learn how to change your cookie preferences, check the "Help" menu of your browser.</p>
+<p>For further information about cookies and how to control their use, please visit the following third party educational resources:<a href="http://www.allaboutcookies.org/">www.allaboutcookies.org</a> and <a target="_blank" href="http://www.youronlinechoices.eu/">www.youronlinechoices.eu</a>.</p>
+<p><strong>Our use of personal information</strong></p>
+<p>We use the personal information we collect from you for the following purposes:</p>
+<p>• To provide you with the information, goods or services that you have requested from us (including when you purchase items through the Shop and/or in relation to courses for which you have enrolled with the Tottenham Hotspur Foundation);<br />• To respond to your correspondence, so that we can reply to your enquiries and requests in an efficient and effective manner;<br />• To enable you to register with the Site and the Shop, and to administer records about your account with Tottenham Hotspur;<br />• To send you newsletters and information about products, services and promotions relating to Tottenham Hotspur, its sponsors and/or other third party partners, in accordance with your communication preferences; and<br />• To understand the interests of our Site and Shop visitors, so that we can continuously improve our Site and Shop offering.</p>
+<p>We may also generate, use and disclose aggregated and/or anonymised information and statistics about our Site and Shop visitors for marketing and strategic purposes. However, no visitor will be individually identifiable from these aggregated and/or anonymised information and statistics.</p>
+<p><strong>Newsletters and marketing</strong></p>
+<p>Tottenham Hotspur, our sponsors and/or other third party partners, may use your personal information to contact you with information about products, services and promotions that we or they think may interest you. We will only do this, however, in accordance with your expressed marketing preferences (for example the marketing preferences you expressed during the registration process).</p>
+<p>If at any time after registering, you would like to change your preferences and subscribe to, or unsubscribe from, any newsletters or direct marketing, you can do so by changing your preferences in the My Account page (at <a href="http://shop.tottenhamhotspur.com/myprofile.php">http://shop.tottenhamhotspur.com/myprofile.php</a>) or by contacting us through the contact details listed below.<strong></strong></p>
+<p><strong>Updates and your rights</strong></p>
+<p>If you would like to update your records, please log-in to the Site and/or Shop and update your personal profile through the My Account facility (at <a href="http://shop.tottenhamhotspur.com/myprofile.php">http://shop.tottenhamhotspur.com/myprofile.php</a>).</p>
+<p>You have the right to ask for a copy of any personal information that we hold about you in our records, to correct any inaccuracies and to update any out-of-date information. Please write to us at the address listed below should you wish to do so.</p>
+<p>Please note that we are entitled to charge a small fee (currently £10) for providing you with copies of personal information we may hold about you.</p>
+<p><strong>Changes to this Privacy Policy</strong></p>
+<p>We reserve the right, at any time, to modify, alter, or update this Privacy Policy. When we do so we will publish the changes on the Site. If you do not agree to these changes, please do not continue to use the Site. If material changes are made to this Privacy Policy, we will notify you by placing a prominent notice on the Site. Any queries or comments about this Privacy Policy should be sent to us using the contact details listed below.</p>
+<p><strong>Security</strong></p>
+<p>Security is very important to us. Secure Socket Layer ("SSL") encryption technology is used for protection of information in transit for any sensitive transactions such as payments. Additional security procedures are in place to protect the confidentiality, integrity and availability of your personal information. Your personal information will not be kept longer than is necessary for the purposes stated when you registered or in this Privacy Policy.</p>
+<p>To enhance the security of our Shop we currently use 'Verified by Visa' and 'MasterCard SecureCode' as a part of the payment process when you place an order through the Shop.</p>
+<p>Verified by Visa' and 'MasterCard SecureCode' are schemes that have been introduced by card issuers to help tackle online fraud. These schemes are known as '3d Secure' and Tottenham Hotspur, like many other retailers, are committed to fraud prevention. By participating in either scheme, your online shopping experience will be more secure. For further details on Verified by Visa and MasterCard SecureCode please <a target="_blank" title="click here" href="http://www.visaeurope.com/en/cardholders/verified_by_visa.aspx]">click here</a>.</p>
+<p>To further protect your credit, debit or charge card against use without your consent, we may validate name, address and other personal information supplied by you during the order process against appropriate third party databases . In performing these checks personal information provided by you may be disclosed to a registered Credit Reference Agency which may keep a record of that information. You can rest assured that this is done only to confirm your identity, that a credit check is not performed and that your credit rating will be unaffected. All information provided by you will be treated securely and strictly in accordance with the Data Protection Act 1998.</p>
+<p><strong>Internet-based transfers</strong></p>
+<p>Given that the Internet is a global environment, using the Internet to collect and process personal information may involve the transmission of personal information on an international basis. Therefore, by browsing the Site and the Shop and communicating electronically with us, you acknowledge our processing of personal information in this way. However, we will endeavour to protect all personal information collected through the Site and the Shop in accordance with strict data protection standards.</p>
+<p><strong>Other websites</strong></p>
+<p>Our Site and Shop may contain links to other websites which are outside our control and are not covered by this Privacy Policy. If you access other sites using the links provided, the operators of these sites may collect information from you which will be used by them in accordance with their privacy policy, which may differ from ours.<br /><br /><strong>Contact details</strong></p>
+<p>If you need to contact us regarding our Privacy Policy or any other related issue please write to:</p>
+<p>Mr Alex Haddow<br />Tottenham Hotspur plc<br />FREEPOST NAT7219<br />Bill Nicholson Way<br />748 High Road<br />London<br />N17 0BR</p>
+<p>or email: <a target="_self" href="mailto: personaldata@tottenhamhotspur.com">personaldata@tottenhamhotspur.com</a></p>        
+        <div id="ctl00_ContentPlaceHolder1_DropZoneMainContent_columnDisplay_ctl00_controlcolumn_ctl00_WidgetHost_WidgetHost_widget_CBContainer">
+                   
+        </div>
+
+        
+        
+        <span id="ctl00_ContentPlaceHolder1_DropZoneMainContent_columnDisplay_ctl00_controlcolumn_ctl00_WidgetHost_WidgetHost_widget_errorLb"></span>
+    
+            </div>
+        
+	</div>
+</div>
+                                    </li>
+                                
+                        </ul>
+                    </div>
+                
+        </div>
+    
+</div>
+
+
+        	</div>
+         </div>
+
+    </div>
+    <!-- ascx: ~/Components/UserControls/Footer/Footer.ascx -->
+
+<div id="footer" class="white-link">
+    <div id="sponsors">
+        
+<table><tr><td rowspan="3"><p><a title="AIA" target="_blank" href="http://www.aia.com/" class="sponsor-leave-footer"><img title="AIA" alt="AIA" src="/uploadedImages/Shared_Assets/Images/The_Club/Partners/aia-logo-update-v1.jpg?n=5775" /></a><a title="Under Armour" target="_blank" href="https://www.underarmour.co.uk/en-gb/?cid=PA|THS|UK|Homepagelink" class="sponsor-leave-footer"><img title="Under Armour" alt="Under Armour" src="/uploadedImages/Shared_Assets/Images/Sponsors_Logos/Footer_Logos/under-armour-logo-new.png?n=8716" /></a></p></td><td><p><a title="Marathonbet" target="_blank" href="http://aff.mediarotate.co.uk/Click?bid=16821_16081_8840_false&amp;siteid=" class="sponsor-leave-footer"><img alt="marathon-bet-footer" src="/uploadedImages/Shared_Assets/Images/The_Club/Partners/marathon-bet-footer.jpg?n=1749" /></a><a title="Carlsberg" target="_blank" href="http://www.carlsberg.co.uk/" class="sponsor-leave-footer"><img title="Carlsberg" alt="Carlsberg" src="/uploadedImages/Shared_Assets/Images/Sponsors_Logos/Footer_Logos/carlsberg-logo.png?n=2349" /></a><a title="StubHub" target="_blank" href="http://www.stubhub.co.uk/tottenham-hotspur-tickets/" class="sponsor-leave-footer"><img title="Stubhub" alt="Stubhub" src="/uploadedImages/Shared_Assets/Images/Other/stubhub_logo_small.jpg?n=2614" /></a><a title="EZ Trader" target="_blank" href="https://www.eztrader.com/lp/media/spursGeneric/index.aspx?AffiliateID=8983&amp;AppType=aw&amp;AffiliateName=YoavS&amp;BannerID=2181" class="sponsor-leave-footer"><img src="/uploadedImages/Shared_Assets/Content/eztrader-2016-march.jpg" alt="EZTrader 2016 March" title="EZTrader 2016 March" /></a></p></td></tr><tr><td class="shadow"> </td></tr><tr><td><p><a title="Aquascutum" target="_blank" href="http://www.aquascutum.com/?utm_source=Spurs&amp;utm_medium=display&amp;utm_campaign=Home%20Page%20tracking" class="sponsor-leave-footer"><img src="/uploadedImages/Shared_Assets/Images/The_Club/aquascutum-logo.jpg?n=2539" alt="Aquascutum" /></a><a title="MBNA" target="_blank" href="https://apply.mbna.co.uk/UKNeoCCapp/entry?sc=1OASTFCIGC0050M&amp;mc=OAGTFC00755" class="sponsor-leave-footer"><img title="MBNA" alt="MBNA" src="/uploadedImages/Shared_Assets/Images/The_Club/Partners/mbna-footer-logo.jpg" /></a><a title="Thomas Cook Sport" target="_blank" href="http://www.thomascooksport.com/Football/Premier-League/Tottenham-Hotspur?utm_source=tottenhamhotspur.com&amp;utm_medium=Club%2BWebsite%2BLink%2C%2BTCS%2BLogo%2Bon%2BFooter&amp;utm_campaign=Football%2C%2BTotte" class="sponsor-leave-footer"><img width="44" height="34" title="Thomas Cook Sport" style="width: 44px; height: 34px;" alt="Thomas Cook Sport" src="/uploadedImages/Shared_Assets/Images/Sponsors_Logos/Footer_Logos/thomas-cook-logo.png?n=8926" /></a><a title="Premier League" target="_blank" href="http://www.premierleague.com/en-gb.html" class="sponsor-leave-footer"><img title="Premier League" alt="Premier League" src="/uploadedImages/Shared_Assets/Images/Sponsors_Logos/Footer_Logos/premier-league-logo.png?n=3184" /></a></p></td></tr></table>
+    </div>    
+        
+    <div id="housekeeping-container">
+        <div id="housekeeping">
+            <!-- ascx: ~/Components/UserControls/Navigation/TaxonomyMenu.ascx --><!-- Start XSLT: /Components/UserControls/Navigation/Xslt/Utility.xslt --><ul class="cf">
+<li><a title="Contact Us" href="/information/contact-us/" class="">Contact Us</a></li>
+<li><a title="Cookie Policy" href="/information/privacy-policy/#cookies" class="">Cookie Policy</a></li>
+<li><a title="My Account Help" href="/information/my-account-help/" class="">My Account Help</a></li>
+<li><strong>Privacy Policy</strong></li>
+<li class="last"><a title="Terms and Conditions" href="/information/terms-and-conditions/" class="">Terms and Conditions</a></li></ul><!-- End XSLT: /Components/UserControls/Navigation/Xslt/Utility.xslt -->
+            <div class="mobileswitcher"><!-- ascx: ~/Components/UserControls/MobileSwitcher/MobileSwitcher.ascx --><p id="ctl00_RealiseFooter_mobswitcher_fullfat" class="fullfat">
+    <a id="ctl00_RealiseFooter_mobswitcher_btnMobileSite"><span class="icon ic20 ic-mobile"></span>View mobile site</a>
+    
+    
+</p><script id="EktronScriptBlockyjmpd" type="text/javascript">
+
+Ektron.ready(function(event, eventName){
+window['mobswitcher']=new MobileSwitcher('www.tottenhamhotspur.com', 'm.tottenhamhotspur.com', false, '/information/privacy-policy/')
+});
+
+
+</script></div>
+        </div>
+        <div id="copyright">
+            <div class="component">
+<span><p>© Tottenham Hotspur Ltd 2016. All rights reserved.</p>
+<p>All photography copyright Getty Images (unless otherwise stated)</p>
+</span></div>
+        </div>
+    </div>
+</div>
+
+<!-- ascx: ~/Components/UserControls/Navigation/TaxonomyMenu.ascx --><!-- Start XSLT: /Components/UserControls/Navigation/Xslt/Footer.xslt --><div id="sticky-footer" class="white-link"><div id="sub-nav"><ul class="cf2">
+<li><a href="/spurs-go-app/" class="bottom-nav-link ">Mobile</a><ul>
+    <li><a href="/spurs-go-app/" class="">Spurs Go App</a></li>
+
+    <li><a href="/mobile/spurs-shop-app/" class="">Spurs Shop App</a></li>
+</ul></li>
+<li><a href="/soccer-schools/" class="bottom-nav-link ">Soccer Schools</a><ul>
+    <li><a href="https://soccerschools.tottenhamhotspur.com/soccerschools/index.htm" class="">Book Now</a></li>
+
+    <li><a href="/soccer-schools/global/" class="">Global</a></li>
+
+    <li><a href="/soccer-schools/our-philosophy/" class="">Our Philosophy</a></li>
+
+    <li><a href="/youth-partner/" class="">Youth Team Partners</a></li>
+
+    <li><a href="/soccer-schools/easter-residential/" class="">Residential Programme</a></li>
+
+    <li><a href="/soccer-schools/uk-courses/" class="">UK Courses</a></li>
+</ul></li>
+<li><a href="/stadium-tours/" class="bottom-nav-link ">Stadium Tours</a><ul>
+    <li><a href="http://shop.tottenhamhotspur.com/category/gift-cards-and-tours?utm_source=bottom-nav&amp;utm_medium=thfc-site&amp;utm_campaign=vouchers" class="">Tour Vouchers</a></li>
+
+    <li><a href="/stadium-tours/classic-tours/?utm_source=bottom-nav&amp;utm_medium=thfc-site&amp;utm_campaign=classic-tours" class="">Classic Tours</a></li>
+
+    <li><a href="/stadium-tours/legend-tours/?utm_source=bottom-nav&amp;utm_medium=thfc-site&amp;utm_campaign=legend-tours" class="">Legend Tours</a></li>
+
+    <li><a href="/stadium-tours/group-tours/?utm_source=bottom-nav&amp;utm_medium=thfc-site&amp;utm_campaign=group-tours" class="">Group Tours</a></li>
+
+    <li><a href="/stadium-tours/kids-tours/?utm_source=bottom-nav&amp;utm_medium=thfc-site&amp;utm_campaign=kids-tours" class="">Kids Tours</a></li>
+</ul></li>
+<li><a href="/supporters-club/" class="bottom-nav-link ">Supporters Club</a><ul>
+    <li><a href="/supporters-club/club-finder/" class="">Club Finder</a></li>
+
+    <li><a href="/supporters-club/contact-us/" class="">Contact Us</a></li>
+
+    <li><a href="/supporters-club/useful-information/" class="">Benefits</a></li>
+
+    <li><a href="/supporters-club/toolkit/" class="">Toolkit</a></li>
+
+    <li><a href="/spurs-tv/ipb-broadcasters/" class="">IPB Broadcasters</a></li>
+</ul></li>
+<li><a href="/hospitality/" class="bottom-nav-link ">Hospitality</a><ul>
+    <li><a href="/hospitality/executive-boxes/" class="">Boxes</a></li>
+
+    <li><a href="/hospitality/executive-lounges/" class="">Lounges</a></li>
+
+    <li><a href="/hospitality/matchday/" class="">Matchday Hospitality</a></li>
+
+    <li><a href="/hospitality/sponsor-a-match/" class="">Match Sponsor</a></li>
+
+    <li><a href="/hospitality/members-area/" class="">Members Area</a></li>
+
+    <li><a href="/hospitality/brochure/" class="">Brochure</a></li>
+
+    <li><a href="/hospitality/virtual-tour/" class="">Virtual Tour</a></li>
+
+    <li><a href="/hospitality/social-events-calendar/" class="">What's On</a></li>
+
+    <li><a href="/hospitality-and-events-video/" class="">Contact Us</a></li>
+</ul></li>
+<li><a href="/events" class="bottom-nav-link ">Events</a><ul>
+    <li><a href="/events/conferences/" class="">Meetings and Events</a></li>
+
+    <li><a href="/events/private-hire/" class="">Special Occasions</a></li>
+
+    <li><a href="/events/special-events/" class="">Club Social Events</a></li>
+
+    <li><a href="/events/brochure/" class="">Brochure</a></li>
+
+    <li><a href="/events/virtual-tour/" class="">Virtual Tour</a></li>
+
+    <li><a href="/events/social-events-calendar/" class="">What’s On</a></li>
+
+    <li><a href="/events/contact/" class="">Contact Us</a></li>
+</ul></li>
+<li><a href="/the-club/" class="bottom-nav-link ">The Club</a><ul>
+    <li><a href="/the-club/partners/" class="">Partners</a></li>
+
+    <li><a href="/the-club/new-training-centre/" class="">New Training Centre</a></li>
+
+    <li><a href="/the-club/charities/" class="">Charities</a></li>
+
+    <li><a href="/the-club/environmental-policy/" class="">Environmental Policy</a></li>
+
+    <li><a href="/jobs/" class="">Jobs</a></li>
+
+    <li><a href="/the-club/tottenham-tribute-trust/" class="">Tottenham Tribute Trust</a></li>
+
+    <li><a href="/the-club/brand-protection/" class="">Brand Protection</a></li>
+
+    <li><a href="/the-club/investor-relations/" class="">Investor Relations</a></li>
+
+    <li><a href="/information/contact-us/" class="">Contact Us</a></li>
+</ul></li>
+<li><a href="/matchday-travel/latest-news/" class="bottom-nav-link ">Travel</a><ul>
+    <li><a href="/matchday-travel/latest-news/" class="">Travel News</a></li>
+
+    <li><a href="/matchday-travel/rail-season-ticket/" class="">Rail Season Ticket</a></li>
+
+    <li><a href="/matchday-travel/away-travel/" class="">Away Travel</a></li>
+
+    <li><a href="/matchday-travel/club-statement/" class="">Traffic Management</a></li>
+
+    <li><a href="/matchday-travel/travel-feedback/" class="">Travel Feedback</a></li>
+
+    <li><a href="/matchday-travel/Disabled-access-directions/" class="">Disabled access directions</a></li>
+</ul></li>
+<li><a href="/foundation/" class="bottom-nav-link ">Foundation</a></li>
+<li><a href="/the-stadium/" class="bottom-nav-link ">Stadium</a><ul>
+    <li><a href="/the-stadium" class="">Route To The Ground</a></li>
+
+    <li><a href="/the-stadium/directions/" class="">Directions</a></li>
+
+    <li><a href="/new-scheme/" class="">New Stadium Plans</a></li>
+
+    <li><a href="/stadium-tours/" class="">Stadium Tours</a></li>
+
+    <li><a href="/the-stadium/history/" class="">History</a></li>
+
+    <li><a href="/hospitality/virtual-tour/" class="">Virtual 360 Tour</a></li>
+
+    <li><a href="/the-stadium/safety-at-the-lane/" class="">Safety At The Lane</a></li>
+
+    <li><a href="/the-stadium/disabled-facilities/" class="">Disabled Facilities</a></li>
+</ul></li>
+<li><a href="/spursladies/" class="bottom-nav-link ">Spurs Ladies</a><ul>
+    <li><a href="/spursladies/first-team/" class="">Player Profiles</a></li>
+
+    <li><a href="/spursladies/fixtures-results/" class="">Fixtures and Results</a></li>
+
+    <li><a href="/spursladies/tickets/" class="">Matchday Tickets</a></li>
+
+    <li><a href="/spursladies/venue/" class="">Find the veune</a></li>
+
+    <li><a href="/spursladies/ladies-tv/" class="">Videos</a></li>
+
+    <li><a href="/spursladies/gallery/" class="">Gallery</a></li>
+
+    <li><a href="/spursladies/contact-us/" class="">Contact us</a></li>
+</ul></li>
+<li><a href="http://aff.mediarotate.co.uk/Click?bid=16822_16082_8840_false&amp;siteid=" class="bottom-nav-link " target="_blank">Betting</a></li>
+          </ul></div></div><!-- End XSLT: /Components/UserControls/Navigation/Xslt/Footer.xslt -->
+
+    
+
+    </form>
+    
+    <!-- ascx: ~/Components/UserControls/MetaData/MetaData.ascx -->
+<script id="EktronScriptBlockuxotj" type="text/javascript">
+
+Ektron.ready(function(event, eventName){
+try {
+                Sys.WebForms.PageRequestManager.getInstance().add_endRequest(function(){pageWidgetInit()});
+            } catch(e) {}
+});
+
+
+</script></body>
+</html><!-- Template aspx: ~/Components/Wireframes/OneColumnWithLeftNavigation.aspx -->

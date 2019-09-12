@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="utf-8"/>
+    <meta name="alexaVerifyID" content="fzseseyWUx8XbHUh36gtS3nnaqA" />
+    <meta name="wot-verification" content="171ba529e3e75d6e1433"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <title>YourTravelMates.com - travel dating site for a hot vacations</title>
+    <meta name="description"  content="Find love with this popular global online matchmaking service for loving singles worldwide. Chat with personals, find a match, and begin your online relationship. Start chatting now!"/>
+    <meta name="keywords"  content="Matchmaking service, match, online match, singles, love, chat, chatting, personals, online relationship"/>
+
+    <script type="text/javascript">
+
+        (function() {
+            var storage = localStorage.getItem('__appdata'),
+                    params = window.location.hash.substr(1) || '',
+                    iOS = /iPhone|iPod/.test(navigator.platform);
+
+            if (iOS) {
+                location.href = "/ios/";
+            }
+
+            storage = storage ? JSON.parse(storage) : {};
+
+
+            if (storage.token && params.indexOf('facebook=') === -1 && params.indexOf('emit=') === -1 ) {
+                location.href = '/people/' + location.hash;
+            }
+
+        })();
+
+    </script>
+
+    <!--[if lt IE 9]>
+    <script>var LTEIE8 = true;</script>
+    <![endif]-->
+
+    <script>
+        (function(w,d,s,l,i){
+            w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+            var f=d.getElementsByTagName(s)[0],
+                    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;
+            j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-MQ2S3G');
+    </script>    <!--[if lt IE 9]>
+    <script src='/app/libs/es5-shim.js'></script>
+    <script src='/app/libs/iso8601.js'></script>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    
+    <script>var REVISION = '7767-22';</script>
+    
+        <!--[if lt IE 9]>
+        <script>var LTEIE8 = true;</script>
+        <![endif]-->
+        
+        <script>
+            (function () {
+                var PATH_MAP = [
+                            [/^\/travellers\/\d+\/?$/, "/travellers/profile"],
+                            [/^\/people\/$/, "/people/search"]
+                        ],
+                        wl = window.location,
+                        uri = wl.pathname + wl.search,
+                        v = '?7767-22',
+                        isInline =  0 ;
+        
+                function remapPath (p) {
+                    var i = -1,
+                            l = PATH_MAP.length,
+                            r;
+        
+                    for (; ++i < l;) {
+                        r = PATH_MAP[i];
+                        if (r[0].test(p)) {
+                            return r[1];
+                        }
+                    }
+        
+                    return p;
+                }
+        
+                function loadScript (uri, cb) {
+                    var s = document.createElement('script'),
+                            counter = 0,
+                            i = 0,
+                            error;
+        
+                    if (uri instanceof Array) {
+        
+                        for (; i < uri.length; i++) {
+        
+                            loadScript(uri[i], function (err) {
+        
+                                if (counter++ >= uri.length - 1 || err && !error) {
+                                    cb && cb();
+                                }
+        
+                                !error && err && (error = err);
+                            });
+        
+                        }
+        
+                        return;
+                    }
+        
+                    function inline(s){
+                        var xmlhttp;
+        
+                        function getXmlHttp () {
+                            var xmlhttp;
+        
+                            try {
+                                xmlhttp = new ActiveXObject("Msxml2.XMLHTTP");
+                            } catch (e) {
+        
+                                try {
+                                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                                } catch (E) {
+                                    xmlhttp = false;
+                                }
+        
+                            }
+        
+                            if (!xmlhttp && typeof XMLHttpRequest != 'undefined') {
+                                xmlhttp = new window.XMLHttpRequest();
+                            }
+        
+                            return xmlhttp;
+                        }
+        
+                        xmlhttp = getXmlHttp();
+        
+                        xmlhttp.onreadystatechange = function () {
+        
+                            if (xmlhttp.readyState == 4) {
+                                if (xmlhttp.status !== 200) {
+                                    cb(true);
+                                    return;
+                                }
+        
+        
+                                if ('textContent' in s) {
+                                    s.textContent = xmlhttp.responseText;
+                                }
+                                else {
+                                    s.setAttribute('type', 'text/javascript');
+        
+                                    if ('text' in s) { //for ie8
+                                        s.text = xmlhttp.responseText;
+                                    }
+                                    else if ('innerText' in s) {
+                                        s.innerText = xmlhttp.responseText;
+                                    }
+        
+                                }
+        
+                                document.getElementsByTagName('head')[0].appendChild(s);
+                                cb && cb();
+                            }
+        
+                        };
+        
+                        xmlhttp.open('GET', uri, true);
+                        xmlhttp.send(null);
+        
+                    }
+        
+                    function src(s){
+                        s.setAttribute('src', uri);
+                        s.setAttribute('async', 'async');
+                        s.async = true;
+        
+                        s.onload = function () {
+                            cb();
+                        };
+        
+                        s.onerror = cb;
+        
+                        if ( typeof LTEIE8 !== 'undefined' ) {
+        
+                            s.onreadystatechange = function() {
+        
+                                if (s.readyState == 'loaded') {
+                                    cb({type: "error"});
+                                }
+                                else if (s.readyState == 'complete') {
+                                    cb();
+                                }
+        
+                            };
+                        }
+        
+                        document.getElementsByTagName('head')[0].appendChild(s);
+                    }
+        
+                    if(isInline) {
+                        inline(s);
+                    } else {
+                        src(s);
+                    }
+                }
+        
+                loadScript('/bundles' + remapPath(uri) + v, function (e) {
+        
+                    if(e) {
+        
+                        loadScript(['/app/require.config.js' + v, '/app/packages/require.js' + v], function () {
+                            require(['boot']);
+                        });
+        
+                    }
+        
+                });
+            })();
+        </script>
+    <link rel="shortcut icon" href="/i/travel/favicon.ico?10" type="image/x-icon" />
+
+    <link rel="stylesheet" type="text/css" href="/styles/static/index.css?7767-22">
+
+    <link rel="service" href="/authorization" />
+    <link rel="service" href="/facebook/authorization" />
+    <!--[if lt IE 10]>
+    <link rel="service" href="/placeholder" />
+    <![endif]-->
+    <link rel="service" href="/params/emitter"/>
+    <link rel="service" href="/params/encoder" />
+    <link rel="service" href="/params/router" data-args="command.page.open index" />
+    <link rel="service" href="/analytics" />
+    <link rel="service" href="/analytics/afid" />
+    <link rel="service" href="/analytics/referrer" />
+</head>
+<body>
+    <link rel="widget" href="/ie" data-platform="name:ie">
+    <link rel="widget" href="/stylist" data-args="event.overlay.first.opened, event.overlay.last.closed, blocked"/>
+    <link rel="widget" href="/overlay" data-args="noclick, false" />
+    <link rel="widget" href="/pages/opener" data-args="index"/>
+    <link rel="widget" href="/user-action" />
+    <!--[if lt IE 9]>
+    <div class="ie-overlay-bg"></div>
+    <![endif]-->
+    <section class="page index">
+        <link rel="widget" href="/authorization/state" />
+        <link rel="service" href="/authorization/redirect" />
+        <link rel="service" href="/doi/common" defer="bus://authorized" />
+        <link rel="widget" href="/scroll/fixator" data-args="index" />
+
+        <header>
+            <div class="limiting-wrapper clearfix">
+                <section class="account-options">
+                    <section class="login-container">
+                        <ul class="options clearfix">
+                            <li class="option">
+                                <button id="login-facebook" class="emblem facebook button hidden" type="button" accesskey="F">
+                                    <link rel="widget" href="/authorization/facebook" />
+                                    <l10n url="/texts/header/authorization#facebook">Sign in with Facebook</l10n>
+                                </button>
+                            </li>
+
+                            <li class="option member-login">
+                                <div class="popup-container">
+                                    <link rel="widget" href="/popup" />
+                                    <link rel="widget" href="/authorization/popup" />
+                                    <button class="default login-fellow popup-trigger popup-control button sign-in" type="button">
+                                        <link rel="widget" href="/domevents/emitter" data-args="init, sign-in"/>
+                                        <l10n url="/texts/header/authorization#login">Sign in with Email</l10n>
+                                    </button>
+                                    <div class="popup authorization-wrapper top">
+                                        <link rel="widget" href="/authorization/form" data-args="sign-in, true" data-container="next"/>
+                                        <form class="authorization form" action="" novalidate="">
+                                            <!--[if lte IE 8]>
+                                            <input type="submit" class="tiny"/>
+                                            <![endif]-->
+
+                                            <link rel="widget" href="/authorization/form/greeting"/>
+                                            <link rel="widget" href="/authorization/form/notify"/>
+                                            <link rel="widget" href="/domevents/trap" data-args="click"/>
+
+                                            <div class="entry">
+                                                <div class="inner-wrapper">
+                                                    <p class="field sign-up line">
+                                                        <label>
+                                                            <input class="data" type="text" name="name" tabindex="1" required  placeholder="Name or nickname" />
+                                                        </label>
+                                                    </p>
+
+                                                    <p class="plea password line greeting">
+                                                        <script type="text/template" id="authorization-greeting-template">
+                                                            <l10n url="/texts/profile/profile#hi">Hi</l10n>
+                                                            <strong class="name">{{name}}</strong><l10n url="/texts/profile/profile#already">, it seems that you already have an account on YourTravelMates.com.</l10n>
+                                                            <br />
+                                                            <l10n url="/texts/profile/profile#password">Please, enter your password.</l10n>
+                                                        </script>
+                                                    </p>
+
+                                                    <div class="field sign-in sign-up line password popup-container-event">
+                                                        <link rel="widget" href="/forms/inputs/mailcheck"/>
+
+                                                        <label>
+                                                            <link rel="widget" href="/forms/inputs/connect" data-args="email" data-container="next"/>
+                                                            <input class="data" type="email" pattern='^[^@]+@[^@]+\.[^@]+$' name="email" tabindex="2" required  placeholder="Your Email" />
+                                                        </label>
+
+                                                        <div class="hint-wrapper">
+                                                    <span class="hint popup-event top dark">
+                                                        <l10n url="/texts/helper/common#email">Maybe </l10n>
+                                                        <span href="/#" class="email pseudo-link"></span>
+                                                        <l10n url="/texts/helper/common#question">?</l10n>
+                                                    </span>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="immobile">
+                                                        <p class="field sign-in password line">
+                                                            <label>
+                                                                <input class="data" type="password" name="password" pattern=".{1}" required  placeholder="Password" />
+                                                            </label>
+                                                        </p>
+
+                                                        <p class="field sign-up line">
+                                                            <label>
+                                                                <input class="data" type="password" name="password" pattern=".{4}" required  placeholder="Password" />
+                                                            </label>
+                                                        </p>
+                                                    </div>
+
+                                                    <div class="plea field line agreement sign-up">
+                                                        <label>
+                                                            <input type="checkbox" required="" checked="checked" tabindex="3"/>
+                                                            <div class="text">
+                                                                <l10n url="/texts/tips#terms-info">
+		I agree with <a href="#terms">Terms & Conditions</a> and </br><a href="#privacy-policy">Privacy Policy</a>
+    </l10n>
+                                                            </div>
+                                                        </label>
+                                                    </div>
+
+                                                    <div class="login-options">
+                                                        <div class="button-wrapper sign-in-submit password-submit">
+                                                    <span class="prebutton">
+                                                        <link rel="widget" href="/domevents/emitter" data-args="state, sign-in"/>
+                                                        <span><l10n url="/texts/header/authorization#sign-in">Sign in</l10n></span>
+                                                    </span>
+                                                            <button class="approve button" value="sign-in" type="submit" disabled="disabled">
+                                                                <l10n url="/texts/header/authorization#sign-in">Sign in</l10n>
+                                                            </button>
+                                                        </div>
+
+                                                        <span class="separator"><l10n url="/texts/header/authorization#or">or</l10n>
+                                                             <link rel="widget" href="/suppresser" data-args="registration:disable, registration:enable"/>
+                                                        </span>
+
+                                                                                                <div class="button-wrapper sign-up-submit popup-container-hover">
+                                                                                                    <link rel="widget" href="/suppresser" data-args="registration:disable, registration:enable"/>
+                                                            <span class="prebutton">
+                                                                <link rel="widget" href="/domevents/emitter" data-args="state, sign-up"/>
+                                                                <span><l10n url="/texts/header/authorization#sign-up">Join now</l10n></span>
+                                                            </span>
+                                                                                                    <button class="approve button" value="sign-up" type="submit" disabled="disabled" tabindex="2">
+                                                                                                        <l10n url="/texts/header/authorization#sign-up">Join now</l10n>
+                                                                                                    </button>
+                                                            <span class="popup-hover top dark centered">
+                                                                <l10n url="/texts/header/authorization#terms">
+        By creating account you agree with the&nbsp;<a href="/terms" tabindex="2">Terms&nbsp;and&nbsp;Conditions</a>
+        and&nbsp;<a href="/privacy-policy" tabindex="2">Privacy&nbsp;Policy</a>
+    </l10n>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div>
+
+                                            </div>
+
+                                            <div class="forgot">
+                                                <div class="inner-wrapper">
+                                                    <p class="plea reminder line">
+                                                        <l10n url="/texts/header/authorization#letter">
+        Enter your email address to receive instructions on how to create a new password.
+    </l10n>
+                                                    </p>
+
+                                                    <p class="field reminder line">
+                                                        <label>
+                                                            <link rel="widget" href="/forms/inputs/connect" data-args="email" data-container="next"/>
+                                                            <input class="data" type="email" pattern='^[^@]+@[^@]+\.[^@]+$' name="email" tabindex="2" required  placeholder="Your Email" />
+                                                        </label>
+                                                    </p>
+
+                                                    <div class="login-options">
+                                                        <div class="button-wrapper reminder-submit">
+                                                    <span class="prebutton forgot-button">
+                                                        <link rel="widget" href="/domevents/emitter" data-args="state, reminder"/>
+                                                        <span><l10n url="/texts/header/authorization#reminder">Forgot password</l10n></span>
+                                                    </span>
+                                                            <button class="approve button" value="reminder" type="submit" disabled="disabled">
+                                                                <l10n url="/texts/header/authorization#remind">Reset password</l10n>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="notification">
+                                                <script type="text/template" id="authorization-notify-template">
+                                                    <l10n url="/texts/header/authorization#notify">
+        An email with instructions on how<br/>
+        to create a new password has been sent to<br/>
+    </l10n>{{email}}
+                                                </script>
+
+                                                <div class="inner-wrapper">
+                                                    <p class="instruction notify line"></p>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </section>
+                </section>
+                <section class="title backing">
+                    <h1 class="logo"><l10n url="/texts/index#header">Heat Up Your Holidays</l10n></h1>
+                    <p class="slogan"><l10n url="/texts/index#slogan">A simple way to discover a new world of traveling Experience what the world has to offer</l10n></p>
+                </section>
+            </div>
+        </header>
+
+        <section class="search">
+            <div class="limiting-wrapper clearfix">
+                <form class="params-form">
+                    <link rel="widget" href="/search/forms/landing/new" />
+
+                    <div class="wrapper">
+
+                        <div class="field-wrapper gender">
+                            <div class="text-wrapper"><l10n url="/texts/profile/profile#i-am-a">I am a:</l10n></div>
+                            <div class="data-wrapper field">
+                                <div class="customized-select">
+                                    <select class="data" name="gender" disabled="disabled">
+                                        <option value="mal-fem"><l10n url="/texts/profile/profile#man-preferences">Man Looking for a Woman</l10n></option>
+                                        <option value="fem-mal"><l10n url="/texts/profile/profile#woman-preferences">Woman Looking for a Man</l10n></option>
+                                        <option value="mal-mal"><l10n url="/texts/profile/profile#gay-preferences">Man Looking for a Man</l10n></option>
+                                        <option value="fem-fem"><l10n url="/texts/profile/profile#lesbian-preferences">Woman Looking for a Woman</l10n></option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="age field-wrapper">
+
+                            <div class="text-wrapper"><l10n url="/texts/profile/profile#between-ages">Between ages:</l10n></div>
+
+                            <span class="field">
+                                <div class="customized-select">
+                                    <select name="minage" class="data lower" disabled="disabled">
+                                        <option value="15">18</option>
+                                        <option value="20" selected="selected">20</option>
+                                        <option value="25">25</option>
+                                        <option value="30">30</option>
+                                        <option value="35">35</option>
+                                        <option value="40">40</option>
+                                        <option value="45">45</option>
+                                        <option value="50">50</option>
+                                        <option value="55">55</option>
+                                        <option value="60">60</option>
+                                        <option value="65">65</option>
+                                        <option value="70">70</option>
+                                        <option value="75">75</option>
+                                    </select>
+                                </div>
+                            </span>
+
+                            <span class="separator text-wrapper"><l10n url="/texts/common#and">and</l10n></span>
+
+                            <span class="field">
+                                <div class="customized-select">
+                                    <select name="maxage" class="data higher" disabled="disabled">
+                                        <option value="20">20</option>
+                                        <option value="25">25</option>
+                                        <option value="30">30</option>
+                                        <option value="35" selected="selected">35</option>
+                                        <option value="40">40</option>
+                                        <option value="45">45</option>
+                                        <option value="50">50</option>
+                                        <option value="55">55</option>
+                                        <option value="60">60</option>
+                                        <option value="65">65</option>
+                                        <option value="70">70</option>
+                                        <option value="75">75</option>
+                                        <option value="80">80+</option>
+                                    </select>
+                                </div>
+                            </span>
+
+                        </div>
+
+                        <div class="button-wrapper">
+                            <link rel="widget" href="/events/transmitter" data-args="bus://command.search.submit, dom://click, asis" data-container="next">
+                            <button type="submit" tabindex="3" class="button approve middle" disabled="disabled"><l10n url="/texts/index#chance">Meet My Mates</l10n></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+        <section class="motivation">
+            <div class="limiting-wrapper">
+                <div class="people-wrapper">
+					<link rel="widget" href="/search/motivation" data-args="travel" data-container="next" />
+                    <ul class="people touchcarousel-container"></ul>
+                </div>
+                <div class="catchwords">
+
+
+                        <section class="word protection">
+                            <h3><l10n url="/texts/motivation/catchwords#protection-header">Protection</l10n></h3>
+                            <p><l10n url="/texts/motivation/catchwords#protection-text">Your safety is provided by leading Safety Security System in the industry.</l10n></p>
+                        </section>
+                        <section class="word verification">
+                            <h3><l10n url="/texts/motivation/catchwords#verification-header">Verification</l10n></h3>
+                            <p><l10n url="/texts/motivation/catchwords#verification-text">All members are personally confirmed by our staff to prove they are real.</l10n></p>
+                        </section>
+                        <section class="word attention">
+                            <h3><l10n url="/texts/motivation/catchwords#attention-header">Attention</l10n></h3>
+                            <p><l10n url="/texts/motivation/catchwords#attention-text">Receive lots of attention from attractive members worldwide.</l10n></p>
+                        </section>
+                        <section class="word communication">
+                            <h3><l10n url="/texts/motivation/catchwords#communication-header">Communication</l10n></h3>
+                            <p><l10n url="/texts/motivation/catchwords#communication-text">Chat, send letters,call, share your photos and make presents.</l10n></p>
+                        </section>
+                </div>
+            </div>
+
+        </section>
+        <section class="comments">
+            <link rel="widget" href="/carousel">
+
+            <div class="list-wrapper">
+                <ul class="list carousel">
+                    <li class="comment">
+                        <p class="name"><l10n url="/texts/index/comments#author1">Ronald Almond, Phoenix</l10n></p>
+                        <q><l10n url="/texts/index/comments#comment1">
+            I&nbsp;will definitely recommend YourTravelMates.com to&nbsp;all of&nbsp;my&nbsp;friends. I&nbsp;met the love of&nbsp;my&nbsp;life here and now we’re traveling together!
+    </l10n></q>
+                    </li>
+                    <li class="comment">
+                        <p class="name"><l10n url="/texts/index/comments#author2">Kerry Anne Maria, Milwaukee</l10n></p>
+                        <q><l10n url="/texts/index/comments#comment2">
+           I&nbsp;always had a&nbsp;problem picking the right person to&nbsp;travel with. When you get only one break a&nbsp;year you always want to&nbsp;make it&nbsp;unforgettable. I&nbsp;thought that I&nbsp;won’t be&nbsp;able to&nbsp;find right companion but after I&nbsp;joined the site, I&nbsp;was surprised at how many gorgeous people there. So my trip to&nbsp;Miami with my&nbsp;beautiful travel mate was awesome!
+    </l10n></q>
+                    </li>
+                    <li class="comment">
+                        <p class="name"><l10n url="/texts/index/comments#author3">Ronald Almond, Phoenix</l10n></p>
+                        <q><l10n url="/texts/index/comments#comment3">
+            I&nbsp;will definitely recommend YourTravelMates.com to&nbsp;all of&nbsp;my&nbsp;friends. I&nbsp;met the love of&nbsp;my&nbsp;life here and now we’re traveling together!
+    </l10n></q>
+                    </li>
+                    <li class="comment active">
+                        <p class="name"><l10n url="/texts/index/comments#author4">Dustin Kruz, New York</l10n></p>
+                        <q><l10n url="/texts/index/comments#comment4">
+			When I&nbsp;first joined YourTravelMates I&nbsp;was overwhelmed by&nbsp;the amount of&nbsp;people I&nbsp;could chat with. It’s really about choices and on&nbsp;the site they're unlimited!
+    </l10n></q>
+                    </li>
+                </ul>
+            </div>
+            <div class="limiting-wrapper">
+                <ul class="commentators controls">
+                    <li class="commentator active" data-slide-to="3"><img class="photo" src="/i/travel/comments/4.jpg" alt="Nicole"></li>
+                    <li class="commentator" data-slide-to="1"><img class="photo" src="/i/travel/comments/2.jpg" alt="Whitney"></li>
+                    <li class="commentator" data-slide-to="2"><img class="photo" src="/i/travel/comments/3.jpg" alt="Michael"></li>
+                </ul>
+            </div>
+        </section>
+        <section class="action">
+            <div class="limiting-wrapper">
+                <div class="wrapper backing">
+                        <div class="logo small"></div>
+					<div class="call"><l10n url="/texts/index#description">
+        
+        <h3>Traveling is Always More Fun<br/>
+with Beautiful People Around You</h3>
+        <p>Join the Secure & Easy Way</p>
+        
+    </l10n></div>
+					<a class="approve middle button">
+                        <link rel="widget" href="/events/transmitter" data-args="dom://click, bus://command.search.submit, preventing|args">
+                        <l10n url="/texts/index#action">Create an account</l10n>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <footer>
+            <div class="limiting-wrapper clearfix">
+                <section class="social-links-container">
+                    <link rel="widget" href="/social/likes" />
+
+                    <div class="wrapper">
+                        <a  href="https://www.facebook.com/yourtravelmatesonline" target="_blank" class="social-fake-button facebook"></a>
+                    </div>
+
+                    <div class="wrapper">
+                        <a  href="https://twitter.com/yourtravelmates" target="_blank" class="social-fake-button twitter"></a>
+                    </div>
+
+                    <div class="wrapper">
+                        <a  href="https://plus.google.com/u/0/108901035344120301044" target="_blank" rel="publisher" class="social-fake-button google"></a>
+                    </div>
+                </section>
+
+                <div class="appendix clearfix">
+                    <ul class="menu">
+                        <li>
+                            <a href="#about">
+                                <l10n url="/texts/footer/menu#about">About</l10n>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#terms">
+                                <l10n url="/texts/footer/menu#terms">Terms & conditions</l10n>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#privacy-policy">
+                                <l10n url="/texts/footer/menu#privacy">Privacy policy</l10n>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#dating-securely">
+                                <l10n url="/texts/footer/menu#datingsecurely">Dating Securely</l10n>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#dating-disclaimer">
+                                <l10n url="/texts/footer/menu#datingdisclaimer">Dating Disclaimer</l10n>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#faq">
+                                <l10n url="/texts/footer/menu#faq">FAQ</l10n>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#contacts">
+                                <l10n url="/texts/footer/menu#contacts">Contact us</l10n>
+                            </a>
+                        </li>
+                    </ul>
+                    <p class="copyright">
+                        <link rel="l10n-image" href="/texts/footer/copyright#copyright-updated" data-width="450" data-args="Arial, 16, #000000, transparent" />
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </section>
+
+    <div class="app-overlay">
+        <div class="overlay-container">
+            <div class="inner">
+
+                <div class="frame">
+                    <div class="close"  title="Close">
+                        <link rel="widget" href="/domevents/emitter" data-args="close"/>
+
+                        <div class="cross">&times;</div>
+                        <div class="helper"></div>
+                    </div>
+
+                    <div class="privacy-policy special content loading">
+                        <link rel="widget" href="/static/loader" data-args="/privacy-policy/" />
+                    </div>
+
+                    <div class="about-project special content loading">
+                        <link rel="widget" href="/static/loader" data-args="/about-us/" />
+                    </div>
+
+                    <div class="terms-and-conditions special content loading">
+                        <link rel="widget" href="/static/loader" data-args="/terms/" />
+                    </div>
+                    <div class="dating-securely special content loading">
+                        <link rel="widget" href="/static/loader" data-args="/dating-securely/" />
+                    </div>
+                    <div class="dating-disclaimer special content loading">
+                        <link rel="widget" href="/static/loader" data-args="/dating-disclaimer/" />
+                    </div>
+                    <div class="faq special content loading">
+                        <link rel="widget" href="/static/loader" data-args="/faq/" />
+                    </div>
+
+                    <div class="contact-us special content loading">
+                        <link rel="widget" href="/static/loader" data-args="/contact-us/" />
+                    </div>
+
+                    <div class="stories content loading">
+                        <link rel="widget" href="/static/loader" data-args="/stories/" />
+                    </div>
+
+                    <div class="password content">
+                        <link rel="widget" href="/authorization/password-change" defer="dom://activated"/>
+                        <div class="change-password">
+                            <div class="head">
+                                <h3><l10n url="/texts/forms/password/change#label">Change your password</l10n></h3>
+                                <span class="comment"><l10n url="/texts/forms/password/change#comment">Remember to change your password to something you won't forget and other people won't be able to guess.</l10n></span>
+                                <h2 class="title"><l10n url="/texts/forms/password/change#title">Create a new password you can easily remember!</l10n></h2>
+                            </div>
+
+                            <form class="form" action="">
+                                <p class="field-wrapper field new middle" data-critical="true">
+                                    <label for="new-password"><l10n url="/texts/forms/password/change#new">New password</l10n></label>
+                                    <input name="password" class="data" id="new-password" type="password" required="required" pattern=".{4}" />
+                                </p>
+
+                                <p class="button-wrapper middle">
+                                    <button type="submit" class="change button approve" disabled="disabled"><l10n url="/texts/forms/password/change#change">Change</l10n></button>
+                                </p>
+
+                                <!-- It's ie bug for more details read http://www.rachaelarnold.com/dev/archive/enter-key-form-submission-bug#ixzz2Y5Zwgj2k -->
+                                <!--[if IE]>
+                                <input type="text" style="display: none;" disabled="disabled" size="1" />
+                                <![endif]-->
+
+                                <strong class="success invisible middle"><l10n url="/texts/forms/password/change#success">Your password has been successfully changed</l10n></strong>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="email-confirmation content">
+                        <div class="mine confirmation-container">
+
+                            <link rel="service" href="/events/timeout" data-args="event.overlay.email-confirmation.opened, 5000, overlay, event.overlay.email-confirmation.closed" defer="bus://event_notifications_email_confirmation_sent" />
+                            <link rel="widget" href="/stylist" data-args="event.notifications.email.confirmation.sent, event.overlay.closed, sent" defer="bus://event.overlay.email-confirmation.opened" />
+
+                            <h1><l10n url="/texts/doi#welcome">Welcome to YourTravelMates.com!</l10n></h1>
+                            <div class="confirmation">
+                                <form class="form">
+                                    <link rel="widget" href="/profile/identity" />
+
+                                    <l10n url="/texts/doi#confirmation">To complete your registration, please click on the confirmation link we have sent to</l10n>
+
+                                    <div class="email phrase">
+                                        <div class="editable">
+                                            <link rel="widget" href="/profile/inputs" />
+                                            <div class="editor">
+                                                <p class="email field field-wrapper">
+                                                    <link rel="widget" href="/events/binder" data-container="next" data-args="email, authorized" defer="bus://authorized" />
+                                                    <link rel="widget" href="/events/binder" data-container="next" data-args="email, identity:changed" defer="bus://authorized" />
+                                                    <link rel="widget" href="/forms/inputs/connect" data-args="email" data-container="next"/>
+                                                    <input class="data" type="email" pattern='.+@.+\..+' name="email" tabindex="1" required placeholder="Your email" />
+                                                </p>
+
+                                                <p class="button-wrapper">
+                                                    <button class="default button" type="submit"><l10n url="/texts/common#save">Save</l10n></button>
+                                                </p>
+                                            </div>
+
+                                            <link rel="widget" href="/events/binder" data-container="next" data-args="email, authorized" defer="bus://authorized" />
+                                            <link rel="widget" href="/events/binder" data-container="next" data-args="email, identity:changed" defer="bus://authorized" />
+                                            <span class="text phrase-email"></span>
+                                            <span class="hint"></span>
+                                        </div>
+                                    </div>
+
+                                    <p>
+                                        <span class="pseudo-link">
+                                            <link rel="widget" href="/events/proxy" data-args="command.notifications.email.confirmation.send" defer="bus://authorized" />
+                                            <l10n url="/texts/doi#resend">Resend confirmation</l10n>
+                                        </span>
+                                    </p>
+                                </form>
+                            </div>
+                            <div class="sent">
+                                <l10n url="/texts/doi#sent-to">The confirmation message has been resent to</l10n>
+                                <link rel="widget" href="/events/binder" data-container="next" data-args="email, authorized" defer="bus://authorized" />
+                                <link rel="widget" href="/events/binder" data-container="next" data-args="email, identity:changed" defer="bus://authorized" />
+                                <strong></strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script type="text/template" id="search-people-template">
+        {{#user}}
+        <li class="contact touchcarousel-item">
+            {{#thumbnail}}
+            <a href="/people/" class="thumbnail">
+                <img class="photo" src="{{thumbnail}}" alt="{{name}}">
+            </a>
+            {{/thumbnail}}
+            <div class="representation">{{name}}{{#birthday}}, {{age}}{{/birthday}}</div>
+            {{#location}}
+            <div class="location">{{city}}, {{country}}</div>
+            {{/location}}
+            <a href="/people/" class="default button">{{hello}}</a>
+        </li>
+        {{/user}}
+    </script>
+</body>
+</html>

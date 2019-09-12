@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<!--[if lte IE 7 ]><html class="ie ie7 no-js" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie ie8" lang="en"> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie ie9" lang="en"> <![endif]-->
+<!--[if gt IE 9]><!--><html lang="en"><!--<![endif]-->
+<head profile="http://www.w3.org/1999/xhtml/vocab">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var o=t[n]={exports:{}};e[n][0].call(o.exports,function(t){var o=e[n][1][t];return r(o||t)},o,o.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(e,t,n){function r(){}function o(e,t,n){return function(){return i(e,[(new Date).getTime()].concat(u(arguments)),t?null:this,n),t?void 0:this}}var i=e("handle"),a=e(2),u=e(3),c=e("ee").get("tracer"),f=NREUM;"undefined"==typeof window.newrelic&&(newrelic=f);var s=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit"],l="api-",p=l+"ixn-";a(s,function(e,t){f[t]=o(l+t,!0,"api")}),f.addPageAction=o(l+"addPageAction",!0),f.setCurrentRouteName=o(l+"routeName",!0),t.exports=newrelic,f.interaction=function(){return(new r).get()};var d=r.prototype={createTracer:function(e,t){var n={},r=this,o="function"==typeof t;return i(p+"tracer",[Date.now(),e,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[Date.now(),r,o],n),o)try{return t.apply(this,arguments)}finally{c.emit("fn-end",[Date.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){d[t]=o(p+t)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,(new Date).getTime()])}},{}],2:[function(e,t,n){function r(e,t){var n=[],r="",i=0;for(r in e)o.call(e,r)&&(n[i]=t(r,e[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],3:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,o=n-t||0,i=Array(o<0?0:o);++r<o;)i[r]=e[t+r];return i}t.exports=r},{}],ee:[function(e,t,n){function r(){}function o(e){function t(e){return e&&e instanceof r?e:e?c(e,u,i):i()}function n(n,r,o){if(!p.aborted){e&&e(n,r,o);for(var i=t(o),a=v(n),u=a.length,c=0;c<u;c++)a[c].apply(i,r);var f=s[w[n]];return f&&f.push([y,n,r,i]),i}}function d(e,t){b[e]=v(e).concat(t)}function v(e){return b[e]||[]}function g(e){return l[e]=l[e]||o(n)}function m(e,t){f(e,function(e,n){t=t||"feature",w[n]=t,t in s||(s[t]=[])})}var b={},w={},y={on:d,emit:n,get:g,listeners:v,context:t,buffer:m,abort:a,aborted:!1};return y}function i(){return new r}function a(){(s.api||s.feature)&&(p.aborted=!0,s=p.backlog={})}var u="nr@context",c=e("gos"),f=e(2),s={},l={},p=t.exports=o();p.backlog=s},{}],gos:[function(e,t,n){function r(e,t,n){if(o.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[t]=r,r}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){o.buffer([e],r),o.emit(e,t,n)}var o=e("ee").get("handle");t.exports=r,r.ee=o},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!h++){var e=y.info=NREUM.info,t=l.getElementsByTagName("script")[0];if(setTimeout(f.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return f.abort();c(b,function(t,n){e[t]||(e[t]=n)}),u("mark",["onload",a()],null,"api");var n=l.createElement("script");n.src="https://"+e.agent,t.parentNode.insertBefore(n,t)}}function o(){"complete"===l.readyState&&i()}function i(){u("mark",["domContent",a()],null,"api")}function a(){return(new Date).getTime()}var u=e("handle"),c=e(2),f=e("ee"),s=window,l=s.document,p="addEventListener",d="attachEvent",v=s.XMLHttpRequest,g=v&&v.prototype;NREUM.o={ST:setTimeout,CT:clearTimeout,XHR:v,REQ:s.Request,EV:s.Event,PR:s.Promise,MO:s.MutationObserver},e(1);var m=""+location,b={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-998.min.js"},w=v&&g&&g[p]&&!/CriOS/.test(navigator.userAgent),y=t.exports={offset:a(),origin:m,features:{},xhrWrappable:w};l[p]?(l[p]("DOMContentLoaded",i,!1),s[p]("load",r,!1)):(l[d]("onreadystatechange",o),s[d]("onload",r)),u("mark",["firstbyte",a()],null,"api");var h=0},{}]},{},["loader"]);</script>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" href="https://www.westminster.ac.uk/sites/default/files/favicon.ico" type="image/vnd.microsoft.icon" />
+<meta name="description" content="Read the University of Westminster&#039;s website terms of use." />
+<meta name="generator" content="Drupal 7 (http://drupal.org)" />
+<link rel="canonical" href="https://www.westminster.ac.uk/about-us/our-university/corporate-information/policies-and-documents-a-z/website-terms-of-use" />
+<link rel="shortlink" href="https://www.westminster.ac.uk/node/67721" />
+  <title>Website terms of use - About us - University of Westminster, London</title>
+  <link type="text/css" rel="stylesheet" href="https://www.westminster.ac.uk/sites/default/files/css/css_lQaZfjVpwP_oGNqdtWCSpJT1EMqXdMiU84ekLLxQnc4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://www.westminster.ac.uk/sites/default/files/css/css_-nqZQYuj8mDfw5m6ItWClS5R6rHkEExrijfOcqZpoTU.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://www.westminster.ac.uk/sites/default/files/css/css_bRI2mMWAKRTXz_-q8LKG4Ngi_9V87R_ZC5yxLUgugeI.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://www.westminster.ac.uk/sites/default/files/css/css_7U1l1xTeiXSDGYXDRCBCxHsv2YlYKYtWTTngwRpVvQo.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://www.westminster.ac.uk/sites/default/files/css/css_bEoEOxdirNzqOETa2Khb4IGRWDKcJ4C6O83-6hf6GW0.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://www.westminster.ac.uk/sites/all/themes/custom/uow_legacy/html/css/screen.css?om253w" media="all" />
+<link type="text/css" rel="stylesheet" href="https://www.westminster.ac.uk/sites/all/themes/custom/uow_legacy/css/style.css?om253w" media="all" />
+  <!-- HTML5 element support for IE6-8 -->
+  <!--[if lt IE 9]>
+    <script type="text/javascript" src="/sites/all/themes/custom/uow_legacy/html/scripts/html5shiv-printshiv.js"></script>
+    <script type="text/javascript" src="/sites/all/themes/custom/uow_legacy/html/scripts/respond.src.js"></script>
+  <![endif]-->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.js"></script>
+<script>window.jQuery || document.write("<script src='/sites/all/modules/contrib/jquery_update/replace/jquery/1.10/jquery.js'>\x3C/script>")</script>
+<script src="https://www.westminster.ac.uk/sites/default/files/js/js_3TykeRWpejhD4-J3vdlaNXdULg9xhOZhbsppK0o2bUs.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.js"></script>
+<script>window.jQuery.ui || document.write("<script src='/sites/all/modules/contrib/jquery_update/replace/ui/ui/jquery-ui.js'>\x3C/script>")</script>
+<script src="https://www.westminster.ac.uk/sites/default/files/js/js__BAc6nDMXqvp5s_2AJEdT889JQ1HTJf9dEbBL77SnzY.js"></script>
+<script>document.createElement( "picture" );</script>
+<script src="https://www.westminster.ac.uk/sites/default/files/js/js_yhKRalXlyCf8z2RZoi7aq-lgfLO28YYWoVZfbIaQHFI.js"></script>
+<script src="https://www.westminster.ac.uk/sites/default/files/js/js_6HqGCHkL01_KloUHI9m_VRpkhbdHc8OZggwacUm2X-o.js"></script>
+<script>jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"uow_legacy","theme_token":"h-wZtjq_COxpsTL9nsSu8xoZZLGr5iYwj3Pjn9lzfcg","js":{"sites\/all\/modules\/contrib\/picture\/picturefill2\/picturefill.min.js":1,"sites\/all\/modules\/contrib\/picture\/picture.min.js":1,"\/\/ajax.googleapis.com\/ajax\/libs\/jquery\/1.10.2\/jquery.js":1,"0":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"\/\/ajax.googleapis.com\/ajax\/libs\/jqueryui\/1.10.2\/jquery-ui.js":1,"1":1,"sites\/all\/modules\/contrib\/media_preview_slider\/js\/slider.js":1,"sites\/all\/modules\/contrib\/panopoly_magic\/panopoly-magic.js":1,"sites\/all\/modules\/contrib\/panopoly_theme\/js\/panopoly-accordion.js":1,"sites\/all\/modules\/contrib\/spamspan\/spamspan.js":1,"2":1,"sites\/all\/libraries\/colorbox\/jquery.colorbox-min.js":1,"sites\/all\/modules\/contrib\/colorbox\/js\/colorbox.js":1,"sites\/all\/modules\/contrib\/colorbox\/styles\/default\/colorbox_style.js":1,"sites\/all\/themes\/custom\/uow_legacy\/bootstrap\/dist\/js\/bootstrap.js":1,"sites\/all\/themes\/custom\/uow_legacy\/html\/scripts\/jquery.debouncedresize.js":1,"sites\/all\/themes\/custom\/uow_legacy\/html\/scripts\/wmu.drupal.behavior.js":1,"sites\/all\/themes\/custom\/uow_legacy\/html\/scripts\/wmu.globals.js":1,"sites\/all\/themes\/custom\/uow_legacy\/html\/scripts\/wmu.base.platform.detect.js":1,"sites\/all\/themes\/custom\/uow_legacy\/html\/scripts\/wmu.wmin.js":1,"sites\/all\/themes\/custom\/uow_legacy\/html\/scripts\/wmu.main.js":1,"sites\/all\/themes\/custom\/uow_legacy\/js\/uow-custom.js":1},"css":{"modules\/system\/system.base.css":1,"misc\/ui\/jquery.ui.core.css":1,"misc\/ui\/jquery.ui.theme.css":1,"misc\/ui\/jquery.ui.slider.css":1,"misc\/ui\/jquery.ui.tabs.css":1,"misc\/ui\/jquery.ui.accordion.css":1,"sites\/all\/modules\/contrib\/date\/date_api\/date.css":1,"sites\/all\/modules\/contrib\/date\/date_popup\/themes\/datepicker.1.7.css":1,"sites\/all\/modules\/contrib\/ember_support\/css\/ember-token.css":1,"sites\/all\/modules\/contrib\/ember_support\/css\/ember-workbench.css":1,"modules\/field\/theme\/field.css":1,"sites\/all\/modules\/contrib\/media_preview_slider\/css\/slider-styles.css":1,"sites\/all\/modules\/contrib\/office_hours\/office_hours.css":1,"sites\/all\/modules\/contrib\/panopoly_magic\/css\/panopoly-magic.css":1,"sites\/all\/modules\/contrib\/panopoly_magic\/css\/panopoly-modal.css":1,"sites\/all\/modules\/contrib\/panopoly_theme\/css\/panopoly-featured.css":1,"sites\/all\/modules\/contrib\/panopoly_theme\/css\/panopoly-accordian.css":1,"sites\/all\/modules\/contrib\/panopoly_theme\/css\/panopoly-layouts.css":1,"sites\/all\/modules\/contrib\/picture\/picture_wysiwyg.css":1,"sites\/all\/modules\/contrib\/radix_layouts\/radix_layouts.css":1,"sites\/all\/modules\/custom\/uow_ical_feed\/styles\/uow_ical_feed.css":1,"sites\/all\/modules\/contrib\/views\/css\/views.css":1,"sites\/all\/modules\/contrib\/ckeditor\/css\/ckeditor.css":1,"sites\/all\/modules\/contrib\/entity_embed\/css\/entity_embed.css":1,"sites\/all\/modules\/contrib\/colorbox\/styles\/default\/colorbox_style.css":1,"sites\/all\/modules\/contrib\/ctools\/css\/ctools.css":1,"public:\/\/css\/menu_icons.css":1,"sites\/all\/modules\/contrib\/panels\/css\/panels.css":1,"sites\/all\/themes\/custom\/uow_legacy\/bootstrap\/dist\/css\/bootstrap.min.css":1,"sites\/all\/themes\/custom\/uow_legacy\/html\/css\/screen.css":1,"sites\/all\/themes\/custom\/uow_legacy\/css\/style.css":1}},"colorbox":{"opacity":"0.85","current":"{current} of {total}","previous":"\u00ab Prev","next":"Next \u00bb","close":"Close","maxWidth":"98%","maxHeight":"98%","fixed":true,"mobiledetect":true,"mobiledevicewidth":"480px"},"CToolsModal":{"modalSize":{"type":"scale","width":".9","height":".9","addWidth":0,"addHeight":0,"contentRight":25,"contentBottom":75},"modalOptions":{"opacity":".55","background-color":"#FFF"},"animationSpeed":"fast","modalTheme":"CToolsModalDialog","throbberTheme":"CToolsModalThrobber"},"panopoly_magic":{"pane_add_preview_mode":"manual"},"currentPath":"node\/67721","currentPathIsAdmin":false,"bootstrap":{"anchorsFix":1,"anchorsSmoothScrolling":1,"popoverEnabled":1,"popoverOptions":{"animation":1,"html":0,"placement":"right","selector":"","trigger":"click","title":"","content":"","delay":0,"container":"body"},"tooltipEnabled":1,"tooltipOptions":{"animation":1,"html":0,"placement":"auto left","selector":"","trigger":"hover focus","delay":0,"container":"body"}}});</script>
+</head>
+<body class="html not-front not-logged-in no-sidebars page-node page-node- page-node-67721 node-type-general-page page-node about" >
+<!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-PRR2RJ" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script type="text/javascript">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0];var j=d.createElement(s);var dl=l!='dataLayer'?'&l='+l:'';j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;j.type='text/javascript';j.async=true;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-PRR2RJ');</script>
+<!-- End Google Tag Manager -->
+  <div id="fb-root"></div>
+  <div id="skip-link">
+    <a href="#main-content" class="element-invisible element-focusable">Skip to main content</a>
+  </div>
+    <div class="clearfix"></div>
+  <header>
+  <nav class="navbar navbar-default">
+    <div class="container">
+              <div class="panel-pane pane-uow-core-top-navigation"  >
+  
+  <div class="pane-content">
+    <div class="navbar-header">
+  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+  </button>
+  <a href="/" class="navbar-brand">University of Westminster</a></div>
+<div id="navbar" class="collapse navbar-collapse ">
+  <ul class="nav navbar-nav"><li class="first"><a href="/courses" class="">Courses</a></li>
+<li><a href="/study" class="">Study</a></li>
+<li><a href="/international" class="">International</a></li>
+<li><a href="/research" class="">Research</a></li>
+<li><a href="/business" class="">Business</a></li>
+<li><a href="/news-and-events" class="">News and events</a></li>
+<li><a href="/about-us" class="active">About us</a></li>
+<li class="searchpanel"><div class="navbar-form navbar-right" role="search">
+    <div class="form-group">
+        <input type="text" class="form-control" placeholder="Search Site">
+    </div>
+    <button type="submit" class="btn grey lightgrey">
+    <span><i class="icon-search white"></i></span>
+    </button>
+    </div></li>
+<li class="toplinks last"><div><ul class="menu nav"><li class="first leaf"><a href="https://myintranet.westminster.ac.uk/" title="">Staff</a></li>
+<li class="leaf"><a href="/current-students" title="">Students</a></li>
+<li class="last leaf"><a href="/about-us/alumni" title="">Alumni</a></li>
+</ul></div></li>
+</ul></div>
+  </div>
+
+</div>
+          </div>
+  </nav>
+</header>
+<div class="container">
+      <div class="panel-pane pane-page-content"  >
+  
+  <div class="pane-content">
+    <section id="block-system-main" class="block block-system clearfix">
+
+      
+  <div class="container container-title">
+      <div class="panel-pane pane-uow-core-page-header"  >
+  
+  <div class="pane-content">
+    <div class="title-main">
+            <strong>About us</strong>
+      <span class="h1">Our University</span>
+        
+</div>
+<div class="subnav">
+  <nav class="navbar navbar-default">
+    <div class="container">
+      <ul class="nav nav-pills"><li class="active first"><a href="/about-us/our-university">Our University</a></li>
+<li class=""><a href="/about-us/our-teaching">Our teaching</a></li>
+<li class=""><a href="/about-us/our-people">Our people</a></li>
+<li class=""><a href="/about-us/global-westminster">Global Westminster</a></li>
+<li class=""><a href="/about-us/our-faculties">Our faculties</a></li>
+<li class=""><a href="/about-us/our-locations">Our locations</a></li>
+<li class=""><a href="/about-us/our-galleries">Our galleries</a></li>
+<li class=""><a href="/about-us/our-facilities-and-services">Our facilities and services</a></li>
+<li class=""><a href="/about-us/support-us">Support us</a></li>
+<li class=""><a href="/about-us/alumni">Alumni</a></li>
+<li class=" last"><a href="/about-us/contact-us">Contact us</a></li>
+</ul>    </div>
+  </nav>
+</div>
+  <div class="subnav second ">
+    <ul class="nav nav-pills"><li class=" first"><a href="/about-us/our-university/vision-mission-and-values">Vision, mission and values</a></li>
+<li class=""><a href="/about-us/our-university/our-heritage">Our heritage</a></li>
+<li class=""><a href="/about-us/our-university/corporate-social-responsibility">Corporate Social Responsibility</a></li>
+<li class=""><a href="/about-us/our-university/equality-and-diversity">Equality and diversity</a></li>
+<li class="active"><a href="/about-us/our-university/corporate-information">Corporate information</a></li>
+<li class=" last"><a href="/about-us/our-university/careers-at-westminster">Careers at Westminster</a></li>
+</ul>  </div>
+  </div>
+
+</div>
+  </div>
+<div class="container">
+  <div class="col-sm-3 col-first">
+          <div class="panel-pane pane-uow-core-left-navigation-menu"  >
+  
+  <div class="pane-content">
+    <ul class="nav nav-stacked"><li class="first collapsed menu-mlid-937801"><a href="/about-us/our-university/corporate-information/governance-and-structure">Governance and structure</a></li>
+<li class="leaf menu-mlid-937856 current"><a href="/about-us/our-university/corporate-information/policies-and-documents-a-z">Policies and documents A-Z</a></li>
+<li class="collapsed menu-mlid-814731"><a href="/about-us/our-university/corporate-information/information-compliance-and-records-management">Information compliance and records management</a></li>
+<li class="collapsed menu-mlid-814601"><a href="/about-us/our-university/corporate-information/publication-scheme">Publication scheme</a></li>
+<li class="last leaf menu-mlid-1344137"><a href="/about-us/our-university/corporate-information/charitable-status">Charitable status</a></li>
+</ul>  </div>
+
+</div>
+      </div>
+  <div class="col-sm-6 content col-center">
+          <div class="panel-pane pane-node-content"  >
+  
+  <div class="pane-content">
+    <div id="node-67721" class="node node-general-page node-promoted clearfix">
+  <div class="content">
+          <h1>Website terms of use</h1>
+      </div>
+  <div class="clearfix"></div>
+  <div class="content">
+    
+<div class="entity entity-paragraphs-item paragraphs-item-text-content col-sm-12 start end">
+  <div class="content">
+    <div class=""><p>The website <a href="http://www.westminster.ac.uk">www.westminster.ac.uk</a> and its subdirectories and subdomains (the “website”) is provided and managed by the University of Westminster of 309 Regent Street, London W1B 2HW (the “University”).</p>
+<p>Use of the website is subject to these terms of use. By using the website you indicate that you have accepted these terms of use, so please ensure that you have read them carefully. If you do not agree to these terms of use, you are not authorised to access, use or continue to use the website. You are responsible for ensuring that all persons who access the website through your internet connection are aware of these terms of use and that they comply with them.</p>
+<p>The University may amend these terms of use at any time and any amended version will apply as soon as it is posted on the website. Continued use of the website will be deemed acceptance of the amended terms of use, so please check for updated versions regularly.</p>
+<p>If you have any questions or comments about these terms of use, please contact the University in writing to The Registrar and Secretary, 309 Regent Street, London W1B 2UW.</p>
+<h2>Ownership of intellectual property rights</h2>
+<p>The University owns or licenses all intellectual property rights in and to the website including but not limited to all copyright in the website content and all rights in the names and logos of the University.</p>
+<h2>Access to and use of the website</h2>
+<p>Material contained in the website may be downloaded, viewed and printed for personal use provided that no trade mark, copyright or other proprietary notices contained in or appearing on such material are removed in whole or in part. This permission to download and print material does not extend to material identified on the website as belonging to third parties, where you must obtain the permission of the relevant owners before doing so.</p>
+<p>Material contained in the website may not otherwise be copied, reproduced or redistributed in whole or in part without the prior written consent of the University. In particular it must not be reproduced or exploited for commercial gain. The University may provide such consent or decline to do so in its sole discretion. All other rights are reserved.</p>
+<p>You agree not to:</p>
+<ul><li>use the website in such a way that disrupts, interferes with or restricts the use of the website by other users;</li>
+<li>upload, display or transmit any materials through the website which are false, offensive, defamatory, threatening, obscene, abusive, menacing, indecent, unlawful or which violate, breach or infringe the rights of any other person anywhere in the world (including, without limitation, any intellectual property rights) or attempt to do so;</li>
+<li>reverse engineer, decompile, copy or adapt any software or other code or scripts forming part of the website or attempt to transmit to or via this website any information that contains a virus, worm, Trojan horse or other harmful or disruptive component; and</li>
+<li>change, modify, delete, interfere with or misuse data contained on the website and entered by or relating to any third party user of the website.</li>
+</ul><p>Use of the website by University staff and students is also subject to the University’s <a href="https://www.westminster.ac.uk/file/21221/download">IT Security and Use Policy</a>.</p>
+<p>You should ensure that you always have appropriate protection against viruses and other security arrangements in place whilst using the internet and the website.</p>
+<h2>Usernames and passwords</h2>
+<p>Certain parts of the website are accessible to registered users only. If you entitled to access those areas, you will be required to use a username and password to do so. You agree to:</p>
+<ul><li>ensure that any details supplied to the University in order to register for such access are accurate and to advise the University promptly in the event that any such details change; and</li>
+<li>keep confidential any login details enabling such access and to be responsible for any loss or damage resulting from use of any such login details by any third party.</li>
+</ul><p>The University reserves the right to terminate your access to password protected parts of the website if it considers that you are using this website in a manner detrimental to the website or to other users.</p>
+<h2>Links</h2>
+<p>Links to third party websites are provided for convenience only. The University has no control over and so cannot accept responsibility or liability for the content of any linked third party website. The University does not endorse any linked website. If you would like the University to consider adding a link to the website, please email your request to <a href="mailto:web.team@westminster.ac.uk">web.team@westminster.ac.uk</a> with the subject "Link request". The University may provide such consent or decline to do so in its sole discretion.</p>
+<p>You may create a link to the website from your website providing such link is not used in a misleading or defamatory context. You agree to remove any link to the website from your website upon our written request.</p>
+<h2>Privacy and cookies</h2>
+<p>By supplying personal details to the University through the website you consent to the University maintaining, recording, holding and using such personal data in accordance with the University’s <a href="https://www.westminster.ac.uk/about-us/our-university/corporate-information/policies-and-documents-a-z/website-terms-of-use/privacy">Privacy Policy</a>.</p>
+<p>The University uses cookies to record information about your access to the website. You may view the website without the use of cookies by disabling cookies in your internet browser, but this may limit your access to the website or certain functionality without the website. If you use the website without disabling cookies, you consent to the University collecting and using information obtained from cookies. More information about cookies is available in the University’s <a href="https://www.westminster.ac.uk/about-us/our-university/corporate-information/policies-and-documents-a-z/website-terms-of-use/privacy">Privacy Policy</a>.</p>
+<h2>Exclusions and limitations of liability</h2>
+<p>The University does not guarantee that the website or the websites to which it is linked will always be available or that you will be able or entitled to access them at any time.</p>
+<p>The website has been prepared with the aim of providing key information about the University and its teaching, research and business activities. The website does not constitute advice from the University in relation to any specific course of action that you may wish to take. Please note that material in personal, non-departmental or other pages of the website may contain advice, opinions or statements from various individuals and other authors and may not reflect the views of the University.</p>
+<p>Although every reasonable effort has been made to ensure that the information on the website was accurate at the time of publication, it is subject to variation at any time without notice and the University gives no warranty whatsoever that any such information will be accurate or complete at any particular time or at all.</p>
+<p>The University may change or amend any information on the website at any time (including but not limited to course information such as course and module content, course dates, times and fees and the applicable terms and conditions). The University also reserves the right to discontinue or postpone any of its courses. You should always check directly with the University for the most recent course information by emailing <a href="mailto:course-enquiries@westminster.ac.uk">course-enquiries@westminster.ac.uk</a>.</p>
+<p>The website and all information or other material contained in it are made available strictly on the basis that you accept it on an ‘as is’ and ‘as available’ basis. Where you rely on any information or other material contained in it, you do so entirely at your own risk and you accept that all warranties, conditions and undertakings, express or implied, in respect of the website (including without limitation in respect of quality, performance, fitness or suitability for purpose or non-infringement of any intellectual property rights) are excluded by the University to the fullest extent permitted by law.</p>
+<p>The University excludes all liability to the fullest extent permitted by law in respect of any loss of profits, revenue, goodwill, business opportunity, any loss of or cost of restoration of data or any direct, indirect or consequential loss or damage resulting or arising from any non-availability or use of the website or any website linked to it or from reliance on any contents of the website or any material or information accessed through it.</p>
+<h2>General</h2>
+<p>If any of these terms of use is held to be unlawful, invalid or unenforceable by a court of competent jurisdiction, such term shall to that extent be severed from these terms of use and rendered ineffective. The remaining terms of use shall remain in full force and effect.</p>
+<p>These terms of use are governed by English law and you agree to submit to the exclusive subject to the exclusive jurisdiction of the English courts in relation to any dispute relating to these terms of use or your use of the website.</p>
+</div>  </div>
+</div>
+  </div>
+</div>
+  </div>
+
+</div>
+      </div>
+  <div class="col-sm-3 col-last">
+          <div class="uow-sizeable-block  col-sm-12 ">
+      <div class="topped blue  equalise">
+        <div class="panel-pane pane-fieldable-panels-pane pane-fpid-19211 pane-bundle-uow-internal-hotspot"  >
+  
+  <div class="pane-content">
+      <a href="/about-us/our-university/corporate-information/policies-and-documents-a-z/annual-reporting" class="nested" title="Annual Reporting"><picture >
+<!--[if IE 9]><video style="display: none;"><![endif]-->
+<source srcset="https://www.westminster.ac.uk/sites/default/files/styles/landscape_wide/public/fpp/media/book-with-flipping-pages_0.jpg?itok=YjlYVeLk&amp;timestamp=1440405929 1x" media="only screen and (min-width: 1200px)" />
+<source srcset="https://www.westminster.ac.uk/sites/default/files/styles/landscape_tablet/public/fpp/media/book-with-flipping-pages_0.jpg?itok=W1gbKPWk&amp;timestamp=1440405929 1x" media="only screen and (min-width: 980px)" />
+<source srcset="https://www.westminster.ac.uk/sites/default/files/styles/landscape_narrow/public/fpp/media/book-with-flipping-pages_0.jpg?itok=PUD_zCex&amp;timestamp=1440405929 1x" media="only screen and (min-width: 768px)" />
+<source srcset="https://www.westminster.ac.uk/sites/default/files/styles/landscape_mobile/public/fpp/media/book-with-flipping-pages_0.jpg?itok=315N_Xwt&amp;timestamp=1440405929 1x" media="only screen and (min-width: 1px)" />
+<!--[if IE 9]></video><![endif]-->
+<img  src="https://www.westminster.ac.uk/sites/default/files/styles/landscape_mobile/public/fpp/media/book-with-flipping-pages_0.jpg?itok=315N_Xwt&amp;timestamp=1440405929" alt="book with flipping pages" title="" />
+</picture></a>                <h2><a href="/about-us/our-university/corporate-information/policies-and-documents-a-z/annual-reporting" title="Annual Reporting">Annual reporting</a></h2>
+          <p>View our Financial Statements, Key Performance Indicator Reports and Equality, Diversity and Inclusion Reports.</p>
+  </div>
+
+</div>
+      </div>
+  </div>
+<div class="uow-sizeable-block  col-sm-12 ">
+      <div class="topped green  equalise">
+        <div class="panel-pane pane-fieldable-panels-pane pane-fpid-19216 pane-bundle-uow-internal-hotspot"  >
+  
+  <div class="pane-content">
+      <a href="/about-us/our-university/corporate-information/policies-and-documents-a-z/university-calendar-dates" class="nested" title="University calendar dates"><picture >
+<!--[if IE 9]><video style="display: none;"><![endif]-->
+<source srcset="https://www.westminster.ac.uk/sites/default/files/styles/landscape_wide/public/fpp/media/pencil-on-a-calendar.jpg?itok=H4cH2t6k&amp;timestamp=1440167040 1x" media="only screen and (min-width: 1200px)" />
+<source srcset="https://www.westminster.ac.uk/sites/default/files/styles/landscape_tablet/public/fpp/media/pencil-on-a-calendar.jpg?itok=8C_3MODu&amp;timestamp=1440167040 1x" media="only screen and (min-width: 980px)" />
+<source srcset="https://www.westminster.ac.uk/sites/default/files/styles/landscape_narrow/public/fpp/media/pencil-on-a-calendar.jpg?itok=RD8VQi5n&amp;timestamp=1440167040 1x" media="only screen and (min-width: 768px)" />
+<source srcset="https://www.westminster.ac.uk/sites/default/files/styles/landscape_mobile/public/fpp/media/pencil-on-a-calendar.jpg?itok=O870vWHA&amp;timestamp=1440167040 1x" media="only screen and (min-width: 1px)" />
+<!--[if IE 9]></video><![endif]-->
+<img  src="https://www.westminster.ac.uk/sites/default/files/styles/landscape_mobile/public/fpp/media/pencil-on-a-calendar.jpg?itok=O870vWHA&amp;timestamp=1440167040" alt="Pencil on a calendar" title="" />
+</picture></a>                <h2><a href="/about-us/our-university/corporate-information/policies-and-documents-a-z/university-calendar-dates" title="University calendar dates">University calendar dates</a></h2>
+          <p>Check academic year and term dates, exam periods, open day dates and more.</p>
+  </div>
+
+</div>
+      </div>
+  </div>
+      </div>
+</div>
+
+</section> <!-- /.block -->
+  </div>
+
+</div>
+  </div>
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="links">
+                  <div class="panel-pane pane-uow-core-footer-top-menu"  >
+  
+  <div class="pane-content">
+    <div class="clearfix">
+  <p class="pull-left">
+    <a href="/about-us/our-university/corporate-information/charitable-status">University of Westminster is a charity and a company limited by guarantee. Reg no. 977818 England</a>  </p>
+  <ul class="pull-right list-inline"><li class="menu-2390196 first"><a href="/about-us/our-university/corporate-information/policies-and-documents-a-z/website-accessibility-statement" title="">Accessibility</a></li>
+<li class="menu-10241"><a href="/about-us/our-university/corporate-information/policies-and-documents-a-z/website-terms-of-use/cookies" title="">Cookies</a></li>
+<li class="menu-3408801"><a href="/file/85176/download" title="">Slavery statement</a></li>
+<li class="menu-10246 active-trail active"><a href="/about-us/our-university/corporate-information/policies-and-documents-a-z/website-terms-of-use" title="" class="active-trail active">Terms of use</a></li>
+<li class="menu-2621076 last"><a href="/about-us/our-university/corporate-information/policies-and-documents-a-z/university-calendar-dates" title="">University calendar</a></li>
+</ul></div>
+  </div>
+
+</div>
+              </div>
+    </div>
+    <div class="row">
+      <div class="list hidden-xs">
+                  <div class="uow-sizeable-block  col-sm-2 ">
+        <div class="panel-pane pane-uow-core-footer-menu-block"  >
+  
+  <div class="pane-content">
+    <h4>Main</h4><ul class="unstyled black-text"><li class="menu-1788561 first"><a href="/courses" title="">Courses</a></li>
+<li class="menu-2439271"><a href="/study" title="">Study</a></li>
+<li class="menu-2439276"><a href="/international" title="">International</a></li>
+<li class="menu-2439281"><a href="/research" title="">Research</a></li>
+<li class="menu-2439286"><a href="/business" title="">Business</a></li>
+<li class="menu-15161"><a href="/about-us" title="">About us</a></li>
+<li class="menu-2439291"><a href="/news-and-events" title="">News and events</a></li>
+<li class="menu-15171 last"><a href="/about-us/our-university/careers-at-westminster" title="">Careers</a></li>
+</ul>  </div>
+
+</div>
+  </div>
+<div class="uow-sizeable-block  col-sm-4 ">
+        <div class="panel-pane pane-uow-core-footer-menu-block"  >
+  
+  <div class="pane-content">
+    <h4>Faculties and schools</h4><ul class="unstyled black-text"><li class="menu-15086 first"><a href="/about-us/faculties/architecture-and-the-built-environment" class="menu-node-unpublished menu-node-unpublished menu-node-unpublished menu-node-unpublished menu-node-unpublished menu-node-unpublished menu-node-unpublished menu-node-unpublished">Architecture and the Built Environment</a></li>
+<li class="menu-15091"><a href="/about-us/faculties/westminster-school-of-media-arts-and-design" class="menu-node-unpublished menu-node-unpublished menu-node-unpublished menu-node-unpublished menu-node-unpublished menu-node-unpublished">Westminster School of Media, Arts and Design</a></li>
+<li class="menu-15096"><a href="/about-us/faculties/science-and-technology" class="menu-node-unpublished menu-node-unpublished menu-node-unpublished menu-node-unpublished menu-node-unpublished menu-node-unpublished menu-node-unpublished menu-node-unpublished menu-node-unpublished menu-node-unpublished menu-node-unpublished menu-node-unpublished menu-node-unpublished menu-node-unpublished menu-node-unpublished">Science and Technology</a></li>
+<li class="menu-15101"><a href="/about-us/faculties/social-sciences-and-humanities" class="menu-node-unpublished menu-node-unpublished menu-node-unpublished menu-node-unpublished menu-node-unpublished menu-node-unpublished menu-node-unpublished menu-node-unpublished menu-node-unpublished menu-node-unpublished menu-node-unpublished menu-node-unpublished menu-node-unpublished menu-node-unpublished menu-node-unpublished">Social Sciences and Humanities</a></li>
+<li class="menu-15106"><a href="/about-us/faculties/westminster-business-school" class="menu-node-unpublished">Westminster Business School</a></li>
+<li class="menu-15111 last"><a href="/about-us/faculties/law" class="menu-node-unpublished menu-node-unpublished menu-node-unpublished menu-node-unpublished menu-node-unpublished menu-node-unpublished menu-node-unpublished menu-node-unpublished menu-node-unpublished menu-node-unpublished menu-node-unpublished menu-node-unpublished menu-node-unpublished menu-node-unpublished">Westminster Law School</a></li>
+</ul>  </div>
+
+</div>
+  </div>
+<div class="uow-sizeable-block  col-sm-2 ">
+        <div class="panel-pane pane-uow-core-footer-menu-block"  >
+  
+  <div class="pane-content">
+    <h4>Connect</h4><ul class="unstyled black-text"><li class="menu-15036 first"><a href="https://your.westminster.ac.uk/form/enquiry" title="">Your Westminster</a></li>
+<li class="menu-15041"><a href="https://www.facebook.com/uniofwestminster" title="">Facebook</a></li>
+<li class="menu-15046"><a href="https://www.twitter.com/uniwestminster" title="">Twitter</a></li>
+<li class="menu-15051"><a href="https://www.youtube.com/user/UniOfWestminster" title="">YouTube</a></li>
+<li class="menu-15056"><a href="http://www.weibo.com/westminsterchina" title="">Weibo</a></li>
+<li class="menu-15061"><a href="https://www.foursquare.com/uniwestminster" title="">Foursquare</a></li>
+<li class="menu-15066"><a href="https://plus.google.com/u/0/b/116768287198570038218/116768287198570038218/posts" title="">Google+</a></li>
+<li class="menu-15071"><a href="https://www.linkedin.com/company/8890" title="">LinkedIn</a></li>
+<li class="menu-15076 last"><a href="https://instagram.com/uniwestminster" title="">Instagram</a></li>
+</ul>  </div>
+
+</div>
+  </div>
+<div class="uow-sizeable-block  col-sm-4 ">
+        <div class="panel-pane pane-uow-core-footer-menu-block"  >
+  
+  <div class="pane-content">
+    <h4>Contact us</h4><ul class="unstyled black-text"><li class="menu-2096431 first"><a href="/about-us/our-locations/maps-and-directions/regent-street" title="">309 Regent Street, London W1B 2HW</a></li>
+<li class="menu-15126 last"><a href="/about-us/contact-us" title="">General enquiries: +44 (0)20 7911 5000</a></li>
+</ul>  </div>
+
+</div>
+  </div>
+              </div>
+    </div>
+    <div class="row hidden-xs">
+              <div class="panel-pane pane-uow-core-footer-icons"  >
+  
+  <div class="pane-content">
+    <div class="footer_icons">
+  <ul class="list-inline"><li class="first"><a href="http://www.stonewall.org.uk/get-involved/workplace/diversity-champions-programme"><img src="https://www.westminster.ac.uk/sites/default/files/styles/uow_footer_menu_icon_scale_height_60/public/menu_icons/menu_icon_9826.gif?itok=krHFMoQ7" alt="Stonewall logo" title="Stonewall logo" /></a></li>
+<li><a href="http://www.ecu.ac.uk/equality-charters/athena-swan/"><img src="https://www.westminster.ac.uk/sites/default/files/styles/uow_footer_menu_icon_scale_height_60/public/menu_icons/menu_icon_1559386.jpg?itok=tP6Q4eCL" alt="Athena Swan Bronze Award logo." title="Athena Swan Bronze Award logo." /></a></li>
+<li><a href="http://www.ecu.ac.uk/equality-charters/race-equality-charter/"><img src="https://www.westminster.ac.uk/sites/default/files/styles/uow_footer_menu_icon_scale_height_60/public/menu_icons/menu_icon_1559291.jpeg?itok=46RhsGq1" alt="Race Equality Charter logo" title="Race Equality Charter logo" /></a></li>
+<li><a href="http://www.qaa.ac.uk/InstitutionReports/Pages/University-of-Westminster.aspx"><img src="https://www.westminster.ac.uk/sites/default/files/styles/uow_footer_menu_icon_scale_height_60/public/menu_icons/menu_icon_9821.png?itok=Wj2Kjje-" alt="QAA logo" title="QAA logo" /></a></li>
+<li><a href="http://www.buttleuk.org"><img src="https://www.westminster.ac.uk/sites/default/files/styles/uow_footer_menu_icon_scale_height_60/public/menu_icons/menu_icon_9816.png?itok=pp0gLn5e" alt="Buttle UK" title="Buttle UK" /></a></li>
+<li><a href="http://www.customerfirst.org/#!about/c1rp8"><img src="https://www.westminster.ac.uk/sites/default/files/styles/uow_footer_menu_icon_scale_height_60/public/menu_icons/menu_icon_2750001.JPG?itok=A3mZ1k05" alt="Putting the Customer First logo" title="Putting the Customer First logo" /></a></li>
+<li><a href="https://www.vitae.ac.uk/policy/hr-excellence-in-research"><img src="https://www.westminster.ac.uk/sites/default/files/styles/uow_footer_menu_icon_scale_height_60/public/menu_icons/menu_icon_2945186.jpg?itok=Z4x8P-oz" alt="HR Excellence in Research logo" title="HR Excellence in Research logo" /></a></li>
+<li><a href="https://www.investorsinpeople.com"><img src="https://www.westminster.ac.uk/sites/default/files/styles/uow_footer_menu_icon_scale_height_60/public/menu_icons/menu_icon_3149656.jpg?itok=EzTrUxpt" alt="Investors in People Silver logo" title="Investors in People Silver logo" /></a></li>
+<li class="last"><a href="http://standalone.org.uk/"><img src="https://www.westminster.ac.uk/sites/default/files/styles/uow_footer_menu_icon_scale_height_60/public/menu_icons/menu_icon_3413981.jpeg?itok=_BRFaZLs" alt="Stand Alone Pledge logo" title="Stand Alone Pledge logo" /></a></li>
+</ul></div>
+  </div>
+
+</div>
+          </div>
+  </div>
+</footer>
+  <script src="https://www.westminster.ac.uk/sites/default/files/js/js_7Ukqb3ierdBEL0eowfOKzTkNu-Le97OPm-UqTS5NENU.js"></script>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"33e6f39f69","applicationID":"10546026","transactionName":"blIHMkYDW0oFUURfDFcYJAVAC1pXS0JRUQZmWgQIVQVQSztcX1IGZkEMA0M9RVgDVw==","queueTime":0,"applicationTime":791,"atts":"QhUERA4ZSEQ=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>

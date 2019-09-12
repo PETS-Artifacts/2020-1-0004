@@ -1,0 +1,54 @@
+
+
+
+
+Page not found
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+404 Sorry, this page cannot be not found..
+
+You can follow a link back to the
+Main Page
+
+
+                window.isLocalLinkClick = true;
+                $(document).on("click", "a, button", function(event){
+                    var href = $(this).attr("href");
+                    window.isLocalLinkClick = (typeof href === typeof undefined || href.includes("slottyvegas.com"));
+                });
+                
+                $(window).load(function() {
+                    window.top.postMessage({
+                        "event": "window.load",
+                        "urlType": "normal"
+                    },"*");
+                });
+                
+                $(window).on("beforeunload", function (event) {
+                    window.top.postMessage({
+                        "event": "window.change",
+                        "urlType": window.isLocalLinkClick ? "normal" : "external",
+                        "url": "undefined"
+                    },"*");
+                });
+                
+
+

@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+<head>
+<meta charset="UTF-8" />
+<link href='http://fonts.googleapis.com/css?family=Merriweather|Cantata+One|Fjalla+One|Open+Sans:400,400i,700' rel='stylesheet' type='text/css'><!-- Google fonts -->
+<title>Privacy Policy</title>
+<script type="text/javascript">
+window.sayhello = window.sayhello || { };
+window.sayhello.domain = 's.vixendaily.com';
+window.sayhello.pageid = parseInt('1074',10);
+window.sayhello.ready = false;
+</script>
+<script>
+(function(w) {
+"use strict";
+w.cdough = w.cdough || { };
+
+var me = w.cdough;
+
+me.getc=function(name,limit){
+if (typeof limit === 'undefined') limit = 20;
+return me.retrieve(name).substring(0,limit).replace(/[\s]/gi, '');
+}
+
+me.retrieve=function(name){ 
+if (!name) return '';
+var re=new RegExp(name+"=[^;]+", "i"); 
+if (document.cookie.match(re)) return document.cookie.match(re)[0].split("=")[1];
+return ''; 
+}
+
+me.setwithexp=function(name,value,expDays,domain){
+if (!name||expDays<1) return ''; // wpclosetag_fix>
+value=String(value);
+if (value.indexOf(';')>-1) return '';
+if (expDays==='delete') expDays = -1;
+var dateobj = new Date();
+var expstring = dateobj.setDate(dateobj.getDate()+parseInt(expDays));
+var domainstring = (typeof domain === 'undefined' || !domain) ? '' : "; domain="+domain;
+document.cookie = name+"="+value+"; expires="+dateobj.toGMTString()+"; path=/"+domainstring;
+}
+
+me.del=function(name,domain){
+me.setwithexp(name,'','delete',domain);
+}
+
+me.set=function(name,value,domain){
+me.setwithexp(name,value,14,domain);
+}
+
+me.urlpartsstring=function(u){
+var l = u.indexOf('#'), hash, query;
+if (l===-1) {
+	hash = '';
+} else {
+	hash = u.substr(l);
+	u = u.substr(0,l);
+}
+
+l = u.indexOf('?');
+if (l===-1) {
+	query = '';
+} else {
+	query = u.substr(l);
+	u = u.substr(0,l);
+}
+
+return {url:u,query:query,hash:hash};
+}
+
+me.urlparts=function(){
+return me.urlpartsstring(window.location);
+}
+
+me.assembleurl=function(p){
+if(typeof p.url === 'undefined' || typeof p.query === 'undefined' || typeof p.hash === 'undefined') return false;
+return p.url+p.query+p.hash;
+}
+
+me.updatequery=function(query,newvars){
+if(typeof newvars !== 'object') return false;
+var pairs = me.parsequerystring(query);
+var keys = Object.keys(newvars);
+for(var i=0,l=keys.length;i<l;i++){
+	pairs[keys[i]] = newvars[keys[i]];
+}
+return me.makeuriquery(pairs);
+}
+
+me.makeuriquery=function(pairs){
+var keys=Object.keys(pairs);
+if (keys.length>0){
+	var qs='';
+	for(var i=0,l=keys.length,r=0;i<l;i++){
+		if(pairs[keys[i]]===false) continue;
+		qs+=((r>0)?'&':'?')+keys[i]+((pairs[keys[i]]!==null)?'='+encodeURIComponent(pairs[keys[i]]):'');
+		r++;
+	}
+	return qs;
+} else return '';
+}
+
+me.parsequerystring=function(qs) {
+var qparams={};
+while(qs.length>0 && (qs.charAt(0) === '?' || qs.charAt(0) === '&')){
+qs = qs.substr(1);
+}
+if(qs==='') return {};
+var ps = qs.split('&');
+for (var i=0,l=ps.length;i<l;i++){
+	var pair = ps[i].split('=');
+	if (pair[0].length>0){
+		if (typeof qparams[pair[0]]==='undefined') {
+			qparams[pair[0]] = (typeof pair[1] === 'undefined') ? null : decodeURIComponent(pair[1]);
+		}
+	}
+}
+return qparams;
+}
+
+me.parsequery=function() {
+return me.parsequerystring(window.location.search);
+}
+
+me.queryvaluestring=function(qstring,key,returnempty=false){
+var qv = me.parsequerystring(qstring);
+if (typeof qv[key] !== 'undefined') return (returnempty&&qv[key]===null ? '' : qv[key]);
+else return (returnempty?'':false);
+}
+
+me.queryvalue=function(key,returnempty){
+return me.queryvaluestring(window.location.search,key,returnempty);
+}
+
+
+})( window );
+</script>
+<script>
+(function( w ) {
+"use strict";
+w.wdfq = w.wdfq || {};
+var me = w.wdfq;
+
+var ival,
+
+run = function(f) {
+    if(typeof f === 'function') {
+        try { return jQuery(f); }
+        catch(e) {return;}
+    }
+},
+
+openGate = function() {
+    if (Array.isArray(me.cmd)) {
+        for(var i=0,l=me.cmd.length;i<l;i++) {
+            try {
+                if(typeof me.cmd[i] !== 'function') continue;
+                jQuery( me.cmd[i] );
+            }
+            catch(e) {
+                continue;
+            }
+        }
+        me.cmd = { push: run, };
+    }
+},
+
+bump = function() {
+    if(typeof w.jQuery !== 'undefined') {
+        clearInterval(ival);
+        openGate();
+    }
+},
+
+
+init = function() {
+    if(typeof w.jQuery === 'undefined') {
+        ival = setInterval(bump, 1000);
+    } else {
+        openGate();
+    }
+},
+
+/*  */ pvarend;
+
+me.cmd = [];
+
+init();
+
+}( window ));
+var googletag = googletag || {};
+googletag.cmd = googletag.cmd || [];
+</script>
+<script>
+wdfq.cmd.push( function(){ (function($,w,d,u){
+"use strict";
+w.sayhello = w.sayhello || { };
+
+var me = w.sayhello,
+callback = $.Callbacks("memory"),
+
+geniframe=function() {
+var l=w.location,
+	ins = document.createElement('iframe');
+ins.style.display = 'none';
+ins.setAttribute('src','//'+me.domain+'/v/?i='+me.pageid+'&o='+l.hostname+l.pathname);
+document.getElementsByTagName('body')[0].appendChild(ins);
+},
+
+init=function() {
+if (typeof me.domain === 'undefined') return;
+if (typeof me.pageid === 'undefined') me.pageid = 0;
+if (!Number.isInteger(me.pageid) || me.pageid > 9999999 || me.pageid < 0 ) me.pageid = 0;
+me.registerOriginEvent(geniframe);
+me.ready = true;
+if (!w.cdough.getc('visitorigin1')) callback.fire();
+},
+
+pvarend;
+
+me.registerOriginEvent = function(f) {
+    callback.add(f);
+};
+
+$(init);
+})(jQuery,window,document,'undefined') } );
+</script>
+<!-- Facebook Pixel Code, mod data-lazy-src to prevent lazyload -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '334946353602064', {});
+</script>
+<noscript><img height="1" width="1" style="display:none" data-lazy-src 
+src="https://www.facebook.com/tr?id=334946353602064&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Facebook Pixel Code --> 
+<script>
+window.fborigin_deferral = setInterval( function(){ if( typeof window.jQuery != 'undefined' && window.sayhello.ready) { fborigin_pop(); clearInterval(fborigin_deferral); } } , 1000 );
+function fborigin_pop() {
+(function( $, win, undefined ) {
+"use strict";
+win.fborigin = win.fborigin || { };
+var me = win.fborigin;
+me.fborigin_event = function() {
+fbq('track', 'vxsitewide', {
+content_type: 'landing',
+content_ids: [ sayhello.pageid.toString() ],
+value: 0.00,
+currency: 'USD'
+});
+}
+sayhello.registerOriginEvent( me.fborigin_event );
+})( jQuery, window );
+}
+</script>
+<meta name="description" content="Read very carefully: Vixen Daily only contacts individuals who specifically request that we do so or in the event that they have signed up to receive our f" />
+<meta name="robots" content="noodp, noydir" />
+<link rel="apple-touch-icon" sizes="57x57" href="//assets.vixendaily.com/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="//assets.vixendaily.com/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="//assets.vixendaily.com/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="//assets.vixendaily.com/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="//assets.vixendaily.com/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="//assets.vixendaily.com/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="//assets.vixendaily.com/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="//assets.vixendaily.com/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="//assets.vixendaily.com/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" href="//assets.vixendaily.com/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="//assets.vixendaily.com/android-chrome-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="//assets.vixendaily.com/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="//assets.vixendaily.com/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="//assets.vixendaily.com/manifest.json">
+<meta name="msapplication-TileColor" content="#2b5797">
+<meta name="msapplication-TileImage" content="/mstile-144x144.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" type="text/css" href="http://assets.vixendaily.com/wp-content/thesis/skins/facoskin4/css.css" />
+<link rel="canonical" href="http://www.vixendaily.com/privacy-policy/" />
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<link rel="alternate" type="application/rss+xml" title="Vixen Daily feed" href="http://www.vixendaily.com/feed/" />
+    <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async></script>    <script>
+
+      var OneSignal = OneSignal || [];
+
+      OneSignal.push( function() {
+        OneSignal.SERVICE_WORKER_UPDATER_PATH = "OneSignalSDKUpdaterWorker.js.php";
+        OneSignal.SERVICE_WORKER_PATH = "OneSignalSDKWorker.js.php";
+        OneSignal.SERVICE_WORKER_PARAM = { scope: '/' };
+
+        OneSignal.setDefaultNotificationUrl("http://www.vixendaily.com");
+        var oneSignal_options = {};
+
+        oneSignal_options['wordpress'] = true;
+oneSignal_options['appId'] = '0fb33b61-8221-404a-8b49-50325024b285';
+oneSignal_options['autoRegister'] = true;
+oneSignal_options['welcomeNotification'] = { };
+oneSignal_options['welcomeNotification']['title'] = "";
+oneSignal_options['welcomeNotification']['message'] = "";
+oneSignal_options['subdomainName'] = "vixendaily";
+oneSignal_options['promptOptions'] = { };
+oneSignal_options['promptOptions']['showCredit'] = false;
+oneSignal_options['notifyButton'] = { };
+oneSignal_options['notifyButton']['enable'] = true;
+oneSignal_options['notifyButton']['position'] = 'bottom-right';
+oneSignal_options['notifyButton']['theme'] = 'default';
+oneSignal_options['notifyButton']['size'] = 'medium';
+oneSignal_options['notifyButton']['prenotify'] = true;
+oneSignal_options['notifyButton']['showCredit'] = true;
+oneSignal_options['notifyButton']['text'] = {};
+oneSignal_options['notifyButton']['offset'] = {};
+oneSignal_options['notifyButton']['offset']['bottom'] = '80px';
+
+        OneSignal.init(oneSignal_options);
+      });
+
+      function documentInitOneSignal() {
+        var oneSignal_elements = document.getElementsByClassName("OneSignal-prompt");
+
+        var oneSignalLinkClickHandler = function(event) { OneSignal.push(['registerForPushNotifications']); event.preventDefault(); };        for(var i = 0; i < oneSignal_elements.length; i++)
+          oneSignal_elements[i].addEventListener('click', oneSignalLinkClickHandler, false);
+      }
+
+      if (document.readyState === 'complete') {
+           documentInitOneSignal();
+      }
+      else {
+           window.addEventListener("load", function(event){
+               documentInitOneSignal();
+          });
+      }
+    </script>
+
+<link rel="alternate" type="application/rss+xml" title="Vixen Daily &raquo; Privacy Policy Comments Feed" href="http://www.vixendaily.com/privacy-policy/feed/" />
+<link rel='stylesheet' id='yarppWidgetCss-css'  href='http://assets.vixendaily.com/wp-content/plugins/yet-another-related-posts-plugin/style/widget.css?ver=4.5.15' type='text/css' media='all' />
+<link rel='stylesheet' id='dashicons-css'  href='http://assets.vixendaily.com/wp-includes/css/dashicons.min.css?ver=4.5.15' type='text/css' media='all' />
+<link rel='stylesheet' id='thickbox-css'  href='http://assets.vixendaily.com/wp-includes/js/thickbox/thickbox.css?ver=4.5.15' type='text/css' media='all' />
+<script type="text/javascript">
+window.slideDeck2Version = "3.4.9";
+window.slideDeck2Distribution = "pro";
+</script>
+<script type='text/javascript' src='http://assets.vixendaily.com/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+<script type='text/javascript' src='http://assets.vixendaily.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<script type='text/javascript' src='http://assets.vixendaily.com/wp-content/plugins/sharebar/js/sharebar.js?ver=4.5.15'></script>
+<link rel='https://api.w.org/' href='http://www.vixendaily.com/wp-json/' />
+
+
+<!-- Open Graph Protocol Meta -->
+<meta property='og:site_name' value='Vixen Daily'/>
+<!-- END Open Graph Protocol Meta -->
+
+<link rel="stylesheet" href="http://assets.vixendaily.com/wp-content/plugins/sharebar/css/sharebar.css" type="text/css" media="screen" />
+<script type="text/javascript">jQuery(document).ready(function($) { if (!$('.sharebar')) return; $('.sharebar').sharebar({horizontal:'true',swidth:'75',minwidth:1234,position:'left',leftOffset:20,rightOffset:10}); });</script>
+<!-- Sharebar Plugin by Monjurul Dolon (http://mdolon.com/) - more info at: http://devgrow.com/sharebar-wordpress-plugin -->
+		<style>
+			.theiaPostSlider_nav.fontTheme ._title,
+			.theiaPostSlider_nav.fontTheme ._text {
+				line-height: 48px;
+			}
+
+			.theiaPostSlider_nav.fontTheme ._button {
+				color: #ff0083;
+			}
+
+			.theiaPostSlider_nav.fontTheme ._button ._2 span {
+				font-size: 48px;
+				line-height: 48px;
+			}
+
+			.theiaPostSlider_nav.fontTheme ._button:hover,
+			.theiaPostSlider_nav.fontTheme ._button:focus {
+				color: #ff46a5;
+			}
+
+			.theiaPostSlider_nav.fontTheme ._disabled {
+				color: #7f7f7f !important;
+			}
+		</style>
+		</head>
+<body class="sfw-page sfw-article sfw-global template-page">
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-58121395-1', 'auto');
+ga('send', 'pageview');
+</script>
+
+<div id="section-top">
+	<div id="container-header">
+		<div class="container-logo nounderline">
+			<a href="/"><span class="theme-white">Vixen</span><span class="region-logodot">&nbsp;</span><span class="theme-grey">Daily</span></a>
+		</div>
+		<ul id="menu-mainsite-top-menu" class="menu"><li id="menu-item-78" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-78"><a title="Love" href="http://www.vixendaily.com/category/love/">Love</a>
+<ul class="sub-menu">
+	<li id="menu-item-115" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-115"><a title="Dating Tips" href="http://www.vixendaily.com/category/love/dating/">Dating Tips</a></li>
+	<li id="menu-item-117" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-117"><a title="Relationship Advice" href="http://www.vixendaily.com/category/love/relationships/">Relationship Advice</a></li>
+	<li id="menu-item-116" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-116"><a title="Problem Solver" href="http://www.vixendaily.com/category/love/relationship-problem-advice/">Problem Solver</a></li>
+</ul>
+</li>
+<li id="menu-item-75" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-75"><a title="Diet" href="http://www.vixendaily.com/category/diet/">Diet</a></li>
+<li id="menu-item-1261" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1261"><a title="Vixen Daily Quizzes" href="http://www.vixendaily.com/category/quizzes/">Quizzes</a></li>
+<li id="menu-item-3215" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3215"><a title="Fitness" href="http://www.vixendaily.com/category/fitness/">Fitness</a></li>
+<li id="menu-item-8493" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-8493"><a title="Beauty" href="http://www.vixendaily.com/category/beauty/">Beauty</a></li>
+<li id="menu-item-9402" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-9402"><a title="Inspiration" href="http://www.vixendaily.com/category/inspiration/">Inspiration</a></li>
+<li id="menu-item-9403" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-9403"><a title="Success" href="http://www.vixendaily.com/category/success/">Success</a></li>
+</ul>
+	</div>
+</div>
+<div id="section-body">
+	<div id="container-body">
+		<div id="flowmanager1" class="m0 m1 m250 m450 m600">
+			<div class="columns">
+				<div class="column-content">
+					<div class="container-loop">
+						<div id="post-1074" class="post_box postbox top" itemscope itemtype="http://schema.org/Article">
+							<meta itemscope itemprop="mainEntityOfPage" itemType="https://schema.org/WebPage" itemid="http://www.vixendaily.com/privacy-policy/" />
+							<div class="container-article-header">
+								<div class="region-headline t lens-devleg">
+									<h1 class="headline" itemprop="headline">Privacy Policy</h1>
+									<div class="region-byline small">
+									</div>
+								</div>
+							</div>
+							<div class="container-articlebody">
+								<div class="t lens-devleg">
+									<div class="post_content" itemprop="articleBody">
+<h2>Privacy Policy</h2>
+<p>Read very carefully:</p>
+<h2>Who do we contact?</h2>
+<p>Vixen Daily only contacts individuals who specifically request that we do so or in the event that they have signed up to receive our free newsletters or have purchased one of our products.</p>
+<h2>What information do we collect?</h2>
+<p>Vixen Daily collects information in two categories:</p>
+<p><strong>1. Personally Identifiable Information (PII)</strong></p>
+<p>Name and e-mail address – provided by you for registration to receive our free newsletters.</p>
+<p>All such information is strictly protected and used only for delivering the content and products the user has signed up for or purchased. This information is NEVER used for other purposes and is NEVER shared with third parties for their own use.</p>
+<p>There is a single exception to this. Say you were subscribed to some newsletter such as “fat-burning foods” and the editors ran a promotion of our site within it, and you followed over to our site, then subscribed to our newsletter, then at a later date you unsubscribed.</p>
+<p>In that case, we have to provide back to “fat-burning foods” your email address, so they can exclude you from our future mailings. No other information other than email address is provided and that email address is used ONLY to suppress our future emails to you. This scenario accounts for less than 1% of our newsletter subscribers.</p>
+<p><strong>2. Anonymous Usage History (non PII)</strong></p>
+<p>This information is strictly limited to the history of activities that the user engaged in while on our site. It does NOT include any personally identifiable information (PII).</p>
+<p>For example, the string “sub+customer” in a cookie (see below for what cookies are) might indicate that you are both a subscriber AND a customer.</p>
+<p>The purpose of this information is to improve your experience.</p>
+<p>For example, by storing the fact that you are already a subscriber, we do not need to bother you with an irrelevant subscriber box.</p>
+<p>Similarly, by noting that you are a customer, we can “bookmark” the last video frames you watched in our member area and remind you of this the next time you visit.</p>
+<p>There is a small subset of this history that we use with 3rd parties, such as Google, for the purpose of measuring and improving the efficacy of advertising campaigns.</p>
+<p>Some of these third parties, aggregate such information across many websites. This allows them to identify users who are more likely to be interested in specific offerings like fashion, sports, education and so on.</p>
+<p>As an Internet user, you may experience the results of such aggregation by noticing how the ads displayed on Yahoo, for example, better match your interests (the optimistic scenario), or at least more closely match a website that you recently visited.</p>
+<p>Whether you find this annoying and spooky or helpful and relevant, or perhaps both, you are in good company. This area of Internet advertising is new and controversial. The trade-off between privacy vs. commercial efficiency has a long history, for example the “Do not call” list.</p>
+<p>In any event, it is likely that either the government or the industry will adopt some form of “opt out” capability in the future to address these concerns.</p>
+<h2>What are cookies/clear GIFs and how do we use them?</h2>
+<p><strong>Cookies:</strong> Like many other commercial sites, our site utilizes standard technologies called “cookies” and clear GIFs to collect information about how our Site is used. A cookie is a small data text file, which a website stores on your computer’s hard drive (if your web browser permits) that can later be retrieved to identify you to us. Cookies were designed to help a website recognize a user’s browser as a previous visitor and thus save and remember any preferences that may have been set while the user was browsing the site. A cookie cannot be read by a website other than the one that set the cookie. A cookie cannot pass on a computer virus or capture any of the Personally Identifiable information.</p>
+<p><strong>Clear GIFs:</strong> At times, we work with third-party service partners that employ clear GIFs (also known as pixel tags, single pixel GIFs, web beacons or action tags) for our benefit to help us measure advertising effectiveness. Clear GIFs are tiny graphics with a unique identifier, similar in function to cookies, and are used to track the online movements of our users. The main difference between the two is that clear GIFs are invisible on the page and are much smaller, about the size of the period at the end of this sentence. Clear GIFs are not tied to your Personally Identifiable Information and only track the visitor traffic and behavior to and on our Site.</p>
+<p>Clear GIFs can “work with” existing cookies on a computer if they are both from the same website or advertising company. That means, for example, that if a person visited “www.companyX.com”, which uses an advertising company’s clear GIF, the website would match the clear GIFs identifier and the advertising company’s cookie ID number, to show the past online behavior for that computer. This collected information can be shared with the advertising company. We do, at times, provide such information to our third-party advertising service partners, but that information never includes personally identifiable information.</p>
+<h2>How do we store your email information?</h2>
+<p>Your email information (email address, first name) is stored at the list server that delivers Vixen Daily’s newsletters. Your information can only be accessed by those who help manage those lists in order to deliver email to those who would like to receive Vixen Daily’s newsletters.</p>
+<p>All of the newsletters that are sent to you by Vixen Daily include an unsubscribe link in them. You can remove yourself at any time from our newsletters by clicking on the unsubscribe link.</p>
+<h2>How to stop receiving emails</h2>
+<p>You may unsubscribe from our email newsletters at any time. You can do so by clicking the link provided in the footer of every one of our emails.</p>
+<h2>Disclaimer</h2>
+<p>This policy may be changed at any time at Vixen Daily’s discretion. If we should update this policy, we will post the updates to this page on our website. This policy was revised January 1, 2017.</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="column-sidebar">
+<div class="region-ad desktoponly"><div id="ecb-side-top-d" class="region-ad-inner ecb-side-top-d"></div></div>					<div class="widget t desktoponly">
+						<div id="search-desktop" class="inset-widget widget_search">
+							<p class="t widget_title">Search Vixen Daily</p>
+			<form role="search" method="get" id="searchform-desktop" class="searchform" action="/">
+				<div
+					><input type="text" value="" name="s" id="s-desktop"
+					><input class="ss icon32 search" type="submit" id="searchsubmit-desktop" value="Search"></div
+			></form>
+						</div>
+					</div>
+					<div class="container-tbflow-outer container-wg-ssfb">
+						<div class="container-tbflow-inner">
+							<div class="container-tbflow-cell-mobile clip nodesktop widget-bga">
+								<div class="container-wg-ss-tablet">
+									<div class="widget t size2 left">
+										<div id="search-tablet" class="inset-widget widget_search">
+											<p class="t widget_title">Search Vixen Daily</p>
+			<form role="search" method="get" id="searchform-tablet" class="searchform" action="/">
+				<div
+					><input type="text" value="" name="s" id="s-tablet"
+					><input class="ss icon50 search" type="submit" id="searchsubmit-tablet" value="Search"></div
+			></form>
+										</div>
+									</div>
+									<div class="widget t size2 left">
+										<div class="inset-widget region-sitewide-social">
+											<p class="t widget_title">Follow Vixen Daily</p>
+<ul class="icon60"
+><li><a target="_blank" class="ss circle facebook" href="https://www.facebook.com/VixDailyMag">Facebook</a></li
+><li><a target="_blank" class="ss circle instagram" href="http://instagram.com/beauty_love_intelligence/">Instagram</a></li
+><li><a target="_blank" class="ss circle pinterest" href="http://www.pinterest.com/vixen_daily/pins/">Pinterest</a></li
+><li><a target="_blank" class="ss circle twitter" href="http://www.twitter.com/vixen_daily">Twitter</a></li
+><li><a target="_blank" class="ss circle rss" href="/rss/">RSS</a></li
+></ul>
+										</div>
+									</div>
+									<div class="widget t size2 overflow-only tabletonly">
+										<div class="inset-widget">
+											<div class="container-logo">
+												<span class="theme-white">Vixen</span><span class="region-logodot">&nbsp;</span><span class="theme-grey">Daily</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="widget">
+								<div class="container-tbflow-cell-mobile">
+									<div class="region-fb">
+										<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<div class="fb-like-box" data-href="https://www.facebook.com/VixDailyMag" data-width="300" data-height="500" data-colorscheme="light" data-show-faces="true" data-header="false" data-stream="false" data-show-border="true"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="widget desktoponly">
+						<div class="inset-widget region-sitewide-social">
+							<p class="t widget_title">Follow Vixen Daily</p>
+<ul class="icon50"
+><li><a target="_blank" class="ss circle facebook" href="https://www.facebook.com/VixDailyMag">Facebook</a></li
+><li><a target="_blank" class="ss circle instagram" href="http://instagram.com/beauty_love_intelligence/">Instagram</a></li
+><li><a target="_blank" class="ss circle pinterest" href="http://www.pinterest.com/vixen_daily/pins/">Pinterest</a></li
+><li><a target="_blank" class="ss circle twitter" href="http://www.twitter.com/vixen_daily">Twitter</a></li
+><li><a target="_blank" class="ss circle rss" href="/rss/">RSS</a></li
+></ul>
+						</div>
+					</div>
+<div class="region-ad widget desktoponly"><div id="ecb-side-sticky-d" class="region-ad-inner ecb-side-sticky-d"></div></div>				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="section-bottom">
+	<div id="container-footer">
+		<div class="container-logoicon-gutter"><a href="/" title="Vixen Daily: Home"><div class="container-logoicon-outer"><div class="container-logoicon-inner"><div class="region-logoicon"><div class="l1">Vixen</div><div class="region-logodot"></div><div class="l2">Daily</div></div></div></div></a></div>
+		<div class="t container-fcontent">
+			<div class="fnav fine link-vanishunderline">
+				<ul
+><li><a href="/about/">About</a></li
+><li><a href="/privacy-policy/">Privacy Policy</a></li
+><li><a href="/terms-and-conditions/">Terms of Use</a></li
+><li><a href="/ftc-disclosure-statement/">FTC disclosure statement</a></li
+><li><a href="/friends/">Friends</a></li
+><li><a href="/contact-us/">Contact Us</a></li
+></ul>
+			</div>
+			<div class="fmeta fine">
+				&copy; Mojo Media, Inc. 2018&nbsp; All rights reserved. The material on this site may not be reproduced, distributed, transmitted, cached or otherwise used, except as expressly permitted in writing by Mojo Media, Inc.
+			</div>
+		</div>
+	</div>
+</div>
+<div id="section-postpage">
+<div class="region-ad"><div id="ecb-adhesive-cm" class="region-ad-inner ecb-adhesive-cm"></div></div>	<script type="text/javascript" async defer  data-pin-color="white" data-pin-height="28" data-pin-hover="true" src="//assets.pinterest.com/js/pinit.js"></script>
+<script type="text/javascript">
+nopinset=function(){jQuery('.nopin img').attr('nopin','nopin');}
+window.setTimeout(nopinset,6000);
+</script>
+	<!-- -->
+</div>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var thickboxL10n = {"next":"Next >","prev":"< Prev","image":"Image","of":"of","close":"Close","noiframes":"This feature requires inline frames. You have iframes disabled or your browser does not support them.","loadingAnimation":"http:\/\/www.vixendaily.com\/wp-includes\/js\/thickbox\/loadingAnimation.gif"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://assets.vixendaily.com/wp-includes/js/thickbox/thickbox.js?ver=3.1-20121105'></script>
+<script type='text/javascript' src='http://assets.vixendaily.com/wp-content/uploads/assets/common-js/sonar/jquery.sonar.min.js'></script>
+<script type='text/javascript' src='http://assets.vixendaily.com/wp-content/plugins/lazy-load/js/lazy-load.js?ver=0.6'></script>
+<script type='text/javascript' src='http://assets.vixendaily.com/wp-content/plugins/slidedeck3-personal/js/jail.js?ver=3.4.9'></script>
+<script type="text/javascript">
+var slideDeck2URLPath = "http://www.vixendaily.com/wp-content/plugins/slidedeck3-personal";
+var slideDeck2iframeByDefault = false;
+</script>
+</body>
+</html>
+<!-- Performance optimized by W3 Total Cache. Learn more: https://www.w3-edge.com/products/
+
+Page Caching using disk: enhanced
+Content Delivery Network via Rackspace Cloud Files: assets.vixendaily.com
+
+ Served from: www.vixendaily.com @ 2018-07-06 12:27:30 by W3 Total Cache -->

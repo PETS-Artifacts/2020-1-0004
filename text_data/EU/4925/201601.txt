@@ -1,0 +1,81 @@
+
+A lightweight, skinnable jQuery plug-in created to handle the newly introduced EU Cookie Legislation
+
+
+1. Choose a skin
+You can choose an existing jQuery UI* theme from below, orroll your own and link to your CSS file in the same way
+
+select...
+Black Tie
+Blitzer
+Cupertino
+Dark Hive
+Dot Luv
+Eggplant
+Excite Bike
+Flick
+Hot Sneaks
+Humanity
+Le Frog
+Mint Choc
+Overcast
+Pepper Grinder
+Redmond
+Smoothness
+South Street
+Start
+Sunny
+Swanky Purse
+Trontastic
+UI Darkness
+UI Lightness
+Vader
+
+* (does not require the jQuery UI library itself)
+
+
+2. Create your consent levels
+The cookie consent plug-in comes with four default levels for the user to choose from (the same as the demo on this page).If you'd prefer to create your own, however, you can fill in the boxes below.
+You have reached the maximum number of levels
++ Add another level
+
+
+
+Include link to jQuery
+The essentials…
+
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+
+<!-- Cookie Consent by http://PrivacyPolicies.com -->
+<script type="text/javascript" src="//privacypolicies.com/cookie-consent/releases/latest/cookie-consent.js"></script>
+<script type="text/javascript">
+	$(function(){
+		var cookieconsent = $.cookieconsent({
+			default_level_id: '',
+			edit_settings_element: ,
+			jqueryui_theme_css: '',
+			cookie_policy_url: '',
+			levels:[
+
+			]
+		});
+	});
+</script>
+<noscript><a href="http://privacypolicies.com">Powered by PrivacyPolicies.com</a></noscript>
+<!-- End Cookie Consent -->
+        
+Instructions: Copy the above code into your page after your link to jQuery.
+But wait!What about 3rd party scripts?
+Some 3rd party scripts will need a slight tweak so that they don't get run when they're not supposed to.
+        For any level dependant <script type="text/javascript"> tag you'll need to:
+        
+change it's type to text/plain instead of text/javascript
+add a cookieconsent-level attribute to it, who's value is the id of the level it's dependant on
+
+Let's say you've got a level with id 'tracking' and you had a script that should run only when the tracking level is enabled.
+        Instead of having
+        <script type="text/javascript">
+        ... you would change it to ...
+        <script type="text/plain" 
+	cookieconsent-level="tracking">
+ 

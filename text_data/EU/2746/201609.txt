@@ -1,0 +1,249 @@
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+डुओलिंगो: अंग्रेज़ी, स्पेनी और अन्य भाषाएँ निःशुल्क सीखें
+
+
+
+
+
+
+
+
+ // Google Analytics
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-21595814-1']);
+            _gaq.push(['_trackPageview']);
+            _gaq.push(['_setCustomVar', 1, 'session-type', 'logged-out', 3]);
+            _gaq.push(['_setDomainName', window.location.hostname]);
+
+            (function() {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(ga, s);
+            })();
+        
+
+
+
+
+
+
+        var _rollbarConfig = {
+            accessToken: 'c66fa34ce2824bb0816ee60b8a0ceda8',
+            captureUncaught: true,
+            ignoredMessages: ['script error'],
+            maxItems: 5,
+            checkIgnore: function(isUncaught, args, payload) {
+                var error_is_from_duolingo = payload && payload.data && payload.data.body &&
+                    payload.data.body.trace && payload.data.body.trace.frames &&
+                    payload.data.body.trace.frames.length &&
+                    payload.data.body.trace.frames[0].filename &&
+                    (payload.data.body.trace.frames[0].filename.indexOf('duolingo.js') >= 0 ||
+                     payload.data.body.trace.frames[0].filename.indexOf('vendor.js') >= 0);
+                var is_duo_rollbar = args && args[1] && args[1].indexOf('DuoRollbar') >= 0;
+                return !(error_is_from_duolingo || is_duo_rollbar);
+            },
+            verbose: true,
+            payload: {
+                environment: 'master',
+                client: {
+                    javascript: {
+                        code_version: '1',
+                        source_map_enabled: true,
+                        guess_uncaught_frames: true
+                    }
+                }
+            }
+        };
+        !function(r){function t(o){if(e[o])return e[o].exports;var n=e[o]={exports:{},id:o,loaded:!1};return r[o].call(n.exports,n,n.exports,t),n.loaded=!0,n.exports}var e={};return t.m=r,t.c=e,t.p="",t(0)}([function(r,t,e){"use strict";var o=e(1).Rollbar,n=e(2);_rollbarConfig.rollbarJsUrl=_rollbarConfig.rollbarJsUrl||"https://d37gvrvc0wt4s1.cloudfront.net/js/v1.7/rollbar.min.js";var a=o.init(window,_rollbarConfig),i=n(a,_rollbarConfig);a.loadFull(window,document,!_rollbarConfig.async,_rollbarConfig,i)},function(r,t){"use strict";function e(){var r=window.console;r&&"function"==typeof r.log&&r.log.apply(r,arguments)}function o(r,t){return t=t||e,function(){try{return r.apply(this,arguments)}catch(e){t("Rollbar internal error:",e)}}}function n(r,t,e){window._rollbarWrappedError&&(e[4]||(e[4]=window._rollbarWrappedError),e[5]||(e[5]=window._rollbarWrappedError._rollbarContext),window._rollbarWrappedError=null),r.uncaughtError.apply(r,e),t&&t.apply(window,e)}function a(r){this.shimId=++u,this.notifier=null,this.parentShim=r,this.logger=e,this._rollbarOldOnError=null}function i(r){var t=a;return o(function(){if(this.notifier)return this.notifier[r].apply(this.notifier,arguments);var e=this,o="scope"===r;o&&(e=new t(this));var n=Array.prototype.slice.call(arguments,0),a={shim:e,method:r,args:n,ts:new Date};return window._rollbarShimQueue.push(a),o?e:void 0})}function l(r,t){if(t.hasOwnProperty&&t.hasOwnProperty("addEventListener")){var e=t.addEventListener;t.addEventListener=function(t,o,n){e.call(this,t,r.wrap(o),n)};var o=t.removeEventListener;t.removeEventListener=function(r,t,e){o.call(this,r,t&&t._wrapped?t._wrapped:t,e)}}}var u=0;a.init=function(r,t){var e=t.globalAlias||"Rollbar";if("object"==typeof r[e])return r[e];r._rollbarShimQueue=[],r._rollbarWrappedError=null,t=t||{};var i=new a;return o(function(){if(i.configure(t),t.captureUncaught){i._rollbarOldOnError=r.onerror,r.onerror=function(){var r=Array.prototype.slice.call(arguments,0);n(i,i._rollbarOldOnError,r)};var o,a,u="EventTarget,Window,Node,ApplicationCache,AudioTrackList,ChannelMergerNode,CryptoOperation,EventSource,FileReader,HTMLUnknownElement,IDBDatabase,IDBRequest,IDBTransaction,KeyOperation,MediaController,MessagePort,ModalWindow,Notification,SVGElementInstance,Screen,TextTrack,TextTrackCue,TextTrackList,WebSocket,WebSocketWorker,Worker,XMLHttpRequest,XMLHttpRequestEventTarget,XMLHttpRequestUpload".split(",");for(o=0;o<u.length;++o)a=u[o],r[a]&&r[a].prototype&&l(i,r[a].prototype)}return r[e]=i,i},i.logger)()},a.prototype.loadFull=function(r,t,e,n,a){var i=function(){var t;if(void 0===r._rollbarPayloadQueue){var e,o,n,i;for(t=new Error("rollbar.js did not load");e=r._rollbarShimQueue.shift();)for(n=e.args,i=0;i<n.length;++i)if(o=n[i],"function"==typeof o){o(t);break}}"function"==typeof a&&a(t)},l=!1,u=t.createElement("script"),s=t.getElementsByTagName("script")[0],c=s.parentNode;u.src=n.rollbarJsUrl,u.async=!e,u.onload=u.onreadystatechange=o(function(){if(!(l||this.readyState&&"loaded"!==this.readyState&&"complete"!==this.readyState)){u.onload=u.onreadystatechange=null;try{c.removeChild(u)}catch(r){}l=!0,i()}},this.logger),c.insertBefore(u,s)},a.prototype.wrap=function(r,t){try{var e;if(e="function"==typeof t?t:function(){return t||{}},"function"!=typeof r)return r;if(r._isWrap)return r;if(!r._wrapped){r._wrapped=function(){try{return r.apply(this,arguments)}catch(t){throw t._rollbarContext=e()||{},t._rollbarContext._wrappedSource=r.toString(),window._rollbarWrappedError=t,t}},r._wrapped._isWrap=!0;for(var o in r)r.hasOwnProperty(o)&&(r._wrapped[o]=r[o])}return r._wrapped}catch(n){return r}};for(var s="log,debug,info,warn,warning,error,critical,global,configure,scope,uncaughtError".split(","),c=0;c<s.length;++c)a.prototype[s[c]]=i(s[c]);r.exports={Rollbar:a,_rollbarWindowOnError:n}},function(r,t){"use strict";r.exports=function(r,t){return function(e){if(!e&&!window._rollbarInitialized){var o=window.RollbarNotifier,n=t||{},a=n.globalAlias||"Rollbar",i=window.Rollbar.init(n,r);i._processShimQueue(window._rollbarShimQueue||[]),window[a]=i,window._rollbarInitialized=!0,o.processPayloads()}}}}]);
+    
+
+        duo = {};
+    
+
+
+
+ // Replacement functions
+        (function(){
+            var console_stuff=["log","debug","info","warn","error","assert"];
+            window.console= window.console || {};
+            for(var i=0; i < console_stuff.length; i++){
+                window.console[console_stuff[i]]=window.console[console_stuff[i]] || function(){};
+            }
+        }());
+    
+ // Duo
+        var in_house_localized_abbrevs = ["de", "en", "es", "fr", "pt"];
+
+        duo.ui_languages = [{"name": "Greek", "id": "el", "language": "el", "label": "\u0395\u03bb\u03bb\u03b7\u03bd\u03b9\u03ba\u03ac"}, {"name": "English", "id": "en", "language": "en", "label": "English"}, {"name": "Vietnamese", "id": "vi", "language": "vi", "label": "Ti\u1ebfng Vi\u1ec7t"}, {"name": "Italian", "id": "it", "language": "it", "label": "Italiano"}, {"name": "Arabic", "id": "ar", "language": "ar", "label": "\u0627\u0644\u0639\u0631\u0628\u064a\u0629"}, {"name": "Czech", "id": "cs", "language": "cs", "label": "\u010ce\u0161tina"}, {"name": "Indonesian", "id": "id", "language": "id", "label": "Bahasa Indonesia"}, {"name": "Spanish", "id": "es", "language": "es", "label": "Espa\u00f1ol"}, {"name": "Chinese", "id": "zh-CN", "language": "zs", "label": "\u4e2d\u6587"}, {"name": "Russian", "id": "ru", "language": "ru", "label": "\u0420\u0443\u0441\u0441\u043a\u0438\u0439"}, {"name": "Portuguese", "id": "pt", "language": "pt", "label": "Portugu\u00eas"}, {"name": "Turkish", "id": "tr", "language": "tr", "label": "T\u00fcrk\u00e7e"}, {"name": "Romanian", "id": "ro", "language": "ro", "label": "Rom\u00e2n\u0103"}, {"name": "Polish", "id": "pl", "language": "pl", "label": "Polski"}, {"name": "Dutch", "id": "nl-NL", "language": "dn", "label": "Nederlands (Nederland)"}, {"name": "French", "id": "fr", "language": "fr", "label": "Fran\u00e7ais"}, {"name": "German", "id": "de", "language": "de", "label": "Deutsch"}, {"name": "Hungarian", "id": "hu", "language": "hu", "label": "Magyar"}, {"name": "Japanese", "id": "ja", "language": "ja", "label": "\u65e5\u672c\u8a9e"}, {"name": "Korean", "id": "ko", "language": "ko", "label": "\ud55c\uad6d\uc5b4"}, {"name": "Ukrainian", "id": "uk", "language": "uk", "label": "\u0423\u043a\u0440\u0430\u0457\u043d\u0441\u044c\u043a\u043e\u044e"}];
+        duo.tc_ui_languages = ["en", "es", "pt", "it", "fr", "de", "ja", "zs", "zt", "ko", "ru", "hi", "hu", "tr"];
+        duo.troubleshooting_id = 881;
+        duo.ui_language = "hi";
+        duo.ui_language_name = "Hindi";
+        duo.script_direction = "ltr"
+        duo.browser_language = "hi";
+        duo.browser_language_id = "hi";
+        duo.cn_extension = false;
+        duo.ui_language_pluralize = function(n) { return (n != 1) ? 1 : 0; };
+        duo.ui_language_plurals = 2;
+        duo.in_house_localized = _.contains(in_house_localized_abbrevs, duo.browser_language);
+        duo.available_languages = [{"prompt": "\u0939\u092e \u0905\u0902\u0917\u094d\u0930\u0947\u095b\u0940 \u0938\u0940\u0916\u0928\u093e \u091a\u093e\u0939\u0924\u0947 \u0939\u0948\u0902\n", "base_from_language_name": "Hindi", "key": "en", "learning_language_id": "en", "from_language": "hi", "num_learners": 1734738, "base_learning_language_name": "English", "from_language_name": "\u0939\u093f\u0928\u094d\u0926\u0940", "num_learners_string": "17.3L", "learning_language": "en", "learning_language_name": "\u0905\u0902\u0917\u094d\u0930\u0947\u095b\u0940", "from_language_id": "hi", "num_learners_string_en": "1.73M", "from_ui": true}, {"prompt": "\u0398\u03ad\u03bb\u03c9 \u03bd\u03b1 \u03bc\u03ac\u03b8\u03c9 \u0391\u03b3\u03b3\u03bb\u03b9\u03ba\u03ac (\u03b3\u03bd\u03c9\u03c1\u03af\u03b6\u03c9 \u0395\u03bb\u03bb\u03b7\u03bd\u03b9\u03ba\u03ac)\n", "base_from_language_name": "Greek", "key": "el-en", "learning_language_id": "en", "from_language": "el", "num_learners": 508067, "base_learning_language_name": "English", "from_language_name": "\u0395\u03bb\u03bb\u03b7\u03bd\u03b9\u03ba\u03ac", "num_learners_string": "5.08L", "learning_language": "en", "learning_language_name": "\u0391\u03b3\u03b3\u03bb\u03b9\u03ba\u03ac", "from_language_id": "el", "num_learners_string_en": "508K", "from_ui": false}, {"prompt": "T\u00f4i mu\u1ed1n h\u1ecdc Ti\u1ebfng Anh (T\u00f4i bi\u1ebft Ti\u1ebfng Vi\u1ec7t)\n", "base_from_language_name": "Vietnamese", "key": "vi-en", "learning_language_id": "en", "from_language": "vi", "num_learners": 4217804, "base_learning_language_name": "English", "from_language_name": "Ti\u1ebfng Vi\u1ec7t", "num_learners_string": "42.2L", "learning_language": "en", "learning_language_name": "Ti\u1ebfng Anh", "from_language_id": "vi", "num_learners_string_en": "4.22M", "from_ui": false}, {"prompt": "Voglio imparare inglese (io parlo italiano)\n", "base_from_language_name": "Italian", "key": "it-en", "learning_language_id": "en", "from_language": "it", "num_learners": 10367002, "base_learning_language_name": "English", "from_language_name": "italiano", "num_learners_string": "1.04Cr", "learning_language": "en", "learning_language_name": "inglese", "from_language_id": "it", "num_learners_string_en": "10.4M", "from_ui": false}, {"prompt": "\u0623\u0631\u064a\u062f \u0623\u0646 \u0623\u062a\u0639\u0644\u0645 \u0627\u0644\u0625\u0646\u062c\u0644\u064a\u0632\u064a\u0629 (\u0623\u0639\u0631\u0641 \u0627\u0644\u0639\u0631\u0628\u064a\u0629)\n", "base_from_language_name": "Arabic", "key": "ar-en", "learning_language_id": "en", "from_language": "ar", "num_learners": 5523186, "base_learning_language_name": "English", "from_language_name": "\u0627\u0644\u0639\u0631\u0628\u064a\u0629", "num_learners_string": "55.2L", "learning_language": "en", "learning_language_name": "\u0627\u0644\u0625\u0646\u062c\u0644\u064a\u0632\u064a\u0629", "from_language_id": "ar", "num_learners_string_en": "5.52M", "from_ui": false}, {"prompt": "Chci se u\u010dit anglicky (um\u00edm \u010desky)\n", "base_from_language_name": "Czech", "key": "cs-en", "learning_language_id": "en", "from_language": "cs", "num_learners": 1184592, "base_learning_language_name": "English", "from_language_name": "\u010ce\u0161tina", "num_learners_string": "11.8L", "learning_language": "en", "learning_language_name": "Angli\u010dtina", "from_language_id": "cs", "num_learners_string_en": "1.18M", "from_ui": false}, {"prompt": "Saya ingin belajar Bahasa Inggris (Saya berbicara Bahasa Indonesia)\n", "base_from_language_name": "Indonesian", "key": "id-en", "learning_language_id": "en", "from_language": "id", "num_learners": 994565, "base_learning_language_name": "English", "from_language_name": "Bahasa Indonesia", "num_learners_string": "9.95L", "learning_language": "en", "learning_language_name": "Bahasa Inggris", "from_language_id": "id", "num_learners_string_en": "994K", "from_ui": false}, {"prompt": "Quiero aprender ingl\u00e9s (yo s\u00e9 espa\u00f1ol)\n", "base_from_language_name": "Spanish", "key": "es-en", "learning_language_id": "en", "from_language": "es", "num_learners": 83480531, "base_learning_language_name": "English", "from_language_name": "espa\u00f1ol", "num_learners_string": "8.35Cr", "learning_language": "en", "learning_language_name": "ingl\u00e9s", "from_language_id": "es", "num_learners_string_en": "83.5M", "from_ui": false}, {"prompt": "\u6211\u60f3\u5b66\u82f1\u8bed\uff08\u6211\u4f1a\u4e2d\u6587\uff09\n", "base_from_language_name": "Chinese", "key": "zs-en", "learning_language_id": "en", "from_language": "zs", "num_learners": 10120186, "base_learning_language_name": "English", "from_language_name": "\u4e2d\u6587", "num_learners_string": "1.01Cr", "learning_language": "en", "learning_language_name": "\u82f1\u8bed", "from_language_id": "zh-CN", "num_learners_string_en": "10.1M", "from_ui": false}, {"prompt": "\u042f \u0445\u043e\u0447\u0443 \u0438\u0437\u0443\u0447\u0430\u0442\u044c \u0430\u043d\u0433\u043b\u0438\u0439\u0441\u043a\u0438\u0439 (\u044f \u0437\u043d\u0430\u044e \u0440\u0443\u0441\u0441\u043a\u0438\u0439)\n", "base_from_language_name": "Russian", "key": "ru-en", "learning_language_id": "en", "from_language": "ru", "num_learners": 9514288, "base_learning_language_name": "English", "from_language_name": "\u0440\u0443\u0441\u0441\u043a\u0438\u0439", "num_learners_string": "95.1L", "learning_language": "en", "learning_language_name": "\u0430\u043d\u0433\u043b\u0438\u0439\u0441\u043a\u0438\u0439", "from_language_id": "ru", "num_learners_string_en": "9.51M", "from_ui": false}, {"prompt": "Eu quero aprender Ingl\u00eas (eu sei Portugu\u00eas)\n", "base_from_language_name": "Portuguese", "key": "pt-en", "learning_language_id": "en", "from_language": "pt", "num_learners": 33149048, "base_learning_language_name": "English", "from_language_name": "Portugu\u00eas", "num_learners_string": "3.31Cr", "learning_language": "en", "learning_language_name": "Ingl\u00eas", "from_language_id": "pt", "num_learners_string_en": "33.1M", "from_ui": false}, {"prompt": "\u0130ngilizce \u00f6\u011frenmek istiyorum (T\u00fcrk\u00e7e biliyorum)\n", "base_from_language_name": "Turkish", "key": "tr-en", "learning_language_id": "en", "from_language": "tr", "num_learners": 7410159, "base_learning_language_name": "English", "from_language_name": "T\u00fcrk\u00e7e", "num_learners_string": "74.1L", "learning_language": "en", "learning_language_name": "\u0130ngilizce", "from_language_id": "tr", "num_learners_string_en": "7.41M", "from_ui": false}, {"prompt": "Vreau s\u0103 \u00eenv\u0103\u021b Englez\u0103 (\u0219tiu Rom\u00e2n\u0103)\n", "base_from_language_name": "Romanian", "key": "ro-en", "learning_language_id": "en", "from_language": "ro", "num_learners": 2715184, "base_learning_language_name": "English", "from_language_name": "Rom\u00e2n\u0103", "num_learners_string": "27.2L", "learning_language": "en", "learning_language_name": "Englez\u0103", "from_language_id": "ro", "num_learners_string_en": "2.72M", "from_ui": false}, {"prompt": "Chc\u0119 si\u0119 uczy\u0107 angielskiego (znam polski)\n", "base_from_language_name": "Polish", "key": "pl-en", "learning_language_id": "en", "from_language": "pl", "num_learners": 3828094, "base_learning_language_name": "English", "from_language_name": "Polski", "num_learners_string": "38.3L", "learning_language": "en", "learning_language_name": "Angielski", "from_language_id": "pl", "num_learners_string_en": "3.83M", "from_ui": false}, {"prompt": "Ik wil Engels leren (Ik ken Nederlands)\n", "base_from_language_name": "Dutch", "key": "dn-en", "learning_language_id": "en", "from_language": "dn", "num_learners": 2296362, "base_learning_language_name": "English", "from_language_name": "Nederlands", "num_learners_string": "22.0L", "learning_language": "en", "learning_language_name": "Engels", "from_language_id": "nl-NL", "num_learners_string_en": "2.30M", "from_ui": false}, {"prompt": "Je veux apprendre l'anglais (je parle fran\u00e7ais)\n", "base_from_language_name": "French", "key": "fr-en", "learning_language_id": "en", "from_language": "fr", "num_learners": 11257649, "base_learning_language_name": "English", "from_language_name": "fran\u00e7ais", "num_learners_string": "1.13Cr", "learning_language": "en", "learning_language_name": "anglais", "from_language_id": "fr", "num_learners_string_en": "11.3M", "from_ui": false}, {"prompt": "Ich will Englisch lernen (Ich kann Deutsch)\n", "base_from_language_name": "German", "key": "de-en", "learning_language_id": "en", "from_language": "de", "num_learners": 6936267, "base_learning_language_name": "English", "from_language_name": "Deutsch", "num_learners_string": "69.4L", "learning_language": "en", "learning_language_name": "Englisch", "from_language_id": "de", "num_learners_string_en": "6.94M", "from_ui": false}, {"prompt": "Angolt szeretn\u00e9k tanulni (magyarul tudok)\n", "base_from_language_name": "Hungarian", "key": "hu-en", "learning_language_id": "en", "from_language": "hu", "num_learners": 3226513, "base_learning_language_name": "English", "from_language_name": "magyar", "num_learners_string": "32.3L", "learning_language": "en", "learning_language_name": "angol", "from_language_id": "hu", "num_learners_string_en": "3.23M", "from_ui": false}, {"prompt": "\u82f1\u8a9e\u3092\u5b66\u3073\u305f\u3044\u3067\u3059\uff08\u65e5\u672c\u8a9e\u3092\u77e5\u3063\u3066\u307e\u3059\uff09\n", "base_from_language_name": "Japanese", "key": "ja-en", "learning_language_id": "en", "from_language": "ja", "num_learners": 2796433, "base_learning_language_name": "English", "from_language_name": "\u65e5\u672c\u8a9e", "num_learners_string": "27.0L", "learning_language": "en", "learning_language_name": "\u82f1\u8a9e", "from_language_id": "ja", "num_learners_string_en": "2.80M", "from_ui": false}, {"prompt": "\ub0b4\uac00 \ubc30\uc6b0\uace0 \uc2f6\uc740 \uc5b8\uc5b4\ub294 \uc601\uc5b4 (\ub0b4\uac00 \ud560 \uc904 \uc544\ub294 \uc5b8\uc5b4\ub294 \ud55c\uad6d\uc5b4)\n", "base_from_language_name": "Korean", "key": "ko-en", "learning_language_id": "en", "from_language": "ko", "num_learners": 2118471, "base_learning_language_name": "English", "from_language_name": "\ud55c\uad6d\uc5b4", "num_learners_string": "21.2L", "learning_language": "en", "learning_language_name": "\uc601\uc5b4", "from_language_id": "ko", "num_learners_string_en": "2.12M", "from_ui": false}, {"prompt": "\u042f \u0445\u043e\u0447\u0443 \u0432\u0447\u0438\u0442\u0438 \u0430\u043d\u0433\u043b\u0456\u0439\u0441\u044c\u043a\u0443 (\u044f \u0437\u043d\u0430\u044e \u0443\u043a\u0440\u0430\u0457\u043d\u0441\u044c\u043a\u0443)\n", "base_from_language_name": "Ukrainian", "key": "uk-en", "learning_language_id": "en", "from_language": "uk", "num_learners": 526476, "base_learning_language_name": "English", "from_language_name": "\u0423\u043a\u0440\u0430\u0457\u043d\u0441\u044c\u043a\u0430", "num_learners_string": "5.26L", "learning_language": "en", "learning_language_name": "\u0410\u043d\u0433\u043b\u0456\u0439\u0441\u044c\u043a\u0430", "from_language_id": "uk", "num_learners_string_en": "526K", "from_ui": false}, {"prompt": "I want to learn Spanish (I know English)\n", "base_from_language_name": "English", "key": "en-es", "learning_language_id": "es", "from_language": "en", "num_learners": 65724552, "base_learning_language_name": "Spanish", "from_language_name": "English", "num_learners_string": "6.57Cr", "learning_language": "es", "learning_language_name": "Spanish", "from_language_id": "en", "num_learners_string_en": "65.7M", "from_ui": false}, {"prompt": "\u6211\u60f3\u5b66\u897f\u73ed\u7259\u8bed\uff08\u6211\u4f1a\u4e2d\u6587\uff09\n", "base_from_language_name": "Chinese", "key": "zs-es", "learning_language_id": "es", "from_language": "zs", "num_learners": 51472, "base_learning_language_name": "Spanish", "from_language_name": "\u4e2d\u6587", "num_learners_string": "5.15", "learning_language": "es", "learning_language_name": "\u897f\u73ed\u7259\u8bed", "from_language_id": "zh-CN", "num_learners_string_en": "51.5K", "from_ui": false}, {"prompt": "\u042f \u0445\u043e\u0447\u0443 \u0438\u0437\u0443\u0447\u0430\u0442\u044c \u0438\u0441\u043f\u0430\u043d\u0441\u043a\u0438\u0439 (\u044f \u0437\u043d\u0430\u044e \u0440\u0443\u0441\u0441\u043a\u0438\u0439)\n", "base_from_language_name": "Russian", "key": "ru-es", "learning_language_id": "es", "from_language": "ru", "num_learners": 148615, "base_learning_language_name": "Spanish", "from_language_name": "\u0440\u0443\u0441\u0441\u043a\u0438\u0439", "num_learners_string": "1.49L", "learning_language": "es", "learning_language_name": "\u0438\u0441\u043f\u0430\u043d\u0441\u043a\u0438\u0439", "from_language_id": "ru", "num_learners_string_en": "148K", "from_ui": false}, {"prompt": "Eu quero aprender Espanhol (eu sei Portugu\u00eas)\n", "base_from_language_name": "Portuguese", "key": "pt-es", "learning_language_id": "es", "from_language": "pt", "num_learners": 4263860, "base_learning_language_name": "Spanish", "from_language_name": "Portugu\u00eas", "num_learners_string": "42.6L", "learning_language": "es", "learning_language_name": "Espanhol", "from_language_id": "pt", "num_learners_string_en": "4.26M", "from_ui": false}, {"prompt": "Je veux apprendre l'espagnol (je parle fran\u00e7ais)\n", "base_from_language_name": "French", "key": "fr-es", "learning_language_id": "es", "from_language": "fr", "num_learners": 2286358, "base_learning_language_name": "Spanish", "from_language_name": "fran\u00e7ais", "num_learners_string": "22.9L", "learning_language": "es", "learning_language_name": "espagnol", "from_language_id": "fr", "num_learners_string_en": "2.29M", "from_ui": false}, {"prompt": "Ich will Spanisch lernen (Ich kann Deutsch)\n", "base_from_language_name": "German", "key": "de-es", "learning_language_id": "es", "from_language": "de", "num_learners": 840598, "base_learning_language_name": "Spanish", "from_language_name": "Deutsch", "num_learners_string": "8.41L", "learning_language": "es", "learning_language_name": "Spanisch", "from_language_id": "de", "num_learners_string_en": "840K", "from_ui": false}, {"prompt": "I want to learn French (I know English)\n", "base_from_language_name": "English", "key": "en-fr", "learning_language_id": "fr", "from_language": "en", "num_learners": 39371310, "base_learning_language_name": "French", "from_language_name": "English", "num_learners_string": "3.94Cr", "learning_language": "fr", "learning_language_name": "French", "from_language_id": "en", "num_learners_string_en": "39.4M", "from_ui": false}, {"prompt": "Voglio imparare francese (io parlo italiano)\n", "base_from_language_name": "Italian", "key": "it-fr", "learning_language_id": "fr", "from_language": "it", "num_learners": 382438, "base_learning_language_name": "French", "from_language_name": "italiano", "num_learners_string": "3.82L", "learning_language": "fr", "learning_language_name": "francese", "from_language_id": "it", "num_learners_string_en": "382K", "from_ui": false}, {"prompt": "\u0623\u0631\u064a\u062f \u0623\u0646 \u0623\u062a\u0639\u0644\u0645 \u0627\u0644\u0641\u0631\u0646\u0633\u064a\u0629 (\u0623\u0639\u0631\u0641 \u0627\u0644\u0639\u0631\u0628\u064a\u0629)\n", "base_from_language_name": "Arabic", "key": "ar-fr", "learning_language_id": "fr", "from_language": "ar", "num_learners": 262092, "base_learning_language_name": "French", "from_language_name": "\u0627\u0644\u0639\u0631\u0628\u064a\u0629", "num_learners_string": "2.62L", "learning_language": "fr", "learning_language_name": "\u0627\u0644\u0641\u0631\u0646\u0633\u064a\u0629", "from_language_id": "ar", "num_learners_string_en": "262K", "from_ui": false}, {"prompt": "Quiero aprender franc\u00e9s (yo s\u00e9 espa\u00f1ol)\n", "base_from_language_name": "Spanish", "key": "es-fr", "learning_language_id": "fr", "from_language": "es", "num_learners": 8338391, "base_learning_language_name": "French", "from_language_name": "espa\u00f1ol", "num_learners_string": "83.4L", "learning_language": "fr", "learning_language_name": "franc\u00e9s", "from_language_id": "es", "num_learners_string_en": "8.34M", "from_ui": false}, {"prompt": "\u042f \u0445\u043e\u0447\u0443 \u0438\u0437\u0443\u0447\u0430\u0442\u044c \u0444\u0440\u0430\u043d\u0446\u0443\u0437\u0441\u043a\u0438\u0439 (\u044f \u0437\u043d\u0430\u044e \u0440\u0443\u0441\u0441\u043a\u0438\u0439)\n", "base_from_language_name": "Russian", "key": "ru-fr", "learning_language_id": "fr", "from_language": "ru", "num_learners": 233331, "base_learning_language_name": "French", "from_language_name": "\u0440\u0443\u0441\u0441\u043a\u0438\u0439", "num_learners_string": "2.33L", "learning_language": "fr", "learning_language_name": "\u0444\u0440\u0430\u043d\u0446\u0443\u0437\u0441\u043a\u0438\u0439", "from_language_id": "ru", "num_learners_string_en": "233K", "from_ui": false}, {"prompt": "Eu quero aprender Franc\u00eas (eu sei Portugu\u00eas)\n", "base_from_language_name": "Portuguese", "key": "pt-fr", "learning_language_id": "fr", "from_language": "pt", "num_learners": 2069359, "base_learning_language_name": "French", "from_language_name": "Portugu\u00eas", "num_learners_string": "20.7L", "learning_language": "fr", "learning_language_name": "Franc\u00eas", "from_language_id": "pt", "num_learners_string_en": "2.07M", "from_ui": false}, {"prompt": "Ich will Franz\u00f6sisch lernen (Ich kann Deutsch)\n", "base_from_language_name": "German", "key": "de-fr", "learning_language_id": "fr", "from_language": "de", "num_learners": 1473593, "base_learning_language_name": "French", "from_language_name": "Deutsch", "num_learners_string": "14.7L", "learning_language": "fr", "learning_language_name": "Franz\u00f6sisch", "from_language_id": "de", "num_learners_string_en": "1.47M", "from_ui": false}, {"prompt": "I want to learn German (I know English)\n", "base_from_language_name": "English", "key": "en-de", "learning_language_id": "de", "from_language": "en", "num_learners": 24889590, "base_learning_language_name": "German", "from_language_name": "English", "num_learners_string": "2.49Cr", "learning_language": "de", "learning_language_name": "German", "from_language_id": "en", "num_learners_string_en": "24.9M", "from_ui": false}, {"prompt": "\u0623\u0631\u064a\u062f \u0623\u0646 \u0623\u062a\u0639\u0644\u0645 \u0627\u0644\u0623\u0644\u0645\u0627\u0646\u064a\u0629 (\u0623\u0639\u0631\u0641 \u0627\u0644\u0639\u0631\u0628\u064a\u0629)\n", "base_from_language_name": "Arabic", "key": "ar-de", "learning_language_id": "de", "from_language": "ar", "num_learners": 167671, "base_learning_language_name": "German", "from_language_name": "\u0627\u0644\u0639\u0631\u0628\u064a\u0629", "num_learners_string": "1.68L", "learning_language": "de", "learning_language_name": "\u0627\u0644\u0623\u0644\u0645\u0627\u0646\u064a\u0629", "from_language_id": "ar", "num_learners_string_en": "167K", "from_ui": false}, {"prompt": "Quiero aprender alem\u00e1n (yo s\u00e9 espa\u00f1ol)\n", "base_from_language_name": "Spanish", "key": "es-de", "learning_language_id": "de", "from_language": "es", "num_learners": 3790022, "base_learning_language_name": "German", "from_language_name": "espa\u00f1ol", "num_learners_string": "37.9L", "learning_language": "de", "learning_language_name": "alem\u00e1n", "from_language_id": "es", "num_learners_string_en": "3.79M", "from_ui": false}, {"prompt": "\u042f \u0445\u043e\u0447\u0443 \u0438\u0437\u0443\u0447\u0430\u0442\u044c \u043d\u0435\u043c\u0435\u0446\u043a\u0438\u0439 (\u044f \u0437\u043d\u0430\u044e \u0440\u0443\u0441\u0441\u043a\u0438\u0439)\n", "base_from_language_name": "Russian", "key": "ru-de", "learning_language_id": "de", "from_language": "ru", "num_learners": 1278904, "base_learning_language_name": "German", "from_language_name": "\u0440\u0443\u0441\u0441\u043a\u0438\u0439", "num_learners_string": "12.8L", "learning_language": "de", "learning_language_name": "\u043d\u0435\u043c\u0435\u0446\u043a\u0438\u0439", "from_language_id": "ru", "num_learners_string_en": "1.28M", "from_ui": false}, {"prompt": "Eu quero aprender Alem\u00e3o (eu sei Portugu\u00eas)\n", "base_from_language_name": "Portuguese", "key": "pt-de", "learning_language_id": "de", "from_language": "pt", "num_learners": 823338, "base_learning_language_name": "German", "from_language_name": "Portugu\u00eas", "num_learners_string": "8.23L", "learning_language": "de", "learning_language_name": "Alem\u00e3o", "from_language_id": "pt", "num_learners_string_en": "823K", "from_ui": false}, {"prompt": "Almanca \u00f6\u011frenmek istiyorum (T\u00fcrk\u00e7e biliyorum)\n", "base_from_language_name": "Turkish", "key": "tr-de", "learning_language_id": "de", "from_language": "tr", "num_learners": 204686, "base_learning_language_name": "German", "from_language_name": "T\u00fcrk\u00e7e", "num_learners_string": "2.05L", "learning_language": "de", "learning_language_name": "Almanca", "from_language_id": "tr", "num_learners_string_en": "204K", "from_ui": false}, {"prompt": "Je veux apprendre l'allemand (je parle fran\u00e7ais)\n", "base_from_language_name": "French", "key": "fr-de", "learning_language_id": "de", "from_language": "fr", "num_learners": 409411, "base_learning_language_name": "German", "from_language_name": "fran\u00e7ais", "num_learners_string": "4.09L", "learning_language": "de", "learning_language_name": "allemand", "from_language_id": "fr", "num_learners_string_en": "409K", "from_ui": false}, {"prompt": "I want to learn Italian (I know English)\n", "base_from_language_name": "English", "key": "en-it", "learning_language_id": "it", "from_language": "en", "num_learners": 15718305, "base_learning_language_name": "Italian", "from_language_name": "English", "num_learners_string": "1.57Cr", "learning_language": "it", "learning_language_name": "Italian", "from_language_id": "en", "num_learners_string_en": "15.7M", "from_ui": false}, {"prompt": "Quiero aprender italiano (yo s\u00e9 espa\u00f1ol)\n", "base_from_language_name": "Spanish", "key": "es-it", "learning_language_id": "it", "from_language": "es", "num_learners": 4252418, "base_learning_language_name": "Italian", "from_language_name": "espa\u00f1ol", "num_learners_string": "42.5L", "learning_language": "it", "learning_language_name": "italiano", "from_language_id": "es", "num_learners_string_en": "4.25M", "from_ui": false}, {"prompt": "Je veux apprendre l'italien (je parle fran\u00e7ais)\n", "base_from_language_name": "French", "key": "fr-it", "learning_language_id": "it", "from_language": "fr", "num_learners": 690655, "base_learning_language_name": "Italian", "from_language_name": "fran\u00e7ais", "num_learners_string": "6.91L", "learning_language": "it", "learning_language_name": "italien", "from_language_id": "fr", "num_learners_string_en": "690K", "from_ui": false}, {"prompt": "I want to learn Portuguese (I know English)\n", "base_from_language_name": "English", "key": "en-pt", "learning_language_id": "pt", "from_language": "en", "num_learners": 6816391, "base_learning_language_name": "Portuguese", "from_language_name": "English", "num_learners_string": "68.2L", "learning_language": "pt", "learning_language_name": "Portuguese", "from_language_id": "en", "num_learners_string_en": "6.82M", "from_ui": false}, {"prompt": "Quiero aprender portugu\u00e9s (yo s\u00e9 espa\u00f1ol)\n", "base_from_language_name": "Spanish", "key": "es-pt", "learning_language_id": "pt", "from_language": "es", "num_learners": 4144098, "base_learning_language_name": "Portuguese", "from_language_name": "espa\u00f1ol", "num_learners_string": "41.4L", "learning_language": "pt", "learning_language_name": "portugu\u00e9s", "from_language_id": "es", "num_learners_string_en": "4.14M", "from_ui": false}, {"prompt": "I want to learn Dutch (I know English)\n", "base_from_language_name": "English", "key": "en-dn", "learning_language_id": "nl-NL", "from_language": "en", "num_learners": 2490549, "base_learning_language_name": "Dutch", "from_language_name": "English", "num_learners_string": "24.9L", "learning_language": "dn", "learning_language_name": "Dutch", "from_language_id": "en", "num_learners_string_en": "2.49M", "from_ui": false}, {"prompt": "I want to learn Irish (I know English)\n", "base_from_language_name": "English", "key": "en-ga", "learning_language_id": "ga", "from_language": "en", "num_learners": 2030530, "base_learning_language_name": "Irish", "from_language_name": "English", "num_learners_string": "20.3L", "learning_language": "ga", "learning_language_name": "Irish", "from_language_id": "en", "num_learners_string_en": "2.03M", "from_ui": false}, {"prompt": "I want to learn Danish (I know English)\n", "base_from_language_name": "English", "key": "en-da", "learning_language_id": "da", "from_language": "en", "num_learners": 1222994, "base_learning_language_name": "Danish", "from_language_name": "English", "num_learners_string": "12.2L", "learning_language": "da", "learning_language_name": "Danish", "from_language_id": "en", "num_learners_string_en": "1.22M", "from_ui": false}, {"prompt": "I want to learn Swedish (I know English)\n", "base_from_language_name": "English", "key": "en-sv", "learning_language_id": "sv", "from_language": "en", "num_learners": 2303145, "base_learning_language_name": "Swedish", "from_language_name": "English", "num_learners_string": "23.0L", "learning_language": "sv", "learning_language_name": "Swedish", "from_language_id": "en", "num_learners_string_en": "2.30M", "from_ui": false}, {"prompt": "\u0623\u0631\u064a\u062f \u0623\u0646 \u0623\u062a\u0639\u0644\u0645 \u0627\u0644\u0633\u0648\u064a\u062f\u064a\u0629 (\u0623\u0639\u0631\u0641 \u0627\u0644\u0639\u0631\u0628\u064a\u0629)\n", "base_from_language_name": "Arabic", "key": "ar-sv", "learning_language_id": "sv", "from_language": "ar", "num_learners": 50310, "base_learning_language_name": "Swedish", "from_language_name": "\u0627\u0644\u0639\u0631\u0628\u064a\u0629", "num_learners_string": "5.03", "learning_language": "sv", "learning_language_name": "\u0627\u0644\u0633\u0648\u064a\u062f\u064a\u0629", "from_language_id": "ar", "num_learners_string_en": "50.3K", "from_ui": false}, {"prompt": "I want to learn Russian (I know English)\n", "base_from_language_name": "English", "key": "en-ru", "learning_language_id": "ru", "from_language": "en", "num_learners": 2084023, "base_learning_language_name": "Russian", "from_language_name": "English", "num_learners_string": "20.8L", "learning_language": "ru", "learning_language_name": "Russian", "from_language_id": "en", "num_learners_string_en": "2.08M", "from_ui": false}, {"prompt": "I want to learn Polish (I know English)\n", "base_from_language_name": "English", "key": "en-pl", "learning_language_id": "pl", "from_language": "en", "num_learners": 590956, "base_learning_language_name": "Polish", "from_language_name": "English", "num_learners_string": "5.91L", "learning_language": "pl", "learning_language_name": "Polish", "from_language_id": "en", "num_learners_string_en": "590K", "from_ui": false}, {"prompt": "I want to learn Greek (I know English)\n", "base_from_language_name": "English", "key": "en-el", "learning_language_id": "el", "from_language": "en", "num_learners": 12056, "base_learning_language_name": "Greek", "from_language_name": "English", "num_learners_string": "1.21", "learning_language": "el", "learning_language_name": "Greek", "from_language_id": "en", "num_learners_string_en": "12.1K", "from_ui": false}, {"prompt": "I want to learn Esperanto (I know English)\n", "base_from_language_name": "English", "key": "en-eo", "learning_language_id": "eo", "from_language": "en", "num_learners": 518566, "base_learning_language_name": "Esperanto", "from_language_name": "English", "num_learners_string": "5.19L", "learning_language": "eo", "learning_language_name": "Esperanto", "from_language_id": "en", "num_learners_string_en": "518K", "from_ui": false}, {"prompt": "I want to learn Turkish (I know English)\n", "base_from_language_name": "English", "key": "en-tr", "learning_language_id": "tr", "from_language": "en", "num_learners": 1579870, "base_learning_language_name": "Turkish", "from_language_name": "English", "num_learners_string": "15.8L", "learning_language": "tr", "learning_language_name": "Turkish", "from_language_id": "en", "num_learners_string_en": "1.58M", "from_ui": false}, {"prompt": "I want to learn Vietnamese (I know English)\n", "base_from_language_name": "English", "key": "en-vi", "learning_language_id": "vi", "from_language": "en", "num_learners": 142906, "base_learning_language_name": "Vietnamese", "from_language_name": "English", "num_learners_string": "1.43L", "learning_language": "vi", "learning_language_name": "Vietnamese", "from_language_id": "en", "num_learners_string_en": "142K", "from_ui": false}, {"prompt": "I want to learn Hebrew (I know English)\n", "base_from_language_name": "English", "key": "en-he", "learning_language_id": "he", "from_language": "en", "num_learners": 164797, "base_learning_language_name": "Hebrew", "from_language_name": "English", "num_learners_string": "1.65L", "learning_language": "he", "learning_language_name": "Hebrew", "from_language_id": "en", "num_learners_string_en": "164K", "from_ui": false}, {"prompt": "I want to learn Norwegian (Bokm\u00e5l) (I know English)\n", "base_from_language_name": "English", "key": "en-nb", "learning_language_id": "no-BO", "from_language": "en", "num_learners": 891191, "base_learning_language_name": "Norwegian (Bokm\u00e5l)", "from_language_name": "English", "num_learners_string": "8.91L", "learning_language": "nb", "learning_language_name": "Norwegian (Bokm\u00e5l)", "from_language_id": "en", "num_learners_string_en": "891K", "from_ui": false}, {"prompt": "I want to learn Ukrainian (I know English)\n", "base_from_language_name": "English", "key": "en-uk", "learning_language_id": "uk", "from_language": "en", "num_learners": 454116, "base_learning_language_name": "Ukrainian", "from_language_name": "English", "num_learners_string": "4.54L", "learning_language": "uk", "learning_language_name": "Ukrainian", "from_language_id": "en", "num_learners_string_en": "454K", "from_ui": false}, {"prompt": "I want to learn Hungarian (I know English)\n", "base_from_language_name": "English", "key": "en-hu", "learning_language_id": "hu", "from_language": "en", "num_learners": 73221, "base_learning_language_name": "Hungarian", "from_language_name": "English", "num_learners_string": "7.32", "learning_language": "hu", "learning_language_name": "Hungarian", "from_language_id": "en", "num_learners_string_en": "73.2K", "from_ui": false}, {"prompt": "I want to learn Welsh (I know English)\n", "base_from_language_name": "English", "key": "en-cy", "learning_language_id": "cy", "from_language": "en", "num_learners": 261238, "base_learning_language_name": "Welsh", "from_language_name": "English", "num_learners_string": "2.61L", "learning_language": "cy", "learning_language_name": "Welsh", "from_language_id": "en", "num_learners_string_en": "261K", "from_ui": false}, {"prompt": "Quiero aprender Guaran\u00ed (Jopar\u00e1) (yo s\u00e9 espa\u00f1ol)\n", "base_from_language_name": "Spanish", "key": "es-gn", "learning_language_id": "gn", "from_language": "es", "num_learners": 1905, "base_learning_language_name": "Guarani (Jopar\u00e1)", "from_language_name": "espa\u00f1ol", "num_learners_string": "1.90", "learning_language": "gn", "learning_language_name": "Guaran\u00ed (Jopar\u00e1)", "from_language_id": "es", "num_learners_string_en": "1.90K", "from_ui": false}, {"prompt": "Quiero aprender catal\u00e1n (yo s\u00e9 espa\u00f1ol)\n", "base_from_language_name": "Spanish", "key": "es-ca", "learning_language_id": "ca", "from_language": "es", "num_learners": 285571, "base_learning_language_name": "Catalan", "from_language_name": "espa\u00f1ol", "num_learners_string": "2.86L", "learning_language": "ca", "learning_language_name": "catal\u00e1n", "from_language_id": "es", "num_learners_string_en": "285K", "from_ui": false}];
+        duo.num_english_learners_string = "203M";
+
+        duo.search_host = 'www.duolingo.com';
+
+        duo.feature_flags = {"show_linkedin_sharing": true, "show_your_edits": true, "show_your_uploads": true, "immersion_search_bar": true, "schools_android_deep_links": true, "schools_people_min_students": 5, "show_translations": true, "show_vocab_page": true, "allow_web_local_grading_regression": true, "show_stream": true, "serialized_sentence_discussions": true, "social_teams": true, "job_board": true, "allow_web_local_grading": true};
+        duo.js_version = 'c84d0a95787aed63a6be-vendor.js-c84d0a95787aed63a6be-duolingo.js';
+        duo.ab_options = {"schools_join_warning_experiment": true, "web_branded_mobile_buttons_test": true, "signup_modal_buttons_experiment": true, "login_modal_experiment": true};
+        duo.body_class = "splash-2014";
+        duo.compact_enabled = duo.script_direction != 'rtl';
+    
+
+
+
+
+
+
+            duo.zendesk_ids = {'es': 20155406, 'pt': 20155198, 'it': 20155416,
+                               'fr': 20175838, 'de': 20098790, 'zs': 20176764};
+            (function() {
+                if (duo.cn_extension) {
+                    return;
+                }
+                    var ui_language = 'hi';
+                var id = ui_language in duo.zendesk_ids ? duo.zendesk_ids[ui_language] : undefined;
+                duo.hide_zendesk = false;
+                if (!id) {
+                    duo.hide_zendesk = true;
+                    return;
+                }
+                if (zen_opt)
+                    Zenbox.update({'dropboxID': 20155416});
+                var zen_opt = {
+                    dropboxID:   id,
+                    url:         "https://duolingotest.zendesk.com",
+                    tabID:       "Feedback",
+                    tabColor:    "black",
+                    tabPosition: "Left",
+                    hide_tab: "true"
+                };
+                $.getScript('//asset0.zendesk.com/external/zenbox/v2.5/zenbox.js', function() {
+                    _.defer(function() {
+                        Zenbox.init(zen_opt);
+                    });
+                });
+            })();
+         
+
+        $(document).ready(function() {
+            var tracking_properties = $.extend(duo.getCampaignInfo('acquisition_'), duo.getCampaignInfo('latest_'));
+            duo.track("splash load", tracking_properties);
+            window.fbq('trackCustom', 'splash load');
+
+            $('.desktop-link').click(function() {
+                var url = window.location.href;
+                var hash_index = url.indexOf('#');
+                var hash = '';
+                if(hash_index > 0) {
+                    hash = url.substring(hash_index);
+                }
+                window.location.href = window.location.origin+'/?desktop'+hash;
+            });
+        });
+    
+ // Mixpanel
+        (function(c,a){var b,d,h,e;b=c.createElement("script");b.type="text/javascript";b.async=!0;b.src=("https:"===c.location.protocol?"https:":"http:")+'//d7mj4aqfscim2.cloudfront.net/s3/js2/mixpanel.2.awsma.d24e9d5ccc00d46d875bfd2429b78958.js';d=c.getElementsByTagName("script")[0];d.parentNode.insertBefore(b,d);a._i=[];a.init=function(b,c,f){function d(a,b){var c=b.split(".");2==c.length&&(a=a[c[0]],b=c[1]);a[b]=function(){a.push([b].concat(Array.prototype.slice.call(arguments,0)))}}var g=a;"undefined"!==typeof f?g=
+        a[f]=[]:f="mixpanel";g.people=g.people||[];h="disable track track_pageview track_links track_forms register register_once unregister identify name_tag set_config people.set people.increment".split(" ");for(e=0;e<h.length;e++)d(g,h[e]);a._i.push([b,c,f])};a.__SV=1.1;window.mixpanel=a})(document,window.mixpanel||[]);
+        mixpanel.init("2178e0df6f413afb8c43afe3bbd13f04", {
+            cross_subdomain_cookie: true,
+            cookie_expiration: 1 // (in days)
+        });
+        
+        mixpanel.register({
+            'mobile': false,
+            'Client': 'web',
+            'user_agent': navigator.userAgent,
+            'ui_language': 'hi',
+            'from_internet_org': duo.from_internet_org == true,
+            'cn_extension': duo.cn_extension,
+            'mobile_web_view': duo.compact_enabled &&
+                window.matchMedia && window.matchMedia('(max-width: 700px)').matches
+        });
+        mixpanel.register({"schools_join_warning_experiment": true, "web_branded_mobile_buttons_test": true, "signup_modal_buttons_experiment": true, "login_modal_experiment": true});
+    
+ // Facebook
+            window.fbAsyncInit = function() {
+                FB.init({
+                    appId      : '234536436609303', // App ID
+                    cookie     : true,  // enable cookies to allow the server to access the session
+                    oauth      : true,  // enable OAuth 2.0
+                    xfbml      : true,  // parse XFBML
+                    version    : 'v2.0' // FB app version
+                });
+            };
+            (function(d){
+                var js, id = 'facebook-jssdk'; if (d.getElementById(id)) {return;}
+                js = d.createElement('script'); js.id = id; js.async = true;
+                js.src = "//connect.facebook.net/en_US/sdk.js";
+                d.getElementsByTagName('head')[0].appendChild(js);
+            }(document));
+        
+ // Facebook Pixel
+            !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+            n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+            document,'script','https://connect.facebook.net/en_US/fbevents.js');
+
+            fbq('init', '1735692093320310');
+            fbq('track', 'PageView');
+        
+
+ // Google Plus
+            (function() {
+                var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+                po.src = 'https://apis.google.com/js/client:plusone.js?onload=loadGoogleClientLibraries';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+            })();
+            function loadGoogleClientLibraries() {
+                // This doesn't actually do anything, but it preloads libraries to reduce latency on user actions.
+                gapi.client.load('oauth2', 'v2', function() {});
+                gapi.client.load('plus', 'v1', function() {});
+            }
+        
+
+

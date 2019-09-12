@@ -1,0 +1,833 @@
+<!doctype html>
+<!--[if lt IE 9]> <html class="lt-ie9 lt-ie10" lang="en" dir="ltr"> <![endif]-->
+<!--[if lt IE 10]> <html class="lt-ie10" lang="en" dir="ltr"> <![endif]-->
+<!--[if gt IE 10]><!--> <html lang="en" dir="ltr"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8"><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o||n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({1:[function(e,n,t){function r(){}function o(e,n,t){return function(){return i(e,[c.now()].concat(u(arguments)),n?null:this,t),n?void 0:this}}var i=e("handle"),a=e(3),u=e(4),f=e("ee").get("tracer"),c=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,n){s[n]=o(d+n,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,o="function"==typeof n;return i(l+"tracer",[c.now(),e,t],r),function(){if(f.emit((o?"":"no-")+"fn-start",[c.now(),r,o],t),o)try{return n.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],t),e}finally{f.emit("fn-end",[c.now()],t)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=o(l+n)}),newrelic.noticeError=function(e,n){"string"==typeof e&&(e=new Error(e)),i("err",[e,c.now(),!1,n])}},{}],2:[function(e,n,t){function r(e,n){if(!o)return!1;if(e!==o)return!1;if(!n)return!0;if(!i)return!1;for(var t=i.split("."),r=n.split("."),a=0;a<r.length;a++)if(r[a]!==t[a])return!1;return!0}var o=null,i=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var u=navigator.userAgent,f=u.match(a);f&&u.indexOf("Chrome")===-1&&u.indexOf("Chromium")===-1&&(o="Safari",i=f[1])}n.exports={agent:o,version:i,match:r}},{}],3:[function(e,n,t){function r(e,n){var t=[],r="",i=0;for(r in e)o.call(e,r)&&(t[i]=n(r,e[r]),i+=1);return t}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],4:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(o<0?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=r},{}],5:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function o(e){function n(e){return e&&e instanceof r?e:e?f(e,u,i):i()}function t(t,r,o,i){if(!d.aborted||i){e&&e(t,r,o);for(var a=n(o),u=v(t),f=u.length,c=0;c<f;c++)u[c].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function l(e,n){h[e]=v(e).concat(n)}function m(e,n){var t=h[e];if(t)for(var r=0;r<t.length;r++)t[r]===n&&t.splice(r,1)}function v(e){return h[e]||[]}function g(e){return p[e]=p[e]||o(t)}function w(e,n){c(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var h={},y={},b={on:l,addEventListener:l,removeEventListener:m,emit:t,get:g,listeners:v,context:n,buffer:w,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",f=e("gos"),c=e(3),s={},p={},d=n.exports=o();d.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(o.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){o.buffer([e],r),o.emit(e,n,t)}var o=e("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!E++){var e=x.info=NREUM.info,n=l.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();c(y,function(n,t){e[n]||(e[n]=t)}),f("mark",["onload",a()+x.offset],null,"api");var t=l.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function o(){"complete"===l.readyState&&i()}function i(){f("mark",["domContent",a()+x.offset],null,"api")}function a(){return O.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-x.offset}var u=(new Date).getTime(),f=e("handle"),c=e(3),s=e("ee"),p=e(2),d=window,l=d.document,m="addEventListener",v="attachEvent",g=d.XMLHttpRequest,w=g&&g.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:g,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var h=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1118.min.js"},b=g&&w&&w[m]&&!/CriOS/.test(navigator.userAgent),x=n.exports={offset:u,now:a,origin:h,features:{},xhrWrappable:b,userAgent:p};e(1),l[m]?(l[m]("DOMContentLoaded",i,!1),d[m]("load",r,!1)):(l[v]("onreadystatechange",o),d[v]("onload",r)),f("mark",["firstbyte",u],null,"api");var E=0,O=e(5)},{}]},{},["loader"]);</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" href="https://www.motorsportmagazine.com/sites/all/themes/msmencyclopaedia2015/favicon.ico" type="image/vnd.microsoft.icon" />
+<!-- Google Ads start -->
+<script type="text/javascript" src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+
+<script type="text/javascript">
+    var googletag = googletag || {};
+    googletag.cmd = googletag.cmd || [];
+    (function() {
+        var gads = document.createElement("script");
+        gads.async = true;
+        gads.type = "text/javascript";
+        var useSSL = "https:" == document.location.protocol;
+        gads.src = (useSSL ? "https:" : "http:") + "//www.googletagservices.com/tag/js/gpt.js";
+        var node =document.getElementsByTagName("script")[0];
+        node.parentNode.insertBefore(gads, node);
+    })();
+
+    (function() {
+        var useSSL = 'https:' == document.location.protocol;
+        var src = (useSSL ? 'https:' : 'http:') +
+        '//www.googletagservices.com/tag/js/gpt_mobile.js';
+        document.write('<scr' + 'ipt src="' + src + '"></scr' + 'ipt>');
+    })();
+
+    (function() {
+        googletag.cmd.push(function() {
+            // targeting
+            googletag.pubads().setTargeting('nid','166484');googletag.pubads().setTargeting('MSM_Area','Magazine');googletag.pubads().setTargeting('MSM_Section','article');googletag.pubads().setTargeting('MSM_Person','');
+            googletag.pubads().collapseEmptyDivs();
+            googletag.enableServices();
+        });
+    })();
+</script>
+<!-- Google Ads end --><meta name="description" content="This privacy policy sets out how Motor Sport Magazine Ltd (“Motor Sport”) uses and protects the information you provide to Motor Sport when you use the Motor Sport magazine website (“Site”)." />
+<meta name="generator" content="Drupal 7 (http://drupal.org)" />
+<link rel="canonical" href="https://www.motorsportmagazine.com/magazine/privacy-policy" />
+<link rel="shortlink" href="https://www.motorsportmagazine.com/node/166484" />
+<meta property="og:site_name" content="Motor Sport Magazine" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Privacy policy" />
+<meta property="og:url" content="https://www.motorsportmagazine.com/magazine/privacy-policy" />
+<meta property="og:description" content="This privacy policy sets out how Motor Sport Magazine Ltd (“Motor Sport”) uses and protects the information you provide to Motor Sport when you use the Motor Sport magazine website (“Site”)." />
+<meta property="og:updated_time" content="2018-09-13T19:43:04+00:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:creator" content="@Motor_Sport" />
+<meta name="twitter:creator:id" content="26037957" />
+<meta name="twitter:url" content="https://www.motorsportmagazine.com/magazine/privacy-policy" />
+<meta name="twitter:title" content="Privacy policy | Motor Sport Magazine" />
+<meta name="twitter:description" content="This privacy policy sets out how Motor Sport Magazine Ltd (“Motor Sport”) uses and protects the information you provide to Motor Sport when you use the Motor Sport magazine website (“Site”)." />
+<meta property="article:published_time" content="2008-01-28T11:03:03+00:00" />
+<meta property="article:modified_time" content="2018-09-13T19:43:04+00:00" />
+  <title>Privacy policy | Motor Sport Magazine</title>
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:700,400" />
+  
+  <!-- Chrome for Android theme color -->
+  <meta name="theme-color" content="#004423">
+
+  <!-- Chrome for Android Theme color -->
+  <meta name="msapplication-TileColor" content="#004423">
+
+  <!-- Add to homescreen for Chrome on Android -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="Motor Sport Magazine">
+  <link rel="icon" sizes="192x192" href="https://www.motorsportmagazine.com/sites/all/themes/msmencyclopaedia2015/images/chrome-touch-icon-192x192.png">
+
+  <!-- Add to homescreen for Safari on iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Motor Sport Magazine">
+  <link rel="apple-touch-icon" href="https://www.motorsportmagazine.com/sites/all/themes/msmencyclopaedia2015/images/apple-touch-icon.png">
+
+  <!-- Tile icon for Win8 (144x144 + tile color) -->
+  <meta name="msapplication-TileImage" content="https://www.motorsportmagazine.com/sites/all/themes/msmencyclopaedia2015/images/ms-touch-icon-144x144-precomposed.png">
+
+  <meta name="apple-itunes-app" content="app-id= 484542744"/>
+  <!-- Facebook instant articles -->
+  <meta property="fb:pages" content="96482896515" />
+
+  <style type="text/css" media="all">
+@import url("https://www.motorsportmagazine.com/modules/system/system.base.css?pkytfb");
+</style>
+<style type="text/css" media="all">
+@import url("https://www.motorsportmagazine.com/modules/aggregator/aggregator.css?pkytfb");
+@import url("https://www.motorsportmagazine.com/sites/all/modules/contrib/date/date_api/date.css?pkytfb");
+@import url("https://www.motorsportmagazine.com/sites/all/modules/contrib/date/date_popup/themes/datepicker.1.7.css?pkytfb");
+@import url("https://www.motorsportmagazine.com/modules/search/search.css?pkytfb");
+@import url("https://www.motorsportmagazine.com/modules/user/user.css?pkytfb");
+@import url("https://www.motorsportmagazine.com/sites/all/modules/contrib/views/css/views.css?pkytfb");
+@import url("https://www.motorsportmagazine.com/sites/all/modules/contrib/ckeditor/css/ckeditor.css?pkytfb");
+</style>
+<style type="text/css" media="all">
+@import url("https://www.motorsportmagazine.com/sites/all/modules/contrib/ctools/css/ctools.css?pkytfb");
+@import url("https://www.motorsportmagazine.com/sites/all/modules/contrib/eu_cookie_compliance/css/eu_cookie_compliance.bare.css?pkytfb");
+</style>
+<style type="text/css" media="all">
+<!--/*--><![CDATA[/*><!--*/
+#sliding-popup.sliding-popup-top{position:fixed;}
+
+/*]]>*/-->
+</style>
+<style type="text/css" media="all">
+@import url("https://www.motorsportmagazine.com/sites/all/themes/msmencyclopaedia2015/css/msmencyclopaedia2015.css?pkytfb");
+@import url("https://www.motorsportmagazine.com/sites/all/themes/msmencyclopaedia2015/css/swiper.min.css?pkytfb");
+</style>
+
+  <!--[if lt IE 9]>
+    <script src="https://www.motorsportmagazine.com/sites/all/themes/msmencyclopaedia2015/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <!--[if IE 8]>
+    <script src="https://www.motorsportmagazine.com/sites/all/themes/msmencyclopaedia2015/js/respond.min.js"></script>
+  <![endif]-->
+</head>
+<body class="html not-front not-logged-in no-sidebars page-node page-node- page-node-166484 node-type-magazine" >
+  	  <!-- Google Tag Manager -->
+	  <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-PJJ366"
+	  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	  '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	  })(window,document,'script','dataLayer','GTM-PJJ366');</script>
+	  <!-- End Google Tag Manager -->  <div id="block-block-1027" class="block block-block">
+
+    
+  <div class="content">
+    <!-- /22623031/MSMag_ROS_Native -->
+<div id='div-gpt-ad-1489396684985-8' style='height:1px; width:1px;'>
+</div>  </div>
+</div><div id="block-block-1026" class="block block-block">
+
+    
+  <div class="content">
+    <!-- /22623031/MSMag_ROS_Skin -->
+<div id='div-gpt-ad-1489396684985-11' style='height:1px; width:1px;'>
+</div>  </div>
+</div>  
+  <div id="wrapper" class="msm-mainsite">
+  <div id="wrapper-content">
+    <div id="wrapper-header-content">
+    <div id="wrapper-menu">
+      <div id="user-menu">
+          <div class="region region-user-menu">
+    <div id="block-system-user-menu" class="block block-system block-menu">
+
+    
+  <div class="content">
+    <ul class="menu"><li class="first leaf"><a href="/" title="">Motor Sport home</a></li>
+<li class="leaf highlight-dark hidden-xs"><a href="https://shop.motorsportmagazine.com/subOffer/li18" title="">Subscribe</a></li>
+<li class="leaf"><a href="https://shop.motorsportmagazine.com/site/loginForm" title="">Login</a></li>
+</ul>  </div>
+</div>  </div>
+      </div>
+      <div id="wrapper-main-menu">
+        <div id="main-menu">
+            <div class="region region-main-menu">
+    <div id="block-system-main-menu" class="block block-system block-menu">
+
+    
+  <div class="content">
+    <ul class="menu"><li class="first leaf"><a href="https://shop.motorsportmagazine.com/" title="">Shop</a></li>
+<li class="leaf"><a href="https://www.motorsportmagazine.com/msapp" title="">App</a></li>
+<li class="leaf"><a href="/archive" title="">Archive</a></li>
+<li class="leaf"><a href="/database" title="">Database</a></li>
+<li class="leaf"><a href="/hall-of-fame" title="">Hall of Fame</a></li>
+<li class="leaf active-trail"><a href="/magazine" title="" class="active-trail">Magazine</a></li>
+<li class="last leaf"><a href="/the-market" title="">Market</a></li>
+</ul>  </div>
+</div>  </div>
+        </div>
+        <div id="search-icon">
+          <a href="#"><span class="visible-lg-block">Search</span></a>
+        </div>
+      </div>
+    </div>
+        <div id="pushdown" class="hidden-sm hidden-xs">
+      <div class="pushdown">
+          <div class="region region-pushdown">
+    <div id="block-block-995" class="block block-block">
+
+    
+  <div class="content">
+    <!-- /22623031/MSMag_ROS_Billboard_1 -->
+<div id='div-gpt-ad-1489396684985-5'>
+</div>  </div>
+</div>  </div>
+      </div>
+    </div>
+        <div id="header-wrapper" class="clearfix">
+      <div id="header" class="clearfix">
+      <div id="logo">
+                <a href="/" title="Home">
+          <img
+            src="https://www.motorsportmagazine.com/sites/all/themes/msmencyclopaedia2015/images/online-logo%402x.png"
+            alt="Home"
+            class="img-responsive"
+          />
+        </a>
+              </div>
+      <div id="leaderboard" class="hidden-xs">
+                <div class="leaderboard">
+            <div class="region region-leaderboard">
+    <div id="block-block-996" class="block block-block">
+
+    
+  <div class="content">
+    <!-- /22623031/MSMag_ROS_Banner_1 -->
+<div id='div-gpt-ad-1489396684985-4' style='height:90px; width:728px;'>
+</div>  </div>
+</div>  </div>
+        </div>
+              </div>
+      </div>
+    </div>
+        <div id="section-menu">
+      <div id="section-menu-content">
+          <div class="region region-section-menu">
+    <div id="block-menu-menu-main-site-featured-menu" class="block block-menu">
+
+    
+  <div class="content">
+    <ul class="menu"><li class="first leaf"><a href="/f1" title="">F1</a></li>
+<li class="leaf"><a href="/motogp" title="">MotoGP</a></li>
+<li class="leaf"><a href="/podcasts/all" title="">Podcasts</a></li>
+<li class="leaf"><a href="/video/all" title="">Videos</a></li>
+<li id="section-toggle-more"  class="leaf"><a href="/" title="">All Motor Sport</a></li>
+<li class="leaf"><a href="https://www.motorsportmagazine.com/li18" title="">Subscribe</a></li>
+<li class="last leaf"><a href="/search" title="">Search</a></li>
+</ul>  </div>
+</div><div id="block-menu-block-2" class="block block-menu-block">
+
+    
+  <div class="content">
+    <div class="menu-block-wrapper menu-block-2 menu-name-menu-main-site-new- parent-mlid-0 menu-level-1">
+  <ul class="menu"><li class="first expanded menu-mlid-1303 category_heading has_image"><a href="/single-seaters" title="">Single Seaters</a><img src="/sites/all/themes/msmencyclopaedia2015/images/all-ms-menu/1303.jpg" alt="category heading image"/><ul class="menu"><li class="first leaf has-children menu-mlid-1313 general_category"><a href="/single-seaters" title="">General</a></li>
+<li class="leaf has-children menu-mlid-1414"><a href="/f1" title="">Formula 1</a></li>
+<li class="last leaf menu-mlid-1321"><a href="/formula-e" title="">Formula E</a></li>
+</ul></li>
+<li class="expanded menu-mlid-1427 category_heading has_image"><a href="/motorcycles" title="">Motorcycles</a><img src="/sites/all/themes/msmencyclopaedia2015/images/all-ms-menu/1427.jpg" alt="category heading image"/><ul class="menu"><li class="first leaf has-children menu-mlid-1428 general_category"><a href="/motorcycles" title="">General</a></li>
+<li class="leaf has-children menu-mlid-1434"><a href="/motogp" title="">MotoGP</a></li>
+<li class="leaf menu-mlid-1437"><a href="/road-racing" title="">Road Racing</a></li>
+<li class="last leaf menu-mlid-1438"><a href="/superbikes" title="">Superbikes</a></li>
+</ul></li>
+<li class="expanded menu-mlid-1439 category_heading has_image"><a href="/sports-cars" title="">Sports Cars</a><img src="/sites/all/themes/msmencyclopaedia2015/images/all-ms-menu/1439.jpg" alt="category heading image"/><ul class="menu"><li class="first leaf has-children menu-mlid-1440 general_category"><a href="/sports-cars" title="">General</a></li>
+<li class="last leaf has-children menu-mlid-1447"><a href="/le-mans" title="">Le Mans</a></li>
+</ul></li>
+<li class="expanded menu-mlid-1452 category_heading has_image"><a href="/us-scene" title="">US Scene</a><img src="/sites/all/themes/msmencyclopaedia2015/images/all-ms-menu/1452.jpg" alt="category heading image"/><ul class="menu"><li class="first leaf has-children menu-mlid-1455 general_category"><a href="/us-scene" title="">General</a></li>
+<li class="leaf has-children menu-mlid-1461"><a href="/indycar" title="">IndyCar</a></li>
+<li class="leaf menu-mlid-1470"><a href="/nascar" title="">NASCAR</a></li>
+<li class="last leaf menu-mlid-1472"><a href="/grand-am" title="">IMSA</a></li>
+</ul></li>
+<li class="expanded menu-mlid-1304 category_heading has_image"><a href="/historic-racing" title="">Historic Racing</a><img src="/sites/all/themes/msmencyclopaedia2015/images/all-ms-menu/1304.jpg" alt="category heading image"/><ul class="menu"><li class="first leaf menu-mlid-1353"><a href="/calendar/historic-racing" title="">Calendar</a></li>
+<li class="leaf menu-mlid-1444"><a href="/events/race/historic-racing" title="">Past Meetings</a></li>
+<li class="last leaf has-children menu-mlid-1315 general_category"><a href="/historic-racing" title="">General</a></li>
+</ul></li>
+<li class="leaf menu-mlid-2576 category_heading"><a href="https://www.motorsportmagazine.com/car-culture" title="">Car culture</a></li>
+<li class="leaf menu-mlid-1473 category_heading"><a href="/rally" title="">Rally</a></li>
+<li class="collapsed menu-mlid-1474 category_heading"><a href="/road-cars" title="">Road Cars</a></li>
+<li class="leaf menu-mlid-2577 category_heading"><a href="https://www.motorsportmagazine.com/lifestyle" title="">Lifestyle</a></li>
+<li class="last leaf menu-mlid-2582 category_heading"><a href="https://www.motorsportmagazine.com/auctions" title="">Auctions</a></li>
+</ul></div>
+  </div>
+</div><div id="block-menu-block-4" class="block block-menu-block">
+
+    <h3><a href="/magazine" title="" class="active-trail">Magazine</a></h3>
+  
+  <div class="content">
+    <div class="menu-block-wrapper menu-block-4 menu-name-menu-main-site---section-menu-ma parent-mlid-0 menu-level-2">
+  <ul class="menu"><li class="first leaf menu-mlid-1531"><a href="/archive" title="">Archive</a></li>
+<li class="leaf menu-mlid-1535"><a href="/magazine/history-motor-sport" title="">History</a></li>
+<li class="leaf menu-mlid-1530"><a href="/magazine/motor-sport-team" title="">Motor Sport team</a></li>
+<li class="leaf menu-mlid-1533"><a href="/magazine/competitions" title="">Competitions</a></li>
+<li class="leaf menu-mlid-1532"><a href="/magazine/advertise" title="">Advertise</a></li>
+<li class="last leaf menu-mlid-1534"><a href="/magazine/contact-us" title="">Contact Us</a></li>
+</ul></div>
+  </div>
+</div><div id="block-menu-block-6" class="block block-menu-block">
+
+    <h3><a href="/magazine" title="" class="active-trail">Magazine</a></h3>
+  
+  <div class="content">
+    <div class="menu-block-wrapper menu-block-6 menu-name-menu-main-site---mobile-menu-mag parent-mlid-0 menu-level-2">
+  <ul class="menu"><li class="first last expanded menu-mlid-1550 expandable active-trail"><a href="https://motorsportmagazine.com/li18" title="">Subscribe</a><a class="section-toggle-more-breadc chevron-down" href="#">></a><ul class="menu"><li class="first leaf menu-mlid-1562"><a href="/archive" title="">Archive</a></li>
+<li class="leaf menu-mlid-1552"><a href="/magazine/history-motor-sport" title="">History</a></li>
+<li class="leaf menu-mlid-1553"><a href="/magazine/motor-sport-team" title="">Motor Sport team</a></li>
+<li class="leaf menu-mlid-1555"><a href="/magazine/competitions" title="">Competitions</a></li>
+<li class="leaf menu-mlid-1557"><a href="/magazine/advertise" title="">Advertise</a></li>
+<li class="last leaf menu-mlid-1554"><a href="/magazine/contact-us" title="">Contact Us</a></li>
+</ul></li>
+</ul></div>
+  </div>
+</div>  </div>
+      </div>
+      <div id="section-toggle-more-hamb">
+        <button type="button" class="menu-button collapsed" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+    </div>
+        
+    <div id="header-image">
+          </div>
+  </div>
+    <div id="main">
+      <div class="container-fluid">
+          
+        
+        <div id="content-wrapper">
+          
+                    <div id="content-left">
+                                      <div class="tabs container-full">
+                              </div>
+            
+              <div class="region region-content">
+    <div id="block-system-main" class="block block-system">
+
+    
+  <div class="content">
+    <div id="article" class="node-166484" class="node node-magazine clearfix" about="/magazine/privacy-policy" typeof="sioc:Item foaf:Document">
+
+    
+  <div class="content">
+    
+            <h1>Privacy policy</h1>
+    <span property="dc:title" content="Privacy policy" class="rdf-meta element-hidden"></span>    <br/>
+
+    <div class="field field-name-body field-type-text-with-summary field-label-hidden">
+    <div class="field-items">
+          <div class="field-item even" property="content:encoded"><p>This privacy policy sets out how <em>Motor Sport</em> Magazine Ltd (“<em>Motor Sport</em>”) uses and protects the information you provide to <em>Motor Sport</em> when you use the <em>Motor Sport</em> magazine website (“Site”).</p>
+<p>&#13;<br />
+&#13;</p>
+<p><em>Motor Sport</em> is committed to ensuring that your privacy is protected. Should we ask you any personal information that identifies you when using this Site, then you can be assured that it will only be used in accordance with this privacy policy notice.</p>
+<p>&#13;<br />
+&#13;</p>
+<p>You should note that <em>Motor Sport </em>may change or amend its privacy policy from time to time by updating this page and we strongly recommend you check this page periodically to ensure that any changes are in line with your privacy expectations and requirements.</p>
+<p>&#13;<br />
+&#13;</p>
+<p>This policy was last changed on, and is effective from, May 25, 2018.</p>
+<p>&#13;<br />
+&#13;</p>
+<p><strong>What we collect</strong></p>
+<p>&#13;<br />
+&#13;</p>
+<p>We may collect the following information:</p>
+<p>&#13;<br />
+&#13;</p>
+<ul><li>Name and contact information, such as address, telephone number and email address</li>
+<p>&#13;</p>
+<li>Information on your motoring and motor sport preferences and interests</li>
+<p>&#13;</p>
+<li>Other information relevant to customer surveys and/or offers</li>
+<p>&#13;
+</p></ul><p>We do not ourselves collect or retain any of the following information:</p>
+<p>&#13;<br />
+&#13;</p>
+<ul><li>Sensitive or special categories of personal data</li>
+<p>&#13;</p>
+<li>Payment card data</li>
+<p>&#13;
+</p></ul><p><strong>When do we collect your personal information?</strong></p>
+<p>&#13;<br />
+&#13;</p>
+<p>We collect data which identifies you personally to us in the the following ways:</p>
+<p>&#13;<br />
+&#13;</p>
+<ul><li>By registering as a subscriber</li>
+<p>&#13;</p>
+<li>By subscribing to our newsletter</li>
+<p>&#13;</p>
+<li>By purchasing a product</li>
+<p>&#13;</p>
+<li>By voting or entering a competition</li>
+<p>&#13;</p>
+<li>By emailing us at one of our email addresses listed on the Site, like our contact page</li>
+<p>&#13;</p>
+<li>By providing us information through third party service providers, for example, survey software such as Survey Gizmo.</li>
+<p>&#13;
+</p></ul><p>Additionally, we may also collect data which provides us with a better understanding how the Site is being used and performing, but does not personally identify you.</p>
+<p>&#13;<br />
+&#13;</p>
+<p>We use the third party provider DISQUS (“Forum”) in order to allow you to with a comment and discussion service on our Site by using your pre-existing Twitter or Facebook accounts.  We do not have access or collect any details from the Forum including, but limited to, your email address, personal data, private information or communications, Twitter or Facebook information when you use the Forum.</p>
+<p>&#13;<br />
+&#13;</p>
+<p>We recommend that you review the following third party privacy policies and notices who may indirectly be providing services to you through our Site<strong>:</strong></p>
+<p>&#13;<br />
+&#13;</p>
+<ul><li>Google – <a href="http://www.google.com/intl/en/privacy/">http://www.google.com/intl/en/privacy/</a></li>
+<p>&#13;</p>
+<li>Facebook – <a href="http://www.facebook.com/policy.php">http://www.facebook.com/policy.php</a></li>
+<p>&#13;</p>
+<li>Twitter – <a href="https://twitter.com/privacy">https://twitter.com/privacy</a></li>
+<p>&#13;</p>
+<li>Disqus – <a href="https://help.disqus.com/terms-and-policies">https://help.disqus.com/terms-and-policies</a></li>
+<p>&#13;
+</p></ul><p><strong>Cookies</strong></p>
+<p>&#13;<br />
+&#13;</p>
+<p>We use cookies to help personalise your use of our sites. A cookie is a small piece of information sent to your computer's hard drive by the web server so that our Site can remember your computer. This information may include information relating to your use of our site, information about your computer such as the computer's IP address and browser type, demographic data and, if you arrived at our site via a link from a third party site, the URL of the linking page. If you are a registered user or subscriber this may include your name and email address for verification purposes. We use information from cookies for purposes which may include:</p>
+<p>&#13;<br />
+&#13;</p>
+<ul><li>Identifying returning users, registrants and subscribers and to allow registrants and subscribers to be presented with a personalised version of the site.</li>
+<p>&#13;</p>
+<li>Enabling you to move more easily around our site</li>
+<p>&#13;</p>
+<li>Tracking your use of our site to better develop our sites in accordance with your requirements</li>
+<p>&#13;</p>
+<li>Building up a demographic profile.</li>
+<p>&#13;
+</p></ul><p>Please remember that you can delete cookies from your hard drive at any time. This will mean that any settings such as your stored username and password will need to be reset. You can set your internet browser so that it will not allow cookies to be stored on your computer. This may reduce functionality of the site, preventing access to registered and subscriber only areas of the site, meaning that certain features or content will not be available to you. Further information on how to prevent cookies from being stored on your computer can be found in the Help menu of your internet browser.</p>
+<p>&#13;<br />
+&#13;</p>
+<p><strong>Google Analytics</strong></p>
+<p>&#13;<br />
+&#13;</p>
+<p>Our site uses Google Analytics, a web analytics service provided by Google, Inc. Google Analytics uses cookies to help us to analyse how users use the <em>Motor Sport</em> magazine sites. The information generated by the cookie provides details of your use of our site (including your IP address) and will be transmitted to and stored by Google on servers in the United States. Google will use this information for the purpose of evaluating your use of our sites, compiling reports on Site activity for us and providing other services relating to Site activity and internet usage.</p>
+<p>&#13;<br />
+&#13;</p>
+<p>Google may also transfer this information to third parties where required to do so by law or where such third parties process the information on Google's behalf. Google will not associate your IP address with any other data kept by Google.</p>
+<p>&#13;<br />
+&#13;</p>
+<p>You can refuse the use of cookies by selecting the appropriate setting on your browser, however please note that if you do this you may not be able to use the full functionality of motorsportmagazine.co.uk.</p>
+<p>&#13;<br />
+&#13;</p>
+<p>By using this Site, you consent to the processing of data about you by Google in the manner, means and purposes set out above.</p>
+<p>&#13;<br />
+&#13;</p>
+<p><strong>What we do with the information we gather</strong></p>
+<p>&#13;<br />
+&#13;</p>
+<p>We require this information to understand your needs and provide you with a better and focused service. Specifically for the following reasons:</p>
+<p>&#13;<br />
+&#13;</p>
+<ul><li>Internal record keeping.</li>
+<p>&#13;</p>
+<li>We may use the information to improve our products and services.</li>
+<p>&#13;</p>
+<li>We may periodically send promotional emails about Motor Sports’ new products, special offers or other information which we think you may find interesting using the email address which you have provided. </li>
+<p>&#13;</p>
+<li>We may periodically promote our services, offers and content to you on social media</li>
+<p>&#13;</p>
+<li>From time to time, we may also use your information to contact you for market research purposes. We would normally contact you by email, but by exception or where a preference has been expressed by phone or post.</li>
+<p>&#13;</p>
+<li>We may use the information collected to customize the Site and communications according to your interests, preferences and past purchases.</li>
+<p>&#13;
+</p></ul><p><strong>Who we share information with</strong></p>
+<p>&#13;<br />
+&#13;</p>
+<p>We aim to only share the absolute minimum information necessary with other service providers and their suppliers to fulfill a service or contractual commitment; such as delivering a magazine by post or fulfilling an order from the <em>Motor Sport</em> shop.</p>
+<p>&#13;<br />
+&#13;</p>
+<p class="rteindent1"><strong>Free digital, print or bundle subscription services:</strong><br />&#13;<br />
+Where you have taken up a free trial offer, be it a digital, print or our bundle subscription (both digital and print products combined) we may pass your details on to third party regulatory bodies, such as <a href="mailto:https://www.abc.org.uk/about-us">ABC</a>. The purposes of these aforementioned third parties is to control and regulate free magazine distribution and to provide an industry standard measurement for tracking global magazine circulation. In rare instances, these regulatory bodies may contact you to confirm that you a) requested a print, digital or bundle copy of <em>Motor Sport </em>magazine b) received notification that a digital or bundle edition was available to access. These third parties will not use your data for any other purposes.</p>
+<p>&#13;<br />
+&#13;</p>
+<p><strong>International Data Transfers</strong></p>
+<p>&#13;<br />
+&#13;</p>
+<p>We do not transfer or share your data to any party or processor outside of the European Union.</p>
+<p>&#13;<br />
+&#13;</p>
+<p><strong>3<sup>rd</sup> party marketing</strong></p>
+<p>&#13;<br />
+&#13;</p>
+<p>We also work with a number of 3rd parties on a partnership or commercial basis. In such instances, we will only share your email address if you have agreed for us to do so by opting-in to receive 3rd party communications.</p>
+<p>&#13;<br />
+&#13;</p>
+<p>If you wish to opt-out of receiving emails from these parties then you can unsubscribe using link within any email they send. You can also contact <em>Motor Sport</em> at any time to change your 3rd party opt-in preferences.</p>
+<p>&#13;<br />
+&#13;</p>
+<p>Below are some examples of the types of companies we work with:</p>
+<p>&#13;<br />
+&#13;</p>
+<ul><li>Events</li>
+<p>&#13;</p>
+<li>Charities</li>
+<p>&#13;</p>
+<li>Printing services</li>
+<p>&#13;</p>
+<li>Car manufacturers</li>
+<p>&#13;</p>
+<li>Membership bodies</li>
+<p>&#13;</p>
+<li>Auction houses</li>
+<p>&#13;</p>
+<li>Consumer products</li>
+<p>&#13;</p>
+<li>Financial services</li>
+<p>&#13;
+</p></ul><p><strong>Security</strong></p>
+<p>&#13;<br />
+&#13;</p>
+<p>We are committed to ensuring that your information is secure. In order to prevent unauthorized access or disclosure, we have put in place suitable physical, electronic and managerial procedures to help safeguard and secure the information we collect online.</p>
+<p>&#13;<br />
+&#13;</p>
+<p><strong>Links to other Sites</strong></p>
+<p>&#13;<br />
+&#13;</p>
+<p>Our Site may contain links to other Sites of interest. However, once you have used these links to leave our site, you should note that we do not have any control over that other Site. Therefore, we cannot be responsible for the protection and privacy of any information which you provide whilst visiting such sites and such sites are not governed by this privacy statement.</p>
+<p>&#13;<br />
+&#13;</p>
+<p>You should always exercise caution and look at the privacy statement applicable to the Site in question.</p>
+<p>&#13;<br />
+&#13;</p>
+<p><strong>Your rights to control your personal information</strong></p>
+<p>&#13;<br />
+&#13;</p>
+<p>You may choose to restrict the collection or use of your personal information in the following ways:</p>
+<p>&#13;<br />
+&#13;</p>
+<ul><li>Whenever you are asked to fill in a form on the Site, look for the box that you can click to indicate that you do not want the information to be used by anybody for direct marketing purposes</li>
+<p>&#13;</p>
+<li>If you have previously agreed to us using your personal information for direct marketing purposes, you may change your mind at any time by changing settings in your account personal preferences writing to or emailing us at <a href="mailto:dataprotection@motorsportmagazine.com">dataprotection@motorsportmagazine.com</a></li>
+<p>&#13;
+</p></ul><p>WE WILL EVER NOT SELL, DISTRIBUTE OR LEASE YOUR PERSONAL INFORMATION TO THIRD PARTIES UNLESS WE HAVE YOUR EXPRESS PERMISSION OR ARE REQUIRED TO DO SO BY LAW.</p>
+<p>&#13;<br />
+&#13;</p>
+<p>We may use your personal information to send you promotional information about third parties which we think you may find interesting if you tell us that you wish to receive this.</p>
+<p>&#13;<br />
+&#13;</p>
+<p>You may request details of personal information which we hold about you under the General Data Protection Regulations, by emailing <a href="mailto:dataprotection@motorsportmagazine.com">dataprotection@motorsportmagazine.com</a></p>
+<p>&#13;<br />
+&#13;</p>
+<p>If you believe that any information we are holding on you is incorrect or incomplete, please write to or email us as soon as possible, at the above address. We will promptly correct any information found to be incorrect.</p>
+<p>&#13;<br />
+&#13;</p>
+<p>If you wish us to remove all information which we may have on you, please email <a href="mailto:dataprotection@motorsportmagazine.com">dataprotection@motorsportmagazine.com</a></p>
+<p>&#13;</p>
+</div>
+      </div>
+</div>
+  </div>
+    <div id="share-icons-container">
+    <span class="share-title">Share this article:</span>
+    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4fb219a012af5ed1"></script>
+
+            
+    <div class="addthis_inline_share_toolbox"></div>  </div>
+  
+</div>
+  </div>
+</div><div id="block-views-related-content-block" class="block block-views">
+
+    <h3>Related &amp; recent</h3>
+  
+  <div class="content">
+      <a href="#" id="related-content-less"><</a>
+  <a href="#" id="related-content-more">></a>
+    
+<div class="view view-related-content view-id-related_content view-display-id-block view-dom-id-a3f7d870734ce5988596556ada5cc180">
+        
+  
+  
+  <div class="view-content">
+    </div>
+
+  
+  
+  
+  
+  
+</div>  </div>
+</div><div id="block-disqus-disqus-comments" class="block block-disqus">
+
+    
+  <div class="content">
+    <div id="disqus_thread"><noscript><p><a href="http://msm-online.disqus.com/?url=https%3A%2F%2Fwww.motorsportmagazine.com%2Fmagazine%2Fprivacy-policy">View the discussion thread.</a></p></noscript></div>  </div>
+</div>  </div>
+                                  </div> <!-- #content-left -->
+
+          <div id="right">
+                          <div class="region region-right-content-top">
+    <div id="block-block-1009" class="block block-block">
+
+    
+  <div class="content">
+    <!-- /22623031/MSMag_ROS_RHS_1 -->
+<div id='div-gpt-ad-1489396684985-9'>
+</div>  </div>
+</div>  </div>
+              <div class="region region-right-content-middle">
+    <div id="block-block-1101" class="block block-block">
+
+    
+  <div class="content">
+    <div class="zeddit-rcm" data-pid="910" data-wid="1204"></div>
+  </div>
+</div><div id="block-oak-shop-shop-carousel-block" class="block block-oak-shop">
+
+    <h3>Shop</h3>
+  
+  <div class="content">
+    <div id="shop-item-0" class="shop-item active"><img src="https://msmproduction.s3-eu-west-1.amazonaws.com/s3fs-public/content/Shop/jonathan-rea.jpg"/><a class="item-desc" href="https://shop.motorsportmagazine.com/product/View/productCode/JREA/motogp-autobiography">Jonathan Rea: Dream. Believe. Achieve. My Autobiography [SIGNED]</a><br/><span class="item-price">&pound;20.00</span><br/><a class="btn btn-primary" href="https://shop.motorsportmagazine.com/product/View/productCode/JREA/motogp-autobiography">Buy</a></div><div id="shop-item-1" class="shop-item"><img src="https://bit.ly/2HHhmQ9"/><a class="item-desc" href="https://shop.motorsportmagazine.com/product/View/productCode/WILLDVD/">Williams (DVD)</a><br/><span class="item-price">&pound;15.99</span><br/><a class="btn btn-primary" href="https://shop.motorsportmagazine.com/product/View/productCode/WILLDVD/">Buy</a></div><div id="shop-item-2" class="shop-item"><img src="https://msmproduction.s3-eu-west-1.amazonaws.com/s3fs-public/content/Shop/Product%20Images/porsche-carousel.jpg"/><a class="item-desc" href="https://shop.motorsportmagazine.com/product/View/productCode/HOR70PORS">70 Years of Porsche Sports Cars</a><br/><span class="item-price">&pound;40.00</span><br/><a class="btn btn-primary" href="https://shop.motorsportmagazine.com/product/View/productCode/HOR70PORS">Buy</a></div><div id="shop-item-3" class="shop-item"><img src="https://bit.ly/2GLGtgZ"/><a class="item-desc" href="https://shop.motorsportmagazine.com/product/View/productCode/JCBOB">Jim Clark - The Best of the Best</a><br/><span class="item-price">&pound;80.00</span><br/><a class="btn btn-primary" href="https://shop.motorsportmagazine.com/product/View/productCode/JCBOB">Buy</a></div><div id="shop-item-4" class="shop-item"><img src="https://msmproduction.s3-eu-west-1.amazonaws.com/s3fs-public/content/Shop/kimi.jpg"/><a class="item-desc" href="https://shop.motorsportmagazine.com/product/View/productCode/KIMIUNKNOWN/kimi-raikonnen-biography-f1">The Unknown Kimi Raikkonen Hardback</a><br/><span class="item-price">&pound;20.00</span><br/><a class="btn btn-primary" href="https://shop.motorsportmagazine.com/product/View/productCode/KIMIUNKNOWN/kimi-raikonnen-biography-f1">Buy</a></div><div id="shop-item-5" class="shop-item"><img src="https://msmproduction.s3-eu-west-1.amazonaws.com/s3fs-public/content/Shop/porsche.jpg"/><a class="item-desc" href="https://shop.motorsportmagazine.com/product/View/productCode/PORSCHE">Porsche - From Race to Road</a><br/><span class="item-price">&pound;9.99</span><br/><a class="btn btn-primary" href="https://shop.motorsportmagazine.com/product/View/productCode/PORSCHE">Buy</a></div><div id="shop-item-6" class="shop-item"><img src="https://msmproduction.s3-eu-west-1.amazonaws.com/s3fs-public/content/Shop/mat-oxley-speed.jpg"/><a class="item-desc" href="https://shop.motorsportmagazine.com/product/View/productCode/SPEEDGEN/speed-one-genuinely-modern-pleasure-book">Speed: The One Genuinely Modern Pleasure [SIGNED]</a><br/><span class="item-price">&pound;25.00</span><br/><a class="btn btn-primary" href="https://shop.motorsportmagazine.com/product/View/productCode/SPEEDGEN/speed-one-genuinely-modern-pleasure-book">Buy</a></div><a class="scroll scroll-left" href="#"><</a><a class="scroll scroll-right" href="#">></a>  </div>
+</div><div id="block-block-1016" class="block block-block">
+
+    
+  <div class="content">
+    <!-- /22623031/MSMag_ROS_RHS_2 -->
+<div id='div-gpt-ad-1489396684985-10' style='height:250px; width:300px;'>
+</div>  </div>
+</div><div id="block-views-dad1c0b058171b1c115a062700f2d2ba" class="block block-views">
+
+    <h3>Hall of Fame</h3>
+  
+  <div class="content">
+    <div class="view view-latest-from-right-column view-id-latest_from_right_column view-display-id-hof_right view-dom-id-ac55e11150fec00106b822faf3aadb8e">
+        
+  
+  
+      <div class="view-content">
+        <div class="views-row views-row-1 views-row-odd views-row-first">
+      
+  <div class="views-field views-field-title">        <span class="field-content"><a href="/hall-of-fame/gallery-2018-motor-sport-hall-fame">Gallery: 2018 Motor Sport Hall of Fame</a></span>  </div>  
+  <div class="views-field views-field-body">        <span class="field-content">View our gallery from the 2018 Motor Sport Hall...</span>  </div>  </div>
+  <div class="views-row views-row-2 views-row-even">
+      
+  <div class="views-field views-field-title">        <span class="field-content"><a href="/hall-of-fame/motor-sport-inducts-hall-fame-class-2018">Motor Sport inducts Hall of Fame class of 2018</a></span>  </div>  
+  <div class="views-field views-field-body">        <span class="field-content">The highlights from a glamorous, memorable, night...</span>  </div>  </div>
+  <div class="views-row views-row-3 views-row-odd views-row-last">
+      
+  <div class="views-field views-field-title">        <span class="field-content"><a href="/hall-of-fame/msa-member-discount">MSA Member Discount</a></span>  </div>  
+  <div class="views-field views-field-body">        <span class="field-content">As a member of the MSA, you're entitled to 10%...</span>  </div>  </div>
+    </div>
+  
+  
+  
+  
+      <div class="view-footer">
+      <p><a href="hall-of-fame">More from the Hall of Fame</a></p>
+    </div>
+  
+  
+</div>  </div>
+</div>  </div>
+                          <div class="region region-right-content-bottom">
+    <div id="block-block-983" class="block block-block">
+
+    
+  <div class="content">
+    <!-- /22623031/MSMag_ROS_Button_1 -->
+<div id='div-gpt-ad-1489396684985-6' style='height:115px; width:250px;'>
+</div>  </div>
+</div><div id="block-block-976" class="block block-block">
+
+    
+  <div class="content">
+    <!-- /22623031/MSMag_ROS_Button_2 -->
+<div id='div-gpt-ad-1489396684985-7' style='height:115px; width:250px;'>
+</div>  </div>
+</div>  </div>
+          </div>
+                  </div> <!-- cotent-wrapper -->
+
+        <div id="bottom" class="mme-ads">
+          <div class="row">
+                                  </div>
+          <div class="row">
+                                              </div>
+        </div>
+      </div>
+    </div>
+
+        <div id="homepageblocks">
+         <div class="region region-homepage-blocks">
+    <div id="block-block-1093" class="block block-block">
+
+    <h3>LATEST ISSUE</h3>
+  
+  <div class="content">
+    <div class="row">
+<p class="col-md-12"><a class="3block-click" href="https://shop.motorsportmagazine.com/subOffer/BI19"><img src="https://msmproduction.s3-eu-west-1.amazonaws.com/s3fs-public/content/Latest/Feb%2019/image.jpg" style="width: 100%;" /></a></p>
+</div>
+<div class="row">
+<div class="col-md-12" style="color:#1a4f32; font-size:15px;">February 2019</div>
+</div>
+<div class="row">
+<div class="col-md-12" style="padding-bottom:10px; border-bottom:1px solid #7e7e7e;">The latest issue of <em>Motor Sport</em>: Golden boy – Behind Britain's first world champion.</div>
+</div>
+<p style="padding-top: 10px;"><a class="btn btn-primary 3block-click" href="https://shop.motorsportmagazine.com/subOffer/BI19">SUBSCRIBE</a></p>
+  </div>
+</div><div id="block-block-1094" class="block block-block">
+
+    <h3>NEWSLETTERS</h3>
+  
+  <div class="content">
+    <div class="row">
+<p class="col-md-12"><a class="3block-click" href="https://shop.motorsportmagazine.com/site/SignupForm"><img src="https://msmproduction.s3-eu-west-1.amazonaws.com/s3fs-public/content/Site/newsletter-bottom.jpg" width="100%" /></a></p>
+</div>
+<div class="row">
+<div class="col-md-12" style="color:#1a4f32; font-size:15px;">Sign up to our newsletters</div>
+</div>
+<div class="row">
+<div class="col-md-12" style="padding-bottom:10px; border-bottom:1px solid #7e7e7e;">The latest news, straight to your inbox – click below to sign up to the newsletter list.</div>
+</div>
+<p style="padding-top: 10px;"><a class="btn btn-primary 3block-click" href="https://shop.motorsportmagazine.com/site/SignupForm">SIGN UP</a></p>
+  </div>
+</div><div id="block-block-1095" class="block block-block">
+
+    <h3>THE APP</h3>
+  
+  <div class="content">
+    <div class="row">
+<p class="col-md-12"><a class="3block-click" href="http://onelink.to/motorsportapp"><img src="https://msmproduction.s3-eu-west-1.amazonaws.com/s3fs-public/content/Site/app-bottom-1.jpg" width="100%" /></a></p>
+</div>
+<div class="row">
+<div class="col-md-12" style="color:#1a4f32; font-size:15px;">The <i>Motor Sport</i> App</div>
+</div>
+<div class="row">
+<div class="col-md-12" style="padding-bottom:10px; border-bottom:1px solid #7e7e7e;">Carry <em>Motor Sport</em> with you, wherever you go. On iOS, Android and Kindle.</div>
+</div>
+<p style="padding-top: 10px;"><a class="btn btn-primary 3block-click" href="http://onelink.to/motorsportapp">DOWNLOAD</a></p>
+  </div>
+</div>  </div>
+    </div>
+        
+    <div id="bottom-content-wrapper">
+    <div id="bottom-content">
+          </div> 
+    </div>
+
+        <div id="resource" class="content-full">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="row">
+                                              </div>
+        </div>
+        <div class="col-md-4">
+                  </div>
+        <div class="col-md-12">
+            <div class="region region-resource-4">
+    <div id="block-block-1097" class="block block-block">
+
+    
+  <div class="content">
+    <div class="row social-buttons">
+<div class="col-xs-3" style="padding:0; text-align:center;"><a href="https://www.facebook.com/MotorSport1924/"><img src="https://msmproduction.s3-eu-west-1.amazonaws.com/s3fs-public/content/Site/buttons/facebook.png" style="max-width:50px;" width="100%" /></a></div>
+<div class="col-xs-3" style="padding:0; text-align:center;"><a href="https://www.twitter.com/Motor_Sport"><img src="https://msmproduction.s3-eu-west-1.amazonaws.com/s3fs-public/content/Site/buttons/twitter.png" style="max-width:50px;" width="100%" /></a></div>
+<div class="col-xs-3" style="padding:0; text-align:center;"><a href="https://www.instagram.com/MotorSport1924"><img src="https://msmproduction.s3-eu-west-1.amazonaws.com/s3fs-public/content/Site/buttons/instagram.png" style="max-width:50px;" width="100%" /></a></div>
+<div class="col-xs-3" style="padding:0; text-align:center;"><a href="https://www.youtube.com/MotorSport1924"><img src="https://msmproduction.s3-eu-west-1.amazonaws.com/s3fs-public/content/Site/buttons/youtube.png" style="max-width:50px;" width="100%" /></a></div>
+</div>
+  </div>
+</div>  </div>
+        </div>
+      </div>
+    </div>
+              <div id="report-error">
+          <div class="region region-report-error">
+    <div id="block-block-987" class="block block-block">
+
+    
+  <div class="content">
+    <p>Need to get in touch?</p>
+<p>&#13;<br />
+&#13;</p>
+<p><a class="btn btn-primary" href="/magazine/contact-us">Contact Us</a></p>
+<p>&#13;</p>
+  </div>
+</div>  </div>
+    
+      </div>
+        <div id="footer" class="content-full">
+      <div class="row">
+        <div class="col-md-6 footer-left">
+          &copy; 2019 Motor Sport Magazine            <div class="region region-footer-left">
+    <div id="block-menu-menu-archive-footer" class="block block-menu">
+
+    
+  <div class="content">
+    <ul class="menu"><li class="first leaf"><a href="https://www.motorsportmagazine.com/magazine/advertise" title="">Media Pack</a></li>
+<li class="leaf"><a href="https://www.motorsportmagazine.com/contact/" title="">Contact Us</a></li>
+<li class="leaf"><a href="https://www.motorsportmagazine.com/privacy/" title="">Privacy Policy</a></li>
+<li class="leaf"><a href="https://www.motorsportmagazine.com/terms/" title="">Terms and conditions</a></li>
+<li class="leaf"><a href="/cookies" title="Cookie policy">Cookies</a></li>
+<li class="leaf"><a href="https://www.motorsportmagazine.com/frequently-asked-questions/" title="">FAQs</a></li>
+<li class="leaf"><a href="/sitemap" title="">Sitemap</a></li>
+<li class="last leaf"><a href="https://www.3bweb.com/" title="" target="_blank">site by 3B Digital, London</a></li>
+</ul>  </div>
+</div>  </div>
+        </div>
+        <div class="col-md-6 footer-right">
+            <div class="region region-footer">
+    <div id="block-block-964" class="block block-block">
+
+    
+  <div class="content">
+    <p>Registration to or use of this site constitutes acceptance of our <a href="/terms">user agreement</a> and <a href="/privacy">privacy policy.</a></p>
+<p>&#13;</p>
+  </div>
+</div>  </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="blocker"></div>
+  <script type="text/javascript" src="https://www.motorsportmagazine.com/sites/all/modules/contrib/jquery_update/replace/jquery/1.7/jquery.min.js?v=1.7.2"></script>
+<script type="text/javascript" src="https://www.motorsportmagazine.com/misc/jquery.once.js?v=1.2"></script>
+<script type="text/javascript" src="https://www.motorsportmagazine.com/misc/drupal.js?pkytfb"></script>
+<script type="text/javascript" src="https://www.motorsportmagazine.com/sites/all/modules/contrib/jquery_update/replace/ui/external/jquery.cookie.js?v=67fb34f6a866c40d0570"></script>
+<script type="text/javascript" src="https://www.motorsportmagazine.com/sites/all/modules/contrib/disqus/disqus.js?pkytfb"></script>
+<script type="text/javascript" src="https://www.motorsportmagazine.com/sites/all/themes/msmencyclopaedia2015/js/msmencyclopaedia2015.js?pkytfb"></script>
+<script type="text/javascript" src="https://www.motorsportmagazine.com/sites/all/themes/msmencyclopaedia2015/js/swiper.jquery.min.js?pkytfb"></script>
+<script type="text/javascript" src="https://www.motorsportmagazine.com/sites/all/themes/msmencyclopaedia2015/js/urban-airship-web-notify.js?pkytfb"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"msmencyclopaedia2015","theme_token":"m-qGoNdiF5PVOyHMpObcJpBY_AVy_OlJhMYTASSaWXQ","js":{"0":1,"1":1,"sites\/all\/modules\/contrib\/eu_cookie_compliance\/js\/eu_cookie_compliance.js":1,"sites\/all\/modules\/contrib\/jquery_update\/replace\/jquery\/1.7\/jquery.min.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/modules\/contrib\/jquery_update\/replace\/ui\/external\/jquery.cookie.js":1,"sites\/all\/modules\/contrib\/disqus\/disqus.js":1,"sites\/all\/themes\/msmencyclopaedia2015\/js\/msmencyclopaedia2015.js":1,"sites\/all\/themes\/msmencyclopaedia2015\/js\/swiper.jquery.min.js":1,"sites\/all\/themes\/msmencyclopaedia2015\/js\/urban-airship-web-notify.js":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"modules\/aggregator\/aggregator.css":1,"sites\/all\/modules\/contrib\/date\/date_api\/date.css":1,"sites\/all\/modules\/contrib\/date\/date_popup\/themes\/datepicker.1.7.css":1,"modules\/field\/theme\/field.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/contrib\/views\/css\/views.css":1,"sites\/all\/modules\/contrib\/ckeditor\/css\/ckeditor.css":1,"sites\/all\/modules\/contrib\/ctools\/css\/ctools.css":1,"sites\/all\/modules\/contrib\/eu_cookie_compliance\/css\/eu_cookie_compliance.bare.css":1,"0":1,"sites\/all\/themes\/msmencyclopaedia2015\/css\/msmencyclopaedia2015.css":1,"sites\/all\/themes\/msmencyclopaedia2015\/css\/swiper.min.css":1,"sites\/all\/themes\/msmencyclopaedia2015\/field.css":1,"sites\/all\/themes\/msmencyclopaedia2015\/node.css":1,"sites\/all\/themes\/msmencyclopaedia2015\/system.menus.css":1,"sites\/all\/themes\/msmencyclopaedia2015\/system.messages.css":1,"sites\/all\/themes\/msmencyclopaedia2015\/system.theme.css":1}},"eu_cookie_compliance":{"popup_enabled":1,"popup_agreed_enabled":0,"popup_hide_agreed":0,"popup_clicking_confirmation":0,"popup_scrolling_confirmation":0,"popup_html_info":"\u003Cdiv\u003E\n  \u003Cdiv class =\u0022popup-content info\u0022\u003E\n    \u003Cdiv id=\u0022popup-text\u0022\u003E\n      \u003Cp\u003E\u003Cem\u003EMotor Sport\u003C\/em\u003E uses cookies in order to deliver a personalised, responsive service and to improve the site. We remember and store information about how you use it using simple text files called cookies which sit on your computer which are completely safe and secure. \u003Ca href=\u0022\/cookies\u0022\u003EHow to manage cookies\u003C\/a\u003E.\u003C\/p\u003E\n\u003Cp\u003ERead our \u003Ca href=\u0022https:\/\/www.motorsportmagazine.com\/privacy\u0022\u003EPrivacy Policy\u003C\/a\u003E to give you more detailed information about your rights and how we use your data.\u003C\/p\u003E\n          \u003C\/div\u003E\n    \u003Cdiv id=\u0022popup-buttons\u0022\u003E\n      \u003Cbutton type=\u0022button\u0022 class=\u0022agree-button eu-cookie-compliance-default-button\u0022\u003EACCEPT AND CLOSE\u003C\/button\u003E\n          \u003C\/div\u003E\n  \u003C\/div\u003E\n\u003C\/div\u003E","use_mobile_message":false,"mobile_popup_html_info":"\u003Cdiv\u003E\n  \u003Cdiv class =\u0022popup-content info\u0022\u003E\n    \u003Cdiv id=\u0022popup-text\u0022\u003E\n                \u003C\/div\u003E\n    \u003Cdiv id=\u0022popup-buttons\u0022\u003E\n      \u003Cbutton type=\u0022button\u0022 class=\u0022agree-button eu-cookie-compliance-default-button\u0022\u003EACCEPT AND CLOSE\u003C\/button\u003E\n          \u003C\/div\u003E\n  \u003C\/div\u003E\n\u003C\/div\u003E\n","mobile_breakpoint":"768","popup_html_agreed":"\u003Cdiv\u003E\n  \u003Cdiv class =\u0022popup-content agreed\u0022\u003E\n    \u003Cdiv id=\u0022popup-text\u0022\u003E\n      \u003Ch2\u003EThank you for accepting cookies\u003C\/h2\u003E\n\u003Cp\u003EYou can now hide this message or find out more about cookies.\u003C\/p\u003E\n    \u003C\/div\u003E\n    \u003Cdiv id=\u0022popup-buttons\u0022\u003E\n      \u003Cbutton type=\u0022button\u0022 class=\u0022hide-popup-button eu-cookie-compliance-hide-button\u0022\u003EHide\u003C\/button\u003E\n          \u003C\/div\u003E\n  \u003C\/div\u003E\n\u003C\/div\u003E","popup_use_bare_css":1,"popup_height":"auto","popup_width":0,"popup_delay":3,"popup_link":"\/privacy","popup_link_new_window":1,"popup_position":true,"popup_language":"en","store_consent":false,"better_support_for_screen_readers":0,"reload_page":0,"domain":"","popup_eu_only_js":0,"cookie_lifetime":"100","cookie_session":false,"disagree_do_not_show_popup":0,"method":"default","whitelisted_cookies":"","withdraw_markup":"\u003Cbutton type=\u0022button\u0022 class=\u0022eu-cookie-withdraw-tab\u0022\u003EPrivacy settings\u003C\/button\u003E\n\u003Cdiv class=\u0022eu-cookie-withdraw-banner\u0022\u003E\n  \u003Cdiv class=\u0022popup-content info\u0022\u003E\n    \u003Cdiv id=\u0022popup-text\u0022\u003E\n      \u003Ch2\u003EWe use cookies on this site to enhance your user experience\u003C\/h2\u003E\n\u003Cp\u003EYou have given your consent for us to set cookies.\u003C\/p\u003E\n    \u003C\/div\u003E\n    \u003Cdiv id=\u0022popup-buttons\u0022\u003E\n      \u003Cbutton type=\u0022button\u0022 class=\u0022eu-cookie-withdraw-button\u0022\u003EWithdraw consent\u003C\/button\u003E\n    \u003C\/div\u003E\n  \u003C\/div\u003E\n\u003C\/div\u003E\n","withdraw_enabled":false},"disqus":{"domain":"msm-online","url":"https:\/\/www.motorsportmagazine.com\/magazine\/privacy-policy","title":"Privacy policy","identifier":"node\/166484"}});
+//--><!]]>
+</script>
+  <script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"4b13840163","applicationID":"76358322","transactionName":"bwZWMUIHChBQVEQIDlZMdQZEDwsNHllfBQRnE1UCVTkSClRA","queueTime":0,"applicationTime":740,"atts":"Q0FVRwodGR4=","errorBeacon":"bam.nr-data.net","agent":""}</script><script type="text/javascript">
+<!--//--><![CDATA[//><!--
+function euCookieComplianceLoadScripts() {}
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+var eu_cookie_compliance_cookie_name = "";
+//--><!]]>
+</script>
+<script type="text/javascript" src="https://www.motorsportmagazine.com/sites/all/modules/contrib/eu_cookie_compliance/js/eu_cookie_compliance.js?pkytfb"></script>
+  
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"4b13840163","applicationID":"76358322","transactionName":"bwZWMUIHChBQVEQIDlZMYRdZSUsKX1NVGU9IC0Q=","queueTime":0,"applicationTime":14,"atts":"Q0FVRwodGR4=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>

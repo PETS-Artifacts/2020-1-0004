@@ -1,0 +1,2109 @@
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			window._wpemojiSettings = {"baseUrl":"http:\/\/s.w.org\/images\/core\/emoji\/72x72\/","ext":".png","source":{"concatemoji":"http:\/\/www.fruitsandveggiesmorematters.org\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.3.8"}};
+			!function(a,b,c){function d(a){var c=b.createElement("canvas"),d=c.getContext&&c.getContext("2d");return d&&d.fillText?(d.textBaseline="top",d.font="600 32px Arial","flag"===a?(d.fillText(String.fromCharCode(55356,56812,55356,56807),0,0),c.toDataURL().length>3e3):(d.fillText(String.fromCharCode(55357,56835),0,0),0!==d.getImageData(16,16,1,1).data[0])):!1}function e(a){var c=b.createElement("script");c.src=a,c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g;c.supports={simple:d("simple"),flag:d("flag")},c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.simple&&c.supports.flag||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		
+ 
+
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+
+.cc_style_2 { text-align:center; width:100%; margin:0 auto; padding:0; background-color:white; } .cc_style_2 * { font-family:Arial,Helvetica,sans-serif; } .cc_style_2 table { border-collapse:separate; border-spacing: 0; width:100%;} .cc_style_2 .cc_top, .cc_style_2 .cc_bottom { background-color:#006699; } .cc_style_2 .cc_top td { vertical-align:top; } .cc_style_2 .cc_middle td.cc_main { border-left: 1px solid #006699;border-right: 1px solid #006699; background-color:#ffffff; } .cc_style_2 .cc_bottom td { vertical-align:bottom; } .cc_style_2 .cc_top img, .cc_style_2 .cc_bottom img { width:100%; max-width:11px; max-height:9px;} .cc_style_2 .cc_widget_title { font-weight: bold; font-size:18px; color:#006699; } .cc_style_2 form { margin-bottom:3px; } .cc_style_2 .cc_widget_title { font-weight: bold; font-family:Arial; font-size:18px; color:#006699; } .cc_style_2 .cc_label_email { font-weight: normal; font-size:10px; color:#000000; } .cc_style_2 .cc_input_email { font-family: Arial; font-size:10px; border:1px solid #999999; } .cc_style_2 .cc_submit {font-family:Arial,Helvetica,sans-serif; font-size:11px; } .cc_safesubscribe { padding-top:5px; } .cc_email_marketing { font-family:Arial,Helvetica,sans-serif;font-size:10px;color:#999999; } .cc_email_marketing a { text-decoration:none;font-size:10px;color:#999999; } .cc_widget_container .cc_preface p { margin:0.25em 0; padding:0; } .cc_widget_container .cc_input_email { max-width:95%; } .cc_widget_container .cc_email_image { float:right; margin-right:5px; margin-top:3px; display:block; padding:0; overflow:hidden; } .cc_widget_container .cc_email_image img { background-color: #006699; float:right; } .cc_widget_container .cc_email_image img { border:0; padding:0; margin:0; }
+
+
+/* <![CDATA[ */
+/* contact-form-7 */
+var _wpcf7 = {"loaderUrl":"http:\/\/www.fruitsandveggiesmorematters.org\/wp-content\/plugins\/contact-form-7\/images\/ajax-loader.gif","recaptchaEmpty":"Please verify that you are not a robot.","sending":"Sending ..."};
+
+/* ]]> */
+
+/*Cache!*/
+
+
+
+
+ 
+  <!--
+  
+		// remote scripting library
+		// (c) copyright 2005 modernmethod, inc
+		var sajax_debug_mode = false;
+		var sajax_request_type = "GET";
+		var sajax_target_id = "";
+		var sajax_failure_redirect = "";
+
+		function sajax_debug(text) {
+			if (sajax_debug_mode)
+				alert(text);
+		}
+
+ 		function sajax_init_object() {
+ 			sajax_debug("sajax_init_object() called..from sajax")
+
+ 			var A;
+
+ 			var msxmlhttp = new Array(
+				'Msxml2.XMLHTTP.5.0',
+				'Msxml2.XMLHTTP.4.0',
+				'Msxml2.XMLHTTP.3.0',
+				'Msxml2.XMLHTTP',
+				'Microsoft.XMLHTTP');
+			for (var i = 0; i < msxmlhttp.length; i++) {
+				try {
+					A = new ActiveXObject(msxmlhttp[i]);
+				} catch (e) {
+					A = null;
+				}
+			}
+
+			if(!A && typeof XMLHttpRequest != "undefined")
+				A = new XMLHttpRequest();
+			if (!A)
+				sajax_debug("Could not create connection object.");
+			return A;
+		}
+
+		var sajax_requests = new Array();
+
+		function sajax_cancel() {
+			for (var i = 0; i < sajax_requests.length; i++)
+				sajax_requests[i].abort();
+		}
+
+		function sajax_do_call(func_name, args) {
+			var i, x, n;
+			var uri;
+			var post_data;
+			var target_id;
+
+			sajax_debug("in sajax_do_call().." + sajax_request_type + "/" + sajax_target_id);
+			target_id = sajax_target_id;
+			if (typeof(sajax_request_type) == "undefined" || sajax_request_type == "")
+				sajax_request_type = "GET";
+
+			uri = "/privacy-policy";
+			if (sajax_request_type == "GET") {
+
+				if (uri.indexOf("?") == -1)
+					uri += "?rs=" + escape(func_name);
+				else
+					uri += "&rs=" + escape(func_name);
+				uri += "&rst=" + escape(sajax_target_id);
+				uri += "&rsrnd=" + new Date().getTime();
+
+				for (i = 0; i < args.length-1; i++)
+					uri += "&rsargs[]=" + escape(args[i]);
+
+				post_data = null;
+			}
+			else if (sajax_request_type == "POST") {
+				post_data = "rs=" + escape(func_name);
+				post_data += "&rst=" + escape(sajax_target_id);
+				post_data += "&rsrnd=" + new Date().getTime();
+
+				for (i = 0; i < args.length-1; i++)
+					post_data = post_data + "&rsargs[]=" + escape(args[i]);
+			}
+			else {
+				alert("Illegal request type: " + sajax_request_type);
+			}
+
+			x = sajax_init_object();
+			if (x == null) {
+				if (sajax_failure_redirect != "") {
+					location.href = sajax_failure_redirect;
+					return false;
+				} else {
+					sajax_debug("NULL sajax object for user agent:\n" + navigator.userAgent);
+					return false;
+				}
+			} else {
+				
+				x.open(sajax_request_type, uri, true);
+				// window.open(uri);
+
+				sajax_requests[sajax_requests.length] = x;
+
+				if (sajax_request_type == "POST") {
+					x.setRequestHeader("Method", "POST " + uri + " HTTP/1.1");
+					x.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+				}
+
+				x.onreadystatechange = function() {
+					if (x.readyState != 4)
+						return;
+
+					sajax_debug("received " + x.responseText);
+
+					var status;
+					var data;
+					var txt = x.responseText.replace(/^\s*|\s*$/g,"");
+					status = txt.charAt(0);
+					data = txt.substring(2);
+
+					if (status == "") {
+						// let's just assume this is a pre-response bailout and let it slide for now
+					} else if (status == "-")
+						alert("Error: " + data);
+					else {
+						if (target_id != "")
+							document.getElementById(target_id).innerHTML = eval(data);
+						else {
+							try {
+								var callback;
+								var extra_data = false;
+								if (typeof args[args.length-1] == "object") {
+									callback = args[args.length-1].callback;
+									extra_data = args[args.length-1].extra_data;
+								} else {
+									callback = args[args.length-1];
+								}
+
+								callback(eval(data), extra_data);
+							} catch (e) {
+								sajax_debug("Caught error " + e + ": Could not eval " + data );
+							}
+						}
+					}
+				}
+			}
+
+			sajax_debug(func_name + " uri = " + uri + "/post = " + post_data);
+			x.send(post_data);
+			sajax_debug(func_name + " waiting..");
+			delete x;
+			return true;
+		}
+
+		
+		// wrapper for ate_ajax_send_post
+		function x_ate_ajax_send_post() {
+			sajax_do_call("ate_ajax_send_post",
+				x_ate_ajax_send_post.arguments);
+		}
+
+		
+		// wrapper for tdomf_ajax_send_post
+		function x_tdomf_ajax_send_post() {
+			sajax_do_call("tdomf_ajax_send_post",
+				x_tdomf_ajax_send_post.arguments);
+		}
+
+		  // DHTML email validation script. Courtesy of SmartWebby.com (http://www.smartwebby.com/dhtml/)
+  function echeck(str) {
+    var at="@"
+    var dot="."
+    var lat=str.indexOf(at)
+    var lstr=str.length
+		var ldot=str.indexOf(dot)
+		if (str.indexOf(at)==-1){
+		   //alert("Invalid E-mail ID")
+		   return false
+		}
+		if (str.indexOf(at)==-1 || str.indexOf(at)==0 || str.indexOf(at)==lstr){
+		   //alert("Invalid E-mail ID")
+		   return false
+		}
+		if (str.indexOf(dot)==-1 || str.indexOf(dot)==0 || str.indexOf(dot)==lstr){
+		    //alert("Invalid E-mail ID")
+		    return false
+		}
+		 if (str.indexOf(at,(lat+1))!=-1){
+		    //alert("Invalid E-mail ID")
+		    return false
+		 }
+		 if (str.substring(lat-1,lat)==dot || str.substring(lat+1,lat+2)==dot){
+		    //alert("Invalid E-mail ID")
+		    return false
+		 }
+		 if (str.indexOf(dot,(lat+2))==-1){
+		    //alert("Invalid E-mail ID")
+		    return false
+		 }
+		 if (str.indexOf(" ")!=-1){
+		    //alert("Invalid E-mail ID")
+		    return false
+		 }
+     return true					
+  }
+   -->
+  
+
+
+  function ate_clear_form() {
+    document.getElementById("ate_form1_title").value = "";
+   // document.getElementById("ate_form1_content").value = "";
+   
+    var e2 = document.getElementById("ate_form1_email");
+    if(e2 != null) { e2.value = ""; }
+    var e3 = document.getElementById("ate_form1_name");
+    if(e3 != null) { e3.value = ""; }
+    document.getElementById("ate_form1_msg_div").innerHTML = "";
+    document.getElementById("ate_form1_div").style.display = 'block';
+  }
+  function ate_send_form_cb(message) {
+    document.getElementById("ate_form1_name").value = '';
+	document.getElementById("ate_form1_email").value = '';
+	document.getElementById("ate_form1_title").value = '';
+    document.getElementById("ate_form1_msg_div").innerHTML = message;
+	document.getElementById('ate_frm_tbl').style.display="block";
+    document.getElementById('ate_frm_loader').style.display="none";
+	//document.getElementById('ate_submit_btn').style.display="block";
+  }
+  function ate_send_form(divpos) { //alert(divpos);
+  document.getElementById("divpostrack").value=divpos;
+  document.getElementById('ate_frm_tbl').style.display="none";
+  document.getElementById('ate_frm_loader').style.display="block";
+  
+  	
+  	//alert();
+    var message = document.getElementById("ate_form1_msg_div");
+    
+    var title = document.getElementById("ate_form1_title").value;
+    var content = "";
+	var category =5;//document.getElementById("categories_mf").value;
+    var error = "";
+    if(title.length == 0){ error += "You must specify a question.<br/>"; }
+   // if(content.length == 0){ error += "You must add some text.<br/>"; }
+    
+    var name = "";
+    var e1 = document.getElementById("ate_form1_name");
+    if(e1 != null){ 
+      name = e1.value; 
+      if(name.length == 0){ 
+        error += "You must specify a name so we know who it comes from.<br/>"; 
+      }
+    }
+    var email = "";
+    var e2 = document.getElementById("ate_form1_email");
+    if(e2 != null){ 
+      email = e2.value; 
+      if(echeck(email) == false){ 
+        error += "The email you specified is invalid.<br/>"; 
+      }
+    }
+    
+    var web = "ate";
+   /* var e3 = document.getElementById("ate_form1_web");
+    if(e3 != null){
+     // web = e3.value;
+     web="ate";
+    }*/
+    // We inform user that their question has been published by default
+    var notify = true;
+
+    if(error.length > 0) {
+      message.innerHTML = '<font color="red">' + error + '</font>';
+	  //document.getElementById('ate_submit_btn').style.display="block";
+	    document.getElementById('ate_frm_tbl').style.display="block";
+        document.getElementById('ate_frm_loader').style.display="none";
+    } else {
+      var theform = document.getElementById("ate_form1_div");
+     // theform.style.display = 'none';
+	 theform.style.display = 'block';
+      var links = document.getElementById("ateLinks");
+      links.style.display='none';
+      //message.innerHTML = '<center><img src="http://www.fruitsandveggiesmorematters.org/wp-content/plugins/Widgets/ajax-loader.gif" /></center>';
+      web="ate";
+      content =" ";
+     
+      var userID	=	'5';
+	  var chkComment = document.getElementById("chkComment").checked;
+	  var send_mail;
+	  if(chkComment==true)
+	  	send_mail ='1';
+	  else
+	  	send_mail = '0';
+		//alert("dfsgfgfdgfdgfd"+email);
+      x_ate_ajax_send_post(title, content, notify, email, name, web,category,userID,ate_send_form_cb,send_mail);
+      //x_ate_ajax_send_post(title, content, notify, email, name, web,category, tdomf_send_form_cb);
+    }
+	 
+	 
+	return false;
+  }
+
+
+function ate_send_form_widget(divpos) {
+ //alert(divpos);
+  	document.getElementById("divpostrack").value=divpos;
+  	//alert();
+    var message = document.getElementById("ate_form1_msg_div_widget");
+    
+    var title = document.getElementById("ate_form1_title_widget").value;
+    var content = "";
+	var category =5;//document.getElementById("categories_mf").value;
+    var error = "";
+    if(title.length == 0){ error += "You must specify a question.<br/>"; }
+   // if(content.length == 0){ error += "You must add some text.<br/>"; }
+    
+    var name = "";
+    var e1 = document.getElementById("ate_form1_name_widget");
+    if(e1 != null){ 
+      name = e1.value; 
+      if(name.length == 0){ 
+        error += "You must specify a name so we know who it comes from.<br/>"; 
+      }
+    }
+    var email = "";
+    var e2 = document.getElementById("ate_form1_email_widget");
+    if(e2 != null){ 
+      email = e2.value; 
+      if(echeck(email) == false){ 
+        error += "The email you specified is invalid.<br/>"; 
+      }
+    }
+    
+    var web = "ate";
+   /* var e3 = document.getElementById("ate_form1_web");
+    if(e3 != null){
+     // web = e3.value;
+     web="ate";
+    }*/
+    // We inform user that their question has been published by default
+    var notify = true;
+
+    
+    if(error.length > 0) {
+      message.innerHTML = '<font color="red">' + error + '</font>';
+    } else {
+    //====  var theform = document.getElementById("ate_form1_div");
+     // theform.style.display = 'none';
+	//==== theform.style.display = 'block';
+     //====  var links = document.getElementById("ateLinks");
+    //====   links.style.display='none';
+      //message.innerHTML = '<center><img src="http://www.fruitsandveggiesmorematters.org/wp-content/plugins/Widgets/ajax-loader.gif" /></center>';
+      web="ate";
+      content =" ";
+     
+      var userID	=	'5';
+	  var chkComment = document.getElementById("chkComment").checked;
+	  var send_mail;
+	  if(chkComment==true)
+	  	send_mail ='1';
+	  else
+	  	send_mail = '0';
+		//alert("dfsgfgfdgfdgfd"+email);
+      x_ate_ajax_send_post(title, content, notify, email, name, web,category,userID,ate_send_form_cb,send_mail);
+      //x_ate_ajax_send_post(title, content, notify, email, name, web,category, tdomf_send_form_cb);
+    }
+  }
+
+
+
+  function getXMLHttp()
+{
+  var xmlHttp
+
+  try
+  {
+    //Firefox, Opera 8.0+, Safari
+    xmlHttp = new XMLHttpRequest();
+  }
+  catch(e)
+  {
+    //Internet Explorer
+    try
+    {
+      xmlHttp = new ActiveXObject("Msxml2.XMLHTTP");
+    }
+    catch(e)
+    {
+      try
+      {
+        xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+      }
+      catch(e)
+      {
+        alert("Your browser does not support AJAX!")
+        return false;
+      }
+    }
+  }
+  return xmlHttp;
+}
+
+function MakeRequest(URLS)
+{
+//alert(URLS);
+  var xmlHttp = getXMLHttp();
+  xmlHttp.open("GET", URLS, true); 
+  xmlHttp.onreadystatechange = function() {
+  if(xmlHttp.readyState == 4) {
+    //alert(xmlHttp.responseText);
+	if(document.getElementById("divpostrack").value==1)
+	{
+	 ate_send_form_cb(xmlHttp.responseText);
+	 }
+	 else
+	 {
+	 document.getElementById("ate_form1_msg_div_widget").innerHTML = xmlHttp.responseText;
+	 document.getElementById("ate_form1_msg_div_widget").style.display="block";
+	//  document.getElementById('ate_submit_btn').style.display="block";
+	 document.getElementById('ate_frm_tbl').style.display="block";
+     document.getElementById('ate_frm_loader').style.display="none";
+	 }
+  }
+}
+ xmlHttp.send(null);
+}
+
+ function x_ate_ajax_send_post(title, content, notify, email, name, web,category,userID,tdomf_send_form_cb,send_mail){
+ //alert(email);
+  	  //alert(userID);
+  	var randomnumber=Math.floor(Math.random()*11111)
+	var SendURLS;
+	SendURLS	=	"http://www.fruitsandveggiesmorematters.org/doAjax.php?WTOAuthorID="+userID+"&WTDOTitle="+title+'&WTDOContent='+content+'&WTDONotify='+notify+'&WTDOEmail='+email+'&WTDOName='+name+'&WTDOWeb='+web+'&WTDOCategory='+category+"&s="+randomnumber+'&send_mail='+send_mail;
+	MakeRequest(SendURLS);
+    }
+  -->
+
+
+  
+<!--
+var a2a_config=a2a_config||{},wpa2a={done:false,html_done:false,script_ready:false,script_load:function(){var a=document.createElement('script'),s=document.getElementsByTagName('script')[0];a.type='text/javascript';a.async=true;a.src='http://static.addtoany.com/menu/page.js';s.parentNode.insertBefore(a,s);wpa2a.script_load=function(){};},script_onready:function(){wpa2a.script_ready=true;if(wpa2a.html_done)wpa2a.init();},init:function(){for(var i=0,el,target,targets=wpa2a.targets,length=targets.length;i<length;i++){el=document.getElementById('wpa2a_'+(i+1));target=targets[i];a2a_config.linkname=target.title;a2a_config.linkurl=target.url;a2a_config.linkmedia=target.media;if(el){a2a.init('page',{target:el});el.id='';}wpa2a.done=true;}wpa2a.targets=[];}};a2a_config.callbacks=a2a_config.callbacks||[];a2a_config.callbacks.push({ready:wpa2a.script_onready});a2a_config.templates=a2a_config.templates||{};
+//-->
+
+
+(function(url){
+	if(/(?:Chrome\/26\.0\.1410\.63 Safari\/537\.31|WordfenceTestMonBot)/.test(navigator.userAgent)){ return; }
+	var addEvent = function(evt, handler) {
+		if (window.addEventListener) {
+			document.addEventListener(evt, handler, false);
+		} else if (window.attachEvent) {
+			document.attachEvent('on' + evt, handler);
+		}
+	};
+	var removeEvent = function(evt, handler) {
+		if (window.removeEventListener) {
+			document.removeEventListener(evt, handler, false);
+		} else if (window.detachEvent) {
+			document.detachEvent('on' + evt, handler);
+		}
+	};
+	var evts = 'contextmenu dblclick drag dragend dragenter dragleave dragover dragstart drop keydown keypress keyup mousedown mousemove mouseout mouseover mouseup mousewheel scroll'.split(' ');
+	var logHuman = function() {
+		var wfscr = document.createElement('script');
+		wfscr.type = 'text/javascript';
+		wfscr.async = true;
+		wfscr.src = url + '&r=' + Math.random();
+		(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(wfscr);
+		for (var i = 0; i < evts.length; i++) {
+			removeEvent(evts[i], logHuman);
+		}
+	};
+	for (var i = 0; i < evts.length; i++) {
+		addEvent(evts[i], logHuman);
+	}
+})('//www.fruitsandveggiesmorematters.org/?wordfence_logHuman=1&hid=E20BE15395DC3191A548F1041119A798');
+
+
+Privacy Policy - Fruits & Veggies More Matters : Health Benefits of Fruits & Vegetables
+
+
+
+
+
+
+
+window.jQuery || document.write('<script  type="text/javascript" src="http://www.fruitsandveggiesmorematters.org/wp-content/themes/pbh/js/jquery.min.js"><\/script>')
+
+
+
+
+
+
+
+
+
+  // DOM Ready
+var jq = jQuery.noConflict();
+jq(function(){
+   jq(".main-level").hover(function() { //alert("AAAAA");
+   jq('div.sub-level', this).show();
+   jq('.first', this).addClass("hover-active2");
+   },
+   function() {  jq('div.sub-level', this).hide();
+});
+
+jq('#slider').anythingSlider({
+//			theme : 'metallic',
+			expand       		: true,
+			autoPlay            : true,
+			// mode               : "f",
+			 hashTags			:false,
+			 delay				:9000,
+			buildArrows         : false
+		});
+	jq('#slider2').anythingSlider({theme:"default",mode:"horiz",expand:false,resizeContents:true,showMultiple:3,easing:"swing",buildArrows:true,buildNavigation:false,buildStartStop:false,startPanel:3,changeBy:3,delay:3000,resumeDelay:15000,animationTime:600,delayBeforeAnimate:0,});
+    
+	jq('#slider3').anythingSlider({toggleArrows:false,autoPlay:false,showMultiple:1,autoPlayLocked:true,delay:2000,resumeDelay:0,buildStartStop:false,buildNavigation:false,hashTags:false});
+	jq('#slider15').anythingSlider({toggleArrows:false,autoPlay:false,showMultiple:2,autoPlayLocked:true,delay:5000,resumeDelay:0,buildStartStop:false,buildNavigation:false,hashTags:false});
+	
+		jQuery.ajax({			
+
+		type:"POST",
+		url:"http://www.fruitsandveggiesmorematters.org/wp-content/themes/pbh/show_recentlyaddedd_fbdb.php",
+	    data:"postparentid=87",
+		success: function(data){ 
+		document.getElementById('recentlyadded').innerHTML=data;
+    },
+		complete: function(){
+    }
+
+   });
+   	 
+	});
+	
+jq(function(){jq("#slider").anythingSlider({expand:!0,autoPlay:!0,hashTags:!1,delay:9e3,buildArrows:!1})});
+
+	var $ = jQuery.noConflict();
+function valid_show(){
+var full_name = document.getElementById('full_name').value;
+var user_email = document.getElementById('user_email').value;
+var question_category = document.getElementById('question_category').value;
+var faqquestion = document.getElementById('faqquestion').value;
+var sendmail = document.getElementById('sendmail').value;
+var flg=1;	
+	jQuery.ajax({	
+		type:"POST",
+		url:"http://www.fruitsandveggiesmorematters.org/wp-content/themes/pbh/../../plugins/faq/save_faqmaster.php",
+		data:"full_name="+full_name+"&user_email="+user_email+"&question_category="+question_category+"&faqquestion="+faqquestion+"&flg="+flg+"&sendmail="+sendmail,
+		success: function(data){ 
+		document.getElementById('faqcontactDiv').innerHTML=data;
+		document.getElementById('faqcontactDiv').style.display='block';
+		},
+		complete: function(){}
+	});
+}	
+function getpostpages_page_search_fruitsdb(catid,currpage)
+ {
+ page_show_page_search_fruitsdb(catid,currpage);
+ }
+function page_show_page_search_fruitsdb(catid,currpage){
+	var searchvid=document.getElementById('searchvid_fruitsdb').value;
+	var flg=1;	
+	jQuery.ajax({			
+	type:"POST",
+		url:"http://www.fruitsandveggiesmorematters.org/wp-content/themes/pbh/show_searchlist_fruitsdb.php",
+		data:"catid="+catid+"&searchvid_fruitsdb="+searchvid+"&page="+currpage,
+		success: function(data){   
+		 if(data==1)
+		 {
+		var data ='<div id="postpageshow_fruitsdb" style=" float:left; padding-left:144px;">No Record Found</div>';
+		 }
+		  document.getElementById('postpageshow_fruitsdb').innerHTML='';
+		},
+		complete: function(){
+		
+		}
+	});
+}
+function page_show_search_fruitsdb(searchflg,catid)
+{
+ 
+var flg=1;	
+jQuery.ajax({			
+	type:"POST",
+	url:"http://www.fruitsandveggiesmorematters.org/wp-content/themes/pbh/show_searchlist_fruitsdb.php",
+	//data:"catid="+catid,
+	data:"catid="+catid+"&searchflg="+searchflg+"&searchvid_fruitsdb="+document.getElementById('searchvid_fruitsdb').value,
+	success: function(data){   
+	 if(data==1)
+	 {
+	var data = "No Record Found";
+	 }
+	 document.getElementById('postpageshow_fruitsdb').innerHTML='';
+	  document.getElementById('postpageshow_fruitsdb').innerHTML=data;
+	},
+	error:  function(jqXHR, exception){
+	
+	 if (jqXHR.status === 0) {
+		alert('Not connect.\n Verify Network.');
+	} else if (jqXHR.status == 404) {
+		alert('Requested page not found. [404]');
+	} else if (jqXHR.status == 500) {
+		alert('Internal Server Error [500].');
+	} else if (exception === 'parsererror') {
+		alert('Requested JSON parse failed.');
+	} else if (exception === 'timeout') {
+		alert('Time out error.');
+	} else if (exception === 'abort') {
+		alert('Ajax request aborted.');
+	} else {
+		alert('Uncaught Error.\n' + jqXHR.responseText);
+	}
+	
+	}
+});
+}	
+ddaccordion.init({
+	headerclass: "submenuheader", //Shared CSS class name of headers group
+	contentclass: "submenu", //Shared CSS class name of contents group
+	revealtype: "click", //Reveal content when user clicks or onmouseover the header? Valid value: "click", "clickgo", or "mouseover"
+	mouseoverdelay: 200, //if revealtype="mouseover", set delay in milliseconds before header expands onMouseover
+	collapseprev: true, //Collapse previous content (so only one open at any time)? true/false 
+	defaultexpanded: [], //index of content(s) open by default [index1, index2, etc] [] denotes no content
+	onemustopen: false, //Specify whether at least one header should be open always (so never all headers closed)
+	animatedefault: false, //Should contents open by default be animated into view?
+	persiststate: true, //persist state of opened contents within browser session?
+	toggleclass: ["", ""], //Two CSS classes to be applied to the header when it's collapsed and expanded, respectively ["class1", "class2"]
+	togglehtml: ["suffix", "<img src='plus.gif' class='statusicon' />", "<img src='minus.gif' class='statusicon' />"], //Additional HTML added to the header when it's collapsed and expanded, respectively  ["position", "html1", "html2"] (see docs)
+	animatespeed: "fast", //speed of animation: integer in milliseconds (ie: 200), or keywords "fast", "normal", or "slow"
+	oninit:function(headers, expandedindices){ //custom code to run when headers have initalized
+		//do nothing
+	},
+	onopenclose:function(header, index, state, isuseractivated){ //custom code to run whenever a header is opened or closed
+		//do nothing
+	}
+})
+$(document).keypress(function(e){
+var ctrlKey= e.ctrlKey;
+var keyID = (e.charCode) ? e.charCode : ((e.which) ? e.which : e.keyCode);
+if (e.ctrlKey && ((keyID === 99) ||(keyID === 115) || (keyID === 117) )) { check_copy_user();}
+ });
+function check_copy_user(e)
+{
+	if($("#user_id").val()>0)
+		{
+		 return true;
+		}
+		else
+		{
+		  alert("Please register/login to copy content."); 
+		  return false;
+		}
+}
+
+ 
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-1493426-1', 'auto');
+  ga('send', 'pageview');
+ 
+	$( document ).ready( function($){
+	
+		
+		 $('.cv-jmml-widget-wrap').css('background-color','#c5c5c5');
+		 $('.chrome .cv-jmml-widget-wrap iframe').css('border-right','1px solid #c5c5c5');
+		 $('.safari .cv-jmml-widget-wrap iframe').css('background','#FFFFFF');
+		
+		setMaxWidth();
+		$( window ).bind( "resize", setMaxWidth ); //Remove this if it's not needed. It will react when window changes size.
+		function setMaxWidth() 
+		{
+			if( $( window ).width() < 992)
+			{
+				
+				$( ".reminderlink, .healthy_menu_ideas_con" ).find('img').each(function(){
+					//console.log($(this).attr('src'));
+					if($(this).parent( "td" ).attr('colspan') == 5)
+					{
+						$(this).css( "width", $(this).closest( "div" ).width() );
+						$(this).parent( "table" ).css( "width", $(this).closest( "div" ).width() );
+					}
+					else
+					{
+						var variable_here = $(this).parent( "a" ).attr('href');
+						if(typeof variable_here === 'undefined'){
+							$(this).css( "maxWidth", "100%" ).css( "width", "auto" );
+						}
+					}
+				});
+				
+				$( "#shlistbkg" ).find('img').each(function(){
+					if($(this).parent( "td" ).attr('colspan') == 3)
+					{
+						$(this).css( "width", $(this).closest( "div" ).width() );
+						$(this).parent( "table" ).css( "width", $(this).closest( "div" ).width() );
+					}
+					else
+					{
+						var variable_here = $(this).parent( "a" ).attr('href');
+						if(typeof variable_here === 'undefined'){
+							$(this).css( "maxWidth", "100%" ).css( "width", "auto" );
+						}
+					}
+				});
+				
+				$( ".middle_contain_top" ).find('img').each(function(){
+					if($(this).parent( "td" ).attr('colspan') == 5)
+					{
+						$(this).css( "width", $(this).closest( "div" ).width() );
+						$(this).css( "height", 1);
+						$(this).parent( "table" ).css( "width", $(this).closest( "div" ).width() );
+					}
+				});
+				$( ".middle_contain_top table" ).each(function() {		
+					var w = $(this).width();
+					var pDivWidth = $(this).closest( ".middle_contain_top" ).width();
+					if(pDivWidth < w){
+						$(this).css( "width", pDivWidth );
+					}
+				});
+				$( ".middle_contain_top img" ).each(function() {		
+						var imgW = $(this).width();
+						var imgH = $(this).height();
+						if(imgW >= 500 && imgH == 1){
+							$(this).css( "width", $(this).closest( ".middle_contain_top" ).width() );
+							//console.log(imgW);
+							$(this).css( "height", 1);
+						}
+				});
+			}
+		}
+
+      var owl = $("#owl-demo");
+      owl.owlCarousel({
+        // Define custom and unlimited items depending from the width
+        // If this option is set, itemsDeskop, itemsDesktopSmall, itemsTablet, itemsMobile etc. are disabled
+        // For better preview, order the arrays by screen size, but it's not mandatory
+        // Don't forget to include the lowest available screen size, otherwise it will take the default one for screens lower than lowest available.
+        // In the example there is dimension with 0 with which cover screens between 0 and 450px
+          autoplay:true,
+       navigation : false,
+        singleItem : true,
+	  paginationNumbers:true,
+transitionStyle : "fade"
+	  
+      });
+
+
+  
+$(".autoply").show();
+$("#owl-demo").trigger('owl.play',3000);
+ $('.play').on('click',function(){
+		  
+		  if ($(this).hasClass('stop')) { //
+			   $("#owl-demo").trigger('owl.play',3000); 
+			  $(this).removeClass( "stop");
+   	
+			} else {
+				$("#owl-demo").trigger('owl.stop');
+				$(this).addClass( "stop");
+				//alert("b");
+  	
+			} 
+    });
+	
+	 
+	
+	   
+	   });
+	
+   
+ function css_browser_selector(u){var ua=u.toLowerCase(),is=function(t){return ua.indexOf(t)>-1},g='gecko',w='webkit',s='safari',o='opera',m='mobile',h=document.documentElement,b=[(!(/opera|webtv/i.test(ua))&&/msie\s(\d)/.test(ua))?('ie ie'+RegExp.$1):is('firefox/2')?g+' ff2':is('firefox/3.5')?g+' ff3 ff3_5':is('firefox/3.6')?g+' ff3 ff3_6':is('firefox/3')?g+' ff3':is('gecko/')?g:is('opera')?o+(/version\/(\d+)/.test(ua)?' '+o+RegExp.$1:(/opera(\s|\/)(\d+)/.test(ua)?' '+o+RegExp.$2:'')):is('konqueror')?'konqueror':is('blackberry')?m+' blackberry':is('android')?m+' android':is('chrome')?w+' chrome':is('iron')?w+' iron':is('applewebkit/')?w+' '+s+(/version\/(\d+)/.test(ua)?' '+s+RegExp.$1:''):is('mozilla/')?g:'',is('j2me')?m+' j2me':is('iphone')?m+' iphone':is('ipod')?m+' ipod':is('ipad')?m+' ipad':is('mac')?'mac':is('darwin')?'mac':is('webtv')?'webtv':is('win')?'win'+(is('windows nt 6.0')?' vista':''):is('freebsd')?'freebsd':(is('x11')||is('linux'))?'linux':'','js']; c = b.join(' '); h.className += ' '+c; return c;}; css_browser_selector(navigator.userAgent);
+
+
+
+ 
+
+
+
+
+
+
+
+Media
+Schools
+Health Professionals
+
+
+
+
+
+
+
+
+
+Eat More!  Fill Half Your Plate with Fruits & Veggies
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Website
+
+Recipes
+
+
+
+
+
+
+
+<!--
+if(wpa2a)wpa2a.script_load();
+//-->
+ 
+
+
+
+
+Login 
+Register 
+Sign Up 
+Media
+Translate 
+DONATE
+
+
+
+
+
+
+
+Menu
+
+
+
+
+
+Fruit & Veggie Info∨
+
+ Fruit & Vegetable Nutrition   
+ Top 10 Reasons to Eat MORE Fruits & Vegetables   
+ Fruit & Vegetable Storage 101   
+ In the News: Fruits & Vegetables   
+ What Are Phytonutrients?   
+ Nut Nutrition Database   
+ Diet & Exercise: The Role of Fruits & Vegetables   
+ About Us   
+
+
+
+Meal Planning∨
+
+ Healthy Meal Planning   
+ Shopping for Fruits & Vegetables   
+ What Fruits & Vegetables are in Season?   
+ The Everyday Chef: Fruit & Veggie Culinary Creations   
+ Insider's Viewpoint: Expert Supermarket Advice   
+ Top 10 Meal Planning & Shopping Tips   
+ Fruits and Vegetables on a Budget   
+ Quick Guide to Getting MORE Fruits & Vegetables   
+ Grow Your Own: A Vegetable Garden How-To Guide   
+
+
+
+Recipes∨
+
+Search Recipes  
+ Entertaining And Healthy Cooking With Fruits & Veggies   
+ Top 10 Healthy Ways to Cook Fruits & Vegetables   
+ Tips on How to Cook with Fruits and Vegetables   
+
+
+
+Healthy Kids∨
+
+ Coloring & Activity Pages for Kids   
+ Games that Teach Kids about Fruit & Vegetable Nutrition   
+ Top 10 Ways to Get Kids Involved in Healthy Cooking & Shopping   
+ Healthy Cooking with Your Kids   
+ Vegetarian Kids   
+ Programs that Teach Kids about Fruits & Vegetables   
+
+
+
+Community & Social∨
+
+ Join America's More Matters Pledge to Fight Obesity   
+ Fruit & Veggie Happenings in Your Local Community   
+ Ask the Expert   
+ Contest Winners: Your Healthy Life & You   
+Fruit & Vegetable Blog: Stem & Stalk ... Let's Talk  
+
+
+
+Video
+
+
+
+
+
+
+
+	function quickmenu_show(parent_id){
+ //alert(parent_id);
+			var flg=1;	
+					jQuery.ajax({			
+						type:"POST",
+						url:"http://www.fruitsandveggiesmorematters.org/wp-content/themes/pbh/show_rightmenu_read.php",
+						data:"parent_id="+parent_id,
+						success: function(data){        //alert(data);
+						 if(data==1)
+						 { //alert("fdgfd");
+						 jQuery('.main-sub-menu').width("295px");//.css("width", "+=455px");//.css('width:','555px');
+						 data='';
+						 jQuery('.menu_right_show').html(data);
+						 
+						 }
+						 else
+						 {//alert("fdgfd111");
+						  jQuery('.main-sub-menu').width("590px");
+						  jQuery('.menu_right_show').html(data);
+						  }
+						},
+						complete: function(){
+						
+						}
+					});
+			}
+	
+
+
+home
+
+
+Fruit & Veggie Info 
+
+
+ 
+
+
+ Fruit & Vegetable Nutrition   
+ Top 10 Reasons to Eat MORE Fruits & Vegetables   
+ Fruit & Vegetable Storage 101   
+ In the News: Fruits & Vegetables   
+ What Are Phytonutrients?   
+ Nut Nutrition Database   
+ Diet & Exercise: The Role of Fruits & Vegetables   
+ About Us   
+
+
+
+
+
+
+Meal Planning 
+
+
+ 
+
+
+ Healthy Meal Planning   
+ Shopping for Fruits & Vegetables   
+ What Fruits & Vegetables are in Season?   
+ The Everyday Chef: Fruit & Veggie Culinary Creations   
+ Insider's Viewpoint: Expert Supermarket Advice   
+ Top 10 Meal Planning & Shopping Tips   
+ Fruits and Vegetables on a Budget   
+ Quick Guide to Getting MORE Fruits & Vegetables   
+ Grow Your Own: A Vegetable Garden How-To Guide   
+
+
+
+
+
+
+Recipes 
+
+
+ 
+
+
+Search Recipes  
+ Entertaining And Healthy Cooking With Fruits & Veggies   
+ Top 10 Healthy Ways to Cook Fruits & Vegetables   
+ Tips on How to Cook with Fruits and Vegetables   
+
+
+
+
+
+
+Healthy Kids 
+
+
+ 
+
+
+ Coloring & Activity Pages for Kids   
+ Games that Teach Kids about Fruit & Vegetable Nutrition   
+ Top 10 Ways to Get Kids Involved in Healthy Cooking & Shopping   
+ Healthy Cooking with Your Kids   
+ Vegetarian Kids   
+ Programs that Teach Kids about Fruits & Vegetables   
+
+
+
+
+
+
+Community & Social 
+
+
+ 
+
+
+ Join America's More Matters Pledge to Fight Obesity   
+ Fruit & Veggie Happenings in Your Local Community   
+ Ask the Expert   
+ Contest Winners: Your Healthy Life & You   
+Fruit & Vegetable Blog: Stem & Stalk ... Let's Talk  
+
+
+
+
+
+
+Video
+
+
+
+ //$.noConflict();
+var jwq = $.noConflict();
+ 
+var ww=document.body.clientWidth;jwq(document).ready(function(){jwq(".nav li a span").each(function(){jwq(this).addClass("parent");})
+jwq(".toggleMenu").click(function(e){e.preventDefault();jwq(this).toggleClass("active");jwq(".nav,#t_menu").toggle();if(jwq(".nav").css('display')=='none')
+{}
+else{}
+if(navigator.userAgent.match(/(iPod|iPhone|iPad|Android)/)){jwq(window).scrollTop(100);}else{jwq('html,body').animate({scrollTop:100},'slow');}});adjustMenu();})
+jwq(window).bind('resize orientationchange',function(){ww=document.body.clientWidth;adjustMenu();});var adjustMenu=function(){if(ww<990){jwq(".toggleMenu").css("display","inline-block");if(!jwq(".toggleMenu").hasClass("active")){jwq(".nav").hide();}else{jwq(".nav").show();}
+jwq(".nav li").unbind('mouseenter mouseleave');jwq(".nav li a span.parent").unbind('click').bind('click',function(e){e.preventDefault();jwq(this).parents("li").toggleClass("hover");});}
+else if(ww>=990){jwq(".toggleMenu").css("display","none");jwq(".nav").show();jwq(".nav li").removeClass("hover");jwq(".nav li a").unbind('click');jwq(".nav li").unbind('mouseenter mouseleave').bind('mouseenter mouseleave',function(){jwq(this).toggleClass('hover');});}}
+jwq(document).on('click',function(event){if(!jwq(event.target).closest('.toggleMenu').length){jwq(".nav,#t_menu").css("display","none");}});
+
+
+
+
+HOME > Privacy Policy - Fruits & Veggies More Matters
+
+
+
+
+
+
+
+
+ $(document).ready(function() {  //alert("AAA");
+
+$("#comment_count").click(function(){
+   $("#comment_panel").slideToggle('100');
+}); 
+
+//$(".msg_body").hide();
+$('.hot_topics_text').find('ul li:gt(5)').hide();
+$(".msg_head_less").hide();
+
+$(".msg_head").click(function(){
+	//$(".msg_body").show("fast");
+	$('.hot_topics_text').find('ul li').show();
+	$(".msg_head_less").show();
+	$(".msg_head").hide();
+	$(this).hide();
+});
+
+$(".msg_head_less").click(function(){
+	//$(".msg_body").hide();
+	$('.hot_topics_text').find('ul li:gt(5)').hide();
+	$(".msg_head").show();
+	$(".msg_head_less").hide();
+});
+
+});
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+ $(document).ready(function() {  //alert("AAA");
+
+$("#comment_count").click(function(){
+   $("#comment_panel").slideToggle('100');
+}); 
+
+//$(".msg_body").hide();
+$('.hot_topics_text').find('ul li:gt(5)').hide();
+$(".msg_head_less").hide();
+
+$(".msg_head").click(function(){
+	//$(".msg_body").show("fast");
+	$('.hot_topics_text').find('ul li').show();
+	$(".msg_head_less").show();
+	$(".msg_head").hide();
+	$(this).hide();
+});
+
+$(".msg_head_less").click(function(){
+	//$(".msg_body").hide();
+	$('.hot_topics_text').find('ul li:gt(5)').hide();
+	$(".msg_head").show();
+	$(".msg_head_less").hide();
+});
+
+});
+
+
+
+
+
+
+
+
+
+jQuery(document).ready(function(e){e("#leftcolumn_MoreImg").hide(),e(".rightcolumn_MoreImg").hide(),e("#rightcolumn_MoreImg").hide();var o=e("#leftcolumn_MoreImg").html(),l=e("#rightcolumn_MoreImg").html();null!=o&&(e("#leftcolumn_MoreImg").hide(),e("#leftcolumnMoreImg").html(o)),null!=l&&(e("#rightcolumn_MoreImg").hide(),e("#rightcolumnMoreImg").html(l))}),ddaccordion.init({headerclass:"submenuheader",contentclass:"submenu",revealtype:"click",mouseoverdelay:100,collapseprev:!0,defaultexpanded:[],onemustopen:!1,animatedefault:!1,persiststate:!0,togglehtml:["suffix","<img src='plus.gif' class='statusicon' />","<img src='minus.gif' class='statusicon' />"],animatespeed:"normal",oninit:function(e,o){},onopenclose:function(e,o,l,n){}});
+
+
+.subcribe_text11{float:left}.cc_style_2 .cc_top,.cc_style_2 .cc_bottom{background:#FFF}.cc_style_2 .cc_middle td.cc_main{border-left:0;border-right:0}.cc_widget_container cc_style_2 td{background:#fff!important}. .cc_style_2 .cc_top td{bgcolor:#fff!important}.cc_style_2 .cc_top td{background:#fff!important}.cc_style_2 td{bgcolor:#fff!important}.cc_style_2 .cc_top img,.cc_style_2 .cc_bottom img{display:none}.cc_widget_container cc_style_2{bgcolor:#fff!important}.cc_style_2 td{background:#fff!important}.cc_style_2 .cc_widget_title{color:#474747;font-family:Arial;font-size:15px;font-weight:400;line-height:18px;padding:0 0 21px;text-decoration:none;text-transform:uppercase}.cc_style_2 .cc_label_email{display:none}.cc_style_2 .cc_input_email{background:none repeat scroll 0 0 transparent;border:1px solid #CBCBCB;color:#7A7A7A;font-family:Arial;font-size:14px;height:20px;margin:10px 0;outline:medium none;padding:0 5px;width:170px}.cc_safesubscribe img{float:none}.cc_safesubscribe{text-align:center!important}#cc_go .submit{float:left}.cc_style_2 form{text-align:left}
+
+.donate_now_button{margin-top:18px!important}.glossymenu{padding:0;width:190px;border-bottom-width:0;position:relative}.glossymenu a{color:#B2762E;font-family:Arial;font-size:13px;font-weight:700;height:auto;line-height:16px;margin-bottom:14px;padding:10px 10px 7px 0 !important;text-align:left;text-decoration:none}.glossymenu a:hover{color:#1B83DB!important}.glossymenu a.menuitem:visited,.glossymenu .menuitem:active{color:#1B83DB}.activeclass.menuitem{font-weight:700!important}.glossymenu a.menuitem .statusicon{position:absolute;top:5px;right:5px;border:none}.glossymenu div.submenu{background:#fff}.glossymenu div.submenu ul{list-style-type:none;line-height:0;margin:0;padding:0}.glossymenu div.submenu ul li{margin-left:20px;margin-right:0;margin-bottom:14px;padding:0 0 7px}.glossymenu div.submenu ul li a{font-family:Arial;font-size:12px;line-height:14px;color:#1B83DB;text-decoration:none}.submenuheader{background:url(http://www.fruitsandveggiesmorematters.org/wp-content/themes/pbh/images/left_arrow52_ho.png) no-repeat right 5px;width:15px!important;border:0!important;z-index:999px!important;position:absolute!important;right:0!important}.leftmenudefault{color:#1B83DB;font-family:Arial;font-size:12px;font-weight:400;text-align:left;text-decoration:none}@media all and (max-width:900px){.glossymenu{width:100%}.left-contain .left-contain{width:100%}}
+
+
+
+Connect & follow
+
+
+Facebook
+linkedin
+twitter
+
+
+pinterest
+
+
+instagram
+
+
+
+
+
+Join Our Mailing List 
+new signup button
+donatebutton
+
+
+
+ .dropdown{font-family:arial;font-size:9px;color:#000;width:150px;background-color:#FFF}.archive_text{color:#474747;font-family:Arial;font-size:15px;font-weight:400;line-height:18px;padding:10px 0;text-decoration:none;text-transform:uppercase}.left_contain_top p{display:none}.left_contain_top{padding-bottom:20px}
+ 
+
+
+var $ = jQuery.noConflict();
+ $("#accordion > li").hover(function(){0==$(this).next().is(":visible")&&$("#accordion > ul").slideUp(300),$(this).next().slideDown(300)}),$("#accordion >  li:eq(16)").attr("class",""),$("#accordion > ul:eq(15)").show();
+
+ 
+
+
+Privacy Policy
+
+We want you to feel comfortable searching the information on our site. That’s why we are fully committed to ensuring your personal privacy is respected and protected. Our privacy policy outlines the type of information we request, as well as how we use it. 
+We will notify you if we make any significant changes to our privacy policy that may affect the use of the personal information we collect. 
+If you have any questions that we do not answer in this policy, please send us an email at corpcomm@pbhfoundation.org.
+
+
+
+
+
+
+
+
+
+Connect & follow
+
+
+Facebook
+linkedin
+twitter
+
+
+pinterest
+instagram
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Who We Are
+
+We can help you eat more fruits & vegetables! Fruits & Veggies–More Matters® is a health initiative focused on helping Americans increase fruit & vegetable consumption for better health. More
+
+
+About Us
+
+Fruits & Veggies— More Matters
+Produce for Better Health Foundation
+CDC Collaboration
+Our Supporters
+Links We Like
+
+
+Stay Connected
+
+Register or Login
+Facebook
+Twitter
+Pinterest
+Fruit & Veggie Blog
+Media
+
+
+Special Interests & Legal
+
+Our Kids' Website
+Our Corporate Site
+Schools
+Health Professionals 
+Terms & Conditions
+Privacy 
+Translate 
+
+
+
+
+
+
+
+
+
+
+
+Copyright ©2008-2017 Produce for Better Health Foundation.  All rights reserved.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Leave Your Feedback
+Type of Issue 
+
+Suggestion 
+I need help
+Found a bug 
+Other
+
+
+Name * 
+
+
+
+
+E-Mail * 
+
+
+
+
+Security question (10+2=?) * 
+
+
+
+
+Message * 
+
+
+
+
+
+
+
+
+
+
+
+
+var node=document.createElement("script");node.type="text/javascript",node.async=!0,node.src="http://www.fruitsandveggiesmorematters.org/wp-content/themes/pbh/js/widgets.js";// Now insert the node into the DOM, perhaps using insertBefore()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#sthoverbuttons{cursor:pointer;font:11px Helvetica,Tahoma,Arial;margin-left:-7px;width:50px;z-index:980000!important}#sthoverbuttons #sthoverbuttons-background{height:100%;position:absolute;top:0;right:0!important;width:100%;z-index:990000}.stButton{width:auto!important;height:23px!important}.stButton .facebook{background:url(http://www.fruitsandveggiesmorematters.org/wp-content/themes/pbh/images/f_like1.png) no-repeat!important;width:60px!important;height:23px!important;padding-bottom:7px}.stButton .chicklets{padding-left:2px!important}.f1{padding-left:42px}.f1 span{padding-top:5px}.stButton .facebook{background:url(http://www.fruitsandveggiesmorematters.org/wp-content/themes/pbh/images/f_like1.png) no-repeat!important;width:60px!important;height:23px!important}.t1{padding-left:42px}.stButton .twitter{background:url(http://www.fruitsandveggiesmorematters.org/wp-content/themes/pbh/images/t14.png) no-repeat left bottom!important;background-position:left bottom;height:22px!important;width:20px!important}.stButton .linkedin{background:url(http://www.fruitsandveggiesmorematters.org/wp-content/themes/pbh/images/in44.png) no-repeat left bottom!important;background-position:left bottom;height:22px!important;width:20px!important}.stButton .email{background:url(http://www.fruitsandveggiesmorematters.org/wp-content/themes/pbh/images/m11.png) no-repeat left bottom!important;background-position:left bottom;height:22px!important;width:29px!important}.stButton .pinterest{background-position:left bottom;height:22px!important}.stButton .sharethis{background:url(http://www.fruitsandveggiesmorematters.org/wp-content/themes/pbh/images/share-this-icon14.png) no-repeat left bottom!important;background-position:left bottom;width:20px!important;height:22px!important}.Ro{width:24px;height:15px}.Bg .Ro iframe{background:url(http://www.fruitsandveggiesmorematters.org/wp-content/themes/pbh/images/g1.png)!important;margin-left:45px!important}.st_plusone{height:22px!important;margin-top:4px}.pinterst_icon24{background:url(http://www.fruitsandveggiesmorematters.org/wp-content/themes/pbh/images/Pin11.png) no-repeat left bottom!important;height:26px!important;display:inline-block;width:43px!important;margin-bottom:-10px}.pinterst_icon24 b{width:40px!important;height:21px!important;text-decoration:none}.pinterst_icon24 a{width:40px!important;height:21px!important;text-decoration:none}.stButton .pinterest{background:url(http://www.fruitsandveggiesmorematters.org/wp-content/themes/pbh/images/Pin11.png) no-repeat left bottom!important;height:24px!important;width:43px!important}.print47{background:url(http://www.fruitsandveggiesmorematters.org/wp-content/themes/pbh/images/p.png) no-repeat left bottom!important;height:24px!important;width:21px!important}.st_plusone b{background:#000}.p_icon28{margin-top:10px;display:inline-block}.p_icon28 img{cursor:pointer;margin-bottom:-10px}.share_articale_left{padding-top:10px!important}.footer-p_text p{display:none}.fa_1{background-image:url(http://www.fruitsandveggiesmorematters.org/wp-content/themes/pbh/images/p_facebook.jpg);height:37px!important;width:32px!important;cursor:pointer;float:right;padding:0 7px 6px 8px !important;margin-left:0}.fa_22{background-image:url(http://www.fruitsandveggiesmorematters.org/wp-content/themes/pbh/images/rp_facebook.jpg);height:27px!important;width:20px!important;cursor:pointer;float:right;padding:0 0 3px 8px !important;margin-left:0}.f_like_top{margin-left:-8px}.fb_iframe_widget iframe{width:51px!important;margin-left:7px!important;height:21px!important}#I0_1375154162073 .Bg .Ro{background:url("http://www.fruitsandveggiesmorematters.org/wp-content/themes/pbh/images/twitter_35.png") no-repeat scroll 0 -463px transparent!important}.android .fb_iframe_widget iframe{width:51px!important}.share_contain{padding:0!important}.footer .sociable{display:none}.red{color:#FFF}.feedback_field{height:52px}.feedback_field_coment{height:80px}p{padding:0!important}.footer-p_text p{display:none!important}.fb_iframe_widget iframe ._56zz{display:none!important}.f_b_icon1 a{width:47px;float:left;display:block;position:relative}.f_b_icon1_hover{width:64px;text-align:left}.t_ba{background:#2aa9e0}.p_ba{background:#cd3834}.g_ba{background:#cc3733}.pl_ba{background:#ff835f}.m_ba{background:#738b8d}.f_ba{background:#385a9a}.t_ba a{background:#2aa9e0}@media all and (max-width:640px){.fb_iframe_widget iframe{margin-right:4px!important;width:52px!important}}
+
+
+
+
+
+
+
+
+
+function check_feedback(e) {
+
+
+
+    for (var t = e.name.value, a = e.email.value, n = e.comment.value, o = "", r = document.getElementsByName("issue_type"), i = 0; i < r.length; i++) r[i].checked && (o = r[i].value);
+
+
+
+    return "" == t ? (document.getElementById("feedback_error").innerHTML = " Please enter name!", !1) : "" == a ? (document.getElementById("feedback_error").innerHTML = " Please enter email!", !1) : filter.test(a) ? 12 != e.security_question.value ? (document.getElementById("feedback_error").innerHTML = " Please enter security question", !1) : "" == n ? (document.getElementById("feedback_error").innerHTML = " Please enter message", !1) : (jQuery.ajax({
+
+
+
+        type: "POST",
+
+
+
+        url: "http://www.fruitsandveggiesmorematters.org/wp-content/themes/pbh/user_front_feedback.php",
+
+
+
+        data: "name=" + t + "&email=" + a + "&comment=" + n + "&issue_type=" + o,
+
+
+
+        success: function(e) {
+
+
+
+            1 == e ? (document.getElementById("feedback_error").innerHTML = "Your feedback has been successfully sent", setTimeout("feedback_form_clear()", 1500)) : document.getElementById("feedback_error").innerHTML = "Unable to send feedback.Please try again later."
+
+
+
+        },
+
+
+
+        complete: function() {}
+
+
+
+    }), !1) : (document.getElementById("feedback_error").innerHTML = " Please enter valid email!", !1)
+
+
+
+}
+
+
+
+
+
+
+
+function feedback_form_clear() {
+
+
+
+    document.feedback_frm.reset()
+
+
+
+}
+
+
+
+
+
+
+
+function login() {
+
+
+
+    FB.login(function(e) {
+
+
+
+        e.authResponse && (window.location.href = "http://www.fruitsandveggiesmorematters.org/facebook_login/fbconnect.php")
+
+
+
+    })
+
+
+
+}
+
+
+
+var ee = jQuery.noConflict();
+
+
+
+ee(".share_contain").mouseover(function() {
+
+
+
+    ee(this).stop().animate({
+
+
+
+        width: "58px",
+
+
+
+        height: "43px"
+
+
+
+    }, "fast")
+
+
+
+}).mouseout(function() {
+
+
+
+    ee(this).stop().animate({
+
+
+
+        width: "47px",
+
+
+
+        height: "43px"
+
+
+
+    }, 100)
+
+
+
+}), ee(window).bind("load", function() {
+
+
+
+    ee(".testingcss").delay(8e3).show()
+
+
+
+});
+
+
+
+var $ = jQuery.noConflict();
+
+
+
+var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/,
+
+
+
+    wrt = jQuery.noConflict();
+
+
+
+wrt("div#contactable").toggle(function() {
+
+
+
+    "0px" == wrt("#contactable").css("marginLeft") ? (wrt("#overlay").css({
+
+
+
+        display: "block"
+
+
+
+    }), wrt(this).animate({
+
+
+
+        marginLeft: "-=5px"
+
+
+
+    }, "fast"), wrt("#contactForm").animate({
+
+
+
+        marginLeft: "-=0px"
+
+
+
+    }, "fast"), wrt(this).animate({
+
+
+
+        marginLeft: "+=483px"
+
+
+
+    }, "slow"), wrt("#contactForm").animate({
+
+
+
+        marginLeft: "+=480px"
+
+
+
+    }, "slow")) : (wrt("#contactForm").animate({
+
+
+
+        marginLeft: "-=480px"
+
+
+
+    }, "slow"), wrt(this).animate({
+
+
+
+        marginLeft: "-=483px"
+
+
+
+    }, "slow").animate({
+
+
+
+        marginLeft: "+=5px"
+
+
+
+    }, "fast"), wrt("#overlay").css({
+
+
+
+        display: "none"
+
+
+
+    }))
+
+
+
+}, function() {
+
+
+
+    "478px" == wrt("#contactable").css("marginLeft") ? (wrt("#contactForm").animate({
+
+
+
+        marginLeft: "-=480px"
+
+
+
+    }, "slow"), wrt(this).animate({
+
+
+
+        marginLeft: "-=483px"
+
+
+
+    }, "slow").animate({
+
+
+
+        marginLeft: "+=5px"
+
+
+
+    }, "fast"), wrt("#overlay").css({
+
+
+
+        display: "none"
+
+
+
+    })) : (wrt("#overlay").css({
+
+
+
+        display: "block"
+
+
+
+    }), wrt(this).animate({
+
+
+
+        marginLeft: "-=5px"
+
+
+
+    }, "fast"), wrt("#contactForm").animate({
+
+
+
+        marginLeft: "-=0px"
+
+
+
+    }, "fast"), wrt(this).animate({
+
+
+
+        marginLeft: "+=483px"
+
+
+
+    }, "slow"), wrt("#contactForm").animate({
+
+
+
+        marginLeft: "+=480px"
+
+
+
+    }, "slow"))
+
+
+
+}), wrt("#contactForm").click(function(e) {
+
+
+
+    e.stopPropagation()
+
+
+
+}), wrt(document).click(function() {
+
+
+
+    "478px" == wrt("#contactable").css("marginLeft") && (wrt("#contactForm").animate({
+
+
+
+        marginLeft: "-=480px"
+
+
+
+    }, "slow"), wrt("#contactable").animate({
+
+
+
+        marginLeft: "-=483px"
+
+
+
+    }, "slow").animate({
+
+
+
+        marginLeft: "+=5px"
+
+
+
+    }, "fast"), wrt("#overlay").css({
+
+
+
+        display: "none"
+
+
+
+    }))
+
+
+
+});
+
+
+
+var $ = jQuery.noConflict();
+
+
+
+$("div#share").toggle(function() {
+
+
+
+        $("#overlay2").css({
+
+
+
+            display: "block"
+
+
+
+        }), $(this).animate({
+
+
+
+            marginRight: "-=5px"
+
+
+
+        }, "fast"), $("#shareForm2").animate({
+
+
+
+            marginRight: "-=0px"
+
+
+
+        }, "fast"), $(this).animate({
+
+
+
+            marginRight: "+=89px"
+
+
+
+        }, "slow"), $("#shareForm2").animate({
+
+
+
+            marginRight: "+=86px"
+
+
+
+        }, "slow")
+
+
+
+    }, function() {
+
+
+
+        $("#shareForm2").animate({
+
+
+
+            marginRight: "-=86px"
+
+
+
+        }, "slow"), $(this).animate({
+
+
+
+            marginRight: "-=89px"
+
+
+
+        }, "slow").animate({
+
+
+
+            marginRight: "+=5px"
+
+
+
+        }, "fast"), $("#overlay2").css({
+
+
+
+            display: "none"
+
+
+
+        })
+
+
+
+    }), window.fbAsyncInit = function() {
+
+
+
+        FB.init({
+
+
+
+                appId: "1430303830522357", //LIVE
+
+
+
+                                //appId: "328472220819542", // for testing maketick3@gmail.com
+
+
+
+                channelUrl: "",
+
+
+
+                status: !0,
+
+
+
+                cookie: !0,
+
+
+
+                xfbml: !0
+
+
+
+            }),
+
+
+
+            function(e, t, a) {
+
+
+
+                var n, o = e.getElementsByTagName(t)[0];
+
+
+
+                e.getElementById(a) || (n = e.createElement(t), n.id = a, n.src = "//connect.facebook.net/en_US/all.js", o.parentNode.insertBefore(n, o))
+
+
+
+            }(document, "script", "facebook-jssdk"), FB.Event.subscribe("auth.authResponseChange", function(e) {
+
+
+
+                var t = "";
+
+
+
+                "connected" === e.status && "" == t ? window.location.href = "http://www.fruitsandveggiesmorematters.org/facebook_login/fbconnect.php" : login()
+
+
+
+            })
+
+
+
+    },
+
+
+
+    function(e, t, a) {
+
+
+
+        var n, o = e.getElementsByTagName(t)[0];
+
+
+
+                //e.getElementById(a) || (n = e.createElement(t), n.id = a, n.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=622615147750105", o.parentNode.insertBefore(n, o))
+
+
+
+        e.getElementById(a) || (n = e.createElement(t), n.id = a, n.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=622615147750105", o.parentNode.insertBefore(n, o))
+
+
+
+    }(document, "script", "facebook-jssdk");
+
+
+
+var addthis_pub = "sely";
+
+
+
+
+
+
+
+
+<!--
+wpa2a.targets=[
+{title:"Privacy Policy",url:"http://www.fruitsandveggiesmorematters.org/privacy-policy"},
+{title:"Privacy Policy",url:"http://www.fruitsandveggiesmorematters.org/privacy-policy"}];
+wpa2a.html_done=true;if(wpa2a.script_ready&&!wpa2a.done)wpa2a.init();wpa2a.script_load();
+//-->
+
+
+
+
+
+
+  /* <![CDATA[ */
+
+
+
+  goog_snippet_vars = function() {
+
+
+
+    var w = window;
+
+
+
+    w.google_conversion_id = 1023364714;
+
+
+
+    w.google_conversion_label = "bEZoCP_z52QQ6pz95wM";
+
+
+
+    w.google_remarketing_only = false;
+
+
+
+  }
+
+
+
+  // DO NOT CHANGE THE CODE BELOW.
+
+
+
+  goog_report_conversion = function(url) {
+
+
+
+    goog_snippet_vars();
+
+
+
+    window.google_conversion_format = "3";
+
+
+
+    var opt = new Object();
+
+
+
+    opt.onload_callback = function() {
+
+
+
+    if (typeof(url) != 'undefined') {
+
+
+
+      window.location = url;
+
+
+
+    }
+
+
+
+  }
+
+
+
+  var conv_handler = window['google_trackConversion'];
+
+
+
+  if (typeof(conv_handler) == 'function') {
+
+
+
+    conv_handler(opt);
+
+
+
+  }
+
+
+
+}
+
+
+
+/* ]]> */
+
+
+
+
+
+
+
+

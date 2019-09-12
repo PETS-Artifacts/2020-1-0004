@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
+<link rel="shortcut icon" href="https://www.dorset-college.ie/images/main/favicon.ico" />
+<meta charset="utf-8">
+<link href="https://www.dorset-college.ie/css/style.css" rel="stylesheet" type="text/css">
+<link href="https://www.dorset-college.ie/css/main.css" rel="stylesheet" type="text/css">
+<link href="https://www.dorset-college.ie/css/media-queries.css" rel="stylesheet" type="text/css">
+<link href="https://www.dorset-college.ie/css/selectfancy.css" rel="stylesheet" type="text/css">
+<link href="https://www.dorset-college.ie/css/easy-responsive-tabs.css" rel="stylesheet" type="text/css">
+<link href="https://www.dorset-college.ie/css/reveal.css" rel="stylesheet" type="text/css">
+<meta name="google-site-verification" content="9bAVrsgLHHQoSRE54u_J4ghzm--Bx77hhrmLIzj7rs8" />
+<link href="https://www.dorset-college.ie/library/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+<!--[if lt IE 9]>
+<script src="//css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+<![endif]-->
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script type="text/javascript">
+if (typeof jQuery == 'undefined')
+{
+    document.write(unescape("%3Cscript src='https://www.dorset-college.ie/js/jquery.js' type='text/javascript'%3E%3C/script%3E"));
+}
+</script>
+<script src="https://www.dorset-college.ie/library/jquery-ui/js/jquery-ui-1.9.2.custom.min.js"></script>
+<link href="https://www.dorset-college.ie/library/jquery-ui/css/smoothness/jquery-ui-1.9.2.custom.min.css" rel="stylesheet">
+<script src="https://www.dorset-college.ie/library/js/jquery.selectboxes.js"></script>
+<script src="https://www.dorset-college.ie/js/jquery.reveal.js"></script>
+<script src="https://www.dorset-college.ie/js/easyResponsiveTabs.js"></script>
+<link rel="stylesheet" href="https://www.dorset-college.ie/css/sidebar.css" type="text/css" />
+<script type="text/javascript">
+//<![CDATA[
+$(function(){
+    $(".toggle_container").hide();
+    $("h2.expand_heading1,h2.expand_heading2").click(function(e){
+        e.preventDefault();         
+        $(this).next(".toggle_container").slideToggle("slow");
+        $(this).toggleClass("active");
+    }); 
+    var pull = $('#pull');
+    var menu = $('nav .hmenu');
+    var menuHeight = menu.height();
+    $(pull).on('click', function(e){
+        e.preventDefault();
+        menu.slideToggle();
+    });
+    $(window).resize(function(){
+        var w = $(window).width();
+        if (w > 320 && menu.is(':hidden')) {
+            menu.removeAttr('style');
+        }
+    });                 
+    $("select[name='select_category']").change(function(){
+        $("#select_course_wrapper").html("<select name=\"select_course\" class=\"selectyze\" style=\"display:none\"></select>");
+        var fk_id_course_category = $("select[name='select_category']").selectedValues();
+        var input = { "fk_id_course_category" : fk_id_course_category[0], "active" : 1, "length" : 36 };
+        $("select[name='select_course']").removeOption(/./);
+        $("select[name='select_course']").addOption("", "Select...");
+        $("select[name='select_course']").ajaxAddOption("/backend/ajax/coursessplit/", input, false, function(){
+            $(this).removeAttr("style");
+            $(this).Selectyze({
+                theme : 'grey',
+                click : true
+            }); 
+        });     
+    }); 
+});
+function selectyzeClick(id) {
+    document.location = "/backend/norender/coursefinder?type=main&select_category="+$("select[name='select_category'] option:selected").val()+"&select_course="+id;
+}
+//]]>    
+</script>
+<script type="text/javascript" src="https://www.dorset-college.ie/js/jquery_002.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+$("html").addClass("js");
+$.fn.accordion.defaults.container = false; 
+$(function(){
+    if ($(window).width() < 768) {     
+        $("#acc3").accordion({initShow: "#current"});
+    }
+    $("html").removeClass("js");
+});
+//]]>    
+</script>
+<script>
+ (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+ })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ ga('create', 'UA-1715129-1', 'auto');
+ ga('send', 'pageview');
+
+</script>
+<script src="https://www.dorset-college.ie/js/jquery.cookie.js"></script>
+<script src="https://www.dorset-college.ie/js/jquery.cookiecuttr.js"></script>
+<link rel="stylesheet" href="https://www.dorset-college.ie/css/cookiecuttr.css" type="text/css" />
+<script type="text/javascript">
+$(document).ready(function () {
+    $.cookieCuttr({
+        cookieCutter:true,
+        cookieNotificationLocationBottom:true,
+        cookieAnalyticsMessage:'We use cookies, just to track visits to our website, we store no personal details.',
+        cookieAcceptButtonText:'HIDE THIS MESSAGE',
+        cookieWhatAreLinkText:'More information',        
+        cookieWhatAreTheyLink:"https://www.dorset-college.ie/privacy_policy"
+    });    
+});
+</script>
+<title>Error 500 - Dorset College Dublin</title>
+
+<meta name="robots" content="noindex,nofollow" >
+
+
+</head>
+<body>
+    <div id="floatdiv"><div id="sidebar"><div id="facebook"><a href="https://www.facebook.com/dorsetcollege" target="_blank"><img class="socialbutton" src="https://www.dorset-college.ie/img/socialmedia/facebook-ON.png" alt="My Facebook" name="facebook" border="0" id="facebook" /></a></div><div id="twitter"><a href="https://twitter.com/DorsetCollege_" target="_blank"><img class="socialbutton" src="https://www.dorset-college.ie/img/socialmedia/twitter-ON.png" alt="My Twitter" name="twitter" border="0" id="twitter" /></a></div><div id="linkedin"><a href="https://www.linkedin.com/company/dorset-college-dublin?trk=nav_account_sub_nav_company_admin" target="_blank" ><img class="socialbutton" src="https://www.dorset-college.ie/img/socialmedia/linkedin-ON.png" alt="My LinkedIn" name="linkedin" border="0" id="linkedin" /></a></div><div id="google"><a href="https://plus.google.com/111853502727868125529/posts" target="_blank" ><img class="socialbutton" src="https://www.dorset-college.ie/img/socialmedia/googleplus-ON.png" alt="My GooglePlus" name="google" border="0" id="google" /></a></div><div id="blogger"><a href="http://dorset-college.ie/blog/" target="_blank" ><img class="socialbutton" src="https://www.dorset-college.ie/img/socialmedia/blogger-ON.png" alt="My Blogger" name="blogger" border="0" id="blogger" /></a></div><div id="myspace"><a href="https://myspace.com/dorset.college" target="_blank"><img class="socialbutton" src="https://www.dorset-college.ie/img/socialmedia/myspace-ON.png" alt="My MySpace" name="myspace" border="0" id="myspace" /></a></div></div></div><script src="https://www.dorset-college.ie/js/sidebar.js"></script>    <div class="header">
+        <header>
+            <div class="wrapper">
+                <div class="topSec">
+                    <h1 class="logo"><a href="https://www.dorset-college.ie"><img src="https://www.dorset-college.ie/images/main/logo.png"></a></h1>
+                    <div class="sidebar-header">
+                        <div class="top">
+                            <div class="tmenu">
+                                <div class="lft"></div>
+                                <div class="mdle">
+                                    <ul class="toplink">
+                                        <li><a href="https://www.dorset-college.ie/studentlogin"><i class="fa fa-user"></i> Student Login</a></li>
+                                        <li><a href="https://www.dorset-college.ie/booking"><i class="fa fa-pencil-square-o"></i> Book Online</a></li>
+                                        <li><a href="https://www.dorset-college.ie/news"><i class="fa fa-newspaper-o"></i> News &amp; Events</a></li>
+                                        <li><a href="https://www.dorset-college.ie/jobs"><i class="fa fa-briefcase"></i> Jobs Corner</a></li>
+                                    </ul>
+                                </div>
+                                <div class="rgt"></div>
+                            </div>
+                        </div>
+                        <div class="botom">
+                            <div class="call">+353 1 8309677</div>
+                            <div class="contact"><a href="https://www.dorset-college.ie/contact">Contact Us</a></div>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="navigation">
+                    <nav class="navg"> <a href="https://www.dorset-college.ie" id="pull"><span>MENU</span></a>
+                        <ul  id="acc3" class="hmenu">
+                            <li><a href="https://www.dorset-college.ie">Home</a></li>
+                            <li><a href="#" class="drop">Study at Dorset College</a>
+                                <div class="dropdown_4columns nxt">
+                                    <div class="col_b">
+                                        <h3>General Information</h3>
+                                        <ul class="list4">
+                                            <li><a href="https://www.dorset-college.ie/generalinformation">Why Study at Dorset College</a></li>
+                                            <li><a href="https://www.dorset-college.ie/leavingcertificate">Leaving Certificate/A Level Applicants</a></li>
+                                            <li><a href="https://www.dorset-college.ie/qqiapplicants">QQI Applicants</a></li>
+                                            <li><a href="https://www.dorset-college.ie/matureapplicants">CAO Applicants / Mature Applicants</a></li>
+                                            <li><a href="https://www.dorset-college.ie/internationalapplicants">International Applicants</a></li>
+                                            <li><a href="https://www.dorset-college.ie/testimonials">Student Testimonials</a></li>
+                                            <li><a href="https://www.dorset-college.ie/teacherprofiles">Teacher/Lecturer Profiles</a></li>
+                                            <li><a href="https://www.dorset-college.ie/academicsupport">Academic Support</a></li>
+                                            <li><a href="https://www.dorset-college.ie/guidance">For Guidance Counsellors</a></li>
+                                            <li><a href="https://www.dorset-college.ie/accommodation">Accommodation</a></li>
+                                        </ul>   
+                                    </div>
+                                    <div class="col_b">
+                                        <div class="blue_box">
+                                            <h3>Faculties & Schools</h3>
+                                            <ul class="list4">
+                                            <li><a href="https://www.dorset-college.ie/courses/computing-multimedia">Computing & Multimedia</a></li><li><a href="https://www.dorset-college.ie/courses/business-accounting-law">Business, Accounting & Governance</a></li><li><a href="https://www.dorset-college.ie/courses/6/healthcare-childcare-education">Healthcare & Childcare Education</a></li><li><a href="https://www.dorset-college.ie/courses/7/international-students">International Students</a></li><li><a href="https://www.dorset-college.ie/courses/online-distance-learning">Blended & eLearning</a></li><li><a href="https://www.dorset-college.ie/courses/springboard">Springboard September 2017</a></li><li><a href="https://www.dorset-college.ie/courses/short_evening_courses_dublin">Short Evening Courses</a></li>                                            </ul>  
+                                        </div> 
+                                    </div>
+                                </div>
+                            </li>
+                            <li><a href="#" class="drop">Current Students</a>
+                                <div class="dropdown_4columns nxt">
+                                    <div class="col_b">
+                                        <h3>Student Information</h3>
+                                        <ul class="list4">
+                                            <li><a href="https://www.dorset-college.ie/studentlogin">E-Learning @ DC Moodle</a></li>
+                                            <li><a href="https://www.dorset-college.ie/library">Library & Computer Labs</a></li>
+                                            <li><a href="https://www.dorset-college.ie/calendar">College Calendar</a></li>
+                                            <li><a href="https://www.dorset-college.ie/furtherstudy">Further Study</a></li>
+                                            <li><a href="https://www.dorset-college.ie/examination">Examination Information</a></li>
+                                            <li><a href="https://www.dorset-college.ie/studentlife">Student Life</a></li>
+                                        </ul>   
+                                    </div>
+                                    <div class="col_b">
+                                        <h3>Career & Academic Progression</h3>
+                                        <ul class="list4">
+                                            <li><a href="https://www.dorset-college.ie/recognition">Recognition & Accreditation</a></li>
+                                            <li><a href="https://www.dorset-college.ie/itcertification">IT Certification Career Path</a></li>
+                                            <li><a href="https://www.dorset-college.ie/nationalframework">National Framework of Qualifications</a></li>
+                                            <li><a href="https://www.dorset-college.ie/jobs">Jobs Corner</a></li>
+                                        </ul>   
+                                    </div>
+                                </div>
+                            </li>
+                            <li><a href="#" class="drop">International Students</a>
+                                <div class="dropdown_4columns align_center nxt">
+                                    <div class="col_b">
+                                        <h3>Applying to Dorset College</h3>
+                                        <ul class="list4">
+                                            <li><a href="https://www.dorset-college.ie/whystudy">Why Study at Dorset College</a></li>
+                                            <li><a href="https://www.dorset-college.ie/studyingireland">Studying in Ireland</a></li>
+                                            <li><a href="https://www.dorset-college.ie/predeparture">Pre-Departure Information</a></li>
+                                            <li><a href="https://www.dorset-college.ie/courses/7/international-students">Courses</a></li>
+                                        </ul> 
+                                    </div>
+                                    <div class="col_b">
+                                        <h3>English Language School</h3>
+                                        <ul class="list4">
+                                                                                    </ul>                                                                                 
+                                    </div>
+                                </div>
+                            </li>
+                            <!--<li><a href="#" class="drop">English Language</a>
+                                <div class="dropdown_4columns align_center nxt">
+                                <div class="col_b"></div>                                      
+                                </div>
+                            </li>-->
+                            <li><a href="https://www.dorset-college.ie/courses/online-distance-learning">E-Learning</a></li>
+                            <li><a href="https://www.dorset-college.ie/aboutus">About Us</a></li>
+                            <li><a href="http://www.coursesinenglish.ie" target="_blank">English Language School</a></li>
+                        </ul>
+                    </nav>
+                    </div>
+            </div>    
+        </header>
+    </div>
+    <div class="bodyContainer">
+        <div class="wrapper">
+            <div class="lftCont"><h1>Error 500</h1>
+<h2>We are sorry, but the page you were looking for can't be found.</h2>
+<img src="https://www.dorset-college.ie/img/question-mark.jpg"/>
+</div><div class="rgtCont"><div class="sec2">
+    <h2>Course Finder</h2>
+    <div class="cont">
+        <form action="https://www.dorset-college.ie/backend/norender/coursefinder">
+            <input type="hidden" name="type" value="main"/>
+            <div class="user1">
+                <label>Category</label>
+                <select name="select_category" class="selectyze">
+                    <option value="">Select...</option>
+                    <option value="3">Computing & Multimedia</option>
+<option value="2">Business, Accounting & Governance</option>
+<option value="6">Healthcare & Childcare Education</option>
+<option value="7">International Students</option>
+<option value="1">Blended & eLearning</option>
+<option value="15">Springboard September 2017</option>
+<option value="20">Short Evening Courses</option>
+                </select>
+            </div>
+            <div class="user1">
+                <label>Course</label>
+                <span id="select_course_wrapper">
+                <select name="select_course" class="selectyze">
+                    <option value="">Select...</option>
+                                      
+                </select>
+                </span>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="clear"></div>
+<div class="btn2"><a href="https://www.dorset-college.ie/enquire"><i class="fa fa-question-circle"></i> Enquire Online</a></div><div class="clear"></div>
+<div class="btn1"><a href="https://www.dorset-college.ie/brochure"><i class="fa fa-file-pdf-o"></i> Request a Brochure</a></div><div class="clear"></div>
+<div class="btn2"><a href="https://www.dorset-college.ie/booking"><i class="fa fa-pencil-square-o"></i> Course Registration Form</a></div><div class="clear"></div>
+<div class="expand_wrapper1">
+    <h2 class="expand_heading1" id="expand_course_category"><a href="#">Faculties & Schools</a></h2>
+    <div class="toggle_container">
+        <ul class="list1">
+            <li><a href="https://www.dorset-college.ie/courses/computing-multimedia">Computing & Multimedia</a></li>
+<li><a href="https://www.dorset-college.ie/courses/business-accounting-law">Business, Accounting & Governance</a></li>
+<li><a href="https://www.dorset-college.ie/courses/6/healthcare-childcare-education">Healthcare & Childcare Education</a></li>
+<li><a href="https://www.dorset-college.ie/courses/7/international-students">International Students</a></li>
+<li><a href="https://www.dorset-college.ie/courses/online-distance-learning">Blended & eLearning</a></li>
+<li><a href="https://www.dorset-college.ie/courses/springboard">Springboard September 2017</a></li>
+<li><a href="https://www.dorset-college.ie/courses/short_evening_courses_dublin">Short Evening Courses</a></li>
+          
+        </ul>
+    </div>
+        <h2 class="expand_heading1"><a href="#">General Information</a></h2>
+    <div class="toggle_container">
+        <ul class="list1">
+            <li><a href="https://www.dorset-college.ie/generalinformation">Why Study at Dorset College</a></li>
+            <li><a href="https://www.dorset-college.ie/leavingcertificate">Leaving Certificate/A Level Applicants</a></li>
+            <li><a href="https://www.dorset-college.ie/qqiapplicants">QQI Applicants</a></li>
+            <li><a href="https://www.dorset-college.ie/matureapplicants">CAO Applicants / Mature Applicants</a></li>
+            <li><a href="https://www.dorset-college.ie/internationalapplicants">International Applicants</a></li>
+            <li><a href="https://www.dorset-college.ie/testimonials">Student Testimonials</a></li>
+            <li><a href="https://www.dorset-college.ie/teacherprofiles">Teacher/Lecturer Profiles</a></li>
+            <li><a href="https://www.dorset-college.ie/academicsupport">Academic Support</a></li>
+            <li><a href="https://www.dorset-college.ie/guidance">For Guidance Counsellors</a></li>
+            <li><a href="https://www.dorset-college.ie/accommodation">Accommodation</a></li>
+        </ul>
+    </div>
+    <h2 class="expand_heading1"><a href="#">Vacancy List</a></h2>
+    <div class="toggle_container">
+        <ul class="list1">
+            <li><a href="https://www.dorset-college.ie/jobs/list">All Vacancies</a></li>        </ul>
+    </div>
+    <!--<h2 class="expand_heading1"><a href="#">Job Application</a></h2>
+    <div class="toggle_container">
+        <ul class="list1">
+            <li><a href="https://www.dorset-college.ie/cv">Writing a C.V.</a></li>
+            <li><a href="https://www.dorset-college.ie/coverletter">Cover Letter</a></li>
+            <li><a href="https://www.dorset-college.ie/interview">Prepare for Interview</a></li>
+        </ul>
+    </div>-->
+    <h2 class="expand_heading1"><a href="#">Career & Academic Progression</a></h2>
+    <div class="toggle_container">
+        <ul class="list1">
+            <li><a href="https://www.dorset-college.ie/recognition">Recognition & Accreditation</a></li>
+            <li><a href="https://www.dorset-college.ie/itcertification">IT Certification Career Path</a></li>
+            <li><a href="https://www.dorset-college.ie/nationalframework">National Framework of Qualifications</a></li>
+            <li><a href="https://www.dorset-college.ie/jobs">Jobs Corner</a></li>
+        </ul>
+    </div>
+        <h2 class="expand_heading1"><a href="#">Useful Links</a></h2>
+    <div class="toggle_container">
+        <ul class="list1">
+            <li><a style="text-decoration:underline;text-decoration-style:dotted" href="http://www.icosirl.ie/" target="_blank">Irish Council for International Students</a></li><li><a style="text-decoration:underline;text-decoration-style:dotted" href="http://www.acels.ie" target="_blank">QQI ACELS</a></li>          
+        </ul>
+    </div>
+</div>
+<div class="sec1">
+    <h2><p>News &amp; Events</p></h2>
+    <div class="cont">
+          
+        <div class="newscont">
+                        <h3><a href="https://www.dorset-college.ie/news/16/graduation-2017">Graduation 2017</a></h3>
+            <span><i class="fa fa-calendar"></i> 07/10/2017</span>
+            <p><a href="https://www.dorset-college.ie/news/16/graduation-2017">The 2017 Graduation will take place at Croke Park&nbsp; on the 30th November&nbsp;at 10.00 a.m.
+
+</a></p>
+        </div>
+    <div class="hr1"><hr></div>      
+        <div class="newscont">
+                        <h3><a href="https://www.dorset-college.ie/news/14/dorset-college-open-days">Dorset College Open Days</a></h3>
+            <span><i class="fa fa-calendar"></i> 07/08/2017</span>
+            <p><a href="https://www.dorset-college.ie/news/14/dorset-college-open-days">Please join us at&nbsp;our Campus: 8 Belvedere Place, Dublin 1, &nbsp;for the Diploma Short Courses Open Day on Tuesday...</a></p>
+        </div>
+        </div>
+</div>
+<div class="clear"></div>
+</div>
+        </div>
+    </div>
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+<style>
+.footer{-sgs-span-settings:("span": 12, "location": 1, "grid": 12, "gutter": .25, "style": "opposite", "start row": true, "end row": true, "fixed gutter": false, "split gutter": null, "gutter property": "margin", "options": (null: null));width:100%;float:right;margin-left:0;margin-right:0;clear:none;padding-top:4em}.footer ul{margin:0;padding:0}.footer ul li{list-style:none;font-family:'Open Sans', sans-serif;font-size:11px;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}@media (min-width: 990px){.footer ul li{font-size:13px}}.footer ul li a{color:#fff;text-decoration:none;font-weight:lighter;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.footer ul li a:hover{text-decoration:underline}.footer h2{font-family:'Open Sans', sans-serif;font-weight:bold;color:#fff;text-transform:uppercase;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-size:12px;padding:0 1.5em 0 1.5em}@media (min-width: 990px){.footer h2{height:38px;font-size:14px;margin:0 0;padding:0 0 .7em 0}}.footer .footer-top{-sgs-span-settings:("span": 12, "location": 1, "grid": 12, "gutter": .25, "style": "opposite", "start row": true, "end row": true, "fixed gutter": false, "split gutter": null, "gutter property": "margin", "options": (null: null));width:100%;float:right;margin-left:0;margin-right:0;clear:none;background-color:#202022}.footer .footer-top ul li{padding:.3em 1.8em .3em 1.8em}@media (min-width: 990px){.footer .footer-top ul li{padding:.3em 0 .3em 0}}.footer .footer-top .footer-links{-sgs-span-settings:("span": 12, "location": 1, "grid": 12, "gutter": .25, "style": "opposite", "start row": true, "end row": true, "fixed gutter": false, "split gutter": null, "gutter property": "margin", "options": (null: null));width:100%;float:right;margin-left:0;margin-right:0;clear:none;padding:1em 0 .8em 0}.footer .footer-top .footer-links .reg-footer-first,.footer .footer-top .footer-links .reg-footer-second,.footer .footer-top .footer-links .reg-footer-third,.footer .footer-top .footer-links .reg-footer-fourth,.footer .footer-top .footer-links .reg-footer-fifth{margin-bottom:1em}@media (min-width: 376px){.footer .footer-top .footer-links .reg-footer-first,.footer .footer-top .footer-links .reg-footer-third{-sgs-span-settings:("span": 6, "location": 1, "grid": 12, "gutter": .25, "style": "opposite", "start row": true, "end row": false, "fixed gutter": false, "split gutter": null, "gutter property": "margin", "options": (null: null));width:49.15254%;float:left;margin-right:-100%;margin-left:0;clear:none;float:left;clear:left}.footer .footer-top .footer-links .reg-footer-second,.footer .footer-top .footer-links .reg-footer-fourth{-sgs-span-settings:("span": 6, "location": 7, "grid": 12, "gutter": .25, "style": "opposite", "start row": false, "end row": true, "fixed gutter": false, "split gutter": null, "gutter property": "margin", "options": (null: null));width:49.15254%;float:right;margin-left:0;margin-right:0;clear:none}.footer .footer-top .footer-links .reg-footer-fifth{-sgs-span-settings:("span": 12, "location": 1, "grid": 12, "gutter": .25, "style": "opposite", "start row": true, "end row": true, "fixed gutter": false, "split gutter": null, "gutter property": "margin", "options": (null: null));width:100%;float:right;margin-left:0;margin-right:0;clear:none;margin-top:1em}}@media (min-width: 990px){.footer .footer-top .footer-links .reg-footer-first{-sgs-span-settings:("span": 2.4, "location": 1, "grid": 12, "gutter": .25, "style": "opposite", "start row": true, "end row": false, "fixed gutter": false, "split gutter": null, "gutter property": "margin", "options": (null: null));width:18.64407%;float:left;margin-right:-100%;margin-left:0;clear:none}.footer .footer-top .footer-links .reg-footer-second{-sgs-span-settings:("span": 2.4, "location": 3.4, "grid": 12, "gutter": .25, "style": "opposite", "start row": false, "end row": false, "fixed gutter": false, "split gutter": null, "gutter property": "margin", "options": (null: null));width:18.64407%;float:left;margin-right:-100%;margin-left:20.33898%;clear:none}.footer .footer-top .footer-links .reg-footer-third{-sgs-span-settings:("span": 2.4, "location": 5.8, "grid": 12, "gutter": .25, "style": "opposite", "start row": false, "end row": false, "fixed gutter": false, "split gutter": null, "gutter property": "margin", "options": (null: null));width:18.64407%;float:left;margin-right:-100%;margin-left:40.67797%;clear:none}.footer .footer-top .footer-links .reg-footer-fourth{-sgs-span-settings:("span": 2.4, "location": 8.2, "grid": 12, "gutter": .25, "style": "opposite", "start row": false, "end row": false, "fixed gutter": false, "split gutter": null, "gutter property": "margin", "options": (null: null));width:18.64407%;float:left;margin-right:-100%;margin-left:61.01695%;clear:none}.footer .footer-top .footer-links .reg-footer-fifth{-sgs-span-settings:("span": 2.4, "location": 10.6, "grid": 12, "gutter": .25, "style": "opposite", "start row": false, "end row": true, "fixed gutter": false, "split gutter": null, "gutter property": "margin", "options": (null: null));width:18.64407%;float:right;margin-left:0;margin-right:0;clear:none;margin-top:0}}.footer .footer-bottom{-sgs-span-settings:("span": 12, "location": 1, "grid": 12, "gutter": .25, "style": "opposite", "start row": true, "end row": true, "fixed gutter": false, "split gutter": null, "gutter property": "margin", "options": (null: null));width:100%;float:right;margin-left:0;margin-right:0;clear:none;background-color:#E9E9E9}.footer .footer-bottom ul li{display:inline-block}.footer .footer-bottom ul li a{color:#202022}.footer .footer-bottom .wrapper{text-align:center;padding:.5em 0 .5em 0}.footer .footer-bottom .terms{-sgs-span-settings:("span": 12, "location": 1, "grid": 12, "gutter": .25, "style": "opposite", "start row": true, "end row": true, "fixed gutter": false, "split gutter": null, "gutter property": "margin", "options": (null: null));width:100%;float:right;margin-left:0;margin-right:0;clear:none}@media (min-width: 990px){.footer .footer-bottom .terms{margin-bottom:.5em}}.footer .footer-bottom .copy{-sgs-span-settings:("span": 12, "location": 1, "grid": 12, "gutter": .25, "style": "opposite", "start row": true, "end row": true, "fixed gutter": false, "split gutter": null, "gutter property": "margin", "options": (null: null));width:100%;float:right;margin-left:0;margin-right:0;clear:none;margin-top:.5em;margin-bottom:.5em}
+</style>
+<div class="footer">
+  <div class="footer-top">
+    <div class="wrapper">
+      <div class="footer-links">
+        <div class="reg-footer-first">
+          <h2>Business Accounting Courses</h2>
+          <ul>
+            <li>
+              <a href="https://www.dorset-college.ie/courses/business-accounting-law">Bachelor of Business Level 7</a>
+            </li>
+            <li>
+              <a href="https://www.dorset-college.ie/course/11/bachelor-of-business-level-7">Bachelor of Business in International Business QQI Level 8</a>
+            </li>
+            <li>
+              <a href="https://www.dorset-college.ie/course/122/bachelor-of-business-in-international-business-l8">Governance, Compliance & Data Protection in Financial Services</a>
+            </li>
+            <li>
+              <a href="https://www.dorset-college.ie/course/certificate-in-lean-six-sigma-green-belt">Lean Six Sigma Green Belt</a>
+            </li>
+            <li>
+              <a href="https://www.dorset-college.ie/course/12/acca-diploma-accounting-business">ACCA Diploma in Accounting and Finance</a>
+            </li>
+            <li>
+              <a href="https://www.dorset-college.ie/course/63/accounting-manual-computerised-l5">Accounting Manual and Computerised</a>
+            </li>
+            <li>
+              <a href="https://www.dorset-college.ie/course/19/cipd-certificate-in-human-resource-practice">CIPD Certificate in Human Resource Practice</a>
+            </li>
+          </ul>
+        </div>
+        <div class="reg-footer-second">
+          <h2>Computer Programming Courses</h2>
+          <ul>
+            <li>
+              <a href="https://www.dorset-college.ie/courses/computing-multimedia">BSc in Computing and Multimedia QQI Level 7</a>
+            </li>
+            <li>
+              <a href="https://www.dorset-college.ie/course/38/certificate-in-java-programming">Java Programing QQI Level 7</a>
+            </li>
+            <li>
+              <a href="https://www.dorset-college.ie/course/32/ccna-cisco-certified-network-associate-routing-switching">CISCO CCNA Cisco Certified Network Associate</a>
+            </li>
+            <li>
+              <a href="https://www.dorset-college.ie/course/31/comptia-a-cisco-it-essentials-qqi-level-6-special-award">CompTIA A+ Network Essentials</a>
+            </li>
+            <li>
+              <a href="https://www.dorset-college.ie/course/40/european-computer-driving-licence">ECDL European Computer Driving Licence</a>
+            </li>
+            <li>
+              <a href="https://www.dorset-college.ie/course/mcsa-windows-server-2012">Microsoft Certified Solutions Associate (MCSA)</a>
+            </li>
+            <li>
+              <a href="https://www.dorset-college.ie/course/34/game-analysis-design">Games Analysis Design</a>
+            </li>
+          </ul>
+        </div>
+        <div class="reg-footer-third">
+          <h2>Childcare Healthcare Courses</h2>
+          <ul>
+            <li>
+              <a href="https://www.dorset-college.ie/course/173/bachelor-of-science-in-early-childhood-care-health-and-education">BSc in Early Childhood Care, Health and Education</a>
+            </li>
+            <li>
+              <a href="https://www.dorset-college.ie/course/ecce-with-montessori-l6-major-award">Montessori & Early Childhood Care & Education L6</a>
+            </li>
+            <li>
+              <a href="https://www.dorset-college.ie/course/56/supervision-in-early-childhood-care">Supervision in Early Childhood Care</a>
+            </li>
+            <li>
+              <a href="https://www.dorset-college.ie/course/29/nursing-studies-l5-major-award-pt">Nursing Studies Level 5</a>
+            </li>
+            <li>
+              <a href="https://www.dorset-college.ie/course/59/healthcare-support-evening-l5-major-award">Healthcare Support Level 5</a>
+            </li>
+            <li>
+              <a href="https://www.dorset-college.ie/course/58/special-needs-assisting-level-6">Special Needs Assistant</a>
+            </li>
+          </ul>
+        </div>
+        <div class="reg-footer-fourth">
+          <h2>International & Other</h2>
+          <ul>
+            <li>
+              <a href="https://www.dorset-college.ie/course/47/international-foundation-in-science-and-health">International Foundation Science and Health</a>
+            </li>
+            <li>
+              <a href="https://www.dorset-college.ie/course/46/international-foundation-in-engineering">International Foundation Engineering</a>
+            </li>
+            <li>
+              <a href="https://www.dorset-college.ie/course/45/international-foundation-in-business">International Foundation Business</a>
+            </li>
+            <li>
+              <a href="http://www.coursesinenglish.ie/course/74/standard-general-english">General English Language </a>
+            </li>
+            <li>
+              <a href="http://www.coursesinenglish.ie/course/79/ielts-preparation">Academic English Courses</a>
+            </li>
+            <li>
+              <a href="https://www.dorset-college.ie/course/18/training-development-l6">Train the Trainer Level 6</a>
+            </li>
+          </ul>
+        </div>
+        <div class="reg-footer-fifth">
+          <h2>Short Evening Courses</h2>
+          <ul>
+            <li>
+              <a href="https://www.dorset-college.ie/course/mobile_app_development">Mobile App Development</a>
+            </li>
+            <li>
+              <a href="https://www.dorset-college.ie/course/diploma_web_design">Diploma in Web Design</a>
+            </li>
+            <li>
+              <a href="https://www.dorset-college.ie/course/digital_marketing">Digital Marketing for SMEs</a>
+            </li>
+            <li>
+              <a href="https://www.dorset-college.ie/course/data_analytics">Predictive Data Analytics</a>
+            </li>
+            <li>
+              <a href="https://www.dorset-college.ie/course/marketing_social_media_skills">Marketing and Social Media Skills</a>
+            </li>
+            <li>
+              <a href="https://www.dorset-college.ie/course/certificate-in-lean-six-sigma-green-belt">Lean Six Sigma</a>
+            </li>
+            <li>
+              <a href="https://www.dorset-college.ie/course/event_management">Event Management & Public Relations</a>
+            </li>
+            <li>
+              <a href="https://www.dorset-college.ie/course/retail_management">Diploma in Retail Management</a>
+            </li>
+            <li>
+              <a href="https://www.dorset-college.ie/course/diploma_in_mediation">Principles of Mediation, Conciliation & Arbitration</a>
+            </li>
+            <li>
+              <a href="https://www.dorset-college.ie/course/office_administration_skills">Diploma in Office & Administration Skills</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="wrapper">
+      <div class="terms">
+        <ul>
+          <li>
+            <a href="https://www.dorset-college.ie/disclaimer">Disclaimer</a>
+          </li>
+          <span> | </span>
+          <li>
+            <a href="https://www.dorset-college.ie/termsconditions">Terms &amp; Conditions</a>
+          </li>
+          <span> | </span>
+          <li>
+            <a href="https://www.dorset-college.ie/refundpolicy">Refund Policy</a>
+          </li>
+          <span> | </span>
+          <li>
+            <a href="https://www.dorset-college.ie/privacypolicy">Privacy Policy</a>
+          </li>
+          <span> | </span>
+          <li>
+            <a href="https://www.dorset-college.ie/policiesandprocedures">Policies &amp; Procedures</a>
+          </li>
+        </ul>
+      </div>
+      <div class="copy">
+        <ul>
+          <li>© Copyright Dorset College 2017. All rights reserved</li>
+          <span> | </span>
+          <li>Computer Training Specialists Ltd.</li>
+          <span> | </span>
+          <li>Registered in the Republic of Ireland No. 1789322</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+    
+    <script type="text/javascript" src="https://www.dorset-college.ie/jquery/Selectyze.jquery.js"></script>
+    <script type="text/javascript">
+    //<![CDATA[
+    $(document).ready(function(){
+        $(".selectyze").each(function(index) {
+            if ($(this).attr("name") == "select_course") {
+                $(this).Selectyze({
+                    theme : 'grey',
+                    click : true
+                });             
+            } else {
+                $(this).Selectyze({
+                    theme : 'grey'
+                });             
+            }
+        });
+        $('#show_fees_schedule').click(function() {
+            $('#fees_schedule').show("fast");
+        });
+    });
+    if (($("#horizontalTab").length > 0)) {
+        $('#horizontalTab').easyResponsiveTabs({
+            type: 'default',           
+            width: 'auto',
+            fit: true,
+            closed: 'accordion',
+            activate: function(event){
+                var $tab = $(this);
+                var $info = $('#tabInfo');
+                var $name = $('span', $info);
+                $name.text($tab.text());
+                $info.show();
+            }
+        });
+    }       
+    //]]> 
+    </script>
+</body>
+</html>

@@ -1,0 +1,2195 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr" prefix="fb: http://ogp.me/ns/fb# og: http://ogp.me/ns# article: http://ogp.me/ns/article# book: http://ogp.me/ns/book# profile: http://ogp.me/ns/profile# video: http://ogp.me/ns/video# product: http://ogp.me/ns/product#">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+<meta name="fragment" content="!" />
+<meta http-equiv="cleartype" content="on" />
+<link rel="profile" href="http://www.w3.org/1999/xhtml/vocab" />
+<meta name="HandheldFriendly" content="true" />
+<meta name="google-site-verification" content="OL0_MNVhexxZbhCV49eYUaMO8fGOX-dqPg2URebnHhk" />
+<script id="/sites/all/modules/glomo/shared/gm_locations/components/profile-modal/profile-modal.html" type="text/ng-template"><div class="profile-modal">
+  <div data-twc-modal
+       data-width="{{modal.width}}"
+       data-height="{{modal.height}}"
+       data-show-it="showProfileModal"
+       data-header=""
+       data-body='<iframe src="{{iframeSrc}}" width="100%" height="{{modal.height}}"></iframe>'
+       data-dialog-template="/sites/all/modules/custom/angularmods/modules/header_main_menu/templates/ups_modal.html"
+       data-footer="<a href=''>sign in</a>">
+  </div>
+</div>
+</script><script src="//tags.crwdcntrl.net/c/1884/cc.js?ns=_cc1884" id="LOTCC_1884"></script><script id="/sites/all/modules/glomo/modules/gm_header_savedlocations/templates/gm_user_locations_template.html" type="text/ng-template"><a id="wx-twc-logo" data-ng-href="{{::settings.logoUrl}}" title="{{::('The Weather Channel - weather.com' | pfTranslate: {context: 'gm_header_savedlocations'})}}" data-from-str="hdr_logo"><img id="wx-twc-logo-img" src="//s.w-x.co/TWC_logo_100x100.gif"></a> <!-- TODO: Remove after demo -->
+<ul class="nav nav-tabs header-savedlocation-wrapper">
+  <li class="saved-locations left-block">
+    <ul class="nav nav-tabs">
+      <li data-ng-repeat="location in locations">
+        <a data-ng-href="{{::location.locUrl}}"
+           data-ng-class="{'non-alert': !location.alert.count}">
+          <span class="wx-iconfont-global condition-icon wx-icon-code-{{::location.skyCode}}"></span>
+          <span class="text">
+            <span data-ng-bind="::location.temp"></span>
+            <span class="deg" data-ng-if="::(location.temp && location.temp !== 'N/A')">&deg;</span>
+            <span data-ng-bind="location.label"></span>
+          </span>
+          <span data-ng-if="::location.alert.count" class="pull-right badge bg-alert-{{::location.alert.severity}}" data-ng-bind="::location.alert.count"></span>
+        </a>
+      </li>
+      <li class="dropdown dropdown-local" data-dropdown data-ng-if="otherLocations.length">
+        <a href="" class="dropdown-toggle control" data-dropdown-toggle aria-haspopup="true" aria-expanded="true">
+          <span class="wx-iconfont-global wx-icon-arrow-down-2"></span>
+        </a>
+        <ul class="dropdown-menu nav">
+          <li data-ng-repeat="location in otherLocations">
+            <a data-ng-href="{{::location.locUrl}}"
+              data-ng-class="{'non-alert': !location.alert.count, 'has-alert': location.alert.count}">
+              <span class="wx-iconfont-global condition-icon wx-icon-code-{{::location.skyCode}}"></span>
+              <span class="text">
+                <span data-ng-bind="::location.temp"></span>
+                <span class="deg" data-ng-if="::(location.temp && location.temp !== 'N/A')">&deg;</span>
+                <span data-ng-bind="location.label"></span>
+              </span>
+              <span data-ng-if="::location.alert.count" class="pull-right badge bg-alert-{{::location.alert.severity}}" data-ng-bind="::location.alert.count"></span>
+            </a>
+          </li>
+          <li class="control-locations" data-ng-if="settings.manageLocationsUrl">
+            <hr/>
+            <a data-ng-href="{{::settings.manageLocationsUrl}}" target="_self">
+              <span class="text" data-ng-bind="::('Manage All Locations' | pfTranslate: {context: 'gm_header_savedlocations'})"></span>
+              <span class="wx-iconfont-global wx-icon-arrow-right pull-right"></span>
+            </a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li class="left-block" data-ng-if="!otherLocations.length && settings.manageLocationsUrl && settings.canShowButtonPlus">
+    <a data-ng-href="{{::settings.manageLocationsUrl}}" target="_self" class="control">
+      <span class="wx-iconfont-global wx-icon-plus"></span>
+    </a>
+  </li>
+  <li class="right-block dropdown settings-loc" data-wx-settings data-on-temp-unit-changed="tempUnitChanged()" data-dropdown data-gm-settings="settings">
+    <span class="wx-iconfont-global wx-icon-settings"></span>
+  </li>
+</ul>
+<!-- Location Migration: Message Banner-->
+<div data-gm-header-saved-locations-location-migration data-module-id="{{::moduleId}}"></div>
+<gm-locations-profile-modal data-custom-message-key="locationsmerge"></gm-locations-profile-modal>
+</script><script id="/sites/all/modules/glomo/shared/gm_locations/components/confirm-delete-modal/confirm-delete-modal.html" type="text/ng-template"><div class="gm-locations-modal gm-locations-error-modal">
+
+  <!-- Standard delete -->
+  <div data-ng-hide="confirmDelete.hasAlerts">
+    <div class="modal-header">
+      <h2 class="modal-title">Delete Location</h2>
+      <button class="close" data-ng-click="dismiss()">
+        <span class="wx-iconfont-global wx-icon-close"></span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <p>Are you sure you want to Delete <strong data-ng-bind="confirmDelete.displayName"></strong>?</p>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-primary" type="button" data-ng-click="confirm()">Yes, delete it</button>
+      <button class="btn btn-default" type="button" data-ng-click="dismiss()">Cancel</button>
+    </div>
+  </div>
+
+  <!-- Delete with Alerts -->
+  <div data-ng-show="confirmDelete.hasAlerts">
+    <div class="modal-header">
+      <h2 class="modal-title">Delete Location and&nbsp;Alerts</h2>
+      <button class="close" data-ng-click="dismiss()">
+        <span class="wx-iconfont-global wx-icon-close"></span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <p>Are you sure you want to Delete <strong data-ng-bind="confirmDelete.displayName"></strong>?</p>
+
+      <p class="vertical-gap20"><strong>By removing this location, you will no longer receive the following
+        alerts:</strong></p>
+
+      <div class="vertical-gap20">
+        <p data-ng-repeat="endpoint in confirmDelete.endpointsAlerts">
+          <span data-ng-bind="endpoint.name"></span>:
+            <span data-ng-repeat="alert in endpoint.alerts"><span data-ng-bind="alert.name"></span><span
+              data-ng-if="!$last">, </span></span>
+        </p>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-primary" type="button" data-ng-click="confirm()">Yes, delete it</button>
+      <button class="btn btn-default" type="button" data-ng-click="dismiss()">Cancel</button>
+    </div>
+  </div>
+
+</div>
+</script><script id="/sites/all/modules/glomo/shared/gm_locations/components/error-modal/error-modal.html" type="text/ng-template"><div class="gm-locations-modal gm-locations-error-modal">
+  <div class="modal-header">
+    <h2 class="modal-title" data-ng-bind="title"></h2>
+    <button class="close" data-ng-click="dismiss()">
+      <span class="wx-iconfont-global wx-icon-close"></span>
+    </button>
+  </div>
+  <div class="modal-body" data-ng-bind-html="message"></div>
+  <div class="modal-footer">
+    <button class="btn btn-primary" type="button" data-ng-click="dismiss()">Close</button>
+  </div>
+</div>
+</script><script id="/sites/all/modules/glomo/shared/gm_locations/components/migration-modal/migration-modal.html" type="text/ng-template"><div class="gm-locations-modal gm-locations-migration-modal">
+  <div class="modal-header">
+    <h2 class="modal-title">what's new</h2>
+    <button class="close" data-ng-click="dismiss()">
+      <span class="wx-iconfont-global wx-icon-close"></span>
+    </button>
+  </div>
+
+  <!-- modal body-->
+  <div class="modal-body top">
+    <img class="devices" src="/sites/all/modules/glomo/shared/gm_locations/images/devices.svg"></img>
+    <p class="body-text">Your locations are now saved and available anywhere you log in.</p>
+  </div>
+
+  <div data-ng-if="showActionNeededPart" class="action-needed-part">
+    <h3 class="modal-title sub">action needed</h3>
+    <p class="body-text">Please edit your locations list to 10.</p>
+  </div>
+  <a href="/life/profile" class="modal-btn btn btn-primary" type="button" data-ng-click="dismiss()">
+    manage my locations
+  </a>
+
+</div>
+</script><meta name="robots" content="follow, index" />
+<meta name="rating" content="general" />
+<meta name="referrer" content="no-referrer" />
+<meta name="viewport" content="width=device-width" />
+<meta name="generator" content="Drupal 7 (http://drupal.org)" />
+<link rel="canonical" href="https://weather.com/en-US/twc/privacy-policy" />
+<meta property="og:site_name" content="The Weather Channel" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://weather.com/en-US/twc/privacy-policy?_escaped_fragment_" />
+<meta property="og:image:url" content="https://s.w-x.co/240x180_twc_default.png" />
+<meta property="og:image:secure_url" content="https://s.w-x.co/240x180_twc_default.png" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@weatherchannel" />
+<meta name="twitter:url" content="https://weather.com/en-US/twc/privacy-policy" />
+<meta name="twitter:image" content="https://s.w-x.co/240x180_twc_default.png" />
+<meta name="lastmod" content="2016-01-28T17:03:30Z" />
+<meta name="pubdate" content="2016-01-28T17:03:30Z" />
+<meta name="theme-color" content="#003399" />
+<link rel="icon" href="https://s.w-x.co/TWC.svg" sizes="any" mask="mask" />
+  <script>var windowRenderStartTime = (new Date()).getTime();</script>
+  <title></title>
+
+  <link href='//fonts.googleapis.com/css?family=Open+Sans:300,400,600' rel='stylesheet' type='text/css'>
+  <link rel="shortcut icon" href="/sites/all/themes/radix/images/twc-favicon.ico?1" />
+
+  <link type="text/css" rel="stylesheet" href="https://weather.com/sites/acquia-prod/files/css/css_9SqvRaxQivm4TJFiePqovwg71CICX9pBVOXKNJ0yNPY.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://weather.com/sites/acquia-prod/files/css/css_cN8AyhThwdV9jkS39MNww5NrzHiTEDnW53tC2pupFrg.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://weather.com/sites/acquia-prod/files/css/css_zl1w9Tv2VoNqUFhD5b1aPO29foazacOoIRKNvzSh30U.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://weather.com/sites/acquia-prod/files/css/css_brOpbmaG4SraqdIv07OouKxvvPRkDIVHVHOEU_VOc9Q.css" media="all" />
+  <script src="https://weather.com/sites/acquia-prod/files/js/js_rAX9IbnoQJIK7-Cw8Kin8OFlF4Cgj8I4SrbNAEqlMhA.js"></script>
+<script src="https://weather.com/sites/acquia-prod/files/js/js_uhKOd1qweqnCkJtnUKfwHvc07oIxT-x23ro1i84ckYw.js"></script>
+<script>
+        window['adrum-app-key'] = 'AD-AAB-AAA-FCA';
+        window['appdynamics_percentage'] = 10;
+        window['deferred_ads'] = {
+            enabled: 0 == true,
+            timeout: 1000,
+            targetPages: ''
+        };
+    </script>
+<script>
+      // For angular apps
+      window.twc = window.twc || {};
+      // For core apps
+      window.TWC = window.TWC || {};
+      window.TWC.Tealium={
+        'url'   : ''
+      };
+      window.TWC.Configs={
+        'dsx' :{
+          'host':   '//dsx.weather.com/',
+          'hostReadWrite': 'https://dsx-secure.weather.com',
+          'apiKey': '7bb1c920-7027-4289-9c96-ae5e263980bc',
+          'locale': (TWC && TWC.Titan && TWC.Titan.locale) || 'en_US' || 'en_US',
+          'cmsVersion': 'v4'
+        },
+        'ups': {
+          'host':   'https://dsx-secure.weather.com',
+          'apiKey': '7bb1c920-7027-4289-9c96-ae5e263980bc'
+        },
+        'image_poc' : {
+          'instart' : 0,
+          'akamai'  : 0
+         },
+        'debug' : 0,
+        'disable_lazyload': 0,
+        'lazy_load_ads': {
+          'viewport_padding': 0
+        },
+        'sunTurbo': {
+          'baseUrl': 'https://api.weather.com',
+          'apiKey': 'c1ea9f47f6a88b9acb43aba7faf389d4',
+          'locale': 'en-US' || 'en-us'
+        },
+        'openxOn': 0,
+        'geolocateOn': 1
+      };
+      window.TWC.AWS={
+        'sqs_url_prefix': 'https://sqs.us-east-1.amazonaws.com/',
+        'aws_acct'      : '747624766027',
+        'aws_queue'     : 'events_web_beacons',
+        'aws_bk'        : 'AKIAIR4OK3IKGQLCLMZQ',
+        'aws_tk'        : '/HImigBMiKPYC8r+S/cTCFqKKTpUvPpGah8xzq/a',
+        'aws_queue_ai'  : 'events_web_impressions',
+        'aws_bk_ai'     : 'AKIAJ3LHMO2UUXDG3DTQ',
+        'aws_tk_ai'     : 'B9QsmPA1HUE67LaPRZ2JLXEwouC9Gw77tLVswX2w',
+        'aws_queue_glue': 'events_GLUE_web',
+        'aws_bk_glue'   : 'AKIAJYTCZ7M2LSJL2LXA',
+        'aws_tk_glue'   : 'OmzNLL8Y6zMEbSbF5xSIXgQQwSnPVnzb63Ts51sm'
+
+      };
+      window.TWC.Video={
+      ais : {
+        'platformid'      : 'urn:weather:com:sp:prod:1',
+        'responsetarget'  : 'aisreturnprod'
+        }
+      },
+       window.TWC.profile={
+        'base_url'  : 'https://profile.weather.com'
+      };</script>
+<script src="https://weather.com/sites/acquia-prod/files/js/js_iMNDNbNFCj8XjLCYQTRf-4s5VBf7tj3nWCYoE4OBlfY.js"></script>
+<script src="//tags.tiqcdn.com/utag/weather/twc-openx/prod/utag.js"></script>
+<script src="https://weather.com/sites/acquia-prod/files/js/js_r7Kd0Bwa_kHTLuxMpbWHObkgDAoCALu7pvtBHdgsXXU.js"></script>
+<script src="https://weather.com/sites/acquia-prod/files/js/js_Nu6CtgwGjmd3hSUOk7T8FCe58RX1NPb-hM36zCK22BA.js"></script>
+<script>window.googletag = window.googletag || {};googletag.cmd = googletag.cmd || [];</script>
+<script>
+      // Disable console.log/debug/info
+      if (!TWC.Configs.debug) {
+        window.console = window.console || {};
+        console.log = function(){};
+        console.debug = function(){};
+        console.info = function(){};
+      }
+      TWC.pco=TWC.initpco(
+        jQuery,
+        {page:{
+          'ampm':       'pm',
+          'timezone':   'EST',
+          'serverdate': '01/31/2016',
+          'servertime': '21:38:13',
+          'locale':     'en-US',
+          'serverhrs':  '21',
+          'lang':       'en',
+          'serverday':  'Sun'
+        },ad:{}},
+        null,
+        null,
+        '{"error":"LOCATION_UNAVAILABLE"}'
+      );
+
+      (function($){
+        $(window).load(function () {
+          TWC && TWC.pco && TWC.pco && TWC.pco.setNodeValue('glue','percentage',.2);
+          window.glue && glue.timer('homepageload.display', 'Time it takes for window load to finish', windowRenderStartTime).end();
+          TWC && TWC.Events && TWC.Events.getEvent('glueReady').resolve();
+        });
+
+
+         if (window.deferred_ads && window.deferred_ads.targetPages &&
+            window.deferred_ads.targetPages.length && window.deferred_ads.targetPages.length > 0) {
+            var matchFound = false;
+            var targetPagesList = window.deferred_ads.targetPages.split(',');
+            for (var i = 0; i < targetPagesList.length; i++) {
+                var regexp = new RegExp(targetPagesList[i], 'i');
+                if (regexp.test(window.location.href)) {
+                    matchFound = true;
+                    break;
+                }
+            }
+
+            // no match found if broke out of loop early
+            // set deferred_ads.enabled to false
+            if (!matchFound) {
+                window.deferred_ads.enabled = false;
+            }
+        }
+
+        if (window.deferred_ads && window.deferred_ads.enabled) {
+            setTimeout(function () {
+                if (TWC.Events.getEvent('window_loadReady').state() !== 'resolved') {
+                    TWC.Events.getEvent('window_loadReady').resolve();
+                    console.debug('window_loadReady resolved via callback');
+                }
+            }, window.deferred_ads.timeout);
+
+            $(window).load(function () {
+                if (TWC.Events.getEvent('window_loadReady').state() !== 'resolved') {
+                    TWC.Events.getEvent('window_loadReady').resolve();
+                    console.debug('window_loadReady resolved via window load');
+                }
+            });
+        } else {
+            TWC.Events.getEvent('window_loadReady').resolve();
+        }
+
+        TWC.Events.ifReady(['window_loadReady', 'utag_dataReady']).done(function(){
+          TWC.PcoUtils.setTiming('tealiumStart', (new Date()).getTime());
+          if (!window.callPhantom && window.utag && 'en-US' !== 'de-DE') {
+            utag.view(utag_data, null, ['11','22'])
+          }
+        });
+
+      })(jQuery);</script>
+<script>jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","dsxField":{"baseUrl":"https:\/\/dsx.weather.com","apikey":"7bb1c920-7027-4289-9c96-ae5e263980bc"},"wxnode_slideshow":{"endpoint":"\/wxnode\/ajax\/slideshows"},"twc":{"instance":{"9cd65d5c-daa6-4730-b1cf-c29cd9d7dea8":{"module_id":"footer","footer_twc_logo":1,"footer_international_links":[{"title":"USA","url":"https:\/\/weather.com\/?par=usa","target":"_self"},{"title":"GB (UK)","url":"https:\/\/weather.com\/en-GB","target":"_self"},{"title":"Deutschland (Deutsch)","url":"https:\/\/weather.com\/de-DE","target":"_self"},{"title":"Spanish (Espa\u00f1ol)","url":"https:\/\/weather.com\/es-US","target":"_self"},{"title":"India (India)","url":"https:\/\/weather.com\/en-IN","target":"_self"},{"title":"Brazil (Brasil)","url":"https:\/\/weather.com\/pt-BR","target":"_self"},{"title":"Japan (\u65e5\u672c)","url":"https:\/\/weather.com\/ja-JP","target":"_self"},{"title":"China (\u7b80\u4f53)","url":"https:\/\/weather.com\/zh-CN","target":"_self"},{"title":"China (\u9999\u6e2f)","url":"https:\/\/weather.com\/zh-TW","target":"_self"},{"title":"China (\u7e41\u9ad4)","url":"https:\/\/weather.com\/zh-TW","target":"_self"},{"title":"Arabisch (\u0627\u0644\u0639\u064e\u0631\u064e\u0628\u0650\u064a\u0629\u064f\u200e\u200e)","url":"https:\/\/ar.weather.com\/","target":"_self"},{"title":"D\u00e4nemark (Dansk)","url":"https:\/\/weather.com\/da-DK","target":"_self"},{"title":"Finnland (Suomi)","url":"https:\/\/weather.com\/fi-FI","target":"_self"},{"title":"Frankreich (Fran\u00e7ais)","url":"https:\/\/weather.com\/fr-FR","target":"_self"},{"title":"Griechenland (\u0395\u03bb\u03bb\u03b7\u03bd\u03b9\u03ba\u03ac)","url":"https:\/\/weather.com\/el-GR","target":"_self"},{"title":"Iran (\u0641\u0627\u0631\u0633\u06cc)","url":"https:\/\/fa.weather.com\/","target":"_self"},{"title":"Indonesien (Bahasa)","url":"https:\/\/weather.com\/id-ID","target":"_self"},{"title":"Israel (\u05e2\u05d1\u05e8\u05d9\u05ea)","url":"https:\/\/he.weather.com\/","target":"_self"},{"title":"Korea (\ud55c\uad6d\ub9d0)","url":"https:\/\/weather.com\/ko-KR","target":"_self"},{"title":"Kroatien (Hrvatski)","url":"https:\/\/weather.com\/hr-HR","target":"_self"},{"title":"Malaysia (Melayu)","url":"https:\/\/weather.com\/ms-MY","target":"_self"},{"title":"Niederlande (Nederlands)","url":"https:\/\/weather.com\/nl-NL","target":"_self"},{"title":"Norwegen (Norsk)","url":"https:\/\/weather.com\/no-NO","target":"_self"},{"title":"Polen (Polski)","url":"https:\/\/weather.com\/pl-PL","target":"_self"},{"title":"Portugal","url":"https:\/\/weather.com\/pt-PT","target":"_self"},{"title":"Rum\u00e4nien (Rom\u00e2ne\u0219te)","url":"https:\/\/weather.com\/ro-RO","target":"_self"},{"title":"Russland (\u0420\u0443\u0441\u0441\u043a\u0438\u0439)","url":"https:\/\/weather.com\/ru-RU","target":"_self"},{"title":"Schweden (Svenska)","url":"https:\/\/weather.com\/sv-SE","target":"_self"},{"title":"Slowakei (Sloven\u010dina)","url":"https:\/\/weather.com\/sk-SK","target":"_self"},{"title":"Thailand (\u0e1b\u0e23\u0e30\u0e40\u0e17\u0e28\u0e44\u0e17\u0e22)","url":"https:\/\/weather.com\/th-TH","target":"_self"},{"title":"Tschechien (\u010ce\u0161tina)","url":"https:\/\/weather.com\/cs-CZ","target":"_self"},{"title":"T\u00fcrkei (T\u00fcrk\u00e7e)","url":"https:\/\/weather.com\/tr-TR","target":"_self"},{"title":"Ukraine (\u0443\u043a\u0440\u0430\u0457\u043d\u0441\u044c\u043a\u0430)","url":"https:\/\/weather.com\/uk-UA","target":"_self"},{"title":"Ungarn (Magyar)","url":"https:\/\/weather.com\/hu-HU","target":"_self"},{"title":"Vi\u1ec7t Nam","url":"https:\/\/weather.com\/vi-VN","target":"_self"}],"footer_app_store_links":[{"title":"Download iOS App","url":"https:\/\/itunes.apple.com\/us\/app\/id295646461","target":"_blank"},{"title":"Download Android App","url":"http:\/\/c00.adobe.com\/9933ac58-35d5-41b5-80a8-93f2a0ff4ca1\/webfooterA\/g\/com.weather.Weather","target":"_blank"},{"title":"Windows Store","url":"https:\/\/www.microsoft.com\/en-us\/store\/apps\/the-weather-channel\/9wzdncrfhwsd","target":"_self"}],"footer_show_social":1,"footer_social_links":[{"title":"Like Us","url":"https:\/\/www.facebook.com\/TheWeatherChannel","target":"_self"},{"title":"Follow Us","url":"http:\/\/www.twitter.com\/weatherchannel","target":"_self"},{"title":"Add Us","url":"https:\/\/plus.google.com\/+TheWeatherChannel\/posts","target":"_self"},{"title":"Follow us on Instagram","url":"http:\/\/instagram.com\/weatherchannel","target":"_self"},{"title":"Watch us on Youtube","url":"http:\/\/www.youtube.com\/user\/TheWeatherChannel\/","target":"_self"}],"footer_company_links":[{"title":"Support","url":"http:\/\/feedback.weather.com\/","target":"_blank"},{"title":"Feedback","url":"http:\/\/feedback.weather.com\/","target":"_blank"},{"title":"Careers","url":"https:\/\/careers.weather.com\/?utm_source=careersite\u0026utm_campaign=Careersfooterlnk","target":"_blank"},{"title":"Press Room","url":"http:\/\/press.weather.com\/","target":"_blank"},{"title":"Advertise With Us","url":"http:\/\/advertising.weather.com\/contact\/","target":"_blank"},{"title":"Advertise- Self Service","url":"\/life\/local-advertise-self-serve","target":"_blank"},{"title":"Weather in Germany","url":"https:\/\/weather.com\/de-DE?par=weather_usa","target":"_self"}],"footer_legal_links":[{"title":"Terms of Use","url":"\/legal","target":"_self"},{"title":"Privacy Policy","url":"\/en-US\/twc\/privacy-policy","target":"_self"},{"title":"Parental Controls","url":"http:\/\/www.controlyourtv.org\/Intro.aspx","target":"_blank"},{"title":"Ad Choices","url":"\/services\/ad-choices.html","target":"_blank"},{"title":"Georgia Org","url":"http:\/\/www.cometourgeorgia.com\/weather","target":"_blank"},{"title":"Accessibility","url":"\/accessibility","target":"_self"}],"truste_consent":0,"module_version":"1.0.6"},"72ad428f-a70f-44d3-b2be-ea20039aab28":{"title_h2":"Privacy Policy","module_version":"1.0.6"},"2fb2a493-f168-4678-94eb-3fac9cd2f7f6":{"content_well":"\u003Cstyle\u003E\n#wx-wrapper .wxnode_opencontent_well {display:block !important;}\n.privacy-policy{font-size: 1.2em;background: #fff;padding: 5px;}\n.privacy-policy-content {border: solid; border-color: #f8f6e7; border-width: 1px;padding: 5px;}\n.privacy-policy-content ul {list-style-type: disc; padding-left: 2em;}\n.privacy-update-date{background-color: #ffffcd; border: 1px solid #ccc; padding: 10px; margin-bottom: 15px; color: #333;}\n.privacy-update-date a {font-weight: bold;}\nhr {border: 1px solid #a7c9e0;}\n.title_h2 h2.header2 {margin-bottom: auto;}\nh4 {font-size: 1.0em;font-weight:bold;}\np, h4 {margin:0 0 1em 0;}\na {color:#3C8ED3;word-break: break-all;}\na:hover {text-decoration: underline;}\n.privacy-list{margin-left:0; padding-left:1.8em;}\n.privacy-list li:before{font-weight:bold;}\n.italic {font-style: italic;}\n.center {text-align: center; font-weight: bold;}\n.nowrap {white-space: nowrap;}\n\u003C\/style\u003E\n\u003Cdiv class=\u0022privacy-policy\u0022\u003E\n  \u003Cdiv class=\u0022privacy-policy-content\u0022\u003E\n    \u003Cdiv id=\u0022privacy-date\u0022 class=\u0022privacy-update-date\u0022\u003EThank you for using our services. This privacy policy went into effect on January 29, 2016.\n    \u003C\/div\u003E\n    \u003Cdiv id=\u0022privacy-text\u0022 class=\u0022privacy-policy-text\u0022\u003E\n\u003Chr\u003E\n\u003Cp\u003EThe Weather Company (sometimes, \u201cwe\u201d or \u201cus\u201d) is committed to protecting your privacy. This Privacy Policy is important and we encourage you to carefully read it.\u003C\/p\u003E\n\u003Cp\u003EThis Privacy Policy discloses how we collect, use and share information that we gather about you on the weather.com\u00ae website (the \u201cSite\u201d) and our software applications, mobile applications and other websites and services that reference or link to this Privacy Policy (together, the \u201cServices\u201d).  This Privacy Policy also describes the choices you have regarding our use of and your ability to correct the information. The Services do not include websites, mobile applications or other services that link to another privacy policy.\u003C\/p\u003E\n\u003Col class=\u0022toc\u0022\u003E\n\u003Cli\u003E\u003Ca href=\u0022javascript:;\u0022 onclick=\u0022document.location.hash=\u0027us-our-truste-cert\u0027;\u0022\u003EOur TRUSTe Certification\u003C\/a\u003E\u003C\/li\u003E\n\u003Cli\u003E\u003Ca href=\u0022javascript:;\u0022 onclick=\u0022document.location.hash=\u0027us-how-we-collect\u0027;\u0022\u003EHow We Collect and Use Personal Data and Other Information\u003C\/a\u003E\u003C\/li\u003E\n\u003Cli\u003E\u003Ca href=\u0022javascript:;\u0022 onclick=\u0022document.location.hash=\u0027us-data-coll-tech\u0027;\u0022\u003EData Collection Technologies and Consumer Choice\u003C\/a\u003E\u003C\/li\u003E\n\u003Cli\u003E\u003Ca href=\u0022javascript:;\u0022 onclick=\u0022document.location.hash=\u0027us-how-we-share\u0027;\u0022\u003EHow We Share or Disclose Your Information\u003C\/a\u003E\u003C\/li\u003E\n\u003Cli\u003E\u003Ca href=\u0022javascript:;\u0022 onclick=\u0022document.location.hash=\u0027us-other-limitations\u0027;\u0022\u003EOther Limitations on Privacy\u003C\/a\u003E\u003C\/li\u003E\n\u003Cli\u003E\u003Ca href=\u0022javascript:;\u0022 onclick=\u0022document.location.hash=\u0027us-opting-out\u0027;\u0022\u003EOpting-Out, Access, Corrections and Cancellations\u003C\/a\u003E\u003C\/li\u003E\n\u003Cli\u003E\u003Ca href=\u0022javascript:;\u0022 onclick=\u0022document.location.hash=\u0027us-minors-privacy\u0027;\u0022\u003EMinors\u2019 Privacy and Submissions\u003C\/a\u003E\u003C\/li\u003E\n\u003Cli\u003E\u003Ca href=\u0022javascript:;\u0022 onclick=\u0022document.location.hash=\u0027us-international-xfer\u0027;\u0022\u003EInternational Transfer\u003C\/a\u003E\u003C\/li\u003E\n\u003Cli\u003E\u003Ca href=\u0022javascript:;\u0022 onclick=\u0022document.location.hash=\u0027us-our-commitment\u0027;\u0022\u003EOur Commitment to Security\u003C\/a\u003E\u003C\/li\u003E\n\u003Cli\u003E\u003Ca href=\u0022javascript:;\u0022 onclick=\u0022document.location.hash=\u0027us-changes-to-policy\u0027;\u0022\u003EChanges to the Privacy Policy\u003C\/a\u003E\u003C\/li\u003E\n\u003C\/ol\u003E\n\u003Col class=\u0022privacy-list\u0022\u003E\n\u003Cli id=\u0022us-our-truste-cert\u0022\u003E\u003Ch4\u003EOur TRUSTe Certification\u003C\/h4\u003E\n\u003Cdiv style=\u0022float:right;\u0022\u003E\n\u003Ca href=\u0022https:\/\/privacy.truste.com\/privacy-seal\/validation?rid=b2345b29-bdce-4ab8-a180-e3224ff883aa\u0022 title=\u0022TRUSTe Privacy Certification\u0022 target=\u0022_blank\u0022\u003E\n\u003Cimg width=\u0022142\u0022 height=\u002245\u0022 style=\u0022border: none; min-width: 142px;\u0022 src=\u0022\/\/privacy-policy.truste.com\/privacy-seal\/seal?rid=81b91903-72fd-4543-a179-68c3ec4aeeb5\u0022 alt=\u0022TRUSTe Privacy Certification\u0022\u003E\n\u003C\/a\u003E\n\u003C\/div\u003E\n\u003Cp\u003EThe TRUSTe program covers only information that is collected through this Site and our mobile applications and does not cover information that may be collected through other software downloaded from the Site.\u003C\/p\u003E\n\u003Cp\u003EThe Weather Channel has received TRUSTe\u2019s Privacy Seal signifying that this Privacy Policy and our practices have been reviewed for compliance with the TRUSTe program. In order to view our relationship with TRUSTe, please visit the validation page visible by clicking on the TRUSTe Seal.  TRUSTe\u2019s mission, as an independent third party, is to accelerate online trust among consumers and organizations globally through its leading privacy trustmark and innovative trust solutions.  If you have questions or complaints regarding this Privacy Policy or practices, please contact us directly at https:\/\/feedback.weather.com.  If you are not satisfied with our response or your inquiry has not been satisfactorily addressed within five business days, you can contact TRUSTe \u003Ca href=\u0022https:\/\/www.truste.com\/about-truste\/contact-us\/\u0022\u003Ehere\u003C\/a\u003E.\u003C\/p\u003E\n\u003C\/li\u003E\n\u003Cli id=\u0022us-how-we-collect\u0022\u003E\u003Ch4\u003EHow We Collect and Use Personal Data and Other Information\u003C\/h4\u003E\n\u003Cp\u003EIn order to operate the Services, maximize your experience, and provide you with enhanced Services, we may collect and use information, some of which may be considered personal data.  We collection information from and about you in the following ways:\u003C\/p\u003E\n\u003Col type=\u0022A\u0022\u003E\n\u003Cli\u003E\n\u003Cp\u003E\u003Cspan class=\u0022italic\u0022\u003EUser Account Registration.\u003C\/span\u003E  When you choose to register a user account, you will be required to provide certain information about yourself.   You may register using your e-mail address or your Facebook, Google+ or Amazon account.  You may choose to add additional information to your account, including your first and last name, birthdate, gender, phone number, home address, work address, and television provider.  If we can use this information, alone or in combination, to reasonably identify you as an individual, we treat the information as personal data.  \u003C\/p\u003E\n\u003Cp\u003EWe use personal data that you provide to give you personalized treatment on the Services; to operate the Services; to analyze, improve, enhance and fine tune our products and the Services; and for any other purpose that is permitted by applicable law and consistent with this Privacy Policy.\u003C\/p\u003E\n\u003C\/li\u003E\n\u003Cli\u003E\u003Cp\u003E\u003Cspan class=\u0022italic\u0022\u003EInformation Provided By You. \u003C\/span\u003E You may also choose to provide us with information, some of which may be personal data, when you interact with the Services in the following ways: \u003C\/p\u003E\n\u003Cp\u003E\u003Cul\u003E\n\u003Cli\u003EComplete a survey\u2014for example, you may choose to provide us an e-mail address so that we can contact you about your survey response;\u003C\/li\u003E\n\u003Cli\u003ERegister for a contest, sweepstakes or other promotion \u2014for example, you may provide your telephone and home address and we may be legally obligated to disclose this information if you win;  \u003C\/li\u003E\n\u003Cli\u003ESend us an e-mail message or complete an inquiry form to receive additional information\u2013for example, you might e-mail us with a question and we will use your e-mail address to respond to your inquiry; \u003C\/li\u003E\n\u003Cli\u003ESubmit a comment, leave feedback, or send us a photo or video\u2014for example, you might submit a cool photo of a weather event you experienced that we may post on the Services so others can enjoy it;\u003C\/li\u003E\n\u003Cli\u003EReport weather or other conditions\u2014for example, you might tell us that the weather in your area is cold or rainy and we may associate that information with your account; \u003C\/li\u003E\n\u003Cli\u003ESubmit information about yourself (e.g., your gender, age, age range, address, birthday, height, weight, body type)\u2014for example, our OutSider mobile application allows you to track your fitness activities and allows us to deliver the OutSider mobile application features and services; and\u003C\/li\u003E\n\u003Cli\u003ECustomize the Services\u2014for example, you might set a \u201chome\u201d location so that every time you visit the Services, you are automatically displayed the weather for that home location.\u003C\/li\u003E\n\u003C\/ul\u003E\u003C\/p\u003E\n\u003C\/li\u003E\n\u003Cli\u003E\u003Cp\u003E\u003Cspan class=\u0022italic\u0022\u003EAutomatic Collection.\u003C\/span\u003E  We also collect certain information through automated means. Some of the information we collect through automated means may, whether alone or combined with other data, be personal data.  For example, we automatically collect: \u003C\/p\u003E\n\u003Cp\u003E\n\u003Cul\u003E\n\u003Cli\u003EInformation about your device and device capabilities\u003C\/li\u003E\n\u003Cli\u003EInformation about your device operating system\u003C\/li\u003E\n\u003Cli\u003EInformation about your browser\u003C\/li\u003E\n\u003Cli\u003EInformation about how you use the Services\u003C\/li\u003E\n\u003Cli\u003EYour activities on the Services \u003C\/li\u003E\n\u003Cli\u003EIP address\u003C\/li\u003E\n\u003Cli\u003EAdvertising identifiers\u003C\/li\u003E\n\u003Cli\u003EMobile or Internet Carrier\u003C\/li\u003E\n\u003Cli\u003EBrowser type\u003C\/li\u003E\n\u003Cli\u003EBrowser identifier\u003C\/li\u003E\n\u003Cli\u003EReferring URL\u003C\/li\u003E\n\u003C\/ul\u003E\n\u003C\/p\u003E\n\u003Cp\u003E\nThis information helps us to understand, analyze and measure how users use the Services; manage Services\u2019 operations; deliver  and measure the effectiveness of advertisements; help diagnose problems; recognize repeat visitors; and facilitate your access to and use of the Services.\u003C\/p\u003E\n\u003C\/li\u003E\n\u003Cli\u003E\u003Cp\u003E\u003Cspan class=\u0022italic\u0022\u003ELocation Information.\u003C\/span\u003E  We also collect location information through the Services so that we can offer you certain location-based services (such as severe weather alerts through our mobile applications), provide advertisements that are relevant to your geographic location, and conduct analytics to improve the Services.  The way in which we collect location information is different depending on whether you are accessing the Services through a website or a mobile application.\u003C\/p\u003E\n\u003Cp\u003EIf you are accessing the Services through the Site, we use various technologies, including HTML5, to detect your location so that we can automatically show you the weather for your area, rather than some random location.  Depending on browser type, your browser may inform you that the Site would like to collect your location and request your permission to do so.  If you allow it, location information is then collected and may be stored locally on your device.  If you decline the collection of location information, your location is not collected and you must manually enter your location.  \u003C\/p\u003E\n\u003Cp\u003EIf you are accessing the Services through one of our mobile applications, the way we collect location information will differ depending on your mobile device\u2019s operating system. If you decline to allow location information collection, your location is not collected and you must type in a location or zip code to see the weather for that location or zip code.  \u003C\/p\u003E\n\u003Cp\u003EIn the event you allow location information collection through your mobile device, we may collect precise geographic location information.  Whether we can collect precise location information is controlled by your device\u2019s operating system.  Our collection methods include GPS, cellular network location and other location-based services.  Depending on your mobile device\u2019s operating system, we typically receive the latitude and longitude of your mobile device, as well as date and time, but the precision of latitude and longitude varies greatly and is determined by various factors controlled by your device or mobile service provider.  \u003C\/p\u003E\n\u003Cp\u003EIf you opt to allow the Weather Channel or OutSider mobile applications to collect location information while the mobile applications are running in the background, you will enable continuous location collection.  This allows us to send you severe weather alerts for the area in which you might be traveling and deliver you advertisements tailored to your current location.  We also use this location information to conduct analytics and improve the Services.  You can turn off location collection through your device settings or by deleting the Weather Channel mobile application from your device.  You also can turn off continuous location collection at any time through your device settings or by deleting the Weather Channel mobile application.  \u003C\/p\u003E\n\u003Cp\u003ETurning off location-based services in either The Weather Channel mobile application or OutSider mobile application also will disable certain other aspects of the Services, such as location-based severe alerts.  However, you may still receive alerts for any location that you entered into one of our mobile applications.\u003C\/p\u003E\u003C\/li\u003E\n\u003Cli\u003E\u003Cp\u003E\u003Cspan class=\u0022italic\u0022\u003EAlerts and Notifications.\u003C\/span\u003E  Certain Services offer you the ability to receive push notifications for weather-related updates.  To provide these Services, we may need to collect your e-mail address, phone number, device information, and mobile carrier information, in addition to the postal code or geographic area to which the alert, update or notification pertains.  If you no longer wish to receive these types of notifications, you may opt-out by turning them off within the settings of your mobile device or the particular Service for which you registered.\u003C\/p\u003E\u003C\/li\u003E\n\u003Cli\u003E\u003Cp\u003E\u003Cspan class=\u0022italic\u0022\u003EOther Types of Information We Collect.\u003C\/span\u003E  Certain of our mobile applications interface with Session M.  If you have an account with Session M and choose to log into Session M\u2019s mPOINTS through one of our mobile applications to earn mPOINTS, Session M will provide us with your e-mail address.  We do not use the e-mail address provided by Session M for any other purpose than to fulfill the Session M service.  \u003C\/p\u003E\n\u003Cp\u003EIn addition, older versions of the Services allowed users to view weather conditions for contacts saved on their mobile devices.  If you agreed to use this feature, your contacts were accessed to provide weather information for your contacts that already have their address, city, state, or zip code available in your contact list.  We did not store your contact list or use it for any other purpose other than providing weather conditions related to your contacts. You may disable this feature by updating your mobile application to the most recent version or deleting the application. \u003C\/p\u003E\u003C\/li\u003E\n\u003Cli\u003E\u003Cp\u003E\u003Cspan class=\u0022italic\u0022\u003ESpecial Note about Content Submissions.\u003C\/span\u003E  The Services may from time to time offer areas where you and other users can post or otherwise submit information, photos, videos, graphics, creative suggestions, ideas, notes, concepts, information, ratings or other materials on or to the Services (collectively, \u003Cstrong\u003E\u201cSubmissions\u201d\u003C\/strong\u003E).  Any geo-location, tags or other metadata in Submissions may become publicly available.  Any information, including personal data, in your Submissions can be read, collected, or used by others.  We are not responsible for the information, including personal data, included in your Submissions.\u003C\/p\u003E\n\u003C\/li\u003E\n\u003C\/ol\u003E\n\u003C\/li\u003E\n\u003Cli id=\u0022us-data-coll-tech\u0022\u003E\u003Ch4\u003EData Collection Technologies and Consumer Choice\u003C\/h4\u003E\n\u003Col type=\u0022A\u0022\u003E\n\u003Cli\u003E\u003Cp\u003E\u003Cspan class=\u0022italic\u0022\u003EOur Use of Cookies, Web Beacons, Single-pixel Gifs, and Information Saved by Other Technologies\u003C\/span\u003E\u003C\/p\u003E\n\u003Cp\u003EWe and third parties acting on our behalf use various technologies that help us to manage the operations of our Services and track usage behavior so that we can tailor information and advertisements to make your visits more enjoyable and meaningful.  These data collection technologies include:\u003C\/p\u003E\n\u003Cp\u003E\n\u003Cul\u003E\n\u003Cli\u003E\u003Cp\u003E\u003Cstrong\u003ECookies:\u003C\/strong\u003E Cookies are text files containing small amounts of information that are downloaded to your computer or mobile device when you visit a website and stored within your browser.  Cookies are then sent back to the originating website on each subsequent visit to that website or to another website that recognizes those cookies.  Some cookies on our Services collect IP and Mac addresses, which may be considered personal data in some jurisdictions.  Cookies are useful because they allow a website to recognize a user\u2019s device.  If you have registered for a user account on the Site, these cookies may let us know who you are, may be necessary to access your account information, and may provide us and our service providers with information that we will use to personalize the Services in accordance with your preferences.  You can find more information about cookies at www.allaboutcookies.org.\u003C\/p\u003E\u003C\/li\u003E\n\u003Cli\u003E\u003Cp\u003E\u003Cstrong\u003EWeb beacons and GIFs:\u003C\/strong\u003E Certain pages on the Services contain web beacons (also known as web bugs, pixel tags and clear GIFs).  A pixel tag is an electronic image, often a single pixel (1x1), which is ordinarily not visible to users and may be associated with cookies on users\u2019 hard drives.  A pixel tag allows us to understand which pages you visit on the Services and are used to help us optimize and tailor the Services for you and other future visitors to the website.  Web beacons allow third parties to obtain information, such as the IP address of the computer that downloaded the page on which the web beacon appears, the URL of the page on which the web beacon appears, the time the page containing the web beacon was viewed, the type of browser used to view the page, and the information in cookies sent by the third party.\u003C\/p\u003E\u003C\/li\u003E\n\u003Cli\u003E\u003Cp\u003E\u003Cstrong\u003ELocal Storage and Local Shared Objects:\u003C\/strong\u003E We use local shared objects (LSOs) such as Flash Cookies and local storage, such as HTML5 Local Storage, to enhance user experience by, for example, storing your user preferences and settings (e.g., volume\/mute) in connection with animated content on the Services.  Local storage is similar to browser cookies but can store data more complex than simple text.  By itself, local storage cannot do anything to or with the data stored on your device.  Like cookies, local storage can only access personal data that you have provided on the Services. Third parties with whom we partner to provide certain features on the Services or to display advertising based upon your web browsing activity also use Flash cookies or HTML5 to collect and store information. Various browsers may offer their own management tools for removing HTML5. To manage Flash cookies, please \u003Ca href=\u0022\/\/www.macromedia.com\/support\/documentation\/en\/flashplayer\/help\/settings_manager07.html\u0022\u003Eclick here.\u003C\/a\u003E\u003C\/p\u003E\u003C\/li\u003E\n\u003C\/ul\u003E\n\u003C\/p\u003E\n\u003Cp\u003EInformation that we collect via the data collection technologies described in this section may be linked to other information about you and may be personal data.  We use the technologies described in this section, alone or in combination, to provide, manage and administer the Services, understand user behavior, target and measure the effectiveness of advertisements,  help diagnose problems, recognize repeat visitors, track and analyze usage behavior and, facilitate your access to and use of the Services. \u003C\/p\u003E\n\u003Cp\u003EYour browser, such as Internet Explorer, Chrome, Firefox and Safari, may allow you to manage your cookies and local storage.   Because each browser is a little different, we encourage you to check your browsers\u2019 \u201cHelp\u201d feature to learn how to block cookies, how to receive notification of new cookies, and how to disable existing cookies.  Please note, however, that without cookies you may not be able to take full advantage of all the Services and some parts of the Services may not function properly.  For more information about cookies, please visit www.allaboutcookies.org\/manage-cookies\/.\u003C\/p\u003E\n\u003C\/li\u003E\n\u003Cli\u003E\u003Cp\u003E\u003Cspan class=\u0022italic\u0022\u003EUse of Cookies, Web Beacons, and Other Technologies by Advertisers, Ad Networks, and Ad Servers\u003C\/span\u003E\u003C\/p\u003E\n\u003Cp\u003EWe adhere to the self-regulatory principles of the Digital Advertising Alliance (\u201c\u003Cstrong\u003EDAA\u003C\/strong\u003E\u201d) and the Digital Advertising Alliance of Canada (\u201c\u003Cstrong\u003EDAAC\u003C\/strong\u003E\u201d).  We work with a variety of advertisers, advertising networks, advertising servers, and analytics companies (\u201c\u003Cstrong\u003EAd Partners\u003C\/strong\u003E\u201d) that use various technologies to collect data about your use of the Services (such as pages visited, ads viewed or clicked on)  in order to send (or serve) relevant ads. \u003C\/p\u003E\n\u003Cp\u003EAd Partners may place cookies, web beacons and\/or other data collection technologies on the Services to (among other purposes): track how the Services are used, where users go and what they do after they leave the Services; link users\u2019 devices; and serve more relevant ads on the Services or other websites that you visit.  More information about this type of advertising is available from the Network Advertising Initiative \u003Ca href=\u0022\/\/www.networkadvertising.org\/understanding-online-advertising\u0022\u003Ehere\u003C\/a\u003E. \u003C\/p\u003E\n\u003Cp\u003EThis Privacy Policy does not cover the practices of our Ad Partners.  While we work with Ad Partners to improve user experience, we do not control Ad Partners\u2019 technologies.  For more information about our Ad Partners\u2019 technologies and how they use the information collected by the technologies on the Services and your options not to accept cookies placed by some of Ad Partners on the Services, please visit the DAA\u2019s \u003Ca href=\u0022\/\/www.aboutads.info\/choices\/\u0022\u003Eopt-out page\u003C\/a\u003E or the DAAC\u2019s \u003Ca href=\u0022\/\/youradchoices.ca\/choices\u0022\u003Eopt-out page\u003C\/a\u003E.\u003C\/p\u003E\n\u003Cp\u003EIn addition, you can visit the opt-out pages of these Ad Partners that use data collection technologies on the Services:\u003C\/p\u003E\n\u003Cp\u003E\n\u003Cul\u003E\n\u003Cli\u003EDoubleClick: \u003Ca href=\u0022\/\/www.google.com\/doubleclick\u0022\u003Ewww.google.com\/doubleclick\u003C\/a\u003E \u003C\/li\u003E\n\u003Cli\u003ENielsen: \u003Ca href=\u0022\/\/www.nielsen-netratings.com\/privacy\/sitecensus.htm\u0022\u003Ewww.nielsen-netratings.com\/privacy\/sitecensus.htm\u003C\/a\u003E  \u003C\/li\u003E\n\u003Cli\u003EQuantcast: \u003Ca href=\u0022\/\/www.quantcast.com\/how-we-do-it\/consumer-choice\/privacy-policy\/\u0022\u003Ewww.quantcast.com\/how-we-do-it\/consumer-choice\/privacy-policy\/ \u003C\/a\u003E\u003C\/li\u003E\n\u003Cli\u003ELotame: \u003Ca href=\u0022\/\/www.lotame.com\/opt-out-preference-manager\u0022\u003Ewww.lotame.com\/opt-out-preference-manager\u003C\/a\u003E \u003C\/li\u003E\n\u003Cli\u003EAmazon: \u003Ca href=\u0022\/\/www.amazon.com\/gp\/dra\/info\u0022\u003Ewww.amazon.com\/gp\/dra\/info\u003C\/a\u003E  \u003C\/li\u003E\n\u003Cli\u003ECriteo: \u003Ca href=\u0022\/\/www.criteo.com\/privacy\/\u0022\u003Ewww.criteo.com\/privacy\/\u003C\/a\u003E \u003C\/li\u003E\n\u003Cli\u003EFactual: \u003Ca href=\u0022\/\/www.factual.com\/privacy\/opt-out\u0022\u003Ewww.factual.com\/privacy\/opt-out\u003C\/a\u003E\u003C\/li\u003E\n\u003Cli\u003ETelium: \u003Ca href=\u0022\/\/tealium.com\/privacy\/\u0022\u003Etealium.com\/privacy\/\u003C\/a\u003E\u003C\/li\u003E\n\u003Cli\u003EOpenX: \u003Ca href=\u0022\/\/openx.com\/legal\/\u0022\u003Eopenx.com\/legal\/\u003C\/a\u003E\u003C\/li\u003E\n\u003C\/ul\u003E\n\u003C\/p\u003E\n\u003Cp\u003EYou may also opt-out of additional third-party advertising networks by going to the Network Advertising Initiative\u2019s website and following the directions. \u003C\/p\u003E\n\u003Cp\u003EThe DAA offers AppChoices, a separate choice tool for users to exercise control over the collection and use of data through mobile applications  for interest-based advertising and other related uses.  To exercise choice for participating companies, you can install the DAA\u2019s AppChoices application on your mobile device.  Visit \u003Ca href=\u0022\/\/www.aboutads.info\/appchoices\u0022\u003Ehere\u003C\/a\u003E for more information on DAA\u2019s AppChoices tool.  \u003C\/p\u003E\n\u003Cp\u003EThe opt-outs described above are device- or browser-specific and may not work on all devices.  If you choose to opt-out through any of our Ad Partners\u2019 sites, you still may see advertisements but the advertisements will not be based on your interests.\u003C\/p\u003E\n\u003Cp\u003EYou can also opt-out of future information collection from the Services by ceasing use of the Service or uninstalling the relevant mobile application.\u003C\/p\u003E\n\u003C\/li\u003E\n\u003Cli\u003E\u003Cp\u003E\u003Cspan class=\u0022italic\u0022\u003EUse of Cookies by Third Parties for Analytics\u003C\/span\u003E\u003C\/p\u003E\n\u003Cp\u003EWe contract with certain third parties that use data collection technologies to track, analyze and report data about the use of the Services and to analyze and optimize the performance of the Services.  Information about these third parties is available at the following links:\u003C\/p\u003E\n\u003Cp\u003E\n\u003Cul\u003E\n\u003Cli\u003EAdobe: \u003Ca href=\u0022\/\/www.adobe.com\/privacy.html\u0022\u003Ewww.adobe.com\/privacy.html\u003C\/a\u003E\u003C\/li\u003E\n\u003Cli\u003ELocalytics: \u003Ca href=\u0022\/\/www.localytics.com\/privacy-policy\/\u0022\u003Ewww.localytics.com\/privacy-policy\/\u003C\/a\u003E\u003C\/li\u003E \n\u003Cli\u003EcomScore and Scorecard Research: \u003Ca href=\u0022\/\/www.scorecardresearch.com\/About.aspx\u0022\u003Ewww.scorecardresearch.com\/About.aspx\u003C\/a\u003E\u003C\/li\u003E\n\u003Cli\u003EGoogle Analytics: \u003Ca href=\u0022\/\/www.google.com\/analytics\/learn\/privacy.html\u0022\u003Ewww.google.com\/analytics\/learn\/privacy.html\u003C\/a\u003E\u003C\/li\u003E\n\u003C\/ul\u003E\u003C\/p\u003E\n\u003C\/ol\u003E\n\u003C\/li\u003E\n\u003Cli id=\u0022us-how-we-share\u0022\u003E\u003Ch4\u003EHow We Share or Disclose Your Information\u003C\/h4\u003E\n\u003Cp\u003EOne of the most valuable assets of our business is you.  Except as described below, we do not rent or sell personal data about you with other people or non-affiliated companies.\u003C\/p\u003E\n\u003Cp\u003E\u003Col type=\u0022A\u0022\u003E\n\u003Cli\u003E\u003Cp\u003E\u003Cspan class=\u0022italic\u0022\u003EThird-Party Processors.\u003C\/span\u003E  When your personal data is collected on the Services, it may be shared with selected third parties who assist us with our business operations, with the provision of the Services, with our marketing or advertising campaigns, or in delivering you the features and functionality that you have requested (\u201c\u003Cstrong\u003EThird-Party Processors\u003C\/strong\u003E\u201d).  These Third-Party Processors include companies that process credit card information, handle shipping for us, and deliver materials to you via e-mail or postal service, for example.  We also may provide personal data to third-party mapping service providers to provide you with map content for the Services.  Third-Party Processors are authorized to use the personal data that we provide to them only to carry out the service they are providing for us.  We require the Third-Party Processors by contract to secure your personal data and maintain it so that it can be accessed when needed for future purposes. All such Third-Party Processors are contractually bound by us to keep the personal data confidential.\u003C\/p\u003E\u003C\/li\u003E\n\u003Cli\u003E\u003Cp\u003E\u003Cspan class=\u0022italic\u0022\u003ECompanies Offering Promotions, Products, or Services.\u003C\/span\u003E  We may share demographic information, location data, advertising identifiers, truncated IP address and aggregate (not individual) usage statistics for the Services with advertisers and other third parties.\u003C\/p\u003E\n\u003Cp\u003EAt times, we also will provide you with the opportunity to opt-in to receive promotions, products or services from third-party sponsors.  With your permission, we will periodically send to you, via e-mail, offers and promotions from our third-party sponsors which we select based upon your interests or user account.  In this case, we do not share your information with the third-party sponsors - we do the e-mailing for them.  You will always have the opportunity to opt-out of receiving future offers by following the unsubscribe link included with each of our e-mails.  In other instances, we provide you with the opportunity to receive products and services directly from specifically-identified third parties through the Services.  In these instances, you must explicitly consent to receive each offer.  When you explicitly agree to receive offers from specific third parties, your information is shared with those specific third parties to enable them to provide you with the offer you have requested.  We are not responsible for the information collection practices of these third parties, and all information provided is governed by the privacy policies of these third parties.  You should review the privacy policies of these third parties before supplying personal data to them.\u003C\/p\u003E\u003C\/li\u003E\n\u003Cli\u003E\u003Cp\u003E\u003Cspan class=\u0022italic\u0022\u003EOther Websites, Other Services, Plug-Ins and Links.\u003C\/span\u003E  Like many websites on the Internet and other Internet-based services, the Services may link to webpages located on websites or services maintained by various other entities.  In some cases, you may navigate to pages of other websites that are framed with elements of the Services such as in the header or footer.  In that case, the URL will identify the site you are visiting.  In other cases, such as advertisements, you will be connecting to another site or service when you click on or otherwise activate those opportunities, including click-to-call, click-to-text, and click-to-e-mail opportunities.  These other sites and services are not bound by our privacy policy, and we are not responsible for their information collection practices.  The privacy policies of other organizations may differ from ours, for example, with respect to the level of security, use of cookies, and collection, use and disclosure of personal data.\u003C\/p\u003E\n\u003Cp\u003ESome of the Services allow users to interface with other websites or services, including Facebook, Twitter, Google+, Pinterest, Gigya, and SessionM\u2019s mPOINTS. For example, plug-ins, such as Facebook\u2019s \u201cLike\u201d button, \u201cComments\u201d and \u201cFacebook Connect\u201d can connect Facebook, Twitter or other third party services identifiable by their respective logos to the Services.  You will remain logged in to those other sites and services until you log off.  By proceeding with these interfaces, you allow the Services to access your information on those other sites and services, and you are agreeing to those other sites\u2019 and services\u2019 terms of use and privacy policies.  Once you log into those other sites and services, the content you post on those other sites and services may also post to the Services.  Your use of those other sites and services is subject to the privacy policies of those sites and services, and not this Privacy Policy.\u003C\/p\u003E\n\u003Cp\u003ESome of the Services use third-party operating systems, platforms, communication services, devices, and software elements (such as mobile device operating systems, wireless services, mobile phone and tablet devices), and some of the Services are provided by third-party distributors, device makers, device operators, platform operators, and communication services.  We do not control these third-party entities, products and services, and they may collect, use, process, transmit and disclose your information.  For example, these third-party entities, products and services may gather information from the Services in a manner that overrides your settings and preferences in the Services.  As we do not control of these third-parties\u2019 data handling practices, we recommend that you review their privacy policies, terms of use and license agreements (if any). \u003C\/p\u003E\u003C\/li\u003E\n\u003Cli\u003E\u003Cp\u003E\u003Cspan class=\u0022italic\u0022\u003EPurchase or Sale of Businesses.\u003C\/span\u003E  We continually look for ways to improve our business, including purchasing a business or selling all or part of our business.  If we buy, merge, reorganize or sell any business, personal data and non-personal information will likely be disclosed or transferred as part of the transaction.  If, in connection with a purchase, sale, merger or reorganization your personal data will be processed in a materially different way, our practice is to notify users who have provided us with an e-mail address via e-mail.\u003C\/p\u003E\u003C\/li\u003E\n\u003C\/ol\u003E\u003C\/p\u003E\n\u003C\/li\u003E\n\u003Cli id=\u0022us-other-limitations\u0022\u003E\u003Ch4\u003EOther Limitations on Privacy\u003C\/h4\u003E\n\u003Cp\u003EWe, our affiliates, or our Third-Party Processors may disclose your personal data without your permission (i) pursuant to judicial or other government subpoenas, warrants, or orders or otherwise to comply with law; (ii) where we believe the rights, property or an individual\u2019s safety or security is at risk; (iii) if we find that your actions violate our \u003Ca href=\u0022\/\/www.weather.com\/legal\u0022\u003ETerms of Use\u003C\/a\u003E or any of our other legal rights; or (iv) where otherwise required or permitted by applicable law (which may include a lawful access request by US or foreign courts, governments or law enforcement agencies).\u003C\/p\u003E\n\u003C\/li\u003E\n\u003Cli id=\u0022us-opting-out\u0022\u003E\u003Ch4\u003EOpting-Out, Access, Corrections and Cancellations\u003C\/h4\u003E\n\u003Cp\u003EWe will retain your information for as long as your account is active or as needed to provide the Services. We will retain and use your information as necessary to comply with our legal obligations, resolve disputes, and enforce our agreements. If you have registered a user account with us, you may reset your password, update your personal data, correct information, delete your account or opt-out of certain Services, by accessing your account or you may contact us directly at \u003Ca href=\u0022\/\/feedback.weather.com\u0022\u003Efeedback.weather.com\u003C\/a\u003E, subject to certain exceptions prescribed by law.\u003C\/p\u003E\n\u003Cp\u003EYou may have the right to access, update, and correct inaccuracies in certain of your personal data in our custody and control, subject to certain exceptions prescribed by law.  You may request to access, update and correct inaccuracies in personal data we have in our custody or control by writing to us at the contact information set out below.  We may request certain personal information for the purposes of verifying the identity of the individual seeking access to his or her personal information records.\u003C\/p\u003E\n\u003C\/li\u003E\n\u003Cli id=\u0022us-minors-privacy\u0022\u003E\u003Ch4\u003EMinors\u2019 Privacy and Submissions\u003C\/h4\u003E\n\u003Cp\u003EWe are committed to protecting the safety and privacy of young people using the Internet.  We do not knowingly collect personal data from children under age 13.  We believe that children should get their parents\u2019 or guardians\u2019 consent before giving out any personal data.  If you become aware that we have collected personal data from a child without parental consent, please notify us promptly at \u003Ca href=\u0022\/\/feedback.weather.com\u0022\u003Efeedback.weather.com\u003C\/a\u003E.  If we become aware that a child under age 13 has provided us with personal data without parental consent, we will take steps to remove such personal data.\u003C\/p\u003E\n\u003Cp\u003EIf you are a California resident under age 18 and are a registered user of any of the Services, then you may request that we remove any Submissions that you publicly posted on or in the Services. To request removal of a Submission, please send an email with a detailed description of the specific Submission to Feedback@weather.com. We reserve the right to request that you provide information that will enable us to confirm that the Submission that you want removed was created and posted by you.\u003C\/p\u003E\n\u003Cp\u003EWe will make a good faith effort to delete or remove your Submission from public view as soon as reasonably practicable. Please note, however, that your request that we delete your Submission does not ensure complete or comprehensive removal of your Submission. Your Submission may remain on backup media, cached or otherwise retained by us for administrative or legal purposes or your Submission may remain publicly available if you or someone else has forwarded or re-posted your Submission on another website or service prior to its deletion.  We may be required by law to not remove or allow removal of your Submission.\u003C\/p\u003E\n\u003C\/li\u003E\n\u003Cli id=\u0022us-international-xfer\u0022\u003E\u003Ch4\u003EInternational Transfer\u003C\/h4\u003E\n\u003Cp\u003EThe Services are hosted on servers inside and outside the United States.  If you are located in the European Union or elsewhere outside of the United States, information that we collect (including through cookies) will be processed and stored in the United States, a jurisdiction in which the data protection and privacy laws may not offer the same level of protection as those in the country where you reside or are a citizen.  By using our Services and providing information to use, you consent to the transfer to and processing of information in the United States.\u003C\/p\u003E\n\u003C\/li\u003E\n\u003Cli id=\u0022us-our-commitment\u0022\u003E\u003Ch4\u003EOur Commitment to Security\u003C\/h4\u003E\n\u003Cp\u003EWe have put in place physical, electronic and managerial procedures intended to protect your data.  Of course, we cannot guarantee that your communications with the Services will never be unlawfully intercepted or that your personal data will never be unlawfully accessed by third parties. Any transmission of information is at your own risk.\u003C\/p\u003E\n\u003C\/li\u003E\n\u003Cli id=\u0022us-changes-to-policy\u0022\u003E\n\u003Ch4\u003EChanges to the Privacy Policy\u003C\/h4\u003E\n\u003Cp\u003EWe reserve the right to change our Privacy Policy as business needs require.  If we decide to change our Privacy Policy, we will post those changes here prior to the time they take effect.  If we make material changes to the way we use personal data, affected users who have provided us with an e-mail address will be notified via e-mail.\u003C\/p\u003E\n\u003Cp\u003E\n\u003Cdiv class=\u0022center\u0022\u003EThe Weather Company, LLC\u003C\/div\u003E\n\u003Cdiv class=\u0022center\u0022\u003EAttn: Customer Service Representative\u003C\/div\u003E\n\u003Cdiv class=\u0022center\u0022\u003E300 Interstate North Pkwy SE \u003C\/div\u003E\n\u003Cdiv class=\u0022center\u0022\u003EAtlanta, GA 30339\u003C\/div\u003E\n\u003Cdiv class=\u0022center\u0022\u003ETelephone: 866-843-0392\u003C\/div\u003E\n\u003Cdiv class=\u0022center\u0022\u003Eor\u003C\/div\u003E\n\u003Cdiv class=\u0022center\u0022\u003EFeedback@weather.com\u003C\/div\u003E\n\u003C\/p\u003E\n\u003C\/li\u003E\n\u003C\/ol\u003E\n    \u003C\/div\u003E \u003C!-- end \u0022privacy-policy-text\u0022 --\u003E\n  \u003C\/div\u003E \u003C!-- end \u0022privacy-policy-content\u0022 --\u003E\n\u003C\/div\u003E \u003C!-- end \u0022privacy-policy\u0022--\u003E","disable_lazyload":1,"module_version":"1.0.8"},"99ed6165-9509-4787-8a45-f53943ddf937":{"module_id":"cobrand_headers","locID":"","module_version":"1.0.1"},"062bad7e-eb2c-4a83-936b-864bcdbd454d":{"module_id":"breaking-news-banner","module_version":"1.0.2"},"42a0c391-0843-4e05-871a-cb617c58de2a":{"module_id":"header-menu","main_menu_links":[{"title":"Forecasts","link_url":"\/weather\/today\/l\/{{dynamicLocId}}","target":"_self","left":[{"title":"Today\u0027s Forecast","link_url":"\/weather\/today\/l\/{{dynamicLocId}}","target":"_self"},{"title":"National Forecast","link_url":"\/forecast\/news\/national-forecast-20141009","target":"_self"},{"title":"Alerts","link_url":"\/storms\/alerts","target":"_self"},{"title":"Cold and Flu","link_url":"\/health\/cold-flu\/state\/{{dynamiclocation.stCd}}","target":"_self"},{"title":"Allergy Tracker","link_url":"\/forecast\/allergy\/l\/{{dynamicLocId}}","target":"_self"},{"title":"Severe Weather","link_url":"\/storms\/severe","target":"_self"},{"title":"Safety \u0026 Preparedness ","link_url":"\/safety\/before","target":"_self"},{"title":"Weekend Forecast","link_url":"\/weather\/weekend\/l\/{{dynamicLocId}}","target":"_self"},{"title":"Travel","link_url":"\/travel","target":"_self"},{"title":"Winter Storm Central","link_url":"\/storms\/winter-central","target":"_self"},{"title":"Commuter Forecast","link_url":"\/forecast\/commuter?layers=driving","target":"_self"}],"right":[{"title":"Continuing Flood Threat From Bill","link_url":"\/storms\/hurricane\/news\/tropical-storm-bill-flooding-heavy-rain-threat","target":"_self","icon":"","asset_id":"4cd2f4bd-a9f8-4ebf-8315-abbf46d3e03b","src":"https:\/\/dsx.weather.com\/\/util\/image\/w\/FLOOD_THREAT2.png?v=at\u0026w=155\u0026h=114\u0026api=7db9fe61-7414-47b5-9871-e17d87b8b6a0"},{"title":"Severe Storm Risk in East, Midwest, Plains","link_url":"\/storms\/tornado\/news\/severe-weather-tracker-page","target":"_self","icon":"","asset_id":"d4e4a99f-6c88-448e-a645-4f767381b35d","src":"https:\/\/dsx.weather.com\/\/util\/image\/w\/LightningStrike.jpg?v=at\u0026w=155\u0026h=114\u0026api=7db9fe61-7414-47b5-9871-e17d87b8b6a0"},{"title":"Excessive Heat Grips the Southwest","link_url":"\/forecast\/regional\/news\/death-valley-120-degree-heat","target":"_self","icon":"","asset_id":"a1146480-3e59-4c58-b24b-89cbfe877846","src":"https:\/\/dsx.weather.com\/\/util\/image\/w\/dct_swheat_prim.png?v=at\u0026w=155\u0026h=114\u0026api=7db9fe61-7414-47b5-9871-e17d87b8b6a0"},{"title":"Southeast Heat Breaks Records","link_url":"\/forecast\/regional\/news\/southeast-heat-humidity-building-mid-june","target":"_self","icon":"","asset_id":"98e04730-9e4c-442d-8db2-6f722eb0a515","src":"https:\/\/dsx.weather.com\/\/util\/image\/w\/se-heat.jpg?v=at\u0026w=155\u0026h=114\u0026api=7db9fe61-7414-47b5-9871-e17d87b8b6a0"}]},{"title":"Maps","link_url":"\/weather\/radar\/interactive\/l\/{{dynamicLocId}}","target":"_self","left":[{"title":"Weather Radar Maps","link_url":"\/weather\/radar\/interactive\/l\/{{dynamicLocId}}","target":"_self"},{"title":"Weather In Motion\u00ae","link_url":"\/weather\/radar\/interactive\/l\/{{dynamicLocId}}?animation=true","target":"_self"},{"title":"Regional Satellite ","link_url":"\/weather\/radar\/interactive\/l\/{{dynamicLocId}}?layers=ussat\u0026zoom=6","target":"_self"},{"title":"Classic Weather Maps","link_url":"\/maps\/currentusweather","target":"_self"},{"title":"Commuter Radar Map","link_url":"\/forecast\/commuter?layers=driving","target":"_self"}],"right":[{"title":"Current Weather","link_url":"\/maps\/current","target":"_self","icon":"","asset_id":"a263fcd2-224b-4968-8371-bd28e674e644","src":"https:\/\/dsx.weather.com\/\/util\/image\/w\/curwx_320x180.jpg?v=at\u0026w=155\u0026h=114\u0026api=7db9fe61-7414-47b5-9871-e17d87b8b6a0"},{"title":"Health Maps","link_url":"\/maps\/health","target":"_self","icon":"","asset_id":"d222ac30-e592-45a2-8eac-24785796aff1","src":"https:\/\/dsx.weather.com\/\/util\/image\/w\/277x187_pollencast.jpg?v=at\u0026w=155\u0026h=114\u0026api=7db9fe61-7414-47b5-9871-e17d87b8b6a0"},{"title":"Traffic Conditions","link_url":"\/forecast\/commuter?layers=traffic,radar","target":"_self","icon":"","asset_id":"a3533f5f-9315-48d5-9c58-dd6b8e7cc872","src":"https:\/\/dsx.weather.com\/\/util\/image\/w\/Commuter_Thumb_160-90_0.jpg?v=at\u0026w=155\u0026h=114\u0026api=7db9fe61-7414-47b5-9871-e17d87b8b6a0"},{"title":"Weekly Planner","link_url":"\/maps\/planner","target":"_self","icon":"","asset_id":"c71f5f4b-4f5d-4110-8cb1-40a3f7d11e43","src":"https:\/\/dsx.weather.com\/\/util\/image\/w\/static_weekly_planner_thumbnail_160x90_0.jpg?v=at\u0026w=155\u0026h=114\u0026api=7db9fe61-7414-47b5-9871-e17d87b8b6a0"}]},{"title":"Video","link_url":"https:\/\/weather.com\/news\/weather\/video\/winter-temperatures-make-a-comeback-soon","asset_id":"cc17c8ec-0e7a-4970-b21a-ba3a68a73a3f","target":"_self","left":[{"title":"Top Stories","link_url":"https:\/\/weather.com\/news\/weather\/video\/winter-temperatures-make-a-comeback-soon","asset_id":"cc17c8ec-0e7a-4970-b21a-ba3a68a73a3f","target":"_self"},{"title":"Trending News","link_url":"https:\/\/weather.com\/news\/trending\/video\/acrobatic-skydiver-dances-back-to-earth","asset_id":"768ee3f4-a24f-49cc-bc3a-8fff1e6d518f","target":"_self"},{"title":"Road Ready","link_url":"https:\/\/weather.com\/safety\/auto\/video\/car-tires-made-of-ice","asset_id":"02e27de6-bb05-4770-8a2f-8121a3a17200","target":"_self"},{"title":"Web Series","link_url":"\/series","target":"_self"},{"title":"TV Clips","link_url":"\/tv","asset_id":"c1a2b722-761e-44f7-ba5c-964c50813bd3","target":"_self"},{"title":"Watch Live TV","link_url":"\/tv\/the-weather-channel-live\/video\/watch-the-weather-channel-live?pl=pl-live-tv-now","target":"_self"},{"title":"All Video","link_url":"\/video","target":"_self"}],"right":[{"title":"It Got Close, They Didn\u0027t Expect What Happened Next","link_url":"\/tv\/shows\/wake-up-with-al\/video\/clumsy-cheetah-falls-through-sunroof-kenya?pl=pl-hot-list","target":"_self","icon":"","asset_id":"2f69aa01-2581-4fe8-b1c2-e5f8e3a179f7","src":"https:\/\/dsx.weather.com\/\/util\/image\/w\/cheeat.jpg?v=at\u0026w=155\u0026h=114\u0026api=7db9fe61-7414-47b5-9871-e17d87b8b6a0"},{"title":"Muddy Hill Causes Epic Fails","link_url":"\/series\/great-outdoors\/video\/atlantans-fall-on-muddy-hill-during-festival?pl=pl-hot-list","target":"_self","icon":"","asset_id":"d50dbd63-cc97-4817-a201-422beeb469d2","src":"https:\/\/dsx.weather.com\/\/util\/image\/w\/falldowna.jpg?v=at\u0026w=155\u0026h=114\u0026api=7db9fe61-7414-47b5-9871-e17d87b8b6a0"},{"title":"Red Glowing Lake Will Drop Your Jaw","link_url":"\/series\/great-outdoors\/video\/mars-like-saltwater-lake-in-crimea-glows-red?pl=pl-hot-list","target":"_self","icon":"","asset_id":"cbcfe854-bfd4-444c-b560-7f80f939a474","src":"https:\/\/dsx.weather.com\/\/util\/image\/w\/mars_8.jpg?v=at\u0026w=155\u0026h=114\u0026api=7db9fe61-7414-47b5-9871-e17d87b8b6a0"},{"title":"Molten Metal + Lava Lamp = THIS","link_url":"\/series\/warp\/video\/see-what-happens-when-molten-aluminum-hits-a-lava-lamp?pl=pl-hot-list","target":"_self","icon":"","asset_id":"7e0aa1a8-302a-4617-b44b-84f4b71af4ea","src":"https:\/\/dsx.weather.com\/\/util\/image\/w\/lavalamp_0.jpg?v=at\u0026w=155\u0026h=114\u0026api=7db9fe61-7414-47b5-9871-e17d87b8b6a0"}]},{"title":"Photos","link_url":"\/slideshows","target":"_self","left":[{"title":"All Photos","link_url":"\/slideshows","target":"_self"},{"title":"Fan Photos","link_url":"\/photos","target":"_self"},{"title":"Upload Your Photos","link_url":"\/photos\/collection\/ugc","target":"_self"},{"title":"Photo Contest Winners","link_url":"\/news\/news\/2015-photo-contest-winners#\/1","target":"_self"},{"title":"Let\u0027s Go Places","link_url":"\/photos\/places\/news\/lets-go-places","target":"_self"}],"right":[{"title":"Earthquake Causes Mass Devastation","link_url":"\/news\/news\/nepal-earthquake-avalanche-photos","target":"_self","icon":"","asset_id":"c7b7aa8b-59a3-4f9b-86dc-a7750765a11e","src":"https:\/\/dsx.weather.com\/\/util\/image\/w\/070nepal_earthquake_Apr27_0.jpg?v=at\u0026w=155\u0026h=114\u0026api=7db9fe61-7414-47b5-9871-e17d87b8b6a0"},{"title":"The Best of the Best","link_url":"\/travel\/news\/amazing-america-national-parks","target":"_self","icon":"","asset_id":"0f7d008d-7d1a-42bd-b60d-f5532f20c816","src":"https:\/\/dsx.weather.com\/\/util\/image\/w\/38GrandCanyonNationalPark2_1.JPG?v=at\u0026w=155\u0026h=114\u0026api=7db9fe61-7414-47b5-9871-e17d87b8b6a0"},{"title":"This Photo is Deeply Troublesome","link_url":"\/climate-weather\/drought\/news\/california-drought-photos-april","target":"_self","icon":"","asset_id":"8a92c2dd-c677-411a-9190-2c70db1309c9","src":"https:\/\/dsx.weather.com\/\/util\/image\/w\/52aerialcalifapril62015_0.jpg?v=at\u0026w=155\u0026h=114\u0026api=7db9fe61-7414-47b5-9871-e17d87b8b6a0"},{"title":"The Prettiest Beaches in the World","link_url":"\/travel\/news\/best-beaches-world","target":"_self","icon":"","asset_id":"270d93fc-0f7b-436f-974f-ab7fa2ebd903","src":"https:\/\/dsx.weather.com\/\/util\/image\/w\/bestbeaches_mayabeachkophiphi_1.jpg?v=at\u0026w=155\u0026h=114\u0026api=7db9fe61-7414-47b5-9871-e17d87b8b6a0"}]},{"title":"News","link_url":"\/news","target":"_self","left":[{"title":"All News","link_url":"\/news","target":"_self"},{"title":"Travel","link_url":"\/travel","target":"_self"},{"title":"Health","link_url":"\/health","target":"_self"},{"title":"Science","link_url":"\/science","target":"_self"},{"title":"Environment","link_url":"\/science\/environment","target":"_self"},{"title":"Weekend Project","link_url":"\/forecast\/weekend-project\/l\/{{dynamicLocId}}","target":"_self"},{"title":"Home \u0026 Garden","link_url":"\/home-garden","target":"_self"},{"title":"Sports \u0026 Recreation","link_url":"\/sports-recreation","target":"_self"},{"title":"Winter Storm Central","link_url":"\/storms\/winter-central","target":"_self"},{"title":"Hurricane Central","link_url":"\/storms\/hurricane-central","target":"_self"},{"title":"Tornado Central","link_url":"\/storms\/tornado","target":"_self"}],"right":[{"title":"Pope Francis Speaks Out on Climate Change","link_url":"\/science\/environment\/news\/pope-francis-climate-change-encyclical","target":"_self","icon":"","asset_id":"ce58a75b-093d-4ee8-8841-34fe0316d9d5","src":"https:\/\/dsx.weather.com\/\/util\/image\/w\/pope-encyclical.jpg?v=at\u0026w=155\u0026h=114\u0026api=7db9fe61-7414-47b5-9871-e17d87b8b6a0"},{"title":"State-by-State Updates on Tropical Storm Bill","link_url":"\/safety\/floods\/news\/texas-oklahoma-flooding-tropical-system","target":"_self","icon":"","asset_id":"1590d977-5037-4245-9071-c3f09922838c","src":"https:\/\/dsx.weather.com\/\/util\/image\/w\/map_specnewsdct-87_ltst_4namus_enus_650x366.jpg?v=at\u0026w=155\u0026h=114\u0026api=7db9fe61-7414-47b5-9871-e17d87b8b6a0"},{"title":"Volcano May Be on the Verge of Violent Eruption","link_url":"\/news\/news\/indonesia-mount-sinabung-powerful-eruption-possible","target":"_self","icon":"","asset_id":"dc6bbca9-209c-4108-8a90-e80ce00066b9","src":"https:\/\/dsx.weather.com\/\/util\/image\/w\/IndonesiaVolcano_June17_650.jpg?v=at\u0026w=155\u0026h=114\u0026api=7db9fe61-7414-47b5-9871-e17d87b8b6a0"},{"title":"Residents Evacuated as Fire Burns ","link_url":"\/news\/news\/kearny-arizona-wildfire-brush-fire","target":"_self","icon":"","asset_id":"6659ba27-77bb-49b6-9867-d8f5cf34ddeb","src":"https:\/\/dsx.weather.com\/\/util\/image\/w\/ArizonaBrushFire_320.jpg?v=at\u0026w=155\u0026h=114\u0026api=7db9fe61-7414-47b5-9871-e17d87b8b6a0"}]},{"title":"TV ","link_url":"\/tv\/the-weather-channel-live\/video\/watch-the-weather-channel-live?pl=pl-live-tv-now","target":"_self","left":[{"title":"All TV","link_url":"\/tv","target":"_self"},{"title":"Personalities","link_url":"\/tv\/personalities","target":"_self"},{"title":"Shows","link_url":"\/tv","target":"_self"},{"title":"TV Schedule","link_url":"\/tv\/the-weather-channel-live\/news\/tv-schedule","target":"_self"}],"right":[{"title":"\u0022Fat Guys in the Woods,\u0022 Sundays @ 9P","link_url":"\/tv\/shows\/fat-guys-in-the-woods","target":"_self","icon":"","asset_id":"4b2b4efe-c9ca-412f-8714-a5ff24e51a1f","src":"https:\/\/dsx.weather.com\/\/util\/image\/w\/FatGuys-KeyArt-03_1.jpg?v=at\u0026w=155\u0026h=114\u0026api=7db9fe61-7414-47b5-9871-e17d87b8b6a0"},{"title":"Weekdays 7AM ET \/ Weekends 5AM ET","link_url":"\/tv\/shows\/amhq","target":"_self","icon":"","asset_id":"48977ae8-2d77-43dd-8059-bdacdfa448b5","src":"https:\/\/dsx.weather.com\/\/util\/image\/w\/AMHQ_7Days_980x551_1.jpg?v=at\u0026w=155\u0026h=114\u0026api=7db9fe61-7414-47b5-9871-e17d87b8b6a0"},{"title":"\u0022Wake Up With Al,\u0022 Mornings @ 5AM ET ","link_url":"\/tv\/shows\/wake-up-with-al","target":"_self","icon":"","asset_id":"033f606d-aff0-4869-815e-3d767fb38e66","src":"https:\/\/dsx.weather.com\/\/util\/image\/w\/wuwa_0.jpg?v=at\u0026w=155\u0026h=114\u0026api=7db9fe61-7414-47b5-9871-e17d87b8b6a0"},{"title":"\u0022Tornado Alley,\u0022 Mondays @ 10P","link_url":"\/tv\/shows\/tornado-alley\/news\/tornado-alley-season-two-premiere","target":"_self","icon":"","asset_id":"6ce7e124-38dd-4618-a9af-2b7ae65043fe","src":"https:\/\/dsx.weather.com\/\/util\/image\/w\/TALOGO_0.jpg?v=at\u0026w=155\u0026h=114\u0026api=7db9fe61-7414-47b5-9871-e17d87b8b6a0"}]},{"title":"Winter Storms","link_url":"\/storms\/winter-central","target":"_self","left":[{"title":"Winter Storm Central","link_url":"\/storms\/winter-central","target":"_self"},{"title":"All Winter News","link_url":"\/storms\/winter","target":"_self"},{"title":"Winter Storm Safety","link_url":"\/safety\/winter","target":"_self"}],"right":[{"title":"Flood Threat From Bill Continues","link_url":"\/storms\/hurricane\/news\/tropical-storm-bill-flooding-heavy-rain-threat","target":"_self","icon":"","asset_id":"a5e460d9-8002-4b7a-b49a-2de373142e63","src":"https:\/\/dsx.weather.com\/\/util\/image\/w\/bill-vis-18jun15-1pET.png?v=at\u0026w=155\u0026h=114\u0026api=7db9fe61-7414-47b5-9871-e17d87b8b6a0"},{"title":"Bill: Latest News and Impacts","link_url":"\/storms\/hurricane\/news\/tropical-storm-bill-impacts","target":"_self","icon":"","asset_id":"2b827f35-ae76-4e74-a2d4-cf1983606965","src":"https:\/\/dsx.weather.com\/\/util\/image\/w\/HurricaneBill029.JPG?v=at\u0026w=155\u0026h=114\u0026api=7db9fe61-7414-47b5-9871-e17d87b8b6a0"},{"title":"Hurricane Carlos Recap","link_url":"\/storms\/hurricane\/news\/tropical-storm-hurricane-carlos-mexico-june2015","target":"_self","icon":"","asset_id":"e2ad893f-e055-44bb-a00f-c7f022b0d8be","src":"https:\/\/dsx.weather.com\/\/util\/image\/w\/carlos-recap.jpg?v=at\u0026w=155\u0026h=114\u0026api=7db9fe61-7414-47b5-9871-e17d87b8b6a0"},{"title":"2015 Hurricane Season Outlook","link_url":"\/storms\/hurricane\/news\/hurricane-season-forecast-atlantic-2015-noaa-weather-channel-csu","target":"_self","icon":"","asset_id":"1a727707-5277-4e53-9658-e01dce955c59","src":"https:\/\/dsx.weather.com\/\/util\/image\/w\/hur-season-forecasts.jpg?v=at\u0026w=155\u0026h=114\u0026api=7db9fe61-7414-47b5-9871-e17d87b8b6a0"}]}],"manageLocationsUrl":"\/life\/profile\/","internationalUrl":"\/life\/international","manageAlertsUrl":"https:\/\/profile.weather.com\/#\/profile\/alerts","weatherTodayUrl":"\/weather\/today\/l\/","isShowSignOnBtn":1,"isAddUnitToggle":1,"module_version":"1.0.4"},"92872c78-16a5-4ccc-b714-bc6247732639":{"loc_type":{"1":"1","4":"4","5":"5","9":"9","11":"11","13":"13","19":"19","21":"21","1000":"1000","1001":"1001","1003":"1003"},"module_id":"hdr","minChar":"3","suppress_recent_searches":"false","destUrl":"\/weather\/today\/l\/","enhancedUrl":"\/search\/enhancedlocalsearch","profileUrl":"\/life\/profile","module_version":"1.0.28"},"cb218bf4-95ee-45ae-a492-124734cf9457":{"manageLocationsUrl":"\/life\/profile\/","canShowButtonPlus":1,"internationalUrl":"\/life\/international","manageAlertsUrl":"https:\/\/profile.weather.com\/#\/profile\/alerts","weatherTodayUrl":"\/weather\/today\/l\/","logoUrl":"\/","isAddPollenAlert":1,"isAddUnitToggle":1,"module_version":"1.0.3"}},"modules":{"gm_footer":["9cd65d5c-daa6-4730-b1cf-c29cd9d7dea8"],"title_h2":["72ad428f-a70f-44d3-b2be-ea20039aab28"],"wxnode_opencontent_well":["2fb2a493-f168-4678-94eb-3fac9cd2f7f6"],"glomo_cobrand_headers":["99ed6165-9509-4787-8a45-f53943ddf937"],"glomo_breaking_now":["062bad7e-eb2c-4a83-936b-864bcdbd454d"],"gm_header_main_menu_resp":["42a0c391-0843-4e05-871a-cb617c58de2a"],"glomo_search":["92872c78-16a5-4ccc-b714-bc6247732639"],"gm_header_savedlocations":["cb218bf4-95ee-45ae-a492-124734cf9457"]},"files":{"gm_footer":{"sites\/all\/modules\/glomo\/modules\/gm_footer\/gm_footer.controller.js":{"scope":"footer","group":7,"every_page":false,"weight":11,"preprocess":true}}}},"angularmods":{"active":["gm_footer","title_h2","glomo_cobrand_headers","glomo_breaking_now","gm_header_main_menu_resp","glomo_search","gm_header_savedlocations"]}});</script>
+    <script>
+    // drupalSettingsReady event is here to indicate that Drupal.settings is ready
+    window.TWC = window.TWC || {};
+    TWC.Events = TWC.Events || {};
+    TWC.Events.drupalSettingsReady = TWC.Events.drupalSettingsReady || jQuery.Deferred();
+    TWC.Events.drupalSettingsReady.resolve();
+    TWC.pageTitle = "| The Weather Channel" || "The Weather Channel";
+    TWC.pageDescription = jQuery('meta[name="description"]').attr('content') || "";
+  </script>
+</head>
+
+<body  class="html not-front not-logged-in page-en-us page-en-us-twc page-en-us-twc-privacy-policy i18n-en-US  section-en-us">
+  <a href="#main-content" class="element-invisible element-focusable">Skip to main content</a>
+    <div class="l-page">
+
+  <div class="l-main l-content" role="main">
+            <ul class="breadcrumb"><li><a href="/">Home</a></li></ul>      <a id="main-content"></a>
+                              <div id="wx-wrapper">
+  <div class="panel-display antioch clearfix " >
+    <header id="wx-top-wrap" class="column-content-region content-header header clearfix panel-panel">
+      <div class="content-header-inner column-content-region-inner column-inner container-inner panel-panel-inner">
+              </div>
+    </header>
+    <div id="wx-mid-wrap" class="clearfix">
+      <div id="wx-lead" class="lead-content panel-panel clearfix">
+        <div class="content-container-inner clearfix">
+          <header class="clearfix header">
+            <div id="wx-local-bg"></div>
+                          <div class="lead-header panel-panel clearfix">
+                <div class="lead-header-inner panel-panel-inner">
+                  <div class="panel-pane content module-padding width-100 float-left    column"
+  data-eq-pts="pane: 1, pane-xs: 230, pane-sm: 300, pane-md: 465, pane-lg: 630px, pane-xl: 795">
+  <div class="pane-content ">
+    <div class="mini-panel glomo-header">
+      <div class="region content-menu">
+      <div class="panel-pane content width-100 float-left    column"
+  data-eq-pts="pane: 1, pane-xs: 230, pane-sm: 300, pane-md: 465, pane-lg: 630px, pane-xl: 795">
+  <div class="pane-content ">
+    <div class="glomo_cobrand_headers" data-twc-controller="twc_glomo_cobrand_headers_controller" data-module-name="glomo_cobrand_headers" instance="99ed6165-9509-4787-8a45-f53943ddf937"><div data-ng-non-bindable="true">
+<!-- This module uses the directive mainly. So we just need to call the directive and the directive decides which cobrand template to load -->
+<div data-glomo-wx-co-brand-header></div>
+</div></div>  </div>
+</div>
+<div class="panel-pane content width-100 float-left    column"
+  data-eq-pts="pane: 1, pane-xs: 230, pane-sm: 300, pane-md: 465, pane-lg: 630px, pane-xl: 795">
+  <div class="pane-content ">
+    <div class="glomo_breaking_now" data-twc-controller="twc_glomo_breaking_now_controller" data-module-name="glomo_breaking_now" instance="062bad7e-eb2c-4a83-936b-864bcdbd454d"><div data-ng-non-bindable="true"><div data-tb-region="breaking" data-tb-region-item>
+    <div data-glomo-breaking-now></div>
+</div></div></div>  </div>
+</div>
+<div class="panel-pane content width-100 float-left    column"
+  data-eq-pts="pane: 1, pane-xs: 230, pane-sm: 300, pane-md: 465, pane-lg: 630px, pane-xl: 795">
+  <div class="pane-content ">
+    <div class="gm_header_main_menu_resp" data-twc-controller="twc_gm_header_main_menu_resp_controller" data-module-name="gm_header_main_menu_resp" instance="42a0c391-0843-4e05-871a-cb617c58de2a"><div class="header-menu--mobile">
+  <button class="btn-mobile"
+    data-ng-click='headerMainMenu.toggleMainMenu()'>
+    <span class="wx-iconfont-global wx-icon-menu"
+      data-ng-if='responsive.menuBtn'></span>
+    <span class="menu-text mobile__menu--text"
+      data-ng-bind="::('MENU' | pfTranslate: {context: 'gm_header_main_menu_resp'})"
+      data-ng-if='responsive.menuBtn'></span>
+    <span data-ng-cloak class="wx-iconfont-global wx-icon-close"
+      data-ng-if='responsive.closeBtn'>
+    </span>
+  </button>
+</div>
+
+<header class="header">
+
+  <div class="header-menu container" data-ng-style="{'display': responsive.closeBtn && 'block'}">
+
+    <div class='header-menu__main' data-ng-class="{'notDisplay':  !responsive.isShowSignOnBtn}">
+
+     
+        <!-- Navigation Desktop Tablet-->
+        <span class="dropdown header-menu__group">
+          <a  class="dropdown-toggle header-menu__link"
+              href="/weather/today/l/{{dynamicLocId}}"
+              >
+              Forecasts          </a>
+                    <ul class="dropdown-menu style-menu header-menu__dropdown"
+              data-ng-if='!responsive.isMobile'>
+
+           
+            <li>
+                <a href="/weather/today/l/{{dynamicLocId}}">
+                  Today's Forecast                </a>
+            </li>
+
+           
+            <li>
+                <a href="/forecast/news/national-forecast-20141009">
+                  National Forecast                </a>
+            </li>
+
+           
+            <li>
+                <a href="/storms/alerts">
+                  Alerts                </a>
+            </li>
+
+           
+            <li>
+                <a href="/health/cold-flu/state/{{dynamiclocation.stCd}}">
+                  Cold and Flu                </a>
+            </li>
+
+           
+            <li>
+                <a href="/forecast/allergy/l/{{dynamicLocId}}">
+                  Allergy Tracker                </a>
+            </li>
+
+           
+            <li>
+                <a href="/storms/severe">
+                  Severe Weather                </a>
+            </li>
+
+           
+            <li>
+                <a href="/safety/before">
+                  Safety & Preparedness                 </a>
+            </li>
+
+           
+            <li>
+                <a href="/weather/weekend/l/{{dynamicLocId}}">
+                  Weekend Forecast                </a>
+            </li>
+
+           
+            <li>
+                <a href="/travel">
+                  Travel                </a>
+            </li>
+
+           
+            <li>
+                <a href="/storms/winter-central">
+                  Winter Storm Central                </a>
+            </li>
+
+           
+            <li>
+                <a href="/forecast/commuter?layers=driving">
+                  Commuter Forecast                </a>
+            </li>
+
+           
+          </ul>
+          
+        </span>
+
+        <!-- Navigation Mobile-->
+        <span class="header__mobile" data-ng-if='responsive.isMobile'>
+
+           <ul class='mobile__list'>
+              <li>
+                <a class="mobile__link"
+                   href="/weather/today/l/{{dynamicLocId}}">
+                    Forecasts                </a>
+                                <ul class='mobile-dropdown'>
+                                    <li>
+                       <a href="/weather/today/l/{{dynamicLocId}}">
+                          Today's Forecast                       </a>
+                   </li>
+                                     <li>
+                       <a href="/forecast/news/national-forecast-20141009">
+                          National Forecast                       </a>
+                   </li>
+                  
+                   
+                     <li data-ng-show='responsive.showMore'
+                         data-ng-if="'0' === idx">
+                         <a href="/storms/alerts">
+                            Alerts                         </a>
+                     </li>
+
+                    
+                     <li data-ng-show='responsive.showMore'
+                         data-ng-if="'0' === idx">
+                         <a href="/health/cold-flu/state/{{dynamiclocation.stCd}}">
+                            Cold and Flu                         </a>
+                     </li>
+
+                    
+                     <li data-ng-show='responsive.showMore'
+                         data-ng-if="'0' === idx">
+                         <a href="/forecast/allergy/l/{{dynamicLocId}}">
+                            Allergy Tracker                         </a>
+                     </li>
+
+                    
+                     <li data-ng-show='responsive.showMore'
+                         data-ng-if="'0' === idx">
+                         <a href="/storms/severe">
+                            Severe Weather                         </a>
+                     </li>
+
+                    
+                     <li data-ng-show='responsive.showMore'
+                         data-ng-if="'0' === idx">
+                         <a href="/safety/before">
+                            Safety & Preparedness                          </a>
+                     </li>
+
+                    
+                     <li data-ng-show='responsive.showMore'
+                         data-ng-if="'0' === idx">
+                         <a href="/weather/weekend/l/{{dynamicLocId}}">
+                            Weekend Forecast                         </a>
+                     </li>
+
+                    
+                     <li data-ng-show='responsive.showMore'
+                         data-ng-if="'0' === idx">
+                         <a href="/travel">
+                            Travel                         </a>
+                     </li>
+
+                    
+                     <li data-ng-show='responsive.showMore'
+                         data-ng-if="'0' === idx">
+                         <a href="/storms/winter-central">
+                            Winter Storm Central                         </a>
+                     </li>
+
+                    
+                     <li data-ng-show='responsive.showMore'
+                         data-ng-if="'0' === idx">
+                         <a href="/forecast/commuter?layers=driving">
+                            Commuter Forecast                         </a>
+                     </li>
+
+                                        <li class="more-list"
+                        data-ng-show="'0' !== idx || responsive.showMoreBtn"
+                        data-ng-hide="'0' === idx">
+                      <a href=""
+                          data-ng-click="headerMainMenu.showMore('0')"
+                          data-ng-bind="::('Show More...' | pfTranslate: {context: 'gm_header_main_menu_resp'})"
+                          ></a>
+                    </li>
+                    <li class="more-list"
+                        data-ng-show="'0' === idx"
+                        data-ng-hide ="'0' !== idx || responsive.showMoreBtn">
+                      <a href=""
+                        data-ng-click="headerMainMenu.showLess()"
+                        data-ng-bind="::('Show Less...' | pfTranslate: {context: 'gm_header_main_menu_resp'})"></a>
+                    </li>
+                  </ul>
+                                </li>
+           </ul>
+
+        </span>
+           <!-- End Nagigation -->
+      
+        <!-- Navigation Desktop Tablet-->
+        <span class="dropdown header-menu__group">
+          <a  class="dropdown-toggle header-menu__link"
+              href="/weather/radar/interactive/l/{{dynamicLocId}}"
+              >
+              Maps          </a>
+                    <ul class="dropdown-menu style-menu header-menu__dropdown"
+              data-ng-if='!responsive.isMobile'>
+
+           
+            <li>
+                <a href="/weather/radar/interactive/l/{{dynamicLocId}}">
+                  Weather Radar Maps                </a>
+            </li>
+
+           
+            <li>
+                <a href="/weather/radar/interactive/l/{{dynamicLocId}}?animation=true">
+                  Weather In Motion®                </a>
+            </li>
+
+           
+            <li>
+                <a href="/weather/radar/interactive/l/{{dynamicLocId}}?layers=ussat&zoom=6">
+                  Regional Satellite                 </a>
+            </li>
+
+           
+            <li>
+                <a href="/maps/currentusweather">
+                  Classic Weather Maps                </a>
+            </li>
+
+           
+            <li>
+                <a href="/forecast/commuter?layers=driving">
+                  Commuter Radar Map                </a>
+            </li>
+
+           
+          </ul>
+          
+        </span>
+
+        <!-- Navigation Mobile-->
+        <span class="header__mobile" data-ng-if='responsive.isMobile'>
+
+           <ul class='mobile__list'>
+              <li>
+                <a class="mobile__link"
+                   href="/weather/radar/interactive/l/{{dynamicLocId}}">
+                    Maps                </a>
+                                <ul class='mobile-dropdown'>
+                                    <li>
+                       <a href="/weather/radar/interactive/l/{{dynamicLocId}}">
+                          Weather Radar Maps                       </a>
+                   </li>
+                                     <li>
+                       <a href="/weather/radar/interactive/l/{{dynamicLocId}}?animation=true">
+                          Weather In Motion®                       </a>
+                   </li>
+                  
+                   
+                     <li data-ng-show='responsive.showMore'
+                         data-ng-if="'1' === idx">
+                         <a href="/weather/radar/interactive/l/{{dynamicLocId}}?layers=ussat&zoom=6">
+                            Regional Satellite                          </a>
+                     </li>
+
+                    
+                     <li data-ng-show='responsive.showMore'
+                         data-ng-if="'1' === idx">
+                         <a href="/maps/currentusweather">
+                            Classic Weather Maps                         </a>
+                     </li>
+
+                    
+                     <li data-ng-show='responsive.showMore'
+                         data-ng-if="'1' === idx">
+                         <a href="/forecast/commuter?layers=driving">
+                            Commuter Radar Map                         </a>
+                     </li>
+
+                                        <li class="more-list"
+                        data-ng-show="'1' !== idx || responsive.showMoreBtn"
+                        data-ng-hide="'1' === idx">
+                      <a href=""
+                          data-ng-click="headerMainMenu.showMore('1')"
+                          data-ng-bind="::('Show More...' | pfTranslate: {context: 'gm_header_main_menu_resp'})"
+                          ></a>
+                    </li>
+                    <li class="more-list"
+                        data-ng-show="'1' === idx"
+                        data-ng-hide ="'1' !== idx || responsive.showMoreBtn">
+                      <a href=""
+                        data-ng-click="headerMainMenu.showLess()"
+                        data-ng-bind="::('Show Less...' | pfTranslate: {context: 'gm_header_main_menu_resp'})"></a>
+                    </li>
+                  </ul>
+                                </li>
+           </ul>
+
+        </span>
+           <!-- End Nagigation -->
+      
+        <!-- Navigation Desktop Tablet-->
+        <span class="dropdown header-menu__group">
+          <a  class="dropdown-toggle header-menu__link"
+              href="https://weather.com/news/weather/video/winter-temperatures-make-a-comeback-soon"
+              >
+              Video          </a>
+                    <ul class="dropdown-menu style-menu header-menu__dropdown"
+              data-ng-if='!responsive.isMobile'>
+
+           
+            <li>
+                <a href="https://weather.com/news/weather/video/winter-temperatures-make-a-comeback-soon">
+                  Top Stories                </a>
+            </li>
+
+           
+            <li>
+                <a href="https://weather.com/news/trending/video/acrobatic-skydiver-dances-back-to-earth">
+                  Trending News                </a>
+            </li>
+
+           
+            <li>
+                <a href="https://weather.com/safety/auto/video/car-tires-made-of-ice">
+                  Road Ready                </a>
+            </li>
+
+           
+            <li>
+                <a href="/series">
+                  Web Series                </a>
+            </li>
+
+           
+            <li>
+                <a href="/tv">
+                  TV Clips                </a>
+            </li>
+
+           
+            <li>
+                <a href="/tv/the-weather-channel-live/video/watch-the-weather-channel-live?pl=pl-live-tv-now">
+                  Watch Live TV                </a>
+            </li>
+
+           
+            <li>
+                <a href="/video">
+                  All Video                </a>
+            </li>
+
+           
+          </ul>
+          
+        </span>
+
+        <!-- Navigation Mobile-->
+        <span class="header__mobile" data-ng-if='responsive.isMobile'>
+
+           <ul class='mobile__list'>
+              <li>
+                <a class="mobile__link"
+                   href="https://weather.com/news/weather/video/winter-temperatures-make-a-comeback-soon">
+                    Video                </a>
+                                <ul class='mobile-dropdown'>
+                                    <li>
+                       <a href="https://weather.com/news/weather/video/winter-temperatures-make-a-comeback-soon">
+                          Top Stories                       </a>
+                   </li>
+                                     <li>
+                       <a href="https://weather.com/news/trending/video/acrobatic-skydiver-dances-back-to-earth">
+                          Trending News                       </a>
+                   </li>
+                  
+                   
+                     <li data-ng-show='responsive.showMore'
+                         data-ng-if="'2' === idx">
+                         <a href="https://weather.com/safety/auto/video/car-tires-made-of-ice">
+                            Road Ready                         </a>
+                     </li>
+
+                    
+                     <li data-ng-show='responsive.showMore'
+                         data-ng-if="'2' === idx">
+                         <a href="/series">
+                            Web Series                         </a>
+                     </li>
+
+                    
+                     <li data-ng-show='responsive.showMore'
+                         data-ng-if="'2' === idx">
+                         <a href="/tv">
+                            TV Clips                         </a>
+                     </li>
+
+                    
+                     <li data-ng-show='responsive.showMore'
+                         data-ng-if="'2' === idx">
+                         <a href="/tv/the-weather-channel-live/video/watch-the-weather-channel-live?pl=pl-live-tv-now">
+                            Watch Live TV                         </a>
+                     </li>
+
+                    
+                     <li data-ng-show='responsive.showMore'
+                         data-ng-if="'2' === idx">
+                         <a href="/video">
+                            All Video                         </a>
+                     </li>
+
+                                        <li class="more-list"
+                        data-ng-show="'2' !== idx || responsive.showMoreBtn"
+                        data-ng-hide="'2' === idx">
+                      <a href=""
+                          data-ng-click="headerMainMenu.showMore('2')"
+                          data-ng-bind="::('Show More...' | pfTranslate: {context: 'gm_header_main_menu_resp'})"
+                          ></a>
+                    </li>
+                    <li class="more-list"
+                        data-ng-show="'2' === idx"
+                        data-ng-hide ="'2' !== idx || responsive.showMoreBtn">
+                      <a href=""
+                        data-ng-click="headerMainMenu.showLess()"
+                        data-ng-bind="::('Show Less...' | pfTranslate: {context: 'gm_header_main_menu_resp'})"></a>
+                    </li>
+                  </ul>
+                                </li>
+           </ul>
+
+        </span>
+           <!-- End Nagigation -->
+      
+        <!-- Navigation Desktop Tablet-->
+        <span class="dropdown header-menu__group">
+          <a  class="dropdown-toggle header-menu__link"
+              href="/slideshows"
+              >
+              Photos          </a>
+                    <ul class="dropdown-menu style-menu header-menu__dropdown"
+              data-ng-if='!responsive.isMobile'>
+
+           
+            <li>
+                <a href="/slideshows">
+                  All Photos                </a>
+            </li>
+
+           
+            <li>
+                <a href="/photos">
+                  Fan Photos                </a>
+            </li>
+
+           
+            <li>
+                <a href="/photos/collection/ugc">
+                  Upload Your Photos                </a>
+            </li>
+
+           
+            <li>
+                <a href="/news/news/2015-photo-contest-winners#/1">
+                  Photo Contest Winners                </a>
+            </li>
+
+           
+            <li>
+                <a href="/photos/places/news/lets-go-places">
+                  Let's Go Places                </a>
+            </li>
+
+           
+          </ul>
+          
+        </span>
+
+        <!-- Navigation Mobile-->
+        <span class="header__mobile" data-ng-if='responsive.isMobile'>
+
+           <ul class='mobile__list'>
+              <li>
+                <a class="mobile__link"
+                   href="/slideshows">
+                    Photos                </a>
+                                <ul class='mobile-dropdown'>
+                                    <li>
+                       <a href="/slideshows">
+                          All Photos                       </a>
+                   </li>
+                                     <li>
+                       <a href="/photos">
+                          Fan Photos                       </a>
+                   </li>
+                  
+                   
+                     <li data-ng-show='responsive.showMore'
+                         data-ng-if="'3' === idx">
+                         <a href="/photos/collection/ugc">
+                            Upload Your Photos                         </a>
+                     </li>
+
+                    
+                     <li data-ng-show='responsive.showMore'
+                         data-ng-if="'3' === idx">
+                         <a href="/news/news/2015-photo-contest-winners#/1">
+                            Photo Contest Winners                         </a>
+                     </li>
+
+                    
+                     <li data-ng-show='responsive.showMore'
+                         data-ng-if="'3' === idx">
+                         <a href="/photos/places/news/lets-go-places">
+                            Let's Go Places                         </a>
+                     </li>
+
+                                        <li class="more-list"
+                        data-ng-show="'3' !== idx || responsive.showMoreBtn"
+                        data-ng-hide="'3' === idx">
+                      <a href=""
+                          data-ng-click="headerMainMenu.showMore('3')"
+                          data-ng-bind="::('Show More...' | pfTranslate: {context: 'gm_header_main_menu_resp'})"
+                          ></a>
+                    </li>
+                    <li class="more-list"
+                        data-ng-show="'3' === idx"
+                        data-ng-hide ="'3' !== idx || responsive.showMoreBtn">
+                      <a href=""
+                        data-ng-click="headerMainMenu.showLess()"
+                        data-ng-bind="::('Show Less...' | pfTranslate: {context: 'gm_header_main_menu_resp'})"></a>
+                    </li>
+                  </ul>
+                                </li>
+           </ul>
+
+        </span>
+           <!-- End Nagigation -->
+      
+        <!-- Navigation Desktop Tablet-->
+        <span class="dropdown header-menu__group">
+          <a  class="dropdown-toggle header-menu__link"
+              href="/news"
+              >
+              News          </a>
+                    <ul class="dropdown-menu style-menu header-menu__dropdown"
+              data-ng-if='!responsive.isMobile'>
+
+           
+            <li>
+                <a href="/news">
+                  All News                </a>
+            </li>
+
+           
+            <li>
+                <a href="/travel">
+                  Travel                </a>
+            </li>
+
+           
+            <li>
+                <a href="/health">
+                  Health                </a>
+            </li>
+
+           
+            <li>
+                <a href="/science">
+                  Science                </a>
+            </li>
+
+           
+            <li>
+                <a href="/science/environment">
+                  Environment                </a>
+            </li>
+
+           
+            <li>
+                <a href="/forecast/weekend-project/l/{{dynamicLocId}}">
+                  Weekend Project                </a>
+            </li>
+
+           
+            <li>
+                <a href="/home-garden">
+                  Home & Garden                </a>
+            </li>
+
+           
+            <li>
+                <a href="/sports-recreation">
+                  Sports & Recreation                </a>
+            </li>
+
+           
+            <li>
+                <a href="/storms/winter-central">
+                  Winter Storm Central                </a>
+            </li>
+
+           
+            <li>
+                <a href="/storms/hurricane-central">
+                  Hurricane Central                </a>
+            </li>
+
+           
+            <li>
+                <a href="/storms/tornado">
+                  Tornado Central                </a>
+            </li>
+
+           
+          </ul>
+          
+        </span>
+
+        <!-- Navigation Mobile-->
+        <span class="header__mobile" data-ng-if='responsive.isMobile'>
+
+           <ul class='mobile__list'>
+              <li>
+                <a class="mobile__link"
+                   href="/news">
+                    News                </a>
+                                <ul class='mobile-dropdown'>
+                                    <li>
+                       <a href="/news">
+                          All News                       </a>
+                   </li>
+                                     <li>
+                       <a href="/travel">
+                          Travel                       </a>
+                   </li>
+                  
+                   
+                     <li data-ng-show='responsive.showMore'
+                         data-ng-if="'4' === idx">
+                         <a href="/health">
+                            Health                         </a>
+                     </li>
+
+                    
+                     <li data-ng-show='responsive.showMore'
+                         data-ng-if="'4' === idx">
+                         <a href="/science">
+                            Science                         </a>
+                     </li>
+
+                    
+                     <li data-ng-show='responsive.showMore'
+                         data-ng-if="'4' === idx">
+                         <a href="/science/environment">
+                            Environment                         </a>
+                     </li>
+
+                    
+                     <li data-ng-show='responsive.showMore'
+                         data-ng-if="'4' === idx">
+                         <a href="/forecast/weekend-project/l/{{dynamicLocId}}">
+                            Weekend Project                         </a>
+                     </li>
+
+                    
+                     <li data-ng-show='responsive.showMore'
+                         data-ng-if="'4' === idx">
+                         <a href="/home-garden">
+                            Home & Garden                         </a>
+                     </li>
+
+                    
+                     <li data-ng-show='responsive.showMore'
+                         data-ng-if="'4' === idx">
+                         <a href="/sports-recreation">
+                            Sports & Recreation                         </a>
+                     </li>
+
+                    
+                     <li data-ng-show='responsive.showMore'
+                         data-ng-if="'4' === idx">
+                         <a href="/storms/winter-central">
+                            Winter Storm Central                         </a>
+                     </li>
+
+                    
+                     <li data-ng-show='responsive.showMore'
+                         data-ng-if="'4' === idx">
+                         <a href="/storms/hurricane-central">
+                            Hurricane Central                         </a>
+                     </li>
+
+                    
+                     <li data-ng-show='responsive.showMore'
+                         data-ng-if="'4' === idx">
+                         <a href="/storms/tornado">
+                            Tornado Central                         </a>
+                     </li>
+
+                                        <li class="more-list"
+                        data-ng-show="'4' !== idx || responsive.showMoreBtn"
+                        data-ng-hide="'4' === idx">
+                      <a href=""
+                          data-ng-click="headerMainMenu.showMore('4')"
+                          data-ng-bind="::('Show More...' | pfTranslate: {context: 'gm_header_main_menu_resp'})"
+                          ></a>
+                    </li>
+                    <li class="more-list"
+                        data-ng-show="'4' === idx"
+                        data-ng-hide ="'4' !== idx || responsive.showMoreBtn">
+                      <a href=""
+                        data-ng-click="headerMainMenu.showLess()"
+                        data-ng-bind="::('Show Less...' | pfTranslate: {context: 'gm_header_main_menu_resp'})"></a>
+                    </li>
+                  </ul>
+                                </li>
+           </ul>
+
+        </span>
+           <!-- End Nagigation -->
+      
+        <!-- Navigation Desktop Tablet-->
+        <span class="dropdown header-menu__group">
+          <a  class="dropdown-toggle header-menu__link"
+              href="/tv/the-weather-channel-live/video/watch-the-weather-channel-live?pl=pl-live-tv-now"
+              >
+              TV           </a>
+                    <ul class="dropdown-menu style-menu header-menu__dropdown"
+              data-ng-if='!responsive.isMobile'>
+
+           
+            <li>
+                <a href="/tv">
+                  All TV                </a>
+            </li>
+
+           
+            <li>
+                <a href="/tv/personalities">
+                  Personalities                </a>
+            </li>
+
+           
+            <li>
+                <a href="/tv">
+                  Shows                </a>
+            </li>
+
+           
+            <li>
+                <a href="/tv/the-weather-channel-live/news/tv-schedule">
+                  TV Schedule                </a>
+            </li>
+
+           
+          </ul>
+          
+        </span>
+
+        <!-- Navigation Mobile-->
+        <span class="header__mobile" data-ng-if='responsive.isMobile'>
+
+           <ul class='mobile__list'>
+              <li>
+                <a class="mobile__link"
+                   href="/tv/the-weather-channel-live/video/watch-the-weather-channel-live?pl=pl-live-tv-now">
+                    TV                 </a>
+                                <ul class='mobile-dropdown'>
+                                    <li>
+                       <a href="/tv">
+                          All TV                       </a>
+                   </li>
+                                     <li>
+                       <a href="/tv/personalities">
+                          Personalities                       </a>
+                   </li>
+                  
+                   
+                     <li data-ng-show='responsive.showMore'
+                         data-ng-if="'5' === idx">
+                         <a href="/tv">
+                            Shows                         </a>
+                     </li>
+
+                    
+                     <li data-ng-show='responsive.showMore'
+                         data-ng-if="'5' === idx">
+                         <a href="/tv/the-weather-channel-live/news/tv-schedule">
+                            TV Schedule                         </a>
+                     </li>
+
+                                        <li class="more-list"
+                        data-ng-show="'5' !== idx || responsive.showMoreBtn"
+                        data-ng-hide="'5' === idx">
+                      <a href=""
+                          data-ng-click="headerMainMenu.showMore('5')"
+                          data-ng-bind="::('Show More...' | pfTranslate: {context: 'gm_header_main_menu_resp'})"
+                          ></a>
+                    </li>
+                    <li class="more-list"
+                        data-ng-show="'5' === idx"
+                        data-ng-hide ="'5' !== idx || responsive.showMoreBtn">
+                      <a href=""
+                        data-ng-click="headerMainMenu.showLess()"
+                        data-ng-bind="::('Show Less...' | pfTranslate: {context: 'gm_header_main_menu_resp'})"></a>
+                    </li>
+                  </ul>
+                                </li>
+           </ul>
+
+        </span>
+           <!-- End Nagigation -->
+      
+        <!-- Navigation Desktop Tablet-->
+        <span class="dropdown header-menu__group">
+          <a  class="dropdown-toggle header-menu__link"
+              href="/storms/winter-central"
+              >
+              Winter Storms          </a>
+                    <ul class="dropdown-menu style-menu header-menu__dropdown"
+              data-ng-if='!responsive.isMobile'>
+
+           
+            <li>
+                <a href="/storms/winter-central">
+                  Winter Storm Central                </a>
+            </li>
+
+           
+            <li>
+                <a href="/storms/winter">
+                  All Winter News                </a>
+            </li>
+
+           
+            <li>
+                <a href="/safety/winter">
+                  Winter Storm Safety                </a>
+            </li>
+
+           
+          </ul>
+          
+        </span>
+
+        <!-- Navigation Mobile-->
+        <span class="header__mobile" data-ng-if='responsive.isMobile'>
+
+           <ul class='mobile__list'>
+              <li>
+                <a class="mobile__link"
+                   href="/storms/winter-central">
+                    Winter Storms                </a>
+                                <ul class='mobile-dropdown'>
+                                    <li>
+                       <a href="/storms/winter-central">
+                          Winter Storm Central                       </a>
+                   </li>
+                                     <li>
+                       <a href="/storms/winter">
+                          All Winter News                       </a>
+                   </li>
+                  
+                   
+                     <li data-ng-show='responsive.showMore'
+                         data-ng-if="'6' === idx">
+                         <a href="/safety/winter">
+                            Winter Storm Safety                         </a>
+                     </li>
+
+                                        <li class="more-list"
+                        data-ng-show="'6' !== idx || responsive.showMoreBtn"
+                        data-ng-hide="'6' === idx">
+                      <a href=""
+                          data-ng-click="headerMainMenu.showMore('6')"
+                          data-ng-bind="::('Show More...' | pfTranslate: {context: 'gm_header_main_menu_resp'})"
+                          ></a>
+                    </li>
+                    <li class="more-list"
+                        data-ng-show="'6' === idx"
+                        data-ng-hide ="'6' !== idx || responsive.showMoreBtn">
+                      <a href=""
+                        data-ng-click="headerMainMenu.showLess()"
+                        data-ng-bind="::('Show Less...' | pfTranslate: {context: 'gm_header_main_menu_resp'})"></a>
+                    </li>
+                  </ul>
+                                </li>
+           </ul>
+
+        </span>
+           <!-- End Nagigation -->
+      
+        <div class='wx-settings' data-wx-settings data-on-temp-unit-changed="headerMainMenu.tempUnitChnaged()"
+     data-ng-if='responsive.isMobile' data-gm-settings="settings">
+        </div>
+      </div>
+      <!-- End DIV Main-menu -->
+      <div class="wx-header-tools" data-ng-if="responsive.isShowSignOnBtn" data-ng-cloak>
+        <div class="wx-sign-in"
+            data-ng-show="headerMainMenu.isLoggedIn()"
+            data-ng-mouseover="headerMainMenu.showMyProfileLinks()"
+            data-ng-mouseleave="headerMainMenu.hideMyProfileLinks()"
+            data-ng-click="headerMainMenu.myProfileClickToggle()">
+            <span class="wx-iconfont-global wx-icon-profile"></span>
+            <span class="label" data-ng-bind="::('My Profile' | pfTranslate: {context: 'gm_header_main_menu_resp'})"></span>
+            <span class="wx-iconfont-global wx-icon-arrow-down wx-icon-small"></span>
+            <ul class="wx-signedin"
+                data-ng-class="{wxSigninMobile: responsive.isMobile}"
+                data-ng-show="responsive.myProfileLinksShown">
+                <li class="wx-signin-mnglocs">
+                  <a data-from-str="hdr_mnglocs"
+                    data-ng-bind="::('Manage Locations' | pfTranslate: {context: 'gm_header_main_menu_resp'})"
+                    href="/life/profile ">
+                  </a>
+                </li>
+                <li class="wx-signin-mngalerts">
+                  <a data-from-str="hdr_mngalerts" rel="nofollow"
+                     data-ng-bind="::('Manage Alerts' | pfTranslate: {context: 'gm_header_main_menu_resp'})"
+                     href="//profile.weather.com/#/profile/alerts">
+                  </a>
+                </li>
+                <li class="wx-signin-myprofile">
+                  <a data-from-str="hdr_myprofile" rel="nofollow"
+                     data-ng-bind="::('Edit Profile' | pfTranslate: {context: 'gm_header_main_menu_resp'})"
+                     href="//profile.weather.com/#/profile/manage">
+                  </a>
+                </li>
+                <li class="wx-signin-signout">
+                  <a data-from-str="hdr_signout" 
+                      rel="nofollow" 
+                      href="#" 
+                      data-ng-bind="::('Sign Out' | pfTranslate: {context: 'gm_header_main_menu_resp'})"
+                      data-ng-click="headerMainMenu.signOut()">
+                  </a>
+                </li>
+            </ul>
+        </div>
+        <div class="wx-sign-in" data-ng-hide="headerMainMenu.isLoggedIn()">
+            <div data-from-str="hdr_signin">
+          <span class="login" data-ng-click="headerMainMenu.signIn()">
+            <span class="wx-iconfont-global wx-icon-profile"></span>
+            <span class="title"
+                  data-ng-bind="::('Log In' | pfTranslate: {context: 'gm_header_main_menu_resp'})">
+            </span>
+          </span>
+              <span class="forward-slash">/</span>
+              <span class="signup"
+                    data-ng-bind="::('Sign up' | pfTranslate: {context: 'gm_header_main_menu_resp'})"
+                    data-ng-click="headerMainMenu.signUp()">
+              </span>
+            </div>
+        </div>
+      </div>
+      
+ 
+  </div>
+</header>
+<div data-twc-modal
+  width="{{responsive.modal.width}}"
+  height="{{responsive.modal.height}}"
+  show-it="responsive.showSignOn"
+  header=""
+  body='<iframe src="{{responsive.iframeSrc}}" width="100%" height="{{responsive.modal.height}}"></iframe>'
+  dialog-template="/sites/all/modules/glomo/modules/gm_header_main_menu_resp/templates/ups_modal.html"
+  footer="<a href=''>sign in</a>">
+  
+</div>
+
+</div>  </div>
+</div>
+    </div>
+    <div class="sub-header">
+          <div class="region utility-menu">
+        <div class="panel-pane content width-100 float-left    column"
+  data-eq-pts="pane: 1, pane-xs: 230, pane-sm: 300, pane-md: 465, pane-lg: 630px, pane-xl: 795">
+  <div class="pane-content ">
+    <div class="gm_header_savedlocations" data-twc-controller="twc_gm_header_savedlocations_controller" data-module-name="gm_header_savedlocations" instance="cb218bf4-95ee-45ae-a492-124734cf9457"><div data-ng-non-bindable="true"><div data-ng-cloak class="clearfix gm-header-savedloc" data-gm-user-locations="userLocations" data-gm-temp-unit-changed="tempUnitChanged()" data-gm-settings="::settings">
+</div>
+</div></div>  </div>
+</div>
+      </div>
+              <div class="region search-region">
+        <div class="panel-pane content width-100 float-left    column"
+  data-eq-pts="pane: 1, pane-xs: 230, pane-sm: 300, pane-md: 465, pane-lg: 630px, pane-xl: 795">
+  <div class="pane-content ">
+    <div class="glomo_search" data-twc-controller="twc_glomo_search_controller" data-module-name="glomo_search" instance="92872c78-16a5-4ccc-b714-bc6247732639"><div data-ng-non-bindable="true"><div data-glomo-search></div>
+<section class="unified-search" data-ng-show="mobSearchVisible">
+  <span data-twc-typeahead
+        data-items="results"
+        data-term="term" data-search="search(term)"
+        data-select="selectItem(item, enter)"
+        data-pattern=""
+        data-placeholder-text="{{placeHolder}}"
+        data-validate-class="js-error-state"
+        data-input-class="input--search"
+        data-container-class="input-rebase"
+        data-viewport-focus>
+    <button data-ng-show="mobSearchVisible" data-ng-click="toggleMobSearch()" class="search-close-btn wx-iconfont-global wx-icon-close"></button>
+
+    <div data-ng-show="hasResults()">
+      <div class="menu" data-ng-cloak>
+        <div data-ng-switch="resultType()">
+          <div class="animate-switch" data-ng-switch-when="Recent">
+            <h3 class="heading--search" data-pf-translate="Recent Searches" data-pf-translate-context="glomo_base_search"></h3>
+            <ul class="recent">
+              <li data-twc-typeahead-item="item" data-ng-repeat="item in results | limitTo:10" class="results">
+                  <p class="name" data-ng-bind="getPresName($index)"></p>
+              </li>
+            </ul>
+          </div>
+          <div class="animate-switch" data-ng-switch-when="Search">
+            <!-- <h3>Results</h3> -->
+            <ul class="results">
+              <li data-twc-typeahead-item="item" data-ng-repeat="item in results | limitTo:10" class="results">
+                  <p class="name" data-ng-bind="getPresName($index)"></p>
+              </li>
+            </ul>
+          </div>
+          <div class="animate-switch" data-ng-switch-when="NoResult">
+            <p class="result-status" data-pf-translate="No results found." data-pf-translate-context="glomo_base_search"></p>
+          </div>
+          <div class="animate-switch" data-ng-switch-when="Suppressed">
+          </div>
+          <div class="animate-switch" data-ng-switch-default>
+            <p class="result-status" data-pf-translate="Searching" data-pf-translate-context="glomo_base_search"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </span>
+</section>
+<button data-ng-hide="mobSearchVisible" data-ng-click="toggleMobSearch()" class="search-open-btn wx-iconfont-global wx-icon-search"></button>
+
+</div></div>  </div>
+</div>
+      </div>
+      </div>
+  </div>
+  </div>
+</div>
+                </div>
+              </div>
+                                  </header>
+                      <div id="wx-lead-content" class="lead-content panel-panel center-col clearfix">
+              <div class="lead-content-inner panel-panel-inner">
+                <div class="panel-pane content module-padding width-100 float-left    column"
+  data-eq-pts="pane: 1, pane-xs: 230, pane-sm: 300, pane-md: 465, pane-lg: 630px, pane-xl: 795">
+  <div class="pane-content ">
+    <div class="twc-init title_h2" data-twc-controller="twc_title_h2_controller" data-module-name="title_h2" instance="72ad428f-a70f-44d3-b2be-ea20039aab28"><div data-ng-non-bindable="true"><h2 class="header2" data-remove-pane-padding data-ng-bind="title_h2"></h2>
+</div></div>  </div>
+</div>
+<div class="panel-pane content module-padding width-100 float-left    column"
+  data-eq-pts="pane: 1, pane-xs: 230, pane-sm: 300, pane-md: 465, pane-lg: 630px, pane-xl: 795">
+  <div class="pane-content ">
+    <div data-instance="2fb2a493-f168-4678-94eb-3fac9cd2f7f6" data-module-name="wxnode_opencontent_well" class="wxnode_opencontent_well"><div class="open-content-well-container">
+  <style>
+#wx-wrapper .wxnode_opencontent_well {display:block !important;}
+.privacy-policy{font-size: 1.2em;background: #fff;padding: 5px;}
+.privacy-policy-content {border: solid; border-color: #f8f6e7; border-width: 1px;padding: 5px;}
+.privacy-policy-content ul {list-style-type: disc; padding-left: 2em;}
+.privacy-update-date{background-color: #ffffcd; border: 1px solid #ccc; padding: 10px; margin-bottom: 15px; color: #333;}
+.privacy-update-date a {font-weight: bold;}
+hr {border: 1px solid #a7c9e0;}
+.title_h2 h2.header2 {margin-bottom: auto;}
+h4 {font-size: 1.0em;font-weight:bold;}
+p, h4 {margin:0 0 1em 0;}
+a {color:#3C8ED3;word-break: break-all;}
+a:hover {text-decoration: underline;}
+.privacy-list{margin-left:0; padding-left:1.8em;}
+.privacy-list li:before{font-weight:bold;}
+.italic {font-style: italic;}
+.center {text-align: center; font-weight: bold;}
+.nowrap {white-space: nowrap;}
+</style>
+<div class="privacy-policy">
+  <div class="privacy-policy-content">
+    <div id="privacy-date" class="privacy-update-date">Thank you for using our services. This privacy policy went into effect on January 29, 2016.
+    </div>
+    <div id="privacy-text" class="privacy-policy-text">
+<hr>
+<p>The Weather Company (sometimes, “we” or “us”) is committed to protecting your privacy. This Privacy Policy is important and we encourage you to carefully read it.</p>
+<p>This Privacy Policy discloses how we collect, use and share information that we gather about you on the weather.com® website (the “Site”) and our software applications, mobile applications and other websites and services that reference or link to this Privacy Policy (together, the “Services”).  This Privacy Policy also describes the choices you have regarding our use of and your ability to correct the information. The Services do not include websites, mobile applications or other services that link to another privacy policy.</p>
+<ol class="toc">
+<li><a href="javascript:;" onclick="document.location.hash='us-our-truste-cert';">Our TRUSTe Certification</a></li>
+<li><a href="javascript:;" onclick="document.location.hash='us-how-we-collect';">How We Collect and Use Personal Data and Other Information</a></li>
+<li><a href="javascript:;" onclick="document.location.hash='us-data-coll-tech';">Data Collection Technologies and Consumer Choice</a></li>
+<li><a href="javascript:;" onclick="document.location.hash='us-how-we-share';">How We Share or Disclose Your Information</a></li>
+<li><a href="javascript:;" onclick="document.location.hash='us-other-limitations';">Other Limitations on Privacy</a></li>
+<li><a href="javascript:;" onclick="document.location.hash='us-opting-out';">Opting-Out, Access, Corrections and Cancellations</a></li>
+<li><a href="javascript:;" onclick="document.location.hash='us-minors-privacy';">Minors’ Privacy and Submissions</a></li>
+<li><a href="javascript:;" onclick="document.location.hash='us-international-xfer';">International Transfer</a></li>
+<li><a href="javascript:;" onclick="document.location.hash='us-our-commitment';">Our Commitment to Security</a></li>
+<li><a href="javascript:;" onclick="document.location.hash='us-changes-to-policy';">Changes to the Privacy Policy</a></li>
+</ol>
+<ol class="privacy-list">
+<li id="us-our-truste-cert"><h4>Our TRUSTe Certification</h4>
+<div style="float:right;">
+<a href="https://privacy.truste.com/privacy-seal/validation?rid=b2345b29-bdce-4ab8-a180-e3224ff883aa" title="TRUSTe Privacy Certification" target="_blank">
+<img width="142" height="45" style="border: none; min-width: 142px;" src="//privacy-policy.truste.com/privacy-seal/seal?rid=81b91903-72fd-4543-a179-68c3ec4aeeb5" alt="TRUSTe Privacy Certification">
+</a>
+</div>
+<p>The TRUSTe program covers only information that is collected through this Site and our mobile applications and does not cover information that may be collected through other software downloaded from the Site.</p>
+<p>The Weather Channel has received TRUSTe’s Privacy Seal signifying that this Privacy Policy and our practices have been reviewed for compliance with the TRUSTe program. In order to view our relationship with TRUSTe, please visit the validation page visible by clicking on the TRUSTe Seal.  TRUSTe’s mission, as an independent third party, is to accelerate online trust among consumers and organizations globally through its leading privacy trustmark and innovative trust solutions.  If you have questions or complaints regarding this Privacy Policy or practices, please contact us directly at https://feedback.weather.com.  If you are not satisfied with our response or your inquiry has not been satisfactorily addressed within five business days, you can contact TRUSTe <a href="https://www.truste.com/about-truste/contact-us/">here</a>.</p>
+</li>
+<li id="us-how-we-collect"><h4>How We Collect and Use Personal Data and Other Information</h4>
+<p>In order to operate the Services, maximize your experience, and provide you with enhanced Services, we may collect and use information, some of which may be considered personal data.  We collection information from and about you in the following ways:</p>
+<ol type="A">
+<li>
+<p><span class="italic">User Account Registration.</span>  When you choose to register a user account, you will be required to provide certain information about yourself.   You may register using your e-mail address or your Facebook, Google+ or Amazon account.  You may choose to add additional information to your account, including your first and last name, birthdate, gender, phone number, home address, work address, and television provider.  If we can use this information, alone or in combination, to reasonably identify you as an individual, we treat the information as personal data.  </p>
+<p>We use personal data that you provide to give you personalized treatment on the Services; to operate the Services; to analyze, improve, enhance and fine tune our products and the Services; and for any other purpose that is permitted by applicable law and consistent with this Privacy Policy.</p>
+</li>
+<li><p><span class="italic">Information Provided By You. </span> You may also choose to provide us with information, some of which may be personal data, when you interact with the Services in the following ways: </p>
+<p><ul>
+<li>Complete a survey—for example, you may choose to provide us an e-mail address so that we can contact you about your survey response;</li>
+<li>Register for a contest, sweepstakes or other promotion —for example, you may provide your telephone and home address and we may be legally obligated to disclose this information if you win;  </li>
+<li>Send us an e-mail message or complete an inquiry form to receive additional information–for example, you might e-mail us with a question and we will use your e-mail address to respond to your inquiry; </li>
+<li>Submit a comment, leave feedback, or send us a photo or video—for example, you might submit a cool photo of a weather event you experienced that we may post on the Services so others can enjoy it;</li>
+<li>Report weather or other conditions—for example, you might tell us that the weather in your area is cold or rainy and we may associate that information with your account; </li>
+<li>Submit information about yourself (e.g., your gender, age, age range, address, birthday, height, weight, body type)—for example, our OutSider mobile application allows you to track your fitness activities and allows us to deliver the OutSider mobile application features and services; and</li>
+<li>Customize the Services—for example, you might set a “home” location so that every time you visit the Services, you are automatically displayed the weather for that home location.</li>
+</ul></p>
+</li>
+<li><p><span class="italic">Automatic Collection.</span>  We also collect certain information through automated means. Some of the information we collect through automated means may, whether alone or combined with other data, be personal data.  For example, we automatically collect: </p>
+<p>
+<ul>
+<li>Information about your device and device capabilities</li>
+<li>Information about your device operating system</li>
+<li>Information about your browser</li>
+<li>Information about how you use the Services</li>
+<li>Your activities on the Services </li>
+<li>IP address</li>
+<li>Advertising identifiers</li>
+<li>Mobile or Internet Carrier</li>
+<li>Browser type</li>
+<li>Browser identifier</li>
+<li>Referring URL</li>
+</ul>
+</p>
+<p>
+This information helps us to understand, analyze and measure how users use the Services; manage Services’ operations; deliver  and measure the effectiveness of advertisements; help diagnose problems; recognize repeat visitors; and facilitate your access to and use of the Services.</p>
+</li>
+<li><p><span class="italic">Location Information.</span>  We also collect location information through the Services so that we can offer you certain location-based services (such as severe weather alerts through our mobile applications), provide advertisements that are relevant to your geographic location, and conduct analytics to improve the Services.  The way in which we collect location information is different depending on whether you are accessing the Services through a website or a mobile application.</p>
+<p>If you are accessing the Services through the Site, we use various technologies, including HTML5, to detect your location so that we can automatically show you the weather for your area, rather than some random location.  Depending on browser type, your browser may inform you that the Site would like to collect your location and request your permission to do so.  If you allow it, location information is then collected and may be stored locally on your device.  If you decline the collection of location information, your location is not collected and you must manually enter your location.  </p>
+<p>If you are accessing the Services through one of our mobile applications, the way we collect location information will differ depending on your mobile device’s operating system. If you decline to allow location information collection, your location is not collected and you must type in a location or zip code to see the weather for that location or zip code.  </p>
+<p>In the event you allow location information collection through your mobile device, we may collect precise geographic location information.  Whether we can collect precise location information is controlled by your device’s operating system.  Our collection methods include GPS, cellular network location and other location-based services.  Depending on your mobile device’s operating system, we typically receive the latitude and longitude of your mobile device, as well as date and time, but the precision of latitude and longitude varies greatly and is determined by various factors controlled by your device or mobile service provider.  </p>
+<p>If you opt to allow the Weather Channel or OutSider mobile applications to collect location information while the mobile applications are running in the background, you will enable continuous location collection.  This allows us to send you severe weather alerts for the area in which you might be traveling and deliver you advertisements tailored to your current location.  We also use this location information to conduct analytics and improve the Services.  You can turn off location collection through your device settings or by deleting the Weather Channel mobile application from your device.  You also can turn off continuous location collection at any time through your device settings or by deleting the Weather Channel mobile application.  </p>
+<p>Turning off location-based services in either The Weather Channel mobile application or OutSider mobile application also will disable certain other aspects of the Services, such as location-based severe alerts.  However, you may still receive alerts for any location that you entered into one of our mobile applications.</p></li>
+<li><p><span class="italic">Alerts and Notifications.</span>  Certain Services offer you the ability to receive push notifications for weather-related updates.  To provide these Services, we may need to collect your e-mail address, phone number, device information, and mobile carrier information, in addition to the postal code or geographic area to which the alert, update or notification pertains.  If you no longer wish to receive these types of notifications, you may opt-out by turning them off within the settings of your mobile device or the particular Service for which you registered.</p></li>
+<li><p><span class="italic">Other Types of Information We Collect.</span>  Certain of our mobile applications interface with Session M.  If you have an account with Session M and choose to log into Session M’s mPOINTS through one of our mobile applications to earn mPOINTS, Session M will provide us with your e-mail address.  We do not use the e-mail address provided by Session M for any other purpose than to fulfill the Session M service.  </p>
+<p>In addition, older versions of the Services allowed users to view weather conditions for contacts saved on their mobile devices.  If you agreed to use this feature, your contacts were accessed to provide weather information for your contacts that already have their address, city, state, or zip code available in your contact list.  We did not store your contact list or use it for any other purpose other than providing weather conditions related to your contacts. You may disable this feature by updating your mobile application to the most recent version or deleting the application. </p></li>
+<li><p><span class="italic">Special Note about Content Submissions.</span>  The Services may from time to time offer areas where you and other users can post or otherwise submit information, photos, videos, graphics, creative suggestions, ideas, notes, concepts, information, ratings or other materials on or to the Services (collectively, <strong>“Submissions”</strong>).  Any geo-location, tags or other metadata in Submissions may become publicly available.  Any information, including personal data, in your Submissions can be read, collected, or used by others.  We are not responsible for the information, including personal data, included in your Submissions.</p>
+</li>
+</ol>
+</li>
+<li id="us-data-coll-tech"><h4>Data Collection Technologies and Consumer Choice</h4>
+<ol type="A">
+<li><p><span class="italic">Our Use of Cookies, Web Beacons, Single-pixel Gifs, and Information Saved by Other Technologies</span></p>
+<p>We and third parties acting on our behalf use various technologies that help us to manage the operations of our Services and track usage behavior so that we can tailor information and advertisements to make your visits more enjoyable and meaningful.  These data collection technologies include:</p>
+<p>
+<ul>
+<li><p><strong>Cookies:</strong> Cookies are text files containing small amounts of information that are downloaded to your computer or mobile device when you visit a website and stored within your browser.  Cookies are then sent back to the originating website on each subsequent visit to that website or to another website that recognizes those cookies.  Some cookies on our Services collect IP and Mac addresses, which may be considered personal data in some jurisdictions.  Cookies are useful because they allow a website to recognize a user’s device.  If you have registered for a user account on the Site, these cookies may let us know who you are, may be necessary to access your account information, and may provide us and our service providers with information that we will use to personalize the Services in accordance with your preferences.  You can find more information about cookies at www.allaboutcookies.org.</p></li>
+<li><p><strong>Web beacons and GIFs:</strong> Certain pages on the Services contain web beacons (also known as web bugs, pixel tags and clear GIFs).  A pixel tag is an electronic image, often a single pixel (1x1), which is ordinarily not visible to users and may be associated with cookies on users’ hard drives.  A pixel tag allows us to understand which pages you visit on the Services and are used to help us optimize and tailor the Services for you and other future visitors to the website.  Web beacons allow third parties to obtain information, such as the IP address of the computer that downloaded the page on which the web beacon appears, the URL of the page on which the web beacon appears, the time the page containing the web beacon was viewed, the type of browser used to view the page, and the information in cookies sent by the third party.</p></li>
+<li><p><strong>Local Storage and Local Shared Objects:</strong> We use local shared objects (LSOs) such as Flash Cookies and local storage, such as HTML5 Local Storage, to enhance user experience by, for example, storing your user preferences and settings (e.g., volume/mute) in connection with animated content on the Services.  Local storage is similar to browser cookies but can store data more complex than simple text.  By itself, local storage cannot do anything to or with the data stored on your device.  Like cookies, local storage can only access personal data that you have provided on the Services. Third parties with whom we partner to provide certain features on the Services or to display advertising based upon your web browsing activity also use Flash cookies or HTML5 to collect and store information. Various browsers may offer their own management tools for removing HTML5. To manage Flash cookies, please <a href="//www.macromedia.com/support/documentation/en/flashplayer/help/settings_manager07.html">click here.</a></p></li>
+</ul>
+</p>
+<p>Information that we collect via the data collection technologies described in this section may be linked to other information about you and may be personal data.  We use the technologies described in this section, alone or in combination, to provide, manage and administer the Services, understand user behavior, target and measure the effectiveness of advertisements,  help diagnose problems, recognize repeat visitors, track and analyze usage behavior and, facilitate your access to and use of the Services. </p>
+<p>Your browser, such as Internet Explorer, Chrome, Firefox and Safari, may allow you to manage your cookies and local storage.   Because each browser is a little different, we encourage you to check your browsers’ “Help” feature to learn how to block cookies, how to receive notification of new cookies, and how to disable existing cookies.  Please note, however, that without cookies you may not be able to take full advantage of all the Services and some parts of the Services may not function properly.  For more information about cookies, please visit www.allaboutcookies.org/manage-cookies/.</p>
+</li>
+<li><p><span class="italic">Use of Cookies, Web Beacons, and Other Technologies by Advertisers, Ad Networks, and Ad Servers</span></p>
+<p>We adhere to the self-regulatory principles of the Digital Advertising Alliance (“<strong>DAA</strong>”) and the Digital Advertising Alliance of Canada (“<strong>DAAC</strong>”).  We work with a variety of advertisers, advertising networks, advertising servers, and analytics companies (“<strong>Ad Partners</strong>”) that use various technologies to collect data about your use of the Services (such as pages visited, ads viewed or clicked on)  in order to send (or serve) relevant ads. </p>
+<p>Ad Partners may place cookies, web beacons and/or other data collection technologies on the Services to (among other purposes): track how the Services are used, where users go and what they do after they leave the Services; link users’ devices; and serve more relevant ads on the Services or other websites that you visit.  More information about this type of advertising is available from the Network Advertising Initiative <a href="//www.networkadvertising.org/understanding-online-advertising">here</a>. </p>
+<p>This Privacy Policy does not cover the practices of our Ad Partners.  While we work with Ad Partners to improve user experience, we do not control Ad Partners’ technologies.  For more information about our Ad Partners’ technologies and how they use the information collected by the technologies on the Services and your options not to accept cookies placed by some of Ad Partners on the Services, please visit the DAA’s <a href="//www.aboutads.info/choices/">opt-out page</a> or the DAAC’s <a href="//youradchoices.ca/choices">opt-out page</a>.</p>
+<p>In addition, you can visit the opt-out pages of these Ad Partners that use data collection technologies on the Services:</p>
+<p>
+<ul>
+<li>DoubleClick: <a href="//www.google.com/doubleclick">www.google.com/doubleclick</a> </li>
+<li>Nielsen: <a href="//www.nielsen-netratings.com/privacy/sitecensus.htm">www.nielsen-netratings.com/privacy/sitecensus.htm</a>  </li>
+<li>Quantcast: <a href="//www.quantcast.com/how-we-do-it/consumer-choice/privacy-policy/">www.quantcast.com/how-we-do-it/consumer-choice/privacy-policy/ </a></li>
+<li>Lotame: <a href="//www.lotame.com/opt-out-preference-manager">www.lotame.com/opt-out-preference-manager</a> </li>
+<li>Amazon: <a href="//www.amazon.com/gp/dra/info">www.amazon.com/gp/dra/info</a>  </li>
+<li>Criteo: <a href="//www.criteo.com/privacy/">www.criteo.com/privacy/</a> </li>
+<li>Factual: <a href="//www.factual.com/privacy/opt-out">www.factual.com/privacy/opt-out</a></li>
+<li>Telium: <a href="//tealium.com/privacy/">tealium.com/privacy/</a></li>
+<li>OpenX: <a href="//openx.com/legal/">openx.com/legal/</a></li>
+</ul>
+</p>
+<p>You may also opt-out of additional third-party advertising networks by going to the Network Advertising Initiative’s website and following the directions. </p>
+<p>The DAA offers AppChoices, a separate choice tool for users to exercise control over the collection and use of data through mobile applications  for interest-based advertising and other related uses.  To exercise choice for participating companies, you can install the DAA’s AppChoices application on your mobile device.  Visit <a href="//www.aboutads.info/appchoices">here</a> for more information on DAA’s AppChoices tool.  </p>
+<p>The opt-outs described above are device- or browser-specific and may not work on all devices.  If you choose to opt-out through any of our Ad Partners’ sites, you still may see advertisements but the advertisements will not be based on your interests.</p>
+<p>You can also opt-out of future information collection from the Services by ceasing use of the Service or uninstalling the relevant mobile application.</p>
+</li>
+<li><p><span class="italic">Use of Cookies by Third Parties for Analytics</span></p>
+<p>We contract with certain third parties that use data collection technologies to track, analyze and report data about the use of the Services and to analyze and optimize the performance of the Services.  Information about these third parties is available at the following links:</p>
+<p>
+<ul>
+<li>Adobe: <a href="//www.adobe.com/privacy.html">www.adobe.com/privacy.html</a></li>
+<li>Localytics: <a href="//www.localytics.com/privacy-policy/">www.localytics.com/privacy-policy/</a></li> 
+<li>comScore and Scorecard Research: <a href="//www.scorecardresearch.com/About.aspx">www.scorecardresearch.com/About.aspx</a></li>
+<li>Google Analytics: <a href="//www.google.com/analytics/learn/privacy.html">www.google.com/analytics/learn/privacy.html</a></li>
+</ul></p>
+</ol>
+</li>
+<li id="us-how-we-share"><h4>How We Share or Disclose Your Information</h4>
+<p>One of the most valuable assets of our business is you.  Except as described below, we do not rent or sell personal data about you with other people or non-affiliated companies.</p>
+<p><ol type="A">
+<li><p><span class="italic">Third-Party Processors.</span>  When your personal data is collected on the Services, it may be shared with selected third parties who assist us with our business operations, with the provision of the Services, with our marketing or advertising campaigns, or in delivering you the features and functionality that you have requested (“<strong>Third-Party Processors</strong>”).  These Third-Party Processors include companies that process credit card information, handle shipping for us, and deliver materials to you via e-mail or postal service, for example.  We also may provide personal data to third-party mapping service providers to provide you with map content for the Services.  Third-Party Processors are authorized to use the personal data that we provide to them only to carry out the service they are providing for us.  We require the Third-Party Processors by contract to secure your personal data and maintain it so that it can be accessed when needed for future purposes. All such Third-Party Processors are contractually bound by us to keep the personal data confidential.</p></li>
+<li><p><span class="italic">Companies Offering Promotions, Products, or Services.</span>  We may share demographic information, location data, advertising identifiers, truncated IP address and aggregate (not individual) usage statistics for the Services with advertisers and other third parties.</p>
+<p>At times, we also will provide you with the opportunity to opt-in to receive promotions, products or services from third-party sponsors.  With your permission, we will periodically send to you, via e-mail, offers and promotions from our third-party sponsors which we select based upon your interests or user account.  In this case, we do not share your information with the third-party sponsors - we do the e-mailing for them.  You will always have the opportunity to opt-out of receiving future offers by following the unsubscribe link included with each of our e-mails.  In other instances, we provide you with the opportunity to receive products and services directly from specifically-identified third parties through the Services.  In these instances, you must explicitly consent to receive each offer.  When you explicitly agree to receive offers from specific third parties, your information is shared with those specific third parties to enable them to provide you with the offer you have requested.  We are not responsible for the information collection practices of these third parties, and all information provided is governed by the privacy policies of these third parties.  You should review the privacy policies of these third parties before supplying personal data to them.</p></li>
+<li><p><span class="italic">Other Websites, Other Services, Plug-Ins and Links.</span>  Like many websites on the Internet and other Internet-based services, the Services may link to webpages located on websites or services maintained by various other entities.  In some cases, you may navigate to pages of other websites that are framed with elements of the Services such as in the header or footer.  In that case, the URL will identify the site you are visiting.  In other cases, such as advertisements, you will be connecting to another site or service when you click on or otherwise activate those opportunities, including click-to-call, click-to-text, and click-to-e-mail opportunities.  These other sites and services are not bound by our privacy policy, and we are not responsible for their information collection practices.  The privacy policies of other organizations may differ from ours, for example, with respect to the level of security, use of cookies, and collection, use and disclosure of personal data.</p>
+<p>Some of the Services allow users to interface with other websites or services, including Facebook, Twitter, Google+, Pinterest, Gigya, and SessionM’s mPOINTS. For example, plug-ins, such as Facebook’s “Like” button, “Comments” and “Facebook Connect” can connect Facebook, Twitter or other third party services identifiable by their respective logos to the Services.  You will remain logged in to those other sites and services until you log off.  By proceeding with these interfaces, you allow the Services to access your information on those other sites and services, and you are agreeing to those other sites’ and services’ terms of use and privacy policies.  Once you log into those other sites and services, the content you post on those other sites and services may also post to the Services.  Your use of those other sites and services is subject to the privacy policies of those sites and services, and not this Privacy Policy.</p>
+<p>Some of the Services use third-party operating systems, platforms, communication services, devices, and software elements (such as mobile device operating systems, wireless services, mobile phone and tablet devices), and some of the Services are provided by third-party distributors, device makers, device operators, platform operators, and communication services.  We do not control these third-party entities, products and services, and they may collect, use, process, transmit and disclose your information.  For example, these third-party entities, products and services may gather information from the Services in a manner that overrides your settings and preferences in the Services.  As we do not control of these third-parties’ data handling practices, we recommend that you review their privacy policies, terms of use and license agreements (if any). </p></li>
+<li><p><span class="italic">Purchase or Sale of Businesses.</span>  We continually look for ways to improve our business, including purchasing a business or selling all or part of our business.  If we buy, merge, reorganize or sell any business, personal data and non-personal information will likely be disclosed or transferred as part of the transaction.  If, in connection with a purchase, sale, merger or reorganization your personal data will be processed in a materially different way, our practice is to notify users who have provided us with an e-mail address via e-mail.</p></li>
+</ol></p>
+</li>
+<li id="us-other-limitations"><h4>Other Limitations on Privacy</h4>
+<p>We, our affiliates, or our Third-Party Processors may disclose your personal data without your permission (i) pursuant to judicial or other government subpoenas, warrants, or orders or otherwise to comply with law; (ii) where we believe the rights, property or an individual’s safety or security is at risk; (iii) if we find that your actions violate our <a href="//www.weather.com/legal">Terms of Use</a> or any of our other legal rights; or (iv) where otherwise required or permitted by applicable law (which may include a lawful access request by US or foreign courts, governments or law enforcement agencies).</p>
+</li>
+<li id="us-opting-out"><h4>Opting-Out, Access, Corrections and Cancellations</h4>
+<p>We will retain your information for as long as your account is active or as needed to provide the Services. We will retain and use your information as necessary to comply with our legal obligations, resolve disputes, and enforce our agreements. If you have registered a user account with us, you may reset your password, update your personal data, correct information, delete your account or opt-out of certain Services, by accessing your account or you may contact us directly at <a href="//feedback.weather.com">feedback.weather.com</a>, subject to certain exceptions prescribed by law.</p>
+<p>You may have the right to access, update, and correct inaccuracies in certain of your personal data in our custody and control, subject to certain exceptions prescribed by law.  You may request to access, update and correct inaccuracies in personal data we have in our custody or control by writing to us at the contact information set out below.  We may request certain personal information for the purposes of verifying the identity of the individual seeking access to his or her personal information records.</p>
+</li>
+<li id="us-minors-privacy"><h4>Minors’ Privacy and Submissions</h4>
+<p>We are committed to protecting the safety and privacy of young people using the Internet.  We do not knowingly collect personal data from children under age 13.  We believe that children should get their parents’ or guardians’ consent before giving out any personal data.  If you become aware that we have collected personal data from a child without parental consent, please notify us promptly at <a href="//feedback.weather.com">feedback.weather.com</a>.  If we become aware that a child under age 13 has provided us with personal data without parental consent, we will take steps to remove such personal data.</p>
+<p>If you are a California resident under age 18 and are a registered user of any of the Services, then you may request that we remove any Submissions that you publicly posted on or in the Services. To request removal of a Submission, please send an email with a detailed description of the specific Submission to Feedback@weather.com. We reserve the right to request that you provide information that will enable us to confirm that the Submission that you want removed was created and posted by you.</p>
+<p>We will make a good faith effort to delete or remove your Submission from public view as soon as reasonably practicable. Please note, however, that your request that we delete your Submission does not ensure complete or comprehensive removal of your Submission. Your Submission may remain on backup media, cached or otherwise retained by us for administrative or legal purposes or your Submission may remain publicly available if you or someone else has forwarded or re-posted your Submission on another website or service prior to its deletion.  We may be required by law to not remove or allow removal of your Submission.</p>
+</li>
+<li id="us-international-xfer"><h4>International Transfer</h4>
+<p>The Services are hosted on servers inside and outside the United States.  If you are located in the European Union or elsewhere outside of the United States, information that we collect (including through cookies) will be processed and stored in the United States, a jurisdiction in which the data protection and privacy laws may not offer the same level of protection as those in the country where you reside or are a citizen.  By using our Services and providing information to use, you consent to the transfer to and processing of information in the United States.</p>
+</li>
+<li id="us-our-commitment"><h4>Our Commitment to Security</h4>
+<p>We have put in place physical, electronic and managerial procedures intended to protect your data.  Of course, we cannot guarantee that your communications with the Services will never be unlawfully intercepted or that your personal data will never be unlawfully accessed by third parties. Any transmission of information is at your own risk.</p>
+</li>
+<li id="us-changes-to-policy">
+<h4>Changes to the Privacy Policy</h4>
+<p>We reserve the right to change our Privacy Policy as business needs require.  If we decide to change our Privacy Policy, we will post those changes here prior to the time they take effect.  If we make material changes to the way we use personal data, affected users who have provided us with an e-mail address will be notified via e-mail.</p>
+<p>
+<div class="center">The Weather Company, LLC</div>
+<div class="center">Attn: Customer Service Representative</div>
+<div class="center">300 Interstate North Pkwy SE </div>
+<div class="center">Atlanta, GA 30339</div>
+<div class="center">Telephone: 866-843-0392</div>
+<div class="center">or</div>
+<div class="center">Feedback@weather.com</div>
+</p>
+</li>
+</ol>
+    </div> <!-- end "privacy-policy-text" -->
+  </div> <!-- end "privacy-policy-content" -->
+</div> <!-- end "privacy-policy"--></div>
+</div>  </div>
+</div>
+              </div>
+            </div>
+                  </div>
+      </div>
+      <div id="wx-mid-wrap-inner" class="center-col">
+        <div id="wx-main" class="content-container">
+          <div class="content-container-inner clearfix">
+            <div class="main-content column panel-panel">
+              <div class="main-content-inner column-inner panel-panel-inner">
+                              </div>
+            </div>
+            <div class="content-footer panel-panel">
+              <div class="content-footer-inner panel-panel-inner">
+                              </div>
+            </div>
+          </div>
+        </div><!-- end #wx-main -->
+        <div id="wx-rail" class="right-rail sidebar panel-panel clearfix">
+          <div class=" right-rail-inner sidebar-inner container-inner panel-panel-inner">
+                      </div>
+        </div>
+      </div>
+    </div><!-- end wx-mid-wrap -->
+    <div id="wx-bottom-wrap" class="footer column-content-region column panel-panel clearfix">
+      <div class="footer-inner column-content-region-inner column-inner container-inner panel-panel-inner">
+        <div class="panel-pane content module-padding width-100 float-left    column"
+  data-eq-pts="pane: 1, pane-xs: 230, pane-sm: 300, pane-md: 465, pane-lg: 630px, pane-xl: 795">
+  <div class="pane-content ">
+    <div class="mini-panel">
+      <div class="region">
+      <div class="panel-pane content width-100 float-left    column"
+  data-eq-pts="pane: 1, pane-xs: 230, pane-sm: 300, pane-md: 465, pane-lg: 630px, pane-xl: 795">
+  <div class="pane-content ">
+    <div class="twc-init gm_footer" data-twc-controller="twc_gm_footer_controller" data-module-name="gm_footer" instance="9cd65d5c-daa6-4730-b1cf-c29cd9d7dea8"><div data-ng-non-bindable="true"><div class="footer-wrapper clearfix center-col">
+  
+    <h2 class="footer-logo-container center-col">
+    <img class="logo-image" src="//s.w-x.co/the-weather-channel-compressor.png" alt="The Weather Channel" title="The Weather Channel">
+    <span class="logo-title">The Weather Channel</span>
+  </h2>
+  
+  <section class="footer-international-container center-col">
+    <div class="header">
+      <div class="no-collapse"></div>
+      <h2>
+        <button data-ng-click="toggleCollapse('international')" class="btn btn-link btn-block">
+          <span class="header-icon twc-logo-icon"></span>
+          <span data-pf-translate="International Edition" data-pf-translate-context="gm_footer"></span>
+          <span class="btn-collapse wx-iconfont-global" data-ng-class="{'wx-icon-arrow-down-2': collapsedStates.international, 'wx-icon-arrow-up-2': !collapsedStates.international}"></span>
+        </button>
+      </h2>
+    </div>
+    <div data-collapse="collapsedStates.international">
+      <ul class="list-group" data-ng-class="{'show-less': isShowed}">
+                      <li>
+                <a href="https://weather.com/?par=usa" data-from-str="nav_sec_1" target="_blank" title="USA">
+                  <span class="text">USA</span>
+                </a>
+              </li>
+                      <li>
+                <a href="https://weather.com/en-GB" data-from-str="nav_sec_2" target="_blank" title="GB (UK)">
+                  <span class="text">GB (UK)</span>
+                </a>
+              </li>
+                      <li>
+                <a href="https://weather.com/de-DE" data-from-str="nav_sec_3" target="_blank" title="Deutschland (Deutsch)">
+                  <span class="text">Deutschland (Deutsch)</span>
+                </a>
+              </li>
+                      <li>
+                <a href="https://weather.com/es-US" data-from-str="nav_sec_4" target="_blank" title="Spanish (Español)">
+                  <span class="text">Spanish (Español)</span>
+                </a>
+              </li>
+                      <li>
+                <a href="https://weather.com/en-IN" data-from-str="nav_sec_5" target="_blank" title="India (India)">
+                  <span class="text">India (India)</span>
+                </a>
+              </li>
+                      <li>
+                <a href="https://weather.com/pt-BR" data-from-str="nav_sec_6" target="_blank" title="Brazil (Brasil)">
+                  <span class="text">Brazil (Brasil)</span>
+                </a>
+              </li>
+                      <li>
+                <a href="https://weather.com/ja-JP" data-from-str="nav_sec_7" target="_blank" title="Japan (日本)">
+                  <span class="text">Japan (日本)</span>
+                </a>
+              </li>
+                      <li>
+                <a href="https://weather.com/zh-CN" data-from-str="nav_sec_8" target="_blank" title="China (简体)">
+                  <span class="text">China (简体)</span>
+                </a>
+              </li>
+                      <li>
+                <a href="https://weather.com/zh-TW" data-from-str="nav_sec_9" target="_blank" title="China (香港)">
+                  <span class="text">China (香港)</span>
+                </a>
+              </li>
+                      <li>
+                <a href="https://weather.com/zh-TW" data-from-str="nav_sec_10" target="_blank" title="China (繁體)">
+                  <span class="text">China (繁體)</span>
+                </a>
+              </li>
+                      <li>
+                <a href="https://ar.weather.com/" data-from-str="nav_sec_11" target="_blank" title="Arabisch (العَرَبِيةُ‎‎)">
+                  <span class="text">Arabisch (العَرَبِيةُ‎‎)</span>
+                </a>
+              </li>
+                      <li>
+                <a href="https://weather.com/da-DK" data-from-str="nav_sec_12" target="_blank" title="Dänemark (Dansk)">
+                  <span class="text">Dänemark (Dansk)</span>
+                </a>
+              </li>
+                      <li>
+                <a href="https://weather.com/fi-FI" data-from-str="nav_sec_13" target="_blank" title="Finnland (Suomi)">
+                  <span class="text">Finnland (Suomi)</span>
+                </a>
+              </li>
+                      <li>
+                <a href="https://weather.com/fr-FR" data-from-str="nav_sec_14" target="_blank" title="Frankreich (Français)">
+                  <span class="text">Frankreich (Français)</span>
+                </a>
+              </li>
+                      <li>
+                <a href="https://weather.com/el-GR" data-from-str="nav_sec_15" target="_blank" title="Griechenland (Ελληνικά)">
+                  <span class="text">Griechenland (Ελληνικά)</span>
+                </a>
+              </li>
+                      <li>
+                <a href="https://fa.weather.com/" data-from-str="nav_sec_16" target="_blank" title="Iran (فارسی)">
+                  <span class="text">Iran (فارسی)</span>
+                </a>
+              </li>
+                      <li>
+                <a href="https://weather.com/id-ID" data-from-str="nav_sec_17" target="_blank" title="Indonesien (Bahasa)">
+                  <span class="text">Indonesien (Bahasa)</span>
+                </a>
+              </li>
+                      <li>
+                <a href="https://he.weather.com/" data-from-str="nav_sec_18" target="_blank" title="Israel (עברית)">
+                  <span class="text">Israel (עברית)</span>
+                </a>
+              </li>
+                      <li>
+                <a href="https://weather.com/ko-KR" data-from-str="nav_sec_19" target="_blank" title="Korea (한국말)">
+                  <span class="text">Korea (한국말)</span>
+                </a>
+              </li>
+                      <li>
+                <a href="https://weather.com/hr-HR" data-from-str="nav_sec_20" target="_blank" title="Kroatien (Hrvatski)">
+                  <span class="text">Kroatien (Hrvatski)</span>
+                </a>
+              </li>
+                      <li>
+                <a href="https://weather.com/ms-MY" data-from-str="nav_sec_21" target="_blank" title="Malaysia (Melayu)">
+                  <span class="text">Malaysia (Melayu)</span>
+                </a>
+              </li>
+                      <li>
+                <a href="https://weather.com/nl-NL" data-from-str="nav_sec_22" target="_blank" title="Niederlande (Nederlands)">
+                  <span class="text">Niederlande (Nederlands)</span>
+                </a>
+              </li>
+                      <li>
+                <a href="https://weather.com/no-NO" data-from-str="nav_sec_23" target="_blank" title="Norwegen (Norsk)">
+                  <span class="text">Norwegen (Norsk)</span>
+                </a>
+              </li>
+                      <li>
+                <a href="https://weather.com/pl-PL" data-from-str="nav_sec_24" target="_blank" title="Polen (Polski)">
+                  <span class="text">Polen (Polski)</span>
+                </a>
+              </li>
+                      <li>
+                <a href="https://weather.com/pt-PT" data-from-str="nav_sec_25" target="_blank" title="Portugal">
+                  <span class="text">Portugal</span>
+                </a>
+              </li>
+                      <li>
+                <a href="https://weather.com/ro-RO" data-from-str="nav_sec_26" target="_blank" title="Rumänien (Românește)">
+                  <span class="text">Rumänien (Românește)</span>
+                </a>
+              </li>
+                      <li>
+                <a href="https://weather.com/ru-RU" data-from-str="nav_sec_27" target="_blank" title="Russland (Русский)">
+                  <span class="text">Russland (Русский)</span>
+                </a>
+              </li>
+                      <li>
+                <a href="https://weather.com/sv-SE" data-from-str="nav_sec_28" target="_blank" title="Schweden (Svenska)">
+                  <span class="text">Schweden (Svenska)</span>
+                </a>
+              </li>
+                      <li>
+                <a href="https://weather.com/sk-SK" data-from-str="nav_sec_29" target="_blank" title="Slowakei (Slovenčina)">
+                  <span class="text">Slowakei (Slovenčina)</span>
+                </a>
+              </li>
+                      <li>
+                <a href="https://weather.com/th-TH" data-from-str="nav_sec_30" target="_blank" title="Thailand (ประเทศไทย)">
+                  <span class="text">Thailand (ประเทศไทย)</span>
+                </a>
+              </li>
+                      <li>
+                <a href="https://weather.com/cs-CZ" data-from-str="nav_sec_31" target="_blank" title="Tschechien (Čeština)">
+                  <span class="text">Tschechien (Čeština)</span>
+                </a>
+              </li>
+                      <li>
+                <a href="https://weather.com/tr-TR" data-from-str="nav_sec_32" target="_blank" title="Türkei (Türkçe)">
+                  <span class="text">Türkei (Türkçe)</span>
+                </a>
+              </li>
+                      <li>
+                <a href="https://weather.com/uk-UA" data-from-str="nav_sec_33" target="_blank" title="Ukraine (українська)">
+                  <span class="text">Ukraine (українська)</span>
+                </a>
+              </li>
+                      <li>
+                <a href="https://weather.com/hu-HU" data-from-str="nav_sec_34" target="_blank" title="Ungarn (Magyar)">
+                  <span class="text">Ungarn (Magyar)</span>
+                </a>
+              </li>
+                      <li>
+                <a href="https://weather.com/vi-VN" data-from-str="nav_sec_35" target="_blank" title="Việt Nam">
+                  <span class="text">Việt Nam</span>
+                </a>
+              </li>
+              </ul>
+      <div class="show-arrow">
+        <button data-ng-click="isShowed = !isShowed" type="button" class="btn btn-link">
+          <span data-ng-if="isShowed" data-pf-translate="Show Less" data-pf-translate-context="gm_footer"></span>
+          <span data-ng-if="!isShowed" data-pf-translate="Show More" data-pf-translate-context="gm_footer"></span>
+          <span class="wx-iconfont-global" data-ng-class="{'wx-icon-arrow-down-2': !isShowed, 'wx-icon-arrow-up-2': isShowed}"></span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section class="footer-download-container center-col">
+    <div class="header">
+      <div class="no-collapse"></div>
+      <h2>
+        <button data-ng-click="toggleCollapse('download')" class="btn btn-link btn-block">
+          <span class="header-icon download-icon"></span>
+          <span data-pf-translate="Download Our Apps" data-pf-translate-context="gm_footer"></span>
+          <span class="btn-collapse wx-iconfont-global" data-ng-class="{'wx-icon-arrow-down-2': collapsedStates.download, 'wx-icon-arrow-up-2': !collapsedStates.download}"></span>
+        </button>
+      </h2>
+    </div>
+    <div data-collapse="collapsedStates.download">
+      <ul class="list-group">
+                              <li class="apple-store">
+              <a class="app-store-url" href="https://itunes.apple.com/us/app/id295646461" data-from-str="nav_sec_1" target="_blank" title="Download iOS App">
+                <img class="app-store-icon" src="//s.w-x.co/apple-badge.svg" alt="Download iOS App">
+                <div class="app-store-content">
+                  <p>Download iOS App</p>
+                </div>
+              </a>
+            </li>
+                                        <li class="google-play">
+              <a class="app-store-url" href="http://c00.adobe.com/9933ac58-35d5-41b5-80a8-93f2a0ff4ca1/webfooterA/g/com.weather.Weather" data-from-str="nav_sec_2" target="_blank" title="Download Android App">
+                <img class="app-store-icon" src="//s.w-x.co/google-badge.svg" alt="Download Android App">
+                <div class="app-store-content">
+                  <p>Download Android App</p>
+                </div>
+              </a>
+            </li>
+                                        <li class="windows-store">
+              <a class="app-store-url" href="https://www.microsoft.com/en-us/store/apps/the-weather-channel/9wzdncrfhwsd" data-from-str="nav_sec_3" target="_blank" title="Windows Store">
+                <img class="app-store-icon" src="//s.w-x.co/windows-badge.svg" alt="Windows Store">
+                <div class="app-store-content">
+                  <p>Windows Store</p>
+                </div>
+              </a>
+            </li>
+                        </ul>
+    </div>
+  </section>
+
+    <section class="footer-social-container center-col">
+    <div class="header">
+      <div class="no-collapse"></div>
+      <h2>
+        <button data-ng-click="toggleCollapse('social')" class="btn btn-link btn-block">
+          <span class="header-icon twc-social-icon"></span>
+          <span data-pf-translate="Connect With Us" data-pf-translate-context="gm_footer"></span>
+          <span class="btn-collapse wx-iconfont-global" data-ng-class="{'wx-icon-arrow-down-2': collapsedStates.social, 'wx-icon-arrow-up-2': !collapsedStates.social}"></span>
+        </button>
+      </h2>
+    </div>
+    <div data-collapse="collapsedStates.social">
+      <ul class="list-inline list-group">
+                        <li>
+                  <a href="https://www.facebook.com/TheWeatherChannel" data-from-str="social_primary_1" target="_blank" title="Like Us">
+                    <span data-social-icon data-social-code="0"></span>
+                  </a>
+                </li>
+                          <li>
+                  <a href="http://www.twitter.com/weatherchannel" data-from-str="social_primary_2" target="_blank" title="Follow Us">
+                    <span data-social-icon data-social-code="1"></span>
+                  </a>
+                </li>
+                          <li>
+                  <a href="https://plus.google.com/+TheWeatherChannel/posts" data-from-str="social_primary_3" target="_blank" title="Add Us">
+                    <span data-social-icon data-social-code="2"></span>
+                  </a>
+                </li>
+                          <li>
+                  <a href="http://instagram.com/weatherchannel" data-from-str="social_primary_4" target="_blank" title="Follow us on Instagram">
+                    <span data-social-icon data-social-code="3"></span>
+                  </a>
+                </li>
+                          <li>
+                  <a href="http://www.youtube.com/user/TheWeatherChannel/" data-from-str="social_primary_5" target="_blank" title="Watch us on Youtube">
+                    <span data-social-icon data-social-code="4"></span>
+                  </a>
+                </li>
+                </ul>
+    </div>
+  </section>
+    
+  <section class="footer-more-container center-col">    
+    <ul class="list-group">
+                  <li>
+              <a href="http://feedback.weather.com/" data-from-str="nav_sec_1" target="_blank" title="Support">
+                <span class="text">Support</span>
+              </a>
+            </li>
+                  <li>
+              <a href="http://feedback.weather.com/" data-from-str="nav_sec_2" target="_blank" title="Feedback">
+                <span class="text">Feedback</span>
+              </a>
+            </li>
+                  <li>
+              <a href="https://careers.weather.com/?utm_source=careersite&utm_campaign=Careersfooterlnk" data-from-str="nav_sec_3" target="_blank" title="Careers">
+                <span class="text">Careers</span>
+              </a>
+            </li>
+                  <li>
+              <a href="http://press.weather.com/" data-from-str="nav_sec_4" target="_blank" title="Press Room">
+                <span class="text">Press Room</span>
+              </a>
+            </li>
+                  <li>
+              <a href="http://advertising.weather.com/contact/" data-from-str="nav_sec_5" target="_blank" title="Advertise With Us">
+                <span class="text">Advertise With Us</span>
+              </a>
+            </li>
+                  <li>
+              <a href="/life/local-advertise-self-serve" data-from-str="nav_sec_6" target="_blank" title="Advertise- Self Service">
+                <span class="text">Advertise- Self Service</span>
+              </a>
+            </li>
+                  <li>
+              <a href="https://weather.com/de-DE?par=weather_usa" data-from-str="nav_sec_7" target="_blank" title="Weather in Germany">
+                <span class="text">Weather in Germany</span>
+              </a>
+            </li>
+          </ul>
+  </section>
+</div>
+
+<div class="footer-links-wrap center-col">
+  <div class="footer-links">
+    <ul class="list-inline text-legal">
+                <li>
+            <a href="/legal" data-from-str="nav_sec_1" target="_blank" title="Terms of Use">
+              <strong class="text">Terms of Use</strong>
+            </a>
+          </li>
+                <li>
+            <a href="/en-US/twc/privacy-policy" data-from-str="nav_sec_2" target="_blank" title="Privacy Policy">
+              <strong class="text">Privacy Policy</strong>
+            </a>
+          </li>
+                <li>
+            <a href="http://www.controlyourtv.org/Intro.aspx" data-from-str="nav_sec_3" target="_blank" title="Parental Controls">
+              <strong class="text">Parental Controls</strong>
+            </a>
+          </li>
+                <li>
+            <a href="/services/ad-choices.html" data-from-str="nav_sec_4" target="_blank" title="Ad Choices">
+              <strong class="text">Ad Choices</strong>
+            </a>
+          </li>
+          </ul>
+    <ul class="list-inline img-legal">
+                              <li class="ga-img">
+              <a href="http://www.cometourgeorgia.com/weather" data-from-str="nav_sec_5" target="_blank" title="Georgia Org">
+                <img src="//s.w-x.co/georgia-logo-compressor.png" alt="Georgia Org">
+              </a>
+            </li>
+                                          <li class="accessibility-img">
+              <a href="/accessibility" data-from-str="nav_sec_6" target="_blank" title="Accessibility">
+                <img src="//s.w-x.co/accessibility-icon-compressor.png" alt="Accessibility">
+              </a>
+            </li>
+                      </ul>
+    <div class="footer-copyright-text">
+      <span>© 1995-</span><span data-ng-bind="::currentYear"></span>.
+      <span data-pf-translate="The Weather Channel, LLC weather.com®" data-pf-translate-context="gm_footer"></span>
+    </div>
+
+  </div>
+</div></div></div>  </div>
+</div>
+    </div>
+  </div>
+  </div>
+</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+          </div>
+
+</div>
+  <script src="https://weather.com/sites/acquia-prod/files/js/js_fPq3_-Gn-D95bi0KANyJmtc96pXrPMA6Fmq5RK1YmVo.js"></script>
+<script src="https://weather.com/sites/all/themes/radix/js/ie-version-detect.js?o1ppe6"></script>
+<script src="https://weather.com/sites/acquia-prod/files/js/js_uLDQF3UfYzfPI88R3yUgz2ztKrucLDIJiWdH9D5ZuT4.js"></script>
+<script src="https://weather.com/sites/acquia-prod/files/js/js_P8x0riosHGFXtm--_gGXyIDzJBbzfEN4xfaa8QzV87M.js"></script>
+<script>jQuery.extend(Drupal.locale, {
+  "pluralFormula": function ($n) { return Number(($n!=1)); },
+  "strings": {"gm_footer":{"International Edition":"International Edition","Download Our Apps":"Download Our Apps","Connect With Us":"Connect With Us","More":"More","The Weather Channel, LLC weather.com\u00ae Licensed by TRUSTe":"The Weather Channel, LLC weather.com\u00ae Licensed by TRUSTe","Show More":"Show More","Show Less":"Show Less","The Weather Channel, LLC weather.com\u00ae":"The Weather Channel, LLC weather.com\u00ae","Download iOS app":"Download iOS app","Download Android app":"Download Android app","Windows Store":"Windows Store","Like Us":"Like Us","Follow Us":"Follow Us","Add Us":"Add Us","Follow us on Instagram":"Follow us on Instagram","Watch us on Youtube":"Watch us on Youtube","Support":"Support","Feedback":"Feedback","Careers":"Careers","Press Room":"Press Room","Advertise With Us":"Advertise With Us","Advertise- Self Service":"Advertise- Self Service","Weather in Germany":"Weather in Germany","USA (USA)":"USA (USA)","UK (UK)":"UK (UK)","Spanish (Espa\u00f1ol)":"Spanish (Espa\u00f1ol)","India (India)":"India (India)","Brazil (Brasil)":"Brazil (Brasil)","Japan (\u65e5\u672c)":"Japan (\u65e5\u672c)","China (\u7b80\u4f53)":"China (\u7b80\u4f53)","China (\u9999\u6e2f)":"China (\u9999\u6e2f)","China (\u7e41\u9ad4)":"China (\u7e41\u9ad4)","Arabic (\u0627\u0644\u0639\u064e\u0631\u064e\u0628\u0650\u064a\u0629\u064f\u200e\u200e)":"Arabic (\u0627\u0644\u0639\u064e\u0631\u064e\u0628\u0650\u064a\u0629\u064f\u200e\u200e)","Denmark (Dansk)":"Denmark (Dansk)","Finland (Suomi)":"Finland (Suomi)","France (Fran\u00e7ais)":"France (Fran\u00e7ais)","Greece (\u0395\u03bb\u03bb\u03b7\u03bd\u03b9\u03ba\u03ac)":"Greece (\u0395\u03bb\u03bb\u03b7\u03bd\u03b9\u03ba\u03ac)","Iran (\u0641\u0627\u0631\u0633\u06cc)":"Iran (\u0641\u0627\u0631\u0633\u06cc)","Indonesia (Bahasa)":"Indonesia (Bahasa)","Israel (\u05e2\u05d1\u05e8\u05d9\u05ea)":"Israel (\u05e2\u05d1\u05e8\u05d9\u05ea)","Korea (\ud55c\uad6d\ub9d0)":"Korea (\ud55c\uad6d\ub9d0)","Croatia (Hrvatski)":"Croatia (Hrvatski)","Malaysia (Melayu)":"Malaysia (Melayu)","Netherlands (Nederlands)":"Netherlands (Nederlands)","Norway (Norsk)":"Norway (Norsk)","Poland (Polski)":"Poland (Polski)","Portugal (Portugal)":"Portugal (Portugal)","Romania (Rom\u00e2ne\u0219te)":"Romania (Rom\u00e2ne\u0219te)","Russia (\u0420\u0443\u0441\u0441\u043a\u0438\u0439)":"Russia (\u0420\u0443\u0441\u0441\u043a\u0438\u0439)","Sweden (Svenska)":"Sweden (Svenska)","Slovakia (Sloven\u010dina)":"Slovakia (Sloven\u010dina)","Thailand (\u0e1b\u0e23\u0e30\u0e40\u0e17\u0e28\u0e44\u0e17\u0e22)":"Thailand (\u0e1b\u0e23\u0e30\u0e40\u0e17\u0e28\u0e44\u0e17\u0e22)","Czech Republic (\u010ce\u0161tina)":"Czech Republic (\u010ce\u0161tina)","Turkey (T\u00fcrk\u00e7e)":"Turkey (T\u00fcrk\u00e7e)","Ukraine (\u0443\u043a\u0440\u0430\u0457\u043d\u0441\u044c\u043a\u0430)":"Ukraine (\u0443\u043a\u0440\u0430\u0457\u043d\u0441\u044c\u043a\u0430)","Hungary (Magyar)":"Hungary (Magyar)","Vietnam (Vi\u1ec7t Nam)":"Vietnam (Vi\u1ec7t Nam)","Download from the":"Download from the","Get it on":"Get it on","Download from":"Download from","Apple Store":"Apple Store","Google Play":"Google Play","Terms of Use":"Terms of Use","Privacy Policy":"Privacy Policy","German (Germany)":"German (Germany)"},"weather_units":{"mph":"mph","km\/h":"km\/h","in":"in","mb":"mb","mi":"mi","km":"km","M":"M","K":"K","F":"F","C":"C","cm":"cm","mm":"mm"},"weather_dateformats":{"h:mm z":"h:mm z","h:mm a z":"h:mm a z","h:mm":"h:mm","h:mm a":"h:mm a","EEE, MMM d":"EEE, MMM d","MMM d, yyyy, h:mm a z":"MMM d, yyyy, h:mm a z","MMM d, h:mma z":"MMM d, h:mma z","EEE":"EEE","EEEE":"EEEE","h:m":"h:m","h a":"h a","MMM d":"MMM d","h:mm a EEE MMM d":"h:mm a EEE MMM d","MMMM d":"MMMM d","MMM d yyyy hh:mm A z":"MMM d yyyy hh:mm A z","h:mma z, EEE MMM d":"h:mma z, EEE MMM d","EEEE M\/d":"EEEE M\/d"},"weather_terms":{"Updated":"Updated","Now":"Now","Today":"Today","Tonight":"Tonight","Feels":"Feels","Past":"Past","Wind":"Wind","Humidity":"Humidity","UV Index":"UV Index","Dew Point":"Dew Point","Pressure":"Pressure","Visibility":"Visibility","Low Temperature":"Low Temperature","Temperature":"Temperature","Calm":"Calm","rising":"rising","rising rapidly":"rising rapidly","falling":"falling","falling rapidly":"falling rapidly","steady":"steady","Day":"Day","Time":"Time","Cond":"Cond","High":"High","Low":"Low","Description":"Description","Precip":"Precip","Temp":"Temp","Condition Description":"Condition Description","Chance of Precipitation":"Chance of Precipitation","Astronomical Details":"Astronomical Details","Night":"Night","Averages":"Averages","Records":"Records","Unlimited":"Unlimited","Extreme":"Extreme","Current Details":"Current Details","Next 5 Days":"Next 5 Days","Next 8 Hours":"Next 8 Hours","Go To Monthly Forecast":"Go To Monthly Forecast","Back to Top":"Back to Top","10 Day Forecast":"10 Day Forecast","Feels Like":"Feels Like","Weather":"Weather","Next 6 hours":"Next 6 hours","Hourly Details":"Hourly Details","Actual Temperature":"Actual Temperature","Apparent Temperature":"Apparent Temperature","Show Details":"Show Details","Hide Details":"Hide Details","Full Forecast":"Full Forecast","@dow Night":"@dow Night","@uvIndexVal out of @uvIndexMaxVal":"@uvIndexVal out of @uvIndexMaxVal","Moonphase":"Moonphase","Sunrise":"Sunrise","Solar Noon":"Solar Noon","Sunset":"Sunset","Moonrise":"Moonrise","Moonset":"Moonset","No sunrise":"No sunrise","No sunset":"No sunset","No moonrise":"No moonrise","No moonset":"No moonset","No Moon":"No Moon","Until @endTime":"Until @endTime","From @startTime":"From @startTime","From @startTime until @endTime":"From @startTime until @endTime","N\/A":"N\/A","Local Pollen Alert":"Local Pollen Alert","gusts to @windgust @speedUnit":"gusts to @windgust @speedUnit","Var @windSpeed @speedMeasureLabel":"Var @windSpeed @speedMeasureLabel","@windDir @windSpeed @speedMeasureLabel":"@windDir @windSpeed @speedMeasureLabel","Var @windSpeed @speedMeasureLabel gusts to @windgust @speedUnit":"Var @windSpeed @speedMeasureLabel gusts to @windgust @speedUnit","@windDir @windSpeed @speedMeasureLabel gusts to @windgust @speedUnit":"@windDir @windSpeed @speedMeasureLabel gusts to @windgust @speedUnit","Advertisement":"Advertisement","Daily Forecast":"Daily Forecast","Hourly Forecast":"Hourly Forecast","Measurements":"Measurements","Expand Daily Details":"Expand Daily Details","Collapse Daily Details":"Collapse Daily Details","@uvIndexVal of @uvIndexMaxVal":"@uvIndexVal of @uvIndexMaxVal"},"gm_header_main_menu_resp":{"MENU":"MENU","Show More...":"Show More...","Show Less...":"Show Less...","My Profile":"My Profile","Manage Locations":"Manage Locations","Manage Alerts":"Manage Alerts","Edit Profile":"Edit Profile","Sign Out":"Sign Out","Log In":"Log In","Sign up":"Sign up","Maps":"Maps","Today":"Today","Hourly":"Hourly","5 Day":"5 Day","10 Day":"10 Day","Weekend":"Weekend"},"wx_settings":{"International Sites":"International Sites","Manage Alerts":"Manage Alerts","Manage All Locations":"Manage All Locations","Select non-U.S. weather.com website":"Select non-U.S. weather.com website"},"glomo_search":{"Search city, zip or place (Disney World)":"Search city, zip or place (Disney World)","Recent Searches":"Recent Searches","Searching":"Searching","No results found.":"No results found.","Search city, zip or place":"Search city, zip or place"},"glomo_base_search":{"No results found.":"No results found.","Searching":"Searching","Searching...":"Searching...","Search city, zip or place":"Search city, zip or place","Recent Searches":"Recent Searches"},"gm_header_savedlocations":{"The Weather Channel - weather.com":"The Weather Channel - weather.com","International Sites":"International Sites","Manage Alerts":"Manage Alerts","Manage All Locations":"Manage All Locations","Measurements":"Measurements","\u00b0F":"\u00b0F","\u00b0C":"\u00b0C"}}
+});
+</script>
+<script src="https://weather.com/sites/acquia-prod/files/js/js_Ixk5oJinQF_3-xyLC12gTXs3pdQjVOCljAR8zm45oYs.js"></script>
+<script>
+        if (Drupal.settings.angularmods && Drupal.settings.angularmods.active){
+          if (twc.shared && twc.shared.apps) {
+            Drupal.settings.angularmods.active.push("shared");
+          }
+          twc.app = angular.module("twc", Drupal.settings.angularmods.active);
+
+          twc.app.config(function ($translateProvider, twcMessageProvider, $controllerProvider, $provide, $compileProvider, $filterProvider) {
+            var locale = (TWC && TWC.Titan && TWC.Titan.locale) || TWC.pco.getNodeValue("user", "locale"), translations = twcMessageProvider.getAll();
+            if(locale in translations) {
+              $translateProvider.translations(locale, translations[locale]);
+            }
+            $translateProvider.preferredLanguage( locale );
+
+            // setup for dynamic loading.
+            var _module = angular.module, apps = Drupal.settings.angularmods.active.concat("twc");
+            angular.forEach(apps, function(appName) {
+              var app = _module(appName);
+              app._controller = app.controller;
+              app._service = app.service;
+              app._factory = app.factory;
+              app._value = app.value;
+              app._directive = app.directive;
+              // Provider-based controller.
+              app.controller = function( name, constructor ) {
+                  $controllerProvider.register( name, constructor );
+                  return( this );
+              };
+
+              // Provider-based service.
+              app.service = function( name, constructor ) {
+                  $provide.service( name, constructor );
+                  return( this );
+              };
+
+              // Provider-based factory.
+              app.factory = function( name, factory ) {
+                  $provide.factory( name, factory );
+                  return( this );
+              };
+
+              // Provider-based value.
+              app.value = function( name, value ) {
+                  $provide.value( name, value );
+                  return( this );
+              };
+
+              // Provider-based constant.
+              app.constant = function( name, value ) {
+                  $provide.value( name, value );
+                  return( this );
+              };
+
+              // Provider-based filter.
+              app.filter = function( name, constructor ) {
+                  $filterProvider.register( name, constructor );
+                  return( this );
+              };
+
+              // Provider-based directive.
+              app.directive = function( name, factory ) {
+                  $compileProvider.directive( name, factory );
+                  return( this );
+              };
+            });
+
+          });
+
+          twc.app.run([
+            "$rootScope", "$q", "PcoDevice", "twcPco", "$window", "$interpolate", "$sce", function ($rootScope, $q, device, twcPco, $window, $interpolate, $sce) {
+              $rootScope.getInternalTrustedUrl = function(url) {
+                return $sce.getTrustedResourceUrl(url);
+              };
+              $rootScope.theme = angular.element("body").hasClass("redcell") ? "redcell" : "reboot";
+              $rootScope.isMobile = (Drupal.settings.twc.variant === "little");
+              // set touch from window attributes
+              $rootScope.isTouch  = ("ontouchstart" in window || (navigator && !!(navigator.msMaxTouchPoints)));
+              $q.all(twcPco.get("device").promises).then(function() {
+                // set tablet from our device node.
+                $rootScope.isTablet = (device.getOpenDDRTablet() === "true");
+              });
+
+              if(TWC.pageTitle) {
+                var interpolatedPageTitle = $interpolate(TWC.pageTitle);
+
+                $rootScope.$watch(function() {
+                  return interpolatedPageTitle($rootScope);
+                }, function(title) {
+                  $window.document.title = title;
+                  $rootScope.pageTitle=title;
+                })
+              }
+              else {
+                twclog.error("TWC.pageTitle does not exist");
+              }
+          }]);
+          if (!window.callPhantom) {
+            setTimeout(function(){
+              angular.bootstrap(document,["twc"]);
+            },5);
+          }
+          else {
+            // For phantomJS, we need to bootstrap on the browser queue to make the
+            // stupid phantom understand that bootstrap is part of the page.
+            angular.bootstrap(document,["twc"]);
+          }
+        }
+        window.page_bottom_reached = true;
+      </script>
+</body>
+</html>

@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<!--[if lte IE 9]><html class="lt-ie10" lang="sv" ><![endif]-->
+<html class="no-js" lang="sv">
+<head>
+<meta charset="utf-8"><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"UAYBU1VACgoFVFVW"};window.NREUM||(NREUM={}),__nr_require=function(t,n,e){function r(e){if(!n[e]){var o=n[e]={exports:{}};t[e][0].call(o.exports,function(n){var o=t[e][1][n];return r(o||n)},o,o.exports)}return n[e].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<e.length;o++)r(e[o]);return r}({1:[function(t,n,e){function r(t){try{s.console&&console.log(t)}catch(n){}}var o,i=t("ee"),a=t(15),s={};try{o=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(s.console=!0,o.indexOf("dev")!==-1&&(s.dev=!0),o.indexOf("nr_dev")!==-1&&(s.nrDev=!0))}catch(c){}s.nrDev&&i.on("internal-error",function(t){r(t.stack)}),s.dev&&i.on("fn-err",function(t,n,e){r(e.stack)}),s.dev&&(r("NR AGENT IN DEVELOPMENT MODE"),r("flags: "+a(s,function(t,n){return t}).join(", ")))},{}],2:[function(t,n,e){function r(t,n,e,r,o){try{d?d-=1:i("err",[o||new UncaughtException(t,n,e)])}catch(s){try{i("ierr",[s,c.now(),!0])}catch(u){}}return"function"==typeof f&&f.apply(this,a(arguments))}function UncaughtException(t,n,e){this.message=t||"Uncaught error with no additional information",this.sourceURL=n,this.line=e}function o(t){i("err",[t,c.now()])}var i=t("handle"),a=t(16),s=t("ee"),c=t("loader"),f=window.onerror,u=!1,d=0;c.features.err=!0,t(1),window.onerror=r;try{throw new Error}catch(l){"stack"in l&&(t(8),t(7),"addEventListener"in window&&t(5),c.xhrWrappable&&t(9),u=!0)}s.on("fn-start",function(t,n,e){u&&(d+=1)}),s.on("fn-err",function(t,n,e){u&&(this.thrown=!0,o(e))}),s.on("fn-end",function(){u&&!this.thrown&&d>0&&(d-=1)}),s.on("internal-error",function(t){i("ierr",[t,c.now(),!0])})},{}],3:[function(t,n,e){t("loader").features.ins=!0},{}],4:[function(t,n,e){function r(t){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var o=t("ee"),i=t("handle"),a=t(8),s=t(7),c="learResourceTimings",f="addEventListener",u="resourcetimingbufferfull",d="bstResource",l="resource",p="-start",h="-end",m="fn"+p,w="fn"+h,v="bstTimer",y="pushState",g=t("loader");g.features.stn=!0,t(6);var b=NREUM.o.EV;o.on(m,function(t,n){var e=t[0];e instanceof b&&(this.bstStart=g.now())}),o.on(w,function(t,n){var e=t[0];e instanceof b&&i("bst",[e,n,this.bstStart,g.now()])}),a.on(m,function(t,n,e){this.bstStart=g.now(),this.bstType=e}),a.on(w,function(t,n){i(v,[n,this.bstStart,g.now(),this.bstType])}),s.on(m,function(){this.bstStart=g.now()}),s.on(w,function(t,n){i(v,[n,this.bstStart,g.now(),"requestAnimationFrame"])}),o.on(y+p,function(t){this.time=g.now(),this.startPath=location.pathname+location.hash}),o.on(y+h,function(t){i("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),f in window.performance&&(window.performance["c"+c]?window.performance[f](u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["c"+c]()},!1):window.performance[f]("webkit"+u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["webkitC"+c]()},!1)),document[f]("scroll",r,{passive:!0}),document[f]("keypress",r,!1),document[f]("click",r,!1)}},{}],5:[function(t,n,e){function r(t){for(var n=t;n&&!n.hasOwnProperty(u);)n=Object.getPrototypeOf(n);n&&o(n)}function o(t){s.inPlace(t,[u,d],"-",i)}function i(t,n){return t[1]}var a=t("ee").get("events"),s=t(18)(a,!0),c=t("gos"),f=XMLHttpRequest,u="addEventListener",d="removeEventListener";n.exports=a,"getPrototypeOf"in Object?(r(document),r(window),r(f.prototype)):f.prototype.hasOwnProperty(u)&&(o(window),o(f.prototype)),a.on(u+"-start",function(t,n){var e=t[1],r=c(e,"nr@wrapped",function(){function t(){if("function"==typeof e.handleEvent)return e.handleEvent.apply(e,arguments)}var n={object:t,"function":e}[typeof e];return n?s(n,"fn-",null,n.name||"anonymous"):e});this.wrapped=t[1]=r}),a.on(d+"-start",function(t){t[1]=this.wrapped||t[1]})},{}],6:[function(t,n,e){var r=t("ee").get("history"),o=t(18)(r);n.exports=r,o.inPlace(window.history,["pushState","replaceState"],"-")},{}],7:[function(t,n,e){var r=t("ee").get("raf"),o=t(18)(r),i="equestAnimationFrame";n.exports=r,o.inPlace(window,["r"+i,"mozR"+i,"webkitR"+i,"msR"+i],"raf-"),r.on("raf-start",function(t){t[0]=o(t[0],"fn-")})},{}],8:[function(t,n,e){function r(t,n,e){t[0]=a(t[0],"fn-",null,e)}function o(t,n,e){this.method=e,this.timerDuration="number"==typeof t[1]?t[1]:0,t[0]=a(t[0],"fn-",this,e)}var i=t("ee").get("timer"),a=t(18)(i),s="setTimeout",c="setInterval",f="clearTimeout",u="-start",d="-";n.exports=i,a.inPlace(window,[s,"setImmediate"],s+d),a.inPlace(window,[c],c+d),a.inPlace(window,[f,"clearImmediate"],f+d),i.on(c+u,r),i.on(s+u,o)},{}],9:[function(t,n,e){function r(t,n){d.inPlace(n,["onreadystatechange"],"fn-",s)}function o(){var t=this,n=u.context(t);t.readyState>3&&!n.resolved&&(n.resolved=!0,u.emit("xhr-resolved",[],t)),d.inPlace(t,w,"fn-",s)}function i(t){v.push(t),h&&(g=-g,b.data=g)}function a(){for(var t=0;t<v.length;t++)r([],v[t]);v.length&&(v=[])}function s(t,n){return n}function c(t,n){for(var e in t)n[e]=t[e];return n}t(5);var f=t("ee"),u=f.get("xhr"),d=t(18)(u),l=NREUM.o,p=l.XHR,h=l.MO,m="readystatechange",w=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],v=[];n.exports=u;var y=window.XMLHttpRequest=function(t){var n=new p(t);try{u.emit("new-xhr",[n],n),n.addEventListener(m,o,!1)}catch(e){try{u.emit("internal-error",[e])}catch(r){}}return n};if(c(p,y),y.prototype=p.prototype,d.inPlace(y.prototype,["open","send"],"-xhr-",s),u.on("send-xhr-start",function(t,n){r(t,n),i(n)}),u.on("open-xhr-start",r),h){var g=1,b=document.createTextNode(g);new h(a).observe(b,{characterData:!0})}else f.on("fn-end",function(t){t[0]&&t[0].type===m||a()})},{}],10:[function(t,n,e){function r(t){var n=this.params,e=this.metrics;if(!this.ended){this.ended=!0;for(var r=0;r<d;r++)t.removeEventListener(u[r],this.listener,!1);if(!n.aborted){if(e.duration=a.now()-this.startTime,4===t.readyState){n.status=t.status;var i=o(t,this.lastSize);if(i&&(e.rxSize=i),this.sameOrigin){var c=t.getResponseHeader("X-NewRelic-App-Data");c&&(n.cat=c.split(", ").pop())}}else n.status=0;e.cbTime=this.cbTime,f.emit("xhr-done",[t],t),s("xhr",[n,e,this.startTime])}}}function o(t,n){var e=t.responseType;if("json"===e&&null!==n)return n;var r="arraybuffer"===e||"blob"===e||"json"===e?t.response:t.responseText;return h(r)}function i(t,n){var e=c(n),r=t.params;r.host=e.hostname+":"+e.port,r.pathname=e.pathname,t.sameOrigin=e.sameOrigin}var a=t("loader");if(a.xhrWrappable){var s=t("handle"),c=t(11),f=t("ee"),u=["load","error","abort","timeout"],d=u.length,l=t("id"),p=t(14),h=t(13),m=window.XMLHttpRequest;a.features.xhr=!0,t(9),f.on("new-xhr",function(t){var n=this;n.totalCbs=0,n.called=0,n.cbTime=0,n.end=r,n.ended=!1,n.xhrGuids={},n.lastSize=null,p&&(p>34||p<10)||window.opera||t.addEventListener("progress",function(t){n.lastSize=t.loaded},!1)}),f.on("open-xhr-start",function(t){this.params={method:t[0]},i(this,t[1]),this.metrics={}}),f.on("open-xhr-end",function(t,n){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&n.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),f.on("send-xhr-start",function(t,n){var e=this.metrics,r=t[0],o=this;if(e&&r){var i=h(r);i&&(e.txSize=i)}this.startTime=a.now(),this.listener=function(t){try{"abort"===t.type&&(o.params.aborted=!0),("load"!==t.type||o.called===o.totalCbs&&(o.onloadCalled||"function"!=typeof n.onload))&&o.end(n)}catch(e){try{f.emit("internal-error",[e])}catch(r){}}};for(var s=0;s<d;s++)n.addEventListener(u[s],this.listener,!1)}),f.on("xhr-cb-time",function(t,n,e){this.cbTime+=t,n?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof e.onload||this.end(e)}),f.on("xhr-load-added",function(t,n){var e=""+l(t)+!!n;this.xhrGuids&&!this.xhrGuids[e]&&(this.xhrGuids[e]=!0,this.totalCbs+=1)}),f.on("xhr-load-removed",function(t,n){var e=""+l(t)+!!n;this.xhrGuids&&this.xhrGuids[e]&&(delete this.xhrGuids[e],this.totalCbs-=1)}),f.on("addEventListener-end",function(t,n){n instanceof m&&"load"===t[0]&&f.emit("xhr-load-added",[t[1],t[2]],n)}),f.on("removeEventListener-end",function(t,n){n instanceof m&&"load"===t[0]&&f.emit("xhr-load-removed",[t[1],t[2]],n)}),f.on("fn-start",function(t,n,e){n instanceof m&&("onload"===e&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=a.now()))}),f.on("fn-end",function(t,n){this.xhrCbStart&&f.emit("xhr-cb-time",[a.now()-this.xhrCbStart,this.onload,n],n)})}},{}],11:[function(t,n,e){n.exports=function(t){var n=document.createElement("a"),e=window.location,r={};n.href=t,r.port=n.port;var o=n.href.split("://");!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=n.hostname||e.hostname,r.pathname=n.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname);var i=!n.protocol||":"===n.protocol||n.protocol===e.protocol,a=n.hostname===document.domain&&n.port===e.port;return r.sameOrigin=i&&(!n.hostname||a),r}},{}],12:[function(t,n,e){function r(){}function o(t,n,e){return function(){return i(t,[f.now()].concat(s(arguments)),n?null:this,e),n?void 0:this}}var i=t("handle"),a=t(15),s=t(16),c=t("ee").get("tracer"),f=t("loader"),u=NREUM;"undefined"==typeof window.newrelic&&(newrelic=u);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],l="api-",p=l+"ixn-";a(d,function(t,n){u[n]=o(l+n,!0,"api")}),u.addPageAction=o(l+"addPageAction",!0),u.setCurrentRouteName=o(l+"routeName",!0),n.exports=newrelic,u.interaction=function(){return(new r).get()};var h=r.prototype={createTracer:function(t,n){var e={},r=this,o="function"==typeof n;return i(p+"tracer",[f.now(),t,e],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],e),o)try{return n.apply(this,arguments)}finally{c.emit("fn-end",[f.now()],e)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,n){h[n]=o(p+n)}),newrelic.noticeError=function(t){"string"==typeof t&&(t=new Error(t)),i("err",[t,f.now()])}},{}],13:[function(t,n,e){n.exports=function(t){if("string"==typeof t&&t.length)return t.length;if("object"==typeof t){if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if(!("undefined"!=typeof FormData&&t instanceof FormData))try{return JSON.stringify(t).length}catch(n){return}}}},{}],14:[function(t,n,e){var r=0,o=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);o&&(r=+o[1]),n.exports=r},{}],15:[function(t,n,e){function r(t,n){var e=[],r="",i=0;for(r in t)o.call(t,r)&&(e[i]=n(r,t[r]),i+=1);return e}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],16:[function(t,n,e){function r(t,n,e){n||(n=0),"undefined"==typeof e&&(e=t?t.length:0);for(var r=-1,o=e-n||0,i=Array(o<0?0:o);++r<o;)i[r]=t[n+r];return i}n.exports=r},{}],17:[function(t,n,e){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],18:[function(t,n,e){function r(t){return!(t&&t instanceof Function&&t.apply&&!t[a])}var o=t("ee"),i=t(16),a="nr@original",s=Object.prototype.hasOwnProperty,c=!1;n.exports=function(t,n){function e(t,n,e,o){function nrWrapper(){var r,a,s,c;try{a=this,r=i(arguments),s="function"==typeof e?e(r,a):e||{}}catch(f){l([f,"",[r,a,o],s])}u(n+"start",[r,a,o],s);try{return c=t.apply(a,r)}catch(d){throw u(n+"err",[r,a,d],s),d}finally{u(n+"end",[r,a,c],s)}}return r(t)?t:(n||(n=""),nrWrapper[a]=t,d(t,nrWrapper),nrWrapper)}function f(t,n,o,i){o||(o="");var a,s,c,f="-"===o.charAt(0);for(c=0;c<n.length;c++)s=n[c],a=t[s],r(a)||(t[s]=e(a,f?s+o:o,i,s))}function u(e,r,o){if(!c||n){var i=c;c=!0;try{t.emit(e,r,o,n)}catch(a){l([a,e,r,o])}c=i}}function d(t,n){if(Object.defineProperty&&Object.keys)try{var e=Object.keys(t);return e.forEach(function(e){Object.defineProperty(n,e,{get:function(){return t[e]},set:function(n){return t[e]=n,n}})}),n}catch(r){l([r])}for(var o in t)s.call(t,o)&&(n[o]=t[o]);return n}function l(n){try{t.emit("internal-error",n)}catch(e){}}return t||(t=o),e.inPlace=f,e.flag=a,e}},{}],ee:[function(t,n,e){function r(){}function o(t){function n(t){return t&&t instanceof r?t:t?c(t,s,i):i()}function e(e,r,o,i){if(!l.aborted||i){t&&t(e,r,o);for(var a=n(o),s=h(e),c=s.length,f=0;f<c;f++)s[f].apply(a,r);var d=u[y[e]];return d&&d.push([g,e,r,a]),a}}function p(t,n){v[t]=h(t).concat(n)}function h(t){return v[t]||[]}function m(t){return d[t]=d[t]||o(e)}function w(t,n){f(t,function(t,e){n=n||"feature",y[e]=n,n in u||(u[n]=[])})}var v={},y={},g={on:p,emit:e,get:m,listeners:h,context:n,buffer:w,abort:a,aborted:!1};return g}function i(){return new r}function a(){(u.api||u.feature)&&(l.aborted=!0,u=l.backlog={})}var s="nr@context",c=t("gos"),f=t(15),u={},d={},l=n.exports=o();l.backlog=u},{}],gos:[function(t,n,e){function r(t,n,e){if(o.call(t,n))return t[n];var r=e();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return t[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(t,n,e){function r(t,n,e,r){o.buffer([t],r),o.emit(t,n,e)}var o=t("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(t,n,e){function r(t){var n=typeof t;return!t||"object"!==n&&"function"!==n?-1:t===window?0:a(t,i,function(){return o++})}var o=1,i="nr@id",a=t("gos");n.exports=r},{}],loader:[function(t,n,e){function r(){if(!x++){var t=b.info=NREUM.info,n=l.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(t&&t.licenseKey&&t.applicationID&&n))return u.abort();f(y,function(n,e){t[n]||(t[n]=e)}),c("mark",["onload",a()+b.offset],null,"api");var e=l.createElement("script");e.src="https://"+t.agent,n.parentNode.insertBefore(e,n)}}function o(){"complete"===l.readyState&&i()}function i(){c("mark",["domContent",a()+b.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(s=Math.max((new Date).getTime(),s))-b.offset}var s=(new Date).getTime(),c=t("handle"),f=t(15),u=t("ee"),d=window,l=d.document,p="addEventListener",h="attachEvent",m=d.XMLHttpRequest,w=m&&m.prototype;NREUM.o={ST:setTimeout,CT:clearTimeout,XHR:m,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1026.min.js"},g=m&&w&&w[p]&&!/CriOS/.test(navigator.userAgent),b=n.exports={offset:s,now:a,origin:v,features:{},xhrWrappable:g};t(12),l[p]?(l[p]("DOMContentLoaded",i,!1),d[p]("load",r,!1)):(l[h]("onreadystatechange",o),d[h]("onload",r)),c("mark",["firstbyte",s],null,"api");var x=0,E=t(17)},{}]},{},["loader",2,10,4,3]);</script>
+<link rel="shortcut icon" href="//cdn.tigweb.org/images/favicons/favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/foundation/5.3.0/css/normalize.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/foundation/5.3.0/css/foundation.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/foundation/5.3.0/js/vendor/modernizr.js"></script>
+<!--[if lt IE 9]> 
+	<script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/nwmatcher/1.2.5/nwmatcher.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/selectivizr/1.0.2/selectivizr-min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.1.0/respond.min.js"></script> 
+<![endif]-->
+<link rel="stylesheet" href="//www.tigweb.org/tm/?f=includes/css/v8.1_header.css,includes/css/session-image-fix.css&amp;14">
+<title>Terms of Service and Privacy Policy</title>
+<link rel="stylesheet" href="//www.tigweb.org/tm/?f=includes/css/v8.1_TOS.css">
+ 
+</head>
+<body>
+<div class="off-canvas-wrap" data-offcanvas>
+<div class="inner-wrap">
+<div class="nav8-tig-header nav8-header">
+<div class="show-for-small-only">
+<nav class="tab-bar">
+<section class="left-small">
+<a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a>
+</section>
+<section class="middle tab-bar-section">
+<a href="//www.tigweb.org"><h1 class="nav8-tig-logo">TakingITGlobal</h1></a>
+</section>
+</nav>
+<aside class="left-off-canvas-menu nav8-small-menu">
+<ul class="off-canvas-list">
+<li><a href="//www.tigweb.org/community/" class="nav8-tig-community-small">Mötesplats</a></li>
+<li><a href="//www.tigweb.org/action-tools/" class="nav8-tig-action-tools-small">Aktionsverktyg</a></li>
+<li><a href="//www.tigweb.org/resources/" class="nav8-tig-resources-small">Resurser</a></li>
+<li><a href="//www.tigweb.org/youth-media/" class="nav8-tig-youth-media-small">Ungdomsmedia</a></li>
+<li><a href="//www.tigweb.org/global-issues/" class="nav8-tig-global-issues-small">Globala frågor</a></li>
+</ul>
+<nav role="navigation">
+<ul class="nav8-nav">
+<li><a href="//www.tigweb.org/tiged/">För lärare</a></li>
+<li><a href="//www.tigweb.org/about/">Om oss</a></li>
+<li><a href="https://www.tigweb.org/members/login.html?pushpath=www.tigweb.org%2Fmembers%2Fdisclaimer.html">Log in</a></li>
+<li><a href="https://www.tigweb.org/signup/">Gå med</a></li>
+</ul>
+</nav>
+<ul class="inline-list">
+<li><a href="https://www.facebook.com/takingitglobal" class="nav8-tig-header-facebook">Facebook</a></li>
+<li><a href="https://twitter.com/takingitglobal" class="nav8-tig-header-twitter">Twitter</a></li>
+<li><a href="https://plus.google.com/107967518217563430466/posts" class="nav8-tig-header-google">Google</a></li>
+<li><a href="https://www.youtube.com/user/takeitglobal" class="nav8-tig-header-youtube">YouTube</a></li>
+</ul>
+</aside>
+</div>
+<a class="exit-off-canvas"></a>
+<div class="show-for-medium-only contain-to-grid">
+<nav class="top-bar" data-topbar>
+<ul class="title-area">
+<li class="name">
+<a href="//www.tigweb.org"><h1 class="nav8-tig-logo">TakingITGlobal</h1></a>
+</li>
+</ul>
+<section class="top-bar-section">
+<ul class="right">
+<li class="divider"></li>
+<li class="has-dropdown">
+<a href="//www.tigweb.org/community/" class="nav8-tig-community-medium">Mötesplats</a>
+<ul class="dropdown">
+<li><a href="//www.tigweb.org/action-tools/badges/">Badges</a></li>
+<li><a href="//discuss.tigweb.org/">Diskussionsforum</a></li>
+<li><a href="//www.tigweb.org/community/members/">Medlemmar</a></li>
+<li><a href="//www.tigweb.org/community/newsletters/html/">Nyhetsbrev</a></li>
+</ul>
+</li>
+<li class="divider"></li>
+<li class="has-dropdown">
+<a href="//www.tigweb.org/action-tools/" class="nav8-tig-action-tools-medium">Aktionsverktyg</a>
+<ul class="dropdown">
+<li><a href="//www.tigweb.org/action-tools/guide/">Aktionsguider</a></li>
+<li><a href="//commit2act.tigweb.org/">Commit2Act</a></li>
+<li><a href="//www.tigweb.org/action-tools/initiatives/">Initiativ</a></li>
+<li><a href="//www.tigweb.org/action-tools/petitions/">Namninsamlingar</a></li>
+<li><a href="//sprout.tigweb.org">Sprout Ideas</a></li>
+</ul>
+</li>
+<li class="divider"></li>
+<li class="has-dropdown">
+<a href="//www.tigweb.org/resources/" class="nav8-tig-resources-medium">Resurser</a>
+<ul class="dropdown">
+<li><a href="//topics.tigweb.org/">Featured Topics</a></li>
+<li><a href="//www.tigweb.org/global-issues/intdays/">Internationella dagar</a></li>
+<li><a href="//www.tigweb.org/resources/opps/">Möjligheter</a></li>
+<li><a href="//www.tigweb.org/resources/orgs/">Organisationer</a></li>
+<li><a href="//www.tigweb.org/resources/toolkits/">Verktyg &amp; Publikationer</a></li>
+</ul>
+</li>
+<li class="divider"></li>
+<li class="has-dropdown">
+<a href="//www.tigweb.org/youth-media/" class="nav8-tig-youth-media-medium">Ungdomsmedia</a>
+<ul class="dropdown">
+<li><a href="//www.tigweb.org/youth-media/blogs/">Bloggar</a></li>
+<li><a href="//www.tigweb.org/youth-media/conversations/">Conversations</a></li>
+<li><a href="//www.tigweb.org/games/">Spel</a></li>
+<li><a href="//www.tigweb.org/youth-media/gallery/">Globala Galleriet</a></li>
+<li><a href="//www.tigweb.org/youth-media/magazine/">TIG Magazine</a></li>
+</ul>
+</li>
+<li class="divider"></li>
+<li class="has-dropdown">
+<a href="//www.tigweb.org/global-issues/" class="nav8-tig-global-issues-medium">Globala frågor</a>
+<ul class="dropdown">
+<li><a href="//issues.tigweb.org/culture">Kultur</a></li>
+<li><a href="//issues.tigweb.org/education">Utbildning</a></li>
+<li><a href="//issues.tigweb.org/environment">Miljö</a></li>
+<li><a href="//issues.tigweb.org/globalization">Globalisering</a></li>
+<li><a href="//issues.tigweb.org/health">Hälsa</a></li>
+<li><a href="//issues.tigweb.org/humanrights">Mänskliga rättigheter</a></li>
+<li><a href="//issues.tigweb.org/media">Media</a></li>
+<li><a href="//issues.tigweb.org/peace">Fred</a></li>
+<li><a href="//issues.tigweb.org/technology">Teknik</a></li>
+</ul>
+</li>
+<li class="divider"></li>
+</ul>
+</section>
+</nav>
+</div>
+<div class="show-for-large-up contain-to-grid">
+<nav class="top-bar" data-topbar>
+<ul class="title-area">
+<li class="name"><a href="//www.tigweb.org"><h1 class="nav8-tig-logo">TakingITGlobal</h1></a></li>
+</ul>
+<section class="top-bar-section">
+<ul class="right">
+<li class="divider"></li>
+<li class="has-dropdown">
+<a href="//www.tigweb.org/community/" class="nav8-tig-community-large">Mötesplats</a>
+<ul class="dropdown">
+<li><a href="//www.tigweb.org/action-tools/badges/">Badges</a></li>
+<li><a href="//discuss.tigweb.org/">Diskussionsforum</a></li>
+<li><a href="//www.tigweb.org/community/members/">Medlemmar</a></li>
+<li><a href="//www.tigweb.org/community/newsletters/html/">Nyhetsbrev</a></li>
+</ul>
+</li>
+<li class="divider"></li>
+<li class="has-dropdown">
+<a href="//www.tigweb.org/action-tools/" class="nav8-tig-action-tools-large">Aktionsverktyg</a>
+<ul class="dropdown">
+<li><a href="//www.tigweb.org/action-tools/guide/">Aktionsguider</a></li>
+<li><a href="//commit2act.tigweb.org/">Commit2Act</a></li>
+<li><a href="//www.tigweb.org/action-tools/initiatives/">Initiativ</a></li>
+<li><a href="//www.tigweb.org/action-tools/petitions/">Namninsamlingar</a></li>
+<li><a href="//sprout.tigweb.org">Sprout Ideas</a></li>
+</ul>
+</li>
+<li class="divider"></li>
+<li class="has-dropdown">
+<a href="//www.tigweb.org/resources/" class="nav8-tig-resources-large">Resurser</a>
+<ul class="dropdown">
+<li><a href="//topics.tigweb.org/">Featured Topics</a></li>
+<li><a href="//www.tigweb.org/global-issues/intdays/">Internationella dagar</a></li>
+<li><a href="//www.tigweb.org/resources/opps/">Möjligheter</a></li>
+<li><a href="//www.tigweb.org/resources/orgs/">Organisationer</a></li>
+<li><a href="//www.tigweb.org/resources/toolkits/">Verktyg &amp; Publikationer</a></li>
+</ul>
+</li>
+<li class="divider"></li>
+<li class="has-dropdown">
+<a href="//www.tigweb.org/youth-media/" class="nav8-tig-youth-media-large">Ungdomsmedia</a>
+<ul class="dropdown">
+<li><a href="//www.tigweb.org/youth-media/blogs/">Bloggar</a></li>
+<li><a href="//www.tigweb.org/youth-media/conversations/">Conversations</a></li>
+<li><a href="//www.tigweb.org/games/">Spel</a></li>
+<li><a href="//www.tigweb.org/youth-media/gallery/">Globala Galleriet</a></li>
+<li><a href="//www.tigweb.org/youth-media/magazine/">TIG Magazine</a></li>
+</ul>
+</li>
+<li class="divider"></li>
+<li class="has-dropdown">
+<a href="//www.tigweb.org/global-issues/" class="nav8-tig-global-issues-large">Globala frågor</a>
+<ul class="dropdown">
+<li><a href="//issues.tigweb.org/culture">Kultur</a></li>
+<li><a href="//issues.tigweb.org/education">Utbildning</a></li>
+<li><a href="//issues.tigweb.org/environment">Miljö</a></li>
+<li><a href="//issues.tigweb.org/globalization">Globalisering</a></li>
+<li><a href="//issues.tigweb.org/health">Hälsa</a></li>
+<li><a href="//issues.tigweb.org/humanrights">Mänskliga rättigheter</a></li>
+<li><a href="//issues.tigweb.org/media">Media</a></li>
+<li><a href="//issues.tigweb.org/peace">Fred</a></li>
+<li><a href="//issues.tigweb.org/technology">Teknik</a></li>
+</ul>
+</li>
+<li class="divider">
+</ul>
+</section>
+</nav>
+</div>
+</div>
+<div class="nav8-bottom">
+<div class="row">
+<div class="small-5 medium-6 columns">
+<ul class="inline-list">
+<li class="show-for-medium-up">
+<a href="//www.tigweb.org/tiged/">För lärare</a>
+</li>
+<li class="nav8-hide-for-no-js"><a href="#" data-dropdown="nav8-language-dropdown">Språk</a>
+<ul id="nav8-language-dropdown" class="f-dropdown" data-dropdown-content>
+<li><a href="//www.tigweb.org/members/setting.html?switchlang=en&amp;pushpath=www.tigweb.org%2Fmembers%2Fdisclaimer.html">English</a></li>
+<li><a href="//www.tigweb.org/members/setting.html?switchlang=es&amp;pushpath=www.tigweb.org%2Fmembers%2Fdisclaimer.html">Español</a></li>
+<li><a href="//www.tigweb.org/members/setting.html?switchlang=fr&amp;pushpath=www.tigweb.org%2Fmembers%2Fdisclaimer.html">Français</a></li>
+<li><a href="//www.tigweb.org/members/setting.html?switchlang=it&amp;pushpath=www.tigweb.org%2Fmembers%2Fdisclaimer.html">Italiano</a></li>
+<li><a href="//www.tigweb.org/members/setting.html?switchlang=sw&amp;pushpath=www.tigweb.org%2Fmembers%2Fdisclaimer.html">Kiswahili</a></li>
+<li><a href="//www.tigweb.org/members/setting.html?switchlang=nl&amp;pushpath=www.tigweb.org%2Fmembers%2Fdisclaimer.html">Nederlands</a></li>
+<li><a href="//www.tigweb.org/members/setting.html?switchlang=pt&amp;pushpath=www.tigweb.org%2Fmembers%2Fdisclaimer.html">Português</a></li>
+<li><a href="//www.tigweb.org/members/setting.html?switchlang=ru&amp;pushpath=www.tigweb.org%2Fmembers%2Fdisclaimer.html">Pусский</a></li>
+<li><a href="//www.tigweb.org/members/setting.html?switchlang=ro&amp;pushpath=www.tigweb.org%2Fmembers%2Fdisclaimer.html">Romana</a></li>
+<li><a href="//www.tigweb.org/members/setting.html?switchlang=sv&amp;pushpath=www.tigweb.org%2Fmembers%2Fdisclaimer.html">Svenska</a></li>
+<li><a href="//www.tigweb.org/members/setting.html?switchlang=tr&amp;pushpath=www.tigweb.org%2Fmembers%2Fdisclaimer.html">Türkçe</a></li>
+<li><a href="//www.tigweb.org/members/setting.html?switchlang=ar&amp;pushpath=www.tigweb.org%2Fmembers%2Fdisclaimer.html">العربية</a></li>
+<li><a href="//www.tigweb.org/members/setting.html?switchlang=chs&amp;pushpath=www.tigweb.org%2Fmembers%2Fdisclaimer.html">中文简体</a></li>
+</ul>
+</li>
+<li class="show-for-medium-up">
+<a href="//www.tigweb.org/about/">Om oss</a>
+</li>
+</ul>
+</div>
+<div class="small-7 medium-6 columns">
+<ul class="inline-list right">
+<li class="nav8-hide-for-no-js">
+<a href="#" data-dropdown="search-drop"><img src="//www.tigweb.org/images/header8/search-glass.png" alt="search icon"></a>
+<ul id="search-drop" class="f-dropdown" data-dropdown-content>
+<li>
+<form name="SearchForm" method="get" action="//www.tigweb.org/search/" accept-charset="utf-8" class="tig_menu_search">
+<input name="Limit" type="hidden" value="true"/>
+<fieldset>
+<label for="tig-search-content">Sök</label>
+<input type="text" name="Keyword" id="tig-search-content"/>
+</fieldset>
+</form>
+</li>
+</ul>
+</li>
+<li><a href="https://www.tigweb.org/signup">Gå med</a></li>
+<li><a href="https://www.tigweb.org/members/login.html?pushpath=www.tigweb.org%2Fmembers%2Fdisclaimer.html">Log in</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="row">
+<br/>
+<div class="small-11 small-centered columns">
+<p><a href="/">Home</a> / Terms of Service and Privacy Policy</p>
+<hr width="100%" noshade size=1 color="#666666">
+</div>
+</div>
+<div class="row">
+<div class="small-11 small-centered columns">
+<p><b>We know that you're not here to read spam or garbage, that you don't want to download stuff that will mess up your computer, and that you don't want to be harassed or insulted. That's why we created these documents. To protect our community from things that we want to be able to get rid of. By using the TakingITGlobal site, you are agreeing with the following terms and privacy policy. In other words:</b></p>
+<p>To make sure that the TakingITGlobal Online Community and the content and services it provides to you are of the highest possible quality, we have developed this <a href="#tos">Terms of Service</a> and <a href="#privacy">Privacy Policy</a>. We welcome your feedback and ideas on how to improve these terms. Please <a href="mailto:info@takingitglobal.org">contact us</a> with any and all suggestions! And, if any time, this site or these Terms of Service become unacceptable to you, you may discontinue using this site.</p>
+<a name="tos" class='title'>Terms of Service ("TOS")</a><br><br>
+<p><b>1. Acceptance of Terms</b><br>
+Welcome to TakingITGlobal! TakingITGlobal provides its service to you, subject to the following Terms of Service ("TOS"), which may be updated by us from time to time without notice to you. You can review the most current version of the TOS at any time at: http://www.tigweb.org/static/disclaimer.html. In addition, when using particular TakingITGlobal services, you and TakingITGlobal shall be subject to any posted guidelines or rules applicable to such services which may be posted from time to time. All such guidelines or rules are hereby incorporated by reference into the TOS.</p>
+<p><b>2. Description of Service</b><br>
+TakingITGlobal currently provides users with access to a rich collection of resources, including various communications tools, databases of information, collections of expressions, forums, and content through its web site(s) (the "Service"). Unless explicitly stated otherwise, any new features that augment or enhance the current Service, including the release of new TakingITGlobal sites and features, shall be subject to the TOS.</p>
+<p><b>3. Dina skyldigheter som medlem </b><br>
+In consideration of your use of the Service, you agree to: (a) provide true, accurate, current and complete information about yourself as prompted by the Service's registration form (such information being the "Registration Data") and (b) maintain and promptly update the Registration Data to keep it true, accurate, current and complete. If you provide any information that is untrue, inaccurate, not current or incomplete, or TakingITGlobal has reasonable grounds to suspect that such information is untrue, inaccurate, not current or incomplete, TakingITGlobal has the right to suspend or terminate your account and refuse any and all current or future use of the Service (or any portion thereof).</p>
+<p><b>Medlemskonto, lösenord och säkerhet</b><br>
+You select a username and password upon completing the Service's registration process. You are responsible for maintaining the confidentiality of your password, and are fully responsible for all activities that occur under your password. You agree to (a) immediately notify TakingITGlobal of any unauthorized use of your password or account or any other breach of security, and (b) ensure that you exit from your account at the end of each session. TakingITGlobal cannot and will not be liable for any loss or damage arising from your failure to comply with this Section.</p>
+<p><a name="5mc"><b>5. Member Conduct</b></a><br>
+You understand that all information, data, text, software, music, sound, photographs, graphics, video, messages or other materials ("Content"), whether publicly posted or privately transmitted, are the sole responsibility of the person from which such Content originated. This means that you, and not TakingITGlobal, are entirely responsible for all Content that you upload, post, email, transmit or otherwise make available via the Service. TakingITGlobal has limited control of the Content posted via the Service and, as such, does not guarantee the accuracy, integrity or quality of such Content. You understand that by using the Service, you may be exposed to Content that is offensive, indecent or objectionable. Under no circumstances will TakingITGlobal be liable in any way for any Content, including, but not limited to, for any errors or omissions in any Content, or for any loss or damage of any kind incurred as a result of the use of any Content posted, emailed, transmitted or otherwise made available via the Service.</p>
+<p>You agree to not use the Service to:
+<ol class='TOS'>
+<li>upload, post, email, transmit or otherwise make available any Content that is unlawful, harmful, threatening, abusive, harassing, tortious, pornographic, defamatory, vulgar, obscene, libelous, invasive of another's privacy, hateful, or racially, ethnically or otherwise objectionable;</li>
+<li>harm other members in any way;</li>
+<li>impersonate any person or entity, including, but not limited to, a TakingITGlobal staff member or forum moderator, or falsely state or otherwise misrepresent your affiliation with a person or entity;</li>
+<li>forge headers or otherwise manipulate identifiers in order to disguise the origin of any Content transmitted through the Service;</li>
+<li>upload, post, email, transmit or otherwise make available any Content that you do not have a right to make available under any law or under contractual or fiduciary relationships (such as inside information, proprietary and confidential information learned or disclosed as part of employment relationships or under nondisclosure agreements);</li>
+<li>upload, post, email, transmit or otherwise make available any Content that infringes any patent, trademark, trade secret, copyright or other proprietary rights ("Rights") of any party;</li>
+<li>upload, post, email, transmit or otherwise make available any unsolicited or unauthorized advertising, promotional materials, "junk mail," "spam," "chain letters," "pyramid schemes," or any other form of solicitation;</li>
+<li>upload, post, email, transmit or otherwise make available any material that contains software viruses or any other computer code, files or programs designed to interrupt, destroy or limit the functionality of any computer software or hardware or telecommunications equipment;</li>
+<li>interfere with or disrupt the Service or servers or networks connected to the Service, or disobey any requirements, procedures, policies or regulations of networks connected to the Service;</li>
+<li>intentionally or unintentionally violate any applicable local, state, national or international law;</li>
+<li>"stalk" or otherwise harass another; or</li>
+<li>collect or store personal data about other users.</li>
+</ol>
+<p>You acknowledge that TakingITGlobal may not pre-screen Content, but that <b>TakingITGlobal and its designees shall have the right (but not the obligation) in their sole discretion to refuse or move any Content that is available via the Service.</b> Without limiting the foregoing, TakingITGlobal and its designees shall have the right to remove any Content that violates these Terms of Service or is otherwise objectionable. You agree that you must evaluate, and bear all risks associated with, the use of any Content, including any reliance on the accuracy, completeness, or usefulness of such Content. In this regard, you acknowledge that you may not rely on any Content created by TakingITGlobal or submitted to TakingITGlobal.</p>
+<p>You acknowledge and agree that TakingITGlobal may preserve Content and may also disclose Content if required to do so by law or in the good faith belief that such preservation or disclosure is reasonably necessary to: (a) comply with legal process; (b) enforce these terms of service; (c) respond to claims that any Content violates the rights of third-parties; or (d) protect the rights, property, or personal safety of TakingITGlobal, our members and the public.</p>
+<p><b>6. Internationellt användande</b><br>
+Recognizing the global nature of the Internet, you agree to comply with all local rules regarding online conduct and acceptable Content. Specifically, you agree to comply with all applicable laws regarding the transmission of technical data exported from Canada or the country in which you reside.</p>
+<p><b>7. Materials submitted or made available for inclusion on the service</b><br>
+TakingITGlobal does not claim ownership of Content you submit or make available for inclusion on the Service. However, with respect to Content you submit or make available for inclusion on publicly accessible areas of the Service, you grant TakingITGlobal the following world-wide, royalty free and non-exclusive license, as applicable:</p>
+<ul class='TOS'>
+<li>With respect to Content (including photos, graphics, audio or video) you submit or make available for inclusion on publicly accessible areas of the Service, you hereby grant to TakingITGlobal a perpetual, irrevocable and fully sublicensable right and license to use, distribute, reproduce, modify, adapt, publish, translate, publicly perform and publicly display such Content (in whole or in part) and to incorporate such Content into other works in any format or medium now known or later developed.</li>
+</ul>
+<p><b>8. Notice and Takedown</b><br>
+Since we respect content owner rights and provide operations in the United States, it is our policy to respond to alleged infringement notices that comply with the notice and takedown regimes in the jurisdictions in which we operate, including the United States Digital Millennium Copyright Act of 1998 (the "DMCA").</p>
+<p>If you believe that your copyrighted work has been copied in a way that constitutes copyright infringement and is accessible via the Service, please notify our copyright agent according to the procedures set forth in the DMCA. For your complaint to be valid under the DMCA, you must provide the following information in writing:</p>
+<ol class='TOS'>
+<li>An electronic or physical signature of a person authorized to act on behalf of the copyright owner;</li>
+<li>Identification of the copyrighted work that you claim has been infringed;</li>
+<li>Identification of the material that is claimed to be infringing and where it is located on the Service;</li>
+<li>Information reasonably sufficient to permit TakingITGlobal to contact you, such as your address, telephone number, and, e-mail address;</li>
+<li>A statement that you have a good faith belief that use of the material in the manner complained of is not authorized by the copyright owner, its agent, or law; and</li>
+<li>A statement, made under penalty of perjury, that the above information is accurate, and that you are the copyright owner or are authorized to act on behalf of the owner.</li>
+</ol>
+<p>The above information must be submitted to the following DMCA Agent:</p>
+<p>ATTN: DMCA Notice<br>
+TakingITGlobal<br>
+Adress: 19 Duncan Street, Suite 505, Toronto, Ontario, Canada M5H 3H1<br>
+Telefon: +1 (416) 977-9363<br>
+Fax: +1 (416) 352-1898<br>
+E-post: [info@takingitglobal.org]</p>
+<p>UNDER UNITED STATES FEDERAL LAW, IF YOU KNOWINGLY MISREPRESENT THAT ONLINE MATERIAL IS INFRINGING, YOU MAY BE SUBJECT TO CRIMINAL PROSECUTION FOR PERJURY AND CIVIL PENALTIES, INCLUDING MONETARY DAMAGES, COURT COSTS, AND ATTORNEYS' FEES.</p>
+<p><strong>Please note that this procedure is exclusively for notifying TakingITGlobal and its affiliates that your copyrighted material has been infringed. The preceding requirements are intended to comply with Company's rights and obligations under the DMCA, including 17 U.S.C. &sect;512(c), but do not constitute legal advice. It may be advisable to contact an attorney regarding your rights and obligations under the DMCA and other applicable laws.</strong></p>
+<p>In accordance with the DMCA and other applicable law, TakingITGlobal has adopted a policy of terminating, in appropriate circumstances, users who are deemed to be repeat infringers. we may also at its sole discretion limit access to the Service and/or terminate the accounts of any users who infringe any intellectual property rights of others, whether or not there is any repeat infringement.</p>
+<p><b>9. Indemnity</b><br>
+You agree to indemnify and hold TakingITGlobal, and its affiliates, officers, agents, co-branders or other partners, and employees, harmless from any claim or demand, including reasonable attorneys' fees, made by any third party due to or arising out of Content you submit, post, transmit or make available through the Service, your use of the Service, your connection to the Service, your violation of these terms of service, or your violation of any rights of another.</p>
+<p><b>10. Third Party Links</b><br>
+The Service may provide, or third parties may provide, links to other World Wide Web sites or resources. Because TakingITGlobal has no control over such sites and resources, you acknowledge and agree that TakingITGlobal is not responsible for the availability of such external sites or resources, and does not endorse and is not responsible or liable for any Content, advertising, products, or other materials on or available from such sites or resources. Such third party sites are governed by their own separate terms of use and privacy policies, which you should review separately. You further acknowledge and agree that TakingITGlobal shall not be responsible or liable, directly or indirectly, for any damage or loss caused or alleged to be caused by or in connection with use of or reliance on any such Content, goods or services available on or through any such site or resource.</p>
+<p><b>11. General Information</b><br>
+These Terms of Service and our Privacy Policy below constitute the entire agreement between you and TakingITGlobal, and govern your use of the Service, superseding any prior agreements between you and TakingITGlobal. You also may be subject to additional terms and conditions that may apply when you use affiliate services, third-party content or third-party software. The TOS and the relationship between you and TakingITGlobal shall be governed by the laws of the Province of Ontario. You and TakingITGlobal agree to submit to the personal and exclusive jurisdiction of the courts located within the City of Toronto, Ontario. The failure of TakingITGlobal to exercise or enforce any right or provision of the TOS shall not constitute a waiver of such right or provision. If any provision of the TOS is found by a court of competent jurisdiction to be invalid, the parties nevertheless agree that the court should endeavor to give effect to the parties' intentions as reflected in the provision, and the other provisions of the TOS remain in full force and effect. You agree that regardless of any statute or law to the contrary, any claim or cause of action arising out of or related to use of the Service or the TOS must be filed within one (1) year after such claim or cause of action arose or be forever barred.</p>
+<p>The section titles in the TOS are for convenience only and have no legal or contractual effect.</p>
+<p><b>12. Modifications to Service</b><br>
+TakingITGlobal reserves the right at any time and from time to time to modify or discontinue, temporarily or permanently, the Service (or any part thereof) with or without notice. You agree that TakingITGlobal shall not be liable to you or to any third party for any modification, suspension or discontinuance of the Service.</p>
+<p><b>13. Termination</b><br>
+You agree that TakingITGlobal, in its sole discretion, may terminate your password, account (or any part thereof) or use of the Service, and remove and discard any Content within the Service, for any reason, including, without limitation, for lack of use or if TakingITGlobal believes that you have violated or acted inconsistently with the letter or spirit of the TOS. TakingITGlobal may also in its sole discretion and at any time discontinue providing the Service, or any part thereof, with or without notice. You agree that any termination of your access to the Service under any provision of this TOS may be effected without prior notice, and acknowledge and agree that TakingITGlobal may immediately deactivate or delete your account and all related information in your account and/or bar any further access to the Service. Further, you agree that TakingITGlobal shall not be liable to you or any third-party for any termination of your access to the Service.</p>
+<p><b>14. DISCLAIMER OF WARRANTIES</b><br>
+YOU EXPRESSLY UNDERSTAND AND AGREE THAT:
+<ol class='TOS'>
+<li>YOUR USE OF THE SERVICE IS AT YOUR SOLE RISK. THE SERVICE IS PROVIDED ON AN "AS IS" AND "AS AVAILABLE" BASIS. TAKINGITGLOBAL EXPRESSLY DISCLAIMS ALL WARRANTIES OF ANY KIND, WHETHER EXPRESS OR IMPLIED, INCLUDING, BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT.</li>
+<li>TAKINGITGLOBAL MAKES NO WARRANTY THAT (i) THE SERVICE WILL MEET YOUR REQUIREMENTS, (ii) THE SERVICE WILL BE UNINTERRUPTED, TIMELY, SECURE, OR ERROR-FREE, (iii) THE RESULTS THAT MAY BE OBTAINED FROM THE USE OF THE SERVICE WILL BE ACCURATE OR RELIABLE, (iv) THE QUALITY OF ANY PRODUCTS, SERVICES, INFORMATION, OR OTHER MATERIAL PURCHASED OR OBTAINED BY YOU THROUGH THE SERVICE WILL MEET YOUR EXPECTATIONS, AND (V) ANY ERRORS IN THE SOFTWARE WILL BE CORRECTED.</li>
+<li>ANY MATERIAL DOWNLOADED OR OTHERWISE OBTAINED THROUGH THE USE OF THE SERVICE IS DONE AT YOUR OWN DISCRETION AND RISK AND THAT YOU WILL BE SOLELY RESPONSIBLE FOR ANY DAMAGE TO YOUR COMPUTER SYSTEM OR LOSS OF DATA THAT RESULTS FROM THE DOWNLOAD OF ANY SUCH MATERIAL.</li>
+<li>NO ADVICE OR INFORMATION, WHETHER ORAL OR WRITTEN, OBTAINED BY YOU FROM TAKINGITGLOBAL OR THROUGH OR FROM THE SERVICE SHALL CREATE ANY WARRANTY NOT EXPRESSLY STATED IN THE TOS. SUBJECT TO APPLICABLE LAWS, YOUR SOLE AND EXCLUSIVE REMEDY IS TO DISCONTINUE ACCESSING AND USING THE SITE.</li>
+</ol></p>
+<p><b>15. LIMITATION OF LIABILITY</b><br>
+YOU EXPRESSLY UNDERSTAND AND AGREE THAT NEITHER TAKINGITGLOBAL NOR ANY OF OUR AFFILIATES, EMPLOYEES, AGENTS, CONTRACTORS OR SUPPLIERS SHALL BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL OR EXEMPLARY DAMAGES, INCLUDING BUT NOT LIMITED TO, DAMAGES FOR LOSS OF PROFITS, GOODWILL, USE, DATA OR OTHER INTANGIBLE LOSSES (EVEN IF TAKINGITGLOBAL HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES), RESULTING FROM: (i) THE USE OR THE INABILITY TO USE THE SERVICE; (ii) THE COST OF PROCUREMENT OF SUBSTITUTE GOODS AND SERVICES RESULTING FROM ANY GOODS, DATA, INFORMATION OR SERVICES PURCHASED OR OBTAINED OR MESSAGES RECEIVED OR TRANSACTIONS ENTERED INTO THROUGH OR FROM THE SERVICE; (iii) UNAUTHORIZED ACCESS TO OR ALTERATION OF YOUR TRANSMISSIONS OR DATA; (iv) STATEMENTS OR CONDUCT OF ANY THIRD PARTY ON THE SERVICE; OR (v) ANY OTHER MATTER RELATING TO THE SERVICE.</p>
+<p><b>16. Violations</b><br>
+Please <a href="mailto:info@takingitglobal.org">report any violations</a> of the TOS to us.</p>
+<a name="privacy" class='title'>Privacy Policy</a>
+<br><br>
+<p>Effective Date: January 19, 2015<br/><br/>
+This privacy statement describes how TakingITGlobal collects and uses the personal information you provide on our Web sites: www.tigweb.org and www.tiged.org. It also describes the choices available to you regarding our use of your personal information and how you can access and update this information.</p>
+ 
+<p><b>1. What does this privacy policy cover?</b><br>
+This Privacy Policy covers TakingITGlobal's treatment of personally identifiable information that we collect when you are on the TakingITGlobal site or when you use TakingITGlobal's services online.</p>
+<p><b>2. Information Collection and Use</b><br>
+TakingITGlobal collects personally identifiable information when you register as a TakingITGlobal member.</p>
+<p>När du registrerar dig hos TakingITGlobal, ber vi om ditt namn, email-adress, stad, stat/provins och land, samt annan frivillig information. När du väl registrerar dig hos TakingITGlobal och loggar in, är du inte längre anonym för oss.</p>
+<p>TakingITGlobal also automatically receives and records information on our server logs from your browser including your IP address, TakingITGlobal cookie information and the page you requested.</p>
+<p>Member passwords are never divulged except to members directly upon verification, and members can also hide their name from their profile if they wish. All information is kept in databases on our servers. We do not keep any hard copies of our member information in our office.</p>
+<p>TakingITGlobal uses information for three general purposes: to customize the information/content you see, to fulfill your requests for certain services, and to contact you when you request it.</p>
+<p>We protect against loss of information by having regular backups of data. We keep up with current standards to protect against theft of data, and regularly apply security updates and patches to ensure we are using the latest software available to protect our servers.</p>
+<p>The security of your personal information is important to us. We follow generally accepted industry standards to protect the personal information submitted to us, both during transmission and once we receive it. No method of transmission over the Internet, or method of electronic storage, is 100% secure, however. Therefore, we cannot guarantee its absolute security. If you have any questions about security on our Web site, you can contact us at info@takingitglobal.org.</p>
+<p><b>3. Information Sharing and Disclosure</b><br>
+TakingITGlobal will not share, trade, sell or rent your personally identifiable information to anyone.</p>
+<p>TakingITGlobal may send personally identifiable information about you to other companies or people when:
+<ul class='TOS'>
+<li>Vi har ditt samtycke att dela informationen; </li>
+<li>We are operating a web site in partnership with them (current examples: YoungPRESS, Global Youth Action Network) and they wish to contact their members;</li>
+<li>We need to share your information to provide the product or service you have requested;</li>
+<li>We respond to subpoenas, court orders or legal process; or</li>
+<li>We find that your actions on our web sites violate the our <a href="#tos">Terms of Service</a> or any of our usage guidelines for specific services.</li>
+</ul></p>
+<p><u>Send to a Friend/e-Cards</u><br/>
+If you would like to use our referral service to tell a family member or a friend that you know well about our site, we will ask you for your family or friend's name and email address, and you must be sure that they wouldn't mind receiving this email. We will then send your family member or friend a one-time email inviting him or her to visit the site. TakingITGlobal stores this information for the sole purpose of sending this one-time email and tracking the success of our referral program. Your friend may unsubscribe from future mailings by clicking "unsubscribe" at the bottom of our emails.</p>
+<p><u>Newsletters</u><br/>
+If you wish to subscribe to our newsletter(s), we will use your name and email address to send the newsletter to you. Out of respect for your privacy, we provide you a way to unsubscribe. Please see the "Choice and Opt-in" section.</p>
+<p><u>Choice/Opt-in</u><br/>
+We provide you the opportunity to opt-in by providing your personally identifiable information to receive promotional mailings from us.<br/><br/>
+If you no longer wish to receive our newsletter and promotional communications, you may unsubscribe from our database at any time by following the unsubscribe instructions included in each newsletter or communication. You may also withdraw your consent at any time through <a href="http://my.tigweb.org/edit/">E-mail Settings</a>, or you may contact us at <a href="mailto:info@takingitglobal.org">info@takingitglobal.org</a> with any questions or comments relating to your requests.</p>
+<p><b>4. Cookies & Web Beacons</b><br>
+TakingITGlobal may set and access TakingITGlobal cookies on your computer, used to identify your member account and to allow for the proper functioning of the TakingITGlobal web site and accompanying services. "Cookies" are small data files that your web browser may place on your computer when you go to different websites and mark that you have visited these sites.</p>
+<p>We use Google Analytics, which uses cookies to track non-personally identifiable information about visitors to our site in the aggregate to compile statistical reports about the activity on the Site as well as to benchmark this Site to other third parties who also use Google Analytics. This information is used by TakingITGlobal to improve the Site and its functionality. No personal information is gathered from these cookies.</p>
+<p>Our Web pages contain electronic images known as Web beacons (sometimes called single-pixel gifs) and are used along with cookies to compile aggregated statistics to analyze how our site is used and may be used in some of our emails to let us know which emails and links have been opened by recipients. This allows us to gauge the effectiveness of our communications and marketing campaigns.</p>
+<p><b>5. Redigera din Information och Preferenser</b><br>
+As a member, TakingITGlobal gives you the ability <a href="http://my.tigweb.org/edit/">by clicking here to edit your Information and Preferences</a> at any time, including whether you want TakingITGlobal to send you correspondence or discontinue receiving such correspondence.</p>
+<p><u>Name and Profile Picture</u><br/>
+TakingITGlobal is designed to make it easy for you to find and connect with others. For this reason, your name and profile picture do not have privacy settings. If you are uncomfortable with sharing your profile picture, you should delete it (or not add one). You can also control who can find you when searching on our site or on public search engines using the Applications and Websites privacy setting.</p>
+<p><u>Data Retention</u><br/>
+We will retain your information for as long as your account is active or as needed to provide you services. If you wish to cancel your account or request that we no longer use your information to provide you services contact us at info@takingitglobal.org. We will retain and use your information as necessary to comply with our legal obligations, resolve disputes, and enforce our agreements.</p>
+<p><u>Customer Testimonials/Comments</u><br/>
+Members can post testimonials or comments on our web site which may contain personally identifiable information. By submitting a comment or testimonial, members agree to the use of their name along with their testimonial and also to comply with our community guidelines set out in these Terms of Service.</p>
+<p><u>Public Forums</u><br/>
+Our Web site offers publicly accessible blogs or community forums. You should be aware that any information you provide in these areas may be read, collected, and used by others who access them. To request removal of your personal information from our blog or community forum, contact us at memberservices@takingitglobal.org. In some cases, we may not be able to remove your personal information, in which case we will let you know if we are unable to do so and why.</p>
+<p><b>6. Changes to this Privacy Policy</b><br>
+If we decide to change our privacy policy, we will post those changes to this privacy statement, the home page, and other places we deem appropriate so that you are aware of what information we collect, how we use it, and under what circumstances, if any, we disclose it.<br/><br/>
+We reserve the right to modify this privacy statement at any time, so please review it frequently. If we make material changes to this policy, we will notify you here, by email, or by means of a notice on our home page.</p>
+<p><b>7. Personal Information Protection and Electronic Documents Act (PIPEDA)</b><br>
+In compliance with Canadian Law, if you have any questions, comments or complaints about how we use your information, or if your request to unsubscribe from our mail-lists has not been fulfilled within ten days, please contact our Privacy Officer.<br>
+Contact: Privacy Officer<br>
+Via lettermail: 19 Duncan Street, Toronto, Ontario, M5H 3H1, Canada<br>
+Via telephone: +1 (416) 977 9363<br>
+Via email: privacy@takingitglobal.org<br><br>
+</div>
+</div>
+</div>  
+</div>  
+<div class="nav8-tig-footer nav8-footer">
+<div class="row">
+<div class="small-12 columns">
+<span class="sitelinks">SITE LINKS</span>
+</div>
+<div class="small-12 columns">
+<div class="row collapse">
+<div class="small-6 medium-2 columns">
+<ul>
+<li><a href="//www.tigweb.org/community/">Mötesplats</a></li>
+<li><a href="//www.tigweb.org/action-tools/">Aktionsverktyg</a></li>
+<li><a href="//www.tigweb.org/resources/">Resurser</a></li>
+</ul>
+</div>
+<div class="small-6 medium-2 columns">
+<ul>
+<li><a href="//www.tigweb.org/youth-media/">Ungdomsmedia</a></li>
+<li><a href="//www.tigweb.org/global-issues/">Globala frågor</a></li>
+</ul>
+</div>
+<div class="small-6 medium-2 columns">
+<ul>
+<li><a href="//www.tigweb.org/about/">Om oss</a></li>
+<li><a href="//www.tigweb.org/about/faq/">FAQ</a></li>
+<li><a href="https://www.tigweb.org/about/donate.html">Donera</a></li>
+</ul>
+</div>
+<div class="small-6 medium-2 columns">
+<ul>
+<li><a href="//www.tigweb.org/tiged/">För lärare</a></li>
+<li><a href="//www.tigweb.org/orgs/">För organisationer</a></li>
+<li><a href="//www.tigweb.org/sitemap.html">Sitemap</a></li>
+</ul>
+</div>
+<div class="small-6 medium-4 columns">
+<ul class="inline-list">
+<li><a href="https://www.facebook.com/takingitglobal" class="nav8-tig-footer-facebook">Facebook</a></li>
+<li><a href="https://twitter.com/takingitglobal" class="nav8-tig-footer-twitter">Twitter</a></li>
+<li><a href="https://www.flickr.com/photos/10496131@N04" class="nav8-tig-footer-flickr">Flickr</a></li>
+<li><a href="https://www.pinterest.com/takingitglobal/" class="nav8-tig-footer-pinterest">Pinterest</a></li>
+</ul>
+ 
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="footer-bottom-tig">
+<div class="row">
+<div class="small-12 columns">
+<a href="//www.tigweb.org/members/disclaimer.html">Terms</a>&nbsp;&nbsp;&nbsp;
+<a href="//www.tigweb.org/members/disclaimer.html#privacy">Privacy</a>
+<a href="//www.tigweb.org/about/" class="right">&copy; 2016 TakingITGlobal</a>
+</div>
+</div>
+</div>
+ 
+<!--[if lt IE 9]>
+	<script src="//www.tigweb.org/includes/js/rem.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<![endif]-->
+<![if !IE|gte IE 9]>
+<script src="//cdnjs.cloudflare.com/ajax/libs/foundation/5.3.0/js/vendor/jquery.js"></script>
+<![endif]>
+<script src="//cdnjs.cloudflare.com/ajax/libs/foundation/5.3.0/js/vendor/fastclick.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/foundation/5.3.0/js/foundation.min.js"></script>
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:429332,hjsv:5};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+<script>
+		$(document).ready(function() {
+			$(document).foundation();
+		}); 
+</script>
+<script type="text/javascript">
+var _gaq = _gaq || [];
+	_gaq.push(['_setCustomVar',2,'User Type','Non-member',2],['_setAccount', 'UA-1734007-3'],['_setAllowLinker', true],['_setDomainName', 'tigweb.org'],['_trackPageview']);
+
+(function() {
+	var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+  _qoptions={ qacct:"p-2dCwnlnEcqQ4o" }; 
+  window.intercomSettings = {
+
+    app_id: "4425cf93c481ddc2eb7333a95310bc96437a73d5"
+  };
+</script>
+<script>(function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/4425cf93c481ddc2eb7333a95310bc96437a73d5';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})()</script>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"5b9fb02390","applicationID":"295044","transactionName":"ZVJWMUJZWxBXVxBQDFwYYRdZF1gGW1YBSxAdHRoNRFVZ","queueTime":0,"applicationTime":21,"atts":"SRVVRwpDSB4=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>

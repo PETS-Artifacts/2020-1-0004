@@ -1,0 +1,629 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Oriel - Privacy Policy</title>
+    <meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9" />
+    <link href="/Web/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="">
+    
+    <script src="/Web/Scripts/jquery-1.8.2.js"></script>
+<script src="/Web/Scripts/modernizr-2.5.3.js"></script>
+<script src="/Web/Scripts/tooltip/jquery.tooltipster.js"></script>
+<script src="/Web/Scripts/match-height/jquery.matchHeight.js"></script>
+
+    <script src="/Web/Scripts/jquery-ui.js"></script>
+<script src="/Web/Scripts/jquery.unobtrusive-ajax.js"></script>
+<script src="/Web/Scripts/jquery.validate.js"></script>
+<script src="/Web/Scripts/jquery.validate.unobtrusive.js"></script>
+
+    <script src="/Web/Scripts/script_newdesign/hicom.js"></script>
+
+    <script src="/Web/Scripts/hicom/his-extensions.js"></script>
+
+    <link rel="stylesheet" href="/Web/Content/css_newdesign/jquery-ui.css">
+    <link href="/Web/Scripts/tooltip/tooltipster.css" rel="stylesheet"/>
+<link href="/Web/Content/css_newdesign/hicom.css" rel="stylesheet"/>
+<link href="/Web/Content/css_newdesign/responsive.css" rel="stylesheet"/>
+
+
+    
+    <script src="/Web/Scripts/script_newdesign/jquery-ui.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="/Web/Content/css_newdesign/font-awesome.min.css" /> 
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans" />
+    
+    <script>
+        $(document).ready(function () {
+            $.get('/Web/Account/GetTimer', function (data) {
+                dateTime = new Date(data);
+                AutoIncrementedDatetime();
+                setInterval(function () { AutoIncrementedDatetime() }, 1000);
+            });
+            //function use to show proper spacing when MaintenanceNotification  is true
+            //ShowProperSpacing();
+
+            // To Active or deactive the selected menu by controller name, Active the selected menu and Inactive the other menu.
+            var activeController = 'home';
+            var selectedArea = '';
+            var selectedAction = 'informationpage';
+            ActiveSelectedMenu(activeController, selectedArea, selectedAction);
+
+            // To show dd/mm/yy format in datepicker.
+            datepickerFormat();
+        });
+
+    </script>
+
+    
+        <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
+        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
+        <script>
+            // This example displays an address form, using the autocomplete feature
+            // of the Google Places API to help users fill in the information.
+            var placeSearch, autocomplete;
+            var componentForm = {
+                street_number: 'short_name',
+                route: 'long_name',
+                locality: 'long_name',
+                administrative_area_level_1: 'short_name',
+                //country: 'long_name',
+                postal_code: 'short_name'
+            };
+
+            function initialize() {
+                // Create the autocomplete object, restricting the search
+                // to geographical location types.
+                autocomplete = new google.maps.places.Autocomplete(
+                    /** @type {HTMLInputElement} */(document.getElementById('autocomplete')),
+        { types: ['geocode'] });
+                // When the user selects an address from the dropdown,
+                // populate the address fields in the form.
+                google.maps.event.addListener(autocomplete, 'place_changed', function () {
+                    fillInAddress();
+                });
+            }
+
+            // [START region_fillform]
+            function fillInAddress() {
+                // Get the place details from the autocomplete object.
+                var place = autocomplete.getPlace();
+
+                for (var component in componentForm) {
+
+                    document.getElementById(component).value = '';
+                    document.getElementById(component).disabled = false;
+                }
+
+                // Get each component of the address from the place details
+                // and fill the corresponding field on the form.
+                for (var i = 0; i < place.address_components.length; i++) {
+                    var addressType = place.address_components[i].types[0];
+                    var val = place.address_components[i][componentForm[addressType]];
+                    if (componentForm[addressType]) {
+                        document.getElementById(addressType).value = val;
+
+                    }
+                }
+            }
+
+            // [END region_fillform]
+            // [START region_geolocation]
+            // Bias the autocomplete object to the user's geographical location,
+            // as supplied by the browser's 'navigator.geolocation' object.
+            function geolocate() {
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(function (position) {
+                        var geolocation = new google.maps.LatLng(
+                            position.coords.latitude, position.coords.longitude);
+                        var circle = new google.maps.Circle({
+                            center: geolocation,
+                            radius: position.coords.accuracy
+                        });
+                        autocomplete.setBounds(circle.getBounds());
+                    });
+                }
+            }
+
+        </script>
+    <!--[if IE 9]>
+
+       <link href="/Web/Content/IE9_Specific.css" rel="stylesheet" />
+    <![endif]-->
+
+    <!--[if IE 8]>
+       <link href="/Web/Content/IE8_Specific.css" rel="stylesheet" />
+
+        <![endif]-->
+    <!--[if IE 7]>
+        <link rel="stylesheet" type="text/css" href="/Web/Content/IE7_Specific.css">
+    <![endif]-->
+</head>
+<body>
+    <div class="TopTag topmsg TopTagDiv" id="divtopmsg">
+        <div class="TopTagMsg clear-fix">
+            <img src="/Web/Content/images/CheckSuccess.png" />
+            <span id="Spanmsg" class="padding_left10"></span>
+        </div>
+    </div>
+
+        <div class="cookiePolicy cookiePolicyDiv clear-fix NotificationStrip" id="divCookiePolicyEnableDisable">
+            <div class="cookie_policy cookiePolicyWidth">
+                <p>This site uses cookies. By continuing to browse the site you are agreeing to our <a href="javascript:void(0);" tabindex="10" title="cookie policy" onclick="OpenHicomCommonModal('Cookie Policy','/Web/Home/InformationPageAsync','CookieInformationPage');">cookie policy</a>.</p>
+                <span><input type="button" name="I understand" value="I understand" title="I understand" onclick="checkOrielCookie();" /> </span>
+                <span><a href="javascript:void(0);" title="Close" onclick="NotificationEnableDisable(this); GetPageInfo('/Web/Home/NotificationEnableDisable?BannerName=CookiePolicy');" id="aCookiePolicy" class="fr"><img src="/Web/Content/images/icons/cancel-white-icon.png" alt="Close" title="Close" class="CloseIcon" /></a></span>
+            </div>
+        </div>
+    
+<div class="shared-header-new-design">
+
+
+    <script src="/Web/Scripts/Calendar/jquery.nicescroll.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            if ($("#Notifymsg").val() != null)
+                $("#Notifymsg").niceScroll({ autohidemode: true })
+        });
+    </script>
+
+    <header>
+        <div class="container logo-wrapper">
+            <div class="row">
+                <div class="col-xs-12 col-sm-4">
+                    <a href="https://www.oriel.nhs.uk/web/" title="Oriel">
+                        <img src="/Web/Content/images_newdesign/oriel-logo.png" class="site-logo">
+                    </a>
+                </div>
+                <div class="col-xs-12 col-sm-8 text-right">
+
+                    <a href="http://www.nhs.uk" title="NHS" target="_blank">
+                        <img src="/Web/Content/images_newdesign/nhs-logo1.png">
+                    </a>
+                    <p>
+                        <div id="ServerDateTime"></div>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+        <div class="menu">
+            <div class="hide"><span id="ApplicationSessionTime"></span><span id="TimerMin"></span><span id="TimerSec"></span></div>
+
+        </div>
+
+
+        <div class="container breadcrumb-wrapper">
+            <div class="row pt0">
+
+
+                        <div class="col-xs-6 col-sm-4 breadcrumb-Link" id="portfolio-navi">
+                            <a id="LnkBtnBack" href='javascript:history.go(-1);' title="Back">
+                                <img src="/Web/Content/images_newdesign/icons/BackArrow.png" />Back
+                            </a>
+                        </div>
+                
+            </div>
+        </div>
+    </header>
+
+</div>
+<script src="/Web/Scripts/script_newdesign/script.js"></script>
+<script>
+
+    $(function () {
+        var $lis = $('#nav li')
+        $(window).on('resize', function () {
+            listalignment()
+        }).resize();
+
+        function listalignment() {
+            var temp2 = $(window).width();
+            if (temp2 >= 768) {
+                var initialLeft;
+                $lis.each(function (i) {
+                    if (i === 0) {
+                        initialLeft = $(this).position().left;
+                    }
+                    if (i != 0) {
+                        $(this).toggleClass('next-line-align', i === 0 || $(this).position().left === initialLeft);
+                    }
+                });
+            }
+        }
+    });
+
+    function ShowHideSubMenus(IsShow, id) {
+        if (IsShow == true)
+            $("#" + id).show();
+        else
+            $("#" + id).hide();
+    }
+
+    function CloseTitle(area, btn) {
+        //remove onclick after click it once
+        if (btn != undefined) {
+            $(btn).removeAttr('onclick');
+        }
+        var urlstr = "";
+        if (area == 'applicant') {
+            urlstr = '/Web/Applicant/Eligibility/UpdateNotificationSeenStatus';
+        }
+        else {
+            urlstr = '/Web/Referee/Dashboard/UpdateNotificationSeenStatus';
+        }
+        $('.tooltip-dash-user').tooltipster('close');
+        $(".titlepop").css("display", "none");
+        $.ajax({
+            type: 'GET',
+            dataType: 'json',
+            traditional: true,
+            async: false,
+            cache: false,
+            url: urlstr,
+            data: {},
+            success: function (Result) {
+                $("#Profiletooltip").unbind('mouseover');
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+            }
+        });
+    }
+
+    //$(document).ready(function () {
+    //    ShowProperSpacingForSaffgroup();
+    //});
+
+    function checkAreYouReadyNotification() {
+
+        if (readCookie('AreYouReadyNotificationCookie') == null) {
+            createCookie('AreYouReadyNotificationCookie', 'Accepted', '20');
+            $('#AreYouReadyDiv').hide();
+        };
+        setNotificationPadding();
+    }
+
+    function ResizeModalPopupCalendar() {
+        //$('#btneventSearch').attr('style', 'width:95%!important');
+        $('#btneventClear').click();
+    }
+
+    if ($('#anchorHelp') != undefined && $('#anchorHelp') != null && $('#anchorHelp').length > 0) {
+        document.getElementById("anchorHelp").addEventListener("touchstart", tapHandler);
+        var tapedTwice = false;
+
+        function tapHandler(event) {
+            if (!tapedTwice) {
+                tapedTwice = true;
+                setTimeout(function () {
+                    tapedTwice = false;
+                }, 300);
+                ShowHideSubMenus(true, 'Submenu1')
+                return false;
+            }
+            event.preventDefault();
+            //action on double tap goes below
+            location.href = '/Web/Home/InformationPage?Type=HelpDesk';
+        }
+    }
+
+    function showMessage(btn) {
+        var onclick = "alert('Your request is currently being processed');return false;";
+        $(btn).attr('onclick', onclick);
+    }
+</script>
+    <div class="container">
+        
+<div class="data-container">
+    <div class="data-content">
+        <div class="main-title-Div clear-fix">
+
+            <span class="main-title-head">Privacy Policy</span>
+        </div>
+       
+        <div class="applicant_filter clear-fix breakWord">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <img src="/Web/Content/images/tc-head.jpg" />
+                    </div>
+                </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <p><span style="font-family: Arial, Verdana; font-size: 10pt; font-style: normal; font-weight: bold">How we process your data<br></span><font><span style="font-size: 10pt">This privacy policy explains how we will use the data you provide to us when applying for a place on a training.&nbsp; We will process that data in accordance with the Data Protection Act (DPA) 1998, and will do so for three main purposes:</span></font><br><br><div style="font-family: Arial, Verdana; font-size: 10pt; font-style: normal; font-weight: normal; margin-left: 40px"><span style="font-size: 13.3333px">•</span><span style="font-size: 10pt">&nbsp;Processing of your data during the recruitment process</span><br><span style="font-size: 13.3333px">•</span><span style="font-weight: normal; font-size: 10pt">&nbsp;Processing of successful applicant data by Health Education England (HEE) local offices, Deaneries, Royal Colleges and employing NHS organisations</span><br><span style="font-size: 13.3333px">•</span><span style="font-weight: normal; font-size: 10pt">&nbsp;Use of recruitment data for evaluation, research and testing purposes</span><br><br></div><font><span style="font-size: 10pt">In order to manage and quality assure your training, the HEE local office/devolved nation Deanery needs to collect, store and process information about you.&nbsp; This is done in compliance with the General Data Protection Regulation (GDPR) 2018, and in accordance with the data protection principles set out within the regulation.&nbsp; Among other matters, these require that your data must be processed fairly and lawfully.</span></font><br><br><font><span style="font-size: 10pt">If our privacy policy changes in any way, we will publish this on the Oriel website.&nbsp; Regularly reviewing the Oriel privacy policy ensures you are always aware of what information we collect, how we use it and under what circumstances, if any, we will share it with other parties.</span></font><br><br><span style="font-family: Arial, Verdana; font-size: 10pt; font-style: normal; font-weight: bold">Data Controllers and Data Processors<br></span><font><span style="font-size: 10pt">Health Education England (HEE) is the Data Controller;</span></font><br><br><font><span style="font-size: 10pt">Other organisations that operate the Oriel system such as the recruiting Royal Colleges and recruiting offices in Northern Ireland, Scotland and Wales are “data controllers in common”;</span></font><br><br><font><span style="font-size: 10pt">The Data Processor is the Oriel Supplier, Deloitte MSC Ltd.</span></font><br><br><font><span style="font-size: 10pt">Data Recipients: organisations to whom your data are disclosed in accordance with the principles set out in this privacy policy, as defined further below.</span></font><br><br><font><span style="font-size: 10pt">Data Subject: you, i.e. the person whose data is obtained as part of the recruitment process and processed in the way described in this privacy policy.</span></font><br><br><span style="font-family: Arial, Verdana; font-size: 10pt; font-style: normal; font-weight: bold">Legal Basis for Processing<br></span><font><span style="font-size: 10pt">The GDPR requires that data controllers and organisations that process personal data demonstrate compliance with its provisions.&nbsp; This involves publishing our basis for lawful processing.</span></font><br><br><font><span style="font-size: 10pt">As personal data is processed for the purposes of statutory functions, legal bases for the processing of personal data as listed in Article 6 of the GDPR are as follows:</span></font><br><br><div style="font-family: Arial, Verdana; font-size: 10pt; font-style: normal; font-weight: normal; margin-left: 40px"><span style="font-size: 13.3333px">•&nbsp;</span><span style="font-size: 10pt">6(1)(a) - Consent of the data subject</span></div><div style="font-family: Arial, Verdana; font-size: 10pt; font-style: normal; font-weight: normal; margin-left: 40px"><span style="font-size: 13.3333px">•</span>&nbsp;6(1)(b) - Processing is necessary for the performance of a contract to which the data subject is party or in order to take steps at the request of the data subject prior to entering into a contract<br><span style="font-size: 13.3333px">•</span>&nbsp;6(1)(c) - Processing is necessary for compliance with a legal obligation<br><span style="font-size: 13.3333px">•</span>&nbsp;6(1)(e) - Processing is necessary for the performance of official functions vested on the data controller<br></div><br><font><span style="font-size: 10pt">Where special categories of personal data are processed, the additional legal bases for processing such data, as listed in Article 9 of the GDPR are as follows:</span></font><br><br><div style="font-family: Arial, Verdana; font-size: 10pt; font-style: normal; font-weight: normal; margin-left: 40px"><span style="font-size: 13.3333px">•</span>&nbsp;9(2)(a) - Explicit consent of the data subject<br><span style="font-size: 13.3333px">•</span>&nbsp;9(2)(b) - Processing is necessary for the purposes of carrying out the obligations and exercising specific rights of the controller or of the data subject in the field of employment and social security and social protection law<br><span style="font-size: 13.3333px">•</span>&nbsp;9(2)(f) - Processing is necessary for the establishment, exercise or defence of legal claims or wherever courts are acting in their judicial capacity<br><span style="font-size: 13.3333px">•</span>&nbsp;9(2)(j) - Processing is necessary for archiving purposes in the public interest, scientific or historical research purposes or statistical purposes<br></div><br><font><span style="font-size: 10pt">Special categories of personal data include data relating to racial or ethnic origin, political opinions, religious beliefs, sexual orientation and data concerning health.</span></font><br><br><font><span style="font-size: 10pt">Please note that not all of the above legal bases will apply for each type of processing activity undertaken.&nbsp; However, when processing any personal data for any particular purpose, one or more of the above legal bases will apply.</span></font><br><br><font><span style="font-size: 10pt">We may seek your consent for some processing activities.&nbsp; If you do not give your consent for us to use your data for these purposes, we will not use your data for these purposes, but your data may still be retained by us and used by us for other processing activities based on the above lawful conditions for processing.</span></font><br><br><span style="font-family: Arial, Verdana; font-size: 10pt; font-style: normal; font-weight: bold">Processing your data during the recruitment process<br></span><font><span style="font-size: 10pt">Your application will be held securely and in confidence. Access will be restricted to designated persons who are authorised to view it as a necessary part of their work.</span></font><br><br><font><span style="font-size: 10pt">During the recruitment process, your personal data and special categories of personal data will be used by the HEE local offices, Deaneries and recruiting Royal Colleges for the purpose of determining your suitability for this position.</span></font><br><br><font><span style="font-size: 10pt">It will also be used for the purposes of enquiries in relation to the prevention and detection of fraud.</span></font><br><br><font><span style="font-size: 13.3333px">Your personal data will be shared with other organisations involved in the planning, management and delivery of training including the HEE local offices and Deaneries, employing NHS organisations, Department of Health and Social Care, Royal Colleges and Faculties, regulatory bodies, such as the GMC and GDC, Qpercom (our digital scoring system) as part of the determination of your application.&nbsp; Where your data is shared with another organisation, the principles set out in this privacy policy will be adhered to.</span></font><div><font><span style="font-size: 13.3333px"><br></span><span style="font-size: 10pt">Once a decision has been reached about your application, information held about you will not be kept on the recruitment system for any longer than 13 months after the start date of the post to which you have applied.&nbsp; Pseudo anonymised data is retained in our data warehouse to allow for longitudinal analysis.</span></font><br><br><span style="font-family: Arial, Verdana; font-size: 10pt; font-style: normal; font-weight: bold">Processing of successful applicants’ data by HEE Local Offices, Deaneries and employing NHS Organisations</span><br><font><span style="font-size: 10pt">If your application is successful, your personal (including special categories) data will be imported into the workforce database of the HEE local office/ Deanery responsible for your training.&nbsp; In addition, this data will also be provided to your employing NHS organisation (e.g. NHS Trust) through the Oriel employer portal.&nbsp; The following principles will apply:</span></font><br><br><div style="font-family: Arial, Verdana; font-size: 10pt; font-style: normal; font-weight: normal; margin-left: 40px"><span style="font-size: 13.3333px">•</span><span style="font-weight: bold">&nbsp;Processing of personal and special category personal data</span> – the Data Controller will store and process information about you, including where you live, work and train, on secure management information systems.&nbsp; Information about your qualifications, assessments and appraisals and any other information pertinent to the effective management of your training and education will be stored on a secure database.&nbsp; Access to this information is restricted to authorised personnel within the Data Controller and to authorised personnel involved in the management of your training, such as training programme directors, educational supervisors and other personnel working for the Data Recipients and NHS employing organisations.&nbsp; Your data will be treated as confidential by the Data Controller (subject to what is said below about data sharing).&nbsp; It will be retained only for as long as necessary to manage and quality assure your training, following which it will be securely destroyed.</div><div style="font-family: Arial, Verdana; font-size: 10pt; font-style: normal; font-weight: normal; margin-left: 40px"><span style="font-weight: bold"><br></span><span style="font-size: 13.3333px">•</span><span style="font-weight: bold">&nbsp;Sharing your personal data</span> – your personal data may be shared with other organisations (referred to as Data Recipients in this policy), using secure channels to provide the best possible training and education and to ensure that we discharge responsibilities for employment and workforce planning for the NHS; this will be on a legitimate need to know basis only.</div><div style="font-family: Arial, Verdana; font-size: 10pt; font-style: normal; font-weight: normal; margin-left: 40px">The Data Controller and the Data Recipients will process your data for the following purposes:<br><br></div><div style="font-family: Arial, Verdana; font-size: 10pt; font-style: normal; font-weight: normal; margin-left: 80px"><span style="font-size: 13.3333px">•</span>&nbsp;Managing the provision of training programmes<br><span style="font-size: 13.3333px">•</span>&nbsp;Quality assurance of training programmes<br><span style="font-size: 13.3333px">•</span>&nbsp;Workforce planning<br><span style="font-size: 13.3333px">•</span>&nbsp;Managing patient safety<br><span style="font-size: 13.3333px">•</span>&nbsp;Compliance with legal and regulatory responsibilities, including monitoring under the Equality Act 2010<br><span style="font-size: 13.3333px">•</span>&nbsp;Purposes of revalidation (where this applies)<br><span style="font-size: 13.3333px">•</span>&nbsp;Employment purposes<br><br></div><div style="font-family: Arial, Verdana; font-size: 10pt; font-style: normal; font-weight: normal; margin-left: 40px">Your personal and special category personal data will not be shared with your consent (save in the way described below).&nbsp; The Data Controller will not share your personal data unless satisfied of the following matters:<br><br></div><div style="font-family: Arial, Verdana; font-size: 10pt; font-style: normal; font-weight: normal; margin-left: 80px"><span style="font-size: 13.3333px">•</span><span style="font-weight: normal">&nbsp;The data sharing is for a legitimate purpose and is proportionate<br></span><span style="font-size: 13.3333px">•</span>&nbsp;Where the data are used for analysis and publication by the recipient, any publication will be on an anonymous and aggregated basis and will not make it possible to identify any individual<br><span style="font-size: 13.3333px">•</span><span style="font-weight: normal">&nbsp;The data will be handled by the Data Recipients in accordance with the General Data Protection Regulation<br></span><span style="font-size: 13.3333px">•</span><span style="font-weight: normal">&nbsp;The Data Recipients will maintain appropriate technical and organisational controls to ensure the protection of your personal data<br></span><span style="font-size: 13.3333px">•</span><span style="font-weight: normal">&nbsp;The data will not be transferred outside the EEA without adequate protection<br><br></span></div><div style="font-family: Arial, Verdana; font-size: 10pt; font-style: normal; font-weight: normal; margin-left: 40px">Data Recipients are bodies from the following list: the UK Health Departments, Royal Colleges and Faculties, HEE local offices and devolved nation Deaneries, regulatory and licensing bodies (including the General Medical Council, General Dental Council, General Pharmaceutical Council and Health and Care Professions Council), NHS Trusts/Boards/Social Care Trusts, Medical Schools Council, UK Medical Schools (including overseas campuses), Higher Education Institutions, Royal Pharmaceutical Society, Academy of Healthcare Science, Work Psychology Group, Pearson Vue, approved academic researchers (i.e. individuals undertaking analysis for academic, non-commercial purposes on behalf of or in partnership with the Data Controller) and future employers (including private providers of healthcare).<br><br></div><div style="font-family: Arial, Verdana; font-size: 10pt; font-style: normal; font-weight: normal; margin-left: 40px"><span style="font-size: 13.3333px">•</span><span style="font-weight: bold">&nbsp;Use of recruitment data for evaluation, research, pilots and testing purposes</span> – in addition to the data sharing referred to above, we may need to share your personal data and special category personal data with HEE local offices, the devolved nation Deaneries, the Department of Health and Social Care, the GMC, the GDC or any organisation designated by Health Education England.<br><br></div><div style="font-family: Arial, Verdana; font-size: 10pt; font-style: normal; font-weight: normal; margin-left: 40px">The Department of Health and Social Care is a Data Recipient of all recruitment data.&nbsp; The extracts contain details of all applications (and therefore included your personal and special category personal data and your GMC number).&nbsp; These extracts are held securely and confidentially with access restricted to analysts who are not directly involved in the recruitment process itself but need access to the data to perform certain tasks.&nbsp; The data from these extracts are used for research and statistical purposes only.<br><br></div><div style="font-family: Arial, Verdana; font-size: 10pt; font-style: normal; font-weight: normal; margin-left: 40px">For evaluation and research, your personal and special category personal data will be shared with the GMC or GDC or Academy of Healthcare Science.&nbsp; These research data are not used to make decisions about individual data subjects and all reports produced as a result of the research will be anonymous such that it will not be possible to identify an individual in any such report.&nbsp; A key requirement of the research undertaken is to understand applicant behaviour over time, to inform workforce planning and develop and improve recruitment systems.&nbsp; As part of the development of recruitment systems “real” (as opposed to dummy) information must be used for testing purposes.&nbsp; The carrying out of research and the testing of systems will not have any impact on data subjects.<br></div><br><span style="font-family: Arial, Verdana; font-size: 10pt; font-style: normal; font-weight: bold">Your rights under GDPR</span><span style="font-family: Arial, Verdana; font-size: 10pt; font-style: normal; font-weight: bold"><br></span><div style="font-family: Arial, Verdana; font-size: 10pt; font-style: normal; font-weight: normal; margin-left: 40px"><span style="font-size: 13.3333px">•</span><span style="font-weight: bold">&nbsp;Right to rectification and erasure</span> – the GDPR extends and strengthens your rights as a data subject. Under the GDPR you have the right to rectification of inaccurate personal data and the right to request the erasure of your personal data.&nbsp; However, the right to erasure is not an absolute right and it may be that it is necessary for the data controller to continue to process your personal data for a number of lawful and legitimate reasons.<br></div><div style="font-family: Arial, Verdana; font-size: 10pt; font-style: normal; font-weight: normal; margin-left: 40px"><br><span style="font-size: 13.3333px">•</span><span style="font-weight: bold">&nbsp;Right to object</span> – you have the right, in certain circumstances, to ask the data controller to stop processing your personal data in relation to the recruitment process.&nbsp; However, the right to object is not an absolute right and it may be that it is necessary in certain circumstances for the data controller to continue to process your personal data for a number of lawful and legitimate reasons.<br></div><div style="font-family: Arial, Verdana; font-size: 10pt; font-style: normal; font-weight: normal; margin-left: 40px">If you object to the way in which the data controller is processing your personal information or if you wish to ask the data controller to stop processing your personal data, please contact the appropriate recruitment office.&nbsp; However, if the data controller stops processing your personal data, this may prevent them from providing you with the best service.<br><br></div><div style="font-family: Arial, Verdana; font-size: 10pt; font-style: normal; font-weight: normal; margin-left: 40px"><span style="font-size: 13.3333px">•</span><span style="font-weight: bold">&nbsp;Subject Access</span> – you can access a copy of the information held about you by writing to HEE’s Public and Parliamentary Accountability Team (<a target="_blank" style="font-weight: bold">DPA@hee.nhs.uk</a>).&nbsp; This information is generally available to you free of charge subject to the receipt if appropriate identification.<br><br></div><div style="font-family: Arial, Verdana; font-size: 10pt; font-style: normal; font-weight: normal; margin-left: 40px"><span style="font-weight: bold" target="_blank"><span style="font-size: 13.3333px; font-weight: normal">•&nbsp;</span>Data Portability</span> – the GDPR sets out the right of a data subject to have their personal data ported from one controller to another on request, in certain circumstances.&nbsp; You should discuss any request for this with the appropriate recruitment office.<br><br></div><font><span style="font-size: 10pt">If you want to complain about how your personal data has been used or to know more about how your information will be used, please contact </span></font><a target="_blank" style="font-family: Arial, Verdana; font-size: 10pt; font-style: normal; font-weight: bold">mdrs.nationalrecruitment@hee.nhs.uk</a><font><span style="font-size: 10pt"> or you can contact HEE’s Data Protection Officer at </span></font><a style="font-family: Arial, Verdana; font-size: 10pt; font-style: normal; font-weight: bold" target="_blank">GDPR@hee.nhs.uk</a><font><span style="font-size: 10pt">.</span></font><br><br><font><span style="font-size: 10pt">Alternatively, you can also contact the Information Commission if you have a complaint about the processing of your personal data:</span></font><br><br><font><span style="font-size: 10pt">The Office of the Information Commissioner, Wycliffe House, Water Lane, Wilmslow, Cheshire, SK9 5AF</span></font><br><span style="font-family: Arial, Verdana; font-size: 10pt; font-style: normal; font-weight: bold" target="_blank"><br>Your responsibilities under GDPR</span><br><font><span style="font-size: 10pt">It is important that you work with us to ensure that the information we hold about you is accurate and up to date.&nbsp; Please inform us if any of your personal data needs to be updated or corrected.</span></font><br><br><font><span style="font-size: 10pt">All communications from Oriel will normally be by email.&nbsp; It is therefore essential for you to maintain an effective and secure email address or you may not receive information or other important news and information about your employment or training.</span></font><br><br><font><span style="font-size: 10pt">Health Education England’s privacy notice is available at:</span></font><span style="font-family: Arial, Verdana; font-size: 10pt; font-style: normal; font-weight: bold"> <a href="https://www.hee.nhs.uk/about/privacy-notice" target="_blank">https://www.hee.nhs.uk/about/privacy-notice</a></span><a href="https://www.hee.nhs.uk/about/privacy-notice" target="_blank" style="font-family: Arial, Verdana; font-size: 10pt; font-style: normal; font-weight: normal"> </a><br></div></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+        <div class="clear"></div>
+    </div>
+    <!-- /container -->
+    <div class="clear"></div>
+
+    
+    <div class="brand-logo">
+        <div class="login-container">
+            <div class="client-logo">
+                <ul>
+                    <li>
+                        <a target="_blank" href="http://www.nimdta.gov.uk/" title="Northern Ireland Medical and Dental Training Agency">
+                            <img src="/Web/Content/images_newdesign/mdta-logo.png" alt="Northern Ireland Medical and Dental Training Agency" class="pr30">
+                        </a>
+                    </li>
+                    <li>
+                        <a target="_blank" href="http://www.walesdeanery.org/" title="Wales Deanery (School of Postgraduate Medical and Dental Education)">
+                            <img src="/Web/Content/images_newdesign/wales-logo.png" alt="Wales Deanery (School of Postgraduate Medical and Dental Education)" class="pr30">
+                        </a>
+                    </li>
+                    <li>
+                        <a target="_blank" href="http://www.scotmt.scot.nhs.uk/" title="Medical Training Scotland | Foundation, Specialty, GP doctor training">
+                            <img src="/Web/Content/images_newdesign/nhs-logo.png" alt="Medical Training Scotland | Foundation, Specialty, GP doctor training" class="pr30">
+                        </a>
+                    </li>
+                    <li>
+                        <a target="_blank" href="http://hee.nhs.uk/" title="Health Education England">
+                            <img src="/Web/Content/images_newdesign/nhs-health-logo.png" alt="Health Education England" class="pr30">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="container">
+            <h3>About Oriel <span class="scroll-top"><a href="#top" onclick="scrollToTop();return false"> </a></span></h3>
+
+            <p>The objective of Oriel is to improve the journey of applicants who apply for medical, dental and healthcare science training by introducing a single portal where they can register, view vacancies, apply, book interviews and assessment centers and receive offers. The name ‘Oriel’ represents a window of opportunity and the progression of trainees throughout education and training.</p>
+
+        </div>
+        <hr />
+        <div class="container">
+            <ul>
+                <li><a href="/Web/Home/InformationPage?Type=TermsAndConditions" title="Terms &amp; Conditions of Use">Terms &amp; Conditions of Use</a></li>
+                <li><a href="/Web/Home/InformationPage?Type=PrivacyPolicy" title="Privacy Policy">Privacy Policy</a></li>
+                <li><a href="/Web/Home/InformationPage?Type=AccountPasswordPolicy" title="Account &amp; Password Policy">Account &amp; Password Policy</a></li>
+                
+
+                    <li><a href="/Web/SiteMap" title="Site Map">Site Map</a></li>
+                <li>
+                    &copy; Copyright 2018 by <a target="_blank" title="Hicom Technology" href="http://www.hicom.co.uk">Hicom Technology</a>.
+                    All rights reserved.
+                </li>
+            </ul>
+            <span class="fr">
+
+
+MDRSLWEB01/8.10.03.1
+</span>
+        </div>
+        <div class="clear"></div>
+    </footer>
+
+    <script src="/Web/Scripts/hicom/his-custom.js"></script>
+<script src="/Web/Scripts/hicom/his-commonNewDesign.js"></script>
+<script src="/Web/Scripts/hicom/his-highlight.js"></script>
+<script src="/Web/Scripts/hicom/his-simplemodal.js"></script>
+
+    
+            <input type="hidden" id="hiddenBreadCrumb" value="/Web/Account/LandingPage" />
+            <input type="hidden" id="hiddenSiteURL" value="https://www.oriel.nhs.uk/web/" />
+
+    <div id="DivPopup"></div>
+    <div id="DivPopup2"></div>
+    <script type="text/javascript">
+        setInterval(SetTimer, 1000);
+        //SetTimer();
+        if ($.browser.msie && parseInt($.browser.version, 10) <= 6) { CheckBrowsable('/Web/Error/ErrorInfo/Mw==', true); }
+        
+        function SessionOutRedirection() { MoveToPage('/Web/LogOff'); }
+        CheckBrowsable('/Web/Error/ErrorInfo/Mg==', false);
+        $(window).unload(function () {
+            if (childWin != null) {
+                childWin.close();
+            }
+        });
+        function checkOrielCookie() {
+            if (readCookie('OrielCookieStatus')) {
+                createCookie('OrielCookieStatus', 'Accepted', '20');
+                $('div.cookiePolicy').hide();
+            };
+        }
+    </script>
+
+    <noscript>
+        <meta http-equiv="REFRESH" content="0; url=/Web/Error/ErrorInfo/MQ==">
+    </noscript>
+
+    <a href="javascript:void(0);" style="display: none" id="Events" data-value="DivPopup" onclick="ShowModalPopUp(this,'false'); modalSize(this);" class="changes_btn arrow_bg"></a>
+
+</body>
+</html>
+<script>
+    //code use to hide the calender notification and success popup
+    $("body").click(function () {
+        var i = 0, j = 0;
+        $(document).on('click', 'a', function () {
+            if (this.id == 'toggleImg') {
+                CallNotification();
+                i = 1;
+            }
+            else if (this.CSSStyleDeclaration == 'Newclose') {
+                i = 1;
+            }
+        });
+
+        if (i <= 0) {
+            $('.dropdown .dropdown-content').hide();
+            i = 0;
+        }
+        if (j <= 0) {
+            $('#exportlist').hide();
+            j = 0;
+        }
+    });
+    function modalSizeCookie(obj) {
+        $("#simplemodal-container").removeAttr("style");
+        $('#simplemodal-container').css({
+            "position": "fixed !important",
+            "z-index": "1120",
+            "opacity": "2",
+            "height": "500px",
+            "width": "860px"
+        })
+    }
+    if (readCookie('AreYouReadyNotificationCookie') == null) {
+        $('#AreYouReadyDiv').show();
+    }
+
+    $(function () {
+        setNotificationPadding();
+    });
+
+    function setNotificationPadding() {
+        if ($('.NotificationStrip:visible').length == 3) {
+            $('#hicom-wrapper').addClass('pt200').removeClass('pt170 pt140');
+        }
+        else if ($('.NotificationStrip:visible').length == 1 || $('.NotificationStrip:visible').length == 2) {
+            $('#hicom-wrapper').addClass('pt170').removeClass('pt140 pt200');
+        }
+        else {
+            $('#hicom-wrapper').addClass('pt140').removeClass('pt170 pt200');
+
+        }
+    }
+
+    function NotificationEnableDisable(butId) {
+        var butName = $(butId).attr("id");
+        if (butName == "aNotification") {
+            $("#AreYouReadyDiv").hide();
+        }
+        else if (butName == "aCookiePolicy") {
+            $("#divCookiePolicyEnableDisable").hide();
+        }
+        else if (butName == "aMaintenanceNotification") {
+            $("#foo").hide();
+        }
+    }
+</script>
+
+
+<!-- Common Modal start -->
+<div id="hicomCommonModal" class="modal">
+    <div id="hicomModalContent" class="modal-calendar-content modalContentOverflow">
+        <div class="modal-header">
+            <span id="hicomCommonModalClose" class="close">×</span>
+            <h2 id="hicomCommonModalHeader">Title</h2>
+        </div>
+        <div class="modal-body">
+            <div class="model-body-form text-left">
+                <div id="hicomCommonModalBody"></div>
+            </div>
+        </div>
+        <div id="hicomCommonModalFooter" class="modal-footer">
+            <div class="row">
+                <div class="col-xs-2 col-sm-offset-10">
+                    <button onclick="CloseHicomCommonModal()" class="btn btn-primary">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Common Modal end -->
+
+<script>
+    $(function () {
+        var modal = document.getElementById('hicomCommonModal');
+        var span = document.getElementById("hicomCommonModalClose");
+
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    });
+
+    function OpenHicomCommonModal(headerText, url, param, hideFooter) {
+        var modal = document.getElementById('hicomCommonModal');
+        $('#hicomCommonModalHeader').html(headerText);
+        $('#hicomCommonModalBody').html('');
+
+        //remove existing class from popup if any for default popup
+        $('#hicomCommonModal #hicomModalContent').removeClass().addClass('modal-calendar-content modalContentOverflow');
+
+        //get content from server if URL is passed
+        if ($.trim(url) != '') {
+            var parm = $.trim(param);
+            GetPopupContent(url, parm);
+        }
+
+        //hide popup footer if hideFooter is true
+        if (hideFooter != undefined && hideFooter) {
+            $('#hicomCommonModalFooter').hide();
+        }
+        else {
+            $('#hicomCommonModalFooter').show();
+        }
+
+        modal.style.display = "block";//to show popup
+    }
+
+    //get popup content from URL
+    function GetPopupContent(url, param) {
+        var description = '';
+        jQuery.ajaxSetup({ async: false });
+
+        //if param has no & use type as default parameter
+        if (!containsString(param, '&')) {
+            param = '&type=' + $.trim(param);
+        }
+
+        //get content body from given URL
+        $.get($.trim(url), $.trim(param), function (data, status) {
+            if (data != null && data.ContentValue != null) {
+                if (data.ContentFull != null) description = data.ContentFull;
+                $('#hicomCommonModalHeader').html(data.ContentValue);
+                $('#hicomCommonModalBody').html(description);
+            }
+            else {
+                $('#hicomCommonModalBody').html(data);
+            }
+        });
+    }
+
+    //set style for common modal popup
+    function SetPopupCss(width, css) {
+        css = css === undefined ? '' : css;
+        $('#hicomCommonModal .modalContentOverflow').removeAttr('style');
+        $('#hicomCommonModal .modalContentOverflow').attr('style', 'width:' + width + ' !important' + css);
+    }
+
+    //set style for common modal popup
+    function SetPopupClass(className) {
+        $('#hicomCommonModal #hicomModalContent').addClass(className);
+    }
+
+    //close common modal popup
+    function CloseHicomCommonModal() {
+        $('#hicomCommonModalClose').click();
+    }
+
+    //set header value from hidden field
+    function SetPopupHeader(hdnId) {
+        $('#hicomCommonModalHeader').html($('#hicomCommonModalBody #' + hdnId).val());
+    }
+</script>

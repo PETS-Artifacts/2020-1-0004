@@ -1,0 +1,587 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"UwQGUlBUGwsFXFBSBQc="};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o||e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(t,e,n){function r(t){try{s.console&&console.log(t)}catch(e){}}var o,i=t("ee"),a=t(15),s={};try{o=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(s.console=!0,-1!==o.indexOf("dev")&&(s.dev=!0),-1!==o.indexOf("nr_dev")&&(s.nrDev=!0))}catch(c){}s.nrDev&&i.on("internal-error",function(t){r(t.stack)}),s.dev&&i.on("fn-err",function(t,e,n){r(n.stack)}),s.dev&&(r("NR AGENT IN DEVELOPMENT MODE"),r("flags: "+a(s,function(t,e){return t}).join(", ")))},{}],2:[function(t,e,n){function r(t,e,n,r,o){try{d?d-=1:i("err",[o||new UncaughtException(t,e,n)])}catch(s){try{i("ierr",[s,(new Date).getTime(),!0])}catch(c){}}return"function"==typeof f?f.apply(this,a(arguments)):!1}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function o(t){i("err",[t,(new Date).getTime()])}var i=t("handle"),a=t(16),s=t("ee"),c=t("loader"),f=window.onerror,u=!1,d=0;c.features.err=!0,t(1),window.onerror=r;try{throw new Error}catch(l){"stack"in l&&(t(8),t(7),"addEventListener"in window&&t(5),c.xhrWrappable&&t(9),u=!0)}s.on("fn-start",function(t,e,n){u&&(d+=1)}),s.on("fn-err",function(t,e,n){u&&(this.thrown=!0,o(n))}),s.on("fn-end",function(){u&&!this.thrown&&d>0&&(d-=1)}),s.on("internal-error",function(t){i("ierr",[t,(new Date).getTime(),!0])})},{}],3:[function(t,e,n){t("loader").features.ins=!0},{}],4:[function(t,e,n){function r(t){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var o=t("ee"),i=t("handle"),a=t(8),s=t(7),c="learResourceTimings",f="addEventListener",u="resourcetimingbufferfull",d="bstResource",l="resource",p="-start",h="-end",m="fn"+p,w="fn"+h,v="bstTimer",y="pushState";t("loader").features.stn=!0,t(6);var g=NREUM.o.EV;o.on(m,function(t,e){var n=t[0];n instanceof g&&(this.bstStart=Date.now())}),o.on(w,function(t,e){var n=t[0];n instanceof g&&i("bst",[n,e,this.bstStart,Date.now()])}),a.on(m,function(t,e,n){this.bstStart=Date.now(),this.bstType=n}),a.on(w,function(t,e){i(v,[e,this.bstStart,Date.now(),this.bstType])}),s.on(m,function(){this.bstStart=Date.now()}),s.on(w,function(t,e){i(v,[e,this.bstStart,Date.now(),"requestAnimationFrame"])}),o.on(y+p,function(t){this.time=Date.now(),this.startPath=location.pathname+location.hash}),o.on(y+h,function(t){i("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),f in window.performance&&(window.performance["c"+c]?window.performance[f](u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["c"+c]()},!1):window.performance[f]("webkit"+u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["webkitC"+c]()},!1)),document[f]("scroll",r,!1),document[f]("keypress",r,!1),document[f]("click",r,!1)}},{}],5:[function(t,e,n){function r(t){for(var e=t;e&&!e.hasOwnProperty(u);)e=Object.getPrototypeOf(e);e&&o(e)}function o(t){s.inPlace(t,[u,d],"-",i)}function i(t,e){return t[1]}var a=t("ee").get("events"),s=t(17)(a),c=t("gos"),f=XMLHttpRequest,u="addEventListener",d="removeEventListener";e.exports=a,"getPrototypeOf"in Object?(r(document),r(window),r(f.prototype)):f.prototype.hasOwnProperty(u)&&(o(window),o(f.prototype)),a.on(u+"-start",function(t,e){if(t[1]){var n=t[1];if("function"==typeof n){var r=c(n,"nr@wrapped",function(){return s(n,"fn-",null,n.name||"anonymous")});this.wrapped=t[1]=r}else"function"==typeof n.handleEvent&&s.inPlace(n,["handleEvent"],"fn-")}}),a.on(d+"-start",function(t){var e=this.wrapped;e&&(t[1]=e)})},{}],6:[function(t,e,n){var r=t("ee").get("history"),o=t(17)(r);e.exports=r,o.inPlace(window.history,["pushState","replaceState"],"-")},{}],7:[function(t,e,n){var r=t("ee").get("raf"),o=t(17)(r),i="equestAnimationFrame";e.exports=r,o.inPlace(window,["r"+i,"mozR"+i,"webkitR"+i,"msR"+i],"raf-"),r.on("raf-start",function(t){t[0]=o(t[0],"fn-")})},{}],8:[function(t,e,n){function r(t,e,n){t[0]=a(t[0],"fn-",null,n)}function o(t,e,n){this.method=n,this.timerDuration="number"==typeof t[1]?t[1]:0,t[0]=a(t[0],"fn-",this,n)}var i=t("ee").get("timer"),a=t(17)(i),s="setTimeout",c="setInterval",f="clearTimeout",u="-start",d="-";e.exports=i,a.inPlace(window,[s,"setImmediate"],s+d),a.inPlace(window,[c],c+d),a.inPlace(window,[f,"clearImmediate"],f+d),i.on(c+u,r),i.on(s+u,o)},{}],9:[function(t,e,n){function r(t,e){d.inPlace(e,["onreadystatechange"],"fn-",s)}function o(){var t=this,e=u.context(t);t.readyState>3&&!e.resolved&&(e.resolved=!0,u.emit("xhr-resolved",[],t)),d.inPlace(t,w,"fn-",s)}function i(t){v.push(t),h&&(g=-g,b.data=g)}function a(){for(var t=0;t<v.length;t++)r([],v[t]);v.length&&(v=[])}function s(t,e){return e}function c(t,e){for(var n in t)e[n]=t[n];return e}t(5);var f=t("ee"),u=f.get("xhr"),d=t(17)(u),l=NREUM.o,p=l.XHR,h=l.MO,m="readystatechange",w=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],v=[];e.exports=u;var y=window.XMLHttpRequest=function(t){var e=new p(t);try{u.emit("new-xhr",[e],e),e.addEventListener(m,o,!1)}catch(n){try{u.emit("internal-error",[n])}catch(r){}}return e};if(c(p,y),y.prototype=p.prototype,d.inPlace(y.prototype,["open","send"],"-xhr-",s),u.on("send-xhr-start",function(t,e){r(t,e),i(e)}),u.on("open-xhr-start",r),h){var g=1,b=document.createTextNode(g);new h(a).observe(b,{characterData:!0})}else f.on("fn-end",function(t){t[0]&&t[0].type===m||a()})},{}],10:[function(t,e,n){function r(t){var e=this.params,n=this.metrics;if(!this.ended){this.ended=!0;for(var r=0;d>r;r++)t.removeEventListener(u[r],this.listener,!1);if(!e.aborted){if(n.duration=(new Date).getTime()-this.startTime,4===t.readyState){e.status=t.status;var i=o(t,this.lastSize);if(i&&(n.rxSize=i),this.sameOrigin){var a=t.getResponseHeader("X-NewRelic-App-Data");a&&(e.cat=a.split(", ").pop())}}else e.status=0;n.cbTime=this.cbTime,f.emit("xhr-done",[t],t),s("xhr",[e,n,this.startTime])}}}function o(t,e){var n=t.responseType;if("json"===n&&null!==e)return e;var r="arraybuffer"===n||"blob"===n||"json"===n?t.response:t.responseText;return h(r)}function i(t,e){var n=c(e),r=t.params;r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.sameOrigin=n.sameOrigin}var a=t("loader");if(a.xhrWrappable){var s=t("handle"),c=t(11),f=t("ee"),u=["load","error","abort","timeout"],d=u.length,l=t("id"),p=t(14),h=t(13),m=window.XMLHttpRequest;a.features.xhr=!0,t(9),f.on("new-xhr",function(t){var e=this;e.totalCbs=0,e.called=0,e.cbTime=0,e.end=r,e.ended=!1,e.xhrGuids={},e.lastSize=null,p&&(p>34||10>p)||window.opera||t.addEventListener("progress",function(t){e.lastSize=t.loaded},!1)}),f.on("open-xhr-start",function(t){this.params={method:t[0]},i(this,t[1]),this.metrics={}}),f.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),f.on("send-xhr-start",function(t,e){var n=this.metrics,r=t[0],o=this;if(n&&r){var i=h(r);i&&(n.txSize=i)}this.startTime=(new Date).getTime(),this.listener=function(t){try{"abort"===t.type&&(o.params.aborted=!0),("load"!==t.type||o.called===o.totalCbs&&(o.onloadCalled||"function"!=typeof e.onload))&&o.end(e)}catch(n){try{f.emit("internal-error",[n])}catch(r){}}};for(var a=0;d>a;a++)e.addEventListener(u[a],this.listener,!1)}),f.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),f.on("xhr-load-added",function(t,e){var n=""+l(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),f.on("xhr-load-removed",function(t,e){var n=""+l(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),f.on("addEventListener-end",function(t,e){e instanceof m&&"load"===t[0]&&f.emit("xhr-load-added",[t[1],t[2]],e)}),f.on("removeEventListener-end",function(t,e){e instanceof m&&"load"===t[0]&&f.emit("xhr-load-removed",[t[1],t[2]],e)}),f.on("fn-start",function(t,e,n){e instanceof m&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=(new Date).getTime()))}),f.on("fn-end",function(t,e){this.xhrCbStart&&f.emit("xhr-cb-time",[(new Date).getTime()-this.xhrCbStart,this.onload,e],e)})}},{}],11:[function(t,e,n){e.exports=function(t){var e=document.createElement("a"),n=window.location,r={};e.href=t,r.port=e.port;var o=e.href.split("://");!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=e.hostname||n.hostname,r.pathname=e.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname);var i=!e.protocol||":"===e.protocol||e.protocol===n.protocol,a=e.hostname===document.domain&&e.port===n.port;return r.sameOrigin=i&&(!e.hostname||a),r}},{}],12:[function(t,e,n){function r(t,e){return function(){o(t,[(new Date).getTime()].concat(a(arguments)),null,e)}}var o=t("handle"),i=t(15),a=t(16);"undefined"==typeof window.newrelic&&(newrelic=NREUM);var s=["setPageViewName","setCustomAttribute","finished","addToTrace","inlineHit"],c=["addPageAction"],f="api-";i(s,function(t,e){newrelic[e]=r(f+e,"api")}),i(c,function(t,e){newrelic[e]=r(f+e)}),e.exports=newrelic,newrelic.noticeError=function(t){"string"==typeof t&&(t=new Error(t)),o("err",[t,(new Date).getTime()])}},{}],13:[function(t,e,n){e.exports=function(t){if("string"==typeof t&&t.length)return t.length;if("object"==typeof t){if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if(!("undefined"!=typeof FormData&&t instanceof FormData))try{return JSON.stringify(t).length}catch(e){return}}}},{}],14:[function(t,e,n){var r=0,o=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);o&&(r=+o[1]),e.exports=r},{}],15:[function(t,e,n){function r(t,e){var n=[],r="",i=0;for(r in t)o.call(t,r)&&(n[i]=e(r,t[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],16:[function(t,e,n){function r(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(0>o?0:o);++r<o;)i[r]=t[e+r];return i}e.exports=r},{}],17:[function(t,e,n){function r(t){return!(t&&"function"==typeof t&&t.apply&&!t[a])}var o=t("ee"),i=t(16),a="nr@original",s=Object.prototype.hasOwnProperty,c=!1;e.exports=function(t){function e(t,e,n,o){function nrWrapper(){var r,a,s,c;try{a=this,r=i(arguments),s="function"==typeof n?n(r,a):n||{}}catch(u){d([u,"",[r,a,o],s])}f(e+"start",[r,a,o],s);try{return c=t.apply(a,r)}catch(l){throw f(e+"err",[r,a,l],s),l}finally{f(e+"end",[r,a,c],s)}}return r(t)?t:(e||(e=""),nrWrapper[a]=t,u(t,nrWrapper),nrWrapper)}function n(t,n,o,i){o||(o="");var a,s,c,f="-"===o.charAt(0);for(c=0;c<n.length;c++)s=n[c],a=t[s],r(a)||(t[s]=e(a,f?s+o:o,i,s))}function f(e,n,r){if(!c){c=!0;try{t.emit(e,n,r)}catch(o){d([o,e,n,r])}c=!1}}function u(t,e){if(Object.defineProperty&&Object.keys)try{var n=Object.keys(t);return n.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(r){d([r])}for(var o in t)s.call(t,o)&&(e[o]=t[o]);return e}function d(e){try{t.emit("internal-error",e)}catch(n){}}return t||(t=o),e.inPlace=n,e.flag=a,e}},{}],ee:[function(t,e,n){function r(){}function o(t){function e(t){return t&&t instanceof r?t:t?s(t,a,i):i()}function n(n,r,o){t&&t(n,r,o);for(var i=e(o),a=l(n),s=a.length,c=0;s>c;c++)a[c].apply(i,r);var u=f[w[n]];return u&&u.push([v,n,r,i]),i}function d(t,e){m[t]=l(t).concat(e)}function l(t){return m[t]||[]}function p(t){return u[t]=u[t]||o(n)}function h(t,e){c(t,function(t,n){e=e||"feature",w[n]=e,e in f||(f[e]=[])})}var m={},w={},v={on:d,emit:n,get:p,listeners:l,context:e,buffer:h};return v}function i(){return new r}var a="nr@context",s=t("gos"),c=t(15),f={},u={},d=e.exports=o();d.backlog=f},{}],gos:[function(t,e,n){function r(t,e,n){if(o.call(t,e))return t[e];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return t[e]=r,r}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],handle:[function(t,e,n){function r(t,e,n,r){o.buffer([t],r),o.emit(t,e,n)}var o=t("ee").get("handle");e.exports=r,r.ee=o},{}],id:[function(t,e,n){function r(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:a(t,i,function(){return o++})}var o=1,i="nr@id",a=t("gos");e.exports=r},{}],loader:[function(t,e,n){function r(){if(!g++){var t=y.info=NREUM.info,e=u.getElementsByTagName("script")[0];if(t&&t.licenseKey&&t.applicationID&&e){c(w,function(e,n){t[e]||(t[e]=n)});var n="https"===m.split(":")[0]||t.sslForHttp;y.proto=n?"https://":"http://",s("mark",["onload",a()],null,"api");var r=u.createElement("script");r.src=y.proto+t.agent,e.parentNode.insertBefore(r,e)}}}function o(){"complete"===u.readyState&&i()}function i(){s("mark",["domContent",a()],null,"api")}function a(){return(new Date).getTime()}var s=t("handle"),c=t(15),f=window,u=f.document,d="addEventListener",l="attachEvent",p=f.XMLHttpRequest,h=p&&p.prototype;NREUM.o={ST:setTimeout,CT:clearTimeout,XHR:p,REQ:f.Request,EV:f.Event,PR:f.Promise,MO:f.MutationObserver},t(12);var m=""+location,w={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-952.min.js"},v=p&&h&&h[d]&&!/CriOS/.test(navigator.userAgent),y=e.exports={offset:a(),origin:m,features:{},xhrWrappable:v};u[d]?(u[d]("DOMContentLoaded",i,!1),f[d]("load",r,!1)):(u[l]("onreadystatechange",o),f[l]("onload",r)),s("mark",["firstbyte",a()],null,"api");var g=0},{}]},{},["loader",2,10,4,3]);</script>
+<title>Swoon Editions Cookie &amp; Privacy policy</title>
+<meta name="description" content="The Cookie and Privacy Policy sets out the basis on which any personal data we collect from you, or that you provide to us, will be processed by us. Read our policy in full." />
+<meta name="keywords" content="Cookie, cookies, policy, privacy, Swoon Editions" />
+<meta name="robots" content="INDEX,FOLLOW" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="https://d1vdyfpzfghmic.cloudfront.net/favicon/default/Swoon_Favicon.png" type="image/x-icon" />
+<link rel="shortcut icon" href="https://d1vdyfpzfghmic.cloudfront.net/favicon/default/Swoon_Favicon.png" type="image/x-icon" />
+<!--[if lt IE 7]>
+<script type="text/javascript">
+    //<![CDATA[
+    var BLANK_URL = 'https://www.swooneditions.com/js/blank.html';
+    var BLANK_IMG = 'https://www.swooneditions.com/js/spacer.gif';
+//]]>
+</script>
+<![endif]-->
+<link rel="stylesheet" type="text/css" href="/skin/frontend/swoontwo/rwd/css/styles.eee18b1b971be0c0.css" media="all" />
+<!--[if lt IE 8]>
+<link rel="stylesheet" type="text/css" href="https://www.swooneditions.com/skin/frontend/base/default/css/styles-ie.css" media="all" />
+<![endif]-->
+<!--[if lt IE 7]>
+<script type="text/javascript" src="https://www.swooneditions.com/js/lib/ds-sleight.js"></script>
+<script type="text/javascript" src="https://www.swooneditions.com/skin/frontend/base/default/js/ie6.js"></script>
+<![endif]-->
+<script type="text/javascript" src="https://www.swooneditions.com/skin/frontend/base/default/js/jh/facebook/connect.js"></script>
+<script type="text/javascript" src="https://www.swooneditions.com/skin/frontend/swoontwo/rwd/js/findify.js"></script>
+<script type="text/javascript" src="https://www.swooneditions.com/skin/frontend/base/default/js/jh/magestripper/globals.min.js"></script>
+
+<script type="text/javascript">
+//<![CDATA[
+optionalZipCountries = ["HK","IE","MO","PA"];
+//]]>
+</script>
+    <script type="text/javascript">
+                    window.universal_variable = window.universal_variable || {};
+            window.universal_variable.version         = "1.1.1";
+            window.universal_variable.magento_version = "1.14.2.2";
+            window.universal_variable.page            = {"om:site":"1","category":"landing"};
+            window.universal_variable.user            = {"language":"en_GB","returning":false};
+
+            
+                                        
+                                    (function(){
+            var url=window.location.protocol+"//cdn.ometria.com/tags/swooneditions.js";
+            setTimeout(function(){var sc=document.createElement('script');sc.src=url;sc.setAttribute('async','true');
+            document.getElementsByTagName("head")[0].appendChild(sc);},50);
+        })();
+            </script>
+<!-- BEGIN PINGDOM TRACKING CODE -->
+<script>
+    var _prum = [['id', '5301dbcfabe53d535a000000'],
+        ['mark', 'firstbyte', (new Date()).getTime()]];
+    (function() {
+        var s = document.getElementsByTagName('script')[0]
+            , p = document.createElement('script');
+        p.async = 'async';
+        p.src = '//rum-static.pingdom.net/prum.min.js';
+        s.parentNode.insertBefore(p, s);
+    })();
+</script>
+<!-- END PINGDOM TRACKING CODE --><script type="text/javascript">
+    window.statusCode = '200';
+</script><script>
+    //<![CDATA[
+    (function(){
+        window._fbds = window._fbds || {};
+        _fbds.pixelId = 1391601717777714;
+        var fbds = document.createElement('script');
+        fbds.async = true;
+        fbds.src = '//connect.facebook.net/en_US/fbds.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(fbds, s);
+    })();
+    window._fbq = window._fbq || [];
+    window._fbq.push(["track", "PixelInitialized", {}]);
+    //]]>
+</script>
+<noscript><img height="1" width="1" border="0" alt="" style="display:none" src="https://www.facebook.com/tr?id=1391601717777714&amp;ev=NoScript" /></noscript>
+<!-- Added by Yahoo Commerce Central. DO NOT REMOVE/EDIT -->
+<meta name="google-site-verification" content="AbKgW9rBTNBqJ1MHyY4eb6hctJoDGlmWpmIemglHetk"/>
+<meta name='msvalidate.01' content='EE22AA0349DEE8CD39EFBBE7182B9D15'/>
+<script type="text/javascript">
+(function(d, w) {
+  var x = d.getElementsByTagName('SCRIPT')[0];
+  var g = d.createElement('SCRIPT');
+  g.type = 'text/javascript';
+  g.async = true;
+  g.src = ('https:' == d.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  x.parentNode.insertBefore(g, x);
+  var f = function () {
+    var x = d.getElementsByTagName('SCRIPT')[0];
+    var s = d.createElement('SCRIPT');
+    s.type = 'text/javascript';
+    s.async = true;
+    s.src = "//np.commercecentral.yahoo.com/2eabd84e";
+    x.parentNode.insertBefore(s, x);
+  };
+  w.attachEvent ? w.attachEvent('onload', f) : w.addEventListener('load', f, false);
+}(document, window));
+</script>
+<!-- End of addition by Yahoo Commerce Central. DO NOT REMOVE/EDIT -->
+
+<script src="//d3nhg2i1zayjpd.cloudfront.net/search/prod/swooneditions.com.min.js"></script>
+<!-- @TODO: FIGURE OUT WHAT IS THIS USED FOR -->
+<script>
+    if(!window.setLocation){window.setLocation=function(url){window.location.href=url}}
+</script>
+</head>
+<body class=" cms-page-view cms-privacy">
+<div id="fb-root"></div>
+<script type="text/javascript">
+    window.__fb__ = {
+        appId: '659161774124803',
+        href:  'https://www.swooneditions.com/jhfacebook/login/start/?callback=https%3A%2F%2Fwww.swooneditions.com%2Fjhfacebook%2Flogin%2F%3Fredirect%3Dprivacy%252F'
+    };
+</script><!-- Google Tag Manager -->
+<script>dataLayer = [{"visitorLoginState":"Logged out","visitorType":"NOT LOGGED IN","visitorLifetimeValue":0,"visitorExistingCustomer":"No"}];</script>
+
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-N5T7C3"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-N5T7C3');</script>
+<!-- End Google Tag Manager -->
+<!--{SWOON_TRUEDASH_JS_CONFIG_a3c846ae97a1eb0455582e00255a0c68}-->    <script type="text/javascript">
+    ;(function(p,l,o,w,i,n,g){if(!p[i]){p.GlobalSnowplowNamespace=p.GlobalSnowplowNamespace||[];
+    p.GlobalSnowplowNamespace.push(i);p[i]=function(){(p[i].q=p[i].q||[]).push(arguments)
+    };p[i].q=p[i].q||[];n=l.createElement(o);g=l.getElementsByTagName(o)[0];n.async=1;
+    n.src=w;g.parentNode.insertBefore(n,g)}}(window,document,"script","//dh48fr8sp13gg.cloudfront.net/sp.js","truedash"));
+    window.truedash('newTracker', 'mycljcoll', 'truetag.truedash.com', { // Initialise a tracker
+      appId: 'SwoonEditions', //Your TrueDash ID
+      cookieDomain: '.swooneditions.com', //www.truedash.com or blog.truedash.com. use '.truedash.com' if you want to track across multiple domains.
+      cookieName: 'truedash'
+    });
+    window.truedash('setUserId', ''); //user_id = ID of customer
+    window.truedash('trackPageView');
+    window.truedash('enableFormTracking');
+    </script>
+<!--/{SWOON_TRUEDASH_JS_CONFIG_a3c846ae97a1eb0455582e00255a0c68}--><header class="main-header">
+    <div class="top-nav-left">
+        Call us:
+    020 3137 2464    </div>
+    <ul class="top-nav-right">
+        <li class="hide-mobile hide-tablet">
+            
+    <a href="#signup-popup" id="signup-popup">
+        Sign In    </a>
+        </li>
+        <li class="flyout" id="topcart">
+            <a href="#">
+    <span class="hide-mobile hide-tablet">My basket:</span>
+    <span class="basket-count">0</span>
+</a>
+
+        </li>
+    </ul>
+    <div id="search-box" class="top-nav-right">
+        <form action="https://www.swooneditions.com/search/" method="post">
+            <input placeholder="Search..." class="element" type="text" name="query" />
+            <button class="element" type="submit" name="search">
+                <span>
+                    <img src="https://www.swooneditions.com/skin/frontend/swoontwo/rwd/sprite/search-icon.svg"/>
+                </span>
+            </button>
+        </form>
+    </div>
+    <div id="react-hamburger"></div>
+    <a href="/">
+        <img class="logo" src="https://www.swooneditions.com/skin/frontend/swoontwo/rwd/img/logo.svg">
+    </a>
+    
+    <div class="main-nav-mobile">
+    <div class="scroller">
+                    <div class="main-nav-item"><a href="https://www.swooneditions.com/customer/account/login/"><b>Sign In</b></a></div>
+                <hr>
+                <div class="main-nav-item"><a href="https://www.swooneditions.com/chairs"> Chairs</a></div>
+                    <div class="main-nav-item"><a href="https://www.swooneditions.com/sofas"> Sofas</a></div>
+                    <div class="main-nav-item"><a href="https://www.swooneditions.com/ottomans"> Ottomans</a></div>
+                    <div class="main-nav-item"><a href="https://www.swooneditions.com/tables"> Tables & Desks</a></div>
+                    <div class="main-nav-item"><a href="https://www.swooneditions.com/storage"> Storage</a></div>
+                    <div class="main-nav-item"><a href="https://www.swooneditions.com/accents"> Accessories</a></div>
+        <div class="main-nav-item"><a href="https://www.swooneditions.com/smith-mattress/">Mattresses</a></div><hr />            <div class="main-nav-item"><a href="https://www.swooneditions.com/available-now"> Available Now</a></div>
+                    <div class="main-nav-item"><a href="https://www.swooneditions.com/last-chance"> Last Chance</a></div>
+                <div class="main-nav-item"><a href="https://www.swooneditions.com/smith-mattress/">Mattresses</a></div>
+        <hr>
+        <div class="main-nav-item"><a href="https://www.swooneditions.com/contactus/"><b>Contact Us</b></a></div>
+        <hr>
+        <div class="main-nav-item"><a href="https://www.swooneditions.com/about/"><b>About</b></a></div>
+    </div>
+</div>
+<nav class='main-nav'>        <div class="main-nav-item">
+            <a href="https://www.swooneditions.com/current-editions/">All Editions</a>
+            <div class="mega-menu">
+        <ul class='cell-2'><li><b>By Room</b></li><li><a href=' https://www.swooneditions.com/living-room'>Living room</a></li><li><a href=' https://www.swooneditions.com/bedroom'>Bedroom</a></li><li><a href=' https://www.swooneditions.com/dining-room'>Dining room</a></li><li><a href=' https://www.swooneditions.com/hallway'>Hallway</a></li><li><a href=' https://www.swooneditions.com/study'>Study</a></li><li><a href=' https://www.swooneditions.com/kitchen'>Kitchen</a></li></ul><ul class='cell-2'><li><b>By Style</b></li><li><a href=' https://www.swooneditions.com/mid-century-modern'>Mid-century modern</a></li><li><a href=' https://www.swooneditions.com/industrial-edge'>Industrial edge</a></li><li><a href=' https://www.swooneditions.com/french-style'>French-style</a></li><li><a href=' https://www.swooneditions.com/modern-country'>Modern country</a></li><li><a href=' https://www.swooneditions.com/retro'>Retro</a></li><li><a href=' https://www.swooneditions.com/contemporary'>Contemporary</a></li><li><a href=' https://www.swooneditions.com/shabby-chic'>Shabby chic</a></li><li><a href=' https://www.swooneditions.com/velvet'>Velvet</a></li></ul><ul class="cell-8"><li><b>Best Of:</b></li><li class="grid-5up"><a href='https://www.swooneditions.com/zabel-wooden-mid-century-style-media-unit/' class='cell'><img class='portrait-img-box' src='https://d1vdyfpzfghmic.cloudfront.net/catalog/product/cache/1/small_image/9df78eab33525d08d6e5fb8d27136e95/z/a/zabelmediarosewood_finish_productpage_small.jpg' /> Zabel <b>£269</b></a><a href='https://www.swooneditions.com/rouen-purple-velvet-french-style-stool/' class='cell'><img class='portrait-img-box' src='https://d1vdyfpzfghmic.cloudfront.net/catalog/product/cache/1/small_image/9df78eab33525d08d6e5fb8d27136e95/r/o/rouendargra_productpage_carousel_1_mobile.jpg' /> Rouen <b>£179</b></a><a href='https://www.swooneditions.com/sullivan-wooden-steel-industrial-coffee-table-set/' class='cell'><img class='portrait-img-box' src='https://d1vdyfpzfghmic.cloudfront.net/catalog/product/cache/1/small_image/9df78eab33525d08d6e5fb8d27136e95/s/m/smith_coftabset_productpage_small-01.jpg' /> Sullivan <b>£299</b></a><a href='https://www.swooneditions.com/smith-mattress/' class='cell'><img class='portrait-img-box' src='https://d1vdyfpzfghmic.cloudfront.net/catalog/product/cache/1/small_image/9df78eab33525d08d6e5fb8d27136e95/n/a/name_finish_productpage_carousel_1_mobile_28_1.jpg' /> The Smith <b>£499</b></a></li></ul>            </div>
+        </div>
+    <div class='main-nav-item'><a href=' https://www.swooneditions.com/chairs'>Chairs</a><div class='mega-menu'><ul class='cell-2'><li><b>By Type:</b></li><li><a href=' https://www.swooneditions.com/chairs/chairs'>Chairs</a></li><li><a href=' https://www.swooneditions.com/chairs/armchairs'>Armchairs</a></li><li><a href=' https://www.swooneditions.com/chairs/stools'>Stools</a></li><li><a href=' https://www.swooneditions.com/chairs/dining-chairs'>Dining chairs</a></li><li><a href=' https://www.swooneditions.com/chairs/benches'>Benches</a></li><li><a href=' https://www.swooneditions.com/chairs/designer-editions'>Designer Editions</a></li><li><a href=' https://www.swooneditions.com/chairs/design-it-your-way'>Design it your way</a></li><li><a href=' https://www.swooneditions.com/chairs/chairs-last-chance'>Last Chance</a></li></ul><ul class='cell-10'><li><b>Best Of:</b></li><li class='grid-5up'><a href='https://www.swooneditions.com/armelle-grey-french-style-armchair/' class='cell'><img src='https://d1vdyfpzfghmic.cloudfront.net/catalog/product/cache/1/small_image/9df78eab33525d08d6e5fb8d27136e95/a/r/armellegrelin1_productpage_carousel_1_mobile_1.jpg' /> Armelle <b>£479</b></a><a href='https://www.swooneditions.com/karla-light-grey-retro-style-armchair/' class='cell'><img src='https://d1vdyfpzfghmic.cloudfront.net/catalog/product/cache/1/small_image/9df78eab33525d08d6e5fb8d27136e95/k/a/karlastogreecan_finish_productpage_carousel_2_mobile01.jpg' /> Karla <b>£369</b></a><a href='https://www.swooneditions.com/mia-striped-modern-country-armchair/' class='cell'><img src='https://d1vdyfpzfghmic.cloudfront.net/catalog/product/cache/1/small_image/9df78eab33525d08d6e5fb8d27136e95/m/i/mia_stripe_drye_productpage_carousel_2_mobile_1.jpg' /> Mia <b>£399</b></a><a href='https://www.swooneditions.com/lille-oatmeal-french-style-armchair-new/' class='cell'><img src='https://d1vdyfpzfghmic.cloudfront.net/catalog/product/cache/1/small_image/9df78eab33525d08d6e5fb8d27136e95/l/i/lille_armoatmeal_small.jpg' /> Lille <b>£369</b></a><a href='https://www.swooneditions.com/fitz-contemporary-cocktail-chair/' class='cell'><img src='https://d1vdyfpzfghmic.cloudfront.net/catalog/product/cache/1/small_image/9df78eab33525d08d6e5fb8d27136e95/f/i/fitz_velvet_primroseoak_productpage_carousel_2_mobile.jpg' /> Fitz <b>£349</b></a></li></ul></div></div><div class='main-nav-item'><a href=' https://www.swooneditions.com/sofas'>Sofas</a><div class='mega-menu'><ul class='cell-2'><li><b>By Type:</b></li><li><a href=' https://www.swooneditions.com/sofas/two-seater-sofas'>Two-seater Sofas</a></li><li><a href=' https://www.swooneditions.com/sofas/three-seater-sofas'>Three-seater Sofas</a></li><li><a href=' https://www.swooneditions.com/sofas/corner-sofas'>Corner Sofas</a></li><li><a href=' https://www.swooneditions.com/sofas/design-it-your-way-seating'>Design it your way</a></li><li><a href=' https://www.swooneditions.com/sofas/sofas-designer-editions'>Designer Editions</a></li><li><a href=' https://www.swooneditions.com/sofas/sofas-last-chance'>Last Chance</a></li></ul><ul class='cell-10'><li><b>Best Of:</b></li><li class='grid-5up'><a href='https://www.swooneditions.com/tivoli-made-to-order-mid-century-two-seater-sofa/' class='cell'><img src='https://d1vdyfpzfghmic.cloudfront.net/catalog/product/cache/1/small_image/9df78eab33525d08d6e5fb8d27136e95/t/i/tivolitwosmallsteelblue.jpg' /> Tivoli <b>£529</b></a><a href='https://www.swooneditions.com/howard-grey-mid-century-three-seater-right-corner-sofa/' class='cell'><img src='https://d1vdyfpzfghmic.cloudfront.net/catalog/product/cache/1/small_image/9df78eab33525d08d6e5fb8d27136e95/h/o/howard_3_mingre_right_small_1.jpg' /> Howard <b>£899</b></a><a href='https://www.swooneditions.com/venezia-made-to-order-seating/' class='cell'><img src='https://d1vdyfpzfghmic.cloudfront.net/catalog/product/cache/1/small_image/9df78eab33525d08d6e5fb8d27136e95/v/e/venezia_2seater_velvet_bordeaux_productpage_carousel_1_mobile.jpg' /> Venezia <b>£629</b></a><a href='https://www.swooneditions.com/merano/' class='cell'><img src='https://d1vdyfpzfghmic.cloudfront.net/catalog/product/cache/1/small_image/9df78eab33525d08d6e5fb8d27136e95/m/e/merano_two_velvet_honey_productpage_carousel_1_mobile.jpg' /> Merano <b>£449</b></a><a href='https://www.swooneditions.com/winston-made-to-order-seating/' class='cell'><img src='https://d1vdyfpzfghmic.cloudfront.net/catalog/product/cache/1/small_image/9df78eab33525d08d6e5fb8d27136e95/w/i/winstonfamilysmall.jpg' /> Winston <b>£599</b></a></li></ul></div></div><div class='main-nav-item'><a href=' https://www.swooneditions.com/ottomans'>Ottomans</a><div class='mega-menu'><ul class='cell-2'><li><b>By Type:</b></li><li><a href=' https://www.swooneditions.com/ottomans/benches'>Benches</a></li><li><a href=' https://www.swooneditions.com/ottomans/footstools'>Footstools</a></li><li><a href=' https://www.swooneditions.com/ottomans/ottomans'>Ottomans</a></li><li><a href=' https://www.swooneditions.com/ottomans/ottomans-last-chance'>Last Chance</a></li></ul><ul class='cell-10'><li><b>Best Of:</b></li><li class='grid-5up'><a href='https://www.swooneditions.com/celine-grey-french-style-bench/' class='cell'><img src='https://d1vdyfpzfghmic.cloudfront.net/catalog/product/cache/1/small_image/9df78eab33525d08d6e5fb8d27136e95/c/e/celineputgrecot_productpage_carousel_1_mobile.jpg' /> Celine <b>£249</b></a><a href='https://www.swooneditions.com/juliette-oatmeal-gustavian-style-bench/' class='cell'><img src='https://d1vdyfpzfghmic.cloudfront.net/catalog/product/cache/1/small_image/9df78eab33525d08d6e5fb8d27136e95/j/u/juliette_oatlin_productpage_small-01.jpg' /> Juliette <b>£269</b></a><a href='https://www.swooneditions.com/benny-ink-blue-ikat-modern-country-style-ottoman/' class='cell'><img src='https://d1vdyfpzfghmic.cloudfront.net/catalog/product/cache/1/small_image/9df78eab33525d08d6e5fb8d27136e95/b/e/bennyottomaninkbluika1_productpage_carousel_2_mobile_1.jpg' /> Benny <b>£399</b></a><a href='https://www.swooneditions.com/demi-wooden-barley-modern-country-stool/' class='cell'><img src='https://d1vdyfpzfghmic.cloudfront.net/catalog/product/cache/1/small_image/9df78eab33525d08d6e5fb8d27136e95/d/e/demibenchbarley1_productpage_carousel_1_mobile_1.jpg' /> Demi <b>£169</b></a><a href='https://www.swooneditions.com/astor-oatmeal-modern-country-ottoman/' class='cell'><img src='https://d1vdyfpzfghmic.cloudfront.net/catalog/product/cache/1/small_image/9df78eab33525d08d6e5fb8d27136e95/a/s/astoroat_productpage_carousel_1_mobile.jpg' /> Astor <b>£349</b></a></li></ul></div></div><div class='main-nav-item'><a href=' https://www.swooneditions.com/tables'>Tables & Desks</a><div class='mega-menu'><ul class='cell-2'><li><b>By Type:</b></li><li><a href=' https://www.swooneditions.com/tables/dining-tables'>Dining Tables</a></li><li><a href=' https://www.swooneditions.com/tables/console-tables'>Console Tables</a></li><li><a href=' https://www.swooneditions.com/tables/desks'>Desks</a></li><li><a href=' https://www.swooneditions.com/tables/coffee-tables'>Coffee Tables</a></li><li><a href=' https://www.swooneditions.com/tables/side-tables'>Side Tables</a></li><li><a href=' https://www.swooneditions.com/tables/bedside-tables'>Bedside Tables</a></li><li><a href=' https://www.swooneditions.com/tables/tables-last-chance'>Last Chance</a></li></ul><ul class='cell-10'><li><b>Best Of:</b></li><li class='grid-5up'><a href='https://www.swooneditions.com/ginsberg-wooden-scandi-style-desk/' class='cell'><img src='https://d1vdyfpzfghmic.cloudfront.net/catalog/product/cache/1/small_image/9df78eab33525d08d6e5fb8d27136e95/g/i/ginsberg_desnat_productpage_carousel_2_mobile.jpg' /> Ginsberg  <b>£269</b></a><a href='https://www.swooneditions.com/cabrini-concrete-wooden-steel-industrial-style-desk/' class='cell'><img src='https://d1vdyfpzfghmic.cloudfront.net/catalog/product/cache/1/small_image/9df78eab33525d08d6e5fb8d27136e95/c/a/cabrini_desk_concrete_rec_pin1_1.jpg' /> Cabrini <b>£449</b></a><a href='https://www.swooneditions.com/amherst-conrete-oak-industrial-style-dining-table/' class='cell'><img src='https://d1vdyfpzfghmic.cloudfront.net/catalog/product/cache/1/small_image/9df78eab33525d08d6e5fb8d27136e95/a/m/amherst_dining_small.jpg' /> Amherst <b>£449</b></a><a href='https://www.swooneditions.com/watts-wooden-contemporary-writing-desk/' class='cell'><img src='https://d1vdyfpzfghmic.cloudfront.net/catalog/product/cache/1/small_image/9df78eab33525d08d6e5fb8d27136e95/w/a/watts_desk_rosewood_productpage_carouselxx_1_mobile.jpg' /> Watts <b>£269</b></a><a href='https://www.swooneditions.com/bleecker-concrete-acacia-contemporary-style-rectangle-dining-table/' class='cell'><img src='https://d1vdyfpzfghmic.cloudfront.net/catalog/product/cache/1/small_image/9df78eab33525d08d6e5fb8d27136e95/b/l/bleecker_dintab_acacia_small.jpg' /> Bleecker <b>£599</b></a></li></ul></div></div><div class='main-nav-item'><a href=' https://www.swooneditions.com/storage'>Storage</a><div class='mega-menu'><ul class='cell-2'><li><b>By Type:</b></li><li><a href=' https://www.swooneditions.com/storage/cabinets'>Cabinets</a></li><li><a href=' https://www.swooneditions.com/storage/storage-boxes'>Storage Boxes</a></li><li><a href=' https://www.swooneditions.com/storage/chest-of-drawers'>Chest of Drawers</a></li><li><a href=' https://www.swooneditions.com/storage/media-units'>Media Units</a></li><li><a href=' https://www.swooneditions.com/storage/sideboards'>Sideboards</a></li><li><a href=' https://www.swooneditions.com/storage/shelving'>Shelving</a></li><li><a href=' https://www.swooneditions.com/storage/bar-trolleys'>Trolleys</a></li><li><a href=' https://www.swooneditions.com/storage/storage-last-chance'>Last Chance</a></li></ul><ul class='cell-10'><li><b>Best Of:</b></li><li class='grid-5up'><a href='https://www.swooneditions.com/axel-wooden-mid-century-style-bookshelf/' class='cell'><img src='https://d1vdyfpzfghmic.cloudfront.net/catalog/product/cache/1/small_image/9df78eab33525d08d6e5fb8d27136e95/a/x/axelshellargerosewood_productpage_carousel_1_mobile.jpg' /> Axel <b>£399</b></a><a href='https://www.swooneditions.com/rubricks-reclaimed-elm-retro-chest-of-drawers/' class='cell'><img src='https://d1vdyfpzfghmic.cloudfront.net/catalog/product/cache/1/small_image/9df78eab33525d08d6e5fb8d27136e95/r/u/rubricks_pin_productpage_carousel_1_mobile.jpg' /> Rubricks <b>£499</b></a><a href='https://www.swooneditions.com/zola-mango-wood-white-mid-century-media-unit/' class='cell'><img src='https://d1vdyfpzfghmic.cloudfront.net/catalog/product/cache/1/small_image/9df78eab33525d08d6e5fb8d27136e95/z/o/zola_mediamango_small.jpg' /> Zola <b>£369</b></a><a href='https://www.swooneditions.com/zabel-rosewood-mid-century-bar-cabinet/' class='cell'><img src='https://d1vdyfpzfghmic.cloudfront.net/catalog/product/cache/1/small_image/9df78eab33525d08d6e5fb8d27136e95/z/a/zabel_cabinet_rosewood_small.jpg' /> Zabel <b>£379</b></a><a href='https://www.swooneditions.com/orleans-white-washed-mango-wood-antiqued-mirror-modern-country-bedside-table/' class='cell'><img src='https://d1vdyfpzfghmic.cloudfront.net/catalog/product/cache/1/small_image/9df78eab33525d08d6e5fb8d27136e95/o/r/orleans_bedside_mango_antiq_mirr_small.jpg' /> Orleans <b>£299</b></a></li></ul></div></div><div class='main-nav-item'><a href=' https://www.swooneditions.com/accents'>Accessories</a><div class='mega-menu'><ul class='cell-2'><li><b>By Type:</b></li><li><a href=' https://www.swooneditions.com/accents/quilts'>Quilts</a></li><li><a href=' https://www.swooneditions.com/accents/rugs'>Rugs</a></li><li><a href=' https://www.swooneditions.com/accents/pouffes'>Pouffes</a></li><li><a href=' https://www.swooneditions.com/accents/storage-boxes'>Storage Boxes</a></li><li><a href=' https://www.swooneditions.com/accents/mirrors'>Mirrors</a></li><li><a href=' https://www.swooneditions.com/accents/screens'>Screens</a></li><li><a href=' https://www.swooneditions.com/accents/accessories-last-chance'>Last Chance</a></li></ul><ul class='cell-10'><li><b>Best Of:</b></li><li class='grid-5up'><a href='https://www.swooneditions.com/lombard-woollen-light-grey-contemporary-rug/' class='cell'><img src='https://d1vdyfpzfghmic.cloudfront.net/catalog/product/cache/1/small_image/9df78eab33525d08d6e5fb8d27136e95/l/o/lombard_beehive_productpage_carouselxy_1_mobile_9.jpg' /> Lombard <b>£199</b></a><a href='https://www.swooneditions.com/quatro-black-steel-contemporary-mirror/' class='cell'><img src='https://d1vdyfpzfghmic.cloudfront.net/catalog/product/cache/1/small_image/9df78eab33525d08d6e5fb8d27136e95/q/u/quatro_mirror_black1_small.jpg' /> Quatro <b>£159</b></a><a href='https://www.swooneditions.com/soho-wool-yellow-white-contemporary-medium-rug/' class='cell'><img src='https://d1vdyfpzfghmic.cloudfront.net/catalog/product/cache/1/small_image/9df78eab33525d08d6e5fb8d27136e95/s/o/soho_goldenmedium_productpage_carousel_2_mobile.jpg' /> Soho <b>£179</b></a><a href='https://www.swooneditions.com/jasper-blue-and-white-cotton-dhurrie-contemporary-style-pouffe/' class='cell'><img src='https://d1vdyfpzfghmic.cloudfront.net/catalog/product/cache/1/small_image/9df78eab33525d08d6e5fb8d27136e95/j/a/jasperpersiablue_productpage_carouselxy_1_mobile.jpg' /> Jasper <b>£139</b></a><a href='https://www.swooneditions.com/williams-washed-canvas-modern-country-trunk/' class='cell'><img src='https://d1vdyfpzfghmic.cloudfront.net/catalog/product/cache/1/small_image/9df78eab33525d08d6e5fb8d27136e95/w/i/williams_trunk_canvas_productpage_carousel_2_mobile.jpg' /> Williams <b>£149</b></a></li></ul></div></div><div class="main-nav-item"><a href="https://www.swooneditions.com/smith-mattress/">Mattresses</a></div><div class='main-nav-item'><a href=' https://www.swooneditions.com/available-now'>Available Now</a><div class='mega-menu'><ul class='cell-2'><li><b>By Type:</b></li><li><a href=' https://www.swooneditions.com/available-now/available-now-sofas'>Sofas</a></li><li><a href=' https://www.swooneditions.com/available-now/available-now-chairs'>Chairs</a></li><li><a href=' https://www.swooneditions.com/available-now/available-now-ottomans'>Ottomans</a></li><li><a href=' https://www.swooneditions.com/available-now/available-now-tables'>Tables</a></li><li><a href=' https://www.swooneditions.com/available-now/available-now-storage'>Storage</a></li><li><a href=' https://www.swooneditions.com/available-now/available-now-accents'>Accessories</a></li></ul><ul class='cell-10'><li><b>Best Of:</b></li><li class='grid-5up'><a href='https://www.swooneditions.com/stilo-mango-marble-global-chic-coffee-table/' class='cell'><img src='https://d1vdyfpzfghmic.cloudfront.net/catalog/product/cache/1/small_image/9df78eab33525d08d6e5fb8d27136e95/s/t/stilocoffmangomarb1_productpage_carousel_1_mobile.jpg' /> Stilo <b>£249</b></a><a href='https://www.swooneditions.com/columba-concrete-and-acacia-industrial-style-coffee-table/' class='cell'><img src='https://d1vdyfpzfghmic.cloudfront.net/catalog/product/cache/1/small_image/9df78eab33525d08d6e5fb8d27136e95/c/o/columbacoffconcacacia1_productpage_carousel_1_mobile_1.jpg' /> Columba <b>£309</b></a><a href='https://www.swooneditions.com/costa-dark-mango-black-contemporary-sideboard/' class='cell'><img src='https://d1vdyfpzfghmic.cloudfront.net/catalog/product/cache/1/small_image/9df78eab33525d08d6e5fb8d27136e95/c/o/costa_sideboard_darkmangocharcoal_productpage_carousel_1_mobile.jpg' /> Costa <b>£349</b></a><a href='https://www.swooneditions.com/ciccone-champagne-contemporary-side-table/' class='cell'><img src='https://d1vdyfpzfghmic.cloudfront.net/catalog/product/cache/1/small_image/9df78eab33525d08d6e5fb8d27136e95/c/i/ciccone_sid_tab_champ1_productpage_carousel_1_mobile_1.jpg' /> Ciccone <b>£229</b></a><a href='https://www.swooneditions.com/chester-oatmeal-modern-country-armchair/' class='cell'><img src='https://d1vdyfpzfghmic.cloudfront.net/catalog/product/cache/1/small_image/9df78eab33525d08d6e5fb8d27136e95/c/h/chesteroatlin_productpage_carousel_1_mobile_1.jpg' /> Chester <b>£479</b></a></li></ul></div></div><div class='main-nav-item'><a href=' https://www.swooneditions.com/last-chance'>Last Chance</a><div class='mega-menu'><ul class='cell-2'><li><b>By Type:</b></li><li><a href=' https://www.swooneditions.com/last-chance/chairs'>Chairs</a></li><li><a href=' https://www.swooneditions.com/last-chance/sofas'>Sofas</a></li><li><a href=' https://www.swooneditions.com/last-chance/ottomans'>Ottomans</a></li><li><a href=' https://www.swooneditions.com/last-chance/tables-desks'>Tables & desks</a></li><li><a href=' https://www.swooneditions.com/last-chance/storage'>Storage</a></li><li><a href=' https://www.swooneditions.com/last-chance/accents'>Accessories</a></li><li><a href=' https://www.swooneditions.com/last-chance/stools'>Stools</a></li></ul><ul class='cell-10'><li><b>Best Of:</b></li><li class='grid-5up'><a href='https://www.swooneditions.com/spektor-mango-wood-orange-iron-industrial-stool/' class='cell'><img src='https://d1vdyfpzfghmic.cloudfront.net/catalog/product/cache/1/small_image/9df78eab33525d08d6e5fb8d27136e95/s/p/spektor_stool_orange_productpage_carousel_1_mobile_1.jpg' /> Spektor <b>£49</b></a><a href='https://www.swooneditions.com/columba-concrete-and-acacia-industrial-style-coffee-table/' class='cell'><img src='https://d1vdyfpzfghmic.cloudfront.net/catalog/product/cache/1/small_image/9df78eab33525d08d6e5fb8d27136e95/c/o/columbacoffconcacacia1_productpage_carousel_1_mobile_1.jpg' /> Columba <b>£309</b></a><a href='https://www.swooneditions.com/loft-black-steel-and-bronze-industrial-shelving-unit/' class='cell'><img src='https://d1vdyfpzfghmic.cloudfront.net/catalog/product/cache/1/small_image/9df78eab33525d08d6e5fb8d27136e95/l/o/loft_shelv_blatan1_small_9.jpg' /> Loft <b>£339</b></a><a href='https://www.swooneditions.com/keats-jade-modern-country-style-armchair/' class='cell'><img src='https://d1vdyfpzfghmic.cloudfront.net/catalog/product/cache/1/small_image/9df78eab33525d08d6e5fb8d27136e95/k/e/keats_arm_jadegreen_productpage_carousel_2_mobile_1.jpg' /> Keats <b>£329</b></a><a href='https://www.swooneditions.com/glover-distressed-mango-black-iron-industrial-style-console-table/' class='cell'><img src='https://d1vdyfpzfghmic.cloudfront.net/catalog/product/cache/1/small_image/9df78eab33525d08d6e5fb8d27136e95/g/l/glover_console_disman_productpage_carousel_1_mobile.jpg' /> Glover <b>£309</b></a></li></ul></div></div></nav>
+</header>
+<div class="wrapper">
+        <noscript>
+        <div class="global-site-notice noscript">
+            <div class="notice-inner">
+                <p>
+                    <strong>JavaScript seems to be disabled in your browser.</strong><br />
+                    You must have JavaScript enabled in your browser to utilize the functionality of this website.                </p>
+            </div>
+        </div>
+    </noscript>
+            <div class="std"><div class="block-header">
+
+            <h1>Privacy Policy</h1>
+
+</div>
+
+
+<div>
+<br><br>
+<p>Sourceable Limited<strong> </strong>("we" or &ldquo;us&rdquo;) is committed to protecting and respecting your privacy.</p>
+<p>This policy (together with our Terms of Website Use and any other documents referred to on it) sets out the basis on which any personal data we collect from you, or that you provide to us, will be processed by us. Please read the following carefully to understand our views and practices regarding your personal data and how we will treat it. By submitting personal data to us, you agree to us using your data as follows.</p>
+<p>For the purpose of the Data Protection Act 1998 (the <strong>Act</strong>), the data controller is<strong> </strong>Sourceable Limited of <span>Bank House, Southwick Square, Southwick BN42 4FN</span>.</p>
+<h4 style="text-align: center;"><span style="font-size: large;"><strong>Information We May Collect From You</strong></span></h4>
+<p>We may collect and process the following data about you:</p>
+<ul>
+<li>Information that you provide by filling in forms on our site Swooneditions.com (<strong>our site</strong>). This includes information provided at the time of registering to use our site, subscribing to our service, posting material or requesting further services. We may also ask you for information when you enter a competition or promotion and when you report a problem with our site.</li>
+<li>If you contact us, we may keep a record of that correspondence.</li>
+<li>We may also ask you to complete surveys that we use for research purposes, although you do not have to respond to them.</li>
+<li>Details of your visits to our site including, but not limited to, traffic data, location data, weblogs and other communication data, whether this is required for our own billing purposes or otherwise and the resources that you access.</li>
+</ul>
+<h4 style="text-align: center;"><span style="font-size: large;"><strong>Addresses and Cookies</strong></span></h4>
+<p>We may collect information about your computer, including where available your IP address, operating system and browser type, for system administration and to report aggregate information to our advertisers. This is statistical data about our users' browsing actions and patterns, and does not identify any individual.</p>
+<p>For the same reason, we may obtain information about your general internet usage by using a cookie file which is stored on the hard drive of your computer. Cookies contain information that is transferred to your computer's hard drive. They help us to improve our site and to deliver a better and more personalised service. They enable us:</p>
+<ul>
+<li>To estimate our audience size and usage pattern.</li>
+<li>To store information about your preferences, and so allow us to customise our site according to your individual interests.</li>
+<li>To speed up your searches.</li>
+<li>To recognise you when you return to our site.</li>
+</ul>
+<p>We also&nbsp;<span style="font-size: 12px;">use Remarketing with Google Analytics to advertise online.&nbsp;</span><span style="font-size: 12px;">Third-party vendors, including Google, show our ads on sites across the Internet.&nbsp;</span><span style="font-size: 12px;">We and third-party vendors, including Google, use first-party cookies (such as the Google Analytics cookie) and third-party cookies (such as the DoubleClick cookie) together to inform, optimize, and serve ads based on someone's past visits to our website.</span></p>
+<p>The following types of cookie may be used during your visit to our site:-</p>
+<ul>
+<li>session cookies that are deleted after each visit.</li>
+<li>persistent cookies are valid across visits and, for example, are used to avoid the need to tell us your country of residence at the start of each visit.</li>
+<li>email cookies which are set on your computer by an email from us, but are accessed by our site when you use our site.</li>
+<li>third party cookies that are used by our partners, for example, to help us measure site visitors or to serve our ads.</li>
+</ul>
+<p>You may at any stage refuse to accept cookies by activating the setting on your browser which allows you to refuse the setting of cookies. However, if you select this setting you may be unable to access certain parts of our site. Unless you have adjusted your browser setting so that it will refuse cookies, our system will issue cookies when you log on to our site. <strong>By continuing to use our site without activating your browser to block cookies, you agree to us using cookies on our site.</strong></p>
+<p><strong><br /></strong></p>
+<p>You can find more information about the individual cookies we use and the purposes for which we use them in the table below:</p>
+<p>&nbsp;</p>
+<table style="width: 100%;" border="1" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td valign="top">
+<p><strong>Cookie</strong></p>
+</td>
+<td valign="top">
+<p><strong>Name</strong></p>
+</td>
+<td valign="top">
+<p><strong>Purpose</strong></p>
+</td>
+<td valign="top">
+<p><strong>More information</strong></p>
+</td>
+</tr>
+<tr>
+<td valign="top">
+<p>&nbsp;</p>
+</td>
+<td valign="top">
+<ul>
+<li>CART</li>
+<li>CATEGORY INFO</li>
+<li>COMPARE</li>
+<li>CURRENCY</li>
+<li>CUSTOMER</li>
+<li>CUSTOMER_AUTH</li>
+<li>CUSTOMER_INFO</li>
+<li>CUSTOMER_SEGMENT_IDS</li>
+<li>EXTERNAL_NO_CACHE</li>
+<li>FRONTEND</li>
+<li>GUEST-VIEW</li>
+<li>LAST_CATEGORY</li>
+<li>LAST_PRODUCT</li>
+<li>NEWMESSAGE</li>
+<li>NO_CACHE</li>
+<li>PERSISTENT_SHOPPING_CART</li>
+<li>POLL</li>
+<li>POLLN</li>
+<li>RECENTLYCOMPARED</li>
+<li>STF</li>
+<li>STORE</li>
+<li>USER_ALLOWED_SAVE_COOKIE</li>
+<li>VIEWED_PRODUCT_IDS</li>
+<li>WISHLIST</li>
+<li>WISHLIST_CNT</li>
+</ul>
+<p>&nbsp;</p>
+</td>
+<td valign="top">
+<ul>
+<li>The association with your shopping cart.</li>
+<li>Stores the category info on the page, that allows us to display pages more quickly.</li>
+<li>The items that you have in the Compare Products list.</li>
+<li>Your preffered currency.</li>
+<li>An encrypted version of your customer id with the store.</li>
+<li>An indicator if you are currently logged into the store.</li>
+<li>An encrypted version of the customer group you belong to.</li>
+<li>Stores the Customer Segment ID.</li>
+<li>A flag, which indicates whether caching is disabled or not.</li>
+<li>Your session ID on the server.</li>
+<li>Allows guests to edit their orders.</li>
+<li>The last category you visited.</li>
+<li>The most recent product you have viewed.</li>
+<li>Indicates whether a new message has been received.</li>
+<li>Indicates whether it is allowed to use cache.</li>
+<li>A link to information about your cart and viewing history if you have asked the site.</li>
+<li>The ID of any polls you have recently voted on.</li>
+<li>Information on what polls you have voted on.</li>
+<li>The items that you have recently compared.</li>
+<li>Information on products you have emailed to friends.</li>
+<li>The store view or language you have selected.</li>
+<li>Indicates whether a customer allowed to use cookies.</li>
+<li>The products that you have recently viewed.</li>
+<li>An encrypted list of products added to your Wishlist.</li>
+<li>The number of items in your Wishlist.</li>
+</ul>
+</td>
+<td valign="top">
+<p><strong>&nbsp;</strong></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Please note that our advertisers and people who link to our site may also use cookies, over which we have no control and accept no liability.</p>
+<h4 style="text-align: center;"><span style="font-size: large;"><strong>Where We Store Your Personal Data</strong></span></h4>
+<p>The data that we collect from you may be transferred to, and stored at, a destination outside the European Economic Area ("EEA"). By submitting your personal data, you agree to this transfer, storing or processing. We will take all steps reasonably necessary to ensure that your data is treated securely and in accordance with this privacy policy.</p>
+<p>Where we have given you (or where you have chosen) a password which enables you to access certain parts of our site, you are responsible for keeping this password confidential. We ask you not to share a password with anyone.</p>
+<p>Unfortunately, the transmission of information via the internet is not completely secure. Although we will do our best to protect your personal data, we cannot guarantee the security of your data transmitted to our site; any transmission is at your own risk. Once we have received your information, we will use strict procedures and security features to try to prevent unauthorised access.</p>
+<h4 style="text-align: center;"><span style="font-size: large;"><strong>Uses Made of the Information</strong></span></h4>
+<p>We use information held about you in the following ways:</p>
+<ul>
+<li>To send you our newsletters from time to time.</li>
+<li>To ensure that content from our site is presented in the most effective manner for you and for your computer.</li>
+<li>To provide you with information, products or services that you request from us or which we feel may interest you, where you have consented to be contacted for such purposes.</li>
+<li>To carry out our obligations arising from any contracts entered into between you and us.</li>
+<li>To allow you to participate in interactive features of our service, when you choose to do so.</li>
+<li>To notify you about changes to our service.</li>
+</ul>
+<p>Subject to the below, we do not currently intend to share your information with third parties but if we do so in the future, we will first notify you and give you the option to opt out of receiving any communications from such third parties.</p>
+<p>We will only share your information with third parties for marketing purposes to the extent that such third parties are within the same group of companies as us. If you do not want us to use your data in this way, please email us at <a href="mailto:care@swooneditions.com">care@swooneditions.com</a>.</p>
+<p>We may also use your data to provide you with information about goods and services which may be of interest to you and we may contact you about these by email, post or telephone.</p>
+<p>We do not disclose information about identifiable individuals to our advertisers, but we may provide them with aggregate information about our users (for example, we may inform them that 500 men aged under 30 have clicked on their advertisement on any given day). We may also use such aggregate information to help advertisers reach the kind of audience they want to target (for example, women in SW1). We may make use of the personal data we have collected from you to enable us to comply with our advertisers' wishes by displaying their advertisement to that target audience.</p>
+<h4 style="text-align: center;"><span style="font-size: large;"><strong>Disclosure of Your Information</strong></span></h4>
+<p>We may disclose your personal information to any member of our group, which means our subsidiaries, our ultimate holding company and its subsidiaries, as defined in section 474 of the Companies Act 2006.</p>
+<p>We may disclose your personal information to third parties:</p>
+<ul>
+<li>In the event that we sell or buy any business or assets, in which case we may disclose your personal data to the prospective seller or buyer of such business or assets.</li>
+<li>If any company within our group or substantially all of its assets are acquired by a third party, in which case it may disclose your personal data to the prospective seller or buyer of such company or business or assets.</li>
+<li>If we are under a duty to disclose or share your personal data in order to comply with any legal obligation, or in order to enforce or apply our Terms of Use or Terms and Conditions of membership and other agreements; or to protect the rights, property, or safety of us or any of our customers, or others. This includes exchanging information with other companies and organisations for the purposes of fraud protection and credit risk reduction.</li>
+</ul>
+<h4 style="text-align: center;"><span style="font-size: large;"><strong>Your Rights</strong></span></h4>
+<p>You have the right to ask us not to process your personal data for marketing purposes. We will usually inform you (before collecting your data) if we intend to use your data for such purposes or if we intend to disclose your information to any third party for such purposes. You can exercise your right to prevent such processing by contacting us at <a href="mailto:care@swooneditions.com">care@swooneditions.com</a>.</p>
+<p>Our site may, from time to time, contain links to and from the websites of our partner networks, advertisers and affiliates. If you follow a link to any of these websites, please note that these websites have their own privacy policies and that we do not accept any responsibility or liability for these policies. Please check these policies before you submit any personal data to these websites.</p>
+<h4 style="text-align: center;"><span style="font-size: large;"><strong>Changes to Our Privacy Policy</strong></span></h4>
+<p>Any changes we may make to our privacy policy in the future will be posted on this page and, where appropriate, notified to you by e-mail.</p>
+<h4 style="text-align: center;"><span style="font-size: large;"><strong>Contact</strong></span></h4>
+<p>Questions, comments and requests regarding this privacy policy are welcomed and should be addressed to <a href="mailto:care@decoholic.com">care@swooneditions.com</a>.</p>
+<p>&nbsp;</p>
+</div></div></div>
+
+<div class="wrapper">
+    <footer class="main-footer">
+        <ul>
+            <li>COMPANY</li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/about/jobs">Jobs</a></li>
+            <li><a href="/privacy">Privacy &amp; Cookies</a></li>
+            <li><a href="/terms-conditions">Terms &amp; Conditions</a></li>
+            <li><a href="/blog">Blog</a></li>
+        </ul>
+        <ul>
+            <li>HELP</li>
+            <li><a href="/contactus">Contact &amp; FAQ</a></li>
+            <li><a href="/delivery-and-returns">Delivery &amp; Returns</a></li>
+            <li><a href="/about/care-instructions">Care Instructions</a></li>
+        </ul>
+
+        <ul>
+            <li>
+                <a href="https://www.facebook.com/swooneditions" target="_blank" class="icon-social-fb"></a>
+                <a href="https://www.instagram.com/swooneditions/" target="_blank" class="icon-social-insta"></a>
+                <a href="https://uk.pinterest.com/swooneditions/" target="_blank" class="icon-social-pinterest"></a>
+                <a href="https://twitter.com/swooneditions" target="_blank" class="icon-social-twitter"></a>
+            </li>
+            <li>&nbsp;</li>
+            <li>Swoon Editions 2016 &copy;</li>
+        </ul>
+    <footer>
+</div>
+
+<div id="react-popup"></div>
+<script type="text/javascript" src="/skin/frontend/swoontwo/rwd/js/main.js"></script>
+<script src="https://use.typekit.net/ham4xhn.js"></script>
+<script>try{Typekit.load({ async: true });}catch(e){}</script>
+
+
+
+    <script type="text/javascript">
+        
+            </script>
+<script type="text/javascript">
+    var adform = {
+        campaignId          : '490350',
+        divider             : '|',
+        pageName            : 'Swoon Editions|||Cookie & Privacy policy',
+        pageType            : 'cms',
+        firstLevelCategory  : '',
+        secondLevelCategory : '',
+        productRange        : '',
+        productVariant      : '',
+        productFinish       : '',
+        productStyle        : '',
+        productBaseSku      : '',
+        productPrice        : '',
+        userId              : 'SWID.1.0.57630d9b353193.58431374',
+        sourceName          : '',
+        sourceMedium        : '',
+        sourceCampaign      : '',
+        orderId             : '',
+        orderValue          : ''
+    };
+    window.dataLayer = window.dataLayer || [];
+    dataLayer.push({
+        'adform': adform
+    });
+</script>
+
+<!-- Adform Tracking Code BEGIN -->
+<script type="text/javascript">
+    var _adftrack = {
+        pm      : adform.campaignId,
+        divider : encodeURIComponent('|'),
+        pagename: encodeURIComponent('Swoon Editions|||Cookie & Privacy policy'),
+        order : {
+            sv3 : adform.pageType,
+            sv4 : adform.firstLevelCategory,
+            sv5 : adform.secondLevelCategory,
+            sv6 : adform.productRange,
+            sv7 : adform.productVariant,
+            sv8 : adform.productFinish,
+            sv9 : adform.productStyle,
+            sv10: adform.productBaseSku,
+            sv11: adform.productPrice,
+            sv12: '',
+            sv13: adform.userId,
+            sv14: adform.sourceName,
+            sv15: adform.sourceMedium,
+            sv16: adform.sourceCampaign,
+            sv39: adform.orderId,
+            sv40: adform.orderValue
+        }
+    };
+    (function() {
+        var s = document.createElement('script');
+        s.type = 'text/javascript';
+        s.async = true;
+        s.src = 'https://track.adform.net/serving/scripts/trackpoint/async/';
+        var x = document.getElementsByTagName('script')[0];
+        x.parentNode.insertBefore(s, x);
+    })();
+</script>
+<noscript>
+    <p style="margin:0;padding:0;border:0;">
+        <img src="https://track.adform.net/Serving/TrackPoint/?pm=490350&ADFPageName=Swoon Editions|||Cookie & Privacy policy&ADFdivider=|" width="1" height="1" alt="" />
+    </p>
+</noscript>
+<!-- Adform Tracking Code END -->
+<div id="signup-popup" style='display: none' class="popup__box popup__outer mfp-hide" data-background-image-desktop-src="https://www.swooneditions.com/skin/frontend/base/default/assets/img/bg-sign-up-panel-desk.jpg" data-background-image-tablet-src="https://www.swooneditions.com/skin/frontend/base/default/assets/img/bg-sign-up-panel-tablet.jpg">
+    <div id="signup-content" class="popup popup__inner">
+                    <p class="popup__title">Coveted designs.<br />Insider-only prices</p>
+            <ul class="popup__label">
+                <li>New designs daily.</li>
+                <li>Free delivery & returns.</li>
+                <li>Limited edition designer collaborations.</li>
+                <li>10% off your first order</li>
+            </ul>        
+<form action="https://www.swooneditions.com/swoon_signup/index/register/" method="post" id="form-popup-register" class="form--stacked" data-jh-validate>
+    <div id="register__message" class="clearfix"></div>
+
+    <div class="fields">
+        <div class="field">
+            <label for="email_address" class="required">Email Address <abbr title="required">*</abbr></label>
+            <div class="input-box">
+                <input type="text" name="email" id="email_address" value="" title="Email" class="input-text alt-placeholder validate-email required-entry" />
+            </div>
+        </div>
+
+        <div class="field" id="register__please-wait" style="display:none;">
+            Submitting...        </div>
+
+        <div class="clearfix popup__signup-footer">
+            <input id="register__submit" type="submit" value="Sign Up" class="button signup--button" />
+                <p class="or-text">or</p>
+
+<p>
+    <span class="facebookconnect-button">
+        <a class="js-facebook-login button button--facebook "
+           title="Sign in with Facebook" href="https://www.swooneditions.com/jhfacebook/login/start/?callback=https%3A%2F%2Fwww.swooneditions.com%2Fjhfacebook%2Flogin%2F%3Fredirect%3Dprivacy%252F">
+            <span class="sprite svg-facebook-white svg-facebook-white-dims"></span>
+            Sign in <span class="with-fb">with FB</span>        </a>
+    </span>
+</p>
+        </div>
+    </div>
+</form>
+        <p class="sign-in">
+            <a href="#" class="signup-switch" data-target="signin">
+                Already an insider?                <span><b>Sign in &gt;</b></span>
+            </a>
+        </p>
+
+    </div>
+
+    <div id="signin-content" class="popup popup__inner">
+                    <p class="popup__title">Sign in</p>
+            <p class="popup__label signup-long-intro"></p>        
+
+<form action="https://www.swooneditions.com/swoon_signup/index/login/" method="post" id="form-popup-login" class="form--stacked" data-jh-validate>
+    <div id="login__message" class="clearfix"></div>
+
+    <div class="fields">
+        <div class="field">
+            <label for="email" class="required">Email Address</label>
+            <div class="input-box">
+                <input type="text" name="login[username]" value="" id="email" class="input-text required-entry validate-email" title="Email Address" />
+            </div>
+        </div>
+
+        <div class="field">
+            <label for="pass" class="required">Password</label>
+            <div class="input-box">
+                <input type="password" name="login[password]" class="input-text required-entry validate-password" id="pass" title="Password" />
+            </div>
+        </div>
+
+        <div class="field" id="login__please-wait" style="display:none;">
+            Submitting...        </div>
+
+        <div class="field">
+            <a href="https://www.swooneditions.com/customer/account/forgotpassword/" class="small">
+                Forgot Your Password?            </a>
+            <br>
+            <a href="https://www.swooneditions.com/customer/account/setpassword/" class="small">
+                Haven't set a password yet?            </a>
+        </div>
+
+        <div class="clearfix popup__signup-footer">
+            <input id="login__submit" type="submit" value="Sign In" class="button signup--button" />
+                <p class="or-text">or</p>
+
+<p>
+    <span class="facebookconnect-button">
+        <a class="js-facebook-login button button--facebook "
+           title="Sign in with Facebook" href="https://www.swooneditions.com/jhfacebook/login/start/?callback=https%3A%2F%2Fwww.swooneditions.com%2Fjhfacebook%2Flogin%2F%3Fredirect%3Dprivacy%252F">
+            <span class="sprite svg-facebook-white svg-facebook-white-dims"></span>
+            Sign in <span class="with-fb">with FB</span>        </a>
+    </span>
+</p>
+        </div>
+    </div>
+</form>
+        <p class="sign-in">
+            <a href="#" class="signup-switch" data-target="signup">
+                Not an insider yet?                <span><b>Sign up &gt;</b></span>
+            </a>
+        </p>
+    </div>
+
+</div>
+
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"b78ae6335c","applicationID":"8581026","transactionName":"YQRaZkcECBFTAEBZCVhOe0dGEQkPHQBZQ0lGAF9XGhMPB0U=","queueTime":0,"applicationTime":195,"atts":"TUNNEA8eG04QAhYKHUsc","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>

@@ -1,0 +1,1253 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+The WW2 strategy game: Call of War
+
+
+	body{
+		background-color:black;
+		margin:0;
+		width:100%;
+		height:100%;
+	}
+	body:before {
+		background-image : none;
+	}
+	#animatedLPCanvas {
+		position:absolute;
+		margin:auto;
+		left:0;
+		right:0;
+		z-index: -10;
+	}
+	#animatedLPCanvas_container {
+		position: absolute;
+		overflow: hidden;
+		left: 0;
+		right: 0;
+		display: block;
+		z-index: -10;
+		height: 100vh;
+	}
+	#animatedLPCanvas_outer_container {
+		overflow: hidden;
+		z-index: -10;
+	}
+	.top_container, #lp_flag_part {
+		padding: 2px 5px;
+		-moz-border-radius-bottomleft: 6px;
+		-webkit-border-bottom-left-radius: 6px;
+		border-bottom-left-radius: 6px;
+		-moz-border-radius-bottomright: 6px;
+		-webkit-border-bottom-right-radius: 6px;
+		border-bottom-right-radius: 6px;
+		display: inline-block;
+		background: url("fileadmin/templates/ww2/main_texture_bg.png") repeat scroll 0 0%, none repeat scroll 0 0 #dad5c3;
+		box-shadow: 0 4px 9px -3px rgba(0, 0, 0, 0.4);
+	}
+
+	#bottomBar {
+		position: fixed;
+		bottom: 0;
+		width: 100%;
+		height: 15px;
+		padding-top: 5px;
+		text-align: center;
+		background: rgba(0, 0, 0, 0.8);
+		color: #dcd8c6;
+	}
+	#bottomBar .note {
+		font-size: 11px;
+		text-transform: uppercase;
+		position: relative;
+	}
+	#bottomBar .note .copyright {
+		margin: 0 10px;
+	}
+	#bottomBar .note a {
+		color: #dcd8c6;
+		text-decoration: none;
+	}
+	#footerLinks {
+		display: inline-block;
+	}
+	.link-divider {
+		padding: 0 1px;
+	}
+	.link-divider:after {
+		content: ' |';
+		display: inline;
+	}
+
+	#sg_reg_middle {
+		position: absolute;
+		left: 50%;
+		margin-left: -135px;
+		margin-top: 160px;
+		padding-top: 55px;
+	}
+
+	#sg_reg_logo {
+		background: url(fileadmin/templates/ww2/logo.png) no-repeat;
+		width: 302px;
+		height: 208px;
+		position: absolute;
+		top: -128px;
+		left: -32px;
+		z-index: 1;
+	}
+
+	#sg_reg_logo:lang(ru) {
+		background: url(fileadmin/templates/ww2/logo_ru.png) no-repeat;
+	}
+
+	#sg_reg_box_wrap {
+		width: 194px;
+		padding: 20px;
+		position: relative;
+		z-index: 10;
+	}
+
+	.lp_regform_termsandconditions {
+		font-size: 11px;
+		line-height: 14px;
+		padding-bottom: 5px;
+		padding-top: 3px;
+		-webkit-touch-callout: none;
+		-webkit-user-select: none;
+		-khtml-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+	}
+
+	#sg_reg_main_button_label {
+		line-height: 117px;
+		font-size: 24px;
+		color: white;
+		font-weight: bold;
+		text-shadow: 2px 2px 0px #303030;
+	}
+
+	.lp_regform_elem_container {
+		position: relative;
+	}
+
+	.lp_sg_check_wrapper {
+		position: absolute;
+		left: 180px;
+		height: 20px;
+		top: 23px;
+		white-space: nowrap;
+		font-size: 0;  otherwise display: inline-block has gaps
+		box-shadow: 0 0 2px 2px #888;
+	}
+
+	#sg_additionaltermscheck_wrapper {
+		top: 10px;
+	}
+
+	#fb_registration_button {
+		background: url(fileadmin/templates/cow/lp/9/facebook_button.png) no-repeat;
+		display: inline-block;
+		width: 137px;
+		height: 62px;
+		color: white;
+		padding-left: 51px;
+		white-space: normal !important;
+		font-family: 'Crimson Text';
+		font-size: 19px;
+		line-height: 19px;
+		font-weight: bold;
+		padding-top: 8px;
+	}
+	#fb_registration_button:lang(pl) {
+		font-size: 17px;
+	}
+	#fb_registration_button:lang(ru) {
+		font-size: 18px;
+	}
+
+	#sg_fb_button {
+		text-align: center;
+	}
+
+	#sg_fb_button .fb_text {
+		padding-top: 3px;
+	}
+
+	#lp_choose_language_box {
+		position: absolute;
+		right: 270px;
+		top: 0;
+		color: #c1ad8d;
+		z-index: 100;
+		white-space: nowrap;
+	}
+
+	.flag_en,.flag_de,.flag_other {
+		width: 18px;
+		height: 12px;
+		margin-left: 1px;
+		margin-right: 1px;
+		margin-top: 2px;
+		display: inline-block;
+		background-repeat: no-repeat;
+		background-image: url("fileadmin/templates/supremacy_1914/images/101_header/flag_sprite.gif?4");
+		lines-height: 12px;
+		font-size: 10px;
+	}
+
+	.flag_en {
+		background-position: 0px -12px;
+	}
+
+	.flag_de {
+		background-position: 0px 0px;
+	}
+
+	*[id^='pointer_'] {
+		display: none;
+	}
+
+	input.sg_reg_value {
+		height: 25px;
+	}
+
+	.below_register_button {
+		height: 98px;
+	}
+	.register_button_container {
+		width: 500px;
+		left: 50%;
+		margin-left: -250px;
+		text-align: center;
+		text-transform: uppercase;
+	}
+	#sg_reg_main_button_label .dark_bg_button {
+		padding: 5px 40px;
+	}
+
+	.register_button:lang(cs) {
+		font-size: 20px;
+	}
+	.register_button:lang(ru) {
+		font-size: 22px;
+	}
+
+	#fb_login_button .fb_text {
+		text-align: center;
+	}
+	#sg_fb_button .fb_text {
+		padding-right: 4px;
+	}
+
+	@media (min-width: 800px) {
+		#postContentDiv {
+			padding: 10px 10% 50px 10%;
+		}
+	}
+
+	@media (max-height: 655px) {
+		#fb_registration_button {
+			height: 55px;
+		}
+		#sg_reg_middle {
+			margin-top: 135px;
+			padding-top: 51px;
+		}
+	}
+
+	@media (max-height: 614px) {
+		#sg_reg_main_button_label {
+			line-height: 49px;
+		}
+
+		.register_button_container{
+			margin-top:4px;
+		}
+		.below_register_button {
+			height: 37px;
+		}
+		.register_button {
+			display: inline-block;
+			background: url("fileadmin/templates/ww2/ww2_mobile_button_register.png");
+			width: 226px;
+			height: 49px;
+			background-size: contain;
+			background-repeat: no-repeat;
+			box-sizing: border-box;
+			cursor: pointer;
+		}
+		.register_button:hover {
+			background: url("fileadmin/templates/ww2/ww2_mobile_button_register_hover.png");
+			background-size: contain;
+			background-repeat: no-repeat;
+		}
+		.register_button:active {
+			background: url("fileadmin/templates/ww2/ww2_mobile_button_register_active.png");
+			background-size: contain;
+			background-repeat: no-repeat;
+		}
+	}
+
+
+
+
+var animatedLPCanvas, stage, exportRoot;
+function initBackgroundLP() {
+	animatedLPCanvas = document.getElementById("animatedLPCanvas");
+	images = images||{};
+	ss = ss||{};
+	var loader = new createjs.LoadQueue(false);
+	loader.addEventListener("fileload", animatedLPHandleFileLoad);
+	loader.addEventListener("complete", animatedLPHandleComplete);
+	loader.loadManifest(lib.properties.manifest);
+}
+function animatedLPHandleFileLoad(evt) {	
+	if (evt.item.type == "image") { images[evt.item.id] = evt.result; }	
+}
+function animatedLPHandleComplete(evt) {
+	//This function is always called, irrespective of the content. You can use the variable "stage" after it is created in token create_stage.
+	var queue = evt.target;
+	var ssMetadata = lib.ssMetadata;
+	for(i=0; i<ssMetadata.length; i++) {
+		ss[ssMetadata[i].name] = new createjs.SpriteSheet( {"images": [queue.getResult(ssMetadata[i].name)], "frames": ssMetadata[i].frames} )
+	}
+	exportRoot = new lib.cow_animated_lp();
+	stage = new createjs.Stage(animatedLPCanvas);
+	stage.addChild(exportRoot);	
+	//Registers the "tick" event listener.
+	createjs.Ticker.setFPS(lib.properties.fps);
+	createjs.Ticker.addEventListener("tick", stage);	    
+	//Code to support hidpi screens and responsive scaling.
+	(function(isResp, respDim, isScale, scaleType) {		
+		var lastW, lastH, lastS=1;		
+		window.addEventListener('resize', resizeCanvas);		
+		resizeCanvas();		
+		function resizeCanvas() {			
+			var w = lib.properties.width, h = lib.properties.height;			
+			var iw = window.innerWidth, ih=window.innerHeight;			
+			var pRatio = window.devicePixelRatio, xRatio=iw/w, yRatio=ih/h, sRatio=1;			
+			if(isResp) {                
+				if((respDim=='width'&&lastW==iw) || (respDim=='height'&&lastH==ih)) {                    
+					sRatio = lastS;                
+				}				
+				else if(!isScale) {					
+					if(iw<w || ih<h)						
+						sRatio = Math.min(xRatio, yRatio);				
+				}				
+				else if(scaleType==1) {					
+					sRatio = Math.min(xRatio, yRatio);				
+				}				
+				else if(scaleType==2) {					
+					sRatio = Math.max(xRatio, yRatio);				
+				}			
+			}			
+			animatedLPCanvas.width = w*pRatio*sRatio;			
+			animatedLPCanvas.height = h*pRatio*sRatio;
+			animatedLPCanvas.style.width = w*sRatio+'px';			
+			animatedLPCanvas.style.height = h*sRatio+'px';
+			stage.scaleX = pRatio*sRatio;			
+			stage.scaleY = pRatio*sRatio;			
+			lastW = iw; lastH = ih; lastS = sRatio;		
+		}
+	})(false,'both',false,1);	
+}
+
+
+
+
+
+
+
+
+BytroAnalytics.logLPBodyStart()
+                        if(typeof jQuery !== "undefined") {
+                            jQuery.noConflict(false);
+                        }
+         
+
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId      	: '266585966839612',
+            xfbml		: true,
+            cookie      : 'false',
+            version    	: 'v3.1'
+        });
+    };
+
+    (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+©  Bytro Labs
+document.getElementById('year').innerHTML = (new Date()).getFullYear()
+
+Imprint
+
+ToS
+
+Privacy Policy
+
+Support
+
+
+
+
+
+
+
+
+
+
+
+
+		.fb_connect {
+			white-space: nowrap;
+			float: left;
+			cursor: pointer;
+		}
+		/*.display_none {
+			display: none;
+		}*/
+	
+
+
+
+
+Sign in with Facebook
+
+ 
+
+
+
+
+
+
+Choose your player name:
+
+
+
+
+
+ 
+
+
+
+
+
+Choose your password:
+
+
+
+
+
+ 
+
+
+
+
+Enter your email:
+
+
+
+ 
+
+
+
+
+
+
+                            #recaptcha_image {
+                                height:70px !important;
+                                width:198px !important;
+                                margin-left: -14px;
+                            }
+
+                            div#recaptcha_image > img{
+                                padding: 1px;
+                                width:198px !important;
+                            }
+                        
+
+
+Captcha:
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+                        Our games are subject to the following: Terms & Conditions, Privacy Policy
+
+
+
+ 
+
+
+
+
+
+
+Play
+
+
+
+
+Sign up with
+                         
+                        
+            
+            function onGoogleSignInClick() {
+                BytroAnalytics.logLPButtonGoogle();
+                window.location = 'https://accounts.google.com/o/oauth2/v2/auth?scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile&access_type=offline&include_granted_scopes=true&state=eyJMIjowfQ%3D%3D&redirect_uri=https%3A%2F%2Fwww.callofwar.com%2Findex.php%3FtitleID%3D510%26eID%3Dsso%26ref%3DgoogleSignIn&response_type=code&client_id=704926928635-m92r4vis66cgrpqij4b8rgues5steg65.apps.googleusercontent.com';                    
+            }
+            
+
+
+
+
+
+
+
+
+
+var sg_cb_3_1555262814_55ca8cd69d = new SupAjaxFactory.Callback('sg_cb_3_1555262814_55ca8cd69d');
+var sg_req_2_1555262814_55ca8cd69d = new SupAjaxFactory.RequestMaker('sg_req_2_1555262814_55ca8cd69d', 'https://www.callofwar.com/', sg_cb_3_1555262814_55ca8cd69d, 'registration_details', 0, 'fileadmin/templates/supremacy_1914/images/loader.gif');
+sg_req_2_1555262814_55ca8cd69d.setSynchronous(true);sg_req_2_1555262814_55ca8cd69d.setParam('lp', '48', '48');sg_req_2_1555262814_55ca8cd69d.setParam('lpv', '1', '1');sg_req_2_1555262814_55ca8cd69d.setParam('titleID', '510', '510');
+
+
+
+    
+
+    var shouldUseHelperPopups2017 = false;
+    var isDown = false;
+    var allowExpandLoginForm = true;
+    var prop = new SupProposeGame();
+
+    document.cookie = "winWidth="+window.innerWidth +"; path=/";
+    document.cookie = "winHeight="+window.innerHeight +"; path=/";
+
+    function nextElementOrSubmit(e, source) {
+        if (isReturnKey(e)) {
+            sg_regSubmit(0);
+        }
+    }
+
+    function sg_regSubmit(id) {
+        try {
+            prop.hideAllChecks();
+            prop.clearDefaultInputs();
+            pageTracker._trackPageview("/join_game_funnel/registration.html");
+        } catch(err) {}
+            sg_req_2_1555262814_55ca8cd69d.setParam('values', escape($('sg_reg_form_'+id).serialize()), '0');sg_req_2_1555262814_55ca8cd69d.setParam('submit_id', 'sg_reg_form_'+id, '0');try{sg_req_2_1555262814_55ca8cd69d.performCall();}catch(e){alert(e);}
+    }
+
+    var usernameFirstFocus = false;
+    var checkNameTimeout = null;
+    function checkName(){
+        if (!shouldUseHelperPopups2017) {
+            checkNameCall();
+        } else {
+            if (!usernameFirstFocus){
+                usernameFirstFocus = true;
+                return;
+            }
+            if ($('username').value.length < 4) {
+                setNameCheckResponse(0, 'Please choose a name' , 3);
+                setUsernameSuggestions('', 3);
+                return;
+            }
+            checkNameCall();
+        }
+    }
+
+    function checkNameCall() {
+        if (checkNameTimeout != null){
+            clearTimeout(checkNameTimeout);
+        }
+        checkNameTimeout = setTimeout(function(){sg_req_4_1555262814_881f3c0fce.setParam('name', $('username').value, '0');sg_req_4_1555262814_881f3c0fce.setParam('lp', 48, '0'); try{sg_req_4_1555262814_881f3c0fce.performCall();}catch(e){alert(e);} checkNameTimeout = null;}, 500);
+    }
+
+    var basicEmailRegex = /^\S+@\S+\.\S+$/;
+
+    function checkEmail(){
+        if (!shouldUseHelperPopups2017) {
+        sg_req_5_1555262814_881f3c0fce.setParam('email', $('email').value, '0'); try{sg_req_5_1555262814_881f3c0fce.performCall();}catch(e){alert(e);}
+        } else {
+            if ($('email').value.length == 0 ) {
+                setEmailCheckResponse(0, 'Please enter your email.', 3);
+                return;
+            }
+            if (basicEmailRegex.test($('email').value)) {
+            sg_req_5_1555262814_881f3c0fce.setParam('email', $('email').value, '0'); try{sg_req_5_1555262814_881f3c0fce.performCall();}catch(e){alert(e);}
+            } else{
+                setEmailCheckResponse(0, 'Invalid email.', 1);
+            }
+        }
+    }
+
+    function checkPassword(){
+        if ($('password').value.length < 6) {
+            setPasswordCheckResponse(0, 'At least 6 characters');
+        } else {
+            setPasswordCheckResponse(1, '');
+        }
+    }
+
+    function checkCaptchaIsEmpty(){
+        if ($('recaptcha_challenge_field').value.length > 0 && $('recaptcha_response_field').value.length < 5) {
+            setCaptchaCheckResponse(0, 'Please enter captcha.');
+        } else {
+            setCaptchaCheckResponse(1, '');
+        }
+    }
+
+    function checkAdditionalTermsChecked() {
+        if ($('additionalterms').value == 0) {
+            setAdditionalTermsCheckResponse(0, 'Please read and accept.');
+        } else {
+            setAdditionalTermsCheckResponse(1, '');
+        }
+    }
+
+    function setUsernameSuggestions(text, errorCode) {
+        if (!shouldUseHelperPopups2017) {
+            return;
+        }
+        var suggestionsPopup = $('name_suggestions');
+        var suggestionsList = $('suggestions_list');
+        var suggestionsHeader = $('name_suggestions_header');
+
+        if (errorCode == 1) {
+            suggestionsHeader.innerHTML = '<b>Invalid username, what about</b>' ;
+        } else {
+            //errorCode is 2 or 4 here
+            suggestionsHeader.innerHTML = '<b>Name already taken, what about</b>';
+        }
+
+        if($('username') != document.activeElement){
+            suggestionsPopup.style.opacity = 0;
+            return;
+        }
+
+        if (text.length <= 0) {
+            suggestionsPopup.style.opacity = 0;
+        } else {
+            suggestionsList.innerHTML = text;
+            suggestionsPopup.style.opacity = 1;
+            prop.hideCheck('passwordcheck');
+            prop.hideCheck('emailcheck');
+        }
+    }
+
+    function setUsernameFromSuggestion(value) {
+        var name = document.getElementById('username');
+        name.value = value;
+        var suggestionsPopup = $('name_suggestions');
+        suggestionsPopup.style.opacity = 0;
+        setNameCheckResponse(true, "", 0,value);
+    }
+
+    function hideAllHelperPopups() {
+        var popupIds = ['username', 'password', 'email'];
+        for (var i = 0; i < popupIds.length; i++) {
+            var popup = $('helper_popup_type_' + popupIds[i]);
+            if (popup) popup.style.opacity = 0;
+        }
+    }
+
+    function displayHelperPopup(popupType) {
+        hideAllHelperPopups();
+        var helperPopup = $('helper_popup_type_' + popupType);
+        helperPopup.style.opacity = 1;
+    }
+
+    function setAdditionalTermsCheckResponse(isValid, text) {
+        if (isValid) {
+            prop.formatAsValid( 'additionaltermscheck' ,'', '');
+        } else {
+            prop.formatAsError( 'additionaltermscheck' ,'', text);
+        }
+    }
+
+    function setNameCheckResponse(isValid, text, errorCode, previousName) {
+        if (!shouldUseHelperPopups2017) {
+            if (isValid) {
+                prop.formatAsValid('namecheck', '', text ? text : '');
+            } else {
+                if (errorCode == 2 || errorCode == 4) {
+                    expandLoginForm();
+                    setLoginNameFromRegForm();
+                }
+                prop.formatAsError('namecheck', '', text);
+            }
+        } else {
+            if(previousName && previousName != document.getElementById('username').value){
+                return;
+            }
+            displayHelperPopup('username');
+            if (isValid) {
+                prop.formatAsValid('namecheck', '', text ? text : '');
+                setUsernameSuggestions('', 0)
+                hideAllHelperPopups();
+            } else {
+                if($('username') != document.activeElement){
+                    if (errorCode == 2 || errorCode == 4) {
+                        prop.formatAsError('namecheck', '', text);
+                        return;
+                    }
+                    if (errorCode == 1) {
+                        prop.formatAsError('namecheck', '', text);
+                        return;
+                    }
+                }
+                if (errorCode == 2 || errorCode == 4) {
+                    expandLoginForm();
+                    setLoginNameFromRegForm();
+                    prop.hideCheck('namecheck');
+                }else if (errorCode == 1) {
+                    prop.hideCheck('namecheck');
+                }else {
+                    prop.formatAsError('namecheck', '', text);
+                }
+            }
+        }
+    }
+
+    function setPasswordCheckResponse(isValid, text) {
+        if (!shouldUseHelperPopups2017) {
+            if (isValid) {
+                prop.formatAsValid('passwordcheck', '', text ? text : '');
+            } else {
+                prop.formatAsError('passwordcheck', '', text);
+            }
+        } else {
+            displayHelperPopup('password');
+            if (isValid) {
+                prop.formatAsValid('passwordcheck', '', text ? text : '');
+                hideAllHelperPopups();
+            } else {
+                prop.formatAsError('passwordcheck', '', text);
+            }
+        }
+    }
+
+    function setEmailCheckResponse(isValid, text, errorCode) {
+        if (!shouldUseHelperPopups2017) {
+            if (isValid) {
+                prop.formatAsValid('emailcheck', '', text ? text : '');
+            } else {
+                prop.formatAsError('emailcheck', '', text);
+                if (errorCode == 4) {
+                    expandLoginForm();
+                    setLoginNameFromRegForm();
+                }
+            }
+        } else {
+            displayHelperPopup('email');
+            if (isValid) {
+                prop.formatAsValid('emailcheck', '', text ? text : '');
+                hideAllHelperPopups();
+            } else {
+                if (errorCode == 4) {
+                    expandLoginForm();
+                    setLoginNameFromRegForm();
+                    prop.formatAsError('emailcheck', '', text);
+                    return;
+                }
+                prop.formatAsError('emailcheck', '', text);
+            }
+        }
+    }
+
+    function setForgotEmailResponse(isValid, text){
+        if (isValid) {
+            prop.formatAsValid( 'forgotpwdresponse' ,'', text); //display message
+        } else {
+            prop.formatAsError( 'forgotpwdresponse' ,'', text);
+        }
+    }
+
+    function setCaptchaCheckResponse(isValid, text){
+        if (isValid) {
+            prop.formatAsValid( 'captchacheck' ,'', '');
+        } else {
+            prop.formatAsError( 'captchacheck' ,'', text);
+        }
+    }
+
+
+    function expandLoginForm() {
+        if (!allowExpandLoginForm) {
+            return;
+        }
+        var elem = document.getElementById('func_sg_loginform_button');
+        if (elem && !isDown) {
+            elem.click();
+        }
+    }
+
+    function setLoginNameFromRegForm() {
+        try {
+            var name = document.getElementById('username').value;
+            if (name && name.length > 0) {
+                var nameForm = document.getElementById('loginbox_login_input');
+                if (nameForm) nameForm.value = name;
+            }
+        } catch(e) {}
+    }
+
+    function clearMobileDefaultInputLabel(el) {
+        if (el.value == el.defaultValue) {
+            el.value = '';
+            return true;
+        }
+        return false;
+    }
+
+    function resetMobileDefaultInputLabel(el) {
+        if (el.value == '') {
+            el.value = el.defaultValue;
+            return true;
+        }
+        return false;
+    }
+
+
+
+var sg_cb_5_1555262814_881f3c0fce = new SupAjaxFactory.Callback('sg_cb_5_1555262814_881f3c0fce');
+var sg_req_4_1555262814_881f3c0fce = new SupAjaxFactory.RequestMaker('sg_req_4_1555262814_881f3c0fce', 'https://www.callofwar.com/', sg_cb_5_1555262814_881f3c0fce, 'name', 0, 'fileadmin/templates/supremacy_1914/images/loader.gif');
+sg_cb_5_1555262814_881f3c0fce.setTargetDiv('sg_namecheck_js');sg_cb_5_1555262814_881f3c0fce.setIgnoreOldRequests(true);sg_req_4_1555262814_881f3c0fce.setParam('titleID', '510', '510');
+
+
+
+
+var sg_cb_6_1555262814_881f3c0fce = new SupAjaxFactory.Callback('sg_cb_6_1555262814_881f3c0fce');
+var sg_req_5_1555262814_881f3c0fce = new SupAjaxFactory.RequestMaker('sg_req_5_1555262814_881f3c0fce', 'https://www.callofwar.com/', sg_cb_6_1555262814_881f3c0fce, 'email', 0, 'fileadmin/templates/supremacy_1914/images/loader.gif');
+sg_cb_6_1555262814_881f3c0fce.setTargetDiv('sg_emailcheck_js');sg_cb_6_1555262814_881f3c0fce.setIgnoreOldRequests(true);sg_req_5_1555262814_881f3c0fce.setParam('titleID', '510', '510');
+
+
+
+
+
+
+    #sg_loginform_container {
+        width: 172px;
+        position: absolute;
+        right: 30px;
+        top: 0;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+    }
+
+    #forgot_password_link {
+        padding-top: 7px;
+        padding-bottom: 7px;
+    }
+    #forgot_password_link a {
+        font-size: 12px;
+    }
+
+    #sg_login_text {
+        display: inline-block;
+        width: 95px;
+        text-align: center;
+        white-space: nowrap;
+        font-size: 14px;
+    }
+
+    #func_loginbox_form {
+        text-align: center;
+    }
+    #func_loginbox_form input{
+        margin-top: 10px;
+        width: 125px;
+    }
+    #fb_login_button {
+        background: url(fileadmin/templates/cow/lp/9/small_facebook.png) no-repeat;
+        box-sizing: border-box;
+        width: 141px;
+        height: 30px;
+        line-height: 25px;
+        text-align: center;
+        padding-left: 30px;
+        margin-top: 5px;
+        color: white;
+        font-size: 14px;
+        position: absolute;;
+        margin-left: -205px;
+        margin-top: -80px;
+    }
+    #fb_login_button .fb_text {
+        width: 105px;
+        line-height: 28px;
+    }
+
+    .fb_text {
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    #login_error_message_div {
+        position: absolute;
+        margin-top: 35px;
+        background-image: url(fileadmin/templates/cow/lp/9/info_icon.png);
+        background-position: 15px 50%;
+        background-repeat: no-repeat;
+        background-color: #aa3813;
+        padding-left: 35px;
+        margin-left: -50px;
+        font-size: 14px;
+        color: white;
+        line-height: 20px;
+        box-shadow: 0 0 2px 2px #888;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    #sg_login_text {
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    #loginbutton_cont .button_wrapper_dark_bg_button {
+        margin-top: 10px;
+    }
+
+    #func_loginbutton {
+        width: 120px;
+    }
+
+
+<!--
+function enterSubmit(e) {
+  var val;
+  if(e && e.which){	// netscape
+    val = e.which;
+  } else {
+    val = e.keyCode; // IE specific code
+  }
+  if (val == 13) {
+	  if ($('login_error_message_div')) {$('login_error_message_div').remove();}sg_req_0_1555262814_4d2cafec42.setParam('userName', encodeURIComponent(document.getElementById('loginbox_login_input').value));sg_req_0_1555262814_4d2cafec42.setParam('pwd', encodeURIComponent(document.getElementById('loginbox_password_input').value));try{sg_req_0_1555262814_4d2cafec42.performCall();}catch(e){alert(e);}
+  }  
+}
+
+//-->
+
+
+    .sg_popup_paper {
+        display: none;
+        text-align: center;
+    }
+
+    .sg_popup_paper_msg {
+        margin-bottom: 20px;
+    }
+
+
+
+        Set or reset password
+    
+
+
+
+
+
+
+
+var sg_cb_2_1555262814_3e3883e009 = new SupAjaxFactory.Callback('sg_cb_2_1555262814_3e3883e009');
+var sg_req_1_1555262814_3e3883e009 = new SupAjaxFactory.RequestMaker('sg_req_1_1555262814_3e3883e009', 'https://www.callofwar.com/', sg_cb_2_1555262814_3e3883e009, 'sendresetpasswordmail', 0, 'fileadmin/templates/supremacy_1914/images/loader.gif');
+sg_req_1_1555262814_3e3883e009.setEvalResponse(true);sg_req_1_1555262814_3e3883e009.setParam('titleID', '510', '510');
+
+
+
+    function submitForgotMail() {
+        prop.hideAllChecks();
+        sg_req_1_1555262814_3e3883e009.setParam('email', $('func_forgot_pwd_mail_field').value, '0');try{sg_req_1_1555262814_3e3883e009.performCall();}catch(e){alert(e);}
+    }
+
+
+    .name_check_error_box {
+        position: inherit;
+        margin: auto;
+        padding-bottom: 10px;
+        height: 20px;
+    }
+    .lp_forgot_pwd_check_wrapper {
+        position: inherit;
+    }
+
+
+Please enter the mail you used during your registration.
+
+
+
+ 
+
+
+
+
+Submit
+
+
+
+Close
+
+
+
+
+
+
+
+	forgotpwddialog_1Dialog = new Dialog.Box('forgotpwddialog_1', false, 1);
+	forgotpwddialog_1Dialog.setBackgroundHide(false);forgotpwddialog_1Dialog.setCurrentTime(1555262814);
+	forgotpwddialog_1Dialog.setOpacity(0.8);
+	
+	forgotpwddialog_1Dialog.setCenterPopup(1);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                            Login
+                        
+
+
+Forgot password?
+
+
+
+
+
+Login
+
+
+
+
+
+
+
+
+
+var isDown = false;
+document.getElementById('func_sg_loginform_button').onclick = function() {
+    if (isDown) {
+        isDown = false;
+        $$('div.expand_arrow').each(function(elem) {
+            elem.removeClassName('arrow_up');
+            elem.addClassName('arrow_down');
+        });
+        Effect.SlideUp('sg_loginform_form', {duration:0.3});
+    } else {
+        isDown = true;
+        Effect.SlideDown('sg_loginform_form', {duration:0.3});
+        setTimeout(function() { autoresize(document.getElementById('func_loginbutton'), false); }, 50);
+        $$('div.expand_arrow').each(function(elem) {
+            elem.removeClassName('arrow_down');
+            elem.addClassName('arrow_up');
+        });
+    }
+};
+
+var returningUserID = parseInt(readCookie('puid')) || 0;
+if (returningUserID > 0) {
+    document.getElementById('func_sg_loginform_button').click();
+}
+var marketingNotification = document.getElementById('marketing_retargeting_notification');
+if (marketingNotification) {
+    marketingNotification.onclick = function() {
+        document.getElementById('func_sg_loginform_button').click();
+    }
+}
+setTimeout(function() { autoresize(document.getElementById('func_loginbutton'), false); }, 50);
+
+
+
+var sg_cb_1_1555262814_4d2cafec42 = new SupAjaxFactory.Callback('sg_cb_1_1555262814_4d2cafec42');
+var sg_req_0_1555262814_4d2cafec42 = new SupAjaxFactory.RequestMaker('sg_req_0_1555262814_4d2cafec42', 'https://www.callofwar.com/', sg_cb_1_1555262814_4d2cafec42, 'loginPassword', 0, 'fileadmin/templates/supremacy_1914/images/loader.gif');
+sg_cb_1_1555262814_4d2cafec42.setTargetDiv('login_error_message');sg_req_0_1555262814_4d2cafec42.setParam('titleID', '510', '510');
+
+
+
+
+
+
+We use cookies to improve user experience and analyse game usage.
+        Some of the cookies used can be turned off ("optional cookies") while others are required to work at all times..
+		(See Privacy Policy)
+
+Ok
+
+
+
+	#cookieNotificationMain {
+		display: none;
+		font-size: 12px;
+		align-content: center;
+		justify-content: center;
+		text-align: center;
+		color: #dcd8c6;
+		background-color: rgba(46, 42, 37, 0.8);
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		left: 0;
+		padding: 3px;
+		z-index: 10;
+	}
+
+	#cookieNotificationMain .main_text {
+		align-self: center;
+	}
+
+	#cookieNotificationMain .accept_button {
+		align-self: center;
+		padding: 5px 25px;
+		border-radius: 2px;
+		color: #4c4839;
+		background-color: #dcd8c6;
+		margin-left: 20px;
+		cursor: pointer;
+	}
+
+	#cookieNotificationMain a {
+		color: #dcd8c6;
+	}
+
+
+	@media screen and (max-width: 500px) {
+		#cookieNotificationMain {
+			text-align: left;
+			padding: 3px 10px;
+			font-size: 11px;
+		}
+
+		#cookieNotificationMain .accept_button {
+			flex-shrink: 0;
+			padding: 5px 20px;
+		}
+	}
+
+
+    document.getElementById("cookiesAcceptButton").addEventListener("click", onUserAcceptedCookies);
+
+    /**
+     * Called when user accepts cookies
+     */
+    function onUserAcceptedCookies() {
+        document.cookie = "acceptedCookies=1; path=/";
+        document.getElementById("cookieNotificationMain").style.display = "none";
+        location.reload();
+    }
+
+    //Renders the cookies notification on the bottom
+    if (readCookie('acceptedCookies') != 1) {
+        var cookieNotificationElement = document.getElementById("cookieNotificationMain");
+        cookieNotificationElement.style.display = "flex";
+        var bottomBarElement = document.getElementById('bottomBar');
+        if (bottomBarElement) {
+            // cookieNotificationElement.style.bottom = bottomBarElement.offsetHeight + "px";
+            bottomBarElement.style.paddingBottom = '31px';
+        }
+    }
+
+BytroAnalytics.logLPBodyEnd()
+
+	.fb_connect {
+		float: none;
+	}
+
+	#cookieNotificationMain{
+		position: fixed;
+	}
+
+

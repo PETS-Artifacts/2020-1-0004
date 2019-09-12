@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+                <script>
+            var CM_cookieManager = (function() {
+    // our session cookie
+    const ignoredCookie = 'PHPSESSID=';
+    var cookieAlert = null;
+    var intervalId = -1;
+    var removedCookies = new Array();
+
+    var killCookies = function () {
+        var killCount = 0;
+        var lastCookiePropLength = document.cookie.length;
+        // nothing to kill
+        if (lastCookiePropLength === 0) return killCount;
+
+        document.cookie.split(";").forEach(function(c) {
+            // skip removal if cookie is out session cookie
+            if (c.indexOf(ignoredCookie) !== -1) return;
+
+            var kuki = c.replace(/^ +/, "");
+
+            var removeCookie = function (s) {
+                document.cookie = kuki.replace(/=.*/, "=" + sufix + ";expires=" + new Date().toUTCString());
+                if (document.cookie.length < lastCookiePropLength) {
+                    // successfully removed cookie
+                    lastCookiePropLength = document.cookie.length;
+                    removedCookies.push(kuki + s);
+                    //console.log(kuki + sufix);
+                    killCount++;
+                    return true;
+                }
+                return false;
+            }
+
+            var sufix = ";path=/";
+            if (removeCookie(sufix) == true) return;
+
+            var sufix = ";domain=." + location.host + ";path=/";
+            if (removeCookie(sufix) == true) return;
+
+            var sufix = ";domain=." + location.host.split('.').slice(-2).join(".") + ";path=/";;
+            if (removeCookie(sufix) == true) return;
+
+            //console.log('Couldn\'t kill cookie: ' + kuki);
+        });
+
+        //console.log('Neutralized: ' + killCount + ' cookie(s)');
+        return killCount;
+    }
+
+    return {
+        start: function () {
+            if (document.cookie.indexOf('CM_cookieConsent=1') === -1) {
+                killCookies();
+                var janOffset = new Date(new Date().getFullYear(), 0, 1).getTimezoneOffset();
+                var julOffset = new Date(new Date().getFullYear(), 6, 1).getTimezoneOffset();
+
+                // almost only EU countries in 0, +1 and +2 have DST
+                if (janOffset >= -120 && janOffset <= 0 && julOffset < janOffset) {
+                    var cookieDesc = Object.getOwnPropertyDescriptor(Document.prototype, 'cookie') ||
+                                    Object.getOwnPropertyDescriptor(HTMLDocument.prototype, 'cookie');
+                    if (cookieDesc && cookieDesc.configurable) {
+                        Object.defineProperty(document, 'cookie', {
+                            get: function () {
+                                return cookieDesc.get.call(document);
+                            },
+                            set: function (val) {
+                                //console.log('Proxy log: ' + val);
+                                if (val.indexOf('CM_cookieConsent') !== -1 || document.cookie.indexOf('CM_cookieConsent=1') !== - 1 || val.indexOf(ignoredCookie) !== -1) {
+                                    cookieDesc.set.call(document, val);
+                                } else {
+                                    removedCookies.push(val);
+                                }
+                            }
+                        });
+                    } else {
+                        // for Safari browsers we need to
+                        // check for cookies every second
+                        intervalId = setInterval(function () {
+                            killCookies();
+                        }, 1000);
+                    }
+                }
+            }
+        },
+        consent: function () {
+            //console.log('received consent');
+            if (intervalId !== -1) {
+                clearInterval(intervalId);
+            }
+
+            var cookieDate = new Date;
+            cookieDate.setFullYear(cookieDate.getFullYear() + 2);
+            var cookieExpString = cookieDate.toGMTString();
+            //console.log(cookieExpString);
+
+            document.cookie = 'CM_cookieConsent=1;expires=' + cookieExpString + ';domain=.' + location.host.split('.').slice(-2).join(".") + ';path=/';
+            var c = '';
+            while (c = removedCookies.pop()) {
+                //console.log(c + ';expires=' + cookieExpString);
+                document.cookie = c + ';expires=' + cookieExpString;
+            }
+        },
+        getRemoved: function () {
+            return removedCookies;
+        },
+        set: function (name) {
+            // cookies are set for 2 years since JS cannot read that data from original cookie
+            var cookieDate = new Date;
+            cookieDate.setFullYear(cookieDate.getFullYear() + 2);
+
+            var kuki = removedCookies.find(function (c) {
+                return (c.indexOf(name + '=') !== -1);
+            });
+
+            //console.log(kuki + ';expires=' + cookieDate.toGMTString());
+            document.cookie = kuki + ';expires=' + cookieDate.toGMTString();
+        }
+    }
+}) ();
+CM_cookieManager.start();        </script>
+                        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-6245439847571660",
+            enable_page_level_ads: true
+          });
+        </script>
+                <title>SteadyHealth.com</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link href="https://static.steadyhealth.com/third-party/bootstrap3/css/bootstrap.min.css" media="all" rel="stylesheet" type="text/css">
+        <link href="https://static.steadyhealth.com/themes/DefaultTheme/css/icons.css" media="all" rel="stylesheet" type="text/css">
+        <link href="https://static.steadyhealth.com/themes/DefaultTheme/css/style.css" media="all" rel="stylesheet" type="text/css">
+        <link href="https://static.steadyhealth.com/modules/static-pages/css/style.css" media="screen" rel="stylesheet" type="text/css">
+        <!--[if lt IE 9]><link href="https://static.steadyhealth.com/respond-proxy.html" id="respond-proxy" rel="respond-proxy"><![endif]-->
+        <link href="https://static.steadyhealth.com/modules/site/img/apple-favicon-144.png" rel="apple-touch-icon">
+        <link href="https://static.steadyhealth.com/modules/site/img/apple-favicon-57.png" rel="apple-touch-icon-precomposed" sizes="57x57">
+        <link href="https://static.steadyhealth.com/modules/site/img/apple-favicon-72.png" rel="apple-touch-icon-precomposed" sizes="72x72">
+        <link href="https://static.steadyhealth.com/modules/site/img/apple-favicon-114.png" rel="apple-touch-icon-precomposed" sizes="114x114">
+        <link href="https://static.steadyhealth.com/modules/site/img/apple-favicon-120.png" rel="apple-touch-icon-precomposed" sizes="120x120">
+        <link href="https://static.steadyhealth.com/modules/site/img/apple-favicon-144.png" rel="apple-touch-icon-precomposed" sizes="144x144">
+        <link href="https://static.steadyhealth.com/modules/site/img/apple-favicon-152.png" rel="apple-touch-icon-precomposed" sizes="152x152">
+        <link href="https://static.steadyhealth.com/modules/site/img/favicon.ico" rel="shortcut icon" type="image/x-icon">
+        <!--[if lt IE 9]><link href="https://www.steadyhealth.com/respond.proxy.gif" id="respond-redirect" rel="respond-redirect"><![endif]-->
+        <!--[if lt IE 9]><link href="https://static.steadyhealth.com/themes/DefaultTheme/css/old.css" media="all" rel="stylesheet" type="text/css"><![endif]-->            <script type="text/javascript">
+        var androidVersion = navigator.userAgent.match(/Android\s(\d+(?:\.\d+))/);
+        var isOldAndroid = (androidVersion) && (parseFloat(androidVersion[0].replace('Android ', '')) <= 4.0);
+
+        if (isOldAndroid) {
+            document.write('<link rel="stylesheet" type="text/css" href="https://static.steadyhealth.com/themes/DefaultTheme/css/old.css" />');
+        } else if (navigator.userAgent.indexOf('Opera Mini') > -1) {
+            document.write('<link rel="stylesheet" type="text/css" href="https://www.steadyhealth.com/themes/DefaultTheme/css/opera-mini.css" />');
+        }
+    </script>
+        <!--[if lt IE 9]><script type="text/javascript" src="https://static.steadyhealth.com/themes/DefaultTheme/js/html5shim.js"></script><![endif]-->
+        <!--[if lt IE 9]><script type="text/javascript" src="https://www.steadyhealth.com/themes/DefaultTheme/js/respond.min.js"></script><![endif]-->
+        <!--[if lt IE 9]><script type="text/javascript" src="https://www.steadyhealth.com/themes/DefaultTheme/js/respond.proxy.js"></script><![endif]-->        
+        <script type="text/javascript">
+          window._taboola = window._taboola || [];
+          _taboola.push({article:'auto'});
+          !function (e, f, u, i) {
+            if (!document.getElementById(i)){
+              e.async = 1;
+              e.src = u;
+              e.id = i;
+              f.parentNode.insertBefore(e, f);
+            }
+          }(document.createElement('script'),
+          document.getElementsByTagName('script')[0],
+          '//cdn.taboola.com/libtrc/steadyhealth/loader.js',
+          'tb_loader_script');
+          if(window.performance && typeof window.performance.mark == 'function')
+            {window.performance.mark('tbl_ic');}
+        </script>
+    </head>
+    
+    <body>
+        <!-- Google Tag Manager -->
+        <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-WNCVDT"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-WNCVDT');</script>
+        <!-- End Google Tag Manager -->
+
+        <div class="drawer-holder">
+            <div id="main-menu" class="drawer drawer-left">
+    <nav class="main-nav" role="navigation" data-src="https://www.steadyhealth.com/main-menu">
+        </nav> <!-- /.main-nav -->
+</div> <!-- /.drawer-wrap left -->                        <div class="drawer-block"></div>
+        </div> <!-- /.drawer-holder -->
+        
+        <div class="page">
+            <div class="navbar navbar-white">
+    <div class="navbar-header pull-left">
+                <button type="button" class="navbar-menu menu-toggle gtm-main-menu">
+            <i class="icon-menu"></i> <span>Menu</span>
+        </button>
+        
+        <a class="navbar-brand gtm-logo" href="https://www.steadyhealth.com/">
+            <img src="https://static.steadyhealth.com/themes/DefaultTheme/img/steadyhealth-logo.png" class="navbar-sign" width="200" height="51" alt="SteadyHealth.com">
+        </a>
+    </div> <!-- /.navbar-header -->
+    
+        <form name="navbar-search-form" class="navbar-form hidden-xs hidden-sm" role="search" action="https://www.steadyhealth.com/search">
+        <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5">
+            <div class="input-group">
+                <input type="text" name="q" required="required" data-min-search-character="3" title="The search term has to be longer than 3 characters." class="form-control" placeholder="Search SteadyHealth" data-skip-placeholder-fallback="1">
+
+                <span class="input-group-btn">
+                    <button class="btn btn-success btn-wide gtm-search" type="submit"><i class="icon-search"></i></button>
+                </span>
+            </div><!-- /.input-group -->
+        </div>            
+    </form>
+      
+    <!--[if lt IE 9]>
+    <script type="text/javascript">
+        /* compensate for IE8's lack of "required" attribute (HTML5) */
+        (function() {
+            var form = document.forms["navbar-search-form"];            
+            form.onsubmit=function() {
+                if(form["q"].value.length < 3) {
+                    form["q"].value = "The search term has to be longer than 3 characters.";
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+        })();
+    </script>
+    <![endif]-->
+    
+    <ul id="user-navigation" class="nav navbar-nav navbar-right">
+                    <li class="hidden-xs"><a href="https://www.steadyhealth.com/user/pre-register?redirect=https://www.steadyhealth.com/polices/privacy" class="btn btn-danger navbar-btn register-toggle gtm-nav-register">Register</a></li>
+        <li class="hidden-xs"><a href="https://www.steadyhealth.com/user/login?redirect=https://www.steadyhealth.com/polices/privacy" class="btn btn-success navbar-btn login-toggle gtm-nav-login">Login</a></li>
+        <div class="btn-group lang-switcher pull-right">
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Change Language">
+        EN <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu">
+        <li class="active">ENGLISH</li>
+        <li><a href="https://www.steadyhealth.com/de">DEUTSCH</a></li>
+        <li><a href="https://www.steadyhealth.com/es">ESPAÑOL</a></li>
+    </ul>
+</div>        </ul>
+</div> <!-- /.navbar -->            
+            
+            <div class="page-container">
+                <div id="flash-messages" class="flash-messages">
+                                    </div>
+        
+                <div class="row">
+                    <div class="col-xs-12">
+                        <main class="content">
+                                                        
+                            <div class="container-fluid">
+<ul class="nav nav-pills nav-justified gap-top">
+	<li><a href="/polices/aboutus/" rel="nofollow">About Us</a></li>
+	<li><a href="/polices/medical-team/" rel="nofollow">Medical Team</a></li>
+	<li><a href="/polices/registration-terms/" rel="nofollow">Terms of Service</a></li>
+	<li class="active"><a href="/polices/privacy/" rel="nofollow">Privacy Policy</a></li>
+	<li><a href="/polices/advertising/" rel="nofollow">Advertising Policy</a></li>
+	<li><a href="/faq" rel="nofollow">FAQ</a></li>
+</ul>
+
+<h1>SteadyHealth Community - Privacy Policy</h1>
+
+<p>LifeForm, Inc. ("LifeForm" "we," or "us") makes this Privacy Policy available to its users in order to inform you about the way in which we collect, use, disclose, and protect the data you share with SteadyHealth.com.</p>
+
+<h3 dir="ltr">Introduction</h3>
+
+<p dir="ltr">LifeForm provides an online public health-related community platform, SteadyHealth (www.steadyhealth.com), on which users are able to register a username and log in to participate in conversations with other registered and unregistered visitors of our website. By using our platform, software and website (collectively the "Service"), users indicate that they understand and consent to the terms of this Privacy Policy. You additionally indicate that you understand that the Service can, as a public platform, be accessed by any Internet user, who can read, repost, and search for any of the User Content (as defined in this Privacy Policy) users create.</p>
+
+<h3 dir="ltr">What information we collect</h3>
+
+<p dir="ltr">When you register to use the Service, you understand that we may collect Personally Identifiable Information including but not limited to your email address, username, and account ID as well as Non-Personally Identifiable Information such as your IP address, device ID, browser information, unique device identifiers ("UID"), and information about the website that referred you to SteadyHealth. We may likewise collect data related to your use of the Service, such as information about the content you viewed or interacted with, what pages you clicked on, and what images or articles you viewed.</p>
+
+<p dir="ltr">Personally Identifiable Information is collected when you share such information in connection with the Service, by registering with the Service or sending us an email. Users accessing the Service through third-party connections or log-ins including Facebook Connect, Google or Twitter, or who "follow," "like," or link such accounts to the Service, understand that the relevant third parties may pass Personally Identifiable Information to us.</p>
+
+<p dir="ltr">It is possible that we will automatically collect and use Non-Personally Identifiable Information by means of tracking technologies such as cookies and log files when users interact with the Service.</p>
+
+<h3 dir="ltr">Purposes for using information</h3>
+
+<p>We use information about you as mentioned above and for the purposes listed below:</p>
+
+<ul>
+	<li>To be able provide our Services – for example, setting up and maintaining your account;</li>
+	<li>To continue developing and improving our Services – for example by adding new features we believe our users will enjoy or to help them use our Services more effectively;</li>
+	<li>To monitor and analyze trends and improve our understanding of how users interact with our Services, which helps us improve our Services and make them easier to use;</li>
+	<li>To measure and improve the effectiveness of our advertising, and better understand user retention and attrition;</li>
+	<li>To monitor and prevent any problems with our Services, protect the security of our Services, detect and prevent abuse and other illegal activities, fight spam, and protect the rights and property of SteadyHealth and others, which may result in us declining the use of our Services;</li>
+	<li>To communicate with you, for example by email</li>
+</ul>
+
+<p dir="ltr">We may access, store, and disclose your Personally Identifiable Information, account information, and User Content (as defined below) where we believe it is required or appropriate to comply with law enforcement requests. We may also access, preserve, and disclose your Personally Identifiable Information, account information, and User Content if we believe such disclosure, in good faith, to be necessary to protect the rights, safety, or property of any relevant party, or in order to investigate fraud.</p>
+
+<p dir="ltr">Service user information may be sold or transferred, in accordance with the law, in case of a merger, acquisition, financing due diligence, reorganization, bankruptcy, receivership, sale of company assets, or transition of service to another provider.</p>
+
+<h3 dir="ltr">Cookies and logs</h3>
+
+<p dir="ltr">When you visit or use the Service, we may use persistent cookies, which remain on your hard drive after you close your browser, as well as session cookies which terminate when you close your browser. This allows our Service to recognize you, making it possible for you to log you in faster and enhancing your navigation through the site. Cookies may be disabled, but some features of the Service may not function properly if you choose to do this.</p>
+
+<p dir="ltr">Your browser automatically reports log file information every time you access a web page, and our servers may automatically record relevant log file information, including but not limited to your web request, IP address, browser type, and referring pages and URLs.</p>
+
+<h3 dir="ltr">Advertising and analytics</h3>
+
+<p dir="ltr">In order to comply with recent GDPR compliance we also updated our Advertising policy. Please check our <a href="https://www.steadyhealth.com/polices/advertising">Advertising Policy</a> to learn more.</p>
+
+<h3 dir="ltr">User content</h3>
+
+<p dir="ltr">We may collect and retain any posts, comments or other content you share through the Service ("User Content"). We treat this information as Personally Identifiable Information when it is combined and stored with Personally Identifiable Information. In all other cases, we treat it as Non-Personally Identifiable Information, even where the User Content itself may identify you.</p>
+
+<p dir="ltr">Should you terminate or deactivate your account with the Service, we may retain and continue to use the information we have collected from you, including User Content, indefinitely.</p>
+
+<p dir="ltr">User Content posted to the Service is available to the public and may be viewed and used by others. We are unable to control such uses of your User Content, and by using the Service you assume the risk that your User Content may be viewed and used by third parties.</p>
+
+<p dir="ltr">If you do not want people to be able to see any Personally Identifiable Information, such as your username, through the Service, you can request the anonymization and removal of your account by going to your Profile page, clicking on Edit Profile, and selecting the <strong>close account, anonymize my content, or close account and anonymize my content button </strong>at the bottom of the edit profile page. Please note that while the removal and anonymization of your account will remove any Personally Identifiable Information from your content, anyone who visits a page where you left a post will still be able to see your posts in an anonymized form.</p>
+
+<p dir="ltr">LifeForm reserves the right to monitor, moderate, and delete the User Content you post on the Service for any or no reason. This includes deleting material that violates or may violate the Service’s Terms of Service or the law, and removing content to protect or defend our rights or property or those of any third party. LifeForm also reserves the right to remove information upon the request of any third party.</p>
+
+<h3 dir="ltr">Privacy in public</h3>
+
+<p dir="ltr">Any information disclosed on the Service becomes public information. We advise you to keep in mind that all discussion board posts are subject to search engines with world-wide access to any reader. Do not post or offer your real name, email address, home address, telephone number, or any other contact information.</p>
+
+<p dir="ltr">Publicly sharing email addresses with people you have met online, including in private messages, can attract spammers that are difficult to control, so we emphatically advise you against doing this. We also recommend that you do not designate your real name, your unique email address, or the name of a website, as a your username. Should you decide to post personally embarrassing or sensitive content, in order to seek help or share information, please consider the possibility your username or the personal details you provide in your content could still be attributed to you indirectly by your friends, family, or potential employers. The best practice is to choose a username that cannot be linked to you. Keep your username anonymous.</p>
+
+<p dir="ltr">Information including, but not limited to, email addresses, mailing addresses, telephone numbers, names, websites or links, personal profile settings, signature, posts, surveys, polls, private messages, websites, and research studies will be removed without any prior notice, as defined in our Terms of Service.</p>
+
+<h3 dir="ltr">Your choices regarding collection of your information</h3>
+
+<p dir="ltr">All registered users may review, update or correct the Personally Identifiable Information provided in their registration or account profile by changing the "user preferences" in their account. You will find these options at the bottom of your profile page in edit mode:</p>
+
+<ul dir="ltr">
+	<li><strong>Close my account:</strong> If you close your account, your SteadyHealth profile will be deleted. Content you wrote will still be visible under your username.</li>
+	<li><strong>Anonymize my content: </strong>If you anonymize your content, your username will be removed from all the content you created up to this point. You can continue to write content, but your username will be attached to any future content you create.</li>
+	<li><strong>Close account and anonymize my content:</strong> If you close your account and anonymize your content, your SteadyHealth profile will be deleted. Any content that you submitted will no longer be published under your username.</li>
+</ul>
+
+<p dir="ltr">However, you understand and agree that we are not able to remove your Personally Identifiable Information from the records of any third party who has previously been provided with your information.</p>
+
+<p dir="ltr">You will continue to see targeted ads (interest-based ads) from our advertising partners. You can opt out of targeted advertising from third parties if they are members of the Network Advertising Initiative (NAI) or Participate in the Digital Advertising Alliance's Ad Choices Tool (DAA) by visiting the respective opt-out pages on the NAI or DAA websites.</p>
+
+<p dir="ltr">You may opt out of receiving subscription emails from us at any time by using the opt-out mechanism contained in such emails (the "unsubscribe" feature). You may also unsubscribe or manage your email subscription in Notification settings in the edit section of your Profile. Please note that unsubscribing from LifeForm emails will unsubscribe your from notification emails and digest emails. You will still receive transactional emails necessary for the LifeForm Service to function. These include, but may not be limited to, emails confirming the creation of a new account, emails helping you reset your password, etc.</p>
+
+<p dir="ltr">If you do not want to accept our cookies, you can adjust your browser settings to decline cookies. You should note, however, that certain areas of the Site may not operate properly if you decide not to accept cookies.</p>
+
+<h3 dir="ltr">Security</h3>
+
+<p dir="ltr">LifeForm uses commercially reasonable safeguards to preserve the integrity and security of all information collected through the Service, thereby safeguarding your safety and privacy. We take reasonable steps, such as requesting a unique password and requesting email verification, before granting you access to your account. Users themselves are responsible for maintaining the secrecy of their unique password and account information, and for controlling access to their email communications from LifeForm.</p>
+
+<p dir="ltr">We use secure socket layer technology (SSL) to encrypt sensitive information, such as your username and password. Despite these measures, LifeForm is unable to guarantee that any information you transmit to LifeForm through the Service cannot be accessed, disclosed, altered, or destroyed. Your privacy settings may additionally be altered by accessing the Service through a third parties such as social networks. LifeForm is not responsible for the functionality or security measures of any third party.</p>
+
+<h3 dir="ltr">Children's privacy</h3>
+
+<p dir="ltr">The Service is not intended for use by children under the age of 13. We do not knowingly permit children under the age of 13 to register an account, nor knowingly collect personal information from such persons. Should we learn that we have collected personal information from a child under the age of 13, we will delete it. If you believe that we might have collected personal information from a child under 13, please contact using the information below.</p>
+
+<h3 dir="ltr">International data transfers</h3>
+
+<p dir="ltr">Personally Identifiable Information and Non-Personally Identifiable Information that LifeForm collects may be transferred to and stored and processed in countries other than the country in which you reside, which means that laws different from the laws in your country may apply. LifeForm may transfer Personally Identifiable Information and Non-Personally Identifiable Information to Canada. By using the LifeForm Service, you consent to the transfer of your Personally Identifiable Information and Non-Personally Identifiable Information to other countries including Canada.</p>
+
+<p dir="ltr">European Union residents have the right to access, correct, or have removed from our systems any of your EU Personal Information that LifeForm may store. You may make such a request by contacting us only (link to form), or by postal mail to one of the addresses listed below, and we will respond to your requests in a timely manner.</p>
+
+<h3 dir="ltr">Contact</h3>
+
+<p dir="ltr">Users with any questions about this LifeForm Privacy Policy can contact us via the <a href="https://www.steadyhealth.com/contact">contact form</a>.</p>
+
+<h3 dir="ltr">Changes to Privacy Policy</h3>
+
+<p dir="ltr">LifeForm may, at its sole discretion, modify or update this Privacy Policy from time to time, so you should review this page periodically. When we change our policy, we will update the "last modified" date at the bottom of this page. Your continued use of the Site following the posting of any changes to this policy means you accept such changes.</p>
+
+<p dir="ltr">This Privacy Policy was last modified on &nbsp;May, 24th 2018.</p>
+
+<p dir="ltr">Click here to view the <a href="https://www.steadyhealth.com/polices/registration-terms">Terms of Service</a>.</p>
+<!-- .container-fluid --></div>                        </main> <!-- /.content -->
+                    </div> <!-- /.col-xs-12 col-sm-12 col-md-3 col-lg-3 -->
+                </div> <!-- /.row -->
+            </div> <!-- /.page-container -->
+            
+            <footer data-role="footer-placeholder" data-url="https://www.steadyhealth.com/footer" data-page-url="https://www.steadyhealth.com/polices/privacy"></footer>
+            
+                        
+            <div class="visible-xs visible-sm hidden-md"><a class="btn btn-default search-toggle gtm-search-toggle"><i class="icon-search"></i></a></div>
+        </div> <!-- /.page -->
+        
+        <script type="text/javascript" src="https://static.steadyhealth.com/js/jquery.min.js"></script>
+        <script type="text/javascript" src="https://static.steadyhealth.com/js/jquery.cookie.js"></script>
+        <script type="text/javascript" src="https://static.steadyhealth.com/third-party/bootstrap3/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="https://static.steadyhealth.com/js/jquery.autofocus.js"></script>
+        <script type="text/javascript" src="https://static.steadyhealth.com/js/jquery.form.min.js"></script>
+        <script type="text/javascript" src="https://static.steadyhealth.com/themes/DefaultTheme/js/script.js"></script>
+        <script type="text/javascript" src="https://static.steadyhealth.com/js/jquery.carouselWidget.js"></script>
+        <script type="text/javascript" src="https://static.steadyhealth.com/js/mobile-detect.min.js"></script>
+        <script type="text/javascript" src="https://static.steadyhealth.com/modules/advertising/js/ad-units.js"></script>
+        <script type="text/javascript">
+            //<!--
+            var MB = MB || {};
+            //-->
+        </script>
+        <script type="text/javascript" src="https://static.steadyhealth.com/modules/advertising/js/ad-units-data.js"></script>
+        <script type="text/javascript" src="https://static.steadyhealth.com/js/core.js"></script>
+        <script type="text/javascript">
+            //<!--
+            MB.Core.setBaseUrl("", "https://www.steadyhealth.com/"); MB.SEARCH_ON_EXIT_FORUMS = [];
+            //-->
+        </script>
+        <script type="text/javascript">
+            //<!--
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                })(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create', 'UA-61680583-30', 'auto');
+ga('send', 'pageview');
+
+            //-->
+        </script>        <script type="text/javascript">
+          window._taboola = window._taboola || [];
+          _taboola.push({flush: true});
+        </script>
+                <script>
+            (function () {
+    if (document.cookie.indexOf('CM_cookieConsent=1') === -1) {
+        var janOffset = new Date(new Date().getFullYear(), 0, 1).getTimezoneOffset();
+        var julOffset = new Date(new Date().getFullYear(), 6, 1).getTimezoneOffset();
+
+        // almost only EU countries in 0, +1 and +2 have DST
+        if (janOffset >= -120 && janOffset <= 0 && julOffset < janOffset) {
+            var cookieAlert = document.createElement('div');
+            cookieAlert.style.cssText = 'position:fixed;left:0;right:0;bottom:0;padding:0.8em;background-color:lightgrey;font-size:0.9em;color:black;z-index:10000;';
+            var text = document.createTextNode("SteadyHealth.com uses session cookie on some pages to allow you to interact \
+            with the website. This cookie doesn't include your private data for profiling or tracking. Storing of \
+            all other cookies on your device is prevented until you give us explicit consent. \
+            By continuing to browse this website you agree with our ");
+            cookieAlert.appendChild(text);
+            var link = document.createElement('a');
+            link.style.cssText = 'font-weight: bold;'
+            link.setAttribute('href', "https://www.steadyhealth.com/polices/privacy");
+            link.appendChild(document.createTextNode('Privacy Policy.'));
+            cookieAlert.appendChild(link);
+
+            var btnWrapper = document.createElement('div');
+            btnWrapper.style.cssText = 'padding: 0.5em;';
+
+            var buttonConsent = document.createElement('div');
+            buttonConsent.appendChild(document.createTextNode('I CONSENT'));
+            buttonConsent.style.cssText = 'display: inline-block;border: 1px solid black;border-radius: 5px;cursor: pointer;margin-left: 1em;padding: 0.5em; font-weight: bold';
+            var iConsent = function () {
+                CM_cookieManager.consent(true);
+                document.body.removeChild(cookieAlert);
+            }
+            buttonConsent.onclick = function () { iConsent(); }
+            btnWrapper.appendChild(buttonConsent);
+
+            var buttonClose = document.createElement('div');
+            buttonClose.appendChild(document.createTextNode('CLOSE'));
+            buttonClose.style.cssText = 'display: inline-block;border: 1px solid gray;border-radius: 5px;cursor: pointer;color: gray;margin-left: 1em;padding: 0.5em';
+            var removeAlert = function () {
+                document.body.removeChild(cookieAlert);
+            }
+            buttonClose.onclick = function () { removeAlert(); }
+            btnWrapper.appendChild(buttonClose);
+
+            cookieAlert.appendChild(btnWrapper);
+            document.body.appendChild(cookieAlert);
+        }
+    }
+}) ();        </script>
+            </body>
+</html>

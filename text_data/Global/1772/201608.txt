@@ -1,0 +1,628 @@
+
+
+
+
+
+
+Progarchives.com Privacy Policy
+
+
+
+
+
+
+
+
+
+
+	(function(doc) {
+		var viewport = document.getElementById('viewport');
+		if ( navigator.userAgent.match(/iPad/i) ) {
+			doc.getElementById("viewport").setAttribute("content", "initial-scale=1");
+		}
+	}(document));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-579843-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+
+.discographyStar{width:70px;margin:0 auto;}.discographyStarAjaxLoader{margin-left:0px;text-align:center;}
+
+function generateReadOnlyStarbox(element, average) {
+    document.observe('dom:loaded', function() {
+        new Starbox(element, average, { locked: true, ghosting: true });
+    });
+}
+
+function generateQuickRatingStarbox(element, average, username) {
+	if(username == "-1") {
+		generateQuickRatingOffStarbox(element, average);
+	} else {
+		generateQuickRatingOnStarbox(element, average);
+	}
+}
+
+function generateQuickRatingOnStarbox(element, average) {
+    document.observe('dom:loaded', function() {
+        new Starbox(element, average,
+            { locked: false,
+                ghosting: true,
+                buttons: 5,
+                rerate: true,
+                color: '#850000',
+                onRate: function(element, memo) {
+
+					var strElementId = element.id.toString();
+					var ratingDivId = strElementId.substring(strElementId.indexOf('_') + 1, strElementId.lastIndexOf('_'));
+                    var albumId = strElementId.substring(strElementId.lastIndexOf('_') + 1);
+
+                    document.getElementById('readOnlyRating_' + ratingDivId + '_' + albumId).className = 'discographyStarAjaxLoader';
+                    document.getElementById('readOnlyRating_' + ratingDivId + '_' + albumId).innerHTML = '<img width=\"14\" height=\"14\" style=\"border:0; margin:0; padding:0;\" src=\'/static-images/ajax-loader.gif\' alt=\'\'/>';
+
+                    new Ajax.Request('/ajax/QuickRating.asp?icdid=' + albumId + '&irate=' + memo.rated, {
+                        method: 'get',
+                        onSuccess: function(transport) {
+                            var json = transport.responseText.evalJSON();
+
+                            document.getElementById('readOnlyRating_' + ratingDivId + '_' + albumId).className = 'discographyStar';
+                            new Starbox('readOnlyRating_' + ratingDivId + '_' + albumId, json.QuickRating.avgRatings, { locked: true });
+
+                            document.getElementById('nbRatings_' + ratingDivId).innerHTML = json.QuickRating.nbRatings;
+                            document.getElementById('avgRatings_' + ratingDivId).innerHTML = json.QuickRating.avgRatings;
+                        }
+                    });
+                }
+            }
+        );
+    });
+}
+
+function generateQuickRatingOffStarbox(element, average) {
+    document.observe('dom:loaded', function() {
+        new Starbox(element, average,
+            { locked: false,
+                ghosting: true,
+                buttons: 5,
+                rerate: true,
+                color: '#850000',
+                onRate: function(element, memo) {
+				}
+            }
+        );
+
+		new Tip(element, "Tooltips can be set to show on click.", {
+						title: "Logon required",
+						style: 'logon',
+						ajax: {
+							url: 'ajax/QuickRatingLogon.asp?redirect=http://www.progarchives.com/PrivacyPolicy.asp?',
+							options: {
+								onComplete: function(transport) {
+									// you could do something here after the ajax call is finished
+								}
+							}
+						},
+						closeButton: true,
+						showOn: 'click',
+						hideOn: { element: 'closeButton', event: 'click'},
+						stem: 'bottomMiddle',
+						hook: { target: 'topMiddle', tip: 'bottomMiddle' },
+						offset: { x: 0, y: -2 },
+						width: 300
+					});
+    });
+}
+
+
+var _comscore = _comscore || [];
+_comscore.push({ c1: "2", c2: "9290245" });
+(function() {
+var s = document.createElement("script"), el = document.getElementsByTagName("script")[0]; s.async = true;
+s.src = (document.location.protocol == "https:" ? "https://sb" : "http://b") + ".scorecardresearch.com/beacon.js";
+el.parentNode.insertBefore(s, el);
+})();
+
+
+
+
+
+  window._taboola = window._taboola || [];
+  _taboola.push({article:'auto'});
+  !function (e, f, u) {
+    e.async = 1;
+    e.src = u;
+    f.parentNode.insertBefore(e, f);
+  }(document.createElement('script'),
+  document.getElementsByTagName('script')[0],
+  '//cdn.taboola.com/libtrc/musicalarchives-progarchives/loader.js');
+
+
+
+
+// AdSense Tracking -> Analytics
+window.google_analytics_uacct = "UA-579843-1";
+
+
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '131943541722',
+      xfbml      : true,
+      version    : 'v2.2'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+
+
+
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-0447992028883143",
+    enable_page_level_ads: true
+  });
+
+
+
+
+ HOME
+ FORUMS 
+ PROG ROCK GUIDES
+ LOG IN
+ PROG RADIOS
+ PROG LINKS
+ FAQ
+ ABOUT US
+
+
+
+
+ PROG ROCK GUIDES
+ LOG IN
+ PROG RADIOS
+ ROG LINKS
+ FAQ
+ ABOUT US
+
+
+
+
+
+
+
+
+PROG SUB-GENRES:
+Canterbury Scene
+Crossover Prog
+Eclectic Prog
+Experimental/Post Metal
+Heavy Prog
+Indo-Prog/Raga Rock
+Jazz Rock/Fusion
+Krautrock
+Neo-Prog
+Post Rock/Math Rock
+Prog Folk
+Progressive Electronic
+Progressive Metal
+Psychedelic/Space Rock
+RIO/Avant-Prog
+Rock Progressivo Italiano
+Symphonic Prog
+Tech/Extreme Prog Metal
+Zeuhl
+Various Genres/Artists
+Prog Related
+Proto-Prog
+
+
+
+
+POPULAR ARTISTS (TOP 50, LAST 24H) :
+Pineapple Thief
+Nova Incepta
+Seti
+Timelight
+Dodson and Fogg
+Marillion
+Axon-Neuron
+King Crimson
+Shamblemaths
+Opeth
+Thors Hammer
+Robert Fripp
+Caravan
+Yes
+Druid
+Fates Warning
+Dream Theater
+Gotic
+Camel
+Porcupine Tree
+Van Der Graaf Generator
+Genesis
+Gentle Giant
+Deep Purple
+Pink Floyd
+Various Artists (Concept albums & Themed compilations)
+Emerson Lake & Palmer
+Gryphon
+Big Big Train
+Frank Zappa
+Rush
+Thank You Scientist
+Fairport Convention
+Love De Vice
+Jethro Tull
+IQ
+Karmakanic
+Fish
+Steve Hackett
+Supertramp
+Kansas
+Steven Wilson
+Tangerine Dream
+Anderson/Stolt
+Uriah Heep
+Hypnos 69
+The Beatles
+Meshuggah
+Aperco
+Fufluns
+
+
+
+
+ARTISTS:
+A
+B
+C
+D
+E
+F
+G
+H
+I
+J
+K
+L
+M
+N
+O
+P
+Q
+R
+S
+T
+U
+V
+W
+X
+Y
+Z
+#
+VA: SAMPLERS
+VA: CONCEPT ALBUMS
+VA: TRIBUTES
+ALL
+
+
+
+
+MISC:
+Top Prog Albums
+Top 2015 Albums
+Top DVDs
+TOP 100 (with MP3)
+Videos
+Interviews
+Gigs Reviews
+Active Topics
+
+Review,
+MP3,
+Video
+
+
+
+
+
+PROG SHOPPING:
+Doug Larson's Imports
+LPCDreissues.com
+Prog @ Ebay
+Prog @ Amazon
+Prog @ CDUniverse
+
+Prog Books @ Amazon
+
+
+
+
+
+
+
+
+
+
+discography
+forum
+
+
+
+
+
+
+
+
+
+	<!--
+	document.write('<scr'+'ipt language="javascript1.1" src="http://adserver.adtechus.com/addyn/3.0/5110/1294397/0/225/ADTECH;loc=100;target=_blank;key=key1+key2+key3+key4;grp=[group];misc='+new Date().getTime()+'"></scri'+'pt>');
+	//-->
+	
+
+
+
+
+Privacy Policy
+Last Updated: October, 09 2008
+BY USING
+PROGARCHIVES.COM YOU SIGNIFY YOUR CONSENT WITH THE PROGARCHIVES .COM
+ONLINE PRIVACY POLICY AS SET FORTH BELOW
+Progarchives.com is
+committed to protecting the privacy of our customers and the users of
+our Web sites.
+
+This page gives you the
+details of our privacy policy, including: what information we collect
+about you when you use the Progarchives.com; what organization is
+collecting the information; how the information will be used or
+disclosed; what choices are available to you regarding collection and
+use of the information; what security measures are in place to
+protect your personal information; and how you can correct any
+inaccuracies in the information.
+
+This policy applies to all
+Progarchives.com websites, including /forum. The Progarchives.com
+sites contain links to other third party sites, including ecommerce
+partners. Progarchives.com is not responsible for the privacy
+practices or the content of such third party Web sites. You should
+carefully review the privacy policies of those Web sites in order to
+determine how they treat your personal information.
+YOUR INFORMATION: WHAT
+WE COLLECT, HOW WE COLLECT IT, AND HOW IT IS USED
+Much of the information on
+our sites is offered without Progarchives.com collecting any
+personally identifiable information from you. To use the
+Progarchives.com sites, you are not required to provide any
+personally identifiable information whatsoever. You can navigate many
+features of Progarchives.com and view some of our content
+anonymously. Accessing posting content features available on
+Progarchives.com/forum/ requires registration.
+Any information we do gather
+on our site falls into two categories: (1) personal information that
+you supply when you register, complete a survey, enter a contest, or
+provide your e-mail address in order to receive newsletters and
+announcements, and (2) tracking information collected as you navigate
+through our sites.
+
+Personally identifiable
+informationTo use certain features of the Progarchives.com
+site, we ask you to register. When you do this, we collect personally
+identifiable information about you such as your name, location,
+e-mail address, telephone number, and password. We use this
+information to process your registration, your request to receive
+newsletters and email announcements, or to voluntarily participate in
+surveys or contests. We also collect this data in aggregate form to
+better understand our user base in order to be able to improve our
+site features and functionality. When personally identifiable
+information is collected, you will know because you will have to fill
+out a form. Progarchives.com does not sell, trade or rent your
+personal information to others.
+Aggregate
+informationWhen you use any of the Progarchives.com sites, we
+may collect tracking information such as your browser type, the type
+of operating system you use, the domain name of your Internet service
+provider, and pages visited on the site. None of this information
+identifies you personally; we collect it for aggregate reporting of
+on site activity. For example, we may want to know how long the
+average user spends on our site, or which features get the most
+attention. We use this information to make the site more useful to
+you.
+Progarchives.com may provide
+aggregate statistics about our users, traffic patterns and related
+site information to reputable third-party vendors, but these
+statistics do not include personally-identifiable information.
+
+Tracking
+information -- cookies, Web bugs, and IP addressesTo store
+and track user information, we use "cookies" and “clear
+GIFs,” which are also sometimes called “Web bugs”
+or “Web beacons.” Cookies alone do not tell us your
+e-mail address or other personally identifiable information unless
+you opt to provide this information to us by, for example,
+registering to use enhanced content features on the Progarchives.com
+site. A cookie is data sent to your browser from a Web server. It is
+stored on your computer's hard drive, and contains a unique
+identifier that allows our sites to recognize your computer. If you
+are a Registered Member, a cookie on your computer lets us remember
+your user name and password so you don't have to re-enter that
+information each time you visit the site. It also helps us to ensure
+that a Registered Member’s account is only accessed and used by
+the account owner.
+
+The use of cookies is
+standard on the Internet, and you will find they are currently used
+by many major Web sites. You can set your Web browser preferences to
+alert you when a cookie is sent to your hard drive, or to refuse
+cookies altogether. We do not require you to use cookies, but please
+keep in mind that certain features and services will not function
+properly if you set your browser to refuse cookies.
+
+“Clear GIFs” are
+very small image files that we sometimes place on Web pages and
+within Web-based email newsletters or other communication we send.
+Together with cookies, Clear GIFs let us accurately count the number
+of unique users who have visited specific pages and the number of
+times those pages are accessed. Clear GIFs also let us know how many
+people opened a Web-based email newsletter. This information is only
+collected in aggregate form, and Progarchives.com does not link this
+information to any personally identifiable information you provide
+us.
+
+Third party advertiser
+cookiesWe use third-party advertising companies to serve our ads
+on the Internet. These third-party advertising companies employ
+cookie and Clear GIFs to measure and improve the effectiveness of ads
+for their clients. To do so, these companies may use anonymous
+information about your visits to our sites and other Web sites. This
+information can include: date and time of ad shown, the banner ad
+that was shown, their cookie, and the IP address. This information
+can also be used for online preference marketing purposes.
+Progarchives.com also use the DoubleClick DART cookie: The DoubleClick DART cookie is used by Google in the ads served on publisher websites displaying AdSense for content ads. When users visit an AdSense publisher's website and either view or click on an ad, a cookie may be dropped on that end user's browser. The data gathered from these cookies will be used to help AdSense publishers better serve and manage the ads on their site(s) and across the web.
+So by accepting this site policy you also accept that:
+
+Google, as a third party vendor, uses cookies to serve ads on your site.
+Google's use of the DART cookie enables it to serve ads to your users based on their visit to your sites and other sites on the Internet.
+Users may opt out of the use of the DART cookie by visiting the Google ad and content network privacy policy.
+
+
+Progarchives.com does not use or have access to this information.
+
+In order to make
+Progarchives.com a more valuable site for our Registered Members and
+visitors, Progarchives.com also collects and analyze statistical
+information. From time to time, we will share this information in
+aggregate with third parties. This data is reported only in aggregate
+and reveals no personal details about individual visitors to our
+site.
+
+If you want to prevent a
+third-party advertiser from setting or reading cookies on your
+computer, you can either visit each ad network's Web site
+individually and opt out, or go to the National Advertising
+Initiative ("NAI") Web site and opt-out of all network
+advertising cookies. Click
+here for the NAI
+opt-out site. This site will also allow you to review the privacy
+policies of third-party advertising companies.
+
+SECURITY
+Progarchives.com uses
+commercially reasonable efforts to safeguard the confidentiality of
+your personally identifiable information. However, due to the design
+of the Internet, ever-changing technology and other factors outside
+of our control, we cannot guarantee that communications between you
+and our servers will be free from unauthorized access by third
+parties. Progarchives.com will have no liability for disclosure of
+personally identifiable information due to errors in transmission or
+unauthorized or unlawful acts of third parties.
+
+COMMITMENT TO
+CHILDREN’S PRIVACY
+Protecting the privacy of
+children is important to Progarchives.com. For that reason, none of
+our Web sites are structured specifically to attract anyone under 13,
+nor do we collect or maintain personally identifiable information at
+our sites from those who we actually know are under 13. Should we
+learn or be notified that we have collected information from users
+under the age of 13, we will immediately delete such personally
+identifiable information.
+
+CHANGING YOUR PERSONAL
+INFORMATION & PREFERENCES
+Your Right to ChooseWhen
+you register to access Progarchives.com/forum/ posting content
+features, you can let us know that you do not wish to receive
+announcements from us by opting out at the time you give us your
+personally identifiable information. All newsletters and email
+announcements from Progarchives.com will contain an “unsubscribe”
+link that also allows you to opt out at any time.
+Review and CorrectionYou
+may review and update the personally identifiable information that
+you have provided us by visiting the Member Center and updating your
+Account Profile.
+
+OTHER DISCLOSURE OF
+PERSONAL INFORMATION
+Progarchives.com will not
+otherwise use or disclose your personal information without your
+consent except as described in this privacy policy, or as required by
+court order or other government or law enforcement authorities in
+order to comply with legal process or law; in order to protect
+against the misuse or unauthorized use of Progarchives.com sites on
+the Web; in order to protect and defend our rights and property; or
+in order to protect the personal safety or property of our users or
+the public.
+YOUR CONSENT
+BY USING PROGARCHIVES.COM
+YOU SIGNIFY YOUR CONSENT WITH THE PROGARCHIVES.COM ONLINE PRIVACY
+POLICY. 
+
+CHANGES
+Progarchives.com will
+occasionally update this Privacy Policy in response to changing
+business circumstances and legal developments. Any revisions to the
+Policy will be reflected by a change in the date in the “Last
+Updated” line at the top of this page. If there are material
+changes to this Policy or in how we treat your personally
+identifiable information, Progarchives.com will prominently post such
+changes thirty (30) days prior to implementing the change, and will
+notify all Registered Members by email. Progarchives.com encourages
+you to periodically review this Policy to be informed of how we are
+protecting your information.
+
+CONTACT US 
+
+Progarchives.com welcomes
+your questions and comments regarding our privacy and security
+practices. You can reach by visiting the Contact Us page, or by
+mail:Progarchives.com460, 29e rueVille
+de Saint-GeorgesQuébec, CanadaG5Y 4H6
+
+
+
+
+
+
+
+	<!--
+	document.write('<scr'+'ipt language="javascript1.1" src="http://adserver.adtechus.com/addyn/3.0/5110/1294397/0/225/ADTECH;loc=100;target=_blank;key=key1+key2+key3+key4;grp=[group];misc='+new Date().getTime()+'"></scri'+'pt>');
+	//-->
+	
+
+
+
+Copyright Prog Archives, All rights reserved. | Legal Notice | Privacy Policy | Advertise | RSS + syndications
+
+
+Other sites in the MAC network: JazzMusicArchives.com — jazz music reviews and archives | MetalMusicArchives.com — metal music reviews and archives
+
+
+
+
+
+

@@ -1,0 +1,426 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="https://www.facebook.com/2008/fbml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"VQUGVVVXCxACVVRSAAUCXw=="};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o||e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(t,e,n){function r(t){try{c.console&&console.log(t)}catch(e){}}var o,i=t("ee"),a=t(15),c={};try{o=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(c.console=!0,o.indexOf("dev")!==-1&&(c.dev=!0),o.indexOf("nr_dev")!==-1&&(c.nrDev=!0))}catch(s){}c.nrDev&&i.on("internal-error",function(t){r(t.stack)}),c.dev&&i.on("fn-err",function(t,e,n){r(n.stack)}),c.dev&&(r("NR AGENT IN DEVELOPMENT MODE"),r("flags: "+a(c,function(t,e){return t}).join(", ")))},{}],2:[function(t,e,n){function r(t,e,n,r,o){try{d?d-=1:i("err",[o||new UncaughtException(t,e,n)])}catch(c){try{i("ierr",[c,(new Date).getTime(),!0])}catch(s){}}return"function"==typeof f&&f.apply(this,a(arguments))}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function o(t){i("err",[t,(new Date).getTime()])}var i=t("handle"),a=t(16),c=t("ee"),s=t("loader"),f=window.onerror,u=!1,d=0;s.features.err=!0,t(1),window.onerror=r;try{throw new Error}catch(l){"stack"in l&&(t(8),t(7),"addEventListener"in window&&t(5),s.xhrWrappable&&t(9),u=!0)}c.on("fn-start",function(t,e,n){u&&(d+=1)}),c.on("fn-err",function(t,e,n){u&&(this.thrown=!0,o(n))}),c.on("fn-end",function(){u&&!this.thrown&&d>0&&(d-=1)}),c.on("internal-error",function(t){i("ierr",[t,(new Date).getTime(),!0])})},{}],3:[function(t,e,n){t("loader").features.ins=!0},{}],4:[function(t,e,n){function r(t){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var o=t("ee"),i=t("handle"),a=t(8),c=t(7),s="learResourceTimings",f="addEventListener",u="resourcetimingbufferfull",d="bstResource",l="resource",p="-start",h="-end",m="fn"+p,w="fn"+h,v="bstTimer",y="pushState";t("loader").features.stn=!0,t(6);var g=NREUM.o.EV;o.on(m,function(t,e){var n=t[0];n instanceof g&&(this.bstStart=Date.now())}),o.on(w,function(t,e){var n=t[0];n instanceof g&&i("bst",[n,e,this.bstStart,Date.now()])}),a.on(m,function(t,e,n){this.bstStart=Date.now(),this.bstType=n}),a.on(w,function(t,e){i(v,[e,this.bstStart,Date.now(),this.bstType])}),c.on(m,function(){this.bstStart=Date.now()}),c.on(w,function(t,e){i(v,[e,this.bstStart,Date.now(),"requestAnimationFrame"])}),o.on(y+p,function(t){this.time=Date.now(),this.startPath=location.pathname+location.hash}),o.on(y+h,function(t){i("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),f in window.performance&&(window.performance["c"+s]?window.performance[f](u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["c"+s]()},!1):window.performance[f]("webkit"+u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["webkitC"+s]()},!1)),document[f]("scroll",r,!1),document[f]("keypress",r,!1),document[f]("click",r,!1)}},{}],5:[function(t,e,n){function r(t){for(var e=t;e&&!e.hasOwnProperty(u);)e=Object.getPrototypeOf(e);e&&o(e)}function o(t){c.inPlace(t,[u,d],"-",i)}function i(t,e){return t[1]}var a=t("ee").get("events"),c=t(17)(a,!0),s=t("gos"),f=XMLHttpRequest,u="addEventListener",d="removeEventListener";e.exports=a,"getPrototypeOf"in Object?(r(document),r(window),r(f.prototype)):f.prototype.hasOwnProperty(u)&&(o(window),o(f.prototype)),a.on(u+"-start",function(t,e){var n=t[1],r=s(n,"nr@wrapped",function(){function t(){if("function"==typeof n.handleEvent)return n.handleEvent.apply(n,arguments)}var e={object:t,"function":n}[typeof n];return e?c(e,"fn-",null,e.name||"anonymous"):n});this.wrapped=t[1]=r}),a.on(d+"-start",function(t){t[1]=this.wrapped||t[1]})},{}],6:[function(t,e,n){var r=t("ee").get("history"),o=t(17)(r);e.exports=r,o.inPlace(window.history,["pushState","replaceState"],"-")},{}],7:[function(t,e,n){var r=t("ee").get("raf"),o=t(17)(r),i="equestAnimationFrame";e.exports=r,o.inPlace(window,["r"+i,"mozR"+i,"webkitR"+i,"msR"+i],"raf-"),r.on("raf-start",function(t){t[0]=o(t[0],"fn-")})},{}],8:[function(t,e,n){function r(t,e,n){t[0]=a(t[0],"fn-",null,n)}function o(t,e,n){this.method=n,this.timerDuration="number"==typeof t[1]?t[1]:0,t[0]=a(t[0],"fn-",this,n)}var i=t("ee").get("timer"),a=t(17)(i),c="setTimeout",s="setInterval",f="clearTimeout",u="-start",d="-";e.exports=i,a.inPlace(window,[c,"setImmediate"],c+d),a.inPlace(window,[s],s+d),a.inPlace(window,[f,"clearImmediate"],f+d),i.on(s+u,r),i.on(c+u,o)},{}],9:[function(t,e,n){function r(t,e){d.inPlace(e,["onreadystatechange"],"fn-",c)}function o(){var t=this,e=u.context(t);t.readyState>3&&!e.resolved&&(e.resolved=!0,u.emit("xhr-resolved",[],t)),d.inPlace(t,w,"fn-",c)}function i(t){v.push(t),h&&(g=-g,b.data=g)}function a(){for(var t=0;t<v.length;t++)r([],v[t]);v.length&&(v=[])}function c(t,e){return e}function s(t,e){for(var n in t)e[n]=t[n];return e}t(5);var f=t("ee"),u=f.get("xhr"),d=t(17)(u),l=NREUM.o,p=l.XHR,h=l.MO,m="readystatechange",w=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],v=[];e.exports=u;var y=window.XMLHttpRequest=function(t){var e=new p(t);try{u.emit("new-xhr",[e],e),e.addEventListener(m,o,!1)}catch(n){try{u.emit("internal-error",[n])}catch(r){}}return e};if(s(p,y),y.prototype=p.prototype,d.inPlace(y.prototype,["open","send"],"-xhr-",c),u.on("send-xhr-start",function(t,e){r(t,e),i(e)}),u.on("open-xhr-start",r),h){var g=1,b=document.createTextNode(g);new h(a).observe(b,{characterData:!0})}else f.on("fn-end",function(t){t[0]&&t[0].type===m||a()})},{}],10:[function(t,e,n){function r(t){var e=this.params,n=this.metrics;if(!this.ended){this.ended=!0;for(var r=0;r<d;r++)t.removeEventListener(u[r],this.listener,!1);if(!e.aborted){if(n.duration=(new Date).getTime()-this.startTime,4===t.readyState){e.status=t.status;var i=o(t,this.lastSize);if(i&&(n.rxSize=i),this.sameOrigin){var a=t.getResponseHeader("X-NewRelic-App-Data");a&&(e.cat=a.split(", ").pop())}}else e.status=0;n.cbTime=this.cbTime,f.emit("xhr-done",[t],t),c("xhr",[e,n,this.startTime])}}}function o(t,e){var n=t.responseType;if("json"===n&&null!==e)return e;var r="arraybuffer"===n||"blob"===n||"json"===n?t.response:t.responseText;return h(r)}function i(t,e){var n=s(e),r=t.params;r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.sameOrigin=n.sameOrigin}var a=t("loader");if(a.xhrWrappable){var c=t("handle"),s=t(11),f=t("ee"),u=["load","error","abort","timeout"],d=u.length,l=t("id"),p=t(14),h=t(13),m=window.XMLHttpRequest;a.features.xhr=!0,t(9),f.on("new-xhr",function(t){var e=this;e.totalCbs=0,e.called=0,e.cbTime=0,e.end=r,e.ended=!1,e.xhrGuids={},e.lastSize=null,p&&(p>34||p<10)||window.opera||t.addEventListener("progress",function(t){e.lastSize=t.loaded},!1)}),f.on("open-xhr-start",function(t){this.params={method:t[0]},i(this,t[1]),this.metrics={}}),f.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),f.on("send-xhr-start",function(t,e){var n=this.metrics,r=t[0],o=this;if(n&&r){var i=h(r);i&&(n.txSize=i)}this.startTime=(new Date).getTime(),this.listener=function(t){try{"abort"===t.type&&(o.params.aborted=!0),("load"!==t.type||o.called===o.totalCbs&&(o.onloadCalled||"function"!=typeof e.onload))&&o.end(e)}catch(n){try{f.emit("internal-error",[n])}catch(r){}}};for(var a=0;a<d;a++)e.addEventListener(u[a],this.listener,!1)}),f.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),f.on("xhr-load-added",function(t,e){var n=""+l(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),f.on("xhr-load-removed",function(t,e){var n=""+l(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),f.on("addEventListener-end",function(t,e){e instanceof m&&"load"===t[0]&&f.emit("xhr-load-added",[t[1],t[2]],e)}),f.on("removeEventListener-end",function(t,e){e instanceof m&&"load"===t[0]&&f.emit("xhr-load-removed",[t[1],t[2]],e)}),f.on("fn-start",function(t,e,n){e instanceof m&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=(new Date).getTime()))}),f.on("fn-end",function(t,e){this.xhrCbStart&&f.emit("xhr-cb-time",[(new Date).getTime()-this.xhrCbStart,this.onload,e],e)})}},{}],11:[function(t,e,n){e.exports=function(t){var e=document.createElement("a"),n=window.location,r={};e.href=t,r.port=e.port;var o=e.href.split("://");!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=e.hostname||n.hostname,r.pathname=e.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname);var i=!e.protocol||":"===e.protocol||e.protocol===n.protocol,a=e.hostname===document.domain&&e.port===n.port;return r.sameOrigin=i&&(!e.hostname||a),r}},{}],12:[function(t,e,n){function r(){}function o(t,e,n){return function(){return i(t,[(new Date).getTime()].concat(c(arguments)),e?null:this,n),e?void 0:this}}var i=t("handle"),a=t(15),c=t(16),s=t("ee").get("tracer"),f=NREUM;"undefined"==typeof window.newrelic&&(newrelic=f);var u=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit"],d="api-",l=d+"ixn-";a(u,function(t,e){f[e]=o(d+e,!0,"api")}),f.addPageAction=o(d+"addPageAction",!0),f.setCurrentRouteName=o(d+"routeName",!0),e.exports=newrelic,f.interaction=function(){return(new r).get()};var p=r.prototype={createTracer:function(t,e){var n={},r=this,o="function"==typeof e;return i(l+"tracer",[Date.now(),t,n],r),function(){if(s.emit((o?"":"no-")+"fn-start",[Date.now(),r,o],n),o)try{return e.apply(this,arguments)}finally{s.emit("fn-end",[Date.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,e){p[e]=o(l+e)}),newrelic.noticeError=function(t){"string"==typeof t&&(t=new Error(t)),i("err",[t,(new Date).getTime()])}},{}],13:[function(t,e,n){e.exports=function(t){if("string"==typeof t&&t.length)return t.length;if("object"==typeof t){if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if(!("undefined"!=typeof FormData&&t instanceof FormData))try{return JSON.stringify(t).length}catch(e){return}}}},{}],14:[function(t,e,n){var r=0,o=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);o&&(r=+o[1]),e.exports=r},{}],15:[function(t,e,n){function r(t,e){var n=[],r="",i=0;for(r in t)o.call(t,r)&&(n[i]=e(r,t[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],16:[function(t,e,n){function r(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(o<0?0:o);++r<o;)i[r]=t[e+r];return i}e.exports=r},{}],17:[function(t,e,n){function r(t){return!(t&&t instanceof Function&&t.apply&&!t[a])}var o=t("ee"),i=t(16),a="nr@original",c=Object.prototype.hasOwnProperty,s=!1;e.exports=function(t,e){function n(t,e,n,o){function nrWrapper(){var r,a,c,s;try{a=this,r=i(arguments),c="function"==typeof n?n(r,a):n||{}}catch(f){l([f,"",[r,a,o],c])}u(e+"start",[r,a,o],c);try{return s=t.apply(a,r)}catch(d){throw u(e+"err",[r,a,d],c),d}finally{u(e+"end",[r,a,s],c)}}return r(t)?t:(e||(e=""),nrWrapper[a]=t,d(t,nrWrapper),nrWrapper)}function f(t,e,o,i){o||(o="");var a,c,s,f="-"===o.charAt(0);for(s=0;s<e.length;s++)c=e[s],a=t[c],r(a)||(t[c]=n(a,f?c+o:o,i,c))}function u(n,r,o){if(!s||e){var i=s;s=!0;try{t.emit(n,r,o)}catch(a){l([a,n,r,o])}s=i}}function d(t,e){if(Object.defineProperty&&Object.keys)try{var n=Object.keys(t);return n.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(r){l([r])}for(var o in t)c.call(t,o)&&(e[o]=t[o]);return e}function l(e){try{t.emit("internal-error",e)}catch(n){}}return t||(t=o),n.inPlace=f,n.flag=a,n}},{}],ee:[function(t,e,n){function r(){}function o(t){function e(t){return t&&t instanceof r?t:t?s(t,c,i):i()}function n(n,r,o){if(!l.aborted){t&&t(n,r,o);for(var i=e(o),a=h(n),c=a.length,s=0;s<c;s++)a[s].apply(i,r);var f=u[y[n]];return f&&f.push([g,n,r,i]),i}}function p(t,e){v[t]=h(t).concat(e)}function h(t){return v[t]||[]}function m(t){return d[t]=d[t]||o(n)}function w(t,e){f(t,function(t,n){e=e||"feature",y[n]=e,e in u||(u[e]=[])})}var v={},y={},g={on:p,emit:n,get:m,listeners:h,context:e,buffer:w,abort:a,aborted:!1};return g}function i(){return new r}function a(){(u.api||u.feature)&&(l.aborted=!0,u=l.backlog={})}var c="nr@context",s=t("gos"),f=t(15),u={},d={},l=e.exports=o();l.backlog=u},{}],gos:[function(t,e,n){function r(t,e,n){if(o.call(t,e))return t[e];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return t[e]=r,r}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],handle:[function(t,e,n){function r(t,e,n,r){o.buffer([t],r),o.emit(t,e,n)}var o=t("ee").get("handle");e.exports=r,r.ee=o},{}],id:[function(t,e,n){function r(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:a(t,i,function(){return o++})}var o=1,i="nr@id",a=t("gos");e.exports=r},{}],loader:[function(t,e,n){function r(){if(!b++){var t=g.info=NREUM.info,e=d.getElementsByTagName("script")[0];if(setTimeout(f.abort,3e4),!(t&&t.licenseKey&&t.applicationID&&e))return f.abort();s(v,function(e,n){t[e]||(t[e]=n)}),c("mark",["onload",a()],null,"api");var n=d.createElement("script");n.src="https://"+t.agent,e.parentNode.insertBefore(n,e)}}function o(){"complete"===d.readyState&&i()}function i(){c("mark",["domContent",a()],null,"api")}function a(){return(new Date).getTime()}var c=t("handle"),s=t(15),f=t("ee"),u=window,d=u.document,l="addEventListener",p="attachEvent",h=u.XMLHttpRequest,m=h&&h.prototype;NREUM.o={ST:setTimeout,CT:clearTimeout,XHR:h,REQ:u.Request,EV:u.Event,PR:u.Promise,MO:u.MutationObserver},t(12);var w=""+location,v={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-998.min.js"},y=h&&m&&m[l]&&!/CriOS/.test(navigator.userAgent),g=e.exports={offset:a(),origin:w,features:{},xhrWrappable:y};d[l]?(d[l]("DOMContentLoaded",i,!1),u[l]("load",r,!1)):(d[p]("onreadystatechange",o),u[p]("onload",r)),c("mark",["firstbyte",a()],null,"api");var b=0},{}]},{},["loader",2,10,4,3]);</script>
+<title>Privacy Statement</title>
+
+			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<link rel="shortcut icon" href="/favicon.ico"/>
+	<link rel="stylesheet" href="http://ed486fb3a47f8bd83fc3-2f69aaeddb7b46c0053eff946dbce2fe.r70.cf5.rackcdn.com/style/main-style.css "/>
+	<!--[if IE 8]>
+		<link rel="stylesheet" href="http://ed486fb3a47f8bd83fc3-2f69aaeddb7b46c0053eff946dbce2fe.r70.cf5.rackcdn.com/style/ie8.css"/>
+	<![endif]-->
+	<!--[if IE 7]>
+		<link rel="stylesheet" href="http://ed486fb3a47f8bd83fc3-2f69aaeddb7b46c0053eff946dbce2fe.r70.cf5.rackcdn.com/style/ie7.css"/>
+	<![endif]-->
+	<!--[if IE 6]>
+		<link rel="stylesheet" href="http://ed486fb3a47f8bd83fc3-2f69aaeddb7b46c0053eff946dbce2fe.r70.cf5.rackcdn.com/style/ie6.css"/>
+	<![endif]-->
+	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
+	<script type='text/javascript' src="http://ed486fb3a47f8bd83fc3-2f69aaeddb7b46c0053eff946dbce2fe.r70.cf5.rackcdn.com/scripts/odmp-0.4.min.js"></script>
+	<script type='text/javascript' src="http://ed486fb3a47f8bd83fc3-2f69aaeddb7b46c0053eff946dbce2fe.r70.cf5.rackcdn.com/scripts/jquery-ui-1.8.16.custom.min.js"></script>
+
+	<meta property="og:title" content="Privacy Statement" />
+	<meta property="og:type" content="article" />
+	<meta property="og:url" content="http://www.odmp.org/info/privacy-statement" />
+	<meta property="og:image" content="http://www.odmp.org/images/emblem_p.jpg" />
+	<meta property="og:image:width" content="250" />
+	<meta property="og:image:height" content="250" />
+	<meta property="og:site_name" content="The Officer Down Memorial Page (ODMP)" />
+	<meta property="fb:admins" content="1445030156" />
+	<link rel="alternate" type="application/rss+xml" title="ODMP RSS Feed" href="http://www.odmp.org/feed" />
+
+
+	<!-- Google DFP -->
+	<script type='text/javascript'>
+	var googletag = googletag || {};
+	googletag.cmd = googletag.cmd || [];
+	(function() {
+	var gads = document.createElement('script');
+	gads.async = true;
+	gads.type = 'text/javascript';
+	var useSSL = 'https:' == document.location.protocol;
+	gads.src = (useSSL ? 'https:' : 'http:') +
+	'//www.googletagservices.com/tag/js/gpt.js';
+	var node = document.getElementsByTagName('script')[0];
+	node.parentNode.insertBefore(gads, node);
+	})();
+	</script>
+
+	<script type='text/javascript'>
+	googletag.cmd.push(function() {
+	googletag.defineSlot('/4944013/info_page_banner_468x60', [468, 60], 'div-gpt-ad-1345668658689-0').addService(googletag.pubads());
+	googletag.defineSlot('/4944013/sidebar_250', [250, 250], 'div-gpt-ad-1345668658689-1').addService(googletag.pubads());
+	googletag.pubads().enableSingleRequest();
+	googletag.enableServices();
+	});
+	</script>	<!-- /Google DFP -->
+
+</head>
+
+<body>
+
+
+<div id="container">
+	<div id="container-top-strip">
+    	<div id="top-strip-nav">
+		<form method="get" action="http://www.odmp.org/search">
+		<input type="hidden" name="ref" value="global" />
+					<a href="/profile/login">Login</a> |
+						        <a href="http://www.odmp.org/info/about-odmp">About Us</a> |
+		<a href="http://www.odmp.org/contact">Contact Us</a> |
+		<a href="http://www.odmp.org/search?ref=head">Search</a> <input type="text" name="query" class="large" />
+		Connect With ODMP
+			<a href="http://www.facebook.com/OfficerDown" target="_new"><img src="http://ed486fb3a47f8bd83fc3-2f69aaeddb7b46c0053eff946dbce2fe.r70.cf5.rackcdn.com/images/icon_facebook.png" alt="Facebook" width="21" height="22" border="0" /></a>
+			<a href="http://twitter.com/odmp" target="_new"><img src="http://ed486fb3a47f8bd83fc3-2f69aaeddb7b46c0053eff946dbce2fe.r70.cf5.rackcdn.com/images/icon_twitter.png" alt="Twitter" width="23" height="22" border="0" /></a>
+		</form>
+
+        </div><!-- /top-strip-nav -->
+    </div><!-- /container-top-strip -->
+
+    <div id ="container-inner">
+
+		<div id="header">
+			<div id="logo">
+				<a href="http://www.odmp.org/"><img src="http://ed486fb3a47f8bd83fc3-2f69aaeddb7b46c0053eff946dbce2fe.r70.cf5.rackcdn.com/images/logo.png" alt="Officer Down Memorial Page" width="544" height="100"/></a><h1 class="visuallyhidden">Officer Down Memorial Page</h1>
+			</div><!-- /logo -->
+
+			<div id="tagline">
+			"When a police officer is killed, it's not an agency that loses an officer, it's an entire nation." -Chris Cosgriff, ODMP Founder
+  			</div><!-- /tagline -->
+		</div><!-- /header -->
+
+		<div id="main">
+			<div id="main_content">
+<!-- top nav -->
+				<div id="top_nav">
+
+				<script type="text/javascript">
+					function setoffset(e,x,y) {
+						e.style.backgroundPosition=x+'px '+y+'px';
+					}
+				</script>
+
+				<ul id="main_nav">
+					<li><a href="http://www.odmp.org/"><span><img class="nav_home" src="http://ed486fb3a47f8bd83fc3-2f69aaeddb7b46c0053eff946dbce2fe.r70.cf5.rackcdn.com/images/pixel.gif" width="102" height="47" border="0" alt="Home"onmouseover="setoffset(this,0,-47)" onmouseout="setoffset(this,0,0)"></span></a></li>
+					<li><img class="nav_sep" src="http://ed486fb3a47f8bd83fc3-2f69aaeddb7b46c0053eff946dbce2fe.r70.cf5.rackcdn.com/images/pixel.gif" width="1" height="47"></li>
+					<li><a href="http://www.odmp.org/search"><span><img class="nav_officers" src="http://ed486fb3a47f8bd83fc3-2f69aaeddb7b46c0053eff946dbce2fe.r70.cf5.rackcdn.com/images/pixel.gif" width="181" height="47" border="0" alt="The Officers" onmouseover="setoffset(this,-104,-47)" onmouseout="setoffset(this,-104,0)"></span></a>
+						<ul>
+							<li><a href="http://www.odmp.org/search">Search for any Officer or Agency</a></li>
+							<li><a href="http://www.odmp.org/search/year/2017">Current Year Deaths</a></li>
+							<li><a href="http://www.odmp.org/search/browse">Browse by State</a></li>
+							<li><a href="http://www.odmp.org/search/this_day_in_history">Today in History</a></li>
+							<li><a href="http://www.odmp.org/search/historical">Recently Discovered</a></li>
+							<li><a href="http://canada.odmp.org" target="_new">ODMP Canada</a></li>
+							<li><a href="http://www.odmp.org/contact/submit_officer">Report a Fallen Officer &gt;</a>
+							<ul>
+								<li><a href="http://www.odmp.org/contact/submit_officer">Online Submission Form</a></li>
+								<li><a href="http://www.odmp.org/info/criteria-for-inclusion">Criteria for Inclusion</a></li>
+								<li><a href="http://www.odmp.org/info/criteria-for-inclusion-k9s">Criteria for Inclusion for K9s</a></li>
+								<li><a href="http://www.odmp.org/contact/submit_canines">Canine Submission Form</a></li>
+							</ul>
+							</li>
+
+						</ul>
+					</li>
+				<li><img class="nav_sep" src="http://ed486fb3a47f8bd83fc3-2f69aaeddb7b46c0053eff946dbce2fe.r70.cf5.rackcdn.com/images/pixel.gif" width="1" height="47"></li>
+				<li><a href="http://www.odmp.org/profile/register"><span><img class="nav_resources" src="http://ed486fb3a47f8bd83fc3-2f69aaeddb7b46c0053eff946dbce2fe.r70.cf5.rackcdn.com/images/pixel.gif" alt="Resources" width="135" height="47" border="0" onmouseover="setoffset(this,-286,-47)" onmouseout="setoffset(this,-286,0)"></span></a>
+					<ul>
+						<li><a href="http://www.odmp.org/profile/register">Subscribe to LODD Notifications</a></li>
+						<li><a href="http://www.odmp.org/noparole">No Parole for Cop Killers</a></li>
+						<li><a href="http://www.odmp.org/info/free-bulletproof-vest-partnerships">Free Bullet Proof Vests</a></li>
+						<li><a href="http://www.odmp.org/info/officer-safety-posters">Officer Safety Posters</a></li>
+						
+												<li><a href="http://www.odmp.org/info/mourning-band-protocol">Mourning Band Protocol</a></li>
+						<li><a href="http://www.odmp.org/info/genealogy-resources">Genealogy Resources</a></li>
+						<li><a href="http://blog.odmp.org">ODMP Blog</a></li>
+						<li class="last hasmore"><a href="http://www.odmp.org/feed">LODD RSS Feed</a></li>
+					</ul>
+				</li>
+				<li><img class="nav_sep" src="http://ed486fb3a47f8bd83fc3-2f69aaeddb7b46c0053eff946dbce2fe.r70.cf5.rackcdn.com/images/pixel.gif" width="1" height="47"></li>
+				<li><a href="http://www.odmp.org/donate/front-line-club"><span><img class="nav_involved" src="http://ed486fb3a47f8bd83fc3-2f69aaeddb7b46c0053eff946dbce2fe.r70.cf5.rackcdn.com/images/pixel.gif" alt="Get Involved" width="155" height="47" border="0" onmouseover="setoffset(this,-422,-47)" onmouseout="setoffset(this,-422,0)"></span></a>
+					<ul>
+						<li><a href="http://www.odmp.org/donate/front-line-club">Front Line Club</a></li>
+						<li class="last"><a href="http://www.odmp.org/info/events">Events &gt;</a>
+						<ul>
+							<li><a href="http://www.leunited.org" target="_new">Law Enforcement United Ride</a></li>
+							<li><a href="http://www.nationalpoliceweek5k.com" target="_new">National Police Week 5K</a></li>
+							<li><a href="http://officerdownmemorialride.com/" target="_new">Officer Down Memorial Ride</a></li>
+							
+						</ul>
+						</li>
+						<li class="last hasmore"><a href="http://www.odmp.org/agency/missing_patches">List of Missing Patches</a></li>
+					</ul>
+				</li>
+				<li><img class="nav_sep" src="http://ed486fb3a47f8bd83fc3-2f69aaeddb7b46c0053eff946dbce2fe.r70.cf5.rackcdn.com/images/pixel.gif" width="1" height="47"></li>
+				<li><a href="http://www.odmp.org/k9"><span><img class="nav_blog" src="http://ed486fb3a47f8bd83fc3-2f69aaeddb7b46c0053eff946dbce2fe.r70.cf5.rackcdn.com/images/pixel.gif" alt="Blog" width="95" height="47" border="0" onmouseover="setoffset(this,-578,-47)" onmouseout="setoffset(this,-578,0)"></span></a></li>
+				<li><img class="nav_sep" src="http://ed486fb3a47f8bd83fc3-2f69aaeddb7b46c0053eff946dbce2fe.r70.cf5.rackcdn.com/images/pixel.gif" width="1" height="47"></li>
+				<li><a href="/donate"><span><img class="nav_donate" src="http://ed486fb3a47f8bd83fc3-2f69aaeddb7b46c0053eff946dbce2fe.r70.cf5.rackcdn.com/images/pixel.gif" alt="Donate" width="111" height="47" border="0" onmouseover="setoffset(this,-674,-47)" onmouseout="setoffset(this,-674,0)"></span></a>
+					<ul>
+						<li><a href="/donate">Donate Online</a></li>
+						<li><a href="http://ed486fb3a47f8bd83fc3-2f69aaeddb7b46c0053eff946dbce2fe.r70.cf5.rackcdn.com/pdfs/donate.pdf">Donate By Mail</a></li>
+						<li class="last"><a href="http://www.odmp.org/info/law-enforcement-united">Donors &gt; Law Enforcement United</a></li>
+					</ul>
+				</li>
+				<li><img class="nav_sep" src="http://ed486fb3a47f8bd83fc3-2f69aaeddb7b46c0053eff946dbce2fe.r70.cf5.rackcdn.com/images/pixel.gif" width="1" height="47"></li>
+				<li><a href="http://store.odmp.org" target="_new"><span><img class="nav_store" src="http://ed486fb3a47f8bd83fc3-2f69aaeddb7b46c0053eff946dbce2fe.r70.cf5.rackcdn.com/images/pixel.gif" alt="ODMP Store" width="155" height="47" border="0" onmouseover="setoffset(this,-786,-47)" onmouseout="setoffset(this,-786,0)"></span></a></li>
+			</ul>
+		</div><!-- /top-nav -->
+
+<div id="middlecontainer">
+	<div id="feature">
+		<div id="secondary-layout-content-head">
+			<div id="secondary-layout-content-head-body">
+				Privacy Statement			</div>
+		</div>
+				
+		<div id="secondary-layout-one-column-content">
+
+			<div id="secondary-layout-one-column-body"><div id="callout_box">
+<p>The Officer Down Memorial Page, Inc., (ODMP) is strongly committed to protecting the privacy of its online visitors. Personally identifiable information about individuals is not collected, except when it is knowingly provided by such individuals. The terms of this privacy policy shall govern all interactions with the Officer Down Memorial Page, Inc., either through the ODMP website or e-mail. A link to this privacy policy can be found on most pages throughout the ODMP website. By using the ODMP website or communicating with the ODMP by e-mail, you agree to the terms of this policy.</p>
+</div>
+<p>&nbsp;</p>
+
+<h4>INFORMATION PROVIDED BY VISITORS</h4>
+
+<p>The Officer Down Memorial Page website can be used without registering or submitting any personal information. However, in order to gain access to certain features of the site and the ODMP e-mail newsletters, you will be required to register.</p>
+
+<p>If you decide to register, you may be required to provide personal information that may include a user name and password, your name, e-mail address, postal address, and telephone number. We store all information provided, along with your other preferences, on our secured server.</p>
+
+<h4>INFORMATION AUTOMATICALLY COLLECTED</h4>
+
+<p>The Officer Down Memorial Page, Inc., utilizes cookies to collect non-personal information when you request pages through your browser. Cookies are used to collect aggregate information for site traffic analysis, such as the number of visitors and the number of pages viewed. The information collected helps the ODMP monitor how visitors use the site, allowing us to tailor the design to visitors' needs and preferences. The website has been designed to provide nearly full functionality without cookies, but some features will not be available without cookies. Refer to your web browser's instructions if you desire to reject the cookies.</p>
+
+<p>Cookies for registered users allow you immediate access to certain features on the website. These cookies include a session identifier that we can map to your personal information on our secure server. Your personal information will never be transmitted across the Internet from the website, except when you initially submit it or modify it.</p>
+
+<h4>E-MAIL COMMUNICATION</h4>
+
+<p>The Officer Down Memorial Page, Inc., regularly sends newsletters and special announcements to registered users. Registered users may subscribe or unsubscribe to the ODMP mailing lists at any time.</p>
+
+<h4>SHARING OF INFORMATION</h4>
+
+<p>Personal information collected by the Officer Down Memorial Page, Inc., is never shared with third-party organizations except as defined in this section. In certain circumstances, memorial information collected by the ODMP may be shared with the National Lew Enforcement Officers Memorial Fund, Inc., or Concerns of Police Survivors, Inc. This sharing of information will only take place in the event that direct action is needed for those organizations to begin their process of honoring fallen law enforcement officers.</p>
+
+<p>In situations involving a perceived threat against law enforcement officers, all information collected about the individual who transmitted the threat will be provided to the appropriate law enforcement agency for investigation. &nbsp;Any activity which is suspected of being in violation of United States federal or state law may be reported, along with personally identifying information, to appropriate law enforcement agencies.</p>
+
+<h4>REVISIONS</h4>
+
+<p>The Officer Down Memorial Page, Inc., may revise this Privacy Policy at any time. You are encouraged to visit this page periodically to review our current policy.</p>
+
+<p>Rev. 2/2012</p></div>
+			<div class="clear"></div>
+			&nbsp;
+		</div>
+
+		<div id="secondary-layout-content-footer-ad">
+			<!-- Google DFP ad unit -->
+<center>
+<!-- info_page_banner_468x60 -->
+<div id='div-gpt-ad-1345668658689-0' style='width:468px; height:60px;'>
+<script type='text/javascript'>
+googletag.cmd.push(function() { googletag.display('div-gpt-ad-1345668658689-0'); });
+</script>
+</div>
+</center>
+<!-- /Google DFP ad unit -->		</div><!-- secondary-layout-content-footer-ad -->		
+
+		<div id="secondary-layout-content-footer">
+			<img width="654" height="17" src="http://ed486fb3a47f8bd83fc3-2f69aaeddb7b46c0053eff946dbce2fe.r70.cf5.rackcdn.com/images/two_col_bottom_filled.png">
+		</div>
+				
+	</div>
+
+	    <!-- right column -->
+	<div id="right-col">
+		<div id="lodd-notice-head">
+			&nbsp;
+        </div>
+      	<div id="lodd-notice">
+        	<ul class="recent-additions">
+								<li>
+					<a href="http://www.odmp.org/officer/23101-police-officer-michael-louviere">Westwego Police Department<br />
+					Louisiana ~ January 20, 2017</a>
+				</li>
+								<li>
+					<a href="http://www.odmp.org/officer/23100-police-officer-raymond-murrell">Bloomingdale Police Department<br />
+					Illinois ~ January 19, 2017</a>
+				</li>
+								<li>
+					<a href="http://www.odmp.org/officer/23099-deputy-sheriff-colt-eugene-allery">Rolette County Sheriff's Office<br />
+					North Dakota ~ January 18, 2017</a>
+				</li>
+								<li>
+					<a href="http://www.odmp.org/officer/23098-sheriff-stephen-lawrence-ackerman">Lea County Sheriff's Office<br />
+					New Mexico ~ January 17, 2017</a>
+				</li>
+								<li>
+					<a href="http://www.odmp.org/officer/23095-detective-jerry-walker">Little Elm Police Department<br />
+					Texas ~ January 17, 2017</a>
+				</li>
+				   			</ul>
+        </div>
+
+        <div id="lodd-notice-footer">
+        	&nbsp;
+        </div>
+        
+        <!----- officer search button ----->
+        <div><a href="http://www.odmp.org/search/year/2017?ref=sidebar"><img src="http://ed486fb3a47f8bd83fc3-2f69aaeddb7b46c0053eff946dbce2fe.r70.cf5.rackcdn.com/images/but_all_2017_deaths.png" alt="All 2017 Deaths" width="292" height="66" border="0" /></a></div>
+        
+					<!-- sidebar_250 -->
+<div id='div-gpt-ad-1345668658689-1' style='width:250px; height:250px; margin:auto; padding-bottom:10px;'>
+<script type='text/javascript'>
+googletag.cmd.push(function() { googletag.display('div-gpt-ad-1345668658689-1'); });
+</script>
+</div>
+<!-- </div> -->
+<!-- <div id="sidebar-stats-footer">&nbsp;</div> -->
+
+<!----- 2017 statistics ----->
+<div id="sidebar-stats-head" style="background-image:url(http://ed486fb3a47f8bd83fc3-2f69aaeddb7b46c0053eff946dbce2fe.r70.cf5.rackcdn.com/images/sidebar/sidebar-stats-head-2017.png">
+
+</div>
+   
+   
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('.sidebar-slideshow').cycle({
+			fx: 'fade' // choose your transition type, ex: fade, scrollUp, shuffle, etc...
+		});
+	});
+</script>
+
+<div class="sidebar-slideshow">
+
+	
+	<div id="sidebar-stats">
+		<table cellpadding="0" cellspacing="0" border="0">
+			<tr>
+				<td valign="bottom" align="left" width="158">Line of duty deaths this year</td>
+				<td valign="top" align="center" width="134" rowspan="2">
+											<a href="http://www.odmp.org/search/year"><img src="http://ed486fb3a47f8bd83fc3-2f69aaeddb7b46c0053eff946dbce2fe.r70.cf5.rackcdn.com/images/arrow-red-large.png" width="104" height="134" border="0" /></a>
+									</td>
+			</tr>
+			<tr>
+				<td valign="bottom" align="left" width="158">
+					<div id="stats-graph">
+						<div id="stats-graph-left">10</div>
+						<div id="stats-graph-right">
+														<span class="redText">+150%</span>
+													</div>
+						<div class="clear">&nbsp;</div>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</div><!-- /sidebar-stats -->
+
+	<div id="sidebar-stats">
+		<table cellpadding="0" cellspacing="0" border="0">
+			<tr>
+				<td valign="bottom" align="left" width="158">Gunfire deaths this year</td>
+				<td valign="top" align="center" width="134" rowspan="2">
+											<a href="http://www.odmp.org/search/year"><img src="http://ed486fb3a47f8bd83fc3-2f69aaeddb7b46c0053eff946dbce2fe.r70.cf5.rackcdn.com/images/arrow-red-large.png" width="104" height="134" border="0" /></a>
+									</td>
+			</tr>
+			<tr>
+				<td valign="bottom" align="left" width="158">
+					<div id="stats-graph">
+						<div id="stats-graph-left">5</div>
+						<div id="stats-graph-right">
+														<span class="redText">+150%</span>
+													</div>
+						<div class="clear">&nbsp;</div>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</div><!-- /sidebar-stats -->
+
+	<div id="sidebar-stats">
+		<table cellpadding="0" cellspacing="0" border="0">
+			<tr>
+				<td valign="bottom" align="left" width="158">Auto-related deaths this year</td>
+				<td valign="top" align="center" width="134" rowspan="2">
+											<a href="http://www.odmp.org/search/year"><img src="http://ed486fb3a47f8bd83fc3-2f69aaeddb7b46c0053eff946dbce2fe.r70.cf5.rackcdn.com/images/arrow-red-large.png" width="104" height="134" border="0" /></a>
+									</td>
+			</tr>
+			<tr>
+				<td valign="bottom" align="left" width="158">
+					<div id="stats-graph">
+						<div id="stats-graph-left">4</div>
+						<div id="stats-graph-right">
+														<span class="redText">+300%</span>
+													</div>
+						<div class="clear">&nbsp;</div>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</div><!-- /sidebar-stats -->
+	
+		
+</div><!-- /sidebar-slideshow -->
+
+<div id="sidebar-stats-footer">&nbsp;</div>
+
+<!-- LODD notices button -->
+<div id="sidebar-button"><a href="http://www.odmp.org/profile/register"><img src="http://ed486fb3a47f8bd83fc3-2f69aaeddb7b46c0053eff946dbce2fe.r70.cf5.rackcdn.com/images/but_lodd_notice.png" alt="LODD Notifications" title="Subscribe to LODD Notifications" width="279" height="46" border="0" /></a></div>
+        
+<!-- memorial gifts button -->
+<div id="sidebar-button"><a href="http://store.odmp.org" target="_new"><img src="http://ed486fb3a47f8bd83fc3-2f69aaeddb7b46c0053eff946dbce2fe.r70.cf5.rackcdn.com/images/but_memorial_gifts.png" alt="Memorial Gifts" title="Memorial Gifts &amp; Keepsakes" width="279" height="46" border="0" /></a></div>
+
+<!-- front line club button -->
+<div id="sidebar-button"><a href="http://www.odmp.org/info/front-line-club"><img src="http://ed486fb3a47f8bd83fc3-2f69aaeddb7b46c0053eff946dbce2fe.r70.cf5.rackcdn.com/images/but_front_line_club.png" alt="Front Line Club" title="Join the Front Line Club" width="279" height="46" border="0" /></a></div>
+        
+<!-- officer safety posters -->
+<div id="sidebar-button"><a href="http://www.odmp.org/info/officer-safety-posters"><img src="http://ed486fb3a47f8bd83fc3-2f69aaeddb7b46c0053eff946dbce2fe.r70.cf5.rackcdn.com/images/but_officer_safety_posters.png" alt="Officer Safety Posters" title="Download Free Officer Safety Posters" width="279" height="46" border="0" /></a></div>
+
+<!-- donate button -->
+<div id="sidebar-button"><a href="http://www.odmp.org/donate"><img src="http://ed486fb3a47f8bd83fc3-2f69aaeddb7b46c0053eff946dbce2fe.r70.cf5.rackcdn.com/images/but_donate.png" alt="Donate" title="Donate to ODMP" width="279" height="46" border="0" /></a></div>
+
+<div id="sidebar-button"><a href="http://www.odmp.org/noparole"><img src="http://ed486fb3a47f8bd83fc3-2f69aaeddb7b46c0053eff946dbce2fe.r70.cf5.rackcdn.com/images/but_no_parole.png" alt="No Parole For Cop Killers" width="279" height="46" border="0" /></a></div>
+			</div> <!-- /right-col -->             
+	<div class="clear"></div>  
+	
+</div><!-- /middlecontainer -->
+
+<p>&nbsp;</p>
+
+</div>
+</div><!-- /main_content -->
+</div><!-- /main -->
+
+<div id="footer">
+	<div id="footer-left"></div>
+
+	<div id="footer-right"><a href="http://www.odmp.org/info/terms-of-use">Terms of Use</a> | <a href="http://www.odmp.org/info/privacy-statement">Privacy Statement</a><div id="copyright">Copyright &copy; 1996-2017, The Officer Down Memorial Page, Inc</div></div>
+</div>
+
+</div><!-- /container-inner -->
+</div><!-- /container -->
+
+
+	<!-- Google Analytics -->
+	<script type="text/javascript">
+
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-758330-2']);
+	  _gaq.push(['_setDomainName', '.odmp.org']);
+	  _gaq.push(['_trackPageview']);
+
+	  (function() {
+	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+
+	</script>
+	
+	<script type="text/javascript">
+		window.google_analytics_uacct = "UA-758330-2";
+	</script>
+	<!-- End Google Analytics -->
+	
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"aa61f47bfd","applicationID":"21507459","transactionName":"YgNVYBMCCEZTVUZfWltJdlcVCglbHX5dW1BFB1BRTgoIU10=","queueTime":0,"applicationTime":8,"atts":"TkRWFlsYG0g=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>

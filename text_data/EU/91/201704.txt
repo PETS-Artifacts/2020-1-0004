@@ -1,0 +1,199 @@
+
+
+
+
+
+
+Ask.com - What's Your Question?
+
+
+        var App = {};
+    
+
+
+
+
+
+
+Ask.com
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    'use strict';
+    if (App) {
+        (function () {
+            App.events = App.events || [];
+            App.events.push(
+                    {
+                        partial: "PartialSearchBox",
+                        contextSelector: ".PartialSearchBox-wrapper",
+                        elementSelector: ".js-PartialSearchBox-form",
+                        type: "submit",
+                        handler: function (e) {
+                            var $searchTextInputBox = $(".js-PartialSearchBox-input", this);
+                            if (!$searchTextInputBox.val()) {
+                                return false;
+                            }
+                        }
+                    },
+                    {
+                        partial: "PartialSearchBox",
+                        contextSelector: ".PartialSearchBox-wrapper",
+                        elementSelector: ".PartialSearchBox-container",
+                        type: "submit",
+                        handler: function (e) {
+                            var topForm = $(".js-PartialSearchBox-form", this),
+                                    searchPayload = topForm.data("unified");
+
+                            if (!searchPayload) {
+                                return;
+                            }
+                            searchPayload.actionType = "click";
+                            searchPayload.assetType = "searchBox";
+                            topForm.unbind(e);
+                            e.preventDefault();
+                            if (typeof(ask) != undefined && ask.unified !== undefined) {
+                                ask.unified.sendAction(searchPayload, function () {
+                                    topForm.submit();
+                                });
+                            } else {
+                                topForm.submit();
+                            }
+                        }
+                    },
+                    {
+                        partial: "PartialSearchBox",
+                        contextSelector: ".PartialSearchBox-wrapper",
+                        elementSelector: null,
+                        type: "ready",
+                        handler: function () {
+                            var input = $(".js-PartialSearchBox-input", this),
+                                    clear = $(".js-PartialSearchBox-clear", this);
+                            if (clear) {
+                                _searchUtil.searchBoxClear(input, clear);
+                            }
+                        }
+                    },
+                    {
+                        partial: "PartialSearchBox",
+                        contextSelector: ".PartialSearchBox-wrapper",
+                        elementSelector: ".js-PartialSearchBox-input",
+                        type: "keydown",
+                        handler: function (e) {
+                            e.stopPropagation();
+                        }
+                    }
+            );
+        })();
+    }
+
+
+
+
+
+
+
+404: Oops looks like the page you were looking for cannot be found
+
+
+
+Andrew Rich
+Vetta
+Getty Images
+
+
+
+
+
+
+
+
+
+
+
+
+About
+
+
+Privacy
+
+
+Terms
+
+
+Careers
+
+
+Feedback
+
+
+Help
+
+
+© 2017 IAC Publishing, LLC
+
+
+
+
+
+
+
+    $(document).ready(function ($) {
+        var i, k, event, readyElementList;
+        if (typeof App.events === "object" && App.events.length) {
+            for (i = 0, k = App.events.length; i < k; i += 1) {
+                event = App.events[i];
+                if (event.type === "ready") {
+                    try {
+                        readyElementList = (event.elementSelector) ?
+                                $(event.elementSelector, event.contextSelector) :
+                                $(event.contextSelector);
+                        readyElementList.each(function (index) {
+                            event.handler.apply(this);
+                        });
+                    } catch (e) {
+                        console.error("Failed to run a 'ready' event handler.");
+                        console.error(e);
+                    }
+                } else {
+                    $(event.contextSelector).on(event.type, event.elementSelector || null, event.handler);
+                }
+            }
+        }
+    });
+
+
+        var hasNewTag = true;
+        var dataLayer = [
+            {
+                "ldid": "",
+                "channel": "home",
+                "affiliateid": "0",
+                "sessionid": "",
+                "category": "",
+                "acquisitiondivision": "dirN"
+            }
+
+        ];
+    
+
+
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!='dataLayer_temp'?'&l='+l:'';j.async=true;j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-T3KVMC');
+
+
+
+

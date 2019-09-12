@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html class="no-js html--no-js" lang="en-US">
+<head>
+	<meta charset="UTF-8" /><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o||n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({1:[function(e,n,t){function r(){}function o(e,n,t){return function(){return i(e,[c.now()].concat(u(arguments)),n?null:this,t),n?void 0:this}}var i=e("handle"),a=e(2),u=e(3),f=e("ee").get("tracer"),c=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,n){s[n]=o(d+n,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,o="function"==typeof n;return i(l+"tracer",[c.now(),e,t],r),function(){if(f.emit((o?"":"no-")+"fn-start",[c.now(),r,o],t),o)try{return n.apply(this,arguments)}finally{f.emit("fn-end",[c.now()],t)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=o(l+n)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,c.now()])}},{}],2:[function(e,n,t){function r(e,n){var t=[],r="",i=0;for(r in e)o.call(e,r)&&(t[i]=n(r,e[r]),i+=1);return t}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],3:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(o<0?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=r},{}],4:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function o(e){function n(e){return e&&e instanceof r?e:e?f(e,u,i):i()}function t(t,r,o,i){if(!d.aborted||i){e&&e(t,r,o);for(var a=n(o),u=m(t),f=u.length,c=0;c<f;c++)u[c].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function l(e,n){v[e]=m(e).concat(n)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(t)}function g(e,n){c(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var v={},y={},b={on:l,emit:t,get:w,listeners:m,context:n,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",f=e("gos"),c=e(2),s={},p={},d=n.exports=o();d.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(o.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){o.buffer([e],r),o.emit(e,n,t)}var o=e("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!x++){var e=h.info=NREUM.info,n=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();c(y,function(n,t){e[n]||(e[n]=t)}),f("mark",["onload",a()+h.offset],null,"api");var t=d.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function o(){"complete"===d.readyState&&i()}function i(){f("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),f=e("handle"),c=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1026.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=n.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),f("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script>
+				
+	
+	<link rel="pingback" href="/xmlrpc.php" />
+  	<!--[if lt IE 9]>
+	<script src="/wp-content/themes/epic/js/html5.js" type="text/javascript"></script>
+	<![endif]-->
+
+	<script type="text/javascript">
+		document.documentElement.className = 'js html--js';
+	</script>
+
+	<title>Privacy Policy | 8x8, Inc.</title>
+<link rel="alternate" hreflang="en-US" href="/terms-and-conditions/privacy-policy" />
+<link rel="alternate" hreflang="en-AU" href="/au/terms-and-conditions/privacy-policy" />
+<link rel="alternate" hreflang="en-GB" href="/uk/terms-and-conditions/privacy-policy" />
+
+<!-- All in One SEO Pack 2.3.11.4 by Michael Torbert of Semper Fi Web Design[366,399] -->
+<meta name="description"  content="8x8, Inc. (Packet8). is committed to respecting our customer's privacy." />
+
+<meta name="keywords"  content="voip,business phone service" />
+
+<!-- /all in one seo pack -->
+<link rel='dns-prefetch' href='//' />
+<link rel="alternate" type="application/rss+xml" title="8x8, Inc. &raquo; Feed" href="/feed" />
+<link rel="alternate" type="application/rss+xml" title="8x8, Inc. &raquo; Comments Feed" href="/comments/feed" />
+<link rel="alternate" type="application/rss+xml" title="8x8, Inc. &raquo; Privacy Policy Comments Feed" href="/terms-and-conditions/privacy-policy/feed" />
+<meta content="8x8 2017 (EPIC Child Theme) v.1.0" name="generator"/><link rel='stylesheet' id='tm_clicktotweet-css'  href='/wp-content/plugins/click-to-tweet-by-todaymade/assets/css/styles.css?ver=4.7.3' type='text/css' media='all' />
+<link rel='stylesheet' id='et-shortcodes-css-css'  href='/wp-content/themes/epic/epanel/shortcodes/css/shortcodes.css?ver=4.7.3' type='text/css' media='all' />
+<link rel='stylesheet' id='et-shortcodes-responsive-css-css'  href='/wp-content/themes/epic/epanel/shortcodes/css/shortcodes_responsive.css?ver=4.7.3' type='text/css' media='all' />
+<link rel='stylesheet' id='magnific-popup-css'  href='/wp-content/themes/epic/includes/builder/styles/magnific_popup.css?ver=4.7.3' type='text/css' media='all' />
+<link rel='stylesheet' id='epic-parent-style-css'  href='/wp-content/themes/epic/style.css?ver=4.7.3' type='text/css' media='all' />
+<link rel='stylesheet' id='epic-style-css'  href='/wp-content/themes/8x8-2017/css/main.prod.css?ver=4.7.3' type='text/css' media='all' />
+<script type='text/javascript' src='/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+<script type='text/javascript' src='/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<link rel='https://api.w.org/' href='/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 4.7.3" />
+<link rel="canonical" href="/terms-and-conditions/privacy-policy" />
+<script type="text/javascript"><!--
+function powerpress_pinw(pinw_url){window.open(pinw_url, 'PowerPressPlayer','toolbar=0,status=0,resizable=1,width=460,height=320');	return false;}
+//-->
+</script>
+<meta name="generator" content="WPML ver:3.6.3 stt:67,1,68;" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />		<style id="theme-customizer-css">
+					@media only screen and ( min-width: 767px ) {
+				body, .et_pb_column_1_2 .et_quote_content blockquote cite, .et_pb_column_1_2 .et_link_content a.et_link_main_url, .et_pb_column_1_3 .et_quote_content blockquote cite, .et_pb_column_3_8 .et_quote_content blockquote cite, .et_pb_column_1_4 .et_quote_content blockquote cite, .et_pb_blog_grid .et_quote_content blockquote cite, .et_pb_column_1_3 .et_link_content a.et_link_main_url, .et_pb_column_3_8 .et_link_content a.et_link_main_url, .et_pb_column_1_4 .et_link_content a.et_link_main_url, .et_pb_blog_grid .et_link_content a.et_link_main_url, body .et_pb_bg_layout_light .et_pb_post p,  body .et_pb_bg_layout_dark .et_pb_post p { font-size: 15px; }
+				.et_pb_slide_content, .et_pb_best_value { font-size: 17px; }
+			}
+															.container, .et_pb_row, .et_pb_slider .et_pb_container, .et_pb_fullwidth_section .et_pb_title_container, .et_pb_fullwidth_section .et_pb_title_featured_container, .et_pb_fullwidth_header:not(.et_pb_fullscreen) .et_pb_fullwidth_header_container { max-width: 980px; }
+			.et_boxed_layout #page-container, .et_fixed_nav.et_boxed_layout #page-container #top-header, .et_fixed_nav.et_boxed_layout #page-container #main-header, .et_boxed_layout #page-container .container, .et_boxed_layout #page-container .et_pb_row { max-width: 1140px; }
+																										
+		
+																#footer-widgets .footer-widget li:before { top: 9.75px; }										
+		
+																														
+		@media only screen and ( min-width: 981px ) {
+																																																						
+					}
+		@media only screen and ( min-width: 1225px) {
+			.et_pb_row { padding: 24px 0; }
+			.et_pb_section { padding: 49px 0; }
+			.single.et_pb_pagebuilder_layout.et_full_width_page .et_post_meta_wrapper { padding-top: 73px; }
+			.et_pb_section.et_pb_section_first { padding-top: inherit; }
+			.et_pb_fullwidth_section { padding: 0; }
+		}
+		@media only screen and ( max-width: 980px ) {
+																				}
+		@media only screen and ( max-width: 767px ) {
+														}
+	</style>
+
+	
+	
+	<style id="module-customizer-css">
+			</style>
+
+	<link rel="shortcut icon" href="/wp-content/uploads/2017/02/favicon.ico" />		<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
+			<link rel="preload" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" as="style" onload="this.rel='stylesheet'">
+	<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700"></noscript>
+	<script>
+		!function(e,n,t){function r(e,n){return typeof e===n}function o(){var e,n,t,o,i,s,a;for(var f in y)if(y.hasOwnProperty(f)){if(e=[],n=y[f],n.name&&(e.push(n.name.toLowerCase()),n.options&&n.options.aliases&&n.options.aliases.length))for(t=0;t<n.options.aliases.length;t++)e.push(n.options.aliases[t].toLowerCase());for(o=r(n.fn,"function")?n.fn():n.fn,i=0;i<e.length;i++)s=e[i],a=s.split("."),1===a.length?g[a[0]]=o:(!g[a[0]]||g[a[0]]instanceof Boolean||(g[a[0]]=new Boolean(g[a[0]])),g[a[0]][a[1]]=o),w.push((o?"":"no-")+a.join("-"))}}function i(e){var n=x.className,t=g._config.classPrefix||"";if(S&&(n=n.baseVal),g._config.enableJSClass){var r=new RegExp("(^|\\s)"+t+"no-js(\\s|$)");n=n.replace(r,"$1"+t+"js$2")}g._config.enableClasses&&(n+=" "+t+e.join(" "+t),S?x.className.baseVal=n:x.className=n)}function s(e,n){return!!~(""+e).indexOf(n)}function a(){return"function"!=typeof n.createElement?n.createElement(arguments[0]):S?n.createElementNS.call(n,"http://www.w3.org/2000/svg",arguments[0]):n.createElement.apply(n,arguments)}function f(){var e=n.body;return e||(e=a(S?"svg":"body"),e.fake=!0),e}function l(e,t,r,o){var i,s,l,u,p="modernizr",d=a("div"),c=f();if(parseInt(r,10))for(;r--;)l=a("div"),l.id=o?o[r]:p+(r+1),d.appendChild(l);return i=a("style"),i.type="text/css",i.id="s"+p,(c.fake?c:d).appendChild(i),c.appendChild(d),i.styleSheet?i.styleSheet.cssText=e:i.appendChild(n.createTextNode(e)),d.id=p,c.fake&&(c.style.background="",c.style.overflow="hidden",u=x.style.overflow,x.style.overflow="hidden",x.appendChild(c)),s=t(d,e),c.fake?(c.parentNode.removeChild(c),x.style.overflow=u,x.offsetHeight):d.parentNode.removeChild(d),!!s}function u(e){return e.replace(/([A-Z])/g,function(e,n){return"-"+n.toLowerCase()}).replace(/^ms-/,"-ms-")}function p(n,r){var o=n.length;if("CSS"in e&&"supports"in e.CSS){for(;o--;)if(e.CSS.supports(u(n[o]),r))return!0;return!1}if("CSSSupportsRule"in e){for(var i=[];o--;)i.push("("+u(n[o])+":"+r+")");return i=i.join(" or "),l("@supports ("+i+") { #modernizr { position: absolute; } }",function(e){return"absolute"==getComputedStyle(e,null).position})}return t}function d(e){return e.replace(/([a-z])-([a-z])/g,function(e,n,t){return n+t.toUpperCase()}).replace(/^-/,"")}function c(e,n,o,i){function f(){u&&(delete P.style,delete P.modElem)}if(i=!r(i,"undefined")&&i,!r(o,"undefined")){var l=p(e,o);if(!r(l,"undefined"))return l}for(var u,c,m,v,h,y=["modernizr","tspan"];!P.style;)u=!0,P.modElem=a(y.shift()),P.style=P.modElem.style;for(m=e.length,c=0;c<m;c++)if(v=e[c],h=P.style[v],s(v,"-")&&(v=d(v)),P.style[v]!==t){if(i||r(o,"undefined"))return f(),"pfx"!=n||v;try{P.style[v]=o}catch(e){}if(P.style[v]!=h)return f(),"pfx"!=n||v}return f(),!1}function m(e,n){return function(){return e.apply(n,arguments)}}function v(e,n,t){var o;for(var i in e)if(e[i]in n)return t===!1?e[i]:(o=n[e[i]],r(o,"function")?m(o,t||n):o);return!1}function h(e,n,t,o,i){var s=e.charAt(0).toUpperCase()+e.slice(1),a=(e+" "+b.join(s+" ")+s).split(" ");return r(n,"string")||r(n,"undefined")?c(a,n,o,i):(a=(e+" "+z.join(s+" ")+s).split(" "),v(a,n,t))}var y=[],C={_version:"3.3.1",_config:{classPrefix:"",enableClasses:!0,enableJSClass:!0,usePrefixes:!0},_q:[],on:function(e,n){var t=this;setTimeout(function(){n(t[e])},0)},addTest:function(e,n,t){y.push({name:e,fn:n,options:t})},addAsyncTest:function(e){y.push({name:null,fn:e})}},g=function(){};g.prototype=C,g=new g;var w=[],x=n.documentElement,S="svg"===x.nodeName.toLowerCase(),_="Moz O ms Webkit",b=C._config.usePrefixes?_.split(" "):[];C._cssomPrefixes=b;var E={elem:a("modernizr")};g._q.push(function(){delete E.elem});var P={style:E.elem.style};g._q.unshift(function(){delete P.style});var z=C._config.usePrefixes?_.toLowerCase().split(" "):[];C._domPrefixes=z,C.testAllProps=h;var N=function(n){var r,o=prefixes.length,i=e.CSSRule;if("undefined"==typeof i)return t;if(!n)return!1;if(n=n.replace(/^@/,""),r=n.replace(/-/g,"_").toUpperCase()+"_RULE",r in i)return"@"+n;for(var s=0;s<o;s++){var a=prefixes[s],f=a.toUpperCase()+"_"+r;if(f in i)return"@-"+a.toLowerCase()+"-"+n}return!1};C.atRule=N;C.prefixed=function(e,n,t){return 0===e.indexOf("@")?N(e):(e.indexOf("-")!=-1&&(e=d(e)),n?h(e,n,t):h(e,"pfx"))};o(),i(w),delete C.addTest,delete C.addAsyncTest;for(var j=0;j<g._q.length;j++)g._q[j]();e.Modernizr=g}(window,document);		(function(){'use strict';var f,g=[];function l(a){g.push(a);1==g.length&&f()}function m(){for(;g.length;)g[0](),g.shift()}f=function(){setTimeout(m)};function n(a){this.a=p;this.b=void 0;this.f=[];var b=this;try{a(function(a){q(b,a)},function(a){r(b,a)})}catch(c){r(b,c)}}var p=2;function t(a){return new n(function(b,c){c(a)})}function u(a){return new n(function(b){b(a)})}function q(a,b){if(a.a==p){if(b==a)throw new TypeError;var c=!1;try{var d=b&&b.then;if(null!=b&&"object"==typeof b&&"function"==typeof d){d.call(b,function(b){c||q(a,b);c=!0},function(b){c||r(a,b);c=!0});return}}catch(e){c||r(a,e);return}a.a=0;a.b=b;v(a)}}
+function r(a,b){if(a.a==p){if(b==a)throw new TypeError;a.a=1;a.b=b;v(a)}}function v(a){l(function(){if(a.a!=p)for(;a.f.length;){var b=a.f.shift(),c=b[0],d=b[1],e=b[2],b=b[3];try{0==a.a?"function"==typeof c?e(c.call(void 0,a.b)):e(a.b):1==a.a&&("function"==typeof d?e(d.call(void 0,a.b)):b(a.b))}catch(h){b(h)}}})}n.prototype.g=function(a){return this.c(void 0,a)};n.prototype.c=function(a,b){var c=this;return new n(function(d,e){c.f.push([a,b,d,e]);v(c)})};
+function w(a){return new n(function(b,c){function d(c){return function(d){h[c]=d;e+=1;e==a.length&&b(h)}}var e=0,h=[];0==a.length&&b(h);for(var k=0;k<a.length;k+=1)u(a[k]).c(d(k),c)})}function x(a){return new n(function(b,c){for(var d=0;d<a.length;d+=1)u(a[d]).c(b,c)})};window.Promise||(window.Promise=n,window.Promise.resolve=u,window.Promise.reject=t,window.Promise.race=x,window.Promise.all=w,window.Promise.prototype.then=n.prototype.c,window.Promise.prototype["catch"]=n.prototype.g);}());
+
+(function(){function m(a,b){document.addEventListener?a.addEventListener("scroll",b,!1):a.attachEvent("scroll",b)}function n(a){document.body?a():document.addEventListener?document.addEventListener("DOMContentLoaded",function c(){document.removeEventListener("DOMContentLoaded",c);a()}):document.attachEvent("onreadystatechange",function l(){if("interactive"==document.readyState||"complete"==document.readyState)document.detachEvent("onreadystatechange",l),a()})};function t(a){this.a=document.createElement("div");this.a.setAttribute("aria-hidden","true");this.a.appendChild(document.createTextNode(a));this.b=document.createElement("span");this.c=document.createElement("span");this.h=document.createElement("span");this.f=document.createElement("span");this.g=-1;this.b.style.cssText="max-width:none;display:inline-block;position:absolute;height:100%;width:100%;overflow:scroll;font-size:16px;";this.c.style.cssText="max-width:none;display:inline-block;position:absolute;height:100%;width:100%;overflow:scroll;font-size:16px;";
+this.f.style.cssText="max-width:none;display:inline-block;position:absolute;height:100%;width:100%;overflow:scroll;font-size:16px;";this.h.style.cssText="display:inline-block;width:200%;height:200%;font-size:16px;max-width:none;";this.b.appendChild(this.h);this.c.appendChild(this.f);this.a.appendChild(this.b);this.a.appendChild(this.c)}
+function x(a,b){a.a.style.cssText="max-width:none;min-width:20px;min-height:20px;display:inline-block;overflow:hidden;position:absolute;width:auto;margin:0;padding:0;top:-999px;left:-999px;white-space:nowrap;font:"+b+";"}function y(a){var b=a.a.offsetWidth,c=b+100;a.f.style.width=c+"px";a.c.scrollLeft=c;a.b.scrollLeft=a.b.scrollWidth+100;return a.g!==b?(a.g=b,!0):!1}function z(a,b){function c(){var a=l;y(a)&&a.a.parentNode&&b(a.g)}var l=a;m(a.b,c);m(a.c,c);y(a)};function A(a,b){var c=b||{};this.family=a;this.style=c.style||"normal";this.weight=c.weight||"normal";this.stretch=c.stretch||"normal"}var B=null,C=null,E=null,F=null;function I(){if(null===E){var a=document.createElement("div");try{a.style.font="condensed 100px sans-serif"}catch(b){}E=""!==a.style.font}return E}function J(a,b){return[a.style,a.weight,I()?a.stretch:"","100px",b].join(" ")}
+A.prototype.load=function(a,b){var c=this,l=a||"BESbswy",r=0,D=b||3E3,G=(new Date).getTime();return new Promise(function(a,b){var e;null===F&&(F=!!document.fonts);if(e=F)null===C&&(C=/OS X.*Version\/10\..*Safari/.test(navigator.userAgent)&&/Apple/.test(navigator.vendor)),e=!C;if(e){e=new Promise(function(a,b){function f(){(new Date).getTime()-G>=D?b():document.fonts.load(J(c,'"'+c.family+'"'),l).then(function(c){1<=c.length?a():setTimeout(f,25)},function(){b()})}f()});var K=new Promise(function(a,
+c){r=setTimeout(c,D)});Promise.race([K,e]).then(function(){clearTimeout(r);a(c)},function(){b(c)})}else n(function(){function e(){var b;if(b=-1!=g&&-1!=h||-1!=g&&-1!=k||-1!=h&&-1!=k)(b=g!=h&&g!=k&&h!=k)||(null===B&&(b=/AppleWebKit\/([0-9]+)(?:\.([0-9]+))/.exec(window.navigator.userAgent),B=!!b&&(536>parseInt(b[1],10)||536===parseInt(b[1],10)&&11>=parseInt(b[2],10))),b=B&&(g==u&&h==u&&k==u||g==v&&h==v&&k==v||g==w&&h==w&&k==w)),b=!b;b&&(d.parentNode&&d.parentNode.removeChild(d),clearTimeout(r),a(c))}
+function H(){if((new Date).getTime()-G>=D)d.parentNode&&d.parentNode.removeChild(d),b(c);else{var a=document.hidden;if(!0===a||void 0===a)g=f.a.offsetWidth,h=p.a.offsetWidth,k=q.a.offsetWidth,e();r=setTimeout(H,50)}}var f=new t(l),p=new t(l),q=new t(l),g=-1,h=-1,k=-1,u=-1,v=-1,w=-1,d=document.createElement("div");d.dir="ltr";x(f,J(c,"sans-serif"));x(p,J(c,"serif"));x(q,J(c,"monospace"));d.appendChild(f.a);d.appendChild(p.a);d.appendChild(q.a);document.body.appendChild(d);u=f.a.offsetWidth;v=p.a.offsetWidth;
+w=q.a.offsetWidth;H();z(f,function(a){g=a;e()});x(f,J(c,'"'+c.family+'",sans-serif'));z(p,function(a){h=a;e()});x(p,J(c,'"'+c.family+'",serif'));z(q,function(a){k=a;e()});x(q,J(c,'"'+c.family+'",monospace'))})})};"undefined"!==typeof module?module.exports=A:(window.FontFaceObserver=A,window.FontFaceObserver.prototype.load=A.prototype.load);}());
+    if ( !!sessionStorage.fontLoadedPrimary ) {
+      window.document.documentElement.className += ' html__font-loaded--primary';
+    } else {
+      new FontFaceObserver('Open Sans').load(null, 5000).then( function() {
+        window.document.documentElement.className += ' html__font-loaded--primary';
+        sessionStorage.fontLoadedPrimary = true;
+      } ).catch(function() {
+        sessionStorage.fontLoadedPrimary = false;
+      });
+		}
+		!function(e){"use strict";var t=function(t,n,r){function o(e){return i.body?e():void setTimeout(function(){o(e)})}function a(){d.addEventListener&&d.removeEventListener("load",a),d.media=r||"all"}var l,i=e.document,d=i.createElement("link");if(n)l=n;else{var s=(i.body||i.getElementsByTagName("head")[0]).childNodes;l=s[s.length-1]}var u=i.styleSheets;d.rel="stylesheet",d.href=t,d.media="only x",o(function(){l.parentNode.insertBefore(d,n?l:l.nextSibling)});var f=function(e){for(var t=d.href,n=u.length;n--;)if(u[n].href===t)return e();setTimeout(function(){f(e)})};return d.addEventListener&&d.addEventListener("load",a),d.onloadcssdefined=f,f(a),d};"undefined"!=typeof exports?exports.loadCSS=t:e.loadCSS=t}("undefined"!=typeof global?global:this),function(e){if(e.loadCSS){var t=loadCSS.relpreload={};if(t.support=function(){try{return e.document.createElement("link").relList.supports("preload")}catch(e){return!1}},t.poly=function(){for(var t=e.document.getElementsByTagName("link"),n=0;n<t.length;n++){var r=t[n];"preload"===r.rel&&"style"===r.getAttribute("as")&&(e.loadCSS(r.href,r),r.rel=null)}},!t.support()){t.poly();var n=e.setInterval(t.poly,300);e.addEventListener&&e.addEventListener("load",function(){e.clearInterval(n)}),e.attachEvent&&e.attachEvent("onload",function(){e.clearInterval(n)})}}}(this);	</script>
+		<script>
+		Epic8x82017Translation = {
+			all: "All",
+			filter_by_industry: "Filter by Industry/Product...",
+			filters: "Filters",
+			clear_selection: "Clear Selection",
+			search_url: "/search",
+			search_placeholder_mobile: "Search"
+		};
+	</script>
+</head>
+<body class="page-template-default page page-id-35 page-child parent-pageid-31 et_pb_button_helper_class et_non_fixed_nav et_show_nav et_cover_background et_secondary_nav_enabled et_secondary_nav_only_menu et_pb_gutter linux et_pb_gutters2 et_primary_nav_dropdown_animation_fade et_secondary_nav_dropdown_animation_fade et_pb_footer_columns4 et_header_style_left et_pb_svg_logo et_pb_pagebuilder_layout et_right_sidebar et_divi_theme unknown">
+
+<!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-T9BPZH" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-T9BPZH');</script>
+<!-- End Google Tag Manager -->
+
+	<div id="page-container">
+
+  <div class="wrapper--header">
+			<div id="top-header">
+			<div class="container clearfix">
+
+			
+				<div id="et-secondary-menu">
+				<ul id="et-secondary-nav" class="menu"><li class="sales-phone menu-item menu-item-type-post_type menu-item-object-page menu-item-45469"><a href="/about-us/contact-us">Sales 1-866-879-8647</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-45470"><a href="/about-us/contact-us">Contact Us</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-45471"><a href="https://support.8x8.com">Support</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-45472"><a href="/about-us/press-room">News</a></li>
+<li class="n-flag-display menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-has-children menu-item-45473"><a href="/">Country</a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-45474"><a href="/uk">United Kingdom</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-45475"><a href="/au">Australia</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-45476"><a href="#">Login</a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-45477"><a href="https://login.8x8.com/">My 8x8 Services</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-45478"><a href="https://login.8x8.com/login/acctmgr">Account Manager</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-45479"><a href="https://app.contactnow.8x8.com/campaign/login.php">8x8 ContactNow</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-45480"><a href="https://virtualmeeting.8x8.com/">Join a Meeting</a></li>
+</ul>
+</li>
+</ul>                            <form role="search" method="get" class="top-nav-search" action="/search">
+                                <input type="search" class="et-search-field" placeholder="Search &hellip;" placeholder="" name="q" title="Search for:" />                                <button type="submit" id="searchsubmit_header">&#x55;</button>
+                            </form>
+<!--                    --><!--                        <div id="et_top_search">-->
+<!--                            <span id="et_search_icon"></span>-->
+<!--                        </div>-->
+<!--                    -->				</div> <!-- #et-secondary-menu -->
+
+			</div> <!-- .container -->
+		</div> <!-- #top-header -->
+	
+	
+		<header id="main-header" data-height-onload="66">
+
+			<div class="container clearfix et_menu_container">
+			<!--				<div class="logo_container">-->
+<!--					<span class="logo_helper"></span>-->
+<!--					<a href="--><!--">-->
+<!--						<img src="--><!--" alt="--><!--" id="logo" data-height-percentage="--><!--" />-->
+<!--					</a>-->
+<!--				</div>-->
+
+
+                    <div class="header__logo">
+                        <a href="/" title="8x8, Inc." rel="home"></a>
+                    </div>
+
+
+
+
+				<div id="et-top-navigation" data-height="66" data-fixed-height="40">
+											<nav id="top-menu-nav">
+						<ul id="top-menu" class="nav"><li class="ubermenu--why8x8 menu-item menu-item-type-post_type menu-item-object-page menu-item--why-8x8 menu-item--has-rich-menu"><a href="/why-8x8">Why 8X8</a>	<div class="c-rich-menu">
+		<div class="c-rich-menu__body">
+				<div class="c-rich-menu__content-block c-rich-menu__content-block--markup">
+		<div style="padding-bottom: 10px;"><span style="color: #5f8aa0; text-transform: uppercase; font-weight: bold;"><a href="/why-8x8" style="color: #1d2a38">Why 8x8</a></span></div>
+<ul class="link-list">
+<li><a href="/why-8x8">Why Businesses Trust 8x8</a></li>
+<li><a href="/why-8x8/security-and-compliance">Security &amp; Compliance</a></li>
+<li><a href="/why-8x8/reliability">Reliability &amp; Uptime</a></li>
+<li><a href="/why-8x8/global-reach">Global Communications</a></li>
+<li><a href="/why-8x8/enterprise-grade-communications">Enterprise Grade</a></li>
+</ul>	</div>
+	<div class="c-rich-menu__content-block c-rich-menu__content-block--image-stack">
+			<div class="c-rich-menu-image">
+				<div class="c-rich-menu-image__media">
+			<a href="https://www.youtube.com/watch?v=B3QmyTNVHc8" class="video-modal">			    <img src="/wp-content/uploads/2017/04/drop-down-video-overview-dslate.png" srcset="/wp-content/uploads/2017/04/drop-down-video-overview-dslate.png 168w, /wp-content/uploads/2017/04/drop-down-video-overview-dslate-150x121.png 150w" sizes="(max-width: 168px) 100vw, 168px">
+			</a>							<span class="c-rich-menu-image__caption">
+										Complete Cloud Communications Solution									</span>
+					</div>
+	</div>
+	</div>
+		</div>
+		<footer class="c-rich-menu__footer">
+					<a href="/resources/tools/request-a-quote" class="c-button c-button--accent">Request a Quote</a>
+		</footer>
+	</div>
+</li>
+<li class="ubermenu--products menu-item menu-item-type-post_type menu-item-object-page menu-item--products menu-item--has-rich-menu"><a href="/voip-business-phone-services">Products</a>	<div class="c-rich-menu">
+		<div class="c-rich-menu__body">
+				<div class="c-rich-menu__content-block c-rich-menu__content-block--markup">
+		<div class="row">
+<div class="six columns">
+  <p><a href="/voip-business-phone-services/business-phone-systems"><span style="color: #5f8aa0; text-transform: uppercase; font-weight: bold;">communications Solutions</span></a></p>
+</div>
+	
+<div class="six columns">
+  <p><a href="/call-center-software"><span style="color: #5f8aa0; text-transform: uppercase; font-weight: bold;">Contact Center Solutions</span></a></p>
+</div>
+</div>
+
+
+<div class="row">
+<div class="six columns">
+  <div style="padding-bottom: 5px;"><span style="color: #1d2a38; text-transform: capitalize; font-weight: bold;"><a style="color: #1d2a38" href="/voip-business-phone-services/business-phone-systems">Virtual Office</a></span></div>
+  <div style="line-height: 22px; font-size: 14px;"><a href="/voip-business-phone-services/business-phone-systems">Overview<br>
+  </a><a href="/voip-business-phone-services/features">Features<br>
+  </a><a href="/voip-business-phone-services/service-plans">Service Plans</a></div>
+  
+  <p style="padding-top: 15px;"><span style="color: #1d2a38; text-transform: capitalize; font-weight: bold;"><a style="color: #1d2a38" href="/communications-solutions/equipment">Equipment</a></span><br>
+  </p>
+</div>
+	
+<div class="six columns">
+  <div style="padding-bottom: 5px;"><span style="color: #1d2a38; text-transform: capitalize; font-weight: bold;"><a style="color: #1d2a38"  href="/call-center/contact-center">Virtual Contact Center</a></span></div>
+   <div style="line-height: 22px; font-size: 14px;"><a href="/call-center/contact-center">Overview<br>
+  </a><a href="/call-center/features">Features<br>
+  </a><a href="/call-center/service-plans">Service Plans</a></div>
+  <div style="padding-bottom: 5px; padding-top: 15px;"><span style="color: #1d2a38; text-transform: capitalize; font-weight: bold;"><a style="color: #1d2a38"  href="/call-center-software/contactnow">ContactNow&#8482;</a></span></div>
+   <div style="line-height: 22px; font-size: 14px;"><a href="/call-center-software/contactnow">Overview<br>
+  </a><a href="/call-center-software/contactnow/features">Features<br>
+  </a><a href="/call-center-software/contactnow/plans-and-pricing">Service Plans</a></div>
+</div>
+	
+</div>
+<hr>
+<div class="row">
+
+<div class="four columns">
+<p><span style="color: #5f8aa0; text-transform: uppercase; font-weight: bold;">Additional Services</span></p>
+<p><span style="color: #1d2a38; text-transform: capitalize; font-weight: bold;"><a style="color: #1d2a38"  href="/elite-touch">Elite Touch</a></span></p>
+<p><span style="color: #1d2a38; text-transform: capitalize; font-weight: bold;"><a style="color: #1d2a38"  href="/8x8-academy">8x8 Academy</a></span><br>
+<br>
+</p>
+</div>
+ 
+  <div class="four columns"><a href="/resources/white-papers/gartner-magic-quadrant"><img src="/wp-content/uploads/2017/04/gartner-meganav-banner2.png" width="170" height="120" alt=""/></a> </div>
+
+<div class="four columns"><a href="https://www.youtube.com/watch?v=B3QmyTNVHc8" class="video-modal"><img src="/wp-content/uploads/2017/04/why8x8-meganav-banner.png" width="170" height="120" alt=""/></a> 
+</div>
+</div>	</div>
+		</div>
+		<footer class="c-rich-menu__footer">
+					<a href="/resources/tools/request-a-quote" class="c-button c-button--accent">Request a Quote</a>
+		</footer>
+	</div>
+</li>
+<li class="ubermenu--solutions menu-item menu-item-type-post_type menu-item-object-page menu-item--solutions menu-item--has-rich-menu"><a href="/voip-business-phone-systems">Solutions</a>	<div class="c-rich-menu">
+		<div class="c-rich-menu__body">
+				<div class="c-rich-menu__content-block c-rich-menu__content-block--markup">
+		<div style="padding-bottom: 10px;"><span style="color: #5f8aa0; text-transform: uppercase; font-weight: bold;"><a href="/voip-business-phone-systems/by-business-size" style="color: #1d2a38">By Business Size</a></span></div>
+<ul class="link-list">
+<li><a href="/voip-business-phone-systems/by-business-size/enterprise">Mid-Market &amp; Enterprise</a></li>
+<li><a href="/voip-business-phone-systems/by-business-size/small-business">Small &amp; Medium Business</a></li>
+</ul>
+<br />
+
+<div style="padding-bottom: 10px;"><span style="color: #5f8aa0; text-transform: uppercase; font-weight: bold;"><a href="/voip-business-phone-systems/by-industry" style="color: #1d2a38">By Industry</a></span></div>
+<ul class="link-list">
+<li><a href="/voip-business-phone-systems/by-industry/healthcare">Healthcare</a></li>
+<li><a href="/voip-business-phone-systems/by-industry/high-tech">High Tech</a></li>
+<li><a href="/voip-business-phone-systems/by-industry/retail">Retail</a></li>
+<li><a href="/voip-business-phone-systems/by-industry/collections">Collections</a></li>
+<li><a href="/voip-business-phone-systems/by-industry/insurance">Insurance</a></li>
+<li><a href="/voip-business-phone-systems/by-industry/legal">Legal</a></li>
+<li><a href="/voip-business-phone-systems/by-industry/government">Government</a></li>
+<li><a href="/voip-business-phone-systems/by-industry/outsourcing">Outsourcing</a></li>
+<li><a href="/voip-business-phone-systems/by-industry/education">Education</a></li>
+<li><a href="/voip-business-phone-systems/by-industry/transportation">Transportation</a></li>
+</ul>	</div>
+	<div class="c-rich-menu__content-block c-rich-menu__content-block--markup">
+		<div style="padding-bottom: 10px;"><span style="color: #5f8aa0; text-transform: uppercase; font-weight: bold;"><a href="/voip-business-phone-systems/by-business-need" style="color: #1d2a38">By Business Need</a></span></div>
+<ul class="link-list">
+<li><a href="/voip-business-phone-services/features/hosted-pbx">Hosted PBX</a></li>
+<li><a href="/voip-business-phone-systems/by-business-need/business-phone-system">New Phone System</a></li>
+<li><a href="/voip-business-phone-systems/by-business-need/distributed-workforce">Distributed Workforce</a></li>
+<li><a href="/voip-business-phone-systems/by-business-need/cost-of-phone-ownership">Cost of Ownership</a></li>
+<li><a href="/internet-phone-service">Internet Phone Service</a></li>
+<li><a href="/voip-business-phone-systems/by-business-need/international-calls">International Calls</a></li>
+<li><a href="/call-center/solutions/virtual-call-center">Virtual Call Center</a></li>
+<li><a href="/call-center-software">Call Center Software</a></li>
+<li><a href="/voip-business-phone-systems/by-business-need/sales-and-marketing">Sales & Marketing</a></li>
+<li><a href="/call-center/solutions/home-based-agents">Home-Based Agent</a></li>
+<li><a href="/call-center/solutions/technical-support">Technical Support</a></li>
+<li><a href="/call-center/solutions/inbound-call-center">Inbound Call Center</a></li>
+<li><a href="/voip-business-phone-services/unified-communications">Unified Communications</a></li>
+</ul>	</div>
+	<div class="c-rich-menu__content-block c-rich-menu__content-block--image-stack">
+			<div class="c-rich-menu-image">
+				<div class="c-rich-menu-image__media">
+			<a href="/resources/white-papers/voip-provider-compliance-security-reliability">			    <img src="/wp-content/uploads/2017/04/elephant-in-the-room_WP_menuThumb-dslate.png" srcset="/wp-content/uploads/2017/04/elephant-in-the-room_WP_menuThumb-dslate.png 168w, /wp-content/uploads/2017/04/elephant-in-the-room_WP_menuThumb-dslate-107x150.png 107w, /wp-content/uploads/2017/04/elephant-in-the-room_WP_menuThumb-dslate-128x180.png 128w" sizes="(max-width: 168px) 100vw, 168px">
+			</a>							<span class="c-rich-menu-image__caption">
+					<a href="/resources/white-papers" class="/resources/white-papers">					More white papers &gt;					</a>				</span>
+					</div>
+	</div>
+	</div>
+		</div>
+		<footer class="c-rich-menu__footer">
+					<a href="/resources/tools/request-a-quote" class="c-button c-button--accent">Request a Quote</a>
+		</footer>
+	</div>
+</li>
+<li class="ubermenu--customers menu-item menu-item-type-post_type menu-item-object-page menu-item--case-studies menu-item--has-rich-menu"><a href="/resources/customers">Case Studies</a>	<div class="c-rich-menu">
+		<div class="c-rich-menu__body">
+				<div class="c-rich-menu__content-block c-rich-menu__content-block--markup">
+		<div style="padding-bottom: 10px;"><span style="color: #5f8aa0; text-transform: uppercase; font-weight: bold;">Featured Customer Stories</span></div>
+<div class="l-media">
+<div class="l-media_body">
+<a href="/resources/customers/mcdonalds"><img src="/wp-content/uploads/2016/08/casestudy-logo-square-mcdonalds.png" width="138" height="138" /></a><a href="/resources/customers/netsuite"><img src="/wp-content/uploads/2016/08/casestudy-logo-square-netsuite.png" width="138" height="138" /></a><a href="/resources/customers/regus"><img src="/wp-content/uploads/2016/08/casestudy-logo-square-regus.png" width="138" height="138" /></a><br>
+<a href="/resources/customers/shimano"><img src="/wp-content/uploads/2016/08/casestudy-logo-square-shimano.png" width="138" height="138" /></a><a href="/resources/customers/icruise"><img src="/wp-content/uploads/2016/08/casestudy-logo-square-icruise.png" width="138" height="138" /></a><a href="/resources/customers/allstate-santa-clara"><img src="/wp-content/uploads/2016/08/casestudy-logo-square-allstate.png" width="138" height="138" /></a>
+<p style="margin-bottom:0.5em"><a href="/resources/customers" class="c-button c-button--slate">View All Case Studies</a></p>
+</div>
+</div>	</div>
+	<div class="c-rich-menu__content-block c-rich-menu__content-block--image-stack">
+			<div class="c-rich-menu-image">
+				<div class="c-rich-menu-image__media">
+			<a href="/resources/white-papers/8-criteria-for-enterprise-grade-communications-as-a-service">			    <img src="/wp-content/uploads/2017/04/resources-doc-box-whitepaper-dslate.png" srcset="/wp-content/uploads/2017/04/resources-doc-box-whitepaper-dslate.png 168w, /wp-content/uploads/2017/04/resources-doc-box-whitepaper-dslate-107x150.png 107w, /wp-content/uploads/2017/04/resources-doc-box-whitepaper-dslate-128x180.png 128w" sizes="(max-width: 168px) 100vw, 168px">
+			</a>							<span class="c-rich-menu-image__caption">
+					<a href="/resources/white-papers" class="/resources/white-papers">					More white papers  &gt;					</a>				</span>
+					</div>
+	</div>
+	</div>
+		</div>
+		<footer class="c-rich-menu__footer">
+					<a href="/resources/tools/request-a-quote" class="c-button c-button--accent">Request a Quote</a>
+		</footer>
+	</div>
+</li>
+<li class="ubermenu--resources menu-item menu-item-type-post_type menu-item-object-page menu-item--resources menu-item--has-rich-menu"><a href="/resources">Resources</a>	<div class="c-rich-menu">
+		<div class="c-rich-menu__body">
+				<div class="c-rich-menu__content-block c-rich-menu__content-block--markup">
+		<div style="padding-bottom: 10px;"><span style="color: #5f8aa0; text-transform: uppercase; font-weight: bold;" >Resources</span></div>
+  <ul class="link-list">
+<li><a href="/resources/white-papers">White Papers</a></li>
+<li><a href="/resources/infographics">Infographics</a></li>
+<li><a href="/resources/literature">Data Sheets</a></li>
+    <li><a href="/resources/videos">Videos</a></li>
+    <li><a href="/resources/webinars">Webinars</a></li>
+  </ul>
+
+<div style="padding-bottom: 10px;"><span style="color: #5f8aa0; text-transform: uppercase; font-weight: bold;">Additional Resources</span></div>
+<ul class="link-list">
+<li><a href="/resources/8x8-reviews">8x8 Reviews</a></li>
+  <li><a href="/resources/tools">Tools</a></li>
+  <li><a href="/rewards-program">Referral Rewards</a></li>
+</ul>	</div>
+	<div class="c-rich-menu__content-block c-rich-menu__content-block--image-stack">
+			<div class="c-rich-menu-image">
+				<div class="c-rich-menu-image__media">
+			<a href="/resources/white-papers/your-pbx-killing-your-business">			    <img src="/wp-content/uploads/2017/04/resources-doc-box-pbx-killing-dslate.png" srcset="/wp-content/uploads/2017/04/resources-doc-box-pbx-killing-dslate.png 168w, /wp-content/uploads/2017/04/resources-doc-box-pbx-killing-dslate-107x150.png 107w, /wp-content/uploads/2017/04/resources-doc-box-pbx-killing-dslate-128x180.png 128w" sizes="(max-width: 168px) 100vw, 168px">
+			</a>					</div>
+	</div>
+	</div>
+		</div>
+		<footer class="c-rich-menu__footer">
+					<a href="/resources/tools/request-a-quote" class="c-button c-button--accent">Request a Quote</a>
+		</footer>
+	</div>
+</li>
+<li class="button-request-quote menu-item menu-item-type-post_type menu-item-object-page menu-item--request-a-quote"><a href="/resources/tools/request-a-quote">Request A Quote</a></li>
+</ul>						</nav>
+					                    <div class="n-mobile-menu--header">
+                        <ul id="menu-mobile-language-switcher" class="n-mobile-menu--language"><li id="menu-item-45208" class="n-flag-display--mobile menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-has-children menu-item-45208"><a href="/">Country</a>
+<ul class="sub-menu">
+	<li id="menu-item-45209" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-45209"><a href="/uk">United Kingdom</a></li>
+	<li id="menu-item-45210" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-45210"><a href="/au">Australia</a></li>
+</ul>
+</li>
+</ul><ul id="menu-mobile-navbar-links" class="mobile-header"><li id="menu-item-8915" class="sales-phone menu-item menu-item-type-custom menu-item-object-custom menu-item-8915"><a href="tel:18668798647">Sales 1-866-879-8647</a></li>
+<li id="menu-item-7367" class="button-request-quote menu-item menu-item-type-post_type menu-item-object-page menu-item-7367"><a href="/resources/tools/request-a-quote">Request A Quote</a></li>
+</ul>                    </div>
+
+                    <button class="n-mobile-menu__trigger">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+					
+					
+
+					
+
+
+
+				</div> <!-- #et-top-navigation -->
+
+			</div> <!-- .container -->
+
+			<div class="et_search_outer">
+				<div class="container et_search_form_container">
+					<form role="search" method="get" class="et-search-form" action="/">
+					<input type="search" class="et-search-field" placeholder="Search &hellip;" value="" name="s" title="Search for:" />					</form>
+					<span class="et_close_search_field"></span>
+				</div>
+			</div>
+
+            <nav id="sub-navigation" class="n-sub-nav" role="navigation">
+                            </nav>
+
+
+            <nav class="n-mobile-menu__container" ontouchstart="">
+                <ul id="menu-mobile-navigation" class="n-mobile-menu"><li id="menu-item-3724" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3724"><a href="/why-8x8">Why 8x8</a></li>
+<li id="menu-item-3719" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3719"><a href="/voip-business-phone-services">Products</a></li>
+<li id="menu-item-3723" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3723"><a href="/voip-business-phone-systems">Solutions</a></li>
+<li id="menu-item-24798" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-24798"><a href="http://support.8x8.com">Support</a></li>
+<li id="menu-item-3722" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3722"><a href="/resources">Resources</a></li>
+<li id="menu-item-3720" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3720"><a href="/resources/tools/request-a-quote">Request A Quote</a></li>
+<li id="menu-item-19211" class="mobile--search menu-item menu-item-type-custom menu-item-object-custom menu-item-19211"><a href="#">Search</a></li>
+</ul>            </nav>
+
+            <div class="n-blog-sub-nav">
+                <ul id="menu-blog-sub-navigation" class="n-blog-sub-nav__menu"><li id="menu-item-42681" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-42681"><a href="/blog">8x8 Blog Home</a></li>
+</ul>            </div>
+		</header> <!-- #main-header -->
+
+		</div>
+
+		<div id="et-main-area">
+
+<div id="main-content">
+
+
+			
+				<article id="post-35" class="post-35 page type-page status-publish hentry">
+
+				
+					<div class="entry-content">
+					<div class="et_pb_section  et_pb_section_0 et_section_regular">
+				
+				
+					
+					<div class=" et_pb_row et_pb_row_0">
+				
+				<div class="et_pb_column et_pb_column_3_4  et_pb_column_0">
+				
+				<div class="et_pb_text et_pb_module et_pb_bg_layout_light et_pb_text_align_left c-breadcrumbs et_pb_text_0">
+				
+<div class="c-breadcrumbs" typeof="BreadcrumbList" vocab="https://schema.org/"><span property="itemListElement" typeof="ListItem" class="c-breadcrumbs__item"><a property="item" typeof="WebPage" title="Go to Terms and Conditions." href="/terms-and-conditions" class="post post-page c-breadcrumbs__link"><span property="name">Terms and Conditions</span></a><meta property="position" content="1"></span> &gt; <span property="itemListElement" typeof="ListItem" class="c-breadcrumbs__item"><span property="name" class="c-breadcrumbs__current-page">Privacy Policy</span><meta property="position" content="2"></span></div>
+
+			</div> <!-- .et_pb_text --><div class="et_pb_text et_pb_module et_pb_bg_layout_light et_pb_text_align_left  et_pb_text_1">
+				
+<h1>8x8’s International Privacy Policies</h1>
+<p>8x8, Inc. is committed to respecting our customers’ and prospective customers’ privacy. 8x8 has a privacy policy covering our current customers and one for prospective customers, which are linked below. Our privacy policies describe the information we collect and how we use and share that information.</p>
+<p>In addition, 8x8, Inc. declares its commitment to the European Union-United States Privacy Shield Framework, as set forth by the U.S. Department of Commerce regarding the collection, use, and retention of personal information from European Economic Area member countries.&nbsp; 8x8, Inc. is also committed to comply with the United States-Swiss Safe Harbor framework governing the collection, use, and retention of personal information from Switzerland.&nbsp; 8x8, Inc. has certified that it adheres to the Privacy Shield Principles of notice, choice, accountability for onward transfer, security, data integrity and purpose limitation, access, recourse, enforcement, and liability. To learn more about the Privacy Shield program, to view 8x8 Inc.’s certification page, and to view a list of businesses that have self-certified compliance with the Privacy Shield, please visit <a href="https://www.privacyshield.gov/welcome" target="_blank">https://www.privacyshield.gov/welcome</a>.</p>
+<p>Thank you for taking the time to review 8x8’s privacy policies.</p>
+<p><a href="http://sims.8x8.com/GetDocument.aspx?docid=710791" target="_blank">Click here to read the 8x8 Privacy Policy for Customers (PDF)</a><br />
+<a href="http://sims.8x8.com/GetDocument.aspx?docid=710776" target="_blank">Click here to read the 8x8 Privacy Policy for Prospective Customers (PDF)</a><br />
+<a href="https://support.8x8.com/downloads/get/3673" target="_blank">Click here to read the 8x8 EU-U.S. Privacy Shield Framework Supplement to 8x8 Privacy Policies (PDF)</a></p>
+
+			</div> <!-- .et_pb_text -->
+			</div> <!-- .et_pb_column --><div class="et_pb_column et_pb_column_1_4  et_pb_column_1">
+				
+				<div class="et_pb_text et_pb_module et_pb_bg_layout_light et_pb_text_align_left  et_pb_text_2">
+				
+<h3 class="widgettitle">TERMS AND CONDITIONS</h3>
+<div>
+<a title="Business Terms" href="/terms-and-conditions/business-terms">Business Terms</a><br />
+<a title="Residential Terms" href="/terms-and-conditions/residential-terms">Residential Terms</a><br />
+<a title="Mobile Terms" href="/terms-and-conditions/mobile-terms">Mobile Terms<br />
+</a><a href="/terms-and-conditions/website-terms-of-use">Website Terms of Use</a></p>
+</div>
+
+			</div> <!-- .et_pb_text --><div class="et_pb_text et_pb_module et_pb_bg_layout_light et_pb_text_align_left  et_pb_text_3">
+				
+<h3 class="widgettitle">POLICIES</h3>
+<div>
+<a title="Privacy Policy" href="/terms-and-conditions/privacy-policy">Privacy Policy</a><br />
+<a title="Recording Laws" href="/terms-and-conditions/recording-laws">Recording Laws</a><br />
+<a title="Shipping Policy" href="/terms-and-conditions/shipping-policy">Shipping Policy</a><br />
+<a title="Customer Protection" href="/terms-and-conditions/customer-protection">Customer Protection</a></p>
+</div>
+<div></div>
+
+			</div> <!-- .et_pb_text -->
+			</div> <!-- .et_pb_column -->
+					
+			</div> <!-- .et_pb_row -->
+				
+			</div> <!-- .et_pb_section -->
+  <style>
+    #random590798c695605 { background-image: url('/wp-content/uploads/2014/07/sky-420x130.jpg') }
+                @media screen and (min-width: 421px)  {
+        #random590798c695605 { background-image: url('/wp-content/uploads/2014/07/sky-768x237.jpg'); }
+      }
+                @media screen and (min-width: 769px)  {
+        #random590798c695605 { background-image: url('/wp-content/uploads/2014/07/sky.jpg'); }
+      }
+                  @media screen and (min-width: 1401px) {
+        #random590798c695605 { background-image: url('/wp-content/uploads/2014/07/sky.jpg'); }
+      }
+      </style>
+<div class="c-opportunity-tile-group c-opportunity-tile-group--default" id="random590798c695605">
+	<div class="container">
+				<div class="c-opportunity-tile c-opportunity-tile--content">
+<h5>Gartner Magic Quadrant</h5>
+<p>8x8 has been named a Leader in the Magic Quadrant for Unified Communications as a Service, Multiregional.</p>
+<p><a class="vt-p" href="/resources/white-papers/gartner-magic-quadrant"><em>Read the Magic Quadrant Report</em></a></p>
+<p><a class="vt-p" href="/resources/white-papers/gartner-cloud-unified-communications-video"><img class="alignnone size-full wp-image-9425" src="/wp-content/uploads/2014/09/button-doc-watch-video.png" alt="Watch the Video" width="300" height="311" /></a></p>
+		</div>
+		<div class="c-opportunity-tile c-opportunity-tile--press-releases">
+	<h5>Press Releases</h5>
+	<div class="c-press-release-feed c-press-release-feed--opportunity-tile">
+	<ul class="c-feed-item-group">
+							<li class="c-press-release-feed__item c-feed-item c-feed-item--press-release c-feed-item--opportunity-tile">
+				<time class="c-feed-item__date" datetime="2017-03-22T12:15:00+00:00"><span class="c-feed-item__month">Mar</span><span class="c-feed-item__day">22</span></time>
+				<a href="http://investors.8x8.com/releasedetail.cfm?ReleaseID=1018336" class="c-feed-item__link c-feed-item__title">8X8 Launches ContactNow: a New Contact Center Solution for Teams</a>
+			</li>
+					<li class="c-press-release-feed__item c-feed-item c-feed-item--press-release c-feed-item--opportunity-tile">
+				<time class="c-feed-item__date" datetime="2017-03-14T12:15:00+00:00"><span class="c-feed-item__month">Mar</span><span class="c-feed-item__day">14</span></time>
+				<a href="http://investors.8x8.com/releasedetail.cfm?ReleaseID=1017304" class="c-feed-item__link c-feed-item__title">8x8 Announces Availability of New Virtual Contact Center Editions</a>
+			</li>
+					<li class="c-press-release-feed__item c-feed-item c-feed-item--press-release c-feed-item--opportunity-tile">
+				<time class="c-feed-item__date" datetime="2017-03-08T13:15:00+00:00"><span class="c-feed-item__month">Mar</span><span class="c-feed-item__day">08</span></time>
+				<a href="http://investors.8x8.com/releasedetail.cfm?ReleaseID=1016497" class="c-feed-item__link c-feed-item__title">8x8 Introduces the World&#039;s First Communications Cloud to Usher in a New Era of Converged Communications and Team Collaboration</a>
+			</li>
+			</ul>
+	<footer class="c-press-release-feed__footer">
+					<a href="/about-us/press-room/press-releases" class="c-press-release-feed__more-link c-button c-button--secondary">View all Press Releases</a>
+			</footer>
+</div>
+
+
+		</div>
+		<div class="c-opportunity-tile c-opportunity-tile--content">
+<h5>White Papers</h5>
+<p><a class="vt-p" href="/resources/white-papers"><em>View all White Papers</em></a></p>
+<p><a href="/resources/white-papers"><img class="alignnone wp-image-44627 size-full" src="/wp-content/uploads/2017/01/Whitepaper-icon-opp-tile-2017.jpg" alt="" width="243" height="300" /></a></p>
+<p>&nbsp;</p>
+		</div>
+	</div>
+</div>
+					</div> <!-- .entry-content -->
+
+				
+				</article> <!-- .et_pb_post -->
+
+			
+
+</div> <!-- #main-content -->
+
+<div class="c-sticky-ctas-group js-sticky-ctas"></div>
+						
+            <footer id="main-footer" class="footer">
+
+                <div class="container clearfix">
+
+                    <div class="footer__col-left">
+												<div class="widget">
+							<div class="widget__content"><h5>Useful Resources</h5>
+<ul class="useful-resources-list">
+	<li><a href="/communications-solutions/equipment">Equipment</a></li>
+	<li><a href="/resources">Resources</a></li>
+	<li><a href="/about-us/careers">Careers</a></li>
+	<li><a href="/about-us/partners">Partners</a></li>
+	<li><a href="http://investors.8x8.com/" target="_blank">Investors</a></li>
+	<li><a href="/about-us">About Us</a></li>
+</ul></div>
+			</div>
+                    </div> <!-- end .footer-left -->
+
+                    <div class="footer__col-mid">
+												<div class="widget">
+							<div class="widget__content"><h5>Explore More</h5>
+<div class="footer__sub-col">
+   <h6>Solutions</h6>
+   <ul>
+      <li><a href="/voip-business-phone-systems/by-industry/government">Government</a></li>
+      <li><a href="/voip-business-phone-systems/by-industry/education">Education</a></li>
+      <li><a href="/voip-business-phone-systems/by-industry/healthcare">Healthcare</a></li>
+      <li><a href="/voip-business-phone-services/features/hosted-pbx">Hosted PBX</a></li>
+      <li><a href="/call-center-software">Call Center Software</a></li>
+      <li><em><a href="/voip-business-phone-systems">View all</a></em></li>
+   </ul>
+</div>
+<div class="footer__sub-col">
+   <h6>Products</h6>
+   <ul>
+      <li><a href="/voip-business-phone-services/business-phone-systems">Business Phone Service</a></li>
+      <li><a href="/call-center/contact-center">Cloud Contact Center</a></li>
+      <li><a href="/voip-business-phone-services/unified-communications">Unified Communications</a></li>
+      <li><a href="/web-conferencing">Video &amp; Web Conferencing</a></li>
+      <li><a href="/8x8-academy">8x8 Academy</a></li>
+   </ul>
+</div>
+<div class="footer__sub-col">
+   <h6>Tools</h6>
+   <ul>
+      <li><a href="/resources/tools/international-call-rates">International Call Rates</a></li>
+      <li><a href="/resources/tools/voip-test">VoIP Speed Test</a></li>
+      <li><a href="/resources/tools/number-transfer-tool">Number Transfer Tool</a></li>
+   </ul>
+   <h6 style="margin-top: 1.2em;">Help &amp; Resources</h6>
+   <ul>
+      <li><a href="https://support.8x8.com" target="_blank">Customer Support</a></li>
+      <li><a href="/rewards-program">Referral Rewards</a></li>
+      <li><a href="/blog">Blog</a></li>
+      <li><a href="/about-us/contact-us">Contact Us</a></li>
+      </ul>
+</div></div>
+			</div>
+	<div class="widget">
+							<div class="widget__content"><h5>Follow Us</h5>
+<ul class="c-social-media">
+   <li><a href="https://twitter.com/8x8" rel="nofollow" class="c-social-media__icon c-social-media__icon--twitter" target="_blank">Twitter</a></li>
+   <li><a href="https://www.linkedin.com/company/8x8" class="c-social-media__icon c-social-media__icon--linked-in" rel="nofollow" target="_blank">LinkedIn</a></li>
+   <li><a href="https://www.facebook.com/8x8Inc" class="c-social-media__icon c-social-media__icon--facebook" rel="nofollow" target="_blank">Facebook</a></li>
+   <li><a href="https://www.youtube.com/user/8x8Inc" class="c-social-media__icon c-social-media__icon--youtube" rel="nofollow" target="_blank">YouTube</a></li>
+   <li><a href="http://community.spiceworks.com/pages/8x8" class="c-social-media__icon c-social-media__icon--spiceworks" rel="nofollow" target="_blank">Spiceworks</a></li>
+   <li><a href="https://www.google.com/+8x8Inc" class="c-social-media__icon c-social-media__icon--google-plus" rel="nofollow" target="_blank">Google+</a></li>
+   <li><a href="/blog" class="c-social-media__icon c-social-media__icon--blog" rel="nofollow" target="_blank">Blog</a></li>
+</ul></div>
+			</div>
+                    </div> <!-- end .footer-mid -->
+
+                    <div class="footer__col-right">
+												<div class="widget">
+							<div class="widget__content">                        <h5>Featured Solutions</h5>
+
+                        <a href="/voip-business-phone-systems/by-business-size/small-business" class="footer__featured-solution c-icon c-icon--building-wide">
+                            <h6>Solutions for</h6> Small and Medium Businesses
+                        </a>
+
+                        <a href="/voip-business-phone-systems/by-business-size/enterprise" class="footer__featured-solution secondary c-icon c-icon--building-tall">
+                            <h6>Solutions for</h6> Mid-Market &amp; Enterprise
+                        </a></div>
+			</div>
+                    </div> <!-- end .footer-right -->
+
+                    <div class="clearfix"></div>
+                    <div class="footer__bottom">
+												<div class="widget">
+							<div class="widget__content">                            <ul>
+                                <li>&copy; 2017 8x8, Inc. All rights reserved.</li>
+                                <li><a href="/terms-and-conditions/privacy-policy">Privacy Policy</a></li>
+                                <li><a href="/terms-and-conditions">Terms &amp; Conditions</a></li>
+                                <li><a href="/sitemap">SiteMap</a></li>
+                                <li><a href="https://accountmanager.8x8.com/">Account Manager</a></li>
+                                <li><a href="http://virtualoffice.8x8.com/">Virtual Office Online</a></li>
+                            </ul></div>
+			</div>
+                    </div> <!-- end .footer-bottom -->
+
+                </div> <!-- end .container -->
+
+			</footer> <!-- #main-footer -->
+		</div> <!-- #et-main-area -->
+
+
+	</div> <!-- #page-container -->
+
+	    <script>
+		window.addEventListener( "load", function () {
+			var checkLocation = true;
+            function showCookieDialog() {
+				window.cookieconsent.initialise( {
+					position: "bottom-left",
+					content: {
+						"message": "This website uses cookies to store information on your computer. Some of these cookies are essential to make our site work and others help us to improve by giving us some insight into how the site is being used.",
+						"dismiss": "This is fine",
+						"allow": "Allow Cookies",
+						"link": "Learn More",
+						"href": "/terms-and-conditions/privacy-policy"
+					},
+                    location: checkLocation
+				} );
+			}
+			showCookieDialog();
+        } );
+    </script><style type="text/css" id="et-builder-advanced-style">
+				
+.et_pb_text_0 { font-family: 'Source Sans Pro', Helvetica, Arial, Lucida, sans-serif;font-size: 15px; }
+
+@media only screen and ( min-width: 981px ) {
+	.et_pb_section_0.et_pb_section { padding-top: 15px; padding-bottom: 0px; }
+}
+			</style><style type="text/css" id="et-builder-page-custom-style">
+				 .et_pb_bg_layout_dark { color: #ffffff !important; } .page.et_pb_pagebuilder_layout #main-content { background-color: rgba(255,255,255,0); } .et_pb_section { background-color: #ffffff; }
+			</style><link rel='stylesheet' id='et-gf-source-sans-pro-css'  href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,200,200italic,300,300italic,400italic,600,600italic,700,700italic,900,900italic&#038;subset=latin,latin-ext' type='text/css' media='all' />
+<script type='text/javascript' src='/wp-content/themes/epic/includes/builder/scripts/frontend-builder-global-functions.js?ver=4.7.3'></script>
+<script type='text/javascript' src='/wp-content/themes/epic/includes/builder/scripts/jquery.mobile.custom.min.js?ver=4.7.3'></script>
+<script type='text/javascript' src='/wp-content/themes/epic/includes/builder/scripts/jquery.fitvids.js?ver=4.7.3'></script>
+<script type='text/javascript' src='/wp-content/themes/epic/includes/builder/scripts/waypoints.min.js?ver=4.7.3'></script>
+<script type='text/javascript' src='/wp-content/themes/epic/includes/builder/scripts/jquery.magnific-popup.js?ver=4.7.3'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var et_pb_custom = {"ajaxurl":"\/wp-admin\/admin-ajax.php","images_uri":"\/wp-content\/themes\/epic\/images","builder_images_uri":"\/wp-content\/themes\/epic\/includes\/builder\/images","et_frontend_nonce":"5d7c8eee0e","subscription_failed":"Please, check the fields below to make sure you entered the correct information.","et_ab_log_nonce":"2ea1f26be8","fill_message":"Please, fill in the following fields:","contact_error_message":"Please, fix the following errors:","invalid":"Invalid email","captcha":"Captcha","prev":"Prev","previous":"Previous","next":"Next","wrong_captcha":"You entered the wrong number in captcha.","is_builder_plugin_used":"","is_divi_theme_used":"1","widget_search_selector":".widget_search","is_ab_testing_active":"","page_id":"35","unique_test_id":"","ab_bounce_rate":"5","is_cache_plugin_active":"no","is_shortcode_tracking":""};
+/* ]]> */
+</script>
+<script type='text/javascript' src='/wp-content/themes/epic/includes/builder/scripts/frontend-builder-scripts.js?ver=4.7.3'></script>
+<script type='text/javascript' src='/wp-content/themes/8x8-2017/js/bundle.prod.js?ver=1.0'></script>
+	
+
+
+
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"2634a2b699","applicationID":"34207715","transactionName":"YgdUYRBSDEVRVEANXVtNd1YWWg1YH0dVA1c=","queueTime":0,"applicationTime":1332,"atts":"TkBXF1hIH0s=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>
+
+

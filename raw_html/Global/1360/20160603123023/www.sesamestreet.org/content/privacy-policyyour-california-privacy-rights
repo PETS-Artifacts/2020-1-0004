@@ -1,0 +1,3357 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<!DOCTYPE html>
+
+
+
+
+
+
+
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+		
+	
+	
+	
+	
+	
+	
+	
+		
+		
+	
+	
+		
+	
+	
+	
+	
+	
+
+	
+	
+	
+
+	
+	
+	
+
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+
+
+
+
+
+
+
+
+
+<html class="ltr" dir="ltr" lang="en-US">
+
+<head>
+			<title>Page Not Found - Sesame Street</title>
+		<script src="//cdn.optimizely.com/js/836190398.js"></script>
+	
+		<meta property="og:title" content="Page Not Found - Sesame Street"/> 
+	<meta property="og:description" content="Oops! We can't find that page. Please check that the address is correct, or try the Search box to find a page."/> 
+	<meta property="og:url" content="http://www.sesamestreet.org/content/privacy-policyyour-california-privacy-rights"/> 
+		<meta property="og:site_name" content="Sesame Street"/> 
+	
+			<meta name="google-site-verification" content="XUNKbJ0E8JU4knhXn26T9XdyA9F8ImOnWtxn4SpAq0E" />
+		<meta name="google-site-verification" content="febmIT8IoEO4hRhewrAayXyzyOe4b1Ln8a7tMJVSlsk" />
+		<meta name="y_key" content="d7665b539b2597b5" />
+		<meta name="msvalidate.01" content="D02B225E1BFD5E1B57479F9BB753CC2F" />
+
+					
+<script type="text/javascript">
+/**
+ * HTML element names for the search form, the spellchecking suggestion, and the
+ * cluster suggestions. The search form must have the following input elements:
+ * "q" (for search box), "site", "client".
+ * @type {string}
+ */
+var ss_form_element = 'globalSearchFm'; // search form
+
+/**
+ * Name of search suggestion drop down.
+ * @type {string}
+ */
+var ss_popup_element = 'search_suggest'; // search suggestion drop-down
+
+/**
+ * Types of suggestions to include.  Just one options now, but reserving the
+ * code for more types
+ *   g - suggest server
+ * Array sequence determines how different suggestion types are shown.
+ * Empty array would effectively turn off suggestions.
+ * @type {object}
+ */
+var ss_seq = [ 'g' ];
+
+/**
+ * Suggestion type name to display when there is only one suggestion.
+ * @type {string}
+ */
+var ss_g_one_name_to_display = "Suggestion";
+
+/**
+ * Suggestion type name to display when there are more than one suggestions.
+ * @type {string}
+ */
+var ss_g_more_names_to_display = "Suggestions";
+
+/**
+ * The max suggestions to display for different suggestion types.
+ * No-positive values are equivalent to unlimited.
+ * For key matches, -1 means using GSA default (not tagging numgm parameter),
+ * 0 means unlimited.
+ * Be aware that GSA has a published max limit of 10 for key matches.
+ * @type {number}
+ */
+var ss_g_max_to_display = 5;
+
+/**
+ * The max suggestions to display for all suggestion types.
+ * No-positive values are equivalent to unlimited.
+ * @type {number}
+ */
+var ss_max_to_display = 5;
+
+/**
+ * Idling interval for fast typers.
+ * @type {number}
+ */
+var ss_wait_millisec = 300;
+
+/**
+ * Delay time to avoid contention when drawing the suggestion box by various
+ * parallel processes.
+ * @type {number}
+ */
+var ss_delay_millisec = 30;
+
+/**
+ * Host name or IP address of GSA.
+ * Null value can be used if the JS code loads from the GSA.
+ * For local test, use null if there is a &lt;base> tag pointing to the GSA,
+ * otherwise use the full GSA host name
+ * @type {string}
+ */
+var ss_gsa_host = null; //Don't configure the gsa host since we're proxying through Liferay
+
+/**
+ * Constant that represents legacy output format.
+ * @type {string}
+ */
+var SS_OUTPUT_FORMAT_LEGACY = 'legacy';
+
+/**
+ * Constant that represents OpenSearch output format.
+ * @type {string}
+ */
+var SS_OUTPUT_FORMAT_OPEN_SEARCH = 'os';
+
+/**
+ * Constant that represents rich output format.
+ * @type {string}
+ */
+var SS_OUTPUT_FORMAT_RICH = 'rich';
+
+/**
+ * What suggest request API to use.
+ *   legacy - use current protocol in 6.0
+ *            Request: /suggest?token=&lt;query>&amp;max_matches=&lt;num>&amp;use_similar=0
+ *            Response: [ "&lt;term 1>", "&lt;term 2>", ..., "&lt;term n>" ]
+ *                   or
+ *                      [] (if no result)
+ *   os -     use OpenSearch protocol
+ *            Request: /suggest?q=&lt;query>&amp;max=&lt;num>&amp;site=&lt;collection>&amp;client=&lt;frontend>&amp;access=p&amp;format=os
+ *            Response: [
+ *                        "&lt;query>",
+ *                        [ "&lt;term 1>", "&lt;term 2>", ... "&lt;term n>" ],
+ *                        [ "&lt;content 1>", "&lt;content 2>", ..., "&lt;content n>" ],
+ *                        [ "&lt;url 1>", "&lt;url 2>", ..., "&lt;url n>" ]
+ *                      ] (where the last two elements content and url are optional)
+ *                   or
+ *                      [ &lt;query>, [] ] (if no result)
+ *   rich -   use rich protocol from search-as-you-type
+ *            Request: /suggest?q=&lt;query>&amp;max=&lt;num>&amp;site=&lt;collection>&amp;client=&lt;frontend>&amp;access=p&amp;format=rich
+ *            Response: {
+ *                        "query": "&lt;query>",
+ *                        "results": [
+ *                          { "name": "&lt;term 1>", "type": "suggest", "content": "&lt;content 1>", "style": "&lt;style 1>", "moreDetailsUrl": "&lt;url 1>" },
+ *                          { "name": "&lt;term 2>", "type": "suggest", "content": "&lt;content 2>", "style": "&lt;style 2>", "moreDetailsUrl": "&lt;url 2>" },
+ *                          ...,
+ *                          { "name": "&lt;term n>", "type": "suggest", "content": "&lt;content n>", "style": "&lt;style n>", "moreDetailsUrl": "&lt;url n>" }
+ *                        ]
+ *                      } (where type, content, style, moreDetailsUrl are optional)
+ *                   or
+ *                      { "query": &lt;query>, "results": [] } (if no result)
+ * If unspecified or null, using legacy protocol.
+ * @type {string}
+ */
+var ss_protocol = SS_OUTPUT_FORMAT_RICH;
+
+/**
+ * Whether to allow non-query suggestion items.
+ * Setting it to false can bring results from "os" and "rich" responses into
+ * backward compatible with "legacy".
+ * @type {boolean}
+ */
+var ss_allow_non_query = true;
+
+/**
+ * Default title text when the non-query suggestion item does not have a useful
+ * title.
+ * The default display text should be internalionalized.
+ * @type {string}
+ */
+var ss_non_query_empty_title = "No Title";
+
+/**
+ * Whether debugging is allowed.  If so, toggle with F2 key.
+ * @type {boolean}
+ */
+var ss_allow_debug = false;
+
+/**
+ * Global variable to hold the base URL to the suggested search. 
+ */
+var ss_base_url = '';
+</script>
+			
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+	
+		<meta name="robots" content="noindex, follow" lang="en-US" />
+	
+
+	
+
+	
+		<meta name="description" content="Oops! We can&#039;t find that page. Please check that the address is correct, or try the Search box to find a page." lang="en-US" />
+	
+
+	
+
+	
+		<meta name="keywords" content="page not found,404,oops,bonk" lang="en-US" />
+	
+
+
+
+<link href="http://www.sesamestreet.org/sesamestreet-theme/images/favicon.ico" rel="Shortcut Icon" />
+
+
+
+
+
+
+	<link href="http&#x3a;&#x2f;&#x2f;www&#x2e;sesamestreet&#x2e;org" rel="canonical" />
+
+	
+
+	
+
+		
+
+						<link href="http&#x3a;&#x2f;&#x2f;www&#x2e;sesamestreet&#x2e;org&#x2f;zh" hreflang="zh-CN" rel="alternate" />
+
+		
+
+						<link href="http&#x3a;&#x2f;&#x2f;www&#x2e;sesamestreet&#x2e;org&#x2f;zh_TW" hreflang="zh-TW" rel="alternate" />
+
+		
+
+						<link href="http&#x3a;&#x2f;&#x2f;www&#x2e;sesamestreet&#x2e;org&#x2f;nl" hreflang="nl-NL" rel="alternate" />
+
+		
+
+						<link href="http&#x3a;&#x2f;&#x2f;www&#x2e;sesamestreet&#x2e;org&#x2f;de" hreflang="de-DE" rel="alternate" />
+
+		
+
+						<link href="http&#x3a;&#x2f;&#x2f;www&#x2e;sesamestreet&#x2e;org&#x2f;es" hreflang="es-MX" rel="alternate" />
+
+		
+
+	
+
+
+
+
+
+<link href="&#x2f;html&#x2f;css&#x2f;main&#x2e;css&#x3f;browserId&#x3d;other&#x26;themeId&#x3d;sesamestreet_WAR_sesamestreettheme&#x26;minifierType&#x3d;css&#x26;languageId&#x3d;en_US&#x26;b&#x3d;6110&#x26;t&#x3d;1451332976000" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+
+
+	
+
+				<link href="/html/portlet/journal_content/css/main.css?browserId=other&amp;themeId=sesamestreet_WAR_sesamestreettheme&amp;minifierType=css&amp;languageId=en_US&amp;b=6110&amp;t=1454906477000" rel="stylesheet" type="text/css" />
+
+	
+
+
+
+
+
+
+
+<script type="text/javascript">
+	// <![CDATA[
+		var Liferay = {
+			Browser: {
+				acceptsGzip: function() {
+					return false;
+				},
+				getMajorVersion: function() {
+					return 0.0;
+				},
+				getRevision: function() {
+					return "";
+				},
+				getVersion: function() {
+					return "";
+				},
+				isAir: function() {
+					return false;
+				},
+				isChrome: function() {
+					return false;
+				},
+				isFirefox: function() {
+					return false;
+				},
+				isGecko: function() {
+					return false;
+				},
+				isIe: function() {
+					return false;
+				},
+				isIphone: function() {
+					return false;
+				},
+				isLinux: function() {
+					return false;
+				},
+				isMac: function() {
+					return false;
+				},
+				isMobile: function() {
+					return false;
+				},
+				isMozilla: function() {
+					return false;
+				},
+				isOpera: function() {
+					return false;
+				},
+				isRtf: function() {
+					return false;
+				},
+				isSafari: function() {
+					return false;
+				},
+				isSun: function() {
+					return false;
+				},
+				isWap: function() {
+					return false;
+				},
+				isWapXhtml: function() {
+					return false;
+				},
+				isWebKit: function() {
+					return false;
+				},
+				isWindows: function() {
+					return false;
+				},
+				isWml: function() {
+					return false;
+				}
+			},
+
+			Data: {
+				isCustomizationView: function() {
+					return false;
+				},
+
+				notices: [
+					null
+
+					
+
+					
+				]
+			},
+
+			ThemeDisplay: {
+				getCDNDynamicResourcesHost: function() {
+					return "";
+				},
+				getCDNHost: function() {
+					return "";
+				},
+				getCompanyId: function() {
+					return "10095";
+				},
+				getCompanyGroupId: function() {
+					return "31771535";
+				},
+				getUserId: function() {
+					return "10097";
+				},
+
+				
+
+				getDoAsUserIdEncoded: function() {
+					return "";
+				},
+				getPlid: function() {
+					return "24951";
+				},
+
+				
+					getLayoutId: function() {
+						return "233";
+					},
+					getLayoutURL: function() {
+						return "http://www.sesamestreet.org/oops";
+					},
+					isPrivateLayout: function() {
+						return "false";
+					},
+					getParentLayoutId: function() {
+						return "283";
+					},
+				
+
+				getScopeGroupId: function() {
+					return "10171";
+				},
+				getScopeGroupIdOrLiveGroupId: function() {
+					return "10171";
+				},
+				getParentGroupId: function() {
+					return "10171";
+				},
+				isImpersonated: function() {
+					return false;
+				},
+				isSignedIn: function() {
+					return false;
+				},
+				getDefaultLanguageId: function() {
+					return "en_US";
+				},
+				getLanguageId: function() {
+					return "en_US";
+				},
+				isAddSessionIdToURL: function() {
+					return false;
+				},
+				isFreeformLayout: function() {
+					return false;
+				},
+				isStateExclusive: function() {
+					return false;
+				},
+				isStateMaximized: function() {
+					return false;
+				},
+				isStatePopUp: function() {
+					return false;
+				},
+				getPathContext: function() {
+					return "";
+				},
+				getPathImage: function() {
+					return "/image";
+				},
+				getPathJavaScript: function() {
+					return "/html/js";
+				},
+				getPathMain: function() {
+					return "/c";
+				},
+				getPathThemeImages: function() {
+					return "http://www.sesamestreet.org/sesamestreet-theme/images";
+				},
+				getPathThemeRoot: function() {
+					return "/sesamestreet-theme/";
+				},
+				getURLControlPanel: function() {
+					return "/group/control_panel?doAsGroupId=10171&refererPlid=24951";
+				},
+				getURLHome: function() {
+					return "http://www.sesamestreet.org/web/guest";
+				},
+				getSessionId: function() {
+					return "E62094E23B945240BB7A903E1031516B.sol-ord-lfe02";
+				},
+				getPortletSetupShowBordersDefault: function() {
+					return true;
+				}
+			},
+
+			PropsValues: {
+				NTLM_AUTH_ENABLED: false
+			}
+		};
+
+		var themeDisplay = Liferay.ThemeDisplay;
+
+		
+
+		Liferay.AUI = {
+			getBaseURL: function() {
+				return 'http://www.sesamestreet.org/html/js/aui/';
+			},
+			getCombine: function() {
+				return true;
+			},
+			getComboPath: function() {
+				return '/combo/?browserId=other&minifierType=&languageId=en_US&b=6110&t=1460548891000&p=/html/js&';
+			},
+			getFilter: function() {
+				
+					
+						return {
+							replaceStr: function(match, fragment, string) {
+								return fragment + 'm=' + (match.split('/html/js')[1] || '');
+							},
+							searchExp: '(\\?|&)/([^&]+)'
+						};
+					
+					
+					
+				
+			},
+			getJavaScriptRootPath: function() {
+				return '/html/js';
+			},
+			getLangPath: function () {
+				return 'aui_lang.jsp?browserId=other&themeId=sesamestreet_WAR_sesamestreettheme&colorSchemeId=newSS&minifierType=js&languageId=en_US&b=6110&t=1460548891000';
+			},
+			getRootPath: function() {
+				return '/html/js/aui/';
+			}
+		};
+
+		window.YUI_config = {
+			base: Liferay.AUI.getBaseURL(),
+			comboBase: Liferay.AUI.getComboPath(),
+			fetchCSS: true,
+			filter: Liferay.AUI.getFilter(),
+			root: Liferay.AUI.getRootPath(),
+			useBrowserConsole: false
+		};
+
+		
+
+		Liferay.currentURL = '\x2fcontent\x2fprivacy-policyyour-california-privacy-rights';
+		Liferay.currentURLEncoded = '%2Fcontent%2Fprivacy-policyyour-california-privacy-rights';
+	// ]]>
+</script>
+
+
+	
+		
+			
+				<script src="/html/js/barebone.jsp?browserId=other&amp;themeId=sesamestreet_WAR_sesamestreettheme&amp;colorSchemeId=newSS&amp;minifierType=js&amp;minifierBundleId=javascript.barebone.files&amp;languageId=en_US&amp;b=6110&amp;t=1460548891000" type="text/javascript"></script>
+			
+			
+		
+	
+	
+
+
+
+
+<script type="text/javascript">
+	// <![CDATA[
+		
+
+			
+
+			
+				Liferay.Portlet.list = ['56_INSTANCE_jt03','56_INSTANCE_5613','56_INSTANCE_1aOL','56_INSTANCE_Acls','56_INSTANCE_d7Un','56_INSTANCE_1v3x','56_INSTANCE_DyGn'];
+			
+		
+
+		
+
+		
+	// ]]>
+</script>
+
+
+
+
+
+
+	<script type="text/javascript">
+		var _gaq = _gaq || [];
+
+		_gaq.push(['_setAccount', 'UA-4680963-1']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+			var ga = document.createElement('script');
+
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+
+			ga.setAttribute('async', 'true');
+
+			document.documentElement.firstChild.appendChild(ga);
+		})();
+	</script>
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+<link class="lfr-css-file" href="http&#x3a;&#x2f;&#x2f;www&#x2e;sesamestreet&#x2e;org&#x2f;sesamestreet-theme&#x2f;css&#x2f;main&#x2e;css&#x3f;browserId&#x3d;other&#x26;themeId&#x3d;sesamestreet_WAR_sesamestreettheme&#x26;minifierType&#x3d;css&#x26;languageId&#x3d;en_US&#x26;b&#x3d;6110&#x26;t&#x3d;1451333316000" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+	/* <![CDATA[ */
+		
+	/* ]]> */
+</style>
+
+
+
+
+
+
+
+
+	<style type="text/css">
+
+		
+
+			
+
+		
+
+			
+
+		
+
+			
+
+		
+
+			
+
+		
+
+			
+
+		
+
+			
+
+		
+
+			
+
+		
+
+			
+
+		
+
+	</style>
+
+
+
+
+	
+	
+	<script id="" src="http://www.sesamestreet.org/sesamestreet-theme/js/jquery/jquery.js" type="text/javascript"></script>
+
+	
+	<script id="" src="http://www.sesamestreet.org/sesamestreet-theme/js/jquery/jquery.ThreeDots.js" type="text/javascript"></script>
+
+	
+	<script id="" src="http://www.sesamestreet.org/sesamestreet-theme/js/jquery/json.js" type="text/javascript"></script>
+
+	
+	<script id="" src="http://www.sesamestreet.org/sesamestreet-theme/js/sesame.js" type="text/javascript"></script>
+
+	
+	<script id="" src="http://www.sesamestreet.org/sesamestreet-theme/js/slideshow.js" type="text/javascript"></script>
+
+	
+	<script id="" src="http://www.sesamestreet.org/sesamestreet-theme/js/flashRightClick.js" type="text/javascript"></script>
+
+	
+	
+	<script id="" src="http://www.sesamestreet.org/sesamestreet-theme/js/gsa/ss.js" type="text/javascript"></script>
+
+
+	
+	<script id="" src="/html/js/misc/swfobject.js" type="text/javascript"></script>
+
+	
+	
+	<script id="" src="/ump-portlet/js/swfobject.js" type="text/javascript"></script>
+
+
+
+
+
+			
+
+			
+	
+	<script id="" src="http://www.sesamestreet.org/sesamestreet-theme/js/starcursor.js" type="text/javascript"></script>
+	</head>
+
+<body class="newSS yui3-skin-sam controls-visible signed-out public-page site oops">
+
+<!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-PJP379"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PJP379');</script>
+<!-- End Google Tag Manager -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<div id="starcursor" style="display: none; left: 0; position: absolute; top: 0; z-index: +50;">
+		<img src="http://www.sesamestreet.org/sesamestreet-theme/images/custom/cursor_small.gif" height="16" width="16" alt="star cursor" />
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<div id="banner">
+			</div>
+
+<div id="content">
+								
+
+<link id="stylesheet" rel="stylesheet" type="text/css" href="http://static.sesamestreet.org/css/nav/newSS.css"/>
+<script type="text/javascript" src="http://static.sesamestreet.org/js/nav/newSS.js"></script>
+<script src="http://static.sesamestreet.org/js/nav/viewport-units-buggyfill.js"></script>
+<script type="text/javascript" src="http://static.sesamestreet.org/js/nav/konami/konami.js"></script>
+<script>window.viewportUnitsBuggyfill.init();</script>
+
+
+
+
+
+<div id="navigation" class="sort-pages modify-pages  nav_non_home ">
+<div id="parents_nav_wrapper">
+ 	<ul id="parents_nav">
+		<li id="events"><a onClick="pageTracker._trackEvent('TopNavGrownUps', 'LinkClicked', '/parents/events');" href="/events">EVENTS</a></li>
+		<li id="store"><a onClick="pageTracker._trackEvent('TopNavGrownUps', 'LinkClicked', 'http://store.sesamestreet.org');" href="http://store.sesamestreet.org">THE STORE</a></li>
+		<li id="topics"><a onClick="pageTracker._trackEvent('TopNavGrownUps', 'LinkClicked', '/parents/topicsandactivities/toolkits');" href="/parents/topicsandactivities/toolkits">TOOL KITS</a></li>
+		<li id="recipes"><a onClick="pageTracker._trackEvent('TopNavGrownUps', 'LinkClicked', '/parents/topicsandactivities/recipes');" href="/parents/topicsandactivities/recipes">RECIPES</a></li>		<li id="crafts"><a onClick="pageTracker._trackEvent('TopNavGrownUps', 'LinkClicked', '/parents/topicsandactivities/crafts');" href="/parents/topicsandactivities/crafts">CRAFTS</a></li>		<li id="on_tv"><a onClick="pageTracker._trackEvent('TopNavGrownUps', 'LinkClicked', '/parents/theshow');" href="/parents/theshow/episodes">THE SHOW</a></li>		<li id="sesame_go"><a onClick="pageTracker._trackEvent('TopNavGrownUps', 'LinkClicked', 'www.sesamego.com');" href="http://www.sesamego.com">SESAME GO</a></li>
+		
+	</ul>
+
+</div>
+<div id="kids_nav_wrapper">
+			<ul id="kids_nav"> 
+			<li id="item_1" class="nav_item"><a class="nav_link home_link" href="/home"><span>Home</span></a></li><li id="item_2" class="nav_item non_home ">
+			<a class="nav_link games_link" href="/games" id="nav-games"><div class="nav_link_div"><div class="nav_title"><div class="nav_icon"></div><span>Games</span></div><div class="nav_link_bottom"></div></div></a> </li><li id="item_3" class="nav_item non_home ">
+			<a class="nav_link videos_link" href="/videos?ref=nav" id="nav-videos"><div class="nav_link_div"><div class="nav_title"><div class="nav_icon"></div><span>Videos</span></div><div class="nav_link_bottom"></div></div></a></li><li id="item_4" class="nav_item non_home ">
+			<a class="nav_link art_link" href="/games/art" id="nav-art"><div class="nav_link_div"><div class="nav_title"><div class="nav_icon"></div><span class="nav_art">Art<span class="nav_maker">Maker</span></span></div><div class="nav_link_bottom"></div></div></a></li><li id="item_5" class="nav_item non_home ">
+			<a class="nav_link muppets_link" href="/muppets" id="nav-muppets"><div class="nav_link_div"><div class="nav_title"><div class="nav_icon"></div><span>Muppets</span></div><div class="nav_link_bottom"></div></div></a></li><li id="item_6" class="nav_item non_home ">
+			<a class="nav_link playlists_link" href="/playlists" id="nav-playlists"><div class="nav_link_div"><div class="nav_title"><div class="nav_icon"></div><span>Playlists</span></div><div class="nav_link_bottom"></div></div></a></li> 
+		</ul>
+	</div>
+<div class="search">
+	<div class="search_box">
+		<form method="get" action="/globalsearch"
+			name="globalSearchFm" id="globalSearchFm" onsubmit="setHiddenSearchField()">
+			<input type="hidden" name="p_p_id" value="search_WAR_searchportlet" />
+			<input type="hidden" name="p_p_lifecycle" value="1" />
+			<input type="hidden" name="p_p_state" value="normal" />
+			<input type="hidden" name="p_p_mode" value="view" />
+			<input type="hidden" name="_search_WAR_searchportlet_javax.portlet.action" value="search" />
+						<input type="hidden" name="client" value="_"/>
+			<input type="hidden" name="site" value="_"/>
+			<input type="hidden" class="search_field_hidden" name="_search_WAR_searchportlet_keywords" value=""/>
+																				<input class="search_field search_field_gsa"
+				   name="q" class="text-input"
+				   onblur="if (this.value === '') { this.value = 'Search SesameStreet.org'; }"
+				   onfocus="if (this.value === 'SEARCH SESAMESTREET.ORG') { this.value = ''; }"
+				   onkeyup="ss_handleKey(event)" 
+				   type="text"
+				   
+				   value="SEARCH SESAMESTREET.ORG"
+				   autocomplete="off"/>
+			<input class="search_submit" type="submit" name="submit"/>
+							<table cellspacing="0" cellpadding="0" id="search_suggest" class="ss-gac-m"></table>
+
+				<input type="hidden" id="device_capabilities" name="_search_WAR_searchportlet_capabilities" value="" />
+						
+		</form>
+	</div>
+</div>
+<script type="text/javascript">
+
+	function setHiddenSearchField() {
+		var searchField = jQuery(".search input.search_field");
+		var searchFieldHidden = jQuery(".search input.search_field_hidden");
+		searchFieldHidden.val(searchField.val());
+	}
+
+	
+		jQuery(function(){
+
+			var initCapabilitiesInputInSearchForm = function(){
+				sw.testCapabilities();
+
+				var capabilities = sw.capabilities;
+
+				var capabilitiesJson = jQuery.toJSON(capabilities);
+
+				jQuery("#device_capabilities").val(capabilitiesJson);
+			};
+
+			// load sw.js lib (if needed)
+			if(typeof sw == 'undefined') {
+
+				jQuery.ajax({
+							dataType: "script",
+							cache: true,
+							url: "/ump-portlet/js/sw/sw.js"
+						})
+						.done(function(script, textStatus) {
+
+								initCapabilitiesInputInSearchForm();
+							});
+
+			} else {
+
+				initCapabilitiesInputInSearchForm();
+			}
+		});
+	</script>
+</div>
+
+
+
+
+<script type="text/javascript">
+	if(window.location.href.indexOf("art") > -1) {
+		$("#item_2").removeClass("selected");
+		}
+</script>			
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+	<div id="p_p_id_103_" class="portlet-boundary portlet-boundary_103_  portlet-static portlet-static-end  " >
+		<span id="p_103"></span>
+
+		<div class="portlet-body">
+
+
+
+	
+	
+	
+	
+
+		
+
+			
+				
+				
+					
+				
+			
+
+		
+
+	
+
+
+
+
+
+			
+		</div>
+	</div>
+
+
+
+
+
+	
+
+<div id="main-content" role="main">
+	<div class="portlet-layout">
+		<div class="content-rounded-container single-article">
+			<div class="tl"></div>
+			<div class="mid">
+				<div class="portlet-column portlet-column-only" id="column-1">
+					<div class="portlet-dropzone portlet-column-content portlet-column-content-only" id="layout-column_column-1">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+	<div id="p_p_id_56_INSTANCE_jt03_" class="portlet-boundary portlet-boundary_56_  portlet-static portlet-static-end portlet-journal-content " >
+		<span id="p_56_INSTANCE_jt03"></span>
+
+		<div class="portlet-body">
+
+
+
+	
+	
+	
+	
+
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+
+		
+
+		
+			
+				
+
+<section class="portlet" id="portlet_56_INSTANCE_jt03">
+	
+	<div class="portlet-content">
+		
+					<div class=" portlet-content-container" style="">
+						
+
+
+	<div class="portlet-body">
+
+
+
+	
+		
+			
+			
+				
+					
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+				
+
+				
+					
+					
+						
+
+
+	
+	
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+	
+
+	<div class="journal-content-article" id="article_10095_10171_31878581_1.0">
+		<div class="col"> <h1><img height="367" width="250" src="/sesamestreet-theme/images/appendix/appendix_oscar.jpg" alt="Rosita" class="inline-right" />Oops</h1> Oops! We can&rsquo;t find that page. Please check that the address is correct, or visit our homepage to look for something else. <p>&nbsp;</p> <a href="/home">Home</a> <p><!-- end article content --></p> <div class="clear">&nbsp;</div> </div> &nbsp;&nbsp;
+	</div>
+
+	
+
+
+
+
+
+
+
+
+
+
+
+	
+		<div class="entry-links">
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		</div>
+	
+
+	
+
+	
+
+	
+
+					
+				
+			
+			
+		
+	
+	
+
+
+
+	</div>
+
+					</div>
+				
+	</div>
+</section>
+			
+			
+		
+	
+
+
+	
+
+
+
+
+
+			
+		</div>
+	</div>
+
+
+
+
+
+	
+	
+</div>
+				</div>
+			</div>
+
+			<div class="br">
+				<div class="bl"></div>
+			</div>
+		</div>
+	</div>
+
+	<div class="portlet-layout">
+		<div class="nav portlet-column portlet-column-only" id="column-2">
+			<div class="portlet-dropzone portlet-column-content portlet-column-content-only" id="layout-column_column-2">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+	<div id="p_p_id_56_INSTANCE_5613_" class="portlet-boundary portlet-boundary_56_  portlet-static portlet-static-end portlet-journal-content " >
+		<span id="p_56_INSTANCE_5613"></span>
+
+		<div class="portlet-body">
+
+
+
+	
+	
+	
+	
+
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+
+		
+
+		
+			
+				
+
+<section class="portlet" id="portlet_56_INSTANCE_5613">
+	
+	<div class="portlet-content">
+		
+					<div class=" portlet-content-container" style="">
+						
+
+
+	<div class="portlet-body">
+
+
+
+	
+		
+			
+			
+				
+					
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+				
+
+				
+					
+					
+						
+
+
+	
+	
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+	
+
+	<div class="journal-content-article" id="article_10095_10171_31774777_1.0">
+		
+
+
+
+	</div>
+
+	
+
+
+
+
+
+
+
+
+
+
+
+	
+		<div class="entry-links">
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		</div>
+	
+
+	
+
+	
+
+	
+
+					
+				
+			
+			
+		
+	
+	
+
+
+
+	</div>
+
+					</div>
+				
+	</div>
+</section>
+			
+			
+		
+	
+
+
+	
+
+
+
+
+
+			
+		</div>
+	</div>
+
+
+
+
+
+	
+	
+</div>
+		</div>
+	</div>
+
+	<div class="main-ad-wrapper portlet-layout">
+		<div class="aui-w70 portlet-column portlet-column-first" id="column-3">
+			<div class="portlet-dropzone portlet-column-content portlet-column-content-first" id="layout-column_column-3">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+		
+	
+	
+</div>
+		</div>
+		<div class="ad aui-w15 main-ad-1 portlet-column" id="column-4">
+			<div class="portlet-dropzone portlet-column-content" id="layout-column_column-4">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+		
+	
+	
+</div>
+		</div>
+		<div class="ad aui-w15 main-ad-2 portlet-column portlet-column-last" id="column-5">
+			<div class="portlet-dropzone portlet-column-content portlet-column-content-last" id="layout-column_column-5">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+		
+	
+	
+</div>
+		</div>
+	</div>
+
+	<div class="portlet-layout">
+		<div class="ad aui-w1-7 main-ad-3 portlet-column portlet-column-first" id="column-6">
+			<div class="portlet-dropzone portlet-column-content portlet-column-content-first" id="layout-column_column-6">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+		
+	
+	
+</div>
+		</div>
+		<div class="ad aui-w85 main-ad-4 portlet-column portlet-column-last" id="column-7">
+			<div class="portlet-dropzone portlet-column-content portlet-column-content-last" id="layout-column_column-7">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+		
+	
+	
+</div>
+		</div>
+	</div>
+</div>
+
+
+
+	
+
+
+
+
+
+
+
+<form action="#" id="hrefFm" method="post" name="hrefFm">
+	<span></span>
+</form>
+	
+			
+<div id="new_footer">
+	<div id="footer_sponsors">
+		<div id="workshop_tag">
+			<p>Produced by:</p>
+			<a href="http://www.sesameworkshop.org/" target="_blank"class="sponsor_link"><span id="workshop_logo"></span></a>
+		</div>
+		<div id="sponsor_tags">
+			<p>With Support From:</p>
+			<a href="http://www.sesameworkshop.org/partners/partners/beaches/" target="_blank" class="sponsor_link"><span id="beaches_logo"></span></a>
+			<a href="http://www.sesameworkshop.org/partners/partners/party-city-and-sesame-workshop/" target="_blank" class="sponsor_link"><span id="party_logo"></span></a>
+			<a href="http://www.sesameworkshop.org/partners/partners/earths-best/" target="_blank" class="sponsor_link"><span id="earth_logo"></span></a>
+			<a href="http://www.sesameworkshop.org/partners/partners/unitedhealthcare/" target="_blank" class="sponsor_link"><span id="united_logo"></span></a>
+			<a href="http://www.sesameworkshop.org/partners/partners/pnc/" target="_blank" class="sponsor_link"><span id="pnc_logo"></span></a>
+		</div>
+	</div>
+	<div id="footer_main" >
+		
+			<div id="footer_wrapper" >
+				<div id="footer_watch" class="section_links single_section">
+					<span class="footer_title">Watch</span>
+					<p><a href="http://pbskids.org/tvschedules/stationfinder.html" target="_blank" class="footer_link">PBS Local Stations</a></p>
+					<p><a href="https://www.youtube.com/user/SesameStreet" target="_blank" class="footer_link">Youtube</a></p>
+					<p><a href="http://www.sesamego.com/" target="_blank" class="footer_link">Sesame Go</a></p>
+					<p><a href="https://itunes.apple.com/us/podcast/sesame-street-podcast/id264537349" target="_blank" class="footer_link">Podcasts</a></p>
+				</div>
+				<div id="footer_shop" class="section_links single_section">
+					<span class="footer_title">Shop</span>
+					<p><a href="http://store.sesamestreet.org/" target="_blank" class="footer_link">Store</a></p>
+					<p><a href="http://www.sesamestreet.org/parents/apps" target="_blank"  class="footer_link">Apps & eBooks</a></p>
+					<p><a href="http://www.sesamestreet.org/events" target="_blank" class="footer_link">Live Events</a></p>
+					<p><a href="http://www.itunes.com/sesamestreet" target="_blank" class="footer_link">iTunes</a></p>					
+				</div>
+			
+				<div id="footer_social" class="section_links single_section footer_icons">
+					<span class="footer_title">Follow</span>
+					<p><a href="https://www.facebook.com/SesameStreet" target="_blank" class="footer_link footer_facebook">Facebook</a></p>
+					<p><a href="https://twitter.com/sesamestreet" target="_blank" class="footer_link footer_twitter">Twitter</a></p>
+					<p><a href="http://sesamestreet.tumblr.com/" target="_blank" class="footer_link footer_tumblr">Tumblr</a></p>
+					<p><a href="http://www.youtube.com/sesamestreet" target="_blank" class="footer_link footer_youtube">YouTube</a></p>
+					<p><a href="http://instagram.com/sesamestreet" target="_blank" class="footer_link footer_instagram">Instagram</a></p>
+					<p><a href="https://vine.co/SesameStreet" target="_blank" class="footer_link footer_vine">Vine</a></p>
+					<p><a href="http://www.pinterest.com/sesamestreet/" target="_blank" class="footer_link footer_pinterest">Pinterest</a></p>
+				</div>
+				<div id="footer_about" class="section_links single_section">
+					<span class="footer_title">About</span>
+					<p><a href="http://www.sesameworkshop.org/" target="_blank" class="footer_link">Sesame Workshop</a></p>
+					<p><a href="http://www.sesameworkshop.org/contact-us/" target="_blank" class="footer_link">Contact Us</a></p>
+					<p><a href="http://www.sesameworkshop.org/faqs/" target="_blank" class="footer_link">FAQ</a></p>
+					<p><a href="http://www.sesamestreet.org/termsofuse" target="_blank" class="footer_link">Terms of Use</a></p>
+					<p><a href="http://www.sesamestreet.org/privacypolicy" target="_blank" class="footer_link">Privacy Policy/Your California Privacy Rights</a></p>
+				</div>
+			
+		
+			<div id="footer_ad_wrapper" >
+				<div id="footer_ad_main" class="new_footer_ad"><a href='http://ads.sesameworkshop.org/openx/www/delivery/ck.php?n=a2f16b89' target='_blank'><img src='http://ads.sesameworkshop.org/openx/www/delivery/avw.php?zoneid=196&amp;n=a2f16b89' border='0' alt='' /></a></div>
+				<div id="footer_ad_top" class="new_footer_ad"><a href='http://ads.sesameworkshop.org/openx/www/delivery/ck.php?n=a075fe21' target='_blank'><img src='http://ads.sesameworkshop.org/openx/www/delivery/avw.php?zoneid=197&amp;n=a075fe21' border='0' alt='' /></a></div>
+				<div id="footer_ad_bottom" class="new_footer_ad"><a href='http://ads.sesameworkshop.org/openx/www/delivery/ck.php?n=a3a81fa9' target='_blank'><img src='http://ads.sesameworkshop.org/openx/www/delivery/avw.php?zoneid=198&amp;n=a3a81fa9' border='0' alt='' /></a></div>
+			</div>
+			</div>
+		
+		<div id="footer_kids">
+			<p>Helping kids grow smarter, stronger, and kinder.</p>
+		</div>
+		<div id="footer_copyright">
+			<p>&copy; 2016 Sesame Workshop</p>
+		</div>
+	</div>	
+
+<!-- Begin comScore Tag -->
+
+<script type="text/javascript">
+
+	jQuery.getScript((document.location.protocol=="https:"?"https://sb":"http://b")+".scorecardresearch.com/beacon.js",  function(script, textStatus, quXHR){
+
+		COMSCORE.beacon({c1:2,c2:6765265,c3:"",c4:"",c5:"",c6:"",c15:""});
+
+	});
+
+</script>
+
+<noscript>
+
+<img src="http://b.scorecardresearch.com/p?c1=2&c2=6765265&c3=&c4=&c5=&c6=&c15=&cj=1" />
+
+</noscript>
+
+<!-- End comScore Tag -->
+
+
+</div>
+	</div>
+
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+	
+
+	
+
+
+
+	
+
+
+	
+
+
+
+	
+
+
+
+	
+
+	
+
+
+
+	
+
+
+	
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+// <![CDATA[
+
+	Liferay.Util.addInputFocus();
+
+	
+		Liferay.Portlet.runtimePortletIds = ['103'];
+	
+
+	
+
+	
+		
+		
+
+			
+
+			
+		
+	
+
+// ]]>
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+// <![CDATA[
+
+				Liferay.Portlet.onLoad(
+					{
+						canEditTitle: false,
+						columnPos: 0,
+						isStatic: 'end',
+						namespacedId: 'p_p_id_103_',
+						portletId: '103',
+						refreshURL: '\x2fc\x2fportal\x2frender_portlet\x3fp_l_id\x3d24951\x26p_p_id\x3d103\x26p_p_lifecycle\x3d0\x26p_t_lifecycle\x3d0\x26p_p_state\x3dnormal\x26p_p_mode\x3dview\x26p_p_col_id\x3d\x26p_p_col_pos\x3d0\x26p_p_col_count\x3d0\x26p_p_isolated\x3d1\x26currentURL\x3d\x252Fcontent\x252Fprivacy-policyyour-california-privacy-rights'
+					}
+				);
+			
+				Liferay.Portlet.onLoad(
+					{
+						canEditTitle: false,
+						columnPos: 0,
+						isStatic: 'end',
+						namespacedId: 'p_p_id_56_INSTANCE_1aOL_',
+						portletId: '56_INSTANCE_1aOL',
+						refreshURL: '\x2fc\x2fportal\x2frender_portlet\x3fp_l_id\x3d24951\x26p_p_id\x3d56_INSTANCE_1aOL\x26p_p_lifecycle\x3d0\x26p_t_lifecycle\x3d0\x26p_p_state\x3dnormal\x26p_p_mode\x3dview\x26p_p_col_id\x3dcolumn-3\x26p_p_col_pos\x3d0\x26p_p_col_count\x3d1\x26p_p_isolated\x3d1\x26currentURL\x3d\x252Fcontent\x252Fprivacy-policyyour-california-privacy-rights'
+					}
+				);
+			
+				Liferay.Portlet.onLoad(
+					{
+						canEditTitle: false,
+						columnPos: 0,
+						isStatic: 'end',
+						namespacedId: 'p_p_id_56_INSTANCE_1v3x_',
+						portletId: '56_INSTANCE_1v3x',
+						refreshURL: '\x2fc\x2fportal\x2frender_portlet\x3fp_l_id\x3d24951\x26p_p_id\x3d56_INSTANCE_1v3x\x26p_p_lifecycle\x3d0\x26p_t_lifecycle\x3d0\x26p_p_state\x3dnormal\x26p_p_mode\x3dview\x26p_p_col_id\x3dcolumn-6\x26p_p_col_pos\x3d0\x26p_p_col_count\x3d1\x26p_p_isolated\x3d1\x26currentURL\x3d\x252Fcontent\x252Fprivacy-policyyour-california-privacy-rights'
+					}
+				);
+			
+				Liferay.Portlet.onLoad(
+					{
+						canEditTitle: false,
+						columnPos: 0,
+						isStatic: 'end',
+						namespacedId: 'p_p_id_56_INSTANCE_5613_',
+						portletId: '56_INSTANCE_5613',
+						refreshURL: '\x2fc\x2fportal\x2frender_portlet\x3fp_l_id\x3d24951\x26p_p_id\x3d56_INSTANCE_5613\x26p_p_lifecycle\x3d0\x26p_t_lifecycle\x3d0\x26p_p_state\x3dnormal\x26p_p_mode\x3dview\x26p_p_col_id\x3dcolumn-2\x26p_p_col_pos\x3d0\x26p_p_col_count\x3d1\x26p_p_isolated\x3d1\x26currentURL\x3d\x252Fcontent\x252Fprivacy-policyyour-california-privacy-rights'
+					}
+				);
+			
+				Liferay.Portlet.onLoad(
+					{
+						canEditTitle: false,
+						columnPos: 0,
+						isStatic: 'end',
+						namespacedId: 'p_p_id_56_INSTANCE_Acls_',
+						portletId: '56_INSTANCE_Acls',
+						refreshURL: '\x2fc\x2fportal\x2frender_portlet\x3fp_l_id\x3d24951\x26p_p_id\x3d56_INSTANCE_Acls\x26p_p_lifecycle\x3d0\x26p_t_lifecycle\x3d0\x26p_p_state\x3dnormal\x26p_p_mode\x3dview\x26p_p_col_id\x3dcolumn-4\x26p_p_col_pos\x3d0\x26p_p_col_count\x3d1\x26p_p_isolated\x3d1\x26currentURL\x3d\x252Fcontent\x252Fprivacy-policyyour-california-privacy-rights'
+					}
+				);
+			
+				Liferay.Portlet.onLoad(
+					{
+						canEditTitle: false,
+						columnPos: 0,
+						isStatic: 'end',
+						namespacedId: 'p_p_id_56_INSTANCE_DyGn_',
+						portletId: '56_INSTANCE_DyGn',
+						refreshURL: '\x2fc\x2fportal\x2frender_portlet\x3fp_l_id\x3d24951\x26p_p_id\x3d56_INSTANCE_DyGn\x26p_p_lifecycle\x3d0\x26p_t_lifecycle\x3d0\x26p_p_state\x3dnormal\x26p_p_mode\x3dview\x26p_p_col_id\x3dcolumn-7\x26p_p_col_pos\x3d0\x26p_p_col_count\x3d1\x26p_p_isolated\x3d1\x26currentURL\x3d\x252Fcontent\x252Fprivacy-policyyour-california-privacy-rights'
+					}
+				);
+			
+				Liferay.Portlet.onLoad(
+					{
+						canEditTitle: false,
+						columnPos: 0,
+						isStatic: 'end',
+						namespacedId: 'p_p_id_56_INSTANCE_d7Un_',
+						portletId: '56_INSTANCE_d7Un',
+						refreshURL: '\x2fc\x2fportal\x2frender_portlet\x3fp_l_id\x3d24951\x26p_p_id\x3d56_INSTANCE_d7Un\x26p_p_lifecycle\x3d0\x26p_t_lifecycle\x3d0\x26p_p_state\x3dnormal\x26p_p_mode\x3dview\x26p_p_col_id\x3dcolumn-5\x26p_p_col_pos\x3d0\x26p_p_col_count\x3d1\x26p_p_isolated\x3d1\x26currentURL\x3d\x252Fcontent\x252Fprivacy-policyyour-california-privacy-rights'
+					}
+				);
+			
+				Liferay.Portlet.onLoad(
+					{
+						canEditTitle: false,
+						columnPos: 0,
+						isStatic: 'end',
+						namespacedId: 'p_p_id_56_INSTANCE_jt03_',
+						portletId: '56_INSTANCE_jt03',
+						refreshURL: '\x2fc\x2fportal\x2frender_portlet\x3fp_l_id\x3d24951\x26p_p_id\x3d56_INSTANCE_jt03\x26p_p_lifecycle\x3d0\x26p_t_lifecycle\x3d0\x26p_p_state\x3dnormal\x26p_p_mode\x3dview\x26p_p_col_id\x3dcolumn-1\x26p_p_col_pos\x3d0\x26p_p_col_count\x3d1\x26p_p_isolated\x3d1\x26currentURL\x3d\x252Fcontent\x252Fprivacy-policyyour-california-privacy-rights'
+					}
+				);
+			AUI().use('aui-base', 'liferay-menu', 'liferay-notice', 'liferay-poller', function(A) {(function() {
+	Liferay.Util.addInputType();
+
+	Liferay.Portlet.ready(
+		function(portletId, node) {
+			Liferay.Util.addInputType(node);
+		}
+	);
+})();(function() {
+	new Liferay.Menu();
+
+	var liferayNotices = Liferay.Data.notices;
+
+	for (var i = 1; i < liferayNotices.length; i++) {
+		new Liferay.Notice(liferayNotices[i]);
+	}
+
+	
+})();});
+// ]]>
+</script>
+
+
+
+
+
+
+
+
+
+<script src="http://www.sesamestreet.org/sesamestreet-theme/js/main.js?browserId=other&amp;minifierType=js&amp;languageId=en_US&amp;b=6110&amp;t=1451333316000" type="text/javascript"></script>
+
+
+
+	
+
+	
+
+	<script type="text/javascript">
+		// <![CDATA[
+			
+
+			
+		// ]]>
+	</script>
+
+
+
+
+
+
+</html>
+

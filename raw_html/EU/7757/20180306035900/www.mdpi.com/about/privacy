@@ -1,0 +1,1564 @@
+
+ 
+
+<!DOCTYPE html>
+<html lang="en" xmlns:og="http://ogp.me/ns#" xmlns:fb="https://www.facebook.com/2008/fbml">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"XQcCV1NaGwoAV1lWBQcB"};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o||e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(t,e,n){function r(t){try{c.console&&console.log(t)}catch(e){}}var o,i=t("ee"),a=t(20),c={};try{o=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(c.console=!0,o.indexOf("dev")!==-1&&(c.dev=!0),o.indexOf("nr_dev")!==-1&&(c.nrDev=!0))}catch(s){}c.nrDev&&i.on("internal-error",function(t){r(t.stack)}),c.dev&&i.on("fn-err",function(t,e,n){r(n.stack)}),c.dev&&(r("NR AGENT IN DEVELOPMENT MODE"),r("flags: "+a(c,function(t,e){return t}).join(", ")))},{}],2:[function(t,e,n){function r(t,e,n,r,c){try{h?h-=1:o(c||new UncaughtException(t,e,n),!0)}catch(f){try{i("ierr",[f,s.now(),!0])}catch(d){}}return"function"==typeof u&&u.apply(this,a(arguments))}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function o(t,e){var n=e?null:s.now();i("err",[t,n])}var i=t("handle"),a=t(21),c=t("ee"),s=t("loader"),f=t("gos"),u=window.onerror,d=!1,p="nr@seenError",h=0;s.features.err=!0,t(1),window.onerror=r;try{throw new Error}catch(l){"stack"in l&&(t(13),t(12),"addEventListener"in window&&t(6),s.xhrWrappable&&t(14),d=!0)}c.on("fn-start",function(t,e,n){d&&(h+=1)}),c.on("fn-err",function(t,e,n){d&&!n[p]&&(f(n,p,function(){return!0}),this.thrown=!0,o(n))}),c.on("fn-end",function(){d&&!this.thrown&&h>0&&(h-=1)}),c.on("internal-error",function(t){i("ierr",[t,s.now(),!0])})},{}],3:[function(t,e,n){t("loader").features.ins=!0},{}],4:[function(t,e,n){function r(){M++,S=y.hash,this[u]=b.now()}function o(){M--,y.hash!==S&&i(0,!0);var t=b.now();this[l]=~~this[l]+t-this[u],this[d]=t}function i(t,e){E.emit("newURL",[""+y,e])}function a(t,e){t.on(e,function(){this[e]=b.now()})}var c="-start",s="-end",f="-body",u="fn"+c,d="fn"+s,p="cb"+c,h="cb"+s,l="jsTime",m="fetch",v="addEventListener",w=window,y=w.location,b=t("loader");if(w[v]&&b.xhrWrappable){var g=t(10),x=t(11),E=t(8),P=t(6),O=t(13),R=t(7),T=t(14),L=t(9),j=t("ee"),N=j.get("tracer");t(15),b.features.spa=!0;var S,M=0;j.on(u,r),j.on(p,r),j.on(d,o),j.on(h,o),j.buffer([u,d,"xhr-done","xhr-resolved"]),P.buffer([u]),O.buffer(["setTimeout"+s,"clearTimeout"+c,u]),T.buffer([u,"new-xhr","send-xhr"+c]),R.buffer([m+c,m+"-done",m+f+c,m+f+s]),E.buffer(["newURL"]),g.buffer([u]),x.buffer(["propagate",p,h,"executor-err","resolve"+c]),N.buffer([u,"no-"+u]),L.buffer(["new-jsonp","cb-start","jsonp-error","jsonp-end"]),a(T,"send-xhr"+c),a(j,"xhr-resolved"),a(j,"xhr-done"),a(R,m+c),a(R,m+"-done"),a(L,"new-jsonp"),a(L,"jsonp-end"),a(L,"cb-start"),E.on("pushState-end",i),E.on("replaceState-end",i),w[v]("hashchange",i,!0),w[v]("load",i,!0),w[v]("popstate",function(){i(0,M>1)},!0)}},{}],5:[function(t,e,n){function r(t){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var o=t("ee"),i=t("handle"),a=t(13),c=t(12),s="learResourceTimings",f="addEventListener",u="resourcetimingbufferfull",d="bstResource",p="resource",h="-start",l="-end",m="fn"+h,v="fn"+l,w="bstTimer",y="pushState",b=t("loader");b.features.stn=!0,t(8);var g=NREUM.o.EV;o.on(m,function(t,e){var n=t[0];n instanceof g&&(this.bstStart=b.now())}),o.on(v,function(t,e){var n=t[0];n instanceof g&&i("bst",[n,e,this.bstStart,b.now()])}),a.on(m,function(t,e,n){this.bstStart=b.now(),this.bstType=n}),a.on(v,function(t,e){i(w,[e,this.bstStart,b.now(),this.bstType])}),c.on(m,function(){this.bstStart=b.now()}),c.on(v,function(t,e){i(w,[e,this.bstStart,b.now(),"requestAnimationFrame"])}),o.on(y+h,function(t){this.time=b.now(),this.startPath=location.pathname+location.hash}),o.on(y+l,function(t){i("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),f in window.performance&&(window.performance["c"+s]?window.performance[f](u,function(t){i(d,[window.performance.getEntriesByType(p)]),window.performance["c"+s]()},!1):window.performance[f]("webkit"+u,function(t){i(d,[window.performance.getEntriesByType(p)]),window.performance["webkitC"+s]()},!1)),document[f]("scroll",r,{passive:!0}),document[f]("keypress",r,!1),document[f]("click",r,!1)}},{}],6:[function(t,e,n){function r(t){for(var e=t;e&&!e.hasOwnProperty(u);)e=Object.getPrototypeOf(e);e&&o(e)}function o(t){c.inPlace(t,[u,d],"-",i)}function i(t,e){return t[1]}var a=t("ee").get("events"),c=t(23)(a,!0),s=t("gos"),f=XMLHttpRequest,u="addEventListener",d="removeEventListener";e.exports=a,"getPrototypeOf"in Object?(r(document),r(window),r(f.prototype)):f.prototype.hasOwnProperty(u)&&(o(window),o(f.prototype)),a.on(u+"-start",function(t,e){var n=t[1],r=s(n,"nr@wrapped",function(){function t(){if("function"==typeof n.handleEvent)return n.handleEvent.apply(n,arguments)}var e={object:t,"function":n}[typeof n];return e?c(e,"fn-",null,e.name||"anonymous"):n});this.wrapped=t[1]=r}),a.on(d+"-start",function(t){t[1]=this.wrapped||t[1]})},{}],7:[function(t,e,n){function r(t,e,n){var r=t[e];"function"==typeof r&&(t[e]=function(){var t=r.apply(this,arguments);return o.emit(n+"start",arguments,t),t.then(function(e){return o.emit(n+"end",[null,e],t),e},function(e){throw o.emit(n+"end",[e],t),e})})}var o=t("ee").get("fetch"),i=t(20);e.exports=o;var a=window,c="fetch-",s=c+"body-",f=["arrayBuffer","blob","json","text","formData"],u=a.Request,d=a.Response,p=a.fetch,h="prototype";u&&d&&p&&(i(f,function(t,e){r(u[h],e,s),r(d[h],e,s)}),r(a,"fetch",c),o.on(c+"end",function(t,e){var n=this;e?e.clone().arrayBuffer().then(function(t){n.rxSize=t.byteLength,o.emit(c+"done",[null,e],n)}):o.emit(c+"done",[t],n)}))},{}],8:[function(t,e,n){var r=t("ee").get("history"),o=t(23)(r);e.exports=r,o.inPlace(window.history,["pushState","replaceState"],"-")},{}],9:[function(t,e,n){function r(t){function e(){s.emit("jsonp-end",[],p),t.removeEventListener("load",e,!1),t.removeEventListener("error",n,!1)}function n(){s.emit("jsonp-error",[],p),s.emit("jsonp-end",[],p),t.removeEventListener("load",e,!1),t.removeEventListener("error",n,!1)}var r=t&&"string"==typeof t.nodeName&&"script"===t.nodeName.toLowerCase();if(r){var o="function"==typeof t.addEventListener;if(o){var a=i(t.src);if(a){var u=c(a),d="function"==typeof u.parent[u.key];if(d){var p={};f.inPlace(u.parent,[u.key],"cb-",p),t.addEventListener("load",e,!1),t.addEventListener("error",n,!1),s.emit("new-jsonp",[t.src],p)}}}}}function o(){return"addEventListener"in window}function i(t){var e=t.match(u);return e?e[1]:null}function a(t,e){var n=t.match(p),r=n[1],o=n[3];return o?a(o,e[r]):e[r]}function c(t){var e=t.match(d);return e&&e.length>=3?{key:e[2],parent:a(e[1],window)}:{key:t,parent:window}}var s=t("ee").get("jsonp"),f=t(23)(s);if(e.exports=s,o()){var u=/[?&](?:callback|cb)=([^&#]+)/,d=/(.*)\.([^.]+)/,p=/^(\w+)(\.|$)(.*)$/,h=["appendChild","insertBefore","replaceChild"];f.inPlace(HTMLElement.prototype,h,"dom-"),f.inPlace(HTMLHeadElement.prototype,h,"dom-"),f.inPlace(HTMLBodyElement.prototype,h,"dom-"),s.on("dom-start",function(t){r(t[0])})}},{}],10:[function(t,e,n){var r=t("ee").get("mutation"),o=t(23)(r),i=NREUM.o.MO;e.exports=r,i&&(window.MutationObserver=function(t){return this instanceof i?new i(o(t,"fn-")):i.apply(this,arguments)},MutationObserver.prototype=i.prototype)},{}],11:[function(t,e,n){function r(t){var e=a.context(),n=c(t,"executor-",e),r=new f(n);return a.context(r).getCtx=function(){return e},a.emit("new-promise",[r,e],e),r}function o(t,e){return e}var i=t(23),a=t("ee").get("promise"),c=i(a),s=t(20),f=NREUM.o.PR;e.exports=a,f&&(window.Promise=r,["all","race"].forEach(function(t){var e=f[t];f[t]=function(n){function r(t){return function(){a.emit("propagate",[null,!o],i),o=o||!t}}var o=!1;s(n,function(e,n){Promise.resolve(n).then(r("all"===t),r(!1))});var i=e.apply(f,arguments),c=f.resolve(i);return c}}),["resolve","reject"].forEach(function(t){var e=f[t];f[t]=function(t){var n=e.apply(f,arguments);return t!==n&&a.emit("propagate",[t,!0],n),n}}),f.prototype["catch"]=function(t){return this.then(null,t)},f.prototype=Object.create(f.prototype,{constructor:{value:r}}),s(Object.getOwnPropertyNames(f),function(t,e){try{r[e]=f[e]}catch(n){}}),a.on("executor-start",function(t){t[0]=c(t[0],"resolve-",this),t[1]=c(t[1],"resolve-",this)}),a.on("executor-err",function(t,e,n){t[1](n)}),c.inPlace(f.prototype,["then"],"then-",o),a.on("then-start",function(t,e){this.promise=e,t[0]=c(t[0],"cb-",this),t[1]=c(t[1],"cb-",this)}),a.on("then-end",function(t,e,n){this.nextPromise=n;var r=this.promise;a.emit("propagate",[r,!0],n)}),a.on("cb-end",function(t,e,n){a.emit("propagate",[n,!0],this.nextPromise)}),a.on("propagate",function(t,e,n){this.getCtx&&!e||(this.getCtx=function(){if(t instanceof Promise)var e=a.context(t);return e&&e.getCtx?e.getCtx():this})}),r.toString=function(){return""+f})},{}],12:[function(t,e,n){var r=t("ee").get("raf"),o=t(23)(r),i="equestAnimationFrame";e.exports=r,o.inPlace(window,["r"+i,"mozR"+i,"webkitR"+i,"msR"+i],"raf-"),r.on("raf-start",function(t){t[0]=o(t[0],"fn-")})},{}],13:[function(t,e,n){function r(t,e,n){t[0]=a(t[0],"fn-",null,n)}function o(t,e,n){this.method=n,this.timerDuration=isNaN(t[1])?0:+t[1],t[0]=a(t[0],"fn-",this,n)}var i=t("ee").get("timer"),a=t(23)(i),c="setTimeout",s="setInterval",f="clearTimeout",u="-start",d="-";e.exports=i,a.inPlace(window,[c,"setImmediate"],c+d),a.inPlace(window,[s],s+d),a.inPlace(window,[f,"clearImmediate"],f+d),i.on(s+u,r),i.on(c+u,o)},{}],14:[function(t,e,n){function r(t,e){d.inPlace(e,["onreadystatechange"],"fn-",c)}function o(){var t=this,e=u.context(t);t.readyState>3&&!e.resolved&&(e.resolved=!0,u.emit("xhr-resolved",[],t)),d.inPlace(t,y,"fn-",c)}function i(t){b.push(t),l&&(x?x.then(a):v?v(a):(E=-E,P.data=E))}function a(){for(var t=0;t<b.length;t++)r([],b[t]);b.length&&(b=[])}function c(t,e){return e}function s(t,e){for(var n in t)e[n]=t[n];return e}t(6);var f=t("ee"),u=f.get("xhr"),d=t(23)(u),p=NREUM.o,h=p.XHR,l=p.MO,m=p.PR,v=p.SI,w="readystatechange",y=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],b=[];e.exports=u;var g=window.XMLHttpRequest=function(t){var e=new h(t);try{u.emit("new-xhr",[e],e),e.addEventListener(w,o,!1)}catch(n){try{u.emit("internal-error",[n])}catch(r){}}return e};if(s(h,g),g.prototype=h.prototype,d.inPlace(g.prototype,["open","send"],"-xhr-",c),u.on("send-xhr-start",function(t,e){r(t,e),i(e)}),u.on("open-xhr-start",r),l){var x=m&&m.resolve();if(!v&&!m){var E=1,P=document.createTextNode(E);new l(a).observe(P,{characterData:!0})}}else f.on("fn-end",function(t){t[0]&&t[0].type===w||a()})},{}],15:[function(t,e,n){function r(t){var e=this.params,n=this.metrics;if(!this.ended){this.ended=!0;for(var r=0;r<d;r++)t.removeEventListener(u[r],this.listener,!1);if(!e.aborted){if(n.duration=a.now()-this.startTime,4===t.readyState){e.status=t.status;var i=o(t,this.lastSize);if(i&&(n.rxSize=i),this.sameOrigin){var s=t.getResponseHeader("X-NewRelic-App-Data");s&&(e.cat=s.split(", ").pop())}}else e.status=0;n.cbTime=this.cbTime,f.emit("xhr-done",[t],t),c("xhr",[e,n,this.startTime])}}}function o(t,e){var n=t.responseType;if("json"===n&&null!==e)return e;var r="arraybuffer"===n||"blob"===n||"json"===n?t.response:t.responseText;return l(r)}function i(t,e){var n=s(e),r=t.params;r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.sameOrigin=n.sameOrigin}var a=t("loader");if(a.xhrWrappable){var c=t("handle"),s=t(16),f=t("ee"),u=["load","error","abort","timeout"],d=u.length,p=t("id"),h=t(19),l=t(18),m=window.XMLHttpRequest;a.features.xhr=!0,t(14),f.on("new-xhr",function(t){var e=this;e.totalCbs=0,e.called=0,e.cbTime=0,e.end=r,e.ended=!1,e.xhrGuids={},e.lastSize=null,h&&(h>34||h<10)||window.opera||t.addEventListener("progress",function(t){e.lastSize=t.loaded},!1)}),f.on("open-xhr-start",function(t){this.params={method:t[0]},i(this,t[1]),this.metrics={}}),f.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),f.on("send-xhr-start",function(t,e){var n=this.metrics,r=t[0],o=this;if(n&&r){var i=l(r);i&&(n.txSize=i)}this.startTime=a.now(),this.listener=function(t){try{"abort"===t.type&&(o.params.aborted=!0),("load"!==t.type||o.called===o.totalCbs&&(o.onloadCalled||"function"!=typeof e.onload))&&o.end(e)}catch(n){try{f.emit("internal-error",[n])}catch(r){}}};for(var c=0;c<d;c++)e.addEventListener(u[c],this.listener,!1)}),f.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),f.on("xhr-load-added",function(t,e){var n=""+p(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),f.on("xhr-load-removed",function(t,e){var n=""+p(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),f.on("addEventListener-end",function(t,e){e instanceof m&&"load"===t[0]&&f.emit("xhr-load-added",[t[1],t[2]],e)}),f.on("removeEventListener-end",function(t,e){e instanceof m&&"load"===t[0]&&f.emit("xhr-load-removed",[t[1],t[2]],e)}),f.on("fn-start",function(t,e,n){e instanceof m&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=a.now()))}),f.on("fn-end",function(t,e){this.xhrCbStart&&f.emit("xhr-cb-time",[a.now()-this.xhrCbStart,this.onload,e],e)})}},{}],16:[function(t,e,n){e.exports=function(t){var e=document.createElement("a"),n=window.location,r={};e.href=t,r.port=e.port;var o=e.href.split("://");!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=e.hostname||n.hostname,r.pathname=e.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname);var i=!e.protocol||":"===e.protocol||e.protocol===n.protocol,a=e.hostname===document.domain&&e.port===n.port;return r.sameOrigin=i&&(!e.hostname||a),r}},{}],17:[function(t,e,n){function r(){}function o(t,e,n){return function(){return i(t,[f.now()].concat(c(arguments)),e?null:this,n),e?void 0:this}}var i=t("handle"),a=t(20),c=t(21),s=t("ee").get("tracer"),f=t("loader"),u=NREUM;"undefined"==typeof window.newrelic&&(newrelic=u);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],p="api-",h=p+"ixn-";a(d,function(t,e){u[e]=o(p+e,!0,"api")}),u.addPageAction=o(p+"addPageAction",!0),u.setCurrentRouteName=o(p+"routeName",!0),e.exports=newrelic,u.interaction=function(){return(new r).get()};var l=r.prototype={createTracer:function(t,e){var n={},r=this,o="function"==typeof e;return i(h+"tracer",[f.now(),t,n],r),function(){if(s.emit((o?"":"no-")+"fn-start",[f.now(),r,o],n),o)try{return e.apply(this,arguments)}catch(t){throw s.emit("fn-err",[arguments,this,t],n),t}finally{s.emit("fn-end",[f.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,e){l[e]=o(h+e)}),newrelic.noticeError=function(t){"string"==typeof t&&(t=new Error(t)),i("err",[t,f.now()])}},{}],18:[function(t,e,n){e.exports=function(t){if("string"==typeof t&&t.length)return t.length;if("object"==typeof t){if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if(!("undefined"!=typeof FormData&&t instanceof FormData))try{return JSON.stringify(t).length}catch(e){return}}}},{}],19:[function(t,e,n){var r=0,o=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);o&&(r=+o[1]),e.exports=r},{}],20:[function(t,e,n){function r(t,e){var n=[],r="",i=0;for(r in t)o.call(t,r)&&(n[i]=e(r,t[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],21:[function(t,e,n){function r(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(o<0?0:o);++r<o;)i[r]=t[e+r];return i}e.exports=r},{}],22:[function(t,e,n){e.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],23:[function(t,e,n){function r(t){return!(t&&t instanceof Function&&t.apply&&!t[a])}var o=t("ee"),i=t(21),a="nr@original",c=Object.prototype.hasOwnProperty,s=!1;e.exports=function(t,e){function n(t,e,n,o){function nrWrapper(){var r,a,c,s;try{a=this,r=i(arguments),c="function"==typeof n?n(r,a):n||{}}catch(f){p([f,"",[r,a,o],c])}u(e+"start",[r,a,o],c);try{return s=t.apply(a,r)}catch(d){throw u(e+"err",[r,a,d],c),d}finally{u(e+"end",[r,a,s],c)}}return r(t)?t:(e||(e=""),nrWrapper[a]=t,d(t,nrWrapper),nrWrapper)}function f(t,e,o,i){o||(o="");var a,c,s,f="-"===o.charAt(0);for(s=0;s<e.length;s++)c=e[s],a=t[c],r(a)||(t[c]=n(a,f?c+o:o,i,c))}function u(n,r,o){if(!s||e){var i=s;s=!0;try{t.emit(n,r,o,e)}catch(a){p([a,n,r,o])}s=i}}function d(t,e){if(Object.defineProperty&&Object.keys)try{var n=Object.keys(t);return n.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(r){p([r])}for(var o in t)c.call(t,o)&&(e[o]=t[o]);return e}function p(e){try{t.emit("internal-error",e)}catch(n){}}return t||(t=o),n.inPlace=f,n.flag=a,n}},{}],ee:[function(t,e,n){function r(){}function o(t){function e(t){return t&&t instanceof r?t:t?s(t,c,i):i()}function n(n,r,o,i){if(!p.aborted||i){t&&t(n,r,o);for(var a=e(o),c=l(n),s=c.length,f=0;f<s;f++)c[f].apply(a,r);var d=u[y[n]];return d&&d.push([b,n,r,a]),a}}function h(t,e){w[t]=l(t).concat(e)}function l(t){return w[t]||[]}function m(t){return d[t]=d[t]||o(n)}function v(t,e){f(t,function(t,n){e=e||"feature",y[n]=e,e in u||(u[e]=[])})}var w={},y={},b={on:h,emit:n,get:m,listeners:l,context:e,buffer:v,abort:a,aborted:!1};return b}function i(){return new r}function a(){(u.api||u.feature)&&(p.aborted=!0,u=p.backlog={})}var c="nr@context",s=t("gos"),f=t(20),u={},d={},p=e.exports=o();p.backlog=u},{}],gos:[function(t,e,n){function r(t,e,n){if(o.call(t,e))return t[e];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return t[e]=r,r}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],handle:[function(t,e,n){function r(t,e,n,r){o.buffer([t],r),o.emit(t,e,n)}var o=t("ee").get("handle");e.exports=r,r.ee=o},{}],id:[function(t,e,n){function r(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:a(t,i,function(){return o++})}var o=1,i="nr@id",a=t("gos");e.exports=r},{}],loader:[function(t,e,n){function r(){if(!x++){var t=g.info=NREUM.info,e=p.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(t&&t.licenseKey&&t.applicationID&&e))return u.abort();f(y,function(e,n){t[e]||(t[e]=n)}),s("mark",["onload",a()+g.offset],null,"api");var n=p.createElement("script");n.src="https://"+t.agent,e.parentNode.insertBefore(n,e)}}function o(){"complete"===p.readyState&&i()}function i(){s("mark",["domContent",a()+g.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(c=Math.max((new Date).getTime(),c))-g.offset}var c=(new Date).getTime(),s=t("handle"),f=t(20),u=t("ee"),d=window,p=d.document,h="addEventListener",l="attachEvent",m=d.XMLHttpRequest,v=m&&m.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:m,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var w=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-spa-1071.min.js"},b=m&&v&&v[h]&&!/CriOS/.test(navigator.userAgent),g=e.exports={offset:c,now:a,origin:w,features:{},xhrWrappable:b};t(17),p[h]?(p[h]("DOMContentLoaded",i,!1),d[h]("load",r,!1)):(p[l]("onreadystatechange",o),d[l]("onload",r)),s("mark",["firstbyte",c],null,"api");var x=0,E=t(22)},{}]},{},["loader",2,15,5,3,4]);</script>
+                    <meta content="width=device-width, initial-scale=1.0" name="viewport" />        
+                <title>MDPI | Privacy Policy </title><link rel="stylesheet" href="http://www.mdpi.com/assets/css/font-awesome.min.css?feda974a77ea5783">
+        <link rel="stylesheet" href="http://www.mdpi.com/assets/css/jquery.multiselect.css?f56c135cbf4d1483">
+
+                    <link rel="stylesheet" href="http://www.mdpi.com/assets/css/foundation.min.css?7ce8f41df2a8257d">
+            <link rel="stylesheet" href="http://www.mdpi.com/assets/css/main2.css?f98fc906aaac7242">
+        
+        <link rel="mask-icon" href="http://www.mdpi.com/img/mask-icon-128.svg?c1c7eca266cd7013" color="#4f5671">
+        <link rel="apple-touch-icon" sizes="57x57" href="/icon/apple-touch-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="/icon/apple_touch-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="/icon/apple-touch-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="/icon/apple-touch-icon-76x76.png">
+                    <link rel="icon" type="image/png" sizes="32x32" href="/icon/favicon-32x32.png">
+            <link rel="icon" type="image/png" sizes="96x96" href="/icon/favicon-96x96.png">
+            <link rel="icon" type="image/png" sizes="16x16" href="/icon/favicon-16x16.png">
+            <link rel="icon" type="image/png" sizes="192x192" href="/icon/favicon-192x192.png">
+                <link rel="manifest" href="/manifest.json">
+        <meta name="theme-color" content="#ffffff">
+        <meta name="application-name" content="&nbsp;"/>
+
+                    <link rel="apple-touch-startup-image" href="/img/icon_new/apple-icon-180x180.png">
+            <link rel="apple-touch-icon" sizes="114x114" href="/img/icon_new/apple-icon-114x114.png">
+            <link rel="apple-touch-icon" sizes="120x120" href="/img/icon_new/apple-icon-120x120.png">
+            <link rel="apple-touch-icon" sizes="144x144" href="/img/icon_new/apple-icon-144x144.png">
+            <link rel="apple-touch-icon" sizes="152x152" href="/img/icon_new/apple-icon-152x152.png">
+            <link rel="apple-touch-icon" sizes="180x180" href="/img/icon_new/apple-icon-180x180.png">
+            <meta name="msapplication-TileColor" content="#ffffff">
+            <meta name="msapplication-TileImage" content="/img/icon_new/ms-icon-144x144.png">
+            <meta name="msapplication-square70x70logo" content="http://www.mdpi.com/icon/mstile-70x70.png" />
+            <meta name="msapplication-square150x150logo" content="http://www.mdpi.com/icon/mstile-150x150.png" />
+            <meta name="msapplication-wide310x150logo" content="http://www.mdpi.com/icon/mstile-310x150.png" />
+            <meta name="msapplication-square310x310logo" content="http://www.mdpi.com/icon/mstile-310x310.png" />
+        
+                        <meta name="description" content="MDPI is a publisher of peer-reviewed, open access journals since its establishment in 1996.">
+                                <link rel="alternate" type="application/rss+xml" title="MDPI Publishing - Latest articles" href="http://www.mdpi.com/rss">
+                        <meta name="google-site-verification" content="PxTlsg7z2S00aHroktQd57fxygEjMiNHydKn3txhvwY">
+        <!--[if lt IE 9]>
+            <script>var browserIe8 = true;</script>
+            <link rel="stylesheet" href="http://www.mdpi.com/assets/css/ie8foundationfix.css?bb4865e3906584db">
+            <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+            <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
+            <script src="//s3.amazonaws.com/nwapi/nwmatcher/nwmatcher-1.2.5-min.js"></script>
+            <script src="//html5base.googlecode.com/svn-history/r38/trunk/js/selectivizr-1.0.3b.js"></script>
+            <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.1.0/respond.min.js"></script>
+            <script src="http://www.mdpi.com/assets/js/ie8/ie8patch.js?9e1d3c689a0471df"></script>
+            <script src="http://www.mdpi.com/assets/js/ie8/rem.min.js?94b62787dcd6d2f2"></script>            
+                                                        <![endif]-->
+
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-5824718-2', 'auto');
+            ga('require', 'displayfeatures');
+            ga('send', 'pageview');
+        </script>
+
+    </head>
+    <body>
+        
+        
+        <div id="captchaModal" class="reveal-modal" data-reveal aria-labelledby="Captcha" aria-hidden="true" role="dialog"></div>
+
+        <div id="layoutTypeModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+            <h2 id="modalTitle">Choose your preferred view mode</h2>
+
+            <div class="row">
+                <div class="large-12 medium-12 small-12 columns">
+                    Please select whether you prefer to view the MDPI pages with a view tailored for <strong>mobile</strong> displays or to view the MDPI
+                    pages in the normal scrollable <strong>desktop</strong> version. This selection will be stored into your cookies and used automatically
+                    in next visits. You can also change the view style at any point from the main header when using the pages with your
+                    mobile device.
+                </div>
+
+                <div class="large-12 medium-12 small-12 columns">
+                    <a class="button-new display-type" href="/toggle_desktop_layout_cookie/mobile">
+                        Use <strong>mobile</strong> version
+                    </a>
+                    <a class="button-new display-type" href="/toggle_desktop_layout_cookie/desktop">
+                        Use <strong>desktop</strong> version
+                    </a>
+                </div>
+            </div>
+
+                    </div>
+
+        <div id="container">
+                        
+                <noscript>
+                    <div id="no-javascript">
+                        You seem to have javascript disabled. Please note that many of the page functionalities won't work as expected without javascript enabled.
+                    </div>
+                </noscript>
+                               
+                <div class="off-canvas-wrap" data-offcanvas>
+                    <div class="inner-wrap">
+
+                                                                                    <div class="show-for-medium-down" style="background-color: #007F7F; margin: 0 -10px; text-align: center; padding: 8px;">
+                                    <a class="hide-show-desktop-option" style="color: #fff; position: absolute; right: 0; font-size: 16px; padding: 0 10px;" href="/toggle_hide_desktop_layout_option_cookie">X</a>
+                                    <a style="color: #fff; display: inline-block; text-align: center;  font-size: 16px;" href="/toggle_desktop_layout_cookie">switch to <strong>desktop version</strong></a>
+                                </div>
+                            
+                                                    
+                        <nav class="tab-bar show-for-medium-down">
+                            
+                            <div class="row full-width collapse">
+
+
+
+                                <div class="medium-3 small-4 columns">
+                                    <a title="MDPI main page" class="left-off-canvas-toggle" href="#">
+                                        <div class="show-for-medium">Menu</div>
+                                        <div class="show-for-small"><i class="fa fa-bars"></i></div>
+                                    </a>
+                                    <a title="Toggle search" class="search-toggle" onclick='$("#search-inputs").toggleClass("active"); return false;' href="#">
+                                        <div class="show-for-medium">Search</div>
+                                        <div class="show-for-small"><i class="fa fa-search"></i></div>
+                                    </a>
+                                    <a href="/toggle_desktop_layout_cookie" title="Switch between mobile and desktop views">
+                                        <div class="show-for-small"><i class="fa fa-expand"></i></div>
+                                    </a>
+                                </div>
+                                <div class="medium-6 small-4 columns centered">
+                                    <div class="show-for-medium">
+                                                                                    <a href="/">
+                                                <img src="http://www.mdpi.com/img/design/mdpi-pub-logo-white-small.png?71d18e5f805839ab" alt="MDPI" title="MDPI Open Access Journals" style="height: 30px;">
+                                            </a>
+                                                                            </div>
+                                    <div class="show-for-small">
+                                                                                    <a href="/">
+                                                <img src="http://www.mdpi.com/img/design/mdpi-pub-logo-white-small.png?71d18e5f805839ab" alt="MDPI" title="MDPI Open Access Journals" style="height: 30px;">
+                                            </a>
+                                                                            </div>
+                                </div>
+                                <div class="medium-3 small-4 columns right-aligned">
+                                                                            <a href="/user/login">Log in</a>
+                                                                    </div>
+                            </div>
+                                                    </nav>                       	
+                        
+                        <aside class="left-off-canvas-menu">
+                            <ul class="off-canvas-list">
+                                
+                                                                                                
+                                                                    <li>
+                                        <a href="/">MDPI</a>
+                                    </li>
+                                    <li>
+                                        <a href="/about/journals">Journals A-Z</a>
+                                    </li>
+                                    <li>
+                                        <a href="/authors">Information & Guidelines</a>
+                                        <ul>
+                                            <li>
+                                                <a href="/authors">For Authors</a>
+                                            </li>
+                                            <li>
+                                                <a href="/reviewers">For Reviewers</a>
+                                            </li>
+                                            <li>
+                                                <a href="/editors">For Editors</a>
+                                            </li>
+                                            <li>
+                                                <a href="/librarians">For Librarians</a>
+                                            </li>
+                                            <li>
+                                                <a href="/publishing_services">For Publishers</a>
+                                            </li>
+                                            <li>
+                                                <a href="/societies">For Societies</a>
+                                            </li>
+                                            <li>
+                                                <a href="/about/openaccess">Open Access Policy</a>
+                                            </li>
+                                            <li>
+                                                <a href="/about/apc">Article Processing Charges</a>
+                                            </li>
+                                            <li>
+                                                <a href="/about/ioap">Institutional Open Access Program</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li> 
+                                        <a href="/about">About</a>
+                                    </li>                                   
+                                    <li>
+                                        <a href="/editorial_process">Editorial Process</a>
+                                    </li>
+                                   
+                                                                            <li>
+                                            <a href="/user/login">Login</a>
+                                        </li>
+                                        <li>
+                                            <a href="/user/register">Register</a>
+                                        </li>
+                                    
+                                    <li>
+                                                                                                <a href="http://susy.mdpi.com/user/manuscripts/upload">Submit</a>
+                                                    
+                                    </li>
+
+                                    <li>
+                                        <a href="/toggle_desktop_layout_cookie">Switch to Desktop Version</a>
+                                    </li>
+
+                                    <li>
+                                        <a href="#" onclick="$('.off-canvas-wrap').foundation('offcanvas', 'toggle', 'move-right'); return false;">Close</a>
+                                    </li>
+
+                                                            </ul>
+                        </aside>
+                        
+                        <section class="main-section">
+                            <header>
+                                <div id="full-size-menu" class="show-for-large-up">
+                                    <nav class="top-bar" data-topbar="">
+                                        
+                                        <ul class="title-area">
+                                            <li class="name"></li>
+                                            <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+                                        </ul>
+                                        
+                                        <section class="top-bar-section">
+                                            
+                                            <ul class="full-width">
+                                                
+                                                <li class="menu-item">
+                                                    <a href="/" >MDPI</a>
+                                                </li>
+                                                <li class="menu-item"> 
+                                                    <a href="/about/journals">Journals A-Z</a>
+                                                </li>
+                                                <li class="menu-item">
+                                                    <a href="#" class="open-mega-menu">Information & Guidelines</a>
+                                                    <div class="mega-menu">
+                                                        <ul class="row collapse full-width">
+                                                            <li class="large-1 columns" style="width: auto; float: left;">
+                                                                <a href="/authors">For Authors</a>
+                                                            </li>
+                                                            <li class="large-1 columns" style="width: auto; float: left;">
+                                                                <a href="/reviewers">For Reviewers</a>
+                                                            </li>
+                                                            <li class="large-1 columns" style="width: auto; float: left;">
+                                                                <a href="/editors">For Editors</a>
+                                                            </li>
+                                                            <li class="large-1 columns" style="width: auto; float: left;">
+                                                                <a href="/librarians">For Librarians</a>
+                                                            </li>
+                                                            <li class="large-1 columns" style="width: auto; float: left;">
+                                                                <a href="/publishing_services">For Publishers</a>
+                                                            </li>
+                                                            <li class="large-1 columns" style="width: auto; float: left;">
+                                                                <a href="/societies">For Societies</a>
+                                                            </li>
+                                                            <li class="large-1 columns" style="width: auto; float: left;">
+                                                                <a href="/about/openaccess">Open Access Policy</a>
+                                                            </li>
+                                                            <li class="large-1 columns" style="width: auto; float: left;">
+                                                                <a href="/about/apc">Article Processing Charges</a>
+                                                            </li>
+                                                            <li class="large-1 columns" style="width: auto; float: left;">
+                                                                <a href="/about/ioap">Institutional Open Access Program</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </li>
+                                                <li class="menu-item">
+                                                    <a href="/about">About</a>
+                                                </li>                                         
+                                                <li class="menu-item">
+                                                    <a href="/editorial_process">Editorial Process</a>
+                                                </li> 
+                                                                                            </ul>
+                                        </section>
+                                        
+                                        <section class="top-bar-section">
+                                            <ul class="right">
+                                                
+                                                                                                    <li class="menu-item">
+                                                        <a href="/user/login">Login</a>
+                                                    </li>
+                                                    <li class="menu-item">
+                                                        <a href="/user/register">Register</a>
+                                                    </li>
+                                                
+                                                <li class="menu-item">
+                                                                                                            <a href="http://susy.mdpi.com/user/manuscripts/upload">Submit</a>
+                                                                                                    </li>
+                                            </ul>
+                                        </section>
+                                    </nav>
+                                </div>
+                                <div class="row">
+                                                                                                        </div>
+                                
+                            </header>
+                            
+                            <div id="search-container">
+                                <div class="row full-width" id="searchBar">
+                                    <div class="large-20 columns show-for-large-up" style="padding: 0px; padding-left: 10px; line-height: 70px;">
+                                                                                    <a href="/"><img src="http://www.mdpi.com/img/design/mdpi-pub-logo.png?13cf3b5bd783e021" alt="logo" title="MDPI Open Access Journals" style="width: 100%; max-width: 200px !important; height: auto;"></a>
+                                                                            </div>
+                                                                            <form style="padding: 0 10px; background-color: inherit;" class="large-60 medium-12 columns " action="/search" method="get">
+
+    <div id="search-inputs" class="row full-width hide-medium-down-initially">
+
+        <div class="row" style="margin: 0 5px;">
+            <div class="large-9 medium-9 small-12 columns">
+
+                <div class="row">
+                    <div class="large-6 medium-6 small-12 columns" style="margin-top: 0px; padding-bottom: 0px;"> 
+                        <div class="search-row">
+                            <span class="lb">
+                                Title / Keyword
+                            </span>
+                            <span class="field">
+                                <input type="text" id="q" tabindex="1" name="q" value="" />
+                            </span>
+                        </div>
+                        <div class="search-row">
+                            <span class="lb">
+                                Author / Affiliation
+                            </span>
+                            <span class="field">
+                                <input type="text" id="authors" tabindex="2" name="authors" value="" />
+                            </span>
+                        </div>
+                        <div class="search-row">  
+                            <span class="lb">
+                                Article Type
+                            </span>
+                            <span class="field">
+                                <select id="article_type" tabindex="3" name="article_type">
+                                    <option value="">all</option>
+                                                                                                            <option value="addendum">Addendum</option>
+                                                                        <option value="research-article">Article</option>
+                                                                        <option value="book-review">Book Review</option>
+                                                                        <option value="case-report">Case Report</option>
+                                                                        <option value="article-commentary">Comment</option>
+                                                                        <option value="commentary">Commentary</option>
+                                                                        <option value="rapid-communication">Communication</option>
+                                                                        <option value="concept-paper">Concept Paper</option>
+                                                                        <option value="conference-report">Conference Report</option>
+                                                                        <option value="correction">Correction</option>
+                                                                        <option value="creative">Creative</option>
+                                                                        <option value="data-descriptor">Data Descriptor</option>
+                                                                        <option value="discussion">Discussion</option>
+                                                                        <option value="editorial">Editorial</option>
+                                                                        <option value="erratum">Erratum</option>
+                                                                        <option value="essay">Essay</option>
+                                                                        <option value="expression-of-concern">Expression of Concern</option>
+                                                                        <option value="interesting-image">Interesting Images</option>
+                                                                        <option value="letter">Letter</option>
+                                                                        <option value="meeting-report">Meeting Report</option>
+                                                                        <option value="books-received">New Book Received</option>
+                                                                        <option value="obituary">Obituary</option>
+                                                                        <option value="opinion">Opinion</option>
+                                                                        <option value="project-report">Project Report</option>
+                                                                        <option value="reply">Reply</option>
+                                                                        <option value="retraction">Retraction</option>
+                                                                        <option value="review-article">Review</option>
+                                                                        <option value="note">Short Note</option>
+                                                                        <option value="technical-note">Technical Note</option>
+                                                                        <option value="tutorial">Tutorial</option>
+                                                                    </select>
+                            </span> 
+                        </div>    
+                    </div>
+                    <div class="large-6 medium-6 small-12 columns" style="margin-top: 0px; padding-bottom: 0px;"> 
+                        <div class="search-row">      
+                            <span class="lb">
+                                Journal
+                            </span>
+                            <span class="field">
+                                <select id="journal" tabindex="4" name="journal">
+                                    <option value="">all</option>
+                                     
+                                    <option value="actuators">Actuators</option>
+                                     
+                                    <option value="admsci">Administrative Sciences</option>
+                                     
+                                    <option value="aerospace">Aerospace</option>
+                                     
+                                    <option value="agriculture">Agriculture</option>
+                                     
+                                    <option value="agronomy">Agronomy</option>
+                                     
+                                    <option value="algorithms">Algorithms</option>
+                                     
+                                    <option value="animals">Animals</option>
+                                     
+                                    <option value="antibiotics">Antibiotics</option>
+                                     
+                                    <option value="antibodies">Antibodies</option>
+                                     
+                                    <option value="antioxidants">Antioxidants</option>
+                                     
+                                    <option value="applsci">Applied Sciences</option>
+                                     
+                                    <option value="asi">ASI</option>
+                                     
+                                    <option value="arts">Arts</option>
+                                     
+                                    <option value="atmosphere">Atmosphere</option>
+                                     
+                                    <option value="atoms">Atoms</option>
+                                     
+                                    <option value="axioms">Axioms</option>
+                                     
+                                    <option value="batteries">Batteries</option>
+                                     
+                                    <option value="behavsci">Behavioral Sciences</option>
+                                     
+                                    <option value="beverages">Beverages</option>
+                                     
+                                    <option value="BDCC">BDCC</option>
+                                     
+                                    <option value="bioengineering">Bioengineering</option>
+                                     
+                                    <option value="biology">Biology</option>
+                                     
+                                    <option value="biomedicines">Biomedicines</option>
+                                     
+                                    <option value="biomimetics">Biomimetics</option>
+                                     
+                                    <option value="biomolecules">Biomolecules</option>
+                                     
+                                    <option value="biosensors">Biosensors</option>
+                                     
+                                    <option value="brainsci">Brain Sciences</option>
+                                     
+                                    <option value="buildings">Buildings</option>
+                                     
+                                    <option value="carbon">C</option>
+                                     
+                                    <option value="cancers">Cancers</option>
+                                     
+                                    <option value="catalysts">Catalysts</option>
+                                     
+                                    <option value="cells">Cells</option>
+                                     
+                                    <option value="ceramics">Ceramics</option>
+                                     
+                                    <option value="challenges">Challenges</option>
+                                     
+                                    <option value="ChemEngineering">ChemEngineering</option>
+                                     
+                                    <option value="chemosensors">Chemosensors</option>
+                                     
+                                    <option value="children">Children</option>
+                                     
+                                    <option value="cleantechnol">Clean Technol.</option>
+                                     
+                                    <option value="climate">Climate</option>
+                                     
+                                    <option value="coatings">Coatings</option>
+                                     
+                                    <option value="colloids">Colloids and Interfaces</option>
+                                     
+                                    <option value="computation">Computation</option>
+                                     
+                                    <option value="computers">Computers</option>
+                                     
+                                    <option value="condensedmatter">Condensed Matter</option>
+                                     
+                                    <option value="cosmetics">Cosmetics</option>
+                                     
+                                    <option value="cryptography">Cryptography</option>
+                                     
+                                    <option value="crystals">Crystals</option>
+                                     
+                                    <option value="data">Data</option>
+                                     
+                                    <option value="dentistry">Dentistry Journal</option>
+                                     
+                                    <option value="designs">Designs</option>
+                                     
+                                    <option value="diagnostics">Diagnostics</option>
+                                     
+                                    <option value="diseases">Diseases</option>
+                                     
+                                    <option value="diversity">Diversity</option>
+                                     
+                                    <option value="drones">Drones</option>
+                                     
+                                    <option value="econometrics">Econometrics</option>
+                                     
+                                    <option value="economies">Economies</option>
+                                     
+                                    <option value="education">Education Sciences</option>
+                                     
+                                    <option value="electronics">Electronics</option>
+                                     
+                                    <option value="energies">Energies</option>
+                                     
+                                    <option value="entropy">Entropy</option>
+                                     
+                                    <option value="environments">Environments</option>
+                                     
+                                    <option value="epigenomes">Epigenomes</option>
+                                     
+                                    <option value="fermentation">Fermentation</option>
+                                     
+                                    <option value="fibers">Fibers</option>
+                                     
+                                    <option value="fire">Fire</option>
+                                     
+                                    <option value="fishes">Fishes</option>
+                                     
+                                    <option value="fluids">Fluids</option>
+                                     
+                                    <option value="foods">Foods</option>
+                                     
+                                    <option value="forests">Forests</option>
+                                     
+                                    <option value="fractalfract">Fractal Fract</option>
+                                     
+                                    <option value="futureinternet">Future Internet</option>
+                                     
+                                    <option value="galaxies">Galaxies</option>
+                                     
+                                    <option value="games">Games</option>
+                                     
+                                    <option value="gels">Gels</option>
+                                     
+                                    <option value="genealogy">Genealogy</option>
+                                     
+                                    <option value="genes">Genes</option>
+                                     
+                                    <option value="geosciences">Geosciences</option>
+                                     
+                                    <option value="geriatrics">Geriatrics</option>
+                                     
+                                    <option value="healthcare">Healthcare</option>
+                                     
+                                    <option value="high-throughput">High-Throughput</option>
+                                     
+                                    <option value="horticulturae">Horticulturae</option>
+                                     
+                                    <option value="humanities">Humanities</option>
+                                     
+                                    <option value="hydrology">Hydrology</option>
+                                     
+                                    <option value="informatics">Informatics</option>
+                                     
+                                    <option value="information">Information</option>
+                                     
+                                    <option value="infrastructures">Infrastructures</option>
+                                     
+                                    <option value="inorganics">Inorganics</option>
+                                     
+                                    <option value="insects">Insects</option>
+                                     
+                                    <option value="instruments">Instruments</option>
+                                     
+                                    <option value="ijerph">IJERPH</option>
+                                     
+                                    <option value="ijfs">IJFS</option>
+                                     
+                                    <option value="ijms">IJMS</option>
+                                     
+                                    <option value="neonatalscreening">IJNS</option>
+                                     
+                                    <option value="ijtpp">IJTPP</option>
+                                     
+                                    <option value="inventions">Inventions</option>
+                                     
+                                    <option value="ijgi">IJGI</option>
+                                     
+                                    <option value="J">J</option>
+                                     
+                                    <option value="jcdd">JCDD</option>
+                                     
+                                    <option value="jcm">JCM</option>
+                                     
+                                    <option value="jcs">J. Compos. Sci.</option>
+                                     
+                                    <option value="jdb">JDB</option>
+                                     
+                                    <option value="jfb">JFB</option>
+                                     
+                                    <option value="jfmk">JFMK</option>
+                                     
+                                    <option value="jof">JoF</option>
+                                     
+                                    <option value="jimaging">J. Imaging</option>
+                                     
+                                    <option value="jintelligence">J. Intell.</option>
+                                     
+                                    <option value="jlpea">JLPEA</option>
+                                     
+                                    <option value="jmmp">JMMP</option>
+                                     
+                                    <option value="jmse">JMSE</option>
+                                     
+                                    <option value="ohbm">OHBM</option>
+                                     
+                                    <option value="jpm">JPM</option>
+                                     
+                                    <option value="jrfm">JRFM</option>
+                                     
+                                    <option value="jsan">JSAN</option>
+                                     
+                                    <option value="land">Land</option>
+                                     
+                                    <option value="languages">Languages</option>
+                                     
+                                    <option value="laws">Laws</option>
+                                     
+                                    <option value="life">Life</option>
+                                     
+                                    <option value="logistics">Logistics</option>
+                                     
+                                    <option value="lubricants">Lubricants</option>
+                                     
+                                    <option value="make">MAKE</option>
+                                     
+                                    <option value="machines">Machines</option>
+                                     
+                                    <option value="magnetochemistry">Magnetochemistry</option>
+                                     
+                                    <option value="marinedrugs">Marine Drugs</option>
+                                     
+                                    <option value="materials">Materials</option>
+                                     
+                                    <option value="mca">MCA</option>
+                                     
+                                    <option value="mathematics">Mathematics</option>
+                                     
+                                    <option value="medsci">Medical Sciences</option>
+                                     
+                                    <option value="medicina">Medicina</option>
+                                     
+                                    <option value="medicines">Medicines</option>
+                                     
+                                    <option value="membranes">Membranes</option>
+                                     
+                                    <option value="metabolites">Metabolites</option>
+                                     
+                                    <option value="metals">Metals</option>
+                                     
+                                    <option value="mps">MPs</option>
+                                     
+                                    <option value="micromachines">Micromachines</option>
+                                     
+                                    <option value="microorganisms">Microorganisms</option>
+                                     
+                                    <option value="minerals">Minerals</option>
+                                     
+                                    <option value="molbank">Molbank</option>
+                                     
+                                    <option value="molecules">Molecules</option>
+                                     
+                                    <option value="mti">MTI</option>
+                                     
+                                    <option value="nanomaterials">Nanomaterials</option>
+                                     
+                                    <option value="neuroglia">Neuroglia</option>
+                                     
+                                    <option value="nitrogen">Nitrogen</option>
+                                     
+                                    <option value="ncrna">ncRNA</option>
+                                     
+                                    <option value="nutrients">Nutrients</option>
+                                     
+                                    <option value="particles">Particles</option>
+                                     
+                                    <option value="pathogens">Pathogens</option>
+                                     
+                                    <option value="pharmaceuticals">Pharmaceuticals</option>
+                                     
+                                    <option value="pharmaceutics">Pharmaceutics</option>
+                                     
+                                    <option value="pharmacy">Pharmacy</option>
+                                     
+                                    <option value="philosophies">Philosophies</option>
+                                     
+                                    <option value="photonics">Photonics</option>
+                                     
+                                    <option value="plants">Plants</option>
+                                     
+                                    <option value="plasma">Plasma</option>
+                                     
+                                    <option value="polymers">Polymers</option>
+                                     
+                                    <option value="proceedings">Proceedings</option>
+                                     
+                                    <option value="processes">Processes</option>
+                                     
+                                    <option value="proteomes">Proteomes</option>
+                                     
+                                    <option value="publications">Publications</option>
+                                     
+                                    <option value="qubs">QuBS</option>
+                                     
+                                    <option value="quaternary">Quaternary</option>
+                                     
+                                    <option value="recycling">Recycling</option>
+                                     
+                                    <option value="religions">Religions</option>
+                                     
+                                    <option value="remotesensing">Remote Sensing</option>
+                                     
+                                    <option value="reports">Reports</option>
+                                     
+                                    <option value="resources">Resources</option>
+                                     
+                                    <option value="risks">Risks</option>
+                                     
+                                    <option value="robotics">Robotics</option>
+                                     
+                                    <option value="safety">Safety</option>
+                                     
+                                    <option value="scipharm">Sci. Pharm.</option>
+                                     
+                                    <option value="sensors">Sensors</option>
+                                     
+                                    <option value="separations">Separations</option>
+                                     
+                                    <option value="sinusitis">Sinusitis</option>
+                                     
+                                    <option value="socsci">Social Sciences</option>
+                                     
+                                    <option value="societies">Societies</option>
+                                     
+                                    <option value="soilsystems">Soil Syst.</option>
+                                     
+                                    <option value="sports">Sports</option>
+                                     
+                                    <option value="stats">Stats</option>
+                                     
+                                    <option value="sustainability">Sustainability</option>
+                                     
+                                    <option value="symmetry">Symmetry</option>
+                                     
+                                    <option value="systems">Systems</option>
+                                     
+                                    <option value="technologies">Technologies</option>
+                                     
+                                    <option value="toxics">Toxics</option>
+                                     
+                                    <option value="toxins">Toxins</option>
+                                     
+                                    <option value="tropicalmed">TropicalMed</option>
+                                     
+                                    <option value="universe">Universe</option>
+                                     
+                                    <option value="urbansci">Urban Science</option>
+                                     
+                                    <option value="vaccines">Vaccines</option>
+                                     
+                                    <option value="vetsci">Veterinary Sciences</option>
+                                     
+                                    <option value="vibration">Vibration</option>
+                                     
+                                    <option value="viruses">Viruses</option>
+                                     
+                                    <option value="vision">Vision</option>
+                                     
+                                    <option value="water">Water</option>
+                                                                    </select>
+                            </span>
+                        </div>
+                        <div class="search-row">
+                            <span class="lb">
+                                Section
+                            </span>
+                            <span class="field">
+                                <select id="section" tabindex="5" name="section">
+                                    <option value="">---</option>
+                                </select>
+                            </span>
+                        </div>
+                        <div class="search-row">
+                            <span class="lb">
+                                Special Issue
+                            </span>
+                            <span class="field">
+                                <select id="special_issue" tabindex="6" name="special_issue">
+                                    <option value="">---</option>
+                                </select>
+                            </span>   
+                        </div> 
+                    </div>
+                </div>
+            </div>
+    
+            <div class="large-3 medium-3 small-12 columns">
+                <div class="row">
+                    <div class="large-6 medium-6 small-12 columns" style="margin-top: 0px; padding-bottom: 0px;">
+                        <div class="search-row">      
+                                                            <input type="text" class="show-for-medium-up" style="visibility: hidden;">
+                                                    </div>
+                        <div class="search-row">
+                                                            <input type="text" class="show-for-medium-up" style="visibility: hidden;">
+                                                    </div>
+                        <div class="search-row show-for-medium-up">
+                                                            <a href="/search?advanced" style="display: block; text-align: center; font-size: 12px; color: #555; height: 24px; line-height: 24px;">Advanced</a>
+                                                    </div> 
+                    </div>
+                    <div class="large-6 medium-6 small-12 columns" style="margin-top: 0px; padding-bottom: 0px;">
+
+                                                    <div class="search-row show-for-medium-up">
+                                <input type="text" class="show-for-medium-up" style="visibility: hidden;">
+                            </div>
+                        
+                                                    <div class="search-row show-for-medium-up">
+                                <input type="text" class="show-for-medium-up" style="visibility: hidden;">
+                            </div>
+                        
+                        <div class="search-row">
+                            <span class="lb">
+                                                                <a class="main-search-advanced show-for-small-down" href="/search?advanced">Advanced</a>
+                                                            </span>
+                            <span class="field small">
+                                <input type="submit" id="search" value="Search" class="searchButton full-width" tabindex="12" name="search">
+                            </span>
+                        </div>
+                    </div>        
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+                                                                        <div class="large-20 columns show-for-large-up" style="margin-top: 0px; padding-bottom: 0px; text-align: right; position: relative;">
+                                                                                                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div id="content">
+                                    <div class="row full-width" data-equalizer="three-columns">
+        <div id="left-column" class="large-20 medium-3 small-12 columns show-for-medium-up" data-equalizer-watch="three-columns">
+            <div class="top-border">
+                                                                                                                                                                                            <div class="inverted">
+                        <h2>MDPI Contact</h2>
+                        <div class="generic-item">
+                            MDPI AG<br>
+                            St. Alban-Anlage 66, <br/>
+                            4052 Basel, Switzerland<br>
+                            Support contact <a class="toEncode emailCaptcha" data-email-prefix="support" href="mailto:support"><sup><i class="fa fa-envelope-o"></i></sup></a><br>
+                            Tel. +41 61 683 77 34 <br/>Fax: +41 61 302 89 18<br><br/>
+
+                            For more contact information, see <a href="/about/contact">here</a>.
+                            
+                                                    </div>
+
+                        <div class="generic-item last-item social-media-links" style="text-align: center;">
+                            <a href="https://www.linkedin.com/company/mdpi" target="_blank">
+                                <i class="fa fa-linkedin-square" style="font-size: 30px;"></i>
+                            </a>
+                            <a href="https://www.facebook.com/MDPIOpenAccessPublishing" target="_blank">
+                                <i class="fa fa-facebook-square" style="font-size: 30px;"></i>
+                            </a>
+                            <a href="https://twitter.com/MDPIOpenAccess" target="_blank">
+                                <i class="fa fa-twitter-square" style="font-size: 30px;"></i>
+                            </a>
+                            <a href="https://plus.google.com/+MdpiOA/posts" target="_blank">
+                                <i class="fa fa-google-plus-square" style="font-size: 30px;"></i>
+                            </a>
+                        </div>
+                    </div>
+                            </div>
+        </div>
+        <div id="middle-column" class="large-60 medium-6 small-12 columns end middle-bordered" data-equalizer-watch="three-columns">
+            <div class="top-border">
+                                    <div id="common-middle-column">
+                                    <h1>MDPI Privacy Policy</h1>
+
+<p>
+We respect your concerns regarding privacy on the Internet and value the relationship we have with you (<a href="http://www.mdpi.com/about/termsofuse">http://www.mdpi.com/about/termsofuse</a>). This policy outlines what kind of your data we collect on the MDPI website (http://www.mdpi.com), what we will do with collected data and our efforts to protect your privacy.</p>
+
+<div class="row">
+ <div class="row">
+        <div class="columns large-1 ter_con" >§ 1</div>
+        <div class="columns large-11 ter_con ">
+        <p>
+			<strong>Website Usage Information</strong><br>
+		</p>
+        </div>
+		<div class="columns large-1 ter_con" ></div>
+        <div class="columns large-11 ter_con ">
+        <p>
+			While you use our website, your visits to individual pages will be tracked and recorded in web server log files, although no personally identifiable information will be saved along with the information about visited pages. Log files will be used by MDPI for statistical purposes, to recognize patterns of usage of the website, and to improve website structure and content presentation. Log files will not be handed out to third parties. The usage information we collect (using <a href="https://en.wikipedia.org/wiki/HTTP_cookie">HTTP Cookies</a>) includes referring URLs, browser and device characteristics, IP address, operating system, as well as dates and times of website visits.<br>
+
+MDPI may offer via the site third party services, such as article recommendations, social login, social sharing, and banners to third party sites. Information which is collected by MDPI when you access third party services is processed under this Privacy Statement, while information collected by third party operators themselves will be governed by their own privacy statement.</br>
+</p>
+        </div>
+ </div> 
+	   <div class="row">
+        <div class="columns large-1 ter_con" >§ 2</div>
+        <div class="columns large-11 ter_con ">
+        <p>
+			<strong>User Accounts, Registration and Personalized Services</strong><br>
+		</p>
+        </div>
+		<div class="columns large-1 ter_con" ></div>
+        <div class="columns large-11 ter_con ">
+        <p>
+		To make use of personalised services, you will have to register a user account with the website. During registration we will collect some personal information, including, but not limited to, your name, valid e-mail address, affiliation, academic degree, position within your institution/organization and research interests, where some of the information may be required to properly set up the account. MDPI will not sell or make this personal information available to any other (third) party without your explicit consent. MDPI may use this information internally, including to evaluate and improve our business; respond to any questions, requests or comments you make; for targeted marketing purposes; or to identify and prevent fraud, claims or other liabilities. MDPI may contact you by e-mail to draw your attention to content that might be of interest to you (e.g. new services, products or publications). You will have the chance to opt out of receiving such e-mails by unsubscribing or contacting the MDPI customer service at <a class="toEncode emailCaptcha" data-email-prefix="support" href="mailto:support"><sup><i class="fa fa-envelope-o"></i></sup></a>.
+		</p>
+        </div>
+ </div> 
+	  <div class="row">
+        <div class="columns large-1 ter_con" >§ 3</div>
+        <div class="columns large-11 ter_con ">
+        <p>
+			<strong>Protection of Your Information</strong><br>
+		</p>
+        </div>
+		<div class="columns large-1 ter_con" ></div>
+        <div class="columns large-11 ter_con ">
+        <p>
+		All data we collect from you on our website is protected against unauthorized access by third parties. We do our utmost to protect your privacy through the appropriate use of security technologies and physical safeguards.
+		</p>
+        </div>
+ </div> 
+
+		    <div class="row">
+        <div class="columns large-1 ter_con" >§ 4</div>
+        <div class="columns large-11 ter_con ">
+        <p>
+			<strong>Linked Websites</strong><br>
+		</p>
+        </div>
+		<div class="columns large-1 ter_con" ></div>
+        <div class="columns large-11 ter_con ">
+        <p>
+		MDPI may link to other websites not controlled by MDPI. Please take note that MDPI cannot be held responsible or liable for privacy practices of other websites, nor their services or content.
+		</p>
+        </div>
+ </div> 
+		    <div class="row">
+        <div class="columns large-1 ter_con" >§ 5</div>
+        <div class="columns large-11 ter_con ">
+        <p>
+			<strong>Changes to the Privacy Policy</strong><br>
+		</p>
+        </div>
+		<div class="columns large-1 ter_con" ></div>
+        <div class="columns large-11 ter_con ">
+        <p>
+		MDPI reserves the right to change this Privacy Policy at any time by posting changes to this page of the website without prior notice. Please check this Privacy Policy periodically for any modifications. Your continued use of any Service following the posting of any changes will mean that you have accepted and agreed to the changes.
+		</p>
+        </div>
+ </div> 
+
+  <div class="row">
+        <div class="columns large-1 ter_con" >§ 6</div>
+        <div class="columns large-11 ter_con ">
+        <p>
+		<strong>How To Contact Us</strong><br>
+		</p>
+        </div>
+		<div class="columns large-1 ter_con" ></div>
+        <div class="columns large-11 ter_con ">
+        <p>
+		If you have any questions or concerns about our privacy policy, please contact us at <a class="toEncode emailCaptcha" data-email-prefix="support" href="mailto:support"><sup><i class="fa fa-envelope-o"></i></sup></a>.
+</p>
+        </div>
+ </div> 
+</div>
+This Privacy Policy was last updated on 1 March 2017
+				
+				<style>
+	.ter_con {
+	margin-top: 0px;
+					padding-top: 0;
+	}
+</style>
+                        </div>
+                            </div>
+        </div>
+        <div id="right-column" class="large-20 medium-3 small-12 columns show-for-medium-up" data-equalizer-watch="three-columns">
+            <div class="top-border">
+                                    <div class="generic-item first-item last-item">
+                        <div id="adBannerContent" style="margin: 15px auto; width: 160px; height: 600px;"><div id="banner1" class="adserver-banner" data-zone="2" data-repeat-interval="10"></div>
+                        </div>
+                    </div>
+                            </div>
+        </div>
+    </div>
+
+                                                                                            </div>
+                            
+                        </section>
+                      
+                            <footer>
+                                    
+                                <div class="row full-width footer-links" data-equalizer="footer" data-equalizer-mq="small">
+                                
+                                    <div class="large-2 medium-3 small-6 columns" data-equalizer-watch="footer">
+                                        <h3>
+                                            Further Information
+                                        </h3>
+                                        
+                                        <a href="/about/apc">
+                                            Article&nbsp;Processing&nbsp;Charges
+                                        </a>
+                                        <a href="https://payment.mdpi.com" target="_blank">
+                                            Pay an Invoice
+                                        </a>
+                                        <a href="/about/openaccess">
+                                            Open Access Policy
+                                        </a>
+                                        <a href="/about/termsofuse">
+                                            Terms of Use
+                                        </a>
+                                        <a href="/about/terms-and-conditions">
+                                            Terms and Conditions
+                                        </a>
+                                        <a href="/about/privacy">
+                                            Privacy Policy
+                                        </a>
+                                        <a href="/about/contact">
+                                            Contact MDPI
+                                        </a>
+                                        <a href="/about/jobs">
+                                            Jobs at MDPI
+                                        </a>
+                                    </div>
+                                    
+                                    <div class="large-2 medium-3 small-6 columns" data-equalizer-watch="footer">
+                                        <h3>
+                                            Guidelines
+                                        </h3>
+                                        
+                                        <a href="/authors">
+                                            For Authors
+                                        </a>
+                                        <a href="/reviewers">
+                                            For Reviewers
+                                        </a>
+                                        <a href="/editors">
+                                            For Editors
+                                        </a>
+                                        <a href="/librarians">
+                                            For Librarians
+                                        </a>
+                                        <a href="/publishing_services">
+                                            For Publishers
+                                        </a>
+                                        <a href="/societies">
+                                            For Societies
+                                        </a>
+                                    </div>
+                                                
+                                    <div class="large-2 medium-3 small-6 columns">
+                                        <h3>
+                                            MDPI Initiatives
+                                        </h3>
+                                        
+                                        <a href="/about/ioap">
+                                            Institutional Open Access Program (IOAP)
+                                        </a>
+                                        <a href="http://sciforum.net" target="_blank">
+                                            Sciforum
+                                        </a>
+                                        <a href="http://preprints.org" target="_blank">
+                                            Preprints
+                                        </a>
+                                        <a href="http://www.scilit.net" target="_blank">
+                                            Scilit
+                                        </a>
+                                        <a href="http://mdpi.com/books" target="_blank">
+                                            MDPI Books
+                                        </a>
+                                        <a href="http://blog.mdpi.com/" onclick="ga('send', 'pageview', 'homeBlog');" target="_blank">
+                                           MDPI Blog 
+                                        </a>
+                                    </div>
+
+                                    <div class="large-2 medium-3 small-6 right-border-large-without columns">
+                                        <h3>
+                                            Follow MDPI
+                                        </h3>
+                                        
+                                        <a href="https://www.linkedin.com/company/mdpi" target="_blank">
+                                            LinkedIn
+                                        </a>
+                                        <a href="https://www.facebook.com/MDPIOpenAccessPublishing" target="_blank">
+                                            Facebook
+                                        </a>
+                                        <a href="https://twitter.com/MDPIOpenAccess" target="_blank">
+                                            Twitter
+                                        </a>
+                                        <a href="https://plus.google.com/+MdpiOA/posts" target="_blank">
+                                            Google+
+                                        </a>
+                                    </div>
+
+                                    <div id="footer-subscribe" class="large-4 medium-12 small-12 left-border-large columns">
+                                                                                                                                    <form id="newsletter" method="POST" action="/subscribe">
+                                                <h3>
+                                                    Subscribe to receive issue release notifications and newsletters from MDPI journals
+                                                </h3>
+                                                Select Journal/Journals:
+                                                <select multiple id="newsletter-journal" class="foundation-select" name="journals[]">
+                                                                                                            <option value="actuators">Actuators</option>
+                                                                                                            <option value="admsci">Administrative Sciences</option>
+                                                                                                            <option value="aerospace">Aerospace</option>
+                                                                                                            <option value="agriculture">Agriculture</option>
+                                                                                                            <option value="agronomy">Agronomy</option>
+                                                                                                            <option value="algorithms">Algorithms</option>
+                                                                                                            <option value="animals">Animals</option>
+                                                                                                            <option value="antibiotics">Antibiotics</option>
+                                                                                                            <option value="antibodies">Antibodies</option>
+                                                                                                            <option value="antioxidants">Antioxidants</option>
+                                                                                                            <option value="applsci">Applied Sciences</option>
+                                                                                                            <option value="asi">Applied System Innovation</option>
+                                                                                                            <option value="arts">Arts</option>
+                                                                                                            <option value="atmosphere">Atmosphere</option>
+                                                                                                            <option value="atoms">Atoms</option>
+                                                                                                            <option value="axioms">Axioms</option>
+                                                                                                            <option value="batteries">Batteries</option>
+                                                                                                            <option value="behavsci">Behavioral Sciences</option>
+                                                                                                            <option value="beverages">Beverages</option>
+                                                                                                            <option value="BDCC">Big Data and Cognitive Computing</option>
+                                                                                                            <option value="bioengineering">Bioengineering</option>
+                                                                                                            <option value="biology">Biology</option>
+                                                                                                            <option value="biomedicines">Biomedicines</option>
+                                                                                                            <option value="biomimetics">Biomimetics</option>
+                                                                                                            <option value="biomolecules">Biomolecules</option>
+                                                                                                            <option value="biosensors">Biosensors</option>
+                                                                                                            <option value="brainsci">Brain Sciences</option>
+                                                                                                            <option value="buildings">Buildings</option>
+                                                                                                            <option value="carbon">C</option>
+                                                                                                            <option value="cancers">Cancers</option>
+                                                                                                            <option value="catalysts">Catalysts</option>
+                                                                                                            <option value="cells">Cells</option>
+                                                                                                            <option value="ceramics">Ceramics</option>
+                                                                                                            <option value="challenges">Challenges</option>
+                                                                                                            <option value="ChemEngineering">ChemEngineering</option>
+                                                                                                            <option value="chemosensors">Chemosensors</option>
+                                                                                                            <option value="children">Children</option>
+                                                                                                            <option value="cleantechnol">Clean Technologies</option>
+                                                                                                            <option value="climate">Climate</option>
+                                                                                                            <option value="coatings">Coatings</option>
+                                                                                                            <option value="colloids">Colloids and Interfaces</option>
+                                                                                                            <option value="computation">Computation</option>
+                                                                                                            <option value="computers">Computers</option>
+                                                                                                            <option value="condensedmatter">Condensed Matter</option>
+                                                                                                            <option value="cosmetics">Cosmetics</option>
+                                                                                                            <option value="cryptography">Cryptography</option>
+                                                                                                            <option value="crystals">Crystals</option>
+                                                                                                            <option value="data">Data</option>
+                                                                                                            <option value="dentistry">Dentistry Journal</option>
+                                                                                                            <option value="designs">Designs</option>
+                                                                                                            <option value="diagnostics">Diagnostics</option>
+                                                                                                            <option value="diseases">Diseases</option>
+                                                                                                            <option value="diversity">Diversity</option>
+                                                                                                            <option value="drones">Drones</option>
+                                                                                                            <option value="econometrics">Econometrics</option>
+                                                                                                            <option value="economies">Economies</option>
+                                                                                                            <option value="education">Education Sciences</option>
+                                                                                                            <option value="electronics">Electronics</option>
+                                                                                                            <option value="energies">Energies</option>
+                                                                                                            <option value="entropy">Entropy</option>
+                                                                                                            <option value="environments">Environments</option>
+                                                                                                            <option value="epigenomes">Epigenomes</option>
+                                                                                                            <option value="fermentation">Fermentation</option>
+                                                                                                            <option value="fibers">Fibers</option>
+                                                                                                            <option value="fire">Fire</option>
+                                                                                                            <option value="fishes">Fishes</option>
+                                                                                                            <option value="fluids">Fluids</option>
+                                                                                                            <option value="foods">Foods</option>
+                                                                                                            <option value="forests">Forests</option>
+                                                                                                            <option value="fractalfract">Fractal and Fractional</option>
+                                                                                                            <option value="futureinternet">Future Internet</option>
+                                                                                                            <option value="galaxies">Galaxies</option>
+                                                                                                            <option value="games">Games</option>
+                                                                                                            <option value="gels">Gels</option>
+                                                                                                            <option value="genealogy">Genealogy</option>
+                                                                                                            <option value="genes">Genes</option>
+                                                                                                            <option value="geosciences">Geosciences</option>
+                                                                                                            <option value="geriatrics">Geriatrics</option>
+                                                                                                            <option value="healthcare">Healthcare</option>
+                                                                                                            <option value="high-throughput">High-Throughput</option>
+                                                                                                            <option value="horticulturae">Horticulturae</option>
+                                                                                                            <option value="humanities">Humanities</option>
+                                                                                                            <option value="hydrology">Hydrology</option>
+                                                                                                            <option value="informatics">Informatics</option>
+                                                                                                            <option value="information">Information</option>
+                                                                                                            <option value="infrastructures">Infrastructures</option>
+                                                                                                            <option value="inorganics">Inorganics</option>
+                                                                                                            <option value="insects">Insects</option>
+                                                                                                            <option value="instruments">Instruments</option>
+                                                                                                            <option value="ijerph">International Journal of Environmental Research and Public Health</option>
+                                                                                                            <option value="ijfs">International Journal of Financial Studies</option>
+                                                                                                            <option value="ijms">International Journal of Molecular Sciences</option>
+                                                                                                            <option value="neonatalscreening">International Journal of Neonatal Screening</option>
+                                                                                                            <option value="ijtpp">International Journal of Turbomachinery, Propulsion and Power</option>
+                                                                                                            <option value="inventions">Inventions</option>
+                                                                                                            <option value="ijgi">ISPRS International Journal of Geo-Information</option>
+                                                                                                            <option value="J">J</option>
+                                                                                                            <option value="jcdd">Journal of Cardiovascular Development and Disease</option>
+                                                                                                            <option value="jcm">Journal of Clinical Medicine</option>
+                                                                                                            <option value="jcs">Journal of Composites Science</option>
+                                                                                                            <option value="jdb">Journal of Developmental Biology</option>
+                                                                                                            <option value="jfb">Journal of Functional Biomaterials</option>
+                                                                                                            <option value="jfmk">Journal of Functional Morphology and Kinesiology</option>
+                                                                                                            <option value="jof">Journal of Fungi</option>
+                                                                                                            <option value="jimaging">Journal of Imaging</option>
+                                                                                                            <option value="jintelligence">Journal of Intelligence</option>
+                                                                                                            <option value="jlpea">Journal of Low Power Electronics and Applications</option>
+                                                                                                            <option value="jmmp">Journal of Manufacturing and Materials Processing</option>
+                                                                                                            <option value="jmse">Journal of Marine Science and Engineering</option>
+                                                                                                            <option value="ohbm">Journal of Otorhinolaryngology, Hearing and Balance Medicine</option>
+                                                                                                            <option value="jpm">Journal of Personalized Medicine</option>
+                                                                                                            <option value="jrfm">Journal of Risk and Financial Management</option>
+                                                                                                            <option value="jsan">Journal of Sensor and Actuator Networks</option>
+                                                                                                            <option value="land">Land</option>
+                                                                                                            <option value="languages">Languages</option>
+                                                                                                            <option value="laws">Laws</option>
+                                                                                                            <option value="life">Life</option>
+                                                                                                            <option value="logistics">Logistics</option>
+                                                                                                            <option value="lubricants">Lubricants</option>
+                                                                                                            <option value="make">Machine Learning and Knowledge Extraction</option>
+                                                                                                            <option value="machines">Machines</option>
+                                                                                                            <option value="magnetochemistry">Magnetochemistry</option>
+                                                                                                            <option value="marinedrugs">Marine Drugs</option>
+                                                                                                            <option value="materials">Materials</option>
+                                                                                                            <option value="mca">Mathematical and Computational Applications</option>
+                                                                                                            <option value="mathematics">Mathematics</option>
+                                                                                                            <option value="medsci">Medical Sciences</option>
+                                                                                                            <option value="medicina">Medicina</option>
+                                                                                                            <option value="medicines">Medicines</option>
+                                                                                                            <option value="membranes">Membranes</option>
+                                                                                                            <option value="metabolites">Metabolites</option>
+                                                                                                            <option value="metals">Metals</option>
+                                                                                                            <option value="mps">Methods and Protocols</option>
+                                                                                                            <option value="micromachines">Micromachines</option>
+                                                                                                            <option value="microorganisms">Microorganisms</option>
+                                                                                                            <option value="minerals">Minerals</option>
+                                                                                                            <option value="molbank">Molbank</option>
+                                                                                                            <option value="molecules">Molecules</option>
+                                                                                                            <option value="mti">Multimodal Technologies and Interaction</option>
+                                                                                                            <option value="nanomaterials">Nanomaterials</option>
+                                                                                                            <option value="neuroglia">Neuroglia</option>
+                                                                                                            <option value="nitrogen">Nitrogen</option>
+                                                                                                            <option value="ncrna">Non-Coding RNA</option>
+                                                                                                            <option value="nutrients">Nutrients</option>
+                                                                                                            <option value="particles">Particles</option>
+                                                                                                            <option value="pathogens">Pathogens</option>
+                                                                                                            <option value="pharmaceuticals">Pharmaceuticals</option>
+                                                                                                            <option value="pharmaceutics">Pharmaceutics</option>
+                                                                                                            <option value="pharmacy">Pharmacy</option>
+                                                                                                            <option value="philosophies">Philosophies</option>
+                                                                                                            <option value="photonics">Photonics</option>
+                                                                                                            <option value="plants">Plants</option>
+                                                                                                            <option value="plasma">Plasma</option>
+                                                                                                            <option value="polymers">Polymers</option>
+                                                                                                            <option value="proceedings">Proceedings</option>
+                                                                                                            <option value="processes">Processes</option>
+                                                                                                            <option value="proteomes">Proteomes</option>
+                                                                                                            <option value="publications">Publications</option>
+                                                                                                            <option value="qubs">Quantum Beam Science</option>
+                                                                                                            <option value="quaternary">Quaternary</option>
+                                                                                                            <option value="recycling">Recycling</option>
+                                                                                                            <option value="religions">Religions</option>
+                                                                                                            <option value="remotesensing">Remote Sensing</option>
+                                                                                                            <option value="reports">Reports</option>
+                                                                                                            <option value="resources">Resources</option>
+                                                                                                            <option value="risks">Risks</option>
+                                                                                                            <option value="robotics">Robotics</option>
+                                                                                                            <option value="safety">Safety</option>
+                                                                                                            <option value="scipharm">Scientia Pharmaceutica</option>
+                                                                                                            <option value="sensors">Sensors</option>
+                                                                                                            <option value="separations">Separations</option>
+                                                                                                            <option value="sinusitis">Sinusitis</option>
+                                                                                                            <option value="socsci">Social Sciences</option>
+                                                                                                            <option value="societies">Societies</option>
+                                                                                                            <option value="soilsystems">Soil Systems</option>
+                                                                                                            <option value="sports">Sports</option>
+                                                                                                            <option value="stats">Stats</option>
+                                                                                                            <option value="sustainability">Sustainability</option>
+                                                                                                            <option value="symmetry">Symmetry</option>
+                                                                                                            <option value="systems">Systems</option>
+                                                                                                            <option value="technologies">Technologies</option>
+                                                                                                            <option value="toxics">Toxics</option>
+                                                                                                            <option value="toxins">Toxins</option>
+                                                                                                            <option value="tropicalmed">Tropical Medicine and Infectious Disease</option>
+                                                                                                            <option value="universe">Universe</option>
+                                                                                                            <option value="urbansci">Urban Science</option>
+                                                                                                            <option value="vaccines">Vaccines</option>
+                                                                                                            <option value="vetsci">Veterinary Sciences</option>
+                                                                                                            <option value="vibration">Vibration</option>
+                                                                                                            <option value="viruses">Viruses</option>
+                                                                                                            <option value="vision">Vision</option>
+                                                                                                            <option value="water">Water</option>
+                                                                                                    </select>
+                                                <input name="email" type="email" placeholder="Your email address here..." required="required" />
+                                                <button class="genericCaptcha" type="submit">Subscribe</button>
+                                            </form>
+                                                                            </div>
+
+                                </div>
+                                
+                                <div id="footer-copyright">
+                                    © 1996-2018 MDPI AG (Basel, Switzerland) unless otherwise stated
+                                </div>
+                            </footer>
+
+                        <a class="exit-off-canvas"></a>
+                  
+                    </div>
+                </div>
+                    </div>
+        <a href="#" class="back-to-top">Back to Top</a>
+        
+                
+                <script src="http://www.mdpi.com/assets/js/jquery-1.12.0.min.js?cbb11b58473b2d67"></script>
+        <script src="http://www.mdpi.com/assets/js/foundation-5.5.3.min.js?6b2ec41c18b29054"></script>
+        <script src="http://www.mdpi.com/assets/js/foundation-5.5.3.equalizer.min.js?0f6c549b75ec554c"></script>
+
+                <script src="http://www.mdpi.com/assets/js/jquery.multiselect.js?0edd3998731d1091"></script>
+
+                <script src="http://www.mdpi.com/assets/js/jquery.cycle2.min.js?63413052928f97ee"></script>
+
+        <script>
+            $('select.foundation-select').multiselect({
+                search: true,
+                minHeight: 130,
+                maxHeight: 130,
+            });
+
+            $(document).foundation({
+                orbit: {
+                    timer_speed: 4000,
+                }
+            });
+
+            var megaMenuStatus  = "closed";
+            var megaMenuTimeout = null;
+
+            // old browser fix - this way the console log rows won't throw (silent) errors in browsers not supporting console log
+            if (!window.console) window.console = {};
+            if (!window.console.log) window.console.log = function () { };
+
+            $(document).ready(function()
+            {
+                $(".toEncode").each(function(e) {
+                    var oldHref = $(this).attr("href");
+                    var newHref = oldHref.replace('.botdefense.please.enable.javaScript.','@');
+                    $(this).attr("href", newHref);
+
+                    if (!$(this).hasClass("emailCaptcha"))
+                    {
+                        $(this).html(newHref.replace('mailto:', ''));
+                    }
+                    
+                                    });
+
+                $(document).on('opened.fndtn.reveal', '[data-reveal]', function()
+                {
+                    $(document).foundation('equalizer', 'reflow');
+                });
+
+                // fix the images that have tag height / width defined
+                // otherwise the default foundation styles overwrite the tag definitions
+                $("img").each(function()
+                {
+                   if ($(this).attr('width') != undefined || $(this).attr('height') != undefined)
+                   {
+                       $(this).addClass("img-fixed");
+                   }
+                });
+
+                $(".hide-show-desktop-option").click(function(e) 
+                {
+                    e.preventDefault();
+                    var parentDiv = $(this).closest("div");
+
+                    $.ajax({
+                        url: $(this).attr('href'),
+                        success: function(msg)
+                        {
+                            parentDiv.removeClass().hide();
+                        }
+                    });
+                });
+
+                
+                $(".open-mega-menu").click(function(e)
+                {
+                    e.preventDefault();
+
+                    if ("closed" === megaMenuStatus)
+                    {
+                        megaMenuStatus = "clicked";
+                        clearTimeout(megaMenuTimeout);
+
+                        $(this).next(".mega-menu").toggle();
+                        $(this).toggleClass("active");
+                    }
+                    else if ("clicked" === megaMenuStatus)
+                    {
+                        megaMenuStatus = "closed";
+                        clearTimeout(megaMenuTimeout);
+
+                        $(this).next(".mega-menu").toggle();
+                        $(this).toggleClass("active");
+                    }
+                    if ("hover" === megaMenuStatus)
+                    {
+                        megaMenuStatus = "clicked";
+                        clearTimeout(megaMenuTimeout);
+                    }
+                });
+
+                $("li.menu-item > a").not(".open-mega-menu").hover(function()
+                {
+                    if ("hover" === megaMenuStatus)
+                    {
+                        clearTimeout(megaMenuTimeout);
+                        megaMenuTimeout = setTimeout(function() {
+                            megaMenuStatus = "closed";
+                            $(".mega-menu").toggle();
+                            $(".open-mega-menu").toggleClass("active");
+                        }, 1000);
+                    }
+                }, function()
+                {});
+
+                $(".open-mega-menu").hover(function()
+                {
+                    if ("closed" === megaMenuStatus)
+                    {
+                        megaMenuStatus = "hover";
+                        clearTimeout(megaMenuTimeout);
+                        var that = $(this);
+
+                        that.next(".mega-menu").toggle();
+                        that.toggleClass("active");
+                    }
+                }, function()
+                {});
+                
+                $(".mega-menu").hover(function()
+                {
+                    clearTimeout(megaMenuTimeout);
+                },
+                function()
+                {
+                    if ("hover" === megaMenuStatus)
+                    {
+                        that = $(this);
+
+                        clearTimeout(megaMenuTimeout);
+                        megaMenuTimeout = setTimeout(function() {
+                            megaMenuStatus = "closed";
+                            that.toggle();
+                            $(".open-mega-menu").toggleClass("active");
+                        }, 100);
+                    }
+                });
+
+                $(window).scroll(function() {
+                    megaMenuStatus = "closed";
+                    clearTimeout(megaMenuTimeout); 
+                    $(".mega-menu").hide();
+                    $(".open-mega-menu").removeClass("active");
+                });
+
+                /*
+                * handle whole row as a link if the row contains only one visible link
+                */
+                $("table.new tr").hover(function()
+                {
+                   if ($(this).find("td:visible a").length == 1)
+                   {
+                       $(this).addClass("single-link");
+                   }
+                },
+                function()
+                {
+                   $(this).removeClass("single-link");
+                });
+
+                $("table.new:not(.table-of-tables)").on("click", "tr.single-link", function(e)
+                {
+                    var target = $(e.target);
+                    if (!e.ctrlKey && !target.is("a")) {
+                        $(this).find("td:visible a")[0].click();
+                    }
+                });
+            });
+            
+        </script>
+        
+        <script src="http://www.mdpi.com/assets/js/lib.js?78a20ec1bc47471e"></script>
+        <script src="http://www.mdpi.com/assets/js/mdpi.js?bebe612bf67496bb"></script>
+        <script type="text/javascript">mdpiConfig('static_base_url', 'http://www.mdpi.com')</script>
+
+        <script>var banners_url = 'http://serve.mdpi.com';</script>
+
+        		<script type='text/javascript' src='http://www.mdpi.com/assets/js/ifvisible.min.js?203e64f5a21852e0'></script>		
+
+                        
+
+    <script type="text/javascript">
+        $(document).ready(function()
+        {
+            // create the left hand menu dynamically from the content
+            var items = $("#middle-column h1, #middle-column h2");
+            if ($("#dynamic-menu").length == 1 && items.length > 1) 
+            {
+                // menu container div
+                var div = $("div#dynamic-menu");
+                div.addClass("generic-item no-top-padding");
+
+                // menu header
+                var header = $("<h2></h2>");
+                header.text("Menu");
+                div.append(header);
+
+                // menu list
+                var ul = $("<ul></ul>");
+                ul.addClass("side-menu-ul");
+                div.append(ul);
+
+                // menu list items (create additional anchors for page)
+                items.each(function()
+                {
+                    var header_title = $(this).text();
+                    var link_title   = header_title.replace(/ |-/gi, "_").toLowerCase();
+
+                    var li = $("<li></li>");
+                    li.addClass("side-menu-li");
+                    ul.append(li);
+
+                    var a = $("<a></a>");
+                    a.html(header_title);
+                    a.prop("href", "#" + link_title);
+                    li.append(a);
+
+                    var a = $("<a></a>");
+                    a.prop("name", link_title);
+                    $(this).prepend(a);
+                });
+
+                div.append(ul);
+                div.show();
+            }
+        });
+    </script>
+
+    <script src="http://www.mdpi.com/bundles/mdpimain/js/mdpi/base64_encode.js"></script>
+
+        <!--[if lt IE 9]>
+                        <script src="http://www.mdpi.com/assets/js/ie8/ie8.js?6eef8fcbc831f5bd"></script>
+            <script src="http://www.mdpi.com/assets/js/ie8/jquery.xdomainrequest.min.js?a945caca315782b0"></script>
+        <![endif]-->        
+    <script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"7b66b43f6f","applicationID":"90384266","transactionName":"blMENhAAXRVSB0VaWlcZJwEWCFwIHCl1Y3x0Vw8MIBRdAl8BC3dQX1cTDhZbQA5cE2JWVEtVDiQNE14=","queueTime":0,"applicationTime":153,"atts":"QhQHQFgaThs=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>

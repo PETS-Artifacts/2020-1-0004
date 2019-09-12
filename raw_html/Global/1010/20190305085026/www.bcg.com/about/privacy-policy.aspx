@@ -1,0 +1,1050 @@
+﻿
+
+<!DOCTYPE html>
+<html lang="en"  class="no-js nav-closed">
+<!--includes head-->
+<head><script type='text/javascript'>
+//<![CDATA[
+window['adrum-start-time'] = new Date().getTime();
+;(function(config){
+config.appKey = 'AD-AAB-AAK-AJN';
+config.beaconUrlHttp = 'http://col.eum-appdynamics.com';
+config.beaconUrlHttps = 'https://col.eum-appdynamics.com';
+config.adrumExtUrlHttp = 'http://cdn.appdynamics.com';
+config.adrumExtUrlHttps = 'https://cdn.appdynamics.com';
+config.xd = {enable : false};
+})(window['adrum-config'] || (window['adrum-config'] = {}));;/* Version 228961e767c4350e215b68c2fb019b72 v:4.5.6.1817, c:7d89a22cdc5ffa740d9a8fb12ece35e0943de678, b:4.5.6.1817 */(function(){new function(){if(!window.ADRUM&&!0!==window["adrum-disable"]){var k=window.ADRUM={},A=window.console,B=A&&"function"==typeof A.log?A:{log:function(){}};window["adrum-start-time"]=window["adrum-start-time"]||(new Date).getTime();var v=this&&this.Wb||function(){var a=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(a,l){a.__proto__=l}||function(a,l){for(var e in l)l.hasOwnProperty(e)&&(a[e]=l[e])};return function(b,l){function e(){this.constructor=b}a(b,l);b.prototype=null===l?Object.create(l):
+(e.prototype=l.prototype,new e)}}();(function(a){(function(a){a.setUpMonitors=function(){for(var a=[],b=0;b<arguments.length;b++)a[b]=arguments[b];for(b=0;b<a.length;b++){var c=a[b];c&&c.setUp()}}})(a.monitor||(a.monitor={}))})(k||(k={}));(function(a){(function(b){function l(a){return b.G.slice.apply(a,b.G.slice.call(arguments,1))}function e(a,f){return c(b.G.setTimeout.apply)?b.G.setTimeout.apply(window,arguments):b.G.setTimeout(a,f)}function c(a){return"undefined"!==typeof a&&null!==a}function g(a){return"object"==
+typeof a&&!b.isArray(a)&&null!==a}function f(a){return"function"==typeof a||!1}function m(a){return"string"==typeof a}function q(a,f){for(var c in f){var m=f[c];if(s(f,c)){var e=a[c];g(m)&&g(e)?q(e,m):b.isArray(e)&&b.isArray(m)?a[c]=e.concat(m):a[c]=m}}return a}function s(a,b){return Object.prototype.hasOwnProperty.call(a,b)&&c(a[b])}function t(a){return m(a)?a.replace(/^\s*/,"").replace(/\s*$/,""):a}function p(){return c(performance)&&c(performance.now)}function n(){return p()?Math.round(performance.now()+
+k()):(new Date).getTime()}function k(){var a=window.performance||window.mozPerformance||window.msPerformance||window.webkitPerformance,a=b.isObject(a)&&b.isObject(a.timing)&&b.isNumber(a.timing.navigationStart)?a.timing.navigationStart:window["adrum-start-time"];c(a)||(a=n());return a}function w(a,b){var f=Array.prototype[a];return f?z(f):u(a,b)}function z(a){return function(f){return a.apply(f,b.G.slice.call(arguments,1))}}function u(a,b){return function(q,g){if(!c(q))throw new TypeError(a+" called on null or undefined");
+if(!f(g))throw new TypeError(g+" is not a function");return b.apply(null,arguments)}}function C(a,b,f){var q=Object(a),c=q.length>>>0,g=0;if(3>arguments.length){for(;g<c&&!(g in q);)g++;if(g>=c)throw new TypeError("Reduce of empty array with no initial value");f=q[g++]}for(;g<c;g++)g in q&&(f=b(f,q[g],g,q));return f}function x(a,f,q){return b.reduce(a,function(a,b,c,g){a[c]=f.call(q,b,c,g);return a},Array(a.length>>>0))}function y(a,f,q){return b.reduce(a,function(a,b,c,g){f.call(q,b,c,g)&&a.push(b);
+return a},[])}function D(a,b,f){a=Object(a);for(var q=a.length>>>0,c=0;c<q;c++)if(c in a&&b.call(f,a[c],c,a))return!0;return!1}function E(a,f,q){return!b.some(a,function(a){return!f.call(q,a)})}function F(a,f,q){b.reduce(a,function(a,b,c,g){f.call(q,b,c,g)},void 0)}b.G={isArray:Array.isArray,toString:Object.prototype.toString,slice:Array.prototype.slice,setTimeout:window.setTimeout,setInterval:window.setInterval,assign:Object.assign};b.qa=l;b.oSTO=e;b.isCORSSupported=function(){var a=c(JSON)&&c(JSON.stringify);
+return c(window.XMLHttpRequest)&&"withCredentials"in new XMLHttpRequest&&a};b.isDefined=c;b.Tj=function(a){return"number"===typeof a&&!window.isNaN(a)};b.isArray=f(b.G.isArray)&&f(b.G.isArray.bind)?b.G.isArray.bind(Array):function(a){return b.G.toString.call(a)===b.G.toString.call([])};b.isObject=g;b.isFunction=f;b.isString=m;b.isNumber=function(a){return"number"==typeof a};b.isBoolean=function(a){return"boolean"==typeof a};b.max=function(a,b){return Math.max(isNaN(a)?Number.NEGATIVE_INFINITY:a,isNaN(b)?
+Number.NEGATIVE_INFINITY:b)};b.Gb=e;b.Um=function(a,b){e(a,b||1E4)};b.addEventListener=function(b,f,q,c){function g(){try{return q.apply(this,l(arguments))}catch(c){a.exception(c,"M1",f,b,c)}}void 0===c&&(c=!1);a.isDebug&&a.log("M0",f,b);g.ea=!0;b.addEventListener?b.addEventListener(f,g,c):b.attachEvent&&b.attachEvent("on"+f,g)};b.loadScriptAsync=function(b){var f=document.createElement("script");f.type="text/javascript";f.async=!0;f.src=b;var q=document.getElementsByTagName("script")[0];q?(q.parentNode.insertBefore(f,
+q),a.log("M2",b)):a.log("M3",b)};b.mergeJSON=q;b.hasOwnPropertyDefined=s;b.xe=function(a,f){if(b.isFunction(Object.getPrototypeOf))for(;b.isDefined(a)&&!s(a,f);)a=Object.getPrototypeOf(a);return a};b.Rl=function(a){return c(a)?b.isArray(a)?a:[a]:[]};b.Ym=function(a,b){return null!=a&&a.slice(0,b.length)==b};b.generateGUID=function(a){return c(a)&&f(a.getRandomValues)&&function(){function b(a){a=a.toString(16);return"0000".substr(a.length)+a}var f=new Uint16Array(8);a.getRandomValues(f);return b(f[0])+
+b(f[1])+"_"+b(f[2])+"_"+b(f[3])+"_"+b(f[4])+"_"+b(f[5])+b(f[6])+b(f[7])}}(window.crypto||window.msCrypto)||function(){return"xxxxxxxx_xxxx_4xxx_yxxx_xxxxxxxxxxxx".replace(/[xy]/g,function(a){var b=16*Math.random()|0;return("x"==a?b:b&3|8).toString(16)})};b.tryExtractingErrorStack=function(a){return a?(a=a.stack)&&"string"===typeof a?a:null:null};b.trim=t;b.Ek=function(a){var b={},f,q;if(!a)return b;var c=a.split("\n");for(q=0;q<c.length;q++){var g=c[q];f=g.indexOf(":");a=t(g.substr(0,f)).toLowerCase();
+f=t(g.substr(f+1));a&&(b[a]=b[a]?b[a]+(", "+f):f)}return b};b.tryPeriodically=function(a,b,f,q){function c(){if(b())f&&f();else{var m=a(++g);0<m?e(c,m):q&&q()}}var g=0;c()};b.ee=function(a){return a.charAt(0).toUpperCase()+a.slice(1)};b.vf=function(a){for(var b=[],f=1;f<arguments.length;f++)b[f-1]=arguments[f];return function(){for(var f=[],q=0;q<arguments.length;q++)f[q]=arguments[q];return a.apply(this,b.concat(f))}};b.Fm=p;b.now=n;b.ne=k;b.qm=C;b.reduce=w("reduce",C);b.pm=x;b.map=w("map",x);b.nm=
+y;b.filter=w("filter",y);b.rm=D;b.some=w("some",D);b.mm=E;b.every=w("every",E);b.om=F;b.forEach=w("forEach",F);b.Ci=function(a){return b.filter(a,c)};b.vm=function(a){return[].concat.apply([],a)};b.Rh=c(window.Reflect)&&c(window.Reflect.construct)?function(b,f,q,c){try{return null!==f?window.Reflect.construct(f,q,c):b}catch(g){return a.monitor.ErrorMonitor.O(g),b}}:function(b,f,q){try{return null!==f&&f.apply(b,q)||b}catch(c){return a.monitor.ErrorMonitor.O(c),b}};b.Wb=function(){var a=Object.setPrototypeOf||
+function(a,b){var f=Object.getOwnPropertyNames(b),q;for(q in f)a[q]=b[q]};return function(b,f){function q(){this.constructor=b}a(b,f);b.prototype=null===f?Object.create(f):(q.prototype=f.prototype,new q)}}();b.Li=function(a){if(!b.isString(a))return a;var f={"&":"&amp;","<":"&lt;",">":"&gt;","'":"&#39;",'"':"&quot;","/":"&#47;"};return a.replace(/[&<>'"/]/g,function(a){return f[a]})};b.an=function(a){if(!b.isString(a))return a;var f={"&amp;":"&","&#38;":"&","&#x26;":"&","&lt;":"<","&#60;":"<","&#x3c;":"<",
+"&gt;":">","&#62;":">","&#x3e;":">","&apos;":"'","&#39;":"'","&#x27;":"'","&quot;":'"',"&#34;":'"',"&#x22;":'"',"&sol;":"/","&#47;":"/","&#x2f;":"/"};return a.replace(/&(?:amp|#0*38|#x0*26|lt|#0*60|#x0*3c|gt|#0*62|#x0*3e|apos|#0*39|#x0*27|quot|#0*34|#x0*22|sol|#0*47|#x0*2f);/g,function(a){a=a.replace(/0+\B/g,"");return f[a]})}})(a.utils||(a.utils={}))})(k||(k={}));(function(a){var b=a.conf||(a.conf={});b.userConf=window["adrum-config"]||{};b.useHTTPSAlways=!0===b.userConf.useHTTPSAlways;b.modernBrowserFeaturesAvailable=
+a.utils.isDefined(window.addEventListener)&&a.utils.isCORSSupported()&&a.utils.isDefined(Array.prototype.forEach);b.spa2=b.userConf.spa&&b.userConf.spa.spa2&&(!0===b.userConf.spa.spa2||a.utils.isObject(b.userConf.spa.spa2));b.devMode=!0===b.userConf.devMode;b.fetch=!a.utils.isDefined(b.userConf.fetch)||!0==b.userConf.fetch;b.beaconUrlHttp=a.utils.isDefined(b.userConf.beaconUrlHttp)?b.userConf.beaconUrlHttp:"http://col.eum-appdynamics.com";b.beaconUrlHttps=a.utils.isDefined(b.userConf.beaconUrlHttps)?
+b.userConf.beaconUrlHttps:"https://col.eum-appdynamics.com";b.corsEndpointPath="/eumcollector/beacons/browser"+(b.spa2?"/v2":"/v1");b.imageEndpointPath="/eumcollector/adrum.gif?";b.appKey=b.userConf.appKey||window["adrum-app-key"]||"APP_KEY_NOT_SET";a=b.useHTTPSAlways||"https:"===document.location.protocol;var l=b.userConf.adrumExtUrlHttp||"http://cdn.appdynamics.com",e=b.userConf.adrumExtUrlHttps||"https://cdn.appdynamics.com";b.adrumExtUrl=(a?e:l)+"/adrum-ext.228961e767c4350e215b68c2fb019b72.js";
+b.adrumXdUrl=e+"/adrum-xd.228961e767c4350e215b68c2fb019b72.html";b.agentVer="4.5.6.1817";b.sendImageBeacon=b.userConf.beacon&&b.userConf.beacon.sendImageBeacon||window["adrum-send-image-beacon"];window["adrum-geo-resolver-url"]?(l=window["adrum-geo-resolver-url"],e=l.indexOf("://"),-1!=e&&(l=l.substring(e+3)),l=(a?"https://":"http://")+l):(l=b.userConf.geoResolverUrlHttps||"",e=b.userConf.geoResolverUrlHttp||"",l=a?l:e);b.geoResolverUrl=l;b.useStrictDomainCookies=!0===window["adrum-use-strict-domain-cookies"];
+b.mh=10;b.gh=10})(k||(k={}));(function(a){function b(b,f,q,c){b=a.conf.beaconUrlHttps+"/eumcollector/error.gif?version=1&appKey="+q+"&msg="+encodeURIComponent(b.substring(0,500));c&&(b+="&stack=",b+=encodeURIComponent(c.substring(0,1500-b.length)));return b}function l(f,q){2<=k||(document.createElement("img").src=b(f,0,a.conf.appKey,q),k++)}function e(a){return 0<=a.location.search.indexOf("ADRUM_debug=true")||0<=a.cookie.search(/(^|;)\s*ADRUM_debug=true/)}function c(b){a.isDebug&&p.push(m(arguments).join(" | "))}
+function g(a){n.push(m(arguments).join(" | "))}function f(a){var b=m(arguments).join(" | ");c(b);l(b,null)}var m=a.utils.qa,q=a.utils.reduce,s=a.utils.isDefined;a.iDR=e;var t;(function(a){a[a.API_ERROR=0]="API_ERROR";a[a.API_ERROR_INVALID_PARAMS=1]="API_ERROR_INVALID_PARAMS";a[a.API_ERROR_INVALID_CONFIG=2]="API_ERROR_INVALID_CONFIG";a[a.API_WARNING=3]="API_WARNING";a[a.API_WARNING_INEFFECTIVE_CONFIG=4]="API_WARNING_INEFFECTIVE_CONFIG"})(t=a.P||(a.P={}));a.ib=["JS Agent API Error:","JS Agent API Error Invalid Parameters: ",
+"JS Agent API Error Invalid Configs: ","JS Agent API Warning:","JS Agent API Warning Ineffective Config:"];a.La=" a constructor is called as a function. Don't forget keyword new.";a.isDebug=e(document);a.apiMessageConsoleOut=s(a.conf.userConf)&&s(a.conf.userConf.log)&&!0===a.conf.userConf.log.apiMessageConsoleOut?!0:!1;var p=[],n=[];a.logMessages=p;a.apiMessages=n;a.log=c;a.Lm=g;a.error=f;a.reportAPIMessage=function(b,f,q,c){var m=a.Kk.apply(this,arguments);g(m);a.apiMessageConsoleOut&&B.log(m);return m};
+a.exception=function(){if(!(1>arguments.length)){var b=m(arguments),f=a.utils.tryExtractingErrorStack(b[0]),b=b.slice(1).join(" | ");c(b);l(b,f)}};a.assert=function(a){for(var b=1;b<arguments.length;b++);var q=m(arguments);a||(b=q[1],(q=q.slice(2))&&0<q.length?f("M4",b,q):f("M5",b))};a.dumpLog=a.isDebug?function(){return q(p,function(a,b){return a+b.replace(/\<br\/\>/g,"\n\t")+"\n"},"")}:function(){};a.Kk=function(b,f,q,c){var g="",g="",m=(new window.Error).stack,e,m=a.utils.isString(m)?m.substring(5):
+m+"";s(e)||(e=a.utils.map(c,function(a){return null===a?"null":void 0==a?"undefined":""===a?"''":a}));switch(b){case t.fa:case t.am:g=a.ib[b];g=s(q)?""+g+f+"\n in "+q+"("+e.join(", ")+")\n"+m:""+g+f+"\n"+m;break;case t.od:g=a.ib[b];g=""+g+f+"\nin "+q+"("+e.join(", ")+")\n"+m;break;case t.$l:case t.yg:g=a.ib[b];g=""+g+f+", but "+q+"="+e.join(", ")+"\n"+m;break;default:g=a.ib[t.fa],g=""+g+f+"\nin "+q+"("+e.join(", ")+")\n"+m}return g};a.cIEBU=b;var k=0;c("M6")})(k||(k={}));(function(a){var b=function(){function a(b){this.max=
+b;this.ec=0}a.prototype.yj=function(){this.wb()||this.ec++};a.prototype.wb=function(){return this.ec>=this.max};a.prototype.reset=function(){this.ec=0};return a}(),l=function(){function e(){this.ob=[];this.Wc=new b(e.xh);this.Fc=new b(e.qh)}e.prototype.submit=function(b){this.push(b)&&a.initEXTDone&&this.processQ()};e.prototype.processQ=function(){for(var b=this.Fi(),g=0;g<b.length;g++){var f=b[g];"function"===typeof a.commands[f[0]]?(a.isDebug&&a.log("M7",f[0],f.slice(1).join(", ")),a.commands[f[0]].apply(a,
+f.slice(1))):a.error("M8",f[0])}};e.prototype.$j=function(a){return"reportXhr"===a||"reportPageError"===a};e.prototype.push=function(b){var g=b[0],f=this.$j(g),m=f?this.Wc:this.Fc;if(m.wb())return a.log("M9",f?"spontaneous":"non spontaneous",g),!1;this.ob.push(b);m.yj();return!0};e.prototype.Fi=function(){var a=this.ob;this.reset();return a};e.prototype.size=function(){return this.ob.length};e.prototype.reset=function(){this.ob=[];this.Wc.reset();this.Fc.reset()};e.prototype.isSpontaneousQueueDead=
+function(){return this.Wc.wb()};e.prototype.isNonSpontaneousQueueDead=function(){return this.Fc.wb()};return e}();l.xh=100;l.qh=100;a.CommandExecutor=l})(k||(k={}));(function(a){a.q=new a.CommandExecutor;a.command=function(b){for(var l=1;l<arguments.length;l++);a.isDebug&&a.log("M10",b,Array.prototype.slice.call(arguments).slice(1).join(", "));a.q.submit(Array.prototype.slice.call(arguments))}})(k||(k={}));(function(a){(function(a){var l=function(){function a(){this.status={}}a.prototype.setUp=function(){};
+a.prototype.set=function(a,b){this.status[a]=b};return a}();a.Sb=l})(a.monitor||(a.monitor={}))})(k||(k={}));(function(a){(function(b){var l=a.utils.qa,e=a.utils.isDefined;window.ADRUM.aop=b;b.support=function(a){return!a||"apply"in a};b.around=function(c,g,f,m,q){a.assert(b.support(c),"M11");c=c||function(){};return function(){a.isDebug&&a.log("M12",m,l(arguments).join(", "));var b=l(arguments),t;try{g&&(t=g.apply(this,b))}catch(p){a.exception(p,"M13",m,p)}a.assert(!t||a.utils.isArray(t));var n=
+void 0;try{n=c.apply(this,t||b)}catch(k){throw a.log(k,"M14",m,k),q?q(k):a.monitor.ErrorMonitor.O(k),k;}finally{try{f&&(e(n)&&(b[b.length]={uf:n}),f.apply(this,b))}catch(w){a.exception(w,"M15",m,w)}}return n}};b.De=function(a){a=a[a.length-1];var b;e(a)&&e(a.uf)&&(b=a.uf);return b};b.before=function(a,g,f){return b.around(a,g,null,f)};b.after=function(a,g,f){return b.around(a,null,g,f)}})(a.aop||(a.aop={}))})(k||(k={}));(function(a){a=a.EventType||(a.EventType={});a[a.PageView=0]="PageView";a[a.Ajax=
+2]="Ajax";a[a.VPageView=3]="VPageView";a[a.Error=4]="Error";a[a.IFRAME=1]="IFRAME";a[a.ABSTRACT=100]="ABSTRACT";a[a.ADRUM_XHR=101]="ADRUM_XHR";a[a.NG_VIRTUAL_PAGE=102]="NG_VIRTUAL_PAGE"})(k||(k={}));(function(a){var b=a.events||(a.events={});b.M={};b.M[a.EventType.ABSTRACT]={guid:"string",url:"string",parentGUID:"string",parentUrl:"string",parentType:"number",timestamp:"number"};b.M[a.EventType.VPageView]={resTiming:"object"};b.M[a.EventType.NG_VIRTUAL_PAGE]={digestCount:"number"};b.M[a.EventType.Ajax]=
+{method:"string",parentPhase:"string",parentPhaseId:"number",error:"object",parameter:"object",xhrStatus:"number"};b.M[a.EventType.ADRUM_XHR]={allResponseHeaders:"string",dataObject:"object"};b.M[a.EventType.Error]={msg:"string",line:"number",stack:"string"}})(k||(k={}));(function(a){var b=function(){function a(){this.$={}}a.prototype.mark=function(a,b){l.mark.apply(this,arguments)};a.prototype.getTiming=function(a){return(a=this.getEntryByName(a))&&a.startTime};a.prototype.measure=function(a,b,f){l.measure.apply(this,
+arguments)};a.prototype.getEntryByName=function(a){return l.getEntryByName.call(this,a)};return a}();b.dc=function(a){return l.dc(a)};a.PerformanceTracker=b;var l;(function(b){var c=a.utils.hasOwnPropertyDefined,g=window.performance||window.mozPerformance||window.msPerformance||window.webkitPerformance,f=a.utils.isObject(g)&&a.utils.isObject(g.timing)&&a.utils.isNumber(g.timing.navigationStart)?g.timing.navigationStart:window["adrum-start-time"],m=a.utils.now;b.mark=function(b,f){this.$[b]={name:b,
+entryType:"mark",startTime:a.utils.isDefined(f)?f:m(),duration:0}};b.measure=function(b,g,e){c(this.$,g)&&c(this.$,e)?this.$[b]={name:b,entryType:"measure",startTime:g?this.$[g].startTime:f,duration:(e?this.$[e].startTime:m())-(g?this.$[g].startTime:f)}:a.error("M16",c(this.$,g)?e:g)};b.getEntryByName=function(a){return this.$[a]||null};b.dc=function(a){return a+f}})(l||(l={}))})(k||(k={}));(function(a){(function(b){function l(b,f){b=b||{};for(var c in b)f[c]=function(){var f=c,e=b[c];return function(b){var g=
+"_"+f,c=this[g];if(a.utils.isDefined(b))if(typeof b===e)this[g]=b;else throw g="wrong type of "+f+" value, "+typeof b+" passed in but should be a "+e+".",a.reportAPIMessage(a.P.od,g,"ADRUM.report",Array.prototype.slice.call(arguments)),TypeError(g);return c}}()}function e(a){var b={},c;for(c in a){var q=a[c];b[q.start]=!0;b[q.end]=!0}return b}var c=function(){function b(f){this.perf=new a.PerformanceTracker;"Object"===this.constructor.name&&a.reportAPIMessage(a.P.fa,a.La);this.timestamp(a.utils.now());
+this.guid(a.utils.generateGUID());this.url(document.URL);this.Jb(f)}b.prototype.type=function(){return a.EventType.ABSTRACT};b.prototype.Jb=function(b){if(a.utils.isObject(b))for(var g in b){var q=this[g]||this["mark"+a.utils.ee(g)];q&&a.utils.isFunction(q)&&q.call(this,b[g])}};b.Zb=function(a,b,q){return{guid:function(){return a},url:function(){return b},type:function(){return q}}};b.prototype.ij=function(){return b.Zb(this.parentGUID(),this.parentUrl(),this.parentType())};b.prototype.parent=function(b){var g=
+this.ij();a.utils.isDefined(b)&&(a.utils.isFunction(b.guid)&&a.utils.isFunction(b.url)&&a.utils.isFunction(b.type)?(this.parentGUID(b.guid()),this.parentUrl(b.url()),this.parentType(b.type())):a.reportAPIMessage(a.P.fa,"object is not a valid EventIdentifier","EventTracker.parent",Array.prototype.slice.call(arguments)));return g};return b}();b.EventTracker=c;b.Ea=l;b.ae=function(b,f){b=b||{};var c=e(b),q;for(q in c)c=a.utils.ee(q),f["mark"+c]=a.utils.vf(function(a,b){this.perf.mark(a,b)},q),f["get"+
+c]=a.utils.vf(function(a){return this.perf.getTiming(a)},q)};l(b.M[a.EventType.ABSTRACT],c.prototype)})(a.events||(a.events={}))})(k||(k={}));(function(a){(function(b){var l=function(b){function c(g){g=b.call(this,g)||this;g.constructor!=c&&a.reportAPIMessage(a.P.fa,a.La,"ADRUM.events.Error",[]);return g}v(c,b);c.prototype.type=function(){return a.EventType.Error};return c}(b.EventTracker);b.Error=l;b.Ea(b.M[a.EventType.Error],l.prototype)})(a.events||(a.events={}))})(k||(k={}));(function(a){(function(b){var l=
+function(b){function c(){var g=null!==b&&b.apply(this,arguments)||this;g.ik=function(b){var m=b.message,q=b.filename,e=b.lineno,l=b.colno;b=b.error;a.log("M17");if(a.utils.isDefined(b)||c.zb)a.log("M18"),c.zb=!0,g.za(m,q,e,l,b)};return g}v(c,b);c.O=function(b){a.monitor.aa.za(b.message||b.description,b.fileName||b.filename,b.lineNumber,b.columnNumber,b)};c.prototype.setUp=function(){var c=this;b.prototype.setUp.call(this);a.utils.addEventListener(window,"error",this.ik,!0);a.listenForErrors=function(){c.Ze()};
+this.Ze()};c.prototype.Wk=function(){c.mc=0};c.prototype.za=function(b,f,m,q,e){c.mc>=a.conf.mh?a.log("M19"):(q=a.utils.tryExtractingErrorStack(e),a.command("reportPageError",new a.events.Error(a.utils.mergeJSON({msg:b+"",url:a.utils.isString(f)?f:void 0,line:a.utils.isNumber(m)?m:void 0,stack:q},this.status))),c.mc++,c.hadErrors=!0)};c.prototype.Ze=function(){var b=this;c.zb=!1;a.aop.support(window.onerror)?(window.onerror=a.aop.around(window.onerror,function(f,m,q,e,l){c.zb?a.log("M20"):c.Dc?a.log("M22"):
+(a.log("M21"),b.za(f,m,q,e,l),c.Dc=!0)},function(){a.log("M23");c.Dc=!1},"onerror"),a.log("M24")):a.log("M25")};return c}(b.Sb);l.Dc=!1;l.mc=0;l.hadErrors=!1;l.zb=!1;b.ErrorMonitor=l;b.aa=new b.ErrorMonitor})(a.monitor||(a.monitor={}))})(k||(k={}));(function(a){(function(b){var l=a.log,e=a.aop.after,c=function(c){function f(){return null!==c&&c.apply(this,arguments)||this}v(f,c);f.prototype.setUp=function(){a.utils.map(["error","exception"],function(b){var q=B[b];a.utils.isFunction(q)&&a.aop.support(q)?
+(l("M26",b),B[b]=e(q,function(a){l("M27",b,a);f.Uh(a)})):l("M28",b)});b.aa.za=e(b.aa.za,function(){0<f.sa.length?(l("M29"),f.sa=[]):l("M30")})};f.Uh=function(b){f.sa.length<a.conf.gh&&a.utils.isString(b)?(l("M31",b),f.sa.push(b),a.utils.oSTO(f.Uk)):l("M32",typeof b)};f.Uk=function(){0<f.sa.length?(l("M33"),b.aa.za(f.sa.join("\n")),f.sa=[]):l("M34")};return f}(b.Sb);c.sa=[];b.cm=c;b.ri=new c})(a.monitor||(a.monitor={}))})(k||(k={}));(function(a){(function(b){var l=function(){function b(){this.Lc=this.navTiming=
+this.resTiming=null}b.prototype.setUp=function(){b.perf=window.performance||window.mozPerformance||window.msPerformance||window.webkitPerformance;a.utils.isObject(b.perf)&&a.utils.isObject(b.perf.timing)||(b.perf=void 0);this.setResourceTimingBufferSize();this.il()};b.prototype.setResourceTimingBufferSize=function(){var c=b.perf,g=a.conf.userConf&&a.conf.userConf.resTiming&&a.conf.userConf.resTiming.bufSize;!a.utils.isNumber(g)||0>=g?a.log("M35"):c&&a.utils.isFunction(c.setResourceTimingBufferSize)?
+c.setResourceTimingBufferSize(g):a.log("M36")};b.prototype.il=function(){var c=b.perf;a.utils.isDefined(c)&&a.utils.isFunction(c.clearResourceTimings)&&(this.Lc=c.clearResourceTimings.bind(c))};b.prototype.ti=function(){var c=b.perf;if(c=c&&c.timing)if(c.navigationStart&&c.navigationStart<=c.loadEventEnd){var g={},f;for(f in c){var m=c[f];"number"===typeof m&&(g[f]=m)}this.navTiming=g}else a.log("M38");else a.log("M37")};b.prototype.ta=function(){this.resTiming=this.ja()};b.prototype.ja=function(){var c=
+b.perf,g=[];c&&c.getEntriesByType&&(c=c.getEntriesByType("resource"))&&c.length&&0<c.length&&c.unshift&&(g=c);0==g.length&&a.log("M39");return g};b.prototype.clearResourceTimings=function(){a.utils.isFunction(this.Lc)&&this.Lc()};return b}();l.perf=null;b.PerformanceMonitor=l;b.perfMonitor=new b.PerformanceMonitor})(a.monitor||(a.monitor={}))})(k||(k={}));(function(a){(function(b){var l=function(e){function c(){var a=e.call(this)||this;a.resourceBuffer=[];a.basePageResourceBuffer=[];a.Kd=500;a.Vb=
+150;a.$k=3E3;return a}v(c,e);c.prototype.setUp=function(){e.prototype.setUp.call(this);a.utils.isDefined(b.PerformanceMonitor.perf)&&a.utils.isFunction(b.PerformanceMonitor.perf.getEntriesByType)?a.utils.isFunction(b.PerformanceMonitor.perf.addEventListener)?b.PerformanceMonitor.perf.addEventListener("resourcetimingbufferfull",this.ta.bind(this)):"onresourcetimingbufferfull"in b.PerformanceMonitor.perf?a.utils.isFunction(b.PerformanceMonitor.perf.Kc)?b.PerformanceMonitor.perf.Kc=a.aop.around(b.PerformanceMonitor.perf.Kc,
+this.ta.bind(this)):b.PerformanceMonitor.perf.Kc=this.ta.bind(this):a.utils.G.setInterval.call(window,this.Zk.bind(this),this.$k):a.log("M40");this.nl();this.al()};c.prototype.nl=function(){var c=a.conf.userConf&&a.conf.userConf.resTiming&&a.conf.userConf.resTiming.bufSize;a.utils.isDefined(b.PerformanceMonitor.perf)&&a.utils.isFunction(b.PerformanceMonitor.perf.setResourceTimingBufferSize)&&a.utils.isNumber(c)&&0<c&&(this.Vb=c)};c.prototype.al=function(){var c=b.PerformanceMonitor.perf;a.utils.isDefined(c)&&
+(a.utils.isFunction(c.setResourceTimingBufferSize)&&(c.setResourceTimingBufferSize=a.aop.around(c.setResourceTimingBufferSize,function(){a.utils.isDefined(arguments)&&a.utils.isDefined(arguments[0])&&(this.Vb=arguments[0])}.bind(this))),a.utils.isFunction(c.clearResourceTimings)&&(c.clearResourceTimings=a.aop.around(c.clearResourceTimings,function(){this.ta()}.bind(this))))};c.prototype.si=function(){this.basePageResourceBuffer=this.ja()};c.prototype.ta=function(){this.resourceBuffer=this.ja()};c.prototype.Zk=
+function(){e.prototype.ja.call(this).length>=this.Vb&&this.ta()};c.prototype.ja=function(){var b=e.prototype.ja.call(this);if(this.resourceBuffer.length+b.length>this.Kd)return a.log("M41"),this.resourceBuffer.concat(b.slice(0,this.Kd-this.resourceBuffer.length));e.prototype.clearResourceTimings.call(this);return this.resourceBuffer.concat(b)};c.prototype.lj=function(b,f){return a.utils.filter(this.resourceBuffer,function(a){return b+a.startTime>=f})};c.prototype.mj=function(a,b){this.resourceBuffer=
+this.resourceBuffer.concat(e.prototype.ja.call(this));var c=this.lj(a,b);e.prototype.clearResourceTimings.call(this);this.resourceBuffer=[];return c};return c}(b.PerformanceMonitor);b.ResourceMonitor=l;b.resourceMonitor=new b.ResourceMonitor})(a.monitor||(a.monitor={}))})(k||(k={}));(function(a){(function(b){var l=function(){function e(){this.gc=5E3;this.Xa=a.conf.userConf&&a.conf.userConf.navComplete&&a.conf.userConf.navComplete.maxResourceQuietTime?a.conf.userConf.navComplete.maxResourceQuietTime:
+this.gc}e.prototype.ll=function(){this.Va(Element.prototype,"innerHTML",this.Bf.bind(this));this.Va(HTMLElement.prototype,"innerHTML",this.Bf.bind(this));this.Va(HTMLImageElement.prototype,"src",this.Ya.bind(this));this.Va(HTMLScriptElement.prototype,"src",this.Ya.bind(this));this.Va(HTMLLinkElement.prototype,"href",this.Ya.bind(this));this.Fj();this.Bc("append");this.Bc("appendChild");this.Bc("insertBefore")};e.prototype.setUp=function(a){this.Gc=this.j=0;this.Ga=a;this.ca=this.D=!1;this.of={};this.qf=
+{};this.pf={}};e.prototype.start=function(a){this.setUp(a);this.ca=!0};e.prototype.reset=function(){this.D=!1;this.j=0;this.ca=!1};e.prototype.Va=function(a,b,f){this.Bk(a,b,Object.getOwnPropertyDescriptor(a,b),f)};e.prototype.Bk=function(b,g,f,m){if(a.utils.isDefined(f)&&a.utils.isDefined(f.set)){var q=this;Object.defineProperty(b,g,{set:function(a){var b;try{b=f.set.apply(this,arguments)}catch(c){throw c;}finally{m.call(q,this)}return b}})}};e.prototype.Ya=function(a){this.ca&&this.Xb(a)};e.prototype.Fj=
+function(){var b=Element.prototype,g=this;a.utils.isDefined(b.setAttribute)&&(b.setAttribute=a.aop.around(b.setAttribute,null,function(){g.Ya.call(g,this)}))};e.prototype.Bc=function(b){var g=Element.prototype,f=this;a.utils.isDefined(g[b])&&(g[b]=a.aop.around(g[b],null,function(){0<arguments.length&&f.Ya.call(f,arguments[0])}))};e.prototype.Bf=function(b){this.ca&&a.utils.isDefined(b)&&a.utils.isDefined(b.childNodes)&&(this.Xb(b),this.fg(b.childNodes))};e.prototype.fg=function(a){for(var b=0;b<a.length;b++){var f=
+a[b];this.Xb(f);this.fg(f.childNodes)}};e.prototype.Xb=function(b){if(!a.monitor.AnySpaMonitor.zc()&&this.Mj(b)){var g=b.attributes.getNamedItem("src")||b.attributes.getNamedItem("href");a.utils.isDefined(g)&&(g=g.value,!a.utils.isDefined(this.of[g])&&0<g.length&&(this.j+=1,a.utils.addEventListener(b,"load",this.$e.bind(this),!1),a.utils.addEventListener(b,"error",this.O.bind(this),!1),this.of[g]=!0,a.log("M42",g,this.j)))}};e.prototype.Rj=function(b){return"LINK"==b.nodeName?(b=b.attributes.getNamedItem("rel"),
+a.utils.isDefined(b)?0<=b.value.indexOf("stylesheet"):!0):!0};e.prototype.Mj=function(a){return/^(SCRIPT|IMG|LINK)$/.test(a.nodeName)&&this.Rj(a)};e.prototype.$e=function(c){var g=this.Ge(c.target);!a.utils.isDefined(this.qf[g])&&0<this.j&&(this.j-=1,this.qf[g]=!0,a.log("M43",g,this.j));this.Ga=a.utils.now();this.Gc+=1;1==this.Gc&&(b.A.Zf(),this.D=!0);this.Hf(c.target)};e.prototype.O=function(b){var g=this.Ge(b.target);a.utils.isDefined(this.pf[g])||(this.j-=1,this.pf[g]=!0);this.Hf(b.target)};e.prototype.ci=
+function(){return 0<this.j&&this.D};e.prototype.Ge=function(a){var b="";a instanceof HTMLScriptElement?b=a.src:a instanceof HTMLImageElement?b=a.src:a instanceof HTMLLinkElement&&(b=a.href);return b};e.prototype.xc=function(a){return 0==this.j&&this.D&&a-this.Ga>=this.Xa?(this.reset(),this.Ga):-1};e.prototype.Hf=function(a){a.removeEventListener("load",this.$e,!1);a.removeEventListener("error",this.O,!1)};return e}();b.Lg=l})(a.k||(a.k={}))})(k||(k={}));(function(a){(function(b){var l=function(){function e(){this.gc=
+3E3;this.Xa=a.conf.userConf&&a.conf.userConf.navComplete&&a.conf.userConf.navComplete.maxXhrQuietTime?a.conf.userConf.navComplete.maxXhrQuietTime:this.gc}e.prototype.setUp=function(a){this.Hc=this.j=0;this.Ha=a;this.ca=this.D=!1;this.tg={};this.nd={}};e.prototype.start=function(a){this.setUp(a);this.ca=!0};e.prototype.Ud=function(b){a.monitor.AnySpaMonitor.zc()||a.utils.isDefined(this.tg[b])||!this.ca||(this.j+=1,this.tg[b]=!0,a.log("M44",b,this.j))};e.prototype.Xh=function(c){!a.monitor.AnySpaMonitor.zc()&&
+this.ca&&0<this.j&&(a.utils.isDefined(this.nd)&&!a.utils.isDefined(this.nd[c])&&(this.Ha=a.utils.now(),this.j-=1,this.nd[c]=!0,a.log("M45",c,this.j)),this.Hc+=1,1==this.Hc&&(b.A.Zf(),this.D=!0))};e.prototype.xc=function(a){return 0==this.j&&this.D&&a-this.Ha>=this.Xa?(this.reset(),this.Ha):-1};e.prototype.di=function(){return 0<this.j&&this.D};e.prototype.reset=function(){this.D=!1;this.j=0;this.ca=!1};return e}();b.Bg=l})(a.k||(a.k={}))})(k||(k={}));var d=k.utils.qa,h=k.utils.isFunction;(function(a){var b=
+a.utils.generateGUID,l;(function(a){a[a.USER=0]="USER";a[a.TIMER=1]="TIMER";a[a.XHR=2]="XHR";a[a.RESOURCE=3]="RESOURCE";a[a.PROMISE=4]="PROMISE";a[a.FETCH=5]="FETCH";a[a.OTHER=6]="OTHER"})(l=a.CauseType||(a.CauseType={}));var e=function(){return function(c,f,m){this.start=a.utils.now();this.parent=c;this.Nb=f;this.guid=b();this.type=m}}();a.kb=e;var c=function(){function b(){}b.Bm=function(){return b.events};b.Qe=function(b){return a.utils.isDefined(b)&&a.utils.isFunction(b.handleEvent)};b.Cf=function(a,
+c,q,e){var l;b.ka(c);try{b.Qe(a)?l=a.handleEvent.apply(q,e):h(a)&&(l=a.apply(q,e))}catch(p){throw p;}finally{b.H()}return l};b.Qb=function(f,c,q,e){if(!a.utils.isDefined(c)||c.ea)return c;var l;e||(l=b.ia());return function(a){var e=b.Fa(f,a,l,q);return b.Cf(c,e,this,arguments)}};b.Fa=function(b,c,q,g){q?a.log("M46",b,q.Nb.action):a.log("M47",b);a.utils.isDefined(c)?(c=a.vd.kk(c.target||c.srcElement),c.action=b):c=new a.Da(b);return new e(q,c,g)};b.Vl=function(f,c,q){if(!a.utils.isDefined(c)||c.ea)return c;
+var e=b.Fa(f,void 0,b.ia(),q);return function(){new a.Da(f);return b.Cf(c,e,this,arguments)}};b.dn=function(a,c){return function(){var q=c.apply(this,arguments);b.bc(a);return q}};b.ia=function(){return 0<b.events.length?b.events[b.events.length-1]:null};b.ka=function(a){b.events.push(a)};b.H=function(){return b.events.pop()};b.cc=function(b,c){var q=b,g=1,e="";if(!a.utils.isDefined(q))return null;for(;a.utils.isDefined(q.parent);)e=" -> "+q.Nb.action+e,q=q.parent,g+=1;var l=a.utils.now();a.utils.isDefined(q.Nb)&&
+(e=q.Nb.action+e+" -> "+c);a.log("M48",e);a.log("M49",q.start,g);a.log("M50",l-q.start);return q};b.bc=function(a){return b.cc(b.ia(),a)};b.oj=function(){var f=b.bc(void 0);if(a.utils.isDefined(f)&&a.utils.isDefined(f.type))return[l.TIMER,l.USER].some(function(a){return f.type==a})?f:void 0};b.Lj=function(a){if(h(a))return a;var b=""+a;return function(){eval(b)}};b.setUp=function(){b.events=[];var f=a.utils.G;[{tf:f.setTimeout,ve:"setTimeout"},{tf:f.setInterval,ve:"setInterval"}].forEach(function(f){var q=
+f.tf,c=f.ve,e;try{q.call(window),a.error("M51",c),e=c}catch(p){e=p.message}window[c]=function(a){var f=d(arguments);if(1>f.length)throw TypeError(e);var m=b.ak(c,arguments[1])?l.OTHER:l.TIMER,m=b.Vl(c,b.Lj(a),m);f[0]=m;return q.apply(window,f)}})};b.ak=function(b,c){return"setTimeout"==b&&(a.utils.isDefined(c)&&0==c||!a.utils.isDefined(c))};return b}();c.events=[];a.c=c})(k||(k={}));(function(a){var b=a.utils.Li,l=window.addEventListener,e=a.utils.isDefined(window.EventTarget)?window.EventTarget.prototype.addEventListener:
+function(){},c=a.utils.isDefined(window.EventTarget)?window.EventTarget.prototype.removeEventListener:function(){},g=function(){return function(a,b,f,c,g,e,l,w){this.action=a||"";this.Tg=b||"";this.className=f||"";this.tagName=c||"";this.name=g||"";this.text=e||"";this.src=l;this.item=w}}();a.Da=g;var f=function(){function f(){}f.setUp=function(){Array.prototype.push.apply(f.hc,[]);f.Sl();a.utils.isDefined(window.EventTarget)?(f.Tl(),f.Ul()):f.Wh();f.Pe("onload");f.Pe("onerror")};f.Qm=function(){return[]};
+f.ye=function(b,c){var g="";if(a.utils.isDefined(b))if("string"===typeof b.textContent)g=a.utils.isDefined(String.prototype.trim)?b.textContent.trim():b.textContent,g=a.utils.isDefined(c)?g.substring(0,c):g;else for(b=b.firstChild;a.utils.isDefined(b)&&!(g+=f.ye(b,c),a.utils.isDefined(c)&&g.length>=c);b=b.nextSibling);return g};f.kk=function(q){var c=b(q.id)||"",e=b(q.className)||"",l="",n=new g;q===document?(l="document",n.text="#document"):q===window?(l="window",n.text="#window"):q instanceof XMLHttpRequest?
+(l="xhr",n.src=a.utils.isObject(q._adrumAjaxT)?encodeURI(q._adrumAjaxT.url()):""):q instanceof WebSocket?(l="websocket",n.src=encodeURI(q.url)):q instanceof HTMLScriptElement?(l="script",n.src=encodeURI(q.src)):q instanceof HTMLAnchorElement?(l="a",n.text=b(q.text)||""):q instanceof HTMLButtonElement?(l="button",n.name=b(q.name)):q instanceof HTMLDivElement?l="div":q instanceof HTMLImageElement?(l="img",n.src=encodeURI(q.src),n.text=b(q.title)||""):q instanceof HTMLLIElement?(l="li",n.item=q.value):
+q instanceof HTMLUListElement?l="ul":q instanceof HTMLFormElement?l="form":q instanceof HTMLFrameElement?(l="frame",n.src=encodeURI(q.src)):q instanceof HTMLInputElement?(l=b(q.type)||"input",n.text=b(q.value),n.name=b(q.name)):q instanceof HTMLTableElement?l="table":q instanceof HTMLTableCaptionElement?l="tcap":q instanceof HTMLTableCellElement?l="td":q instanceof HTMLTableRowElement?l="tr":(l=a.utils.isDefined(q.tagName)?b(q.tagName):"",a.log("M52",l));n.Tg=c;n.className=e;n.tagName=l;q instanceof
+Node&&(n.text=n.text||b(f.ye(q,30))||"");a.utils.isString(n.text)&&(n.text=a.utils.isDefined(String.prototype.trim)?n.text.trim():n.text,n.text=n.text.substring(0,30));return n};f.Sl=function(){a.utils.forEach(f.hc,function(b){l(b,function(f){f=f.target||f.srcElement;(f===document||f===window||f instanceof XMLHttpRequest||f instanceof HTMLElement)&&null!=f&&f["on"+b]&&(f["on"+b]=a.c.Qb(b,f["on"+b],a.CauseType.USER,!0),f["on"+b].ea=!0)},!0)})};f.Wh=function(){a.utils.forEach(f.hc,function(b){l(b,function(f){f=
+a.c.Fa(b,f,null,a.CauseType.USER);a.c.ka(f)},!0);l(b,function(){a.c.H()},!1)})};f.ig=function(b){var f=!1;a.utils.isBoolean(b)?f=b:a.utils.isObject(b)&&a.utils.isDefined(b.capture)&&(f=!!b.capture);return f};f.Rf=function(b,f,c,g){if(!a.utils.isDefined(b.eventListenerMap)||!a.utils.isDefined(b.eventListenerMap[f])||!a.utils.isDefined(c))return-1;b=b.eventListenerMap[f];for(f=0;f<b.length;f++)if(b[f][0]==c&&b[f][1]==g)return f;return-1};f.Oe=function(b,f,c,g,m){a.utils.isDefined(b)&&a.utils.isDefined(m)&&
+(a.utils.isDefined(b.eventListenerMap)||(b.eventListenerMap={}),a.utils.isDefined(b.eventListenerMap[f])||(b.eventListenerMap[f]=[]),b.eventListenerMap[f].push([c,g,m]))};f.Sk=function(a,b,f){if(-1<f){var c=a.eventListenerMap[b];delete c[f];c.splice(f,1);0==c.length&&delete a.eventListenerMap[b]}};f.Tl=function(){EventTarget.prototype.addEventListener=function(b,c,g){if(a.utils.isDefined(c)&&c.ea||!a.c.Qe(c)&&!h(c))return e.call(this,b,c,g);var l=f.ig(g),n=a.utils.isDefined(this)?this:window;if(!(-1<
+f.Rf(n,b,c,l))){var k=c;switch(b){case "click":case "dblclick":case "auxclick":case "mousedown":case "mouseup":case "drop":case "keyup":case "keydown":case "keypress":case "contextmenu":case "pageChanged":case "scroll":case "close":k=a.c.Qb(b,c,a.CauseType.USER,!0);f.Oe(n,b,c,l,k);break;case "load":case "error":k=a.c.Qb(b,c,a.CauseType.USER,!1),f.Oe(n,b,c,l,k)}e.call(n,b,k,g)}}};f.Ul=function(){EventTarget.prototype.removeEventListener=function(b,g,e){if(a.utils.isDefined(g)&&g.ea)return c.call(this,
+b,g,e);var l=f.ig(e),n=a.utils.isDefined(this)?this:window,l=f.Rf(n,b,g,l);0<=l?(c.call(n,b,this.eventListenerMap[b][l][2],e),f.Sk(n,b,l)):c.call(n,b,g,e)}};f.Pe=function(b){var f=HTMLElement.prototype,c=Object.getOwnPropertyDescriptor(f,b);a.utils.isDefined(c)&&a.utils.isDefined(c.set)&&Object.defineProperty(f,b,{set:function(f){var g=f;a.utils.isDefined(f)&&(g=a.c.Qb(b,f,a.CauseType.RESOURCE,!1));var m;try{m=c.set.call(this,g)}catch(e){throw e;}return m}})};return f}();f.hc="click dblclick mousedown mouseup change scroll select submit keydown keypress keyup load unload".split(" ");
+a.vd=f})(k||(k={}));(function(a){(function(b){var l=a.utils.map,e=a.utils.Rl,c=a.utils.isDefined,g=a.utils.isString,f=a.utils.Ci,m=a.utils.isFunction;b.jf=function(a,b){for(var f=!1,c=0;c<b.length;c++){var g=b[c];if(g&&g.test(a)){f=!0;break}}return f};b.xb=function(a,f,g){var m=!1;if(f&&g)for(var e=0;e<g.length;e++){var l=g[e];if(!(c(l.method)&&a!==l.method||c(l.urls)&&!b.jf(f,l.urls))){m=!0;break}}return m};b.gb=function(a,b){return f(l(e(b),a))};b.Ob=function(a){var f=b.cj(a);a=b.ze(a);return f||
+a};b.cj=function(b){var f=b.method;if(c(f)){if(g(f))return b;a.error("M53")}};b.Ll=function(a){var f=b.ze(a);return b.Mk(a)&&f};b.Mk=function(b){if(m(b.getFromBody))return b;a.error("M54")};b.xi=function(b){for(var f=[],c=0;c<b.length;c++){var m=b[c].pattern;if(g(m))try{f.push(new RegExp(m))}catch(e){a.exception(e,"M55")}else a.error("M56")}return f};b.ze=function(a){var f=a.urls;if(f&&0<f.length&&(a.urls=b.xi(f),0<a.urls.length))return a}})(a.utils||(a.utils={}))})(k||(k={}));(function(a){a=a.events||
+(a.events={});a=a.b||(a.b={});a.navigationStart="navigationStart";a.domainLookupStart="domainLookupStart";a.domainLookupEnd="domainLookupEnd";a.connectStart="connectStart";a.secureConnectionStart="secureConnectionStart";a.connectEnd="connectEnd";a.requestStart="requestStart";a.responseStart="responseStart";a.responseEnd="responseEnd";a.domContentLoadedEventStart="domContentLoadedEventStart";a.loadEventEnd="loadEventEnd";a.Sf="sendTime";a.te="firstByteTime";a.Mf="respAvailTime";a.Nf="respProcTime";
+a.jd="viewChangeStart";a.kg="viewChangeEnd";a.kd="viewDOMLoaded";a.sg="xhrRequestsCompleted";a.bn="viewFragmentsLoaded";a.cn="viewResourcesLoaded";a.ld="virtualPageStart";a.Ol="virtualPageEnd"})(k||(k={}));(function(a){var b=a.events||(a.events={});b.metricSpec={};b.metricSpec[a.EventType.PageView]={Ki:{start:b.b.navigationStart,end:b.b.loadEventEnd,name:"PLT"},Si:{start:b.b.navigationStart,end:b.b.responseStart,name:"FBT"},Wm:{start:b.b.navigationStart,end:b.b.requestStart,name:"SCT"},Xm:{start:b.b.secureConnectionStart,
+end:b.b.connectEnd,name:"SHT"},ym:{start:b.b.domainLookupStart,end:b.b.domainLookupEnd,name:"DLT"},$m:{start:b.b.connectStart,end:b.b.connectEnd,name:"TCP"},Tm:{start:b.b.requestStart,end:b.b.responseStart,name:"RAT"},Am:{start:b.b.responseStart,end:b.b.loadEventEnd,name:"FET"},Dm:{start:b.b.responseStart,end:b.b.domContentLoadedEventStart,name:"DRT"},Cm:{start:b.b.responseStart,end:b.b.responseEnd,name:"DDT"},wm:{start:b.b.responseEnd,end:b.b.domContentLoadedEventStart,name:"DPT"},Sm:{start:b.b.domContentLoadedEventStart,
+end:b.b.loadEventEnd,name:"PRT"},xm:{start:b.b.navigationStart,end:b.b.domContentLoadedEventStart,name:"DOM"}};b.metricSpec[a.EventType.Ajax]={Si:{start:b.b.Sf,end:b.b.te,name:"FBT"},lm:{start:b.b.te,end:b.b.Mf,name:"DDT"},km:{start:b.b.Mf,end:b.b.Nf,name:"DPT"},Ki:{start:b.b.Sf,end:b.b.Nf,name:"PLT"}};b.metricSpec[a.EventType.VPageView]={Km:{start:b.b.ld,end:b.b.Ol,name:"PLT"},tm:{start:b.b.jd,end:b.b.kg,name:"DDT"},Hm:{start:b.b.jd,end:b.b.kd,name:"DRT"},dm:{start:b.b.kg,end:b.b.kd,name:"DPT"},
+em:{start:b.b.jd,end:b.b.kd,name:"DOM"},Rm:{start:"viewChangeEnd",end:"xhrRequestsCompleted",name:null},Im:{start:"viewChangeEnd",end:"viewPartialsLoaded",name:null},Gm:{start:"viewPartialsLoaded",end:"viewFragmentsLoaded",name:null},Jm:{start:"viewPartialsLoaded",end:"viewResourcesLoaded",name:null}};b.metricSpec[a.EventType.NG_VIRTUAL_PAGE]=b.metricSpec[a.EventType.VPageView]})(k||(k={}));(function(a){(function(b){var l=function(e){function c(g){g=e.call(this,g)||this;g.constructor!=c&&g.constructor!=
+b.AdrumAjax&&a.reportAPIMessage(a.P.fa,a.La,"ADRUM.events.Ajax",[]);return g}v(c,e);c.prototype.type=function(){return a.EventType.Ajax};return c}(b.EventTracker);b.Ajax=l;b.Ea(b.M[a.EventType.Ajax],l.prototype);b.ae(b.metricSpec[a.EventType.Ajax],l.prototype)})(a.events||(a.events={}))})(k||(k={}));(function(a){(function(b){var l=function(b){function c(a){return b.call(this,a)||this}v(c,b);c.prototype.type=function(){return a.EventType.Ajax};return c}(b.Ajax);b.AdrumAjax=l;b.Ea(b.M[a.EventType.ADRUM_XHR],
+l.prototype)})(a.events||(a.events={}))})(k||(k={}));(function(a){(function(b){var l=a.utils.isDefined,e=function(){function c(){}c.Ja=function(b,f){a.conf.spa2?c.ui(b,f):c.Qf(b,f)};c.ui=function(g,f){var m=a.c.cc(g.g);if(l(a.monitor.AnySpaMonitor.vp)&&!a.monitor.AnySpaMonitor.va&&a.monitor.AnySpaMonitor.vp.Sa==m){f.parent(a.monitor.AnySpaMonitor.vp);if(++a.monitor.AnySpaMonitor.vp.be>b.oa.maxPerPageView)return;c.Qf(g,f)}else l(a.monitor.AnySpaMonitor.vp)&&!a.monitor.AnySpaMonitor.va&&f.parent(a.monitor.AnySpaMonitor.vp),
+c.Oc(f,g),b.oSTO(c.Tk,c.Ch);delete g._adrumAjaxT;a.k.A.K.Xh(f.url())};c.Qf=function(a,f){var m={};a.Td=m;delete a._adrumAjaxT;b.Gb(function(){a.Td===m&&c.reportXhr(a,f)})};c.reportXhr=function(b,f){c.cd(b,f);a.command("reportXhr",f)};c.Oc=function(b,f){if(l(f.g)){var m=a.c.cc(f.g).guid;c.cd(f,b);l(c.ba[m])||(c.ba[m]=[]);-1==c.ba[m].indexOf(b)&&c.ba[m].push(b)}else a.log("~AnySPA: error in putInParentEventWaitingQueue() as xhr.adrum_causalEvent is undefined.")};c.cd=function(a,f){var c=a.status,q;
+b.isNumber(c)&&f.xhrStatus(c);a instanceof XMLHttpRequest&&f.allResponseHeaders(a.getAllResponseHeaders());if(400<=c){if(b.isString(a.statusText))q=a.statusText;else try{b.isString(a.responseText)&&(q=a.responseText)}catch(e){b.isString(a.responseType)&&(q=a.responseType)}f.error({status:c,msg:q})}};c.Gf=function(a){c.ba[a]=[];delete c.ba[a]};c.mk=function(b,f){var m=c.ba[f];l(m)&&(m.forEach(function(f){f.parent(b);a.command("reportXhr",f)}),c.Gf(f))};c.Tk=function(){for(var g in c.ba){for(var f=
+0,m=c.ba[g];f<m.length;f++){var q=m[f];!l(a.monitor.AnySpaMonitor.vp)&&++c.fi<=b.oa.maxPerPageView?a.command("reportXhr",q):l(a.monitor.AnySpaMonitor.vp)&&++a.monitor.AnySpaMonitor.vp.be<=b.oa.maxPerPageView&&a.command("reportXhr",q)}c.Gf(g)}};return c}();e.Ch=2E3;e.ba={};e.fi=0;b.Rb=e})(a.utils||(a.utils={}))})(k||(k={}));(function(a){(function(b){var l=a.utils.isDefined,e=function(){function c(){}c.setUp=function(){c.exclude=[{urls:[new RegExp(a.conf.beaconUrlHttp+a.conf.corsEndpointPath),new RegExp(a.conf.beaconUrlHttps+
+a.conf.corsEndpointPath)]}];c.include=[];c.maxPerPageView=c.Lk(a.conf.userConf&&a.conf.userConf.xhr);c.payloadParams=[];c.parameter={};c.Af(a.conf.userConf&&a.conf.userConf.xhr)};c.Af=function(a){l(a)&&(c.exclude=c.exclude.concat(b.gb(b.Ob,a.exclude)),c.include=c.include.concat(b.gb(b.Ob,a.include)),c.payloadParams=c.payloadParams.concat(b.gb(b.Ob,a.payloadParams)),c.parameter=b.gb(b.Ll,a.parameter))};c.Lk=function(g){if(l(g)){g=g.maxPerPageView;if(b.isNumber(g)&&0<g)return g;a.reportAPIMessage(a.P.yg,
+"value is not valid; don't limit xhr","xhr.maxPerPageView",[g])}return a.conf.spa2?c.Hg:c.Gg};c.Kb=function(a,f){var m=c.include,q=c.exclude;return l(m)&&0<m.length&&!b.xb(f,a,m)||l(q)&&0<q.length&&b.xb(f,a,q)};return c}();e.Gg=50;e.Hg=250;b.oa=e})(a.utils||(a.utils={}))})(k||(k={}));(function(a){(function(b){b.parseURI=function(a){var b=String(a).replace(/^\s+|\s+$/g,"").match(/^([^:\/?#]+:)?(?:\/\/(?:([^:@\/?#]*)(?::([^:@\/?#]*))?@)?(([^:\/?#]*)(?::(\d*))?))?([^?#]*)(\?[^#]*)?(#[\s\S]*)?/);a=b&&
+null!=a.match(b[1]+"//");return b&&{href:b[0]||"",protocol:b[1]||"",slash:a?"//":"",username:b[2]||"",password:b[3]||"",host:b[4]||"",hostname:b[5]||"",port:b[6]||"",pathname:b[7]||"",search:b[8]||"",hash:b[9]||""}};b.absolutizeURI=function(a,e){function c(a){var b=[];a.replace(/^(\.\.?(\/|$))+/,"").replace(/\/(\.(\/|$))+/g,"/").replace(/\/\.\.$/,"/../").replace(/\/?[^\/]*/g,function(a){"/.."===a?b.pop():b.push(a)});return b.join("").replace(/^\//,"/"===a.charAt(0)?"/":"")}var g,f,m,q,s,k,p,n;n=e?
+b.parseURI(e):{};p=a?b.parseURI(a):{};n.protocol?(g=n.protocol,f=n.slash,m=n.username,q=n.password,s=n.host,k=c(n.pathname),p=n.search):n.host?(g=p.protocol,f=p.slash,m=n.username,q=n.password,s=n.host,k=c(n.pathname),p=n.search):(g=p.protocol,f=p.slash,m=p.username,q=p.password,s=p.host,n.pathname?("/"===n.pathname.charAt(0)?k=c(n.pathname):(k=p.pathname?p.pathname.slice(0,p.pathname.lastIndexOf("/")+1)+n.pathname:f?"/"+n.pathname:n.pathname,k=c(k)),p=n.search):(k=c(p.pathname),p=n.search||p.search));
+return g+f+(m?m+(q?":"+q:"")+"@":"")+s+k+p+(n.hash?n.hash:"")};b.getFullyQualifiedUrl=function(l){try{var e,c=document.location.href,g;a:{for(var f=document.getElementsByTagName("base"),m=0;m<f.length;m++){var q=f[m].href;if(q){g=q;break a}}g=void 0}e=g?b.absolutizeURI(c,g):c;return b.absolutizeURI(e,l)}catch(s){return a.exception(s,"M57",l,e),l}}})(a.utils||(a.utils={}))})(k||(k={}));(function(a){(function(b){var l=a.utils.isString,e=function(c){function g(){var a=c.call(this)||this;a.X=0;a.X=0;
+return a}v(g,c);g.prototype.Fb=function(){this.X=0};g.O=function(b){var c=b.message||b.description,q=b.fileName||b.filename,g=b.lineNumber,e=b.columnNumber;l(b.description)&&0<=b.description.indexOf("Access is denied.")&&(c+=": maybe you have CORS XHR error in IE");a.monitor.aa.za(c,q,g,e,b)};g.Ue=function(a){var c=document.createElement("a");c.href=a;a=document.location;var q=a.protocol;return c.protocol===q&&c.hostname===a.hostname&&g.Fk(b.XHRMonitor.Bi[q],c.port,a.port)};g.Fk=function(a,b,c){return(b||
+a)===(c||a)};return g}(b.Sb);e.Bi={"http:":"80","https:":"443"};b.pa=e})(a.monitor||(a.monitor={}))})(k||(k={}));(function(a){(function(b){var l=a.utils.oa,e=a.utils.Rb,c=a.utils.mergeJSON,g=a.events.AdrumAjax,f=a.utils.isString,m=a.utils.isDefined,q=a.utils.isNumber,s=a.utils.getFullyQualifiedUrl,k=a.conf.spa2,p=function(n){function p(){return null!==n&&n.apply(this,arguments)||this}v(p,n);p.prototype.setUp=function(){var f=this,q=window.fetch;m(q)&&(window.fetch=a.aop.around(function(c){return function(q,
+g){var m=arguments,l=a.utils.now();b.pa.Ue(f._adrumAjaxT.url())&&(m=p.Sh(arguments));var s=c.apply(this,m),n=new window.Promise(function(a,b){s.then(function(b){a(b)});s["catch"](function(a){b(a)})});n._adrumAjaxT=f._adrumAjaxT;n.ea=!0;n._adrumAjaxT.timestamp(l);n._adrumAjaxT.markSendTime(l);n._adrumAjaxT.parentPhase(a.lifecycle.getPhaseName());k&&(n.g=new a.kb(a.c.ia(),new a.Da("window.fetch"),a.CauseType.FETCH));s.then(function(b){var f=a.utils.now();n._adrumAjaxT.markFirstByteTime(f);e.cd(b,n._adrumAjaxT);
+h(b.clone)?(b=b.clone().text(),b["catch"](function(){p.oc(n)}),p.qj(b,n)):p.ol(n,b)})["catch"](function(){p.oc(n)});return n}}(q),function(){var q=p.kj(arguments);!k&&++f.X+b.xhrMonitor.X>=l.maxPerPageView||l.Kb(q.url,q.method)||(f._adrumAjaxT=new g(c(q,f.status)),k&&(f.g=a.c.Fa("window.fetch.send",void 0,a.c.ia(),a.CauseType.FETCH),a.c.ka(f.g)))},function(){!k&&f.X+b.xhrMonitor.X>=l.maxPerPageView||l.Kb(f._adrumAjaxT.url(),f._adrumAjaxT.method())||!k||(a.k.A.K.Ud(f._adrumAjaxT.url()),a.c.H())},"fetch",
+b.pa.O))};p.qj=function(b,f){b.then(function(){var b=a.utils.now();if(p.W(f)){p.df(f._adrumAjaxT,b);var c=f._adrumAjaxT.getRespProcTime();m(c)||m(f._adrumAjaxT.B)&&0!==f._adrumAjaxT.B||(f._adrumAjaxT.markRespProcTime(b),e.Ja(f,f._adrumAjaxT))}})["catch"](function(){p.oc(f)})};p.oc=function(b){var f=a.utils.now();p.W(b)&&(p.df(b._adrumAjaxT,f),p.ef(b._adrumAjaxT,f),e.Ja(b,b._adrumAjaxT))};p.df=function(a,b){var f=a.getRespAvailTime();m(f)||a.markRespAvailTime(b)};p.ef=function(a,b){var f=a.getRespProcTime();
+if(m(f))return!1;a.markRespProcTime(b);return!0};p.ol=function(a,b){b.ei=p.hb(a,b.ei);b.ki=p.hb(a,b.ki);b.Ui=p.hb(a,b.Ui);b.hk=p.hb(a,b.hk);b.text=p.hb(a,b.text)};p.hb=function(b,f){return a.aop.around(f,function(){p.W(b)&&b._adrumAjaxT.markRespAvailTime(a.utils.now())},function(){p.W(b)&&(b._adrumAjaxT.markRespProcTime(a.utils.now()),e.Ja(b,b._adrumAjaxT))},"wrapResponseReader",a.monitor.ErrorMonitor.O)};p.Sh=function(a){1==a.length?f(a[0])?([].push.call(a,{}),p.$b(a[1])):p.$b(a[0]):2==a.length&&
+p.$b(a[1]);return a};p.$b=function(a){m(a.headers)||(a.headers=new Headers);a.headers instanceof Headers?a.headers.has("ADRUM")?a.headers.set("ADRUM","isAjax: true"):a.headers.append("ADRUM","isAjax: true"):a.headers.ADRUM="isAjax: true"};p.kj=function(b){var c={url:"",method:""};a.utils.isObject(b[0])?(c.url=b[0].url,c.method=b[0].method||"GET"):f(b[0])&&(c.url=b[0],c.method=b[1]&&b[1].method||"GET");c.url=m(c.url)?c.url:"";c.url=s(c.url);c.method=c.method;return c};p.Aj=function(a){var b;m(b)||
+(b=1);m(a._adrumAjaxT.B)&&q(a._adrumAjaxT.B)&&(a._adrumAjaxT.B+=b)};p.qb=function(a){var b;m(b)||(b=1);m(a._adrumAjaxT.B)&&q(a._adrumAjaxT.B)&&(a._adrumAjaxT.B-=b)};p.W=function(a){return m(a._adrumAjaxT)};p.ub=function(a){return m(a._adrumAjaxT.B)};p.Jl=function(a,b){a._adrumAjaxT=b._adrumAjaxT;a._adrumAjaxT.B+=a.C;a.C=0};p.Ml=function(a){var b=!1;p.W(a)&&m(a._adrumAjaxT.B)&&(p.Aj(a),b=!0);return b};p.Pc=function(a){e.Ja(a,a._adrumAjaxT)};p.hd=function(b){var f=a.utils.now();return 0===b._adrumAjaxT.B&&
+m(b._adrumAjaxT)?p.ef(b._adrumAjaxT,f):!1};p.gd=function(b){var f=!1,c=a.utils.now(),q=b._adrumAjaxT.getRespAvailTime();m(q)||(b._adrumAjaxT.markRespAvailTime(c),f=!0);return f};p.Cj=function(a){a._adrumAjaxT.B=0};return p}(b.pa);b.yd=p;b.Ua=new b.yd})(a.monitor||(a.monitor={}))})(k||(k={}));(function(a){(function(b){var l=a.utils.isObject,e=a.utils.map,c=a.utils.reduce,g=a.utils.filter,f=a.utils.isDefined,m=a.utils.isString,q=a.utils.mergeJSON,s=a.utils.qa,k=a.utils.Gb,p=a.utils.oa,n=a.utils.Rb,
+r=a.conf.spa2,w=function(w){function u(){var b=w.call(this)||this;b.$c=!1;if(!0===window["adrum-xhr-disable"])return a.log("M58"),b;if(!window.XMLHttpRequest)return a.log("M59"),b;b.n=window.XMLHttpRequest.prototype;if(!b.n)return a.log("M60"),b;if(!("open"in b.n&&"send"in b.n))return a.log("M61"),b;b.$c=a.aop.support(b.n.open)&&a.aop.support(b.n.send);b.$c||a.log("M62");return b}v(u,w);u.prototype.setUp=function(){if(this.$c){a.log("M63");a.xhrConstructor=window.XMLHttpRequest;a.xhrOpen=this.xhrOpen=
+this.n.open;a.xhrSend=this.xhrSend=this.n.send;p.setUp();var c=this;this.n.open=a.aop.around(this.n.open,function(){u.Yj(this)&&(4===this.readyState?(a.log("M64"),u.Mi(this._adrumAjaxT),delete this.Td,n.reportXhr(this,this._adrumAjaxT)):a.log("M65",this._adrumAjaxT.url()));var f=1<=arguments.length?String(arguments[0]):"",g=2<=arguments.length?String(arguments[1]):"",g=a.utils.getFullyQualifiedUrl(g);!r&&c.X+b.Ua.X>=p.maxPerPageView||p.Kb(g,f)||(this._adrumAjaxT=new a.events.AdrumAjax(q({method:f,
+url:g},c.status)))},null,"XHR.open",b.pa.O);this.n.send=a.aop.around(this.n.send,function(f){var q=this,m=this._adrumAjaxT,e=!1;if(!(!m||!r&&++c.X+b.Ua.X>=p.maxPerPageView)){var l=a.utils.now(),s=m.getSendTime();a.assert(null===s,"M66");m.timestamp(l);m.markSendTime(s||l);m.parentPhase(a.lifecycle.getPhaseName());r&&(q.g=a.c.Fa("XHR.send",void 0,a.c.ia(),a.CauseType.XHR));b.pa.Ue(m.url())?q.setRequestHeader("ADRUM","isAjax:true"):a.log("M67",document.location.href,m.url());l=p.payloadParams;a.utils.xb(m.method(),
+m.url(),l)&&m.dataObject({data:f});f=u.hj(m.url(),p.parameter,f);m.parameter(f);var n=0,w=function(){if(4==q.readyState)e?a.log("M68"):(a.log("M69"),c.Pb(q));else{var b=null;try{b=q.onreadystatechange}catch(f){if(e){a.log("M70",f);return}a.log("M71",f);c.Pb(q);return}n++;b?a.aop.support(b)?(q.onreadystatechange=u.le(b,"XHR.onReadyStateChange"),a.log("M72",n)):g||(a.log("M73"),c.Pb(q)):n<u.Ph?k(w):e?a.log("M74"):(a.log("M75"),c.Pb(q))}};if(g){a.log("M76");try{c.Xl.call(q,"readystatechange",u.Di),e=
+!0}catch(y){a.error("M77",y)}}w()}},function(){if(r){var b=this._adrumAjaxT;b&&a.k.A.K.Ud(b.url())}},"XHR.send",b.pa.O);var g="addEventListener"in this.n&&"removeEventListener"in this.n&&a.aop.support(this.n.addEventListener)&&a.aop.support(this.n.removeEventListener);if(g){var m=a.utils.xe(this.n,"addEventListener");this.Xl=m.addEventListener;m.addEventListener=a.aop.around(m.addEventListener,function(b,c,q){if(f(c)&&(c.ea=!0,this instanceof XMLHttpRequest&&/^(load|error|readystatechange)$/.test(b)&&
+c)){var g=u.Gl(c);if(g){var m=s(arguments);m[1]=g;a.log("M78");return m}a.log("M79",b,c)}},null,"XHR.addEventListener");m=a.utils.xe(this.n,"removeEventListener");this.Zl=m.removeEventListener;m.removeEventListener=a.aop.around(m.removeEventListener,function(b,f,q){if(this instanceof XMLHttpRequest&&this._adrumAjaxT){var g=s(arguments);f.__adrumInterceptor?(g[1]=f.__adrumInterceptor,a.log("M80"),c.Zl.apply(this,g)):a.log("M81")}},null,"XHR.removeEventListener")}else a.log("M82");a.log("M83")}};u.hj=
+function(b,f,m){if(f&&(f=g(e(g(f,function(f){return a.utils.jf(b,f.urls)}),function(a){return a.getFromBody(m)}),l),0<f.length))return c(f,q,{})};u.wc=function(b){var f=b._adrumAjaxT;if(f){var c=a.utils.now();2==b.readyState?f.markFirstByteTime(f.getFirstByteTime()||c):4==b.readyState&&(f.markRespAvailTime(f.getRespAvailTime()||c),f.markFirstByteTime(f.getFirstByteTime()||c),r&&(b=b.g=a.c.Fa("XHR.load",void 0,b.g,a.CauseType.XHR),a.c.ka(b)))}};u.He=function(b){var f=b._adrumAjaxT;if(f&&4==b.readyState){var c=
+a.utils.now(),q=f.getRespProcTime();f.markRespAvailTime(f.getRespAvailTime()||c);c>q&&f.markRespProcTime(c);n.Ja(b,f);a.conf.spa2&&a.c.H()}};u.le=function(a,b){return u.Yl(a,function(){u.wc(this)},function(){u.He(this)},b)};u.Di=function(){u.wc(this);u.He(this)};u.Yj=function(a){return f(a._adrumAjaxT)&&m(a._adrumAjaxT._url)};u.Mi=function(b){var f=a.utils.now();b.markRespAvailTime(b.getRespAvailTime()||f);b.markFirstByteTime(b.getFirstByteTime()||f);b.markRespProcTime(b.getRespProcTime()||f)};u.prototype.Pb=
+function(b){if(b._adrumAjaxT){var f=a.utils.now()+3E4,c=function(){u.wc(b);var q=b._adrumAjaxT;if(q){var g=a.utils.now();4==b.readyState?(a.assert(null===q.getRespProcTime(),"M84"),q.markRespProcTime(q.getRespProcTime()||g),a.log("M85"),n.Ja(b,q),a.conf.spa2&&a.c.H()):g<f?a.utils.oSTO(c,u.ud):(delete b._adrumAjaxT,a.log("M86"))}};c()}};u.Yl=function(b,f,c,q){var g=b;b&&"object"===typeof b&&"toString"in b&&"[xpconnect wrapped nsIDOMEventListener]"===b.toString()&&"handleEvent"in b&&(g=function(){b.handleEvent.apply(this,
+s(arguments))});return a.aop.around(g,f,c,q)};u.Gl=function(b){if(b.__adrumInterceptor)return b.__adrumInterceptor;if(a.aop.support(b)){var f=u.le(b,"XHR.invokeEventListener");return b.__adrumInterceptor=f}};return u}(b.pa);w.Ph=5;w.ud=50;b.XHRMonitor=w;b.xhrMonitor=new b.XHRMonitor})(a.monitor||(a.monitor={}))})(k||(k={}));(function(a){(function(b){var l=a.utils.Rb,e=function(c){function g(b){b=c.call(this,b)||this;b.perf=new a.PerformanceTracker;b.me=!1;b.be=0;return b}v(g,c);g.prototype.type=function(){return a.EventType.VPageView};
+g.prototype.sc=function(){return b.EventTracker.Zb(this.guid(),this.url(),this.type())};g.prototype.Xc=function(){var b=this.sc();a.monitor.aa.set("parent",b);a.log("M87",b.guid(),b.url())};g.prototype.startCorrelatingXhrs=function(){a.log("M88");a.utils.isDefined(this.Sa)&&!a.monitor.AnySpaMonitor.va&&l.mk(this,this.Sa.guid)};g.prototype.start=function(){this.startCorrelatingXhrs();this.Xc()};return g}(b.EventTracker);b.AnySpaVPageView=e;b.Ea(b.M[a.EventType.VPageView],e.prototype)})(a.events||(a.events=
+{}))})(k||(k={}));(function(a){a.report=function(b){a.utils.isObject(b)&&a.utils.isFunction(b.type)?-1==[a.EventType.PageView,a.EventType.Ajax,a.EventType.VPageView,a.EventType.Error].indexOf(b.type())?a.reportAPIMessage(a.P.fa,b.type()+"is not a valid external event type","ADRUM.report",Array.prototype.slice.call(arguments)):a.conf.spa2&&a.EventType.VPageView==b.type()?a.log("M89"):a.utils.Gb(function(){a.command("reportEvent",b)}):a.reportAPIMessage(a.P.od,"","ADRUM.report",Array.prototype.slice.call(arguments))};
+a.markVirtualPageBegin=function(b,l){a.conf.spa2&&(this.yc=a.utils.isDefined(l)?l:!0,a.log("M90",document.URL),a.monitor.AnySpaMonitor.Vc(document.URL,b,!0),a.monitor.AnySpaMonitor.Vf())};a.markVirtualPageEnd=function(){a.conf.spa2&&this.yc&&(a.log("M91",a.monitor.AnySpaMonitor.da),a.monitor.AnySpaMonitor.ff(a.monitor.AnySpaMonitor.vp.startTime,a.utils.now()),this.yc=!1)}})(k||(k={}));(function(a){(function(b){var l=a.utils.isDefined,e=a.aop.after,c=a.aop.before,g=function(){function f(){}f.prototype.setUp=
+function(){var c=!1;f.gi=a.utils.ne();a.c.setUp();a.vd.setUp();f.kl();b.resourceMonitor.setUp();a.k.A.setUp(a.utils.now());f.da=document.URL;f.nc=[];a.utils.isDefined(window.history)&&a.utils.isFunction(window.history.pushState)&&(c=!0,window.history.pushState=a.aop.around(window.history.pushState,function(){b.DOMEventsMonitor.Bb&&(a.log("M92"),f.Vc(document.URL))},function(){b.DOMEventsMonitor.Bb&&(a.log("M93"),f.Vf());f.da=document.URL},"historyPushState"));f.nc=f.nc.concat(a.utils.gb(a.utils.Ob,
+a.conf.userConf&&a.conf.userConf.spa&&a.conf.userConf.spa.spa2&&a.utils.isObject(a.conf.userConf.spa.spa2)&&a.conf.userConf.spa.spa2.vp&&a.conf.userConf.spa.spa2.vp.exclude));if(a.utils.isDefined(window.addEventListener)){var c=!0,q=function(){f.da!=document.URL&&f.Wf()};q.ea=!0;window.addEventListener("popstate",q)}c||a.log("M94")};f.Wf=function(){var c=document.URL;a.log("M95",f.da,c);b.DOMEventsMonitor.Bb&&(f.Vc(f.da),f.Yc(c));f.da=c};f.kl=function(){var b;a.c.ka=e(a.c.ka,function(){b=location.hash});
+a.c.H=c(a.c.H,function(){b!=location.hash&&f.da!=document.URL&&f.Wf()})};f.Vc=function(a,b,c){f.fl();f.va=!1;f.ke(a,b,c)};f.Vf=function(){var a=document.URL;f.Yc(a);f.da=a};f.vi=function(){f.va=!0;f.ke(f.da);f.Yc()};f.fl=function(){if(!f.va&&a.utils.isDefined(f.vp)&&!f.vp.If){var b=f.$i(a.k.A.D);f.ff(f.vp.startTime,b)}};f.$i=function(b){var c=a.utils.now();b?(c=f.aj(a.k.A.Wa),a.k.A.reset()):c=f.vp.timestamp();return c};f.ql=function(b,c){return f.vp.me?!1:l(c)&&0<c.length&&a.utils.xb(void 0,b,c)};
+f.aj=function(b){var f=a.utils.now();b?a.k.A.R.ci()||a.k.A.K.di()||(f=a.utils.max(a.k.A.R.Ga,a.k.A.K.Ha)):f=a.k.A.startTime;return f};f.ff=function(a,b){f.gf(a,b);f.cf(a);f.report()};f.ke=function(b,c,g){f.reset();f.vp=new a.events.AnySpaVPageView;f.vp.startUrl=b;a.utils.isDefined(c)&&(f.vp.userPageName=c);a.utils.isBoolean(g)&&(f.vp.me=g);b=a.c.bc();f.vp.startTime=f.va?a.utils.ne():a.utils.isDefined(b)?b.start:a.utils.now();f.vp.Sa=b};f.Yc=function(b){a.utils.isDefined(b)&&f.vp.url(b);f.vp.start();
+a.yc||a.k.A.start(a.utils.now())};f.gf=function(b,c){a.utils.isDefined(f.vp)&&(a.utils.isDefined(c)?f.vp.timestamp(c):f.vp.timestamp(b))};f.cf=function(c){a.utils.isDefined(f.vp)&&f.vp.resTiming(b.resourceMonitor.mj(f.gi,c))};f.zc=function(){var b=a.c.oj();return a.utils.isDefined(b)&&a.utils.isDefined(f.vp)&&(!a.utils.isDefined(f.vp.Sa)||f.vp.Sa!=b)};f.report=function(){if(a.utils.isDefined(f.vp))if(f.ql(f.vp.url(),f.nc))a.log("M97",f.vp.url());else{a.log("M98");var c=f.vp;c.If?a.log("M99"):(c.parentUrl(b.DOMEventsMonitor.currentBasePage.url()),
+a.command("call",function(){a.reporter.reportEvent(c)}),c.If=!0)}else a.log("M96")};f.reset=function(){f.vp=null};return f}();b.AnySpaMonitor=g;b.bi=new b.AnySpaMonitor})(a.monitor||(a.monitor={}))})(k||(k={}));(function(a){(function(b){var l=function(){function e(){this.R=new b.Lg;this.K=new b.Bg;this.pk=3E3;this.maxInactiveTime=a.conf.userConf&&a.conf.userConf.navComplete&&a.conf.userConf.navComplete.maxInactiveTime?a.conf.userConf.navComplete.maxInactiveTime:Math.max(this.R.Xa,this.K.Xa)+this.pk;
+this.zf=1E3}e.prototype.setUp=function(a){this.currentTime=this.startTime=a;this.D=this.Wa=!1;this.R.setUp(a);this.K.setUp(a)};e.prototype.start=function(a){this.setUp(a);this.D=!0;this.R.start(a);this.K.start(a);this.fe();this.ul()};e.prototype.ul=function(){this.eg=a.utils.G.setInterval.call(window,function(){this.currentTime=a.utils.now();var b=a.utils.max(this.R.Ga,this.K.Ha);this.currentTime-b>=this.maxInactiveTime&&(this.navComplete(this.Wa?this.currentTime:b),this.reset())}.bind(this),this.zf)};
+e.prototype.Zf=function(){this.Wa||(this.sl(),this.Wa=!0)};e.prototype.fe=function(){a.utils.isDefined(this.Df)&&clearInterval(this.Df);a.utils.isDefined(this.eg)&&clearInterval(this.eg)};e.prototype.reset=function(){this.fe();this.D=this.Wa=!1;this.R.reset();this.K.reset()};e.prototype.navComplete=function(b){var g=a.utils.isDefined(a.monitor.AnySpaMonitor.vp&&a.monitor.AnySpaMonitor.vp.startTime)?a.monitor.AnySpaMonitor.vp.startTime:this.startTime;a.log("M100",b-g);a.monitor.AnySpaMonitor.gf(g,
+b);a.monitor.AnySpaMonitor.va||(a.monitor.AnySpaMonitor.cf(g),a.monitor.AnySpaMonitor.report())};e.prototype.sl=function(){this.Df=a.utils.G.setInterval.call(window,function(){this.currentTime=a.utils.now();var b=this.R.xc(this.currentTime);0<=b&&a.log("M101",b-this.startTime);b=this.K.xc(this.currentTime);0<=b&&a.log("M102",b-this.startTime);this.K.D||this.R.D||(this.navComplete(a.utils.max(this.K.Ha,this.R.Ga)),this.reset())}.bind(this),this.zf)};return e}();b.zh=l;b.A=new b.zh})(a.k||(a.k={}))})(k||
+(k={}));(function(a){var b=function(){function b(){this.Mb=[];this.Eb(b.Yb,0)}b.prototype.tk=function(a){this.Eb(b.Vd,a)};b.prototype.vk=function(a){this.Eb(b.ce,a)};b.prototype.uk=function(a){this.Eb(b.Xd,a)};b.prototype.Eb=function(a,b){this.Mb.push({sk:(new Date).getTime(),rk:b,wf:a});this.yi=a};b.prototype.getPhaseName=function(){return this.yi};b.prototype.getPhaseID=function(a){for(var c=0;c<b.$d.length;c++)if(b.$d[c]===a)return c;return null};b.prototype.getPhaseCallbackTime=function(a){for(var b=
+this.Mb,g=0;g<b.length;g++)if(b[g].wf===a)return b[g].sk;return null};b.prototype.findPhaseAtNominalTime=function(e){a.assert(0<=e);for(var c=this.Mb,g=c.length-1;0<=g;g--)if(e>=c[g].rk)return c[g].wf;a.error("M103",e,a.utils.dumpObject(c));return b.Yb};return b}();b.Yb="AFTER_FIRST_BYTE";b.Vd="AFTER_DOM_INTERACTIVE";b.ce="AT_ONLOAD";b.Xd="AFTER_ONLOAD";b.$d=[b.Yb,b.Vd,b.ce,b.Xd];a.PageLifecycleTracker=b;a.lifecycle=new b;a.lifecycle=a.lifecycle})(k||(k={}));(function(a){(function(b){var l=function(b){function c(){return null!==
+b&&b.apply(this,arguments)||this}v(c,b);c.prototype.type=function(){return a.EventType.PageView};return c}(b.EventTracker);b.PageView=l})(a.events||(a.events={}))})(k||(k={}));(function(a){(function(b){var l=a.utils.now,e=function(){function c(){}c.prototype.setUp=function(){var b=document.readyState;if("loading"===b)a.log("M104"),c.ml(),c.Xf();else{var f={timeStamp:l()};c.Na(f);"interactive"===b?(a.log("M105"),c.Xf()):(a.log("M106"),c.$a(f),c.sf(f))}};c.Xf=function(){a.utils.addEventListener(window,
+"load",c.$a);a.utils.addEventListener(window,"load",c.sf)};c.sf=function(g){c.currentBasePage=new a.events.PageView;a.lifecycle.vk(g&&g.timeStamp);a.utils.Gb(function(){var f=l();a.lifecycle.uk(f);a.command("mark","onload",f);c.Bb=!0;b.PerformanceMonitor.perf&&b.perfMonitor.ti();a.conf.spa2?b.resourceMonitor.si():b.perfMonitor.ta();a.command("reportOnload",c.currentBasePage);a.conf.spa2&&(a.k.A.R.ll(),b.AnySpaMonitor.vi());a.utils.loadScriptAsync(a.conf.adrumExtUrl)});a.log("M107")};c.ml=function(){if(a.utils.isFunction(document.addEventListener))document.addEventListener("DOMContentLoaded",
+c.Na,!1);else if(a.utils.isObject(document.attachEvent)){document.attachEvent("onreadystatechange",c.Na);var b=null;try{b=null===window.frameElement?document.documentElement:null}catch(f){}null!=b&&b.doScroll&&function q(){if(!c.isReady){try{b.doScroll("left")}catch(f){a.utils.oSTO(q,10);return}c.$a()}}()}else a.exception("M108");a.log("M109")};c.$a=function(b){c.hf||(a.lifecycle.tk(b&&b.timeStamp),a.command("mark","onready",l()),c.hf=!0)};c.Na=function(a){document.addEventListener?(document.removeEventListener("DOMContentLoaded",
+c.Na,!1),c.$a(a)):"complete"===document.readyState&&(document.detachEvent("onreadystatechange",c.Na),c.$a(a))};return c}();e.isReady=!1;e.hf=!1;e.Bb=!1;b.DOMEventsMonitor=e;b.domEventsMonitor=new b.DOMEventsMonitor})(a.monitor||(a.monitor={}))})(k||(k={}));(function(a){var b=a.utils.isDefined,l=a.utils.isNumber,e=a.monitor.yd;a.pg=window.Promise;var c=a.conf.spa2&&a.conf.modernBrowserFeaturesAvailable,g=function(){function f(){}f.setUp=function(){if(b(a.pg)){f.Jj();f.Ij();var g=function(q){function g(m){var e=
+this.constructor,l=m;this.U=a.utils.generateGUID();b(m)&&(l=f.Hj(m,this));m=a.utils.Rh(this,q,[l],e);c&&(b(this.g)&&(m.g=this.g),b(this.ya)&&(m.g=this.ya.g));m.U=this.U;this.ya=m;a.log("M110",m.U);c&&b(m.g)&&a.log("M111",m.g.guid);return m}a.utils.Wb(g,q);return g}(window.Promise);window.Promise=g}};f.ra=function(g,q){return function(){if(c){var e,l=e=void 0;a.log("M112",g);switch(g){case f.F.Fd:case f.F.Ed:case f.F.rd:case f.F.qd:a.utils.isDefined(q)&&a.utils.isDefined(q.ya)&&(e=q.ya.g);e=a.c.ia()||
+e;l=new a.kb(e,new a.Da(g),a.CauseType.PROMISE);break;case f.F.Cd:case f.F.Dd:case f.F.Bd:e=q.g,l=new a.kb(e,new a.Da(g),a.CauseType.PROMISE),a.c.ka(l)}b(q)&&(b(q.ya)?(q.ya.g=l,a.log("M113",q.ya.U)):(a.log("M114",q.U),q.g=l))}}};f.Hj=function(g,q){c&&(g=a.aop.around(g,function(){q.g=new a.kb(a.c.ia(),new a.Da(f.F.Wg),a.CauseType.PROMISE);a.c.ka(q.g);a.log("M115",q.g.guid,q.U);if(b(arguments[0])){a.log("M116");var c=a.aop.around(arguments[0],f.ra(f.F.Fd,q));arguments[0]=c}b(arguments[1])&&(a.log("M117"),
+c=a.aop.around(arguments[1],f.ra(f.F.Ed,q)),arguments[1]=c);return a.utils.qa(arguments)},function(){a.log("M118");a.c.H()},"interceptPromiseExecutor",f.Za));return g};f.Ij=function(){f.Qk();f.Pk()};f.Jj=function(){f.Ok();f.Nk()};f.Xj=function(b){return b instanceof f||b instanceof a.pg};f.zj=function(a){var f;b(f)||(f=1);b(a.C)&&l(a.C)&&(a.C+=f)};f.Ai=function(a){var f;b(f)||(f=1);b(a.C)&&l(a.C)&&(a.C-=f)};f.Bj=function(c){b(c.C)&&a.utils.Tj(c.C)?f.zj(c):c.C=1};f.Il=function(a){e.Ml(a)||f.Bj(a)};
+f.Xk=function(a){a.C=0};f.Te=function(a){return b(a.ea)};f.Qk=function(){var g=null;window.Promise.prototype.then=a.aop.around(window.Promise.prototype.then,function(){var q=this;g=q;a.log("M119",q.U);if(b(arguments[0])){f.Il(q);a.log("M120",q.U);var l=a.aop.around(arguments[0],f.ra(f.F.Cd,q),function(){var g=a.aop.De(arguments);b(g)&&b(g.C)&&f.Xj(g)&&e.W(q)?(e.Jl(g,q),f.Xk(g)):(e.W(q)&&!f.Te(q)&&e.ub(q)&&(e.gd(q),e.qb(q),!0===e.hd(q)&&e.Pc(q)),c&&a.c.H())},"interceptPromiseThenFulfil",function(a){e.W(q)&&
+e.ub(q)&&(e.gd(q)&&e.qb(q),!0===e.hd(q)&&e.Pc(q));f.Za(a)});arguments[0]=l}b(arguments[1])&&(a.log("M121",q.U),l=a.aop.around(arguments[1],f.ra(f.F.Dd,q),function(){c&&(a.log("M122"),a.c.H())}),arguments[1]=l);return a.utils.qa(arguments)},function(){var q=a.aop.De(arguments);c&&(q.g=this.g);b(q)&&f.Te(this)&&e.W(this)&&(q._adrumAjaxT=this._adrumAjaxT,e.ub(this)||e.Cj(q))},"interceptPromiseThenInterceptor",function(a){var b=g;e.W(b)&&e.ub(b)&&(e.gd(b)&&e.qb(b),!0===e.hd(b)&&e.Pc(b));f.Za(a)})};f.Pk=
+function(){b(window.Promise.prototype["finally"])&&(window.Promise.prototype["finally"]=a.aop.around(window.Promise.prototype["finally"],function(){b(this._adrumAjaxT)&&b(this._adrumAjaxT.B)?e.qb(this):b(this.C)&&f.Ai(this);if(b(arguments[0])){a.log("M123",this.U);var g=a.aop.around(arguments[0],f.ra(f.F.Bd,this),function(){c&&(a.log("M124"),a.c.H())});arguments[0]=g;return a.utils.qa(arguments)}},function(){a.log("M125");a.c.H()},"interceptPromiseFinally"))};f.Ok=function(){window.Promise.resolve=
+a.aop.around(window.Promise.resolve,f.ra(f.F.rd,null),function(){a.log("M126");a.c.H()},"interceptPromiseResolve",f.Za)};f.Nk=function(){window.Promise.reject=a.aop.around(window.Promise.reject,f.ra(f.F.qd,null),function(){a.log("M127");a.c.H()},"interceptPromiseReject",f.Za)};return f}();g.F={Wg:"PromiseInstance.init",Fd:"PromiseInstance.resolve",Ed:"PromiseInstance.reject",Cd:"PromiseInstance.onFulfilled",Dd:"PromiseInstance.onRejected",Bd:"PromiseInstance.finally",rd:"PromiseConstructor.resolve",
+qd:"PromiseConstructor.reject"};g.Za=a.monitor.ErrorMonitor.O;a.Fh=g})(k||(k={}));(function(a){(function(b){function l(a,b){var c=[],e=/^\s*(ADRUM_BT\w*)=(.*)\s*$/i.exec(a);if(e){var l=e[1],e=e[2].replace(/^"|"$/g,""),e=decodeURIComponent(e).split("|"),k=e[0].split(":");if("R"===k[0]&&Number(k[1])===b)for(g(l),l=1;l<e.length;l++)c.push(e[l])}return c}function e(a,b){var c=/^\s*(ADRUM_(\d+)_(\d+)_(\d+))=(.*)\s*$/i.exec(a);if(c){var e=c[1],l=c[4],k=c[5];if(Number(c[3])===b)return g(e),{index:Number(l),
+value:k}}return null}function c(b){var c=/^\s*ADRUM=s=([\d]+)&r=(.*)\s*/.exec(b);if(c){a.log("M130",b);if(3===c.length)return g("ADRUM"),{startTime:Number(c[1]),startPage:c[2]};a.error("M131",b);return null}}function g(b){a.log("M129",b);var c=new Date;c.setTime(c.getTime()-1E3);document.cookie=b+"=;Expires="+c.toUTCString()}b.startTimeCookie=null;b.cookieMetadataChunks=null;b.pe=function(f,g){a.log("M128");for(var q=g?g.length:0,k=[],t=f.split(";"),p=0;p<t.length;p++){var n=t[p],r=e(n,q);r?k.push(r):
+(n=c(n),null!=n&&(b.startTimeCookie=n))}Array.prototype.sort.call(k,function(a,b){return a.index-b.index});n=[];for(p=0;p<k.length;p++)n.push(k[p].value);for(p=0;p<t.length;p++)(k=l(t[p],q))&&0<k.length&&(n=n.concat(k));b.cookieMetadataChunks=n};a.correlation.eck=b.pe})(a.correlation||(a.correlation={}))})(k||(k={}));(function(a){"APP_KEY_NOT_SET"!==a.conf.appKey||a.utils.isDefined(window.ADEUM_js_handler)||a.utils.isDefined(window.webkit)||B.log("AppDynamics EUM cloud application key missing. Please specify window['adrum-app-key']");
+a.correlation.pe(document.cookie,document.referrer);a.command("mark","firstbyte",window["adrum-start-time"]);a.monitor.setUpMonitors(a.monitor.aa,a.monitor.ri,a.monitor.domEventsMonitor,a.monitor.perfMonitor,a.monitor.xhrMonitor);a.conf.fetch&&(a.Fh.setUp(),a.monitor.setUpMonitors(a.monitor.Ua));a.conf.spa2&&a.conf.modernBrowserFeaturesAvailable&&a.monitor.setUpMonitors(a.monitor.bi)})(k||(k={}));(function(a){a=a.ng||(a.ng={});a=a.h||(a.h={});a.af="locationChangeStart";a.jk="locationChangeSuccess";
+a.Of="routeChangeStart";a.Pf="routeChangeSuccess";a.$f="stateChangeStart";a.ag="stateChangeSuccess";a.lg="viewContentLoaded";a.vj="includeContentRequested";a.uj="includeContentLoaded";a.oe="digest";a.Nm="outstandingRequestsComplete";a.de="beforeNgXhrRequested";a.Wd="afterNgXhrRequested";a.Mm="ngXhrLoaded";a.he="$$completeOutstandingRequest"})(k||(k={}));(function(a){(function(b){function l(a,f,c,q,e,l){if(f)try{return f.apply(a,[c,q,e].concat(l))}catch(k){return a.error(c,q,e,l,b.Error.Xg,"M132",
+k)}}function e(a,f){return function(){var c=this.current,q=f[c]||f[b.mb]||c,e=Array.prototype.slice.call(arguments);if(this.pi(a))return this.error(a,c,q,e,b.Error.Yg,"event "+a+"M133"+this.current);if(!1===l(this,this["onbefore"+a],a,c,q,e))return b.lb.pd;q===b.mb&&(q=c);if(c===q)return l(this,this["onafter"+a]||this["on"+a],a,c,q,e),b.lb.yh;var k=this;this.transition=function(){k.transition=null;k.current=q;l(k,k["onenter"+q]||k["on"+q],a,c,q,e);l(k,k["onafter"+a]||k["on"+a],a,c,q,e);return b.lb.Jh};
+if(!1===l(this,this["onleave"+c],a,c,q,e))return this.transition=null,b.lb.pd;if(this.transition)return this.transition()}}var c=a.utils.hasOwnPropertyDefined;b.VERSION="2.3.5";b.lb={Jh:1,yh:2,pd:3,gm:4};b.Error={Yg:100,hm:200,Xg:300};b.mb="*";b.create=function(a,f){function l(a){var f=a.from instanceof Array?a.from:a.from?[a.from]:[b.mb];n[a.name]=n[a.name]||{};for(var c=0;c<f.length;c++)r[f[c]]=r[f[c]]||[],r[f[c]].push(a.name),n[a.name][f[c]]=a.to||f[c]}var q="string"==typeof a.initial?{state:a.initial}:
+a.initial,k=f||a.target||{},t=a.events||[],p=a.callbacks||{},n={},r={};q&&(q.event=q.event||"startup",l({name:q.event,from:"none",to:q.state}));for(var w=0;w<t.length;w++)l(t[w]);for(var v in n)c(n,v)&&(k[v]=e(v,n[v]));for(v in p)c(p,v)&&(k[v]=p[v]);k.current="none";k.Em=function(a){return a instanceof Array?0<=a.indexOf(this.current):this.current===a};k.oi=function(a){return!this.transition&&(c(n[a],this.current)||c(n[a],b.mb))};k.pi=function(a){return!this.oi(a)};k.Mb=function(){return r[this.current]};
+k.error=a.error||function(a,b,f,c,q,g,e){throw e||g;};if(q&&!q.defer)k[q.event]();return k}})(a.Pd||(a.Pd={}))})(k||(k={}));(function(a){(function(b){var l=function(e){function c(b){b=e.call(this,b)||this;a.utils.isDefined(a.ng)&&b.constructor!=a.ng.NgVPageView&&b.constructor!=c&&a.reportAPIMessage(a.P.fa,a.La,"ADRUM.events.VPageView",[]);if(a.conf.spa2)return b;b.perf=new a.PerformanceTracker;b.start();a.monitor.xhrMonitor.Fb();a.monitor.Ua.Fb();a.monitor.aa.Wk();return b}v(c,e);c.prototype.type=
+function(){return a.EventType.VPageView};c.prototype.sc=function(){return b.EventTracker.Zb(this.guid(),this.url(),this.type())};c.prototype.Yf=function(b){var f=this.sc();b.set("parent",f);a.log("M134",f.guid(),f.url())};c.prototype.startCorrelatingXhrs=function(){a.conf.spa2||(a.log("M135"),this.Yf(a.monitor.xhrMonitor))};c.prototype.stopCorrelatingXhrs=function(){a.conf.spa2||(a.monitor.xhrMonitor.set("parent",null),a.log("M136"))};c.prototype.Xc=function(){a.conf.spa2||(a.log("M137"),this.Yf(a.monitor.aa))};
+c.prototype.start=function(){a.conf.spa2||(this.markVirtualPageStart(),this.startCorrelatingXhrs())};c.prototype.end=function(){a.conf.spa2||(this.markVirtualPageEnd(),this.stopCorrelatingXhrs())};return c}(b.EventTracker);b.VPageView=l;b.Ea(b.M[a.EventType.VPageView],l.prototype);b.ae(b.metricSpec[a.EventType.VPageView],l.prototype)})(a.events||(a.events={}))})(k||(k={}));(function(a){var b=a.ng||(a.ng={}),b=b.conf||(b.conf={});b.disabled=a.conf.userConf&&a.conf.userConf.spa&&a.conf.userConf.spa.angular&&
+a.conf.userConf.spa.angular.disable;b.distinguishVPwithItsTemplateUrl=a.conf.userConf&&a.conf.userConf.spa&&a.conf.userConf.spa.angular&&!0===a.conf.userConf.spa.angular.distinguishVPwithItsTemplateUrl?!0:!1;b.xhr={};b.metrics={includeResTimingInEndUserResponseTiming:!0};a.conf.userConf&&a.conf.userConf.spa&&a.conf.userConf.spa.angular&&a.conf.userConf.spa.angular.vp&&(a.conf.userConf.spa.angular.vp.xhr&&a.utils.oa.Af(a.conf.userConf.spa.angular.vp.xhr),a.conf.userConf.spa.angular.vp.metrics&&a.utils.mergeJSON(b.metrics,
+a.conf.userConf.spa.angular.vp.metrics))})(k||(k={}));(function(a){(function(b){var l=a.utils.map,e=a.utils.reduce,c=a.utils.filter,g=function(f){function g(b){b=f.call(this,b)||this;b.Se=!0;b.ab={};b.Ka=0;b.en=[];b.digestCount(0);if(b.constructor!=g)return a.reportAPIMessage(a.P.fa,a.La,"ADRUM.events.Ajax",[]),b;b.stopCorrelatingXhrs();return b}v(g,f);g.prototype.type=function(){return a.EventType.VPageView};g.prototype.ld=function(){this.markViewChangeStart();this.markVirtualPageStart(this.getViewChangeStart());
+this.timestamp(this.getViewChangeStart())};g.prototype.wj=function(){this.digestCount(this.digestCount()+1)};g.prototype.xj=function(){this.Ka++;a.log("M138",this.Ka)};g.prototype.zi=function(){this.Ka--;a.log("M139",this.Ka)};g.prototype.rj=function(){var b=this.perf.getEntryByName(a.events.b.sg);a.log("M140",this.Ka,b);return 0<this.Ka};g.prototype.li=function(){var a={Lb:0},b=document.querySelectorAll("ng-view, [ng-view], .ng-view, [ui-view]"),b=l(b,angular.element),f;for(f in g.Lf){var c=g.Lf[f];
+l(b,function(b){b=b.find(f);l(b,function(b){if(b=b[c])b=decodeURIComponent(b),a[b]||(a[b]=f,a.Lb++)})})}this.ab=a};g.prototype.ji=function(a){return!!this.ab[decodeURIComponent(a.name)]};g.prototype.mi=function(){var b=[],f=this;0<this.ab.Lb&&(b=a.monitor.perfMonitor.ja().filter(function(a){return f.ji(a)}));this.resTiming(b)};g.Pi=function(b){return c(b,function(b){return(b.eventType===a.EventType.Ajax||b.eventType===a.EventType.ADRUM_XHR)&&!a.utils.oa.Kb(b.eventUrl,b.method)})};g.ej=function(a){return e(a,
+function(a,b){return Math.max(a,b.timestamp+b.metrics.PLT)},-1)};g.prototype.Zh=function(){if(b.conf.xhr){var f=g.Pi(a.channel.getEventsWithParentGUID(this.guid())),f=g.ej(f);if(0<f){var c=this.perf.getEntryByName(a.events.b.sg);this.markXhrRequestsCompleted(Math.min(c&&c.startTime||Number.MAX_VALUE,f))}}};g.prototype.adjustTimings=function(){this.Zh();var f=this.getViewDOMLoaded(),c=this.getXhrRequestsCompleted(),f=Math.max(f,c);b.conf.metrics.includeResTimingInEndUserResponseTiming&&(this.Yh(),
+c=this.getViewResourcesLoaded(),c=Math.max(f,c),a.log("M141",f,c),f=c);this.markVirtualPageEnd(f)};g.prototype.Yh=function(){if(0<this.ab.Lb){this.mi();var b=this.resTiming();b&&b.length>=this.ab.Lb&&(b=e(b,function(a,b){return Math.max(a,b.responseEnd)},0),this.markViewResourcesLoaded(a.PerformanceTracker.dc(b)))}};g.prototype.identifier=function(b){var f=this.og;a.utils.isDefined(b)&&(this.og=g.Ni(b),this.url(this.og.url));return f};g.Ni=function(b){var f={};b&&b.I?(f.I={Mc:""},a.utils.mergeJSON(f.I,
+{Mc:b.I.originalPath,bb:b.I.template,cb:b.I.templateUrl})):b&&b.state&&(f.state={url:""},a.utils.mergeJSON(f.state,{url:b.state.url,name:b.state.name,bb:b.state.template,cb:b.state.templateUrl}));return f};return g}(a.events.VPageView);g.Lf={img:"src",script:"src",link:"href"};b.NgVPageView=g;a.events.Ea(a.events.M[a.EventType.NG_VIRTUAL_PAGE],g.prototype)})(a.ng||(a.ng={}))})(k||(k={}));(function(a){(function(b){var l=function(){function e(){this.l=new b.NgVPageView}e.prototype.dl=function(){var c=
+this,g=this.l;b.conf.metrics.includeResTimingInEndUserResponseTiming?(a.log("M142"),a.utils.oSTO(function(){c.Qc(g)},e.Lh)):a.utils.oSTO(function(){c.Qc(g)},e.Mh)};e.prototype.Qc=function(b){a.log("M143");b.parent(a.monitor.DOMEventsMonitor.currentBasePage);a.command("call",function(){b.adjustTimings();a.reporter.reportEvent(b)})};e.prototype.jl=function(a){this.l=a};return e}();l.Lh=5E3;l.Mh=2*a.monitor.XHRMonitor.ud;b.VirtualPageStateMachine=l;a.Pd.create({events:[{name:"start",from:"none",to:"ChangeView"},
+{name:"viewLoaded",from:"ChangeView",to:"XhrPending"},{name:"xhrCompleted",from:"XhrPending",to:"End"},{name:"abort",from:"*",to:"none"},{name:"init",from:"*",to:"none"},{name:"locChange",from:"*",to:"*"},{name:"beforeXhrReq",from:"*",to:"*"},{name:"afterXhrReq",from:"*",to:"*"}],error:function(b){a.log("M144",b)},callbacks:{onChangeView:function(){this.l.ld();this.l.Xc()},onviewLoaded:function(){this.l.markViewDOMLoaded()},onXhrPending:function(){this.l.Se&&this.xhrCompleted()},onleaveXhrPending:function(a,
+b,g){if("abort"===a)return this.Qc(),!0;if("xhrCompleted"===a&&"End"===g){if(this.l.rj())return!1;this.l.markXhrRequestsCompleted();return!0}},onEnd:function(){this.l.li();this.dl()},oninit:function(b,c,g,f){this.jl(f);a.monitor.xhrMonitor.Fb();a.monitor.Ua.Fb()},onlocChange:function(a,b,g,f){this.l.identifier.url=f;this.l.Jb({url:f})},onbeforeXhrReq:function(b,c,g,f){var l=this.l;l.Se=!1;a.log("M145",f&&f[1]||"",l.guid());l.xj();l.startCorrelatingXhrs();f[3]&&(f[3]=a.aop.before(f[3],function(b,f,
+c){a.log("M146");l.zi();c&&(b=a.utils.Ek(c)["content-type"])&&0<=b.indexOf("text/html")&&l.markViewFragmentsLoaded()}));return f},onafterXhrReq:function(){this.l.stopCorrelatingXhrs()}}},l.prototype)})(a.ng||(a.ng={}))})(k||(k={}));(function(a){(function(b){var l=function(){function e(){this.J=new b.VirtualPageStateMachine;this.distinguishVPwithItsTemplateUrl=a.ng.conf.distinguishVPwithItsTemplateUrl}e.prototype.L=function(c,g){a.log("M147",c);switch(c){case b.h.Of:case b.h.$f:this.J.start();var f=
+g.next.url||document.URL,l=new b.NgVPageView({url:f,identifier:g.next});this.distinguishVPwithItsTemplateUrl&&e.Oj(this.J.l,l)?this.J.l.Jb({url:f,identifier:g.next}):this.yl(l);break;case b.h.Pf:case b.h.ag:this.J.l.markViewChangeEnd();break;case b.h.lg:this.J.viewLoaded();break;case b.h.de:this.J.beforeXhrReq(g);break;case b.h.Wd:this.J.afterXhrReq();break;case b.h.he:this.J.xhrCompleted();break;case b.h.af:this.J.l.Jb({url:g.next.url});this.J.locChange(g.next.url);break;case b.h.oe:this.J.l.wj()}};
+e.prototype.yl=function(a){this.J.abort();this.J.init(a);this.J.start()};e.Oj=function(b,g){var f=b.identifier(),e=g.identifier(),q=!1;return q=!a.utils.isDefined(f)&&!a.utils.isDefined(e)||f===e?!0:a.utils.isDefined(f)&&a.utils.isDefined(e)?f.state||e.state?a.utils.isDefined(f.state)&&a.utils.isDefined(e.state)?f.state.name===e.state.name&&f.state.bb===e.state.bb&&f.state.cb===e.state.cb&&f.state.url===e.state.url:!1:f.I&&e.I?f.I.Mc===e.I.Mc&&f.I.bb===e.I.bb&&f.I.cb===e.I.cb:f.url===e.url:!1};return e}();
+b.Nh=l})(a.ng||(a.ng={}))})(k||(k={}));(function(a){(function(b){var l=a.utils.addEventListener,e=function(){function c(){this.N=new b.Nh;this.Ne=!1}c.prototype.setUp=function(){function b(c){return function(){a.log(c);f.init()}}var f=this;b("M148")();l(document,"DOMContentLoaded",b("M149"));l(window,"load",b("M150"))};c.prototype.init=function(){if("loading"===document.readyState)a.log("M151");else if("undefined"!=typeof angular&&!this.Ne){this.Ne=!0;a.log("M152");var b=this,f=angular.module("ng");
+f.config(["$provide",function(a){b.Kj(a);b.Gj(a)}]);f.run(["$browser",function(a){b.Ej(a)}]);a.log("M153")}};c.prototype.Gj=function(c){var f=a.aop,e=this;c.decorator("$httpBackend",["$delegate",function(a){return a=f.around(a,function(){var a=Array.prototype.slice.call(arguments);e.N.L(b.h.de,a);return a},function(){e.N.L(b.h.Wd)},"ng.httpBackend")}])};c.prototype.Kj=function(c){var f=a.aop,e=this;c.decorator("$rootScope",["$delegate",function(a){a.$digest=f.after(a.$digest,function(){e.N.L(b.h.oe)},
+"ngevents.digest");a.$on("$locationChangeStart",function(a,f){var c={url:f},g=a&&a.Ta&&a.Ta.$state&&a.Ta.$state.current;g&&(c.state=g);e.N.L(b.h.af,{next:c})});a.$on("$locationChangeSuccess",function(){e.N.L(b.h.jk)});a.$on("$routeChangeStart",function(a,f){var c={url:location.href},g=f&&f.$$route;g&&(c.I=g);e.N.L(b.h.Of,{next:c})});a.$on("$routeChangeSuccess",function(){e.N.L(b.h.Pf)});a.$on("$stateChangeStart",function(a,f){e.N.L(b.h.$f,{next:{state:f}})});a.$on("$stateChangeSuccess",function(){e.N.L(b.h.ag)});
+a.$on("$viewContentLoaded",function(a){var f={url:location.href};if(a=a&&a.Ta&&a.Ta.$state&&a.Ta.$state.current)f.state=a;e.N.L(b.h.lg,{next:f})});a.$on("$includeContentRequested",function(){e.N.L(b.h.vj)});a.$on("$includeContentLoaded",function(){e.N.L(b.h.uj)});return a}])};c.prototype.Ej=function(c){var f=this;c.$$completeOutstandingRequest=a.aop.before(c.$$completeOutstandingRequest,function(){f.N.L(b.h.he)})};return c}();b.bm=e;b.ngMonitor=new e})(a.ng||(a.ng={}))})(k||(k={}));(function(a){var b=
+a.ng||(a.ng={});b.conf.disabled||a.conf.spa2||a.monitor.setUpMonitors(b.ngMonitor)})(k||(k={}))}};})();
+
+
+//]]>
+</script>
+
+	<!-- Anti Clickjacking script for legacy browsers -->
+	<style id="antiClickjack">
+		body {
+			display: none !important;
+		}
+	</style>
+	<script type="text/javascript">
+		if (self === top) {
+			var antiClickjack = document.getElementById("antiClickjack");
+			antiClickjack.parentNode.removeChild(antiClickjack);
+		}
+		else {
+			top.location = self.location;
+		}
+	</script>
+	<!-- END: Anti Clickjacking script for legacy browsers -->
+	<!-- GTM Data Layer -->
+	<script>
+        dataLayer = [{'lens':'global','showBothNames':'False', 'localNameOrder':'First Name, Last Name', 'PageId':'tcm:9-146892-64', 'userType':'','userAccountId':'0','isSecuredPage':'False'}];
+	</script>
+	<script src="//scripts.demandbase.com/adobeanalytics/ee17d5ca.min.js"></script>
+	<script src="//api.demandbase.com/api/v2/ip.json?key=b674064a925570582ec9415792bf7027&callback=Dmdbase_CDC.callback"></script>
+	<script id="adobe-data-layer">
+		var digitalData = {user: {login: {}, logout: {}, visitorStatus: 'Guest', isLoggedIn: false }, component: { form : {}, social: {}, filter: {} }, page: { pageInfo: { pageName:'Privacy Policy', pageId:'tcm:9-146892-64', siteSection:'About', siteSubSection1:'', siteSubSection2:'', lens:'global|English-Global', browserTitle:'Privacy Policy', seoDescription:'BCG.com Privacy Policy', openGraphImage:'', navigationTitle:'', navigationDescription:'', country:'', language:'', globalSiteSearch:'', capabilities:'', industries:'', featuredTopics:''}, is404Error: 'false', search: { searchTerm:'', resultsCount:'0'}, content: { publicationID:'', pageType:'Generic PT', pageVersion:'2', publicationRelease:'', publicationSponsor:''}, overlayInfo : {}}};
+		try {
+      digitalData.heapData = {};
+      digitalData.heapUserData = {};
+			Object.assign(digitalData.heapData, digitalData.page.content, digitalData.page.pageInfo, digitalData.page.search);
+		}
+		catch(error) {
+		  console.error(error);
+		}
+	</script>
+	<!-- Adobe Analytics Prefight -->
+		<script>
+			(function () {
+				// console.log('HEAD - digitalData: ', window.digitalData);
+				// console.log('HEAD - localStorage: ', window.localStorage);
+				if (window.localStorage['okta-token-storage']) {
+					var token = JSON.parse(window.localStorage.getItem('okta-token-storage'));
+					if (token.userOktaToken) {
+						window.digitalData.user = JSON.parse(window.localStorage.getItem('user'));
+					}
+				}
+			})();
+		</script>
+		<!-- Adobe Analytics Header -->
+		<script src="//assets.adobedtm.com/0b8fd62cfcb2aa6632ce2389ffd295b4f15677b5/satelliteLib-8cff49f41bed64e5cfeb426f117ad6be12c5baf0.js"></script>
+	<!-- Adobe Analytics END -->
+	<!-- Heap Analytics -->
+		<script type="text/javascript">
+		  window.heap = window.heap || [], heap.load = function (e, t) { window.heap.appid = e, window.heap.config = t = t || {}; var r = t.forceSSL || "https:" === document.location.protocol, a = document.createElement("script"); a.type = "text/javascript", a.async = !0, a.src = (r ? "https:" : "http:") + "//cdn.heapanalytics.com/js/heap-" + e + ".js"; var n = document.getElementsByTagName("script")[0]; n.parentNode.insertBefore(a, n); for (var o = function (e) { return function () { heap.push([e].concat(Array.prototype.slice.call(arguments, 0))) } }, p = ["addEventProperties", "addUserProperties", "clearEventProperties", "identify", "resetIdentity", "removeEventProperty", "setEventProperties", "track", "unsetEventProperty"], c = 0; c < p.length; c++)heap[p[c]] = o(p[c]) };
+		  heap.load("4045573184");
+      heap.clearEventProperties();
+      heap.addEventProperties(digitalData.heapData);
+
+      // JTG - The heapUserData setup happens down here because it must come after we check localStorage for any previously set user data (happens after login event in adobe-analytics.js so we can keep track of users on cached pages)
+      if (window.digitalData.user) {
+        // DTTM-1610 - temporarily setting crmID to blank string (see comment in ticket). may need to add back later
+        Object.assign(window.digitalData.heapUserData, {crmID: "" /*window.digitalData.user.crmID*/}, {customerID: window.digitalData.user.customerID}, {userType: window.digitalData.user.userType}, {visitorStatus: window.digitalData.user.visitorStatus});
+        heap.addUserProperties(window.digitalData.heapUserData);
+      }
+		</script>
+	<!-- Heap Analytics END -->
+	<!-- SixSense -->
+		<script>
+			window._6si = window._6si || [];
+			window._6si.push(['enableEventTracking', true]);
+			window._6si.push(['setToken', 'e966170a88f0c6efe79dbf94704a1571']);
+			window._6si.push(['setEndpoint', 'b.6sc.co']);
+
+			(function () { var gd = document.createElement('script'); gd.type = 'text/javascript'; gd.async = true; gd.src = '//j.6sc.co/6si.min.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gd, s); }
+			)();
+		</script>
+	<!-- SixSense END -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="format-detection" content="telephone=no" />
+	<meta property="fb:pages" content="1548335372129796" />
+	<link rel="dns-prefetch" href="//adcgsapro01.bcg.com" />
+	<link rel="dns-prefetch" href="//bcgperspectives.com" />
+	<link rel="dns-prefetch" href="//app-perspectives-api.bcg.com" />
+	<link rel="dns-prefetch" href="//boston-consulting-group-res.cloudinary.com" />
+	<link rel="dns-prefetch" href="//media-publications.bcg.com" />
+	<link rel="dns-prefetch" href="//image.bcg.com" />
+	<link rel="dns-prefetch" href="//img-src.bcg.com" />
+	<link rel="dns-prefetch" href="//www.google-analytics.com" />
+	<link rel="dns-prefetch" href="//fonts.bcg.com" />
+	<link rel="dns-prefetch" href="//connect.facebook.net" />
+
+	<meta name="msapplication-TileColor" content="#0fadc4"> <!-- IE 11 Tiles -->
+	<meta name="msapplication-TileImage" content="/static/img/152x152.png"> <!-- 144x144 ??? -->
+	<!-- IE XML Example -> https://msdn.microsoft.com/en-us/library/ie/bg183312(v=vs.85).aspx
+		<meta name="msapplication-config" content="IEconfig.xml" />
+	-->
+	<!-- Akamai Cache -->
+		<meta name="Edge-Cache-Tag" content="tcm:9-387-4 070 About" />
+	<!-- End Akamai Cache -->
+	<link rel="shortcut icon" href="/static/img/favicon.ico" type="image/x-icon" /> <!-- 32x32 -->
+	<link rel="apple-touch-icon" href="/static/img/60x60.png"> <!-- 60x60 -->
+	<link rel="apple-touch-icon" sizes="76x76" href="/static/img/76x76.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="/static/img/120x120.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="/static/img/152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="/static/img/152x152.png"> <!-- 180x180 ??? -->
+	<script type="text/javascript" src="/static/js/modernizr.js"></script>
+
+
+	<link rel="stylesheet" type="text/css" href="/static/css/global.min.css?v=20190201211216"/>
+	<link rel="stylesheet" type="text/css" href="https://fonts.bcg.com/cuf6lco.css"/>	<!-- PictureFill Shiv and JS + Video.js Shiv -->
+	<script type="text/javascript" src="/static/js/header.min.js" async></script>
+	
+    
+        <meta name="description" content="BCG.com Privacy Policy" />
+        <meta property="og:description" content="BCG.com Privacy Policy">
+    <meta name="lens" content="global" />
+<meta name="page_id" content="tcm:9-146892-64" />
+
+    <title>Privacy Policy</title>
+    <meta property="og:title" content="Privacy Policy">
+
+
+    
+            <link rel="canonical" href="https://www.bcg.com/about/privacy-policy.aspx"/>
+            <link rel="alternate" hreflang="en-br" href="https://www.bcg.com/en-br/about/privacy-policy.aspx" />
+            <link rel="alternate" hreflang="pt-br" href="https://www.bcg.com/pt-br/about/privacy-policy.aspx" />
+            <link rel="alternate" hreflang="en-ch" href="https://www.bcg.com/en-ch/about/privacy-policy.aspx" />
+            <link rel="alternate" hreflang="en-in" href="https://www.bcg.com/en-in/about/privacy-policy.aspx" />
+            <link rel="alternate" hreflang="en-dk" href="https://www.bcg.com/en-nor/about/privacy-policy.aspx" />
+            <link rel="alternate" hreflang="en-fi" href="https://www.bcg.com/en-nor/about/privacy-policy.aspx" />
+            <link rel="alternate" hreflang="en-is" href="https://www.bcg.com/en-nor/about/privacy-policy.aspx" />
+            <link rel="alternate" hreflang="en-no" href="https://www.bcg.com/en-nor/about/privacy-policy.aspx" />
+            <link rel="alternate" hreflang="en-se" href="https://www.bcg.com/en-nor/about/privacy-policy.aspx" />
+            <link rel="alternate" hreflang="en-za" href="https://www.bcg.com/en-za/about/privacy-policy.aspx" />
+            <link rel="alternate" hreflang="en-ru" href="https://www.bcg.com/en-ru/about/privacy-policy.aspx" />
+            <link rel="alternate" hreflang="ru-ru" href="https://www.bcg.com/ru-ru/about/privacy-policy.aspx" />
+            <link rel="alternate" hreflang="en-us" href="https://www.bcg.com/en-us/about/privacy-policy.aspx" />
+            <link rel="alternate" hreflang="en-mx" href="https://www.bcg.com/en-mx/about/privacy-policy.aspx" />
+            <link rel="alternate" hreflang="en-nl" href="https://www.bcg.com/en-nl/about/privacy-policy.aspx" />
+            <link rel="alternate" hreflang="en-il" href="https://www.bcg.com/en-mideast/about/privacy-policy.aspx" />
+            <link rel="alternate" hreflang="en-sa" href="https://www.bcg.com/en-mideast/about/privacy-policy.aspx" />
+            <link rel="alternate" hreflang="en-tr" href="https://www.bcg.com/en-mideast/about/privacy-policy.aspx" />
+            <link rel="alternate" hreflang="en-ae" href="https://www.bcg.com/en-mideast/about/privacy-policy.aspx" />
+            <link rel="alternate" hreflang="en-gb" href="https://www.bcg.com/en-gb/about/privacy-policy.aspx" />
+            <link rel="alternate" hreflang="en-gr" href="https://www.bcg.com/en-gr/about/privacy-policy.aspx" />
+            <link rel="alternate" hreflang="en-ao" href="https://www.bcg.com/en-ao/about/privacy-policy.aspx" />
+            <link rel="alternate" hreflang="en-cn" href="https://www.bcg.com/en-cn/about/privacy-policy.aspx" />
+            <link rel="alternate" hreflang="zh-cn" href="https://www.bcg.com/zh-cn/about/privacy-policy.aspx" />
+            <link rel="alternate" hreflang="ja-jp" href="https://www.bcg.com/ja-jp/about/privacy-policy.aspx" />
+            <link rel="alternate" hreflang="de-at" href="https://www.bcg.com/de-at/about/privacy-policy.aspx" />
+            <link rel="alternate" hreflang="en-ar" href="https://www.bcg.com/en-ar/about/privacy-policy.aspx" />
+            <link rel="alternate" hreflang="en-cl" href="https://www.bcg.com/en-cl/about/privacy-policy.aspx" />
+            <link rel="alternate" hreflang="en-pt" href="https://www.bcg.com/en-pt/about/privacy-policy.aspx" />
+            <link rel="alternate" hreflang="en-ca" href="https://www.bcg.com/en-ca/about/privacy-policy.aspx" />
+            <link rel="alternate" hreflang="pl-pl" href="https://www.bcg.com/pl-pl/about/privacy-policy.aspx" />
+            <link rel="alternate" hreflang="fr-ca" href="https://www.bcg.com/fr-ca/about/privacy-policy.aspx" />
+            <link rel="alternate" hreflang="it-it" href="https://www.bcg.com/it-it/about/privacy-policy.aspx" />
+            <link rel="alternate" hreflang="en-pe" href="https://www.bcg.com/en-pe/about/privacy-policy.aspx" />
+            <link rel="alternate" hreflang="en-co" href="https://www.bcg.com/en-co/about/privacy-policy.aspx" />
+            <link rel="alternate" hreflang="en-au" href="https://www.bcg.com/en-au/about/privacy-policy.aspx" />
+            <link rel="alternate" hreflang="en-be" href="https://www.bcg.com/en-be/about/privacy-policy.aspx" />
+            <link rel="alternate" hreflang="en-cz" href="https://www.bcg.com/en-cz/about/privacy-policy.aspx" />
+            <link rel="alternate" hreflang="en-my" href="https://www.bcg.com/en-sea/about/privacy-policy.aspx" />
+            <link rel="alternate" hreflang="en-id" href="https://www.bcg.com/en-sea/about/privacy-policy.aspx" />
+            <link rel="alternate" hreflang="en-tw" href="https://www.bcg.com/en-sea/about/privacy-policy.aspx" />
+            <link rel="alternate" hreflang="en-sg" href="https://www.bcg.com/en-sea/about/privacy-policy.aspx" />
+            <link rel="alternate" hreflang="en-hu" href="https://www.bcg.com/en-hu/about/privacy-policy.aspx" />
+            <link rel="alternate" hreflang="fr-fr" href="https://www.bcg.com/fr-fr/about/privacy-policy.aspx" />
+            <link rel="alternate" hreflang="en-kr" href="https://www.bcg.com/en-kr/about/privacy-policy.aspx" />
+            <link rel="alternate" hreflang="en-il" href="https://www.bcg.com/en-il/about/privacy-policy.aspx" />
+            <link rel="alternate" hreflang="en-tr" href="https://www.bcg.com/en-tr/about/privacy-policy.aspx" />
+            <link rel="alternate" hreflang="en-es" href="https://www.bcg.com/en-es/about/privacy-policy.aspx" />
+            <link rel="alternate" hreflang="de-de" href="https://www.bcg.com/de-de/about/privacy-policy.aspx" />
+            <link rel="alternate" hreflang="en-ma" href="https://www.bcg.com/en-ma/about/privacy-policy.aspx" />
+
+
+
+
+	<meta property="og:url" content="https://www.bcg.com/about/privacy-policy.aspx">
+	<meta property="og:site_name" content="https://www.bcg.com">
+	<meta property="fb:app_id" content="1653577191538666">
+</head>
+<body>
+	<!-- stores the same classes as body. Reada by dynamic-content.js for interstitial pages where each interstitial page may have a different publication class (bhi, collections, standard-article, standalone-article etc.) -->
+	<input type="hidden" id="body-classes">
+	<!-- Google Tag Manager -->
+	<script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+            var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })
+        (window, document, 'script', 'dataLayer', 'GTM-WPTQ');
+	</script>
+	<!-- Google Tag Manager END -->
+	<!-- Google Tag Manager (noscript) -->
+	<noscript>
+		<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WPTQ" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+	</noscript>
+	<!-- Google Tag Manager (noscript) END -->
+	<!--googleoff: all-->
+	
+    
+  
+
+<section class="mega-menu" data-bcg-module="mega-menu">
+  <div class="mega-menu__positionWrapper">
+    <section class="mega-menu__header">
+      <a class="mega-menu__closeBtn icon-filters-close jsMenuClose" href="" rel="modal:close"></a>
+      <div class="mega-menu__logo">
+  <span class="icon-nav-menu-bcg-logo"></span>
+</div>
+
+      
+
+
+<div class="mega-menu__search">
+	<form class="mega-menu__search-form" action="/search.aspx" method="get">
+		<fieldset>
+			<button class="mega-menu__search-submit icon-nav-menu-search" type="submit"></button>
+			<input class="mega-menu__search-input"
+				placeholder="Search the Site"
+				autocomplete="off"
+				type="text"
+				data-list="General"
+				name="q"
+				id="mega-menu-search"
+				data-bcg-module="typeahead"/>
+		</fieldset>
+	</form>
+	<span class="mega-menu__mobile-search-icon icon-nav-menu-search"></span>
+</div>
+
+      
+
+
+<div class="mega-menu__login">
+    <div class="user-info">
+        <!--div.bookmark(data-bcg-module='bookmark-position')
+        div.bookmark-container
+          span.icon-perspectives-bookmark.icon
+        -->
+        <div class="login-container" data-bcg-module="login-widget" data-placement="navigation">
+            <span class="icon-profile-user-profile-icon icon"></span>
+            <p class="login-text">Log in</p>
+            <div class="login-dropdown">
+                <a class="dropdown-option" href="/userprofile">
+                    <span class="name">John Smith</span>
+                    <span class="view">View Profile</span>
+                </a>
+                <a class="dropdown-option" href="/userprofile?mode=edit">Edit Profile</a>
+                <a class="dropdown-option" href="/subscription">Manage Subscriptions</a>
+                <a class="dropdown-option" href="/userprofile/savedarticles">My Saved Content</a>
+                <a class="dropdown-option logout" href="javascript:void(0)">Logout</a>
+            </div>
+        </div>
+    </div>
+</div>
+      
+
+<div class="mega-menu__lens">
+  <div class="flags">
+    <div class="flag-icon">
+      <img class="flag" src="https://boston-consulting-group-res.cloudinary.com/image/fetch/q_auto,f_auto/http://image-src.bcg.com/Images/world-map-grey_tcm-36961.png"/>
+    </div>
+  </div>
+</div>
+    </section>
+    
+
+<section class="mega-menu__body">
+  <nav class="mega-menu__primary-navigation">
+    <ul class="primary-navigation__navLinks">
+        <li class="primary-navigation__navLinks__navItem">
+					<a class="primary-navigation__navLink" data-path="Industries" href="javascript:void(0)" id="Industries">Industries </a>
+            <ul class="primary-navigation__navSubLinks">
+              <li class="primary-navigation__navSubLinks__navTitle h2">
+                <span class="primary-navigation__navTitle">Industries</span>
+              </li>
+                <li class="primary-navigation__navSubLinks__navItem">
+									<a class="primary-navigation__navLink" data-digitaldata-linkname="Automotive &amp; Mobility" data-digitaldata-location="Hamburger Menu" data-path="Automotive &amp; Mobility" href="/industries/automotive/default.aspx" id="Automotive &amp; Mobility">Automotive &amp; Mobility</a>
+                                  </li>
+                <li class="primary-navigation__navSubLinks__navItem">
+									<a class="primary-navigation__navLink" data-digitaldata-linkname="Biopharmaceuticals" data-digitaldata-location="Hamburger Menu" data-path="Biopharmaceuticals" href="/industries/biopharmaceuticals/default.aspx" id="Biopharmaceuticals">Biopharmaceuticals</a>
+                                  </li>
+                <li class="primary-navigation__navSubLinks__navItem">
+									<a class="primary-navigation__navLink" data-digitaldata-linkname="Consumer Products" data-digitaldata-location="Hamburger Menu" data-path="Consumer Products" href="/industries/consumer-products/default.aspx" id="Consumer Products">Consumer Products</a>
+                                  </li>
+                <li class="primary-navigation__navSubLinks__navItem">
+									<a class="primary-navigation__navLink" data-digitaldata-linkname="Education" data-digitaldata-location="Hamburger Menu" data-path="Education" href="/industries/education/default.aspx" id="Education">Education</a>
+                                  </li>
+                <li class="primary-navigation__navSubLinks__navItem">
+									<a class="primary-navigation__navLink" data-digitaldata-linkname="Energy &amp; Environment" data-digitaldata-location="Hamburger Menu" data-path="Energy &amp; Environment" href="/industries/energy-environment/default.aspx" id="Energy &amp; Environment">Energy &amp; Environment</a>
+                                  </li>
+                <li class="primary-navigation__navSubLinks__navItem">
+									<a class="primary-navigation__navLink" data-digitaldata-linkname="Engineered Products &amp; Infrastructure" data-digitaldata-location="Hamburger Menu" data-path="Engineered Products &amp; Infrastructure" href="/industries/engineered-products-infrastructure/default.aspx" id="Engineered Products &amp; Infrastructure">Engineered Products &amp; Infrastructure</a>
+                                  </li>
+                <li class="primary-navigation__navSubLinks__navItem">
+									<a class="primary-navigation__navLink" data-digitaldata-linkname=" Financial Institutions" data-digitaldata-location="Hamburger Menu" data-path=" Financial Institutions" href="/industries/financial-institutions/default.aspx" id=" Financial Institutions"> Financial Institutions</a>
+                                  </li>
+                <li class="primary-navigation__navSubLinks__navItem">
+									<a class="primary-navigation__navLink" data-digitaldata-linkname="Health Care Payers, Providers &amp; Services" data-digitaldata-location="Hamburger Menu" data-path="Health Care Payers, Providers &amp; Services" href="/industries/health-care-payers-providers/default.aspx" id="Health Care Payers, Providers &amp; Services">Health Care Payers, Providers &amp; Services</a>
+                                  </li>
+                <li class="primary-navigation__navSubLinks__navItem">
+									<a class="primary-navigation__navLink" data-digitaldata-linkname="Insurance" data-digitaldata-location="Hamburger Menu" data-path="Insurance" href="/industries/insurance/default.aspx" id="Insurance">Insurance</a>
+                                  </li>
+                <li class="primary-navigation__navSubLinks__navItem">
+									<a class="primary-navigation__navLink" data-digitaldata-linkname="Media &amp; Entertainment" data-digitaldata-location="Hamburger Menu" data-path="Media &amp; Entertainment" href="/industries/media-entertainment/default.aspx" id="Media &amp; Entertainment">Media &amp; Entertainment</a>
+                                  </li>
+                <li class="primary-navigation__navSubLinks__navItem">
+									<a class="primary-navigation__navLink" data-digitaldata-linkname="Medical Devices &amp; Technology" data-digitaldata-location="Hamburger Menu" data-path="Medical Devices &amp; Technology" href="/industries/medical-devices-technology/default.aspx" id="Medical Devices &amp; Technology">Medical Devices &amp; Technology</a>
+                                  </li>
+                <li class="primary-navigation__navSubLinks__navItem">
+									<a class="primary-navigation__navLink" data-digitaldata-linkname="Metals &amp; Mining" data-digitaldata-location="Hamburger Menu" data-path="Metals &amp; Mining" href="/industries/metals-mining/default.aspx" id="Metals &amp; Mining">Metals &amp; Mining</a>
+                                  </li>
+                <li class="primary-navigation__navSubLinks__navItem">
+									<a class="primary-navigation__navLink" data-digitaldata-linkname="Principal Investors &amp; Private Equity" data-digitaldata-location="Hamburger Menu" data-path="Principal Investors &amp; Private Equity" href="/industries/principal-investors-private-equity/default.aspx" id="Principal Investors &amp; Private Equity">Principal Investors &amp; Private Equity</a>
+                                  </li>
+                <li class="primary-navigation__navSubLinks__navItem">
+									<a class="primary-navigation__navLink" data-digitaldata-linkname="Process Industries &amp; Building Materials" data-digitaldata-location="Hamburger Menu" data-path="Process Industries &amp; Building Materials" href="/industries/process-industries-building-materials/default.aspx" id="Process Industries &amp; Building Materials">Process Industries &amp; Building Materials</a>
+                                  </li>
+                <li class="primary-navigation__navSubLinks__navItem">
+									<a class="primary-navigation__navLink" data-digitaldata-linkname="Public Sector" data-digitaldata-location="Hamburger Menu" data-path="Public Sector" href="/industries/public-sector/default.aspx" id="Public Sector">Public Sector</a>
+                                  </li>
+                <li class="primary-navigation__navSubLinks__navItem">
+									<a class="primary-navigation__navLink" data-digitaldata-linkname="Retail" data-digitaldata-location="Hamburger Menu" data-path="Retail" href="/industries/retail/default.aspx" id="Retail">Retail</a>
+                                  </li>
+                <li class="primary-navigation__navSubLinks__navItem">
+									<a class="primary-navigation__navLink" data-digitaldata-linkname="Technology Industries" data-digitaldata-location="Hamburger Menu" data-path="Technology Industries" href="/industries/technology-industries/default.aspx" id="Technology Industries">Technology Industries</a>
+                                  </li>
+                <li class="primary-navigation__navSubLinks__navItem">
+									<a class="primary-navigation__navLink" data-digitaldata-linkname="Telecommunications" data-digitaldata-location="Hamburger Menu" data-path="Telecommunications" href="/industries/telecommunications/default.aspx" id="Telecommunications">Telecommunications</a>
+                                  </li>
+                <li class="primary-navigation__navSubLinks__navItem">
+									<a class="primary-navigation__navLink" data-digitaldata-linkname="Transportation, Travel &amp; Tourism" data-digitaldata-location="Hamburger Menu" data-path="Transportation, Travel &amp; Tourism" href="/industries/transportation-travel-tourism/default.aspx" id="Transportation, Travel &amp; Tourism">Transportation, Travel &amp; Tourism</a>
+                                  </li>
+            </ul>
+        </li>
+        <li class="primary-navigation__navLinks__navItem">
+					<a class="primary-navigation__navLink" data-path="Capabilities" href="javascript:void(0)" id="Capabilities">Capabilities </a>
+            <ul class="primary-navigation__navSubLinks">
+              <li class="primary-navigation__navSubLinks__navTitle h2">
+                <span class="primary-navigation__navTitle">Capabilities</span>
+              </li>
+                <li class="primary-navigation__navSubLinks__navItem">
+									<a class="primary-navigation__navLink" data-digitaldata-linkname="Big Data &amp; Advanced Analytics" data-digitaldata-location="Hamburger Menu" data-path="Big Data &amp; Advanced Analytics" href="/capabilities/big-data-advanced-analytics/default.aspx" id="Big Data &amp; Advanced Analytics">Big Data &amp; Advanced Analytics</a>
+                                  </li>
+                <li class="primary-navigation__navSubLinks__navItem">
+									<a class="primary-navigation__navLink" data-digitaldata-linkname="Change Management" data-digitaldata-location="Hamburger Menu" data-path="Change Management" href="/capabilities/change-management/default.aspx" id="Change Management">Change Management</a>
+                                  </li>
+                <li class="primary-navigation__navSubLinks__navItem">
+									<a class="primary-navigation__navLink" data-digitaldata-linkname="Corporate Development &amp; Finance" data-digitaldata-location="Hamburger Menu" data-path="Corporate Development &amp; Finance" href="/capabilities/corporate-development-finance/default.aspx" id="Corporate Development &amp; Finance">Corporate Development &amp; Finance</a>
+                                  </li>
+                <li class="primary-navigation__navSubLinks__navItem">
+									<a class="primary-navigation__navLink" data-digitaldata-linkname="Diversity &amp; Inclusion" data-digitaldata-location="Hamburger Menu" data-path="Diversity &amp; Inclusion" href="/capabilities/diversity-inclusion/overview.aspx" id="Diversity &amp; Inclusion">Diversity &amp; Inclusion</a>
+                                  </li>
+                <li class="primary-navigation__navSubLinks__navItem">
+									<a class="primary-navigation__navLink" data-digitaldata-linkname="Enablement" data-digitaldata-location="Hamburger Menu" data-path="Enablement" href="/capabilities/client-enablement/default.aspx" id="Enablement">Enablement</a>
+                                  </li>
+                <li class="primary-navigation__navSubLinks__navItem">
+									<a class="primary-navigation__navLink" data-digitaldata-linkname="Globalization" data-digitaldata-location="Hamburger Menu" data-path="Globalization" href="/capabilities/globalization/default.aspx" id="Globalization">Globalization</a>
+                                  </li>
+                <li class="primary-navigation__navSubLinks__navItem">
+									<a class="primary-navigation__navLink" data-digitaldata-linkname="Growth" data-digitaldata-location="Hamburger Menu" data-path="Growth" href="/capabilities/growth/default.aspx" id="Growth">Growth</a>
+                                  </li>
+                <li class="primary-navigation__navSubLinks__navItem">
+									<a class="primary-navigation__navLink" data-digitaldata-linkname="Innovation &amp; Product Development" data-digitaldata-location="Hamburger Menu" data-path="Innovation &amp; Product Development" href="/capabilities/innovation-product-development/default.aspx" id="Innovation &amp; Product Development">Innovation &amp; Product Development</a>
+                                  </li>
+                <li class="primary-navigation__navSubLinks__navItem">
+									<a class="primary-navigation__navLink" data-digitaldata-linkname="Lean &amp; Manufacturing" data-digitaldata-location="Hamburger Menu" data-path="Lean &amp; Manufacturing" href="/capabilities/lean-manufacturing/default.aspx" id="Lean &amp; Manufacturing">Lean &amp; Manufacturing</a>
+                                  </li>
+                <li class="primary-navigation__navSubLinks__navItem">
+									<a class="primary-navigation__navLink" data-digitaldata-linkname="Marketing &amp; Sales" data-digitaldata-location="Hamburger Menu" data-path="Marketing &amp; Sales" href="/capabilities/marketing-sales/default.aspx" id="Marketing &amp; Sales">Marketing &amp; Sales</a>
+                                  </li>
+                <li class="primary-navigation__navSubLinks__navItem">
+									<a class="primary-navigation__navLink" data-digitaldata-linkname="M&amp;A and Divestitures" data-digitaldata-location="Hamburger Menu" data-path="M&amp;A and Divestitures" href="/capabilities/mergers-acquisitions-divestitures/default.aspx" id="M&amp;A and Divestitures">M&amp;A and Divestitures</a>
+                                  </li>
+                <li class="primary-navigation__navSubLinks__navItem">
+									<a class="primary-navigation__navLink" data-digitaldata-linkname="Operations" data-digitaldata-location="Hamburger Menu" data-path="Operations" href="/capabilities/operations/default.aspx" id="Operations">Operations</a>
+                                  </li>
+                <li class="primary-navigation__navSubLinks__navItem">
+									<a class="primary-navigation__navLink" data-digitaldata-linkname="People &amp; Organization" data-digitaldata-location="Hamburger Menu" data-path="People &amp; Organization" href="/capabilities/people-organization/default.aspx" id="People &amp; Organization">People &amp; Organization</a>
+                                  </li>
+                <li class="primary-navigation__navSubLinks__navItem">
+									<a class="primary-navigation__navLink" data-digitaldata-linkname="Post-Merger Integration" data-digitaldata-location="Hamburger Menu" data-path="Post-Merger Integration" href="/capabilities/postmerger-integration/default.aspx" id="Post-Merger Integration">Post-Merger Integration</a>
+                                  </li>
+                <li class="primary-navigation__navSubLinks__navItem">
+									<a class="primary-navigation__navLink" data-digitaldata-linkname="Pricing" data-digitaldata-location="Hamburger Menu" data-path="Pricing" href="/capabilities/pricing/default.aspx" id="Pricing">Pricing</a>
+                                  </li>
+                <li class="primary-navigation__navSubLinks__navItem">
+									<a class="primary-navigation__navLink" data-digitaldata-linkname="Procurement" data-digitaldata-location="Hamburger Menu" data-path="Procurement" href="/capabilities/procurement/default.aspx" id="Procurement">Procurement</a>
+                                  </li>
+                <li class="primary-navigation__navSubLinks__navItem">
+									<a class="primary-navigation__navLink" data-digitaldata-linkname="Smart Simplicity" data-digitaldata-location="Hamburger Menu" data-path="Smart Simplicity" href="/capabilities/smart-simplicity/default.aspx" id="Smart Simplicity">Smart Simplicity</a>
+                                  </li>
+                <li class="primary-navigation__navSubLinks__navItem">
+									<a class="primary-navigation__navLink" data-digitaldata-linkname="Social Impact" data-digitaldata-location="Hamburger Menu" data-path="Social Impact" href="/capabilities/social-impact/overview.aspx" id="Social Impact">Social Impact</a>
+                                  </li>
+                <li class="primary-navigation__navSubLinks__navItem">
+									<a class="primary-navigation__navLink" data-digitaldata-linkname="Strategy" data-digitaldata-location="Hamburger Menu" data-path="Strategy" href="/capabilities/strategy/default.aspx" id="Strategy">Strategy</a>
+                                  </li>
+                <li class="primary-navigation__navSubLinks__navItem">
+									<a class="primary-navigation__navLink" data-digitaldata-linkname="Sustainability" data-digitaldata-location="Hamburger Menu" data-path="Sustainability" href="/capabilities/sustainability/default.aspx" id="Sustainability">Sustainability</a>
+                                  </li>
+                <li class="primary-navigation__navSubLinks__navItem">
+									<a class="primary-navigation__navLink" data-digitaldata-linkname="Technology &amp; Digital" data-digitaldata-location="Hamburger Menu" data-path="Technology &amp; Digital" href="/capabilities/technology-digital/default.aspx" id="Technology &amp; Digital">Technology &amp; Digital</a>
+                                  </li>
+                <li class="primary-navigation__navSubLinks__navItem">
+									<a class="primary-navigation__navLink" data-digitaldata-linkname="Transformation, Turnaround &amp; Restructuring" data-digitaldata-location="Hamburger Menu" data-path="Transformation, Turnaround &amp; Restructuring" href="/capabilities/transformation/overview.aspx" id="Transformation, Turnaround &amp; Restructuring">Transformation, Turnaround &amp; Restructuring</a>
+                                  </li>
+            </ul>
+        </li>
+        <li class="primary-navigation__navLinks__navItem">
+					<a class="primary-navigation__navLink" data-path="DigitalBCG" href="/digital-bcg/overview.aspx" id="DigitalBCG">DigitalBCG </a>
+        </li>
+        <li class="primary-navigation__navLinks__navItem">
+					<a class="primary-navigation__navLink" data-path="Ideas &amp; Inspiration" href="/bcg-henderson-institute/thought-leadership-ideas.aspx" id="Ideas &amp; Inspiration">Ideas &amp; Inspiration </a>
+        </li>
+        <li class="primary-navigation__navLinks__navItem">
+					<a class="primary-navigation__navLink" data-path="Careers" href="/careers/default.aspx" id="Careers">Careers </a>
+        </li>
+        <li class="primary-navigation__navLinks__navItem">
+					<a class="primary-navigation__navLink" data-path="About" href="javascript:void(0)" id="About">About </a>
+            <ul class="primary-navigation__navSubLinks">
+              <li class="primary-navigation__navSubLinks__navTitle h2">
+                <span class="primary-navigation__navTitle">About</span>
+              </li>
+                <li class="primary-navigation__navSubLinks__navItem">
+									<a class="primary-navigation__navLink" data-digitaldata-linkname="Mission" data-digitaldata-location="Hamburger Menu" data-path="Mission" href="/about/mission/default.aspx" id="Mission">Mission</a>
+                                  </li>
+                <li class="primary-navigation__navSubLinks__navItem">
+									<a class="primary-navigation__navLink" data-digitaldata-linkname="Heritage" data-digitaldata-location="Hamburger Menu" data-path="Heritage" href="/about/heritage/default.aspx" id="Heritage">Heritage</a>
+                                  </li>
+                <li class="primary-navigation__navSubLinks__navItem">
+									<a class="primary-navigation__navLink" data-digitaldata-linkname="BCG Today" data-digitaldata-location="Hamburger Menu" data-path="BCG Today" href="/about/bcg-today/default.aspx" id="BCG Today">BCG Today</a>
+                                  </li>
+                <li class="primary-navigation__navSubLinks__navItem">
+									<span class="primary-navigation__navLink">People</span>
+                                      <ul class="linkList">
+                        <li class="linkList__item">
+                          <a class="primary-navigation__navLink" data-digitaldata-linkname="Leadership" data-digitaldata-location="Hamburger Menu" data-path="Leadership" href="/about/people/leadership.aspx" id="Leadership">Leadership</a>
+                        </li>
+                        <li class="linkList__item">
+                          <a class="primary-navigation__navLink" data-digitaldata-linkname="Experts" data-digitaldata-location="Hamburger Menu" data-path="Experts" href="/about/people/experts/people-search.aspx" id="Experts">Experts</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="primary-navigation__navSubLinks__navItem">
+									<span class="primary-navigation__navLink">News</span>
+                                      <ul class="linkList">
+                        <li class="linkList__item">
+                          <a class="primary-navigation__navLink" data-digitaldata-linkname="Press Releases" data-digitaldata-location="Hamburger Menu" data-path="Press Releases" href="/about/news/press/default.aspx" id="Press Releases">Press Releases</a>
+                        </li>
+                        <li class="linkList__item">
+                          <a class="primary-navigation__navLink" data-digitaldata-linkname="In the News" data-digitaldata-location="Hamburger Menu" data-path="In the News" href="/about/news/trending/default.aspx" id="In the News">In the News</a>
+                        </li>
+                        <li class="linkList__item">
+                          <a class="primary-navigation__navLink" data-digitaldata-linkname="Media Contacts" data-digitaldata-location="Hamburger Menu" data-path="Media Contacts" href="/about/news/media-contact.aspx" id="Media Contacts">Media Contacts</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li class="primary-navigation__navLinks__navItem">
+					<a class="primary-navigation__navLink" data-path="Alumni" href="/alumni/default.aspx" id="Alumni">Alumni </a>
+        </li>
+        <li class="primary-navigation__navLinks__navItem">
+					<a class="primary-navigation__navLink" data-path="Offices" href="/offices/default.aspx" id="Offices">Offices </a>
+        </li>
+    </ul>
+  </nav>
+
+  
+    <div class="trending-topics trending-topics--visible">
+
+        <ul class="trending-topics__list">
+        </ul>
+</div>                         
+
+</section>
+
+    
+
+
+<section class="mega-menu__footer">
+  <section class="mega-menu__footer__social">
+		<ul class="mega-menu__footer__contactList">
+				<li class="mega-menu__footer__contactList__contactListItem"><a class="mega-menu__footer__contactList__itemLink" data-bcg-module="show-form" data-share-url="/ContactUs" href="javascript:void(0);">Contact Us</a></li>
+								<li class="mega-menu__footer__contactList__contactListItem"><a class="mega-menu__footer__contactList__itemLink" data-bcg-module="footer-user-subscriptions" data-digitaldata-location="Sitewide Footer" data-digitaldata-linkname="Footer Subscriptions">Subscribe</a></li>
+
+					</ul>
+    <ul class="mega-menu__footer__socialList"></ul>
+  </section>
+  <section class="mega-menu__footerLinks">
+		<ul class="mega-menu__footerLinksList">
+				<li class="mega-menu__footerLinksList__footerLinksListItem">&copy;2019 Boston Consulting Group</li>
+										<li class="mega-menu__footerLinksList__footerLinksListItem">
+								<a class="mega-menu__footerLinksList__itemLink" data-digitaldata-linkname="Privacy" data-digitaldata-location="Sitewide Footer" href="/about/privacy-policy.aspx">Privacy</a>
+							</li>
+							<li class="mega-menu__footerLinksList__footerLinksListItem">
+								<a class="mega-menu__footerLinksList__itemLink" data-digitaldata-linkname="Terms of Use" data-digitaldata-location="Sitewide Footer" href="/about/terms-of-use.aspx">Terms of Use</a>
+							</li>
+		</ul>
+  </section>
+</section>
+
+
+  </div>
+</section>
+
+
+
+	<script>
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: '1653577191538666',
+                xfbml: true,
+                version: 'v2.3'
+            });
+        };
+
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) { return; }
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+	</script>
+	<!--googleoff: all-->
+
+	<div data-bcg-module="lens" class="lens"><a title="Close"><span class="icon-deep-mode-close"></span></a><div class="lens-container"><div class="instruction-container"><div class="instructions"><p>Choose your location to get a site experience tailored for you.</p></div></div><div class="selector-container"><div data-message='{}' class="selector-content"><select class="selector" id="selector"><option data-default-language="" data-description="en" data-imagesrc="https://boston-consulting-group-res.cloudinary.com/image/fetch/q_auto,f_auto/http://image-src.bcg.com/Images/world-map-grey_tcm-36961.png" data-virtual="en-" value="">Global | EN</option><option data-default-language="" data-description="en" data-imagesrc="https://boston-consulting-group-res.cloudinary.com/image/fetch/q_auto,f_auto/http://image-src.bcg.com/Images/Angola_tcm-36875.png" data-virtual="en-ao" data-virtual-country="ao" value="ao">Angola | EN</option><option data-default-language="" data-description="en" data-imagesrc="https://boston-consulting-group-res.cloudinary.com/image/fetch/q_auto,f_auto/http://image-src.bcg.com/Images/Argentina%402x_tcm-36943.png" data-virtual="en-ar" data-virtual-country="ar" value="ar">Argentina | EN</option><option data-default-language="" data-description="en" data-imagesrc="https://boston-consulting-group-res.cloudinary.com/image/fetch/q_auto,f_auto/http://image-src.bcg.com/Images/Australia_tcm-36925.png" data-virtual="en-au" data-virtual-country="au" value="au">Australia | EN</option><option data-default-language="" data-description="de" data-imagesrc="https://boston-consulting-group-res.cloudinary.com/image/fetch/q_auto,f_auto/http://image-src.bcg.com/Images/Austria%402x_tcm-36957.png" data-virtual="de-at" data-virtual-country="at" value="at">Austria | DE</option><option data-default-language="" data-description="en" data-imagesrc="https://boston-consulting-group-res.cloudinary.com/image/fetch/q_auto,f_auto/http://image-src.bcg.com/Images/Belgium_tcm-36924.png" data-virtual="en-be" data-virtual-country="be" value="be">Belgium | EN</option><option data-default-language="" data-description="en" data-imagesrc="https://boston-consulting-group-res.cloudinary.com/image/fetch/q_auto,f_auto/http://image-src.bcg.com/Images/Brazil_tcm-36911.png" data-virtual="en-br" data-virtual-country="br" value="br">Brazil | EN</option><option data-default-language="" data-description="pt" data-imagesrc="https://boston-consulting-group-res.cloudinary.com/image/fetch/q_auto,f_auto/http://image-src.bcg.com/Images/Brazil_tcm-36911.png" data-virtual="pt-br" data-virtual-country="br" value="br">Brazil | PT</option><option data-default-language="" data-description="en" data-imagesrc="https://boston-consulting-group-res.cloudinary.com/image/fetch/q_auto,f_auto/http://image-src.bcg.com/Images/Canada_tcm-36906.png" data-virtual="en-ca" data-virtual-country="ca" value="ca">Canada | EN</option><option data-default-language="" data-description="fr" data-imagesrc="https://boston-consulting-group-res.cloudinary.com/image/fetch/q_auto,f_auto/http://image-src.bcg.com/Images/Canada_tcm-36906.png" data-virtual="fr-ca" data-virtual-country="ca" value="ca">Canada | FR</option><option data-default-language="" data-description="en" data-imagesrc="https://boston-consulting-group-res.cloudinary.com/image/fetch/q_auto,f_auto/http://image-src.bcg.com/Images/Chile%402x_tcm-36893.png" data-virtual="en-cl" data-virtual-country="cl" value="cl">Chile | EN</option><option data-default-language="" data-description="en" data-imagesrc="https://boston-consulting-group-res.cloudinary.com/image/fetch/q_auto,f_auto/http://image-src.bcg.com/Images/2522_BCG_Lens%20Selector_MapPin_2x_tcm-69668.png" data-virtual="en-cn" data-virtual-country="cn" value="cn">China (Greater China) | EN</option><option data-default-language="" data-description="zh" data-imagesrc="https://boston-consulting-group-res.cloudinary.com/image/fetch/q_auto,f_auto/http://image-src.bcg.com/Images/2522_BCG_Lens%20Selector_MapPin_2x_tcm-69668.png" data-virtual="zh-cn" data-virtual-country="cn" value="cn">China (Greater China) | ZH</option><option data-default-language="" data-description="en" data-imagesrc="https://boston-consulting-group-res.cloudinary.com/image/fetch/q_auto,f_auto/http://image-src.bcg.com/Images/Colombia_tcm-36963.png" data-virtual="en-co" data-virtual-country="co" value="co">Colombia | EN</option><option data-default-language="" data-description="en" data-imagesrc="https://boston-consulting-group-res.cloudinary.com/image/fetch/q_auto,f_auto/http://image-src.bcg.com/Images/Croatia%402x_tcm-69194.png" data-virtual="en-hr" data-virtual-country="hr" value="hu">Croatia | EN</option><option data-default-language="" data-description="en" data-imagesrc="https://boston-consulting-group-res.cloudinary.com/image/fetch/q_auto,f_auto/http://image-src.bcg.com/Images/Czech%20Republic_tcm-36933.png" data-virtual="en-cz" data-virtual-country="cz" value="cz">Czech Republic | EN</option><option data-default-language="" data-description="en" data-imagesrc="https://boston-consulting-group-res.cloudinary.com/image/fetch/q_auto,f_auto/http://image-src.bcg.com/Images/Denmark%402x_tcm-36922.png" data-virtual="en-dk" data-virtual-country="dk" value="nor">Denmark | EN</option><option data-default-language="" data-description="en" data-imagesrc="https://boston-consulting-group-res.cloudinary.com/image/fetch/q_auto,f_auto/http://image-src.bcg.com/Images/Finland%402x_tcm-36927.png" data-virtual="en-fi" data-virtual-country="fi" value="nor">Finland | EN</option><option data-default-language="" data-description="fr" data-imagesrc="https://boston-consulting-group-res.cloudinary.com/image/fetch/q_auto,f_auto/http://image-src.bcg.com/Images/France%402x_tcm-36883.png" data-virtual="fr-fr" data-virtual-country="fr" value="fr">France | FR</option><option data-default-language="" data-description="de" data-imagesrc="https://boston-consulting-group-res.cloudinary.com/image/fetch/q_auto,f_auto/http://image-src.bcg.com/Images/Germany_tcm-36920.png" data-virtual="de-de" data-virtual-country="de" value="de">Germany | DE</option><option data-default-language="" data-description="en" data-imagesrc="https://boston-consulting-group-res.cloudinary.com/image/fetch/q_auto,f_auto/http://image-src.bcg.com/Images/Greece_tcm-36918.png" data-virtual="en-gr" data-virtual-country="gr" value="gr">Greece | EN</option><option data-default-language="" data-description="en" data-imagesrc="https://boston-consulting-group-res.cloudinary.com/image/fetch/q_auto,f_auto/http://image-src.bcg.com/Images/Hungary%402x_tcm-36936.png" data-virtual="en-hu" data-virtual-country="hu" value="hu">Hungary | EN</option><option data-default-language="" data-description="en" data-imagesrc="https://boston-consulting-group-res.cloudinary.com/image/fetch/q_auto,f_auto/http://image-src.bcg.com/Images/India_tcm-36944.png" data-virtual="en-in" data-virtual-country="in" value="in">India | EN</option><option data-default-language="" data-description="en" data-imagesrc="https://boston-consulting-group-res.cloudinary.com/image/fetch/q_auto,f_auto/http://image-src.bcg.com/Images/Indonesia%402x_tcm-36902.png" data-virtual="en-id" data-virtual-country="id" value="sea">Indonesia | EN</option><option data-default-language="" data-description="en" data-imagesrc="https://boston-consulting-group-res.cloudinary.com/image/fetch/q_auto,f_auto/http://image-src.bcg.com/Images/Israel%402x_tcm-36949.png" data-virtual="en-il" data-virtual-country="il" value="il">Israel | EN</option><option data-default-language="" data-description="it" data-imagesrc="https://boston-consulting-group-res.cloudinary.com/image/fetch/q_auto,f_auto/http://image-src.bcg.com/Images/Italy%402x_tcm-36940.png" data-virtual="it-it" data-virtual-country="it" value="it">Italy | IT</option><option data-default-language="" data-description="ja" data-imagesrc="https://boston-consulting-group-res.cloudinary.com/image/fetch/q_auto,f_auto/http://image-src.bcg.com/Images/Japan%402x_tcm-36970.png" data-virtual="ja-jp" data-virtual-country="jp" value="jp">Japan | JA</option><option data-default-language="" data-description="en" data-imagesrc="https://boston-consulting-group-res.cloudinary.com/image/fetch/q_auto,f_auto/http://image-src.bcg.com/Images/Malaysia_tcm-36945.png" data-virtual="en-my" data-virtual-country="my" value="sea">Malaysia | EN</option><option data-default-language="" data-description="en" data-imagesrc="https://boston-consulting-group-res.cloudinary.com/image/fetch/q_auto,f_auto/http://image-src.bcg.com/Images/Mexico%402x_tcm-36892.png" data-virtual="en-mx" data-virtual-country="mx" value="mx">México | EN</option><option data-default-language="" data-description="en" data-imagesrc="https://boston-consulting-group-res.cloudinary.com/image/fetch/q_auto,f_auto/http://image-src.bcg.com/Images/Morocco_tcm-36938.png" data-virtual="en-ma" data-virtual-country="ma" value="ma">Morocco | EN</option><option data-default-language="" data-description="en" data-imagesrc="https://boston-consulting-group-res.cloudinary.com/image/fetch/q_auto,f_auto/http://image-src.bcg.com/Images/Netherlands%402x_tcm-36913.png" data-virtual="en-nl" data-virtual-country="nl" value="nl">Netherlands | EN</option><option data-default-language="" data-description="en" data-imagesrc="https://boston-consulting-group-res.cloudinary.com/image/fetch/q_auto,f_auto/http://image-src.bcg.com/Images/New%20Zealand%402x_tcm-36955.png" data-virtual="en-nz" data-virtual-country="nz" value="au">New Zealand | EN</option><option data-default-language="" data-description="en" data-imagesrc="https://boston-consulting-group-res.cloudinary.com/image/fetch/q_auto,f_auto/http://image-src.bcg.com/Images/Norway%402x_tcm-36896.png" data-virtual="en-no" data-virtual-country="no" value="nor">Norway | EN</option><option data-default-language="" data-description="en" data-imagesrc="https://boston-consulting-group-res.cloudinary.com/image/fetch/q_auto,f_auto/http://image-src.bcg.com/Images/Peru_tcm-36954.png" data-virtual="en-pe" data-virtual-country="pe" value="pe">Peru | EN</option><option data-default-language="" data-description="pl" data-imagesrc="https://boston-consulting-group-res.cloudinary.com/image/fetch/q_auto,f_auto/http://image-src.bcg.com/Images/Poland%402x_tcm-36885.png" data-virtual="pl-pl" data-virtual-country="pl" value="pl">Poland | PL</option><option data-default-language="" data-description="en" data-imagesrc="https://boston-consulting-group-res.cloudinary.com/image/fetch/q_auto,f_auto/http://image-src.bcg.com/Images/Portugal_tcm-36889.png" data-virtual="en-pt" data-virtual-country="pt" value="pt">Portugal | EN</option><option data-default-language="" data-description="en" data-imagesrc="https://boston-consulting-group-res.cloudinary.com/image/fetch/q_auto,f_auto/http://image-src.bcg.com/Images/Romania_tcm-213649.png" data-virtual="en-ro" data-virtual-country="ro" value="hu">Romania | EN</option><option data-default-language="" data-description="en" data-imagesrc="https://boston-consulting-group-res.cloudinary.com/image/fetch/q_auto,f_auto/http://image-src.bcg.com/Images/Russia%402x_tcm-36886.png" data-virtual="en-ru" data-virtual-country="ru" value="ru">Russia | EN</option><option data-default-language="" data-description="ru" data-imagesrc="https://boston-consulting-group-res.cloudinary.com/image/fetch/q_auto,f_auto/http://image-src.bcg.com/Images/Russia%402x_tcm-36886.png" data-virtual="ru-ru" data-virtual-country="ru" value="ru">Russia | RU</option><option data-default-language="" data-description="en" data-imagesrc="https://boston-consulting-group-res.cloudinary.com/image/fetch/q_auto,f_auto/http://image-src.bcg.com/Images/Saudi%20Arabia%402x_tcm-36870.png" data-virtual="en-sa" data-virtual-country="sa" value="mideast">Saudi Arabia | EN</option><option data-default-language="" data-description="en" data-imagesrc="https://boston-consulting-group-res.cloudinary.com/image/fetch/q_auto,f_auto/http://image-src.bcg.com/Images/Serbia%402x_tcm-69195.png" data-virtual="en-rs" data-virtual-country="rs" value="hu">Serbia | EN</option><option data-default-language="" data-description="en" data-imagesrc="https://boston-consulting-group-res.cloudinary.com/image/fetch/q_auto,f_auto/http://image-src.bcg.com/Images/Singapore%402x_tcm-36890.png" data-virtual="en-sg" data-virtual-country="sg" value="sea">Singapore| EN</option><option data-default-language="" data-description="en" data-imagesrc="https://boston-consulting-group-res.cloudinary.com/image/fetch/q_auto,f_auto/http://image-src.bcg.com/Images/Slovenia%402x_tcm-69196.png" data-virtual="en-si" data-virtual-country="si" value="hu">Slovenia | EN</option><option data-default-language="" data-description="en" data-imagesrc="https://boston-consulting-group-res.cloudinary.com/image/fetch/q_auto,f_auto/http://image-src.bcg.com/Images/South%20Africa_tcm-36877.png" data-virtual="en-za" data-virtual-country="za" value="za">South Africa  | EN</option><option data-default-language="" data-description="en" data-imagesrc="https://boston-consulting-group-res.cloudinary.com/image/fetch/q_auto,f_auto/http://image-src.bcg.com/Images/Korea%402x_tcm-36904.png" data-virtual="en-kr" data-virtual-country="kr" value="kr">South Korea | EN</option><option data-default-language="" data-description="en" data-imagesrc="https://boston-consulting-group-res.cloudinary.com/image/fetch/q_auto,f_auto/http://image-src.bcg.com/Images/Spain_tcm-36880.png" data-virtual="en-es" data-virtual-country="es" value="es">Spain  | EN</option><option data-default-language="" data-description="en" data-imagesrc="https://boston-consulting-group-res.cloudinary.com/image/fetch/q_auto,f_auto/http://image-src.bcg.com/Images/Sweden%402x_tcm-36873.png" data-virtual="en-se" data-virtual-country="se" value="nor">Sweden | EN</option><option data-default-language="" data-description="en" data-imagesrc="https://boston-consulting-group-res.cloudinary.com/image/fetch/q_auto,f_auto/http://image-src.bcg.com/Images/Switzerland_tcm-36894.png" data-virtual="en-ch" data-virtual-country="ch" value="ch">Switzerland | EN</option><option data-default-language="" data-description="en" data-imagesrc="https://boston-consulting-group-res.cloudinary.com/image/fetch/q_auto,f_auto/http://image-src.bcg.com/Images/thialand-resized_tcm-36910.png" data-virtual="en-th" data-virtual-country="th" value="sea">Thailand | EN</option><option data-default-language="" data-description="en" data-imagesrc="https://boston-consulting-group-res.cloudinary.com/image/fetch/q_auto,f_auto/http://image-src.bcg.com/Images/Turkey_tcm-36887.png" data-virtual="en-tr" data-virtual-country="tr" value="tr">Turkey | EN</option><option data-default-language="" data-description="en" data-imagesrc="https://boston-consulting-group-res.cloudinary.com/image/fetch/q_auto,f_auto/http://image-src.bcg.com/Images/UAE%402x_tcm-36871.png" data-virtual="en-ae" data-virtual-country="ae" value="mideast">United Arab Emirates | EN</option><option data-default-language="" data-description="en" data-imagesrc="https://boston-consulting-group-res.cloudinary.com/image/fetch/q_auto,f_auto/http://image-src.bcg.com/Images/United%20Kingdom_tcm-36899.png" data-virtual="en-gb" data-virtual-country="gb" value="gb">United Kingdom | EN</option><option data-default-language="" data-description="en" data-imagesrc="https://boston-consulting-group-res.cloudinary.com/image/fetch/q_auto,f_auto/http://image-src.bcg.com/Images/United%20States_tcm-36901.png" data-virtual="en-us" data-virtual-country="us" value="us">United States | EN</option><option data-default-language="" data-description="en" data-imagesrc="https://boston-consulting-group-res.cloudinary.com/image/fetch/q_auto,f_auto/http://image-src.bcg.com/Images/Vietnam-resized_tcm-36917.png" data-virtual="en-vn" data-virtual-country="vn" value="sea">Vietnam | EN</option></select><button class="confirm">Confirm</button></div><form class="remember"><input checked="checked" name="remember" type="checkbox" value="remember"></input>Remember my region and language settings</form></div></div></div>
+
+	<section id="menu" class="menu">
+		<ul>
+
+			<li><a href="/" class="icon-nav-menu-bcg-logo"></a></li>
+			<li><a id="toggle-side-nav" href="javascript:void(0);" class="icon-nav-menu-hamburger"></a></li>
+			<li>
+				<a href="javascript:void(0);" class="toggle-nav-search icon-nav-menu-search"></a>
+				<a href="javascript:void(0);" class="toggle-nav-search icon-filters-close"></a>
+				<div class="menu-search">
+
+					<form action="/search.aspx" type="get">
+						<input id="menu-search" autocomplete="off" type="text" data-list="General" name="q" placeholder="Search the Site"
+									 value="" data-bcg-module="typeahead" data-autoSuggestUrl="https://rbet5di12b.execute-api.us-east-1.amazonaws.com/Prod/v1/auto-complete/_suggest" autofocus>
+						<button type="submit">Search</button>
+						<!--a.toggle-nav-search.icon-filters-close(href='javascript:void(0);')-->
+						<input type="hidden" name="pageNum" value="1" />
+					</form>
+					<a href="javascript:void(0);" class="toggle-nav-search icon-filters-close"></a>
+				</div>
+			</li>
+		</ul>
+	</section>
+
+	
+	
+  
+  
+
+
+
+	<div class="overlay"><a href="javascript:void(0)" class="icon-filters-close x-close-side-nav"></a></div>
+
+	<section class="container has-top-bar ">
+		<div class="wrapper">
+			<!--googleon: all-->
+			<section class="page">
+				
+
+
+				<section class="content-wrapper ie-scroll " data-page=/about/privacy-policy.aspx data-id=/about/privacy-policy.aspx  data-bcg-module="on-page-load">
+
+					<div class="content-inner-wrapper" >
+						
+    
+  
+    
+
+
+<div class="container-1 textBlock" id="9-543">
+    <div class="grid-row">
+        <div class="grid-column">
+        <!-- Start Component Presentation: {"ComponentID" : "tcm:9-543", "ComponentModified" : "2018-11-28T13:55:57", "ComponentTemplateID" : "tcm:9-346-32", "ComponentTemplateModified" : "2017-05-25T15:29:56", "IsRepositoryPublished" : false} -->
+                    <div class="text-panel textBlock-panel">
+                      <h1 class="textBlock-title">Privacy Policy</h1>
+                    </div>
+                <div class="text-panel textBlock-panel">
+
+                                <h2 class="textBlock-heading textBlock-heading_h2">Introduction</h2>
+                    
+                    <!-- Views/Component/TextBlockCT -->
+                    <div class="rtf textBlock-rtf">
+                        <p><p >This is the Privacy Statement and Policy (“Privacy Statement”) for Boston Consulting Group, Inc. and its affiliates ("BCG"). This Privacy Policy was last updated in May 2018. For more detail on BCG's international operations please see <a href="https://www.bcg.com/offices/default.aspx" title="BCG Offices">https://www.bcg.com/about/offices/default.aspx</a>.</p><p >BCG understands that your privacy is important. BCG is committed to protecting your privacy and personal information you provide or as you access and use materials on BCG.com (the "Site"), including the Site subscription pages or other websites or apps that post a link to this Privacy Statement. In addition, information that you submit to BCG in response to an email request for information or other outreach from BCG, or through BCG’s employment application processes, will be treated in accordance with this Privacy Statement.</p><p >BCG may, in its discretion, amend this Privacy Statement from time to time. To ensure you are able to remain informed about the information we collect and how we use it, material changes to our statement will be reflected here. This Site may contain links to external sites which are not governed by this Privacy Statement. BCG does not take responsibility for the privacy practices of any third party sites to which we link. We encourage you to review the privacy policies of any such sites before you submit information there.</p></p>
+                    </div>
+                    
+                </div>
+                <div class="text-panel textBlock-panel">
+
+                                <h3 class="textBlock-heading">Your Acceptance of this Privacy Statement</h3>
+                    
+                    <!-- Views/Component/TextBlockCT -->
+                    <div class="rtf textBlock-rtf">
+                        <p><p >Please read this Privacy Statement carefully. By browsing our website and expressly consenting where required (for instance, when submitting your application), you agree to be bound by this Privacy Statement.</p></p>
+                    </div>
+                    
+                </div>
+                <div class="text-panel textBlock-panel">
+
+                                <h3 class="textBlock-heading">Information That We Collect, and How We Use It</h3>
+                    
+                    <!-- Views/Component/TextBlockCT -->
+                    <div class="rtf textBlock-rtf">
+                        <p><p ><em>What information do we collect?</em></p><p >BCG collects information from you when you create your account for the Site, request copies of publications, subscribe for email newsletters and press releases, seek additional information regarding our services or employment opportunities, databases, or register for conferences and other BCG-sponsored events. If you do not provide such information, you will not be able to create an account for the Site, request copies of publications, subscribe for email newsletters and press releases, seek additional information regarding our services or employment opportunities.</p><p >Personal information that we collect includes: names, addresses, e-mail addresses, phone numbers, unique personal identifiers, financial information, subject areas of interest and/or demographic information.</p><p >In addition, we sometimes aggregate demographic information and the types of systems and browsers of users BCG also may conduct user surveys on the Web or use technologies to provide BCG with information on a number of areas, such as user identity, user viewing habits, whether or not users found what they were searching for, whether the Site content is relevant to user needs, and the like.</p><p ><em>How do we use personal information?</em></p><p >The purposes and uses of your personal information will depend on the use of the Site and the personal information provided. We process your personal information:</p><p >(i) for the purposes of safeguarding the legitimate interests pursued by BCG. This includes:</p><ul ><li>Informing you about updates to the service and notifying you about other products and services offered by BCG that may be of interest to you, including information regarding publications and events</li><li>Tailoring your experience at the Site with relevant BCG materials</li><li>Understanding the Site’s user population, identifying subject areas of interest, and determining whether the Site is designed to work with the computer settings of a majority of our visitors</li><li>Measuring and improving the effectiveness of BCG marketing programs across different channels.</li><li>Improving our web content and navigation.</li></ul><p >(ii) on the basis of your consent. Insofar as you have granted us consent to the processing of personal information for specific purposes (for example, your application form for employment with BCG), the lawfulness of such processing is based on your consent. You may withdraw your consent at any time.</p><p >(iii) for compliance with a legal obligation. This includes anti-fraud and anti-money laundering measures as well as tax and social security requirements.</p><p >We will not sell, share, or rent or otherwise make available your personal information to other parties, except that we may disclose the information to third parties who perform services on our behalf and have a need to access the information in connection with those services.  Any third parties will only process this information to the extent to which and within the limits that BCG itself is permitted to process that data. In addition, BCG may disclose your contact information in response to inquiries by bona-fide rights owners in connection with allegations of infringement of copyright or other proprietary rights arising from information that you have posted on the Site or otherwise provided to BCG.</p></p>
+                    </div>
+                    
+                </div>
+                <div class="text-panel textBlock-panel">
+
+                                <h3 class="textBlock-heading">How We Might Share Your Information</h3>
+                    
+                    <!-- Views/Component/TextBlockCT -->
+                    <div class="rtf textBlock-rtf">
+                        <p><p >The third parties with whom we may need to share personal information to help us provide services and products to you and to run our Website include:</p><ul ><li>our subsidiaries or affiliates;</li><li>our advisors;</li><li>our third party service providers who process information on our behalf to help run some of our internal business operations including email distribution, IT services and marketing and events services;</li><li>our business partners for publications and events co-organized by BCG and them;</li><li>law enforcement bodies in order to comply with any legal obligation or court order</li></ul><p >Because BCG is a global organization we need to transfer personal information which is collected on the Site or through other means across the BCG group of companies (<a href="http://www.bcg.com/about/offices/default.aspx">http://www.bcg.com/about/offices/default.aspx</a>) to help operate our business efficiently. This also includes third parties located in different countries around the world, including outside of the EEA. These arrangements may involve your personal information being located in various countries around the world e.g. USA where privacy laws differ. We only make these arrangements or transfers where we are satisfied that adequate levels of protection are in place to protect information held in that country. In addition, the Site may be viewed and accessed anywhere in the world including countries that may not have laws regulating the use and transfer of personally identifiable information. By using the Site, submitting information through this site, or submitting personal information to BCG through other means you voluntarily consent to such international transfer and hosting of such information to those countries and parties.</p></p>
+                    </div>
+                    
+                </div>
+                <div class="text-panel textBlock-panel">
+
+                                <h3 class="textBlock-heading">Retention of your Personal Information</h3>
+                    
+                    <!-- Views/Component/TextBlockCT -->
+                    <div class="rtf textBlock-rtf">
+                        <p><p >BCG retains your personal information for so long as is necessary to fulfil the purpose for which it was collected. We may retain your personal information for longer if they may be the subject of a legal claim, or may otherwise be relevant for future litigation.</p></p>
+                    </div>
+                    
+                </div>
+                <div class="text-panel textBlock-panel">
+
+                                <h3 class="textBlock-heading">Marketing</h3>
+                    
+                    <!-- Views/Component/TextBlockCT -->
+                    <div class="rtf textBlock-rtf">
+                        <p><p >If, at any time, you prefer not to receive further communications from us in any or all forms you will have the ability to unsubscribe from such communications by means of a link provided in every e-mail that is sent to you by us. When subscribing to BCG e-mail newsletters, you are given the opportunity to select which promotions, news, and information you would like to receive at the time of sign up, and you will have the opportunity to unsubscribe from such communications.</p></p>
+                    </div>
+                    
+                </div>
+                <div class="text-panel textBlock-panel">
+
+                                <h3 class="textBlock-heading">Cookies and other tracking technologies</h3>
+                    
+                    <!-- Views/Component/TextBlockCT -->
+                    <div class="rtf textBlock-rtf">
+                        <p><p >BCG may use cookies on this Site and in our communications with you to keep track of your visit to our Site and our communications with you. A “cookie” is a small amount of data sent from a Web server to your browser and stored on your computer’s hard drive. Other tracking technologies work similarly to cookies and place a small amount of data on your devices to monitor your website activity to allow us to collect information about how you use our Site and our services. With most internet browsers, you can erase cookies from your computer hard drive, block all cookies, or receive a warning before a cookie is stored on your computer. Please refer to your browser instructions or you can visit <a href="https://www.aboutcookies.org/">https://www.aboutcookies.org/</a> which will give you more information. Once you have given your consent to use cookies we shall store a cookie on your computer or device to remember this for next time. If you wish to withdraw consent at any time you will need to delete our cookies using your web browsers settings. Please be advised that certain sections or functionalities of the Site may be inaccessible to you if your browser does not accept cookies.</p><p >We use the following types of cookies:</p><p ><em>“persistent cookies”</em> to improve your experience when using the Site.</p><p >“<em>session cookies</em>” to enable your use of our Site and to remember your settings. Session cookies are deleted automatically at the end of your visit.</p><p >“<em>web analytics cookies</em>”. These cookies are used by us or third-party providers to analyze how the Site and our services are used, including the following types:</p><p >Google Analytics.  This website uses Google Analytics, a web analytics service provided by Google, Inc. ("Google"). Google Analytics uses "cookies" to help the website analyze how users use the site. The information generated by the cookie about your use of the website (including your IP address) will be transmitted to and stored by Google on servers in the United States. Google uses this information to evaluate your use of the website, compiling reports on website activity for website operators and providing other services relating to website activity and internet usage. Google may also transfer this information to third parties where required to do so by law, or where such third parties process the information on Google's behalf. Google will not associate your IP address with any other data held by Google. You may refuse the use of cookies by selecting the appropriate settings on your browser, however please note that if you do this you may not be able to use the full functionality of this website. By using this website and accepting the use of the cookies, you consent to the processing of data about you by Google in the manner and for the purposes set out above. To find out more about Google Analytics, Google's privacy policy and opting out of its cookies please visit: <a href="https://tools.google.com/dlpage/gaoptout">https://tools.google.com/dlpage/gaoptout</a>.</p><p >To opt-out of Google Analytics cookies on BCG.com, <a data-bcg-module="gtm-opt-out" data-opt-action="opt-out">click here</a>.
+<br />
+If you have previously opted-out of Google Analytics and would like to opt back in, <a data-bcg-module="gtm-opt-out" data-opt-action="opt-in">click here</a>. </p><p >Adobe Analytics.  This website uses Adobe Analytics, a web analytics and marketing service provided by Adobe Systems Incorporated (“Adobe”).  Adobe uses HTTP “cookies” and similar technologies to collect information to measure and understand how users use this website.  This includes user activity tracking on this website, including pages visited and links clicked. BCG does this to provide you with experiences and marketing messages based on your likely interests. The information generated by the cookie about your use of the Site (including your IP address) will be transmitted to and stored by Adobe. Adobe may also transfer this information to third parties where required to do so by law, or where such third parties process the information on Adobe’s behalf. Adobe will not associate your IP address with any other data held by Adobe. You may opt-out of cookies by visiting: <a href="https://bcg.sc.omtrdc.net/optout.html?optout=1&amp;confirm_change=1">https://bcg.sc.omtrdc.net/optout.html?optout=1&amp;confirm_change=1</a>.You may also refuse the use of cookies by selecting the appropriate settings on your browser. However, please note that if you do opt-out you may not be able to use the full functionality of this website. To find out more about Adobe Analytics, Adobe's privacy policy and opting out of its cookies please visit: <a href="https://www.adobe.com/privacy/opt-out.html#customeruse">https://www.adobe.com/privacy/opt-out.html#customeruse</a></p><p >Web beacons. BCG includes a web beacon, which is a graphic image, in a majority of the HTML email messages we send. BCG uses web beacons, alone or in conjunction, with cookies to compile information about your usage of BCG websites and interaction with emails from BCG. We use the capability to determine whether or not an email has been received, opened, or when an URL has been clicked inside of an email that directs you to one of BCG’s websites. These web beacons are used to: (i) operate and improve BCG websites, services, and email communications, (ii) send emails in a format users can read and (iii) track the aggregate number of emails opened. The web beacon does not collect your personal information, however the information compiled by the web beacon allows us to tie a user to information BCG has collected in data collection process as set out in this Privacy Statement. You may refuse the use of web beacons by selecting the appropriate settings on your email program to disable image and refraining from clicking on any links in email messages.</p><p >By continuing to browse or use our Sites and services, you agree that we can store and access cookies and other tracking technologies as described herein.</p></p>
+                    </div>
+                    
+                </div>
+                <div class="text-panel textBlock-panel">
+
+                                <h3 class="textBlock-heading">Security Processes</h3>
+                    
+                    <!-- Views/Component/TextBlockCT -->
+                    <div class="rtf textBlock-rtf">
+                        <p><p >BCG has in place appropriate technological and operational security processes designed to protect personally identifiable information from loss, misuse, alteration or destruction. Only authorized employees and contractors will have access to any data provided by you, and that access is limited by need. Each employee or contractor having access to any personally-identifiable information is obligated to maintain its confidentiality. Although we take steps that are generally accepted as industry standard to protect your personally-identifiable information, BCG cannot guarantee that your personally-identifiable information will not become accessible to unauthorized persons and BCG cannot be responsible for any actions resulting from a breach of security when information is supplied over the internet or any public computer network.</p></p>
+                    </div>
+                    
+                </div>
+                <div class="text-panel textBlock-panel">
+
+                                <h3 class="textBlock-heading">Links to Other Web Sites</h3>
+                    
+                    <!-- Views/Component/TextBlockCT -->
+                    <div class="rtf textBlock-rtf">
+                        <p><p >This website contains links to other Web sites not operated by BCG.</p><p >BCG is not responsible for the privacy practices or the content of any non-BCG web sites to which we link from the Site. We are not responsible for the protection and privacy of any information you provide whilst visiting other websites and sites not governed by our Privacy Statement. We cannot control the content or security of such websites. We cannot be held responsible for any loss or damage incurred by a user as a result of visiting such websites. No links are intended to be, nor should be construed as, an endorsement of any kind by us of that other website.</p></p>
+                    </div>
+                    
+                </div>
+                <div class="text-panel textBlock-panel">
+
+                                <h3 class="textBlock-heading">Compliance With Law</h3>
+                    
+                    <!-- Views/Component/TextBlockCT -->
+                    <div class="rtf textBlock-rtf">
+                        <p><p >BCG complies with all applicable privacy laws and regulations. BCG may be compelled to surrender personal user or customer information to legal authorities if presented with a court subpoena or similar legal or administrative order, or as required or permitted by the laws, rules and regulations of any nation, state or other applicable jurisdiction. Also, in the event of a violation of the terms and conditions of use of the Site or a violation of any restrictions on use of materials provided in or through the Site, we may disclose personal user information to our affected business partners or legal authorities.</p></p>
+                    </div>
+                    
+                </div>
+                <div class="text-panel textBlock-panel">
+
+                                <h3 class="textBlock-heading">Access Rights</h3>
+                    
+                    <!-- Views/Component/TextBlockCT -->
+                    <div class="rtf textBlock-rtf">
+                        <p><p >In accordance with applicable data protection laws, including but not limited to the GDPR, you have a right to request a copy of the personal information we hold about you and details of how we use that information.  If any of the information held about you is incorrect or out of date, you have the right to amend or rectify it, please follow the process outlined below and we will amend our records where appropriate. You also have the right to require us to erase your personal data, stop processing your personal data, restricting the processing of your personal information, right of portability of your personal information and/or to withdraw your consent to processing.  This may not apply if there are other legal justifications to continue processing. If you think we may have incorrect personal information, or would like a copy of the personal information we hold on you, or to exercise any other data protection right, please <a href="mailto:datasubjectrights@bcg.com"><strong>contact us</strong></a>. Please note that we need you to prove who you are before we can provide you with any information.</p><p >You also have a right to lodge a complaint with a relevant supervisory authority.</p></p>
+                    </div>
+                    
+                </div>
+                <div class="text-panel textBlock-panel">
+
+                                <h3 class="textBlock-heading">Children</h3>
+                    
+                    <!-- Views/Component/TextBlockCT -->
+                    <div class="rtf textBlock-rtf">
+                        <p><p >BCG understands the importance of protecting children's privacy, particularly in their online interactions. This Site is not designed for and does not intentionally target or solicit to children 18 years of age and younger.</p></p>
+                    </div>
+                    
+                </div>
+                <div class="text-panel textBlock-panel">
+
+                                <h3 class="textBlock-heading">Use of BCG Web Sites</h3>
+                    
+                    <!-- Views/Component/TextBlockCT -->
+                    <div class="rtf textBlock-rtf">
+                        <p><p >Your access to and use of the Site are subject to this Privacy Statement and certain other terms and conditions, contained in our <a title="Terms of Use"  href="/about/terms-of-use.aspx">Terms and Conditions of Use</a>.</p></p>
+                    </div>
+                    
+                </div>
+                <div class="text-panel textBlock-panel">
+
+                                <h3 class="textBlock-heading">Contact Us</h3>
+                    
+                    <!-- Views/Component/TextBlockCT -->
+                    <div class="rtf textBlock-rtf">
+                        <p><p >For further questions you may contact the appropriate data protection point of contact:
+<br /></p><p ><strong>Data Protection Office</strong><br />
+Boston Consulting Group Inc.
+<br />
+200 Pier Four Boulevard
+<br />
+Boston, MA 02210
+<br /><a href="mailto:Dataprotectionoffice@bcg.com">Contact Us</a></p><p ><strong>Germany</strong><br />
+Data Protection Officer (Der Datenschutzbeauftragte)
+<br />
+Boston Consulting Group GmbH
+<br />
+Ludwigstrasse 21
+<br />
+80539 Munich Germany
+<br /><a href="mailto:datenschutz@bcg.com">Contact Us</a></p></p>
+                    </div>
+                    
+                </div>
+            <div class="antn-rail textBlock-rail"></div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+						
+    
+
+
+					</div>
+					<!-- footer-->
+					
+    
+  
+
+
+<div class="margin-only-container sitewide-footer">
+    <div class="grid-row">
+        <footer class="clearfix sitefooter sitefooter_legal">
+            
+
+<div class="wrapper sitefooter-wrapper">
+    <div class="user-and-lens">
+<div class="user-info"><div class="login-container" data-placement="footer" data-bcg-module="login-widget"><span class="icon-profile-user-profile-icon icon"></span><p class="login-text">Log in</p></div></div>        <div class="flags sitefooter-flags">
+            <div class="lens-selector-button"><div class="lens-selector-button-content"><div class="flag-icon"><img class="flag" src="https://boston-consulting-group-res.cloudinary.com/image/fetch/q_auto,f_auto/http://image-src.bcg.com/Images/world-map-grey_tcm-36961.png" /></div><div class="language-container"><div class="language"><p>EN</p></div><div class="right-arrow"></div></div></div></div>
+        </div>
+    </div>
+    <ul class="base sitefooter-list sitefooter-list_base">
+            <li class="sitefooter-list-item">&copy; 2019 Boston Consulting Group</li>
+                    <li class="sitefooter-list-item"><a href="/sitemap" data-digitaldata-location="Sitewide Footer" data-digitaldata-linkname="sitemap">SiteMap</a></li>
+                                <li class="sitefooter-list-item"><a data-digitaldata-linkname="Privacy" data-digitaldata-location="Sitewide Footer" href="/about/privacy-policy.aspx">Privacy</a></li>
+                        <li class="sitefooter-list-item"><a data-digitaldata-linkname="Terms of Use" data-digitaldata-location="Sitewide Footer" href="/about/terms-of-use.aspx">Terms of Use</a></li>
+    </ul>
+    <ul class="share sitefooter-list sitefooter-list_share">
+            <li class="sitefooter-list-item"><a class="sitefooter-list-itemLink" data-bcg-module="show-form" data-share-url="/ContactUs" href="javascript:void(0);"><span class="icon icon-social-bio-email"></span><span>Contact</span></a></li>
+                        <li class="sitefooter-list-item">
+                    <a class="sitefooter-list-itemLink" data-bcg-module="footer-user-subscriptions" data-digitaldata-location="Sitewide Footer" data-digitaldata-linkname="Footer Subscriptions">
+                        <span class="icon icon-alumni-contact-saved"></span>
+                        <span>Subscribe</span>
+                    </a>
+                </li>
+
+            <li class="sitefooter-list-item">
+                <a href="javascript:void(0);" data-digitaldata-location="Sitewide Footer" data-digitaldata-linkname="Footer Share Page" data-share-context="Footer" data-share-description="BCG.com Privacy Policy" data-share-title="Privacy+Policy" data-share-form="/sharePage/?pageName=Privacy+Policy&amp;pageUrl=https%3a%2f%2fon.bcg.com%2f2lTpqis" data-share-uri="https://on.bcg.com/2lTpqis" data-bcg-module="social-share-footer" class="social-share sitefooter-list-itemLink">
+                    <span class="icon icon-social-share"></span><span>Share Page</span>
+                </a>
+            </li>
+                    <li class="sitefooter-list-item">
+                <a href="javascript:void(0);" data-digitaldata-location="Sitewide Footer" data-digitaldata-linkname="Footer Follow Us" data-share-context="Footer" data-share-uri="#" data-bcg-module="social-share-follow" data-share-follow="true" class="follow-us sitefooter-list-itemLink">
+                    <span class="icon icon-Footer-Follow-Us-icon"></span><span>Follow Us</span>
+                </a>
+            </li>
+    </ul>
+</div>
+    <p class="sitefooter-legal">Boston Consulting Group is an Equal Opportunity Employer. All qualified applicants will receive consideration for employment without regard to race, color, age, religion, sex, sexual orientation, gender identity / expression, national origin, protected veteran status, or any other characteristic protected under federal, state or local law, where applicable, and those with criminal histories will be considered in a manner consistent with applicable state and local laws.</p>
+    </div>
+
+        </footer>
+    </div>
+</div>
+
+
+
+				</section>
+			</section>
+		</div>
+	</section>
+
+	<!--googleon: all-->
+	
+    
+<section data-bcg-module=" topbar-truncate" class=" top-bar-wrapper ">
+  <div class="title-and-nav">
+    <div class="title-content">
+        <div class="title-and-nav-title title title-content__firstItem">About</div>
+    </div>
+  </div>
+  
+  <div class="subscription-widget__show-button subscription-widget__show-button--hide" data-bcg-module="subscription-widget-show-button"><span class="icon icon-profile-check-circle"></span><p class="subscription-widget__show-button-text">SUBSCRIBE</p></div>
+  <div class="user-info"><div class="login-container" data-placement="navigation" data-bcg-module="login-widget"><span class="icon-profile-user-profile-icon icon"></span><p class="login-text">Log in</p><div class="login-dropdown"><a class="dropdown-option" href="/userprofile"><span class="name"></span><span class="view">View Profile</span></a><a class="dropdown-option" href="/userprofile?mode=edit">Edit Profile</a><a class="dropdown-option" href="/subscription">Manage Subscriptions</a><a class="dropdown-option" href="/userprofile/savedarticles">My Saved Content</a><a class="dropdown-option logout" href="javascript:void(0);">Logout</a></div></div></div>
+  <div class="flags">
+    <div class="lens-selector-button"><div class="lens-selector-button-content"><div class="flag-icon"><img class="flag" src="https://boston-consulting-group-res.cloudinary.com/image/fetch/q_auto,f_auto/http://image-src.bcg.com/Images/world-map-grey_tcm-36961.png" /></div><div class="language-container"><div class="language"><p>EN</p></div><div class="right-arrow"></div></div></div></div>
+  </div>
+</section>
+
+
+
+	
+    
+  
+
+    
+
+
+	
+
+<section class="cookie-notification" data-bcg-module="cookie-notification">
+    <p xmlns="http://www.w3.org/1999/xhtml">BCG uses cookies to improve the functionality, performance, and effectiveness of our communications. Detailed information on the use of cookies is provided in our <a href="https://www.bcg.com/about/privacy-policy.aspx" title="Privacy Policy" target="_blank">Privacy Policy</a>. By continuing to use this site, or by clicking "I agree," you consent to the use of cookies.</p>
+    <button id="dismiss-cookie">I agree</button>
+</section>
+
+
+
+	<script type="text/javascript" src="/static/js/global.min.js?v=20190201211218"></script>
+
+		<!-- Load Secondary Typekit Fonts -->
+<link rel="stylesheet" type="text/css" href="https://fonts.bcg.com/tng6xmh.css"/>
+		<!-- Adobe Analytics pageBottom -->
+		<script type="text/javascript">
+			try {
+				_satellite.pageBottom();
+			} catch (e) {
+				console.log('_satellite.pageBottom(): ', e);
+			}
+		</script>
+		<!-- Adobe Analytics pageBottom END -->
+</body>
+</html>
+

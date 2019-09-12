@@ -1,0 +1,47 @@
+<html>
+<a href=/>	
+<h1>CLICK HERE to go to LetsGoKings.com</h1></a>
+
+
+<h2>Privacy Statement for LetsgoKings.Com</h2><br>
+LetsgoKings.Com has created this privacy statement in order to demonstrate our firm commitment to privacy. The following discloses the information gathering and dissemination practices for this Web site: Letsgokings.com
+<br><br>
+Information Automatically Logged <br>
+We use your IP address to help diagnose problems with our server and to administer our Web site. It is also used to help determine the number of unique visitors to our website.
+<br><br>
+Cookies <br>
+Our Site uses cookies to save an encrypted version of your password so you don't have to re-enter it as you surf through our site. Your login cookie will expire 24 hours after logging in, or longer if set within your account preferences, or immediately upon clicking any "logout" link. 
+<br><br>
+Advertisers <br>
+We use various outside ad companies to display ads on our site. These ads may contain cookies. While we use cookies in other parts of our Web site, cookies received with banner ads are collected by our ad company, and we do not have access to this information. 
+<br><br>
+We serve advertisements from the following ad companies:<br>
+Burst.Com<br>
+Google.Com<br>
+CasaleMedia.Com<br>
+and various other companies. <br>
+<br>
+Registration Forms <br>
+Our site's registration form requires users to give us basic contact information including their name, and email address.  
+<br><br>
+The email address information provided with the registration form is used to get in touch with the customer when necessary to remind them of their password, lapses in login or pending account termination.  
+<br><br>
+Demographic and profile data is also collected at our site. This information is shared with advertisers on an aggregate basis and is not used in any personal fashion. 
+<br><br>
+Surveys, Polls and More <br>
+site members have the ability to create their own surveys, polls and other interactive applications. Information submitted to these is not provided to , but instead to the creator of the application. 
+<br><br>
+External Links <br>
+This site may contain links to other sites. Letsgokings.Com is not responsible for the privacy policies, privacy practices or the content of such Web sites. 
+<br><br>
+Public Forums <br>
+This site makes a public portfolio available to its users. Please remember that any information that is disclosed in this and other areas public areas, including but not limited to message forums, become public information. You should exercise caution when deciding to disclose your personal information. 
+<br><br>
+Security <br>
+This site has security measures in place to protect the loss, misuse, and alteration of the information under our control. While measures are in place, please be aware that nothing is 100% secure and we do not claim it to be so. 
+<br><br>
+Data Quality/Access <br>
+To change or/and modify any personal account information previously provided, you can visit the User CP.
+<br><br>
+Contacting the Web Site <br>
+If you have any questions about this privacy statement, the practices of this site, or your dealings with this Web site, you can contact: mikezed@charter.net

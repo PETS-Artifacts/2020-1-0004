@@ -1,0 +1,198 @@
+
+
+
+(window.NREUM||(NREUM={})).loader_config={xpid:"VQYPUVVbGwIDVVFUAgABVA=="};window.NREUM||(NREUM={}),__nr_require=function(t,n,e){function r(e){if(!n[e]){var o=n[e]={exports:{}};t[e][0].call(o.exports,function(n){var o=t[e][1][n];return r(o||n)},o,o.exports)}return n[e].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<e.length;o++)r(e[o]);return r}({1:[function(t,n,e){function r(t){try{s.console&&console.log(t)}catch(n){}}var o,i=t("ee"),a=t(16),s={};try{o=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(s.console=!0,o.indexOf("dev")!==-1&&(s.dev=!0),o.indexOf("nr_dev")!==-1&&(s.nrDev=!0))}catch(c){}s.nrDev&&i.on("internal-error",function(t){r(t.stack)}),s.dev&&i.on("fn-err",function(t,n,e){r(e.stack)}),s.dev&&(r("NR AGENT IN DEVELOPMENT MODE"),r("flags: "+a(s,function(t,n){return t}).join(", ")))},{}],2:[function(t,n,e){function r(t,n,e,r,s){try{p?p-=1:o(s||new UncaughtException(t,n,e),!0)}catch(f){try{i("ierr",[f,c.now(),!0])}catch(d){}}return"function"==typeof u&&u.apply(this,a(arguments))}function UncaughtException(t,n,e){this.message=t||"Uncaught error with no additional information",this.sourceURL=n,this.line=e}function o(t,n){var e=n?null:c.now();i("err",[t,e])}var i=t("handle"),a=t(17),s=t("ee"),c=t("loader"),f=t("gos"),u=window.onerror,d=!1,l="nr@seenError",p=0;c.features.err=!0,t(1),window.onerror=r;try{throw new Error}catch(h){"stack"in h&&(t(8),t(7),"addEventListener"in window&&t(5),c.xhrWrappable&&t(9),d=!0)}s.on("fn-start",function(t,n,e){d&&(p+=1)}),s.on("fn-err",function(t,n,e){d&&!e[l]&&(f(e,l,function(){return!0}),this.thrown=!0,o(e))}),s.on("fn-end",function(){d&&!this.thrown&&p>0&&(p-=1)}),s.on("internal-error",function(t){i("ierr",[t,c.now(),!0])})},{}],3:[function(t,n,e){t("loader").features.ins=!0},{}],4:[function(t,n,e){function r(t){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var o=t("ee"),i=t("handle"),a=t(8),s=t(7),c="learResourceTimings",f="addEventListener",u="resourcetimingbufferfull",d="bstResource",l="resource",p="-start",h="-end",m="fn"+p,v="fn"+h,w="bstTimer",y="pushState",g=t("loader");g.features.stn=!0,t(6);var b=NREUM.o.EV;o.on(m,function(t,n){var e=t[0];e instanceof b&&(this.bstStart=g.now())}),o.on(v,function(t,n){var e=t[0];e instanceof b&&i("bst",[e,n,this.bstStart,g.now()])}),a.on(m,function(t,n,e){this.bstStart=g.now(),this.bstType=e}),a.on(v,function(t,n){i(w,[n,this.bstStart,g.now(),this.bstType])}),s.on(m,function(){this.bstStart=g.now()}),s.on(v,function(t,n){i(w,[n,this.bstStart,g.now(),"requestAnimationFrame"])}),o.on(y+p,function(t){this.time=g.now(),this.startPath=location.pathname+location.hash}),o.on(y+h,function(t){i("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),f in window.performance&&(window.performance["c"+c]?window.performance[f](u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["c"+c]()},!1):window.performance[f]("webkit"+u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["webkitC"+c]()},!1)),document[f]("scroll",r,{passive:!0}),document[f]("keypress",r,!1),document[f]("click",r,!1)}},{}],5:[function(t,n,e){function r(t){for(var n=t;n&&!n.hasOwnProperty(u);)n=Object.getPrototypeOf(n);n&&o(n)}function o(t){s.inPlace(t,[u,d],"-",i)}function i(t,n){return t[1]}var a=t("ee").get("events"),s=t(19)(a,!0),c=t("gos"),f=XMLHttpRequest,u="addEventListener",d="removeEventListener";n.exports=a,"getPrototypeOf"in Object?(r(document),r(window),r(f.prototype)):f.prototype.hasOwnProperty(u)&&(o(window),o(f.prototype)),a.on(u+"-start",function(t,n){var e=t[1],r=c(e,"nr@wrapped",function(){function t(){if("function"==typeof e.handleEvent)return e.handleEvent.apply(e,arguments)}var n={object:t,"function":e}[typeof e];return n?s(n,"fn-",null,n.name||"anonymous"):e});this.wrapped=t[1]=r}),a.on(d+"-start",function(t){t[1]=this.wrapped||t[1]})},{}],6:[function(t,n,e){var r=t("ee").get("history"),o=t(19)(r);n.exports=r,o.inPlace(window.history,["pushState","replaceState"],"-")},{}],7:[function(t,n,e){var r=t("ee").get("raf"),o=t(19)(r),i="equestAnimationFrame";n.exports=r,o.inPlace(window,["r"+i,"mozR"+i,"webkitR"+i,"msR"+i],"raf-"),r.on("raf-start",function(t){t[0]=o(t[0],"fn-")})},{}],8:[function(t,n,e){function r(t,n,e){t[0]=a(t[0],"fn-",null,e)}function o(t,n,e){this.method=e,this.timerDuration=isNaN(t[1])?0:+t[1],t[0]=a(t[0],"fn-",this,e)}var i=t("ee").get("timer"),a=t(19)(i),s="setTimeout",c="setInterval",f="clearTimeout",u="-start",d="-";n.exports=i,a.inPlace(window,[s,"setImmediate"],s+d),a.inPlace(window,[c],c+d),a.inPlace(window,[f,"clearImmediate"],f+d),i.on(c+u,r),i.on(s+u,o)},{}],9:[function(t,n,e){function r(t,n){d.inPlace(n,["onreadystatechange"],"fn-",s)}function o(){var t=this,n=u.context(t);t.readyState>3&&!n.resolved&&(n.resolved=!0,u.emit("xhr-resolved",[],t)),d.inPlace(t,y,"fn-",s)}function i(t){g.push(t),h&&(x?x.then(a):v?v(a):(E=-E,O.data=E))}function a(){for(var t=0;t<g.length;t++)r([],g[t]);g.length&&(g=[])}function s(t,n){return n}function c(t,n){for(var e in t)n[e]=t[e];return n}t(5);var f=t("ee"),u=f.get("xhr"),d=t(19)(u),l=NREUM.o,p=l.XHR,h=l.MO,m=l.PR,v=l.SI,w="readystatechange",y=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],g=[];n.exports=u;var b=window.XMLHttpRequest=function(t){var n=new p(t);try{u.emit("new-xhr",[n],n),n.addEventListener(w,o,!1)}catch(e){try{u.emit("internal-error",[e])}catch(r){}}return n};if(c(p,b),b.prototype=p.prototype,d.inPlace(b.prototype,["open","send"],"-xhr-",s),u.on("send-xhr-start",function(t,n){r(t,n),i(n)}),u.on("open-xhr-start",r),h){var x=m&&m.resolve();if(!v&&!m){var E=1,O=document.createTextNode(E);new h(a).observe(O,{characterData:!0})}}else f.on("fn-end",function(t){t[0]&&t[0].type===w||a()})},{}],10:[function(t,n,e){function r(t){var n=this.params,e=this.metrics;if(!this.ended){this.ended=!0;for(var r=0;r<d;r++)t.removeEventListener(u[r],this.listener,!1);if(!n.aborted){if(e.duration=a.now()-this.startTime,4===t.readyState){n.status=t.status;var i=o(t,this.lastSize);if(i&&(e.rxSize=i),this.sameOrigin){var c=t.getResponseHeader("X-NewRelic-App-Data");c&&(n.cat=c.split(", ").pop())}}else n.status=0;e.cbTime=this.cbTime,f.emit("xhr-done",[t],t),s("xhr",[n,e,this.startTime])}}}function o(t,n){var e=t.responseType;if("json"===e&&null!==n)return n;var r="arraybuffer"===e||"blob"===e||"json"===e?t.response:t.responseText;return h(r)}function i(t,n){var e=c(n),r=t.params;r.host=e.hostname+":"+e.port,r.pathname=e.pathname,t.sameOrigin=e.sameOrigin}var a=t("loader");if(a.xhrWrappable){var s=t("handle"),c=t(11),f=t("ee"),u=["load","error","abort","timeout"],d=u.length,l=t("id"),p=t(14),h=t(13),m=window.XMLHttpRequest;a.features.xhr=!0,t(9),f.on("new-xhr",function(t){var n=this;n.totalCbs=0,n.called=0,n.cbTime=0,n.end=r,n.ended=!1,n.xhrGuids={},n.lastSize=null,p&&(p>34||p<10)||window.opera||t.addEventListener("progress",function(t){n.lastSize=t.loaded},!1)}),f.on("open-xhr-start",function(t){this.params={method:t[0]},i(this,t[1]),this.metrics={}}),f.on("open-xhr-end",function(t,n){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&n.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),f.on("send-xhr-start",function(t,n){var e=this.metrics,r=t[0],o=this;if(e&&r){var i=h(r);i&&(e.txSize=i)}this.startTime=a.now(),this.listener=function(t){try{"abort"===t.type&&(o.params.aborted=!0),("load"!==t.type||o.called===o.totalCbs&&(o.onloadCalled||"function"!=typeof n.onload))&&o.end(n)}catch(e){try{f.emit("internal-error",[e])}catch(r){}}};for(var s=0;s<d;s++)n.addEventListener(u[s],this.listener,!1)}),f.on("xhr-cb-time",function(t,n,e){this.cbTime+=t,n?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof e.onload||this.end(e)}),f.on("xhr-load-added",function(t,n){var e=""+l(t)+!!n;this.xhrGuids&&!this.xhrGuids[e]&&(this.xhrGuids[e]=!0,this.totalCbs+=1)}),f.on("xhr-load-removed",function(t,n){var e=""+l(t)+!!n;this.xhrGuids&&this.xhrGuids[e]&&(delete this.xhrGuids[e],this.totalCbs-=1)}),f.on("addEventListener-end",function(t,n){n instanceof m&&"load"===t[0]&&f.emit("xhr-load-added",[t[1],t[2]],n)}),f.on("removeEventListener-end",function(t,n){n instanceof m&&"load"===t[0]&&f.emit("xhr-load-removed",[t[1],t[2]],n)}),f.on("fn-start",function(t,n,e){n instanceof m&&("onload"===e&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=a.now()))}),f.on("fn-end",function(t,n){this.xhrCbStart&&f.emit("xhr-cb-time",[a.now()-this.xhrCbStart,this.onload,n],n)})}},{}],11:[function(t,n,e){n.exports=function(t){var n=document.createElement("a"),e=window.location,r={};n.href=t,r.port=n.port;var o=n.href.split("://");!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=n.hostname||e.hostname,r.pathname=n.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname);var i=!n.protocol||":"===n.protocol||n.protocol===e.protocol,a=n.hostname===document.domain&&n.port===e.port;return r.sameOrigin=i&&(!n.hostname||a),r}},{}],12:[function(t,n,e){function r(){}function o(t,n,e){return function(){return i(t,[f.now()].concat(s(arguments)),n?null:this,e),n?void 0:this}}var i=t("handle"),a=t(16),s=t(17),c=t("ee").get("tracer"),f=t("loader"),u=NREUM;"undefined"==typeof window.newrelic&&(newrelic=u);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],l="api-",p=l+"ixn-";a(d,function(t,n){u[n]=o(l+n,!0,"api")}),u.addPageAction=o(l+"addPageAction",!0),u.setCurrentRouteName=o(l+"routeName",!0),n.exports=newrelic,u.interaction=function(){return(new r).get()};var h=r.prototype={createTracer:function(t,n){var e={},r=this,o="function"==typeof n;return i(p+"tracer",[f.now(),t,e],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],e),o)try{return n.apply(this,arguments)}catch(t){throw c.emit("fn-err",[arguments,this,t],e),t}finally{c.emit("fn-end",[f.now()],e)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,n){h[n]=o(p+n)}),newrelic.noticeError=function(t,n){"string"==typeof t&&(t=new Error(t)),i("err",[t,f.now(),!1,n])}},{}],13:[function(t,n,e){n.exports=function(t){if("string"==typeof t&&t.length)return t.length;if("object"==typeof t){if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if(!("undefined"!=typeof FormData&&t instanceof FormData))try{return JSON.stringify(t).length}catch(n){return}}}},{}],14:[function(t,n,e){var r=0,o=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);o&&(r=+o[1]),n.exports=r},{}],15:[function(t,n,e){function r(t,n){if(!o)return!1;if(t!==o)return!1;if(!n)return!0;if(!i)return!1;for(var e=i.split("."),r=n.split("."),a=0;a<r.length;a++)if(r[a]!==e[a])return!1;return!0}var o=null,i=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var s=navigator.userAgent,c=s.match(a);c&&s.indexOf("Chrome")===-1&&s.indexOf("Chromium")===-1&&(o="Safari",i=c[1])}n.exports={agent:o,version:i,match:r}},{}],16:[function(t,n,e){function r(t,n){var e=[],r="",i=0;for(r in t)o.call(t,r)&&(e[i]=n(r,t[r]),i+=1);return e}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],17:[function(t,n,e){function r(t,n,e){n||(n=0),"undefined"==typeof e&&(e=t?t.length:0);for(var r=-1,o=e-n||0,i=Array(o<0?0:o);++r<o;)i[r]=t[n+r];return i}n.exports=r},{}],18:[function(t,n,e){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],19:[function(t,n,e){function r(t){return!(t&&t instanceof Function&&t.apply&&!t[a])}var o=t("ee"),i=t(17),a="nr@original",s=Object.prototype.hasOwnProperty,c=!1;n.exports=function(t,n){function e(t,n,e,o){function nrWrapper(){var r,a,s,c;try{a=this,r=i(arguments),s="function"==typeof e?e(r,a):e||{}}catch(f){l([f,"",[r,a,o],s])}u(n+"start",[r,a,o],s);try{return c=t.apply(a,r)}catch(d){throw u(n+"err",[r,a,d],s),d}finally{u(n+"end",[r,a,c],s)}}return r(t)?t:(n||(n=""),nrWrapper[a]=t,d(t,nrWrapper),nrWrapper)}function f(t,n,o,i){o||(o="");var a,s,c,f="-"===o.charAt(0);for(c=0;c<n.length;c++)s=n[c],a=t[s],r(a)||(t[s]=e(a,f?s+o:o,i,s))}function u(e,r,o){if(!c||n){var i=c;c=!0;try{t.emit(e,r,o,n)}catch(a){l([a,e,r,o])}c=i}}function d(t,n){if(Object.defineProperty&&Object.keys)try{var e=Object.keys(t);return e.forEach(function(e){Object.defineProperty(n,e,{get:function(){return t[e]},set:function(n){return t[e]=n,n}})}),n}catch(r){l([r])}for(var o in t)s.call(t,o)&&(n[o]=t[o]);return n}function l(n){try{t.emit("internal-error",n)}catch(e){}}return t||(t=o),e.inPlace=f,e.flag=a,e}},{}],ee:[function(t,n,e){function r(){}function o(t){function n(t){return t&&t instanceof r?t:t?c(t,s,i):i()}function e(e,r,o,i){if(!l.aborted||i){t&&t(e,r,o);for(var a=n(o),s=m(e),c=s.length,f=0;f<c;f++)s[f].apply(a,r);var d=u[g[e]];return d&&d.push([b,e,r,a]),a}}function p(t,n){y[t]=m(t).concat(n)}function h(t,n){var e=y[t];if(e)for(var r=0;r<e.length;r++)e[r]===n&&e.splice(r,1)}function m(t){return y[t]||[]}function v(t){return d[t]=d[t]||o(e)}function w(t,n){f(t,function(t,e){n=n||"feature",g[e]=n,n in u||(u[n]=[])})}var y={},g={},b={on:p,addEventListener:p,removeEventListener:h,emit:e,get:v,listeners:m,context:n,buffer:w,abort:a,aborted:!1};return b}function i(){return new r}function a(){(u.api||u.feature)&&(l.aborted=!0,u=l.backlog={})}var s="nr@context",c=t("gos"),f=t(16),u={},d={},l=n.exports=o();l.backlog=u},{}],gos:[function(t,n,e){function r(t,n,e){if(o.call(t,n))return t[n];var r=e();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return t[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(t,n,e){function r(t,n,e,r){o.buffer([t],r),o.emit(t,n,e)}var o=t("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(t,n,e){function r(t){var n=typeof t;return!t||"object"!==n&&"function"!==n?-1:t===window?0:a(t,i,function(){return o++})}var o=1,i="nr@id",a=t("gos");n.exports=r},{}],loader:[function(t,n,e){function r(){if(!E++){var t=x.info=NREUM.info,n=p.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(t&&t.licenseKey&&t.applicationID&&n))return u.abort();f(g,function(n,e){t[n]||(t[n]=e)}),c("mark",["onload",a()+x.offset],null,"api");var e=p.createElement("script");e.src="https://"+t.agent,n.parentNode.insertBefore(e,n)}}function o(){"complete"===p.readyState&&i()}function i(){c("mark",["domContent",a()+x.offset],null,"api")}function a(){return O.exists&&performance.now?Math.round(performance.now()):(s=Math.max((new Date).getTime(),s))-x.offset}var s=(new Date).getTime(),c=t("handle"),f=t(16),u=t("ee"),d=t(15),l=window,p=l.document,h="addEventListener",m="attachEvent",v=l.XMLHttpRequest,w=v&&v.prototype;NREUM.o={ST:setTimeout,SI:l.setImmediate,CT:clearTimeout,XHR:v,REQ:l.Request,EV:l.Event,PR:l.Promise,MO:l.MutationObserver};var y=""+location,g={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1118.min.js"},b=v&&w&&w[h]&&!/CriOS/.test(navigator.userAgent),x=n.exports={offset:s,now:a,origin:y,features:{},xhrWrappable:b,userAgent:d};t(12),p[h]?(p[h]("DOMContentLoaded",i,!1),l[h]("load",r,!1)):(p[m]("onreadystatechange",o),l[m]("onload",r)),c("mark",["firstbyte",s],null,"api");var E=0,O=t(18)},{}]},{},["loader",2,10,4,3]);
+
+
+Privacy Policy | DoSomething.org
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    var hasWorkingUrl = false; // https://git.io/vpzRA
+    try { var u = new URL('b', 'http://a'); u.pathname = 'c%20d'; hasWorkingUrl = u.href === 'http://a/c%20d'; } catch(e) {}
+
+    var features = [];
+    if (!('Map' in window) || !('WeakSet' in window)) features.push('es2015')
+    if (!('find' in Array.prototype)) features.push('Array.prototype.find')
+    if (!('includes' in Array.prototype)) features.push('es2016')
+    if (!('values' in Object)) features.push('Object.values');
+    if (!('fetch' in window)) features.push('fetch');
+    if (!hasWorkingUrl) features.push('URL');
+
+    var scripts = [
+        '/next/assets/vendors~app-31ba39e445615666939d.js',
+        '/next/assets/app-595e1e20693811227cac.js',
+    ];
+
+    if (features.length) scripts.unshift('https://cdn.polyfill.io/v2/polyfill.min.js?features='+ features.join(','));
+
+    // Script loader, from <goo.gl/wez2dP>. More context at <https://git.io/vpywh>.
+    !function(e,t,r){function n(){for(;d[0]&&"loaded"==d[0][f];)c=d.shift(),c[o]=!i.parentNode.insertBefore(c,i)}
+    for(var s,a,c,d=[],i=e.scripts[0],o="onreadystatechange",f="readyState";s=r.shift();)a=e.createElement(t),
+    "async" in i?(a.async=!1,e.head.appendChild(a)):i[f]?(d.push(a),a[o]=n):e.write("<"+t+'src="'+s
+    +'" defer></'+t+">"),a.src=s}(document,"script",scripts)
+
+
+
+
+
+
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NNQ2GQQ');
+
+
+
+
+
+
+
+DoSomething.org
+Show Menu
+
+
+
+
+Explore Campaigns
+Find ways to take action both online and off.
+
+
+
+
+What is DoSomething.org?
+A global movement for good.
+
+
+
+
+
+
+
+
+
+
+Log In
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+dosomething on Facebook
+
+
+@dosomething  on Twitter
+
+
+@dosomething  on Instagram
+
+
+dosomething on Tumblr
+
+
+dosomething on Snapchat
+
+
+dosomething on We Heart It
+
+
+dosomething1 on YouTube
+
+
+
+
+Who We Are
+
+What is DoSomething.org?
+Our Team
+Sexy Financials
+XYZ Factor
+Press
+Blog
+Contact Us
+
+
+
+Our Friends
+
+DoSomethingStrategic.org
+Partners
+Crisis Hotlines
+
+
+
+Get Involved
+
+Get Out the Vote!
+Scholarships
+Jobs
+Internships
+Donate
+Help Center
+Bootcamps
+
+
+
+
+
+Terms of Service
+Privacy Policy
+
+
+
+
+
+
+
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-493209-1', 'auto');
+    
+window.STATE = {"page":{"id":"4SsdfmbKFWksOUwumuoUIK","type":"page","fields":{"internalTitle":"Privacy Policy","title":"Privacy Policy","subTitle":"Safety, security, privacy, and other stuff like that.","slug":"about\/privacy-policy","metadata":{"id":"3E7ut3bSko0gm4gCmKuCIq","type":"metadata","fields":{"internalTitle":"Privacy Policy Metadata","title":null,"description":"Your privacy matters to us. Read DoSomething.org's privacy policy.","image":null}},"authors":[],"coverImage":{"description":"","url":null},"content":"__We at Do Something, Inc. (\u201cDo Something\u201d; \u201cwe\u201d; \u201cus\u201d) love young people.__\nWith over 5.5 million members, Do Something is one of the largest organizations in the U.S. for teens and social change. Because we believe in teens so much, we\u2019re also passionate about their safety, security, and privacy.\n\nWe\u2019ve created this privacy policy (\u201cPrivacy Policy\u201d) in order to demonstrate our firm commitment to online privacy, and explain our online information gathering and dissemination practices. If we collect information from you, we will collect and use it only as outlined below.\n\n### 1. Scope; Acceptance of Privacy Policy\nDo Something asks you to review this Privacy Policy. The provisions contained in this Privacy Policy\u2014effective as of the date specified below\u2014govern your access to and use of the website [https:\/\/www.dosomething.org\/](https:\/\/www.dosomething.org\/) and the official [Do Something mobile application](https:\/\/app.dosomething.org\/), and all pages combined within them that are owned or operated by Do Something, including but not limited to text, content, photographs, video, audio, graphics, and services therein (collectively, the \u201cSite\u201d).\n\nPlease read this Privacy Policy carefully before using the Site, and please consult it regularly. By accessing or using the Site or its services (including but not limited to donating online to Do Something), you signify your acceptance of and agreement with all provisions of this Privacy Policy, in addition to our terms of service, available at [https:\/\/www.dosomething.org\/about\/terms-service](https:\/\/www.dosomething.org\/about\/terms-service) (\u201cTerms\u201d). If you do not agree to this Privacy Policy and\/or our Terms, you should elect not to visit the Site.\n\n### 2. Changes to Privacy Policy\nDo Something reserves the right to change this Privacy Policy at any time at its sole discretion. Such changes shall be effective immediately upon posting them to the Site. Your use of the Site after such changes have been posted shall constitute your acceptance of all provisions in the revised Privacy Policy.\n\n### 3. When\/How Do We Collect Your Personally Identifiable Information?\nActive Collection Methods. Do Something collects personally identifiable information from you when you voluntarily share it with us by, for example: (1) sharing your email address, birthdate, phone number, physical address, geolocation, photographs, or other information when subscribing to our newsletter, or registering with us to form an account (\u201cAccount\u201d); (2) sharing personally identifiable information when you submit a report via our contact form; (3) sharing personally identifiable information when you post comments; (4) sharing contact information (e.g., Twitter or Facebook usernames) through our contests or platform; (5) signing up to be a member online by email or Facebook Connect or SMS; (6) participating in a survey where an email address is requested; or (7) sharing this or any other personally identifiable information with us through forms, contest entries, or any other communications with us. You also may be able to link your Account to certain websites or applications operated by third parties (e.g., Facebook) (\u201cThird Party Sites\u201d). If you choose to connect your Account with any Third Party Sites, we may obtain additional information about you from those Third Party Sites, which could include any information you have disclosed to that third party and made available for Do Something to access. (Please review the privacy policies of the relevant Third Party Sites to know what information they may provide to us; we have no control over how Third Party Sites use or disclose information that you share with them.) To the extent that we obtain such information, such information will be governed by this Privacy Policy.\n\n__Note Regarding User Content__\nBy using our Site you understand and agree that we are providing a platform for you to post content, including photos, comments and other materials, to the Site and to share that content publicly. Note that by default, all sharing through the Site is public, and when you provide us with content (including information, photographs, etc.) it is published so that anyone can view, use, or share it, consistent with this Privacy Policy and our Terms. Content published and shared publicly is accessible to everyone, so you may lose any privacy rights you might have regarding that content. In addition, information shared publicly may be copied and shared throughout the Internet, including through features native to the Site. While you are free to delete your Account, content may live on through re-blogging of your content by others, and due to technological limitations inherent to the Site, copies of that content may exist elsewhere and be retained indefinitely, including in our systems. We urge you to make careful judgments about any personally identifiable information you disclose to Internet services, including Do Something, Third Party Sites, or any other website.\n\n__Passive Collection Methods__\nWe may place information in our emails to you (such as a web beacon) that allows us to measure our email deliverability. We also may passively collect your Internet Protocol Address (\u201cIP Address\u201d). We may also collect and store information about where you are located, such as by converting your IP Address into a rough geolocation.\n\n### 4. How Do We Use Your Personally Identifiable Information?\nDo Something may use the personally identifiable information that it collects via the Site amongst its employees, agents, affiliates, contractors, and service providers in order to:\n\n- help us operate, analyze, develop, deliver, maintain, and improve the Site, its products, services, content, advertising, and communications;\n- administer your Account;\n- contact you regarding information relevant to Do Something\u2019s business, products, or services, or respond to your inquiries; or\n- engage in ordinary business, fundraising, marketing, and relationship-building communications with you.\n\nWe may also disclose personally identifiable information we collect from you to additional third parties to the extent necessary or appropriate to: (1) comply with the law or respond to a subpoena, court order, government request, or other legal process; (2) protect the interests, rights, safety, or property of Do Something, its employees, agents, and affiliates; (3) enforce this Privacy Policy or our Terms; (4) act in connection with a merger, acquisition, liquidation, reorganization, divestiture, or dissolution of Do Something or its affiliates; or (5) address fraud, security, technical issues, or otherwise operate the Site or its infrastructure systems properly.\n\n### 5. Retention of Personally Identifiable Information\nWe will retain the personally identifiable information that we collect for the duration required to fulfill the purposes described in this Privacy Policy, unless a longer retention period is required by law. We may store personally identifiable information in locations outside of Do Something\u2019s direct control (for example, on servers or databases collocated with hosting providers).\n\nDo Something also keeps a record of each donor\u2019s giving history on file for IRS purposes, to analyze giving patterns, make more accurate budget projections, and solicit future donations. Do Something does not share its donor file with any other party or organization.\n\n### 6. Security of Your Information\nYour Account information is protected by a password for your privacy and security. You need to prevent unauthorized access to your Account and personally identifiable information by selecting and protecting your password appropriately and limiting access to your computer and browser by signing off after you have finished accessing your Account on the Site. We use reasonable administrative, technical, and physical measures to safeguard the privacy and integrity of your personally identifiable information (including your Account information), including but not limited to standard encryption methods, and various restrictions on who can access the information and the servers on which it is stored. However, we can\u2019t guarantee the security of any of your information, or the sufficiency of our security measures to prevent unauthorized access to it. Unauthorized access, interception, use, hardware or software failure, and other factors may compromise the security of user information at any time.\n\n### 7. Collection of Non-Personally Identifiable Information \n__(Cookies; Tracking; Analytics)__\nWe collect certain non-personally identifiable information (information that does not personally identify the user) through the Site, as described below. Information Collected Using Cookies. A \u201ccookie\u201d is a small text file that is placed on your computer or other device by a website. Cookies are generally used to keep track of status and activity, such as whether you\u2019re logged in to a website. We use cookies to help secure your connection to the Site, to determine whether you have visited the Site previously, and to save and remember any preferences that you set while using the Site. We use secure cookies, which can only be transmitted in encrypted form, to track that you\u2019ve logged in to the Site. We also use cookies to learn how our members use the Site. This information is tracked anonymously, but in the aggregate helps us learn how to make our content and site design more effective. We also occasionally use cookies to track the success of new features or ideas. Additionally, we sometimes use third-party cookies in order to test or provide additional functionality, for instance, improvements to our graphical interface. Our cookies cannot retrieve any other data from a hard drive or obtain an email address. Web browsers normally accept cookies by default, but you may be able to configure your browser not to accept cookies if you choose. The exact configuration procedure varies with the browser. Note that although a user has the ability to modify most browsers to either accept all cookies, notify the user when a cookie is sent, or reject all cookies, it may not be possible to utilize certain parts of the Site if cookies are rejected. You also may delete the cookies by following your browser\u2019s instructions (usually located within the \u201cHelp,\u201d \u201cTools,\u201d or \u201cSettings\u201d menus). If you accept the cookies and do not delete them manually, they will expire on their own. Some will experience when you close your browser window, or clear your browser\u2019s \u201ccache\u201d of local files. Some, for instance a Google Analytics cookie, may last for several years. For general information on cookies, please visit [http:\/\/www.whatarecookies.com\/](http:\/\/www.whatarecookies.com\/).\n\n__Usage Information.__ We also may collect non-personally identifiable information about how people use the Site, which may include the operating system you are working on, the Internet browser or mobile device you are using, or the screen resolution of your computer. This information helps us to improve the design of the Site. We may also collect general usage information such as the number and frequency of our visitors, which pages or features of the Site they have visited, which links on the Site they have clicked on, and the length of those visits. We may also use third-party applications and services, such as Google Analytics and Quantcast, to collect and analyze this information. This information enables us and third parties authorized by us to figure out how often individuals use the Site so that we can analyze and improve them. Some of this information may be associated with the IP Address used to access the Site, and some may be associated with your Account, such as the topics you search for and the help pages that you visit. This information helps us to improve the content of the Site. For information on Google Analytics, please visit http:\/\/www.google.com\/policies\/privacy\/.\n\nWe may share non-personally identifiable information with third parties.\n\n### 8. What Information You Can Access\nIf you are a registered user, you can access and delete most information associated with your Account by logging in to the Site and checking your Account Settings page. Registered and unregistered users can access and delete cookies through their web browser settings.\n\n__Your California Privacy Rights.__ Under California Civil Code sections 1798.83, California resident customers with whom we have an established business relationship are entitled, once per calendar year, to ask us for a notice identifying the categories of personally identifiable information that we share with our affiliates and\/or third parties for marketing purposes, and to provide contact information for such affiliates and\/or third parties. If you are a California resident and would like a copy of this notice, please submit a written request to us at the following address: DoSomething.org, 19 West 21st Street, 8th Floor, New York, NY 10010.\n\n### 9. Children Under Thirteen Years of Age\nIf we discover that a child under the age of thirteen has provided us with personally identifiable information, we will delete that information from our records. A parent or guardian may notify us by email at [help@dosomething.org](mailto:help@dosomething.org) to request the deletion of his or her child\u2019s personally identifiable information from our internal records.\n\nAs a not-for-profit organization exempt from federal income tax under Section 501(c)(3) of the Internal Revenue Code, Do Something is exempt from compliance with the Children\u2019s Online Privacy Protection Act of 1998. However, we take children\u2019s privacy seriously, and encourage users and their parents to review our Privacy Policy and Terms to understand our information collection practices.\n\n### 10. Opting Out of Communications; Deleting Your Account\nYou can opt out of our newsletter at any time by clicking the \u201cUnsubscribe\u201d link that is present on every email newsletter at the very bottom. To opt out of email communications from us and\/or our partners, please email [help@dosomething.org](mailto:help@dosomething.org). To opt out of SMS communications from us in the United States, text STOP to 38383 or email us at [help@dosomething.org](mailto:help@dosomething.org). If you want to delete your Account, you can do so at any time by emailing us and providing proof of authority over the Account. (What constitutes \u201cproof of authority\u201d will vary depending on the circumstances, but generally will require sufficient identifying information so that we can be confident you are the Account owner.) Note that deleting your Account may not fully remove the content you have published from our systems, as caching of, backups of, copies of, or references to your Account information may not be immediately removed. In addition, given the nature of sharing on the Site, some of the public activity on your Account prior to deletion may remain stored on our servers and accessible to the public.\n\n### 11. Do Not Track Requests\nOur Site does not respond to Do-Not-Track requests.\n\n### 12. Governing Law; International Users\nYou agree that your use of this Site, this Privacy Policy, our Terms, and any controversy, claim, or dispute relating thereto, shall be governed in all respects by the laws of the State of New York, excluding its conflicts of law rules. Any dispute relating to this Site, our Privacy Policy, or our Terms shall be resolved solely in the state or federal courts located in New York, New York, to whose jurisdiction and venue you hereby expressly consent. In addition, you hereby waive the right to bring or participate in any claim against Do Something, its employees, agents, or affiliates, as a class action, consolidated, multi-district, or collective action, or private attorney general action. If Do Something prevails against you in any arbitration or proceeding concerning this Privacy Policy or our Terms, we shall be entitled to recover our legal costs, including attorneys\u2019 fees, in addition to all other available legal and equitable relief.\n\nDo Something and the Site are operated in the United States. If you are located outside of the United States, please be aware that any information you provide will be collected in or transferred to the United States. By using the Site and\/or providing Do Something with your information, you consent to that collection and transfer.\n\n### 13. Entire Agreement; Severability\nThis Privacy Policy together with our Terms constitute the entire agreement between you and Do Something, superseding any other written or oral agreements or understandings. If a Court or other tribunal finds any provision of this Privacy Policy or our Terms to be invalid or unenforceable, that provision shall be enforced to the maximum extent possible and the remaining provisions shall remain in full force and effect.\n\n### 14. Contact Us\nIf you have any questions about this Privacy Policy, our practices, or your dealings with the Site, you can contact us at [help@dosomething.org](mailto:help@dosomething.org).\n\n### 15. Effective Date\nThis Privacy Policy was last updated on 13 June, 2016.","sidebar":[],"blocks":[],"displaySocialShare":null,"hideFromNavigation":null,"socialOverride":null}}}
+window.ENV = {"APP_ENV":"production","FACEBOOK_APP_ID":"105775762330","GRAPHQL_URL":"https:\/\/graphql.dosomething.org\/graphql","NORTHSTAR_URL":"https:\/\/identity.dosomething.org","NPS_SURVEY_ENABLED":true,"PHOENIX_LEGACY_URL":"https:\/\/www.dosomething.org","PUCK_URL":"https:\/\/puck-production.herokuapp.com","SIXPACK_BASE_URL":"https:\/\/experiments.dosomething.org\/api","SIXPACK_COOKIE_PREFIX":"dosomething_sixpack","SIXPACK_ENABLED":true,"SIXPACK_TIMEOUT":null,"VOTER_REG_MODAL_ENABLED":true}
+window.AUTH = {"isAuthenticated":false,"id":null,"token":null,"expiresAt":null,"role":"user","location":"US-CA","source":null,"now":1551678022}
+
+  window.typeformInit = function() {
+    var qs,js,q,s,d=document, gi=d.getElementById, ce=d.createElement, gt=d.getElementsByTagName, id="typef_orm", b="https://embed.typeform.com/";
+    if(!gi.call(d,id)) {
+      js=ce.call(d,"script");
+      js.id=id; js.src=b+"embed.js";
+      q=gt.call(d,"script")[0];
+      q.parentNode.insertBefore(js,q)
+    }
+  };
+
+window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"ee99636967","applicationID":"131065162","transactionName":"NAYHNxRTCEEABUxcWg1MJAASWwlcTidIRWkrFxETOnEJXBUUV1lZBhEWPyVTElcGCUpcTwYHNQIBVyVdDxJKWlkPBhcjFVoJRQ==","queueTime":0,"applicationTime":88,"atts":"GEEEQVxJG08=","errorBeacon":"bam.nr-data.net","agent":""}
+

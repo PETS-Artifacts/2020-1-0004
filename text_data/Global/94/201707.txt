@@ -1,0 +1,554 @@
+
+
+  //<![CDATA[
+(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement);
+//]]>
+window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o||n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({1:[function(e,n,t){function r(){}function o(e,n,t){return function(){return i(e,[c.now()].concat(u(arguments)),n?null:this,t),n?void 0:this}}var i=e("handle"),a=e(2),u=e(3),f=e("ee").get("tracer"),c=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,n){s[n]=o(d+n,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,o="function"==typeof n;return i(l+"tracer",[c.now(),e,t],r),function(){if(f.emit((o?"":"no-")+"fn-start",[c.now(),r,o],t),o)try{return n.apply(this,arguments)}finally{f.emit("fn-end",[c.now()],t)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=o(l+n)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,c.now()])}},{}],2:[function(e,n,t){function r(e,n){var t=[],r="",i=0;for(r in e)o.call(e,r)&&(t[i]=n(r,e[r]),i+=1);return t}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],3:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(o<0?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=r},{}],4:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function o(e){function n(e){return e&&e instanceof r?e:e?f(e,u,i):i()}function t(t,r,o,i){if(!d.aborted||i){e&&e(t,r,o);for(var a=n(o),u=m(t),f=u.length,c=0;c<f;c++)u[c].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function l(e,n){v[e]=m(e).concat(n)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(t)}function g(e,n){c(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var v={},y={},b={on:l,emit:t,get:w,listeners:m,context:n,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",f=e("gos"),c=e(2),s={},p={},d=n.exports=o();d.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(o.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){o.buffer([e],r),o.emit(e,n,t)}var o=e("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!x++){var e=h.info=NREUM.info,n=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();c(y,function(n,t){e[n]||(e[n]=t)}),f("mark",["onload",a()+h.offset],null,"api");var t=d.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function o(){"complete"===d.readyState&&i()}function i(){f("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),f=e("handle"),c=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1026.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=n.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),f("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);
+
+img.adapt-img,.lazy img.adapt-img{opacity:.70;max-width:100%;height:auto}.adapt-img-wrapper,.adapt-img-wrapper:after{display:inline-block;max-width:100%;position:relative;-webkit-background-size:100% auto;background-size:100% auto;background-repeat:no-repeat;line-height:1px}html body .adapt-img-wrapper.lazy,html.lazy body .adapt-img-wrapper,html body .adapt-img-wrapper.lazy:after,html.lazy body .adapt-img-wrapper:after{background-image:none}.adapt-img-wrapper:after{position:absolute;top:0;left:0;right:0;bottom:0;content:""}@media print{html .adapt-img-wrapper{background:none}html .adapt-img-wrapper img{opacity:1}html .adapt-img-wrapper:after{display:none}}
+//<![CDATA[
+var adaptImgDocLength=384795;adaptImgAsyncStyles="html img.adapt-img{opacity:0.01}html .adapt-img-wrapper:after{display:none;}";adaptImgLazy=false;function adaptImgFix(d){var e=window.getComputedStyle(d.parentNode).backgroundImage.replace(/\W?\)$/,"").replace(/^url\(\W?|/,"");d.src=e&&"none"!=e?e:d.src}(function(){function d(a){var b=document.documentElement;b.className=b.className+" "+a}function e(a){var b=window.onload;window.onload="function"!=typeof window.onload?a:function(){b&&b();a()}}adaptImgLazy&&d("lazy");/android 2[.]/i.test(navigator.userAgent.toLowerCase())&&d("android2");var c=!1;if("undefined"!==typeof window.performance)c=window.performance.timing,c=(c=~~(adaptImgDocLength/(c.responseEnd-c.connectStart)))&&50>c;else{var f=navigator.connection||navigator.mozConnection||navigator.webkitConnection;"undefined"!==typeof f&&(c=3==f.type||4==f.type||/^[23]g$/.test(f.type))}c&&d("aislow");var h=function(){var a=document.createElement("style");a.type="text/css";a.innerHTML=adaptImgAsyncStyles;var b=document.getElementsByTagName("style")[0];b.parentNode.insertBefore(a,b);window.matchMedia||window.onbeforeprint||g()};"undefined"!==typeof jQuery?jQuery(function(){jQuery(window).load(h)}):e(h);var g=function(){for(var a=document.getElementsByClassName("adapt-img"),b=0;b<a.length;b++)adaptImgFix(a[b])};window.matchMedia&&window.matchMedia("print").addListener(function(a){g()});"undefined"!==typeof window.onbeforeprint&&(window.onbeforeprint=g)})();
+//]]>
+.png img.adapt-img,.gif img.adapt-img{opacity:.01}.adapt-img-wrapper.png:after,.adapt-img-wrapper.gif:after{display:none}
+@media screen and (max-width:160px){html:not(.android2) .c3890122365,html:not(.android2) .c3890122365:after{background-image:url(local/adapt-img/160/10x/IMG/jpg/xcoconut-grove-la-pirogue.jpg,q1493877125.pagespeed.ic.J24f3S1Ouy.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:1.5) and (-webkit-max-device-pixel-ratio:1.99) and (max-width:160px),screen and (min--moz-device-pixel-ratio:1.5) and (max--moz-device-pixel-ratio:1.99) and (max-width:160px){html:not(.android2):not(.aislow) .c3890122365,html:not(.android2):not(.aislow) .c3890122365:after{background-image:url(local/adapt-img/160/15x/IMG/jpg/xcoconut-grove-la-pirogue.jpg,q1493877125.pagespeed.ic.jxOAM9wwXE.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:2) and (max-width:160px),screen and (min--moz-device-pixel-ratio:2) and (max-width:160px){html:not(.android2):not(.aislow) .c3890122365,html:not(.android2):not(.aislow) .c3890122365:after{background-image:url(local/adapt-img/160/20x/IMG/jpg/xcoconut-grove-la-pirogue.jpg,q1493877125.pagespeed.ic.qToltd-Nc2.jpg)}}@media screen and (min-width:161px) and (max-width:320px){html:not(.android2) .c3890122365,html:not(.android2) .c3890122365:after{background-image:url(local/adapt-img/320/10x/IMG/jpg/xcoconut-grove-la-pirogue.jpg,q1493877125.pagespeed.ic.5IzIuSwCMX.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:1.5) and (-webkit-max-device-pixel-ratio:1.99) and (min-width:161px) and (max-width:320px),screen and (min--moz-device-pixel-ratio:1.5) and (max--moz-device-pixel-ratio:1.99) and (min-width:161px) and (max-width:320px){html:not(.android2):not(.aislow) .c3890122365,html:not(.android2):not(.aislow) .c3890122365:after{background-image:url(local/adapt-img/320/15x/IMG/jpg/xcoconut-grove-la-pirogue.jpg,q1493877125.pagespeed.ic.Nyy7wj_kMs.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:2) and (min-width:161px) and (max-width:320px),screen and (min--moz-device-pixel-ratio:2) and (min-width:161px) and (max-width:320px){html:not(.android2):not(.aislow) .c3890122365,html:not(.android2):not(.aislow) .c3890122365:after{background-image:url(local/adapt-img/320/20x/IMG/jpg/xcoconut-grove-la-pirogue.jpg,q1493877125.pagespeed.ic.NnrPCzE3xM.jpg)}}@media screen and (min-width:321px) and (max-width:480px){html:not(.android2) .c3890122365,html:not(.android2) .c3890122365:after{background-image:url(local/adapt-img/480/10x/IMG/jpg/xcoconut-grove-la-pirogue.jpg,q1493877125.pagespeed.ic._MurDDETy3.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:1.5) and (-webkit-max-device-pixel-ratio:1.99) and (min-width:321px) and (max-width:480px),screen and (min--moz-device-pixel-ratio:1.5) and (max--moz-device-pixel-ratio:1.99) and (min-width:321px) and (max-width:480px){html:not(.android2):not(.aislow) .c3890122365,html:not(.android2):not(.aislow) .c3890122365:after{background-image:url(local/adapt-img/480/15x/IMG/jpg/xcoconut-grove-la-pirogue.jpg,q1493877125.pagespeed.ic.lqGKx6YLDT.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:2) and (min-width:321px) and (max-width:480px),screen and (min--moz-device-pixel-ratio:2) and (min-width:321px) and (max-width:480px){html:not(.android2):not(.aislow) .c3890122365,html:not(.android2):not(.aislow) .c3890122365:after{background-image:url(local/adapt-img/480/20x/IMG/jpg/xcoconut-grove-la-pirogue.jpg,q1493877126.pagespeed.ic.jdKGfGq6TF.jpg)}}@media screen and (min-width:481px) and (max-width:640px){html:not(.android2) .c3890122365,html:not(.android2) .c3890122365:after{background-image:url(local/adapt-img/640/10x/IMG/jpg/xcoconut-grove-la-pirogue.jpg,q1493877126.pagespeed.ic.IIoTcsLgBm.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:1.5) and (-webkit-max-device-pixel-ratio:1.99) and (min-width:481px) and (max-width:640px),screen and (min--moz-device-pixel-ratio:1.5) and (max--moz-device-pixel-ratio:1.99) and (min-width:481px) and (max-width:640px){html:not(.android2):not(.aislow) .c3890122365,html:not(.android2):not(.aislow) .c3890122365:after{background-image:url(local/adapt-img/640/15x/IMG/jpg/xcoconut-grove-la-pirogue.jpg,q1493877126.pagespeed.ic.55wbJelP3X.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:2) and (min-width:481px) and (max-width:640px),screen and (min--moz-device-pixel-ratio:2) and (min-width:481px) and (max-width:640px){html:not(.android2):not(.aislow) .c3890122365,html:not(.android2):not(.aislow) .c3890122365:after{background-image:url(local/adapt-img/640/20x/IMG/jpg/xcoconut-grove-la-pirogue.jpg,q1493877127.pagespeed.ic.49PpEwplb4.jpg)}}@media screen and (min-width:641px) and (max-width:960px){html:not(.android2) .c3890122365,html:not(.android2) .c3890122365:after{background-image:url(local/adapt-img/960/10x/IMG/jpg/xcoconut-grove-la-pirogue.jpg,q1493877127.pagespeed.ic.LWbviUOjkn.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:1.5) and (-webkit-max-device-pixel-ratio:1.99) and (min-width:641px) and (max-width:960px),screen and (min--moz-device-pixel-ratio:1.5) and (max--moz-device-pixel-ratio:1.99) and (min-width:641px) and (max-width:960px){html:not(.android2):not(.aislow) .c3890122365,html:not(.android2):not(.aislow) .c3890122365:after{background-image:url(local/adapt-img/960/15x/IMG/jpg/xcoconut-grove-la-pirogue.jpg,q1493877127.pagespeed.ic.-A8ojNe1fa.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:2) and (min-width:641px) and (max-width:960px),screen and (min--moz-device-pixel-ratio:2) and (min-width:641px) and (max-width:960px){html:not(.android2):not(.aislow) .c3890122365,html:not(.android2):not(.aislow) .c3890122365:after{background-image:url(IMG/jpg/xcoconut-grove-la-pirogue.jpg,q1449143206.pagespeed.ic.dMPPPY5YfX.jpg)}}@media screen and (min-width:961px) and (max-width:1440px){html:not(.android2) .c3890122365,html:not(.android2) .c3890122365:after{background-image:url(local/adapt-img/1440/10x/IMG/jpg/xcoconut-grove-la-pirogue.jpg,q1493877128.pagespeed.ic.QA94k49Ovq.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:1.5) and (-webkit-max-device-pixel-ratio:1.99) and (min-width:961px) and (max-width:1440px),screen and (min--moz-device-pixel-ratio:1.5) and (max--moz-device-pixel-ratio:1.99) and (min-width:961px) and (max-width:1440px){html:not(.android2):not(.aislow) .c3890122365,html:not(.android2):not(.aislow) .c3890122365:after{background-image:url(IMG/jpg/xcoconut-grove-la-pirogue.jpg,q1449143206.pagespeed.ic.dMPPPY5YfX.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:2) and (min-width:961px) and (max-width:1440px),screen and (min--moz-device-pixel-ratio:2) and (min-width:961px) and (max-width:1440px){html:not(.android2):not(.aislow) .c3890122365,html:not(.android2):not(.aislow) .c3890122365:after{background-image:url(IMG/jpg/xcoconut-grove-la-pirogue.jpg,q1449143206.pagespeed.ic.dMPPPY5YfX.jpg)}}@media screen and (min-width:1441px){html:not(.android2) .c3890122365,html:not(.android2) .c3890122365:after{background-image:url(IMG/jpg/xcoconut-grove-la-pirogue.jpg,q1449143206.pagespeed.ic.dMPPPY5YfX.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:1.5) and (-webkit-max-device-pixel-ratio:1.99) and (min-width:1441px),screen and (min--moz-device-pixel-ratio:1.5) and (max--moz-device-pixel-ratio:1.99) and (min-width:1441px){html:not(.android2):not(.aislow) .c3890122365,html:not(.android2):not(.aislow) .c3890122365:after{background-image:url(IMG/jpg/xcoconut-grove-la-pirogue.jpg,q1449143206.pagespeed.ic.dMPPPY5YfX.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:2) and (min-width:1441px),screen and (min--moz-device-pixel-ratio:2) and (min-width:1441px){html:not(.android2):not(.aislow) .c3890122365,html:not(.android2):not(.aislow) .c3890122365:after{background-image:url(IMG/jpg/xcoconut-grove-la-pirogue.jpg,q1449143206.pagespeed.ic.dMPPPY5YfX.jpg)}}html.android2 .c3890122365,html.android2 .c3890122365:after{background-image:url(local/adapt-img/320/15x/IMG/jpg/xcoconut-grove-la-pirogue.jpg,q1493877125.pagespeed.ic.Nyy7wj_kMs.jpg)}@media screen and (max-width:160px){html:not(.android2) .c3263030632,html:not(.android2) .c3263030632:after{background-image:url(local/adapt-img/160/10x/IMG/jpg/xwedding-setup-beach-sugar-beach_cropped.jpg,q1493877128.pagespeed.ic.NbCtMlTmDI.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:1.5) and (-webkit-max-device-pixel-ratio:1.99) and (max-width:160px),screen and (min--moz-device-pixel-ratio:1.5) and (max--moz-device-pixel-ratio:1.99) and (max-width:160px){html:not(.android2):not(.aislow) .c3263030632,html:not(.android2):not(.aislow) .c3263030632:after{background-image:url(local/adapt-img/160/15x/IMG/jpg/xwedding-setup-beach-sugar-beach_cropped.jpg,q1493877128.pagespeed.ic.DvCWCAsbv6.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:2) and (max-width:160px),screen and (min--moz-device-pixel-ratio:2) and (max-width:160px){html:not(.android2):not(.aislow) .c3263030632,html:not(.android2):not(.aislow) .c3263030632:after{background-image:url(local/adapt-img/160/20x/IMG/jpg/xwedding-setup-beach-sugar-beach_cropped.jpg,q1493877128.pagespeed.ic.W1EoGemg8S.jpg)}}@media screen and (min-width:161px) and (max-width:320px){html:not(.android2) .c3263030632,html:not(.android2) .c3263030632:after{background-image:url(local/adapt-img/320/10x/IMG/jpg/xwedding-setup-beach-sugar-beach_cropped.jpg,q1493877128.pagespeed.ic.pdWPPaO1_4.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:1.5) and (-webkit-max-device-pixel-ratio:1.99) and (min-width:161px) and (max-width:320px),screen and (min--moz-device-pixel-ratio:1.5) and (max--moz-device-pixel-ratio:1.99) and (min-width:161px) and (max-width:320px){html:not(.android2):not(.aislow) .c3263030632,html:not(.android2):not(.aislow) .c3263030632:after{background-image:url(local/adapt-img/320/15x/IMG/jpg/xwedding-setup-beach-sugar-beach_cropped.jpg,q1493877128.pagespeed.ic.lT_x1_qklT.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:2) and (min-width:161px) and (max-width:320px),screen and (min--moz-device-pixel-ratio:2) and (min-width:161px) and (max-width:320px){html:not(.android2):not(.aislow) .c3263030632,html:not(.android2):not(.aislow) .c3263030632:after{background-image:url(local/adapt-img/320/20x/IMG/jpg/xwedding-setup-beach-sugar-beach_cropped.jpg,q1493877128.pagespeed.ic.gYeK-8L3ae.jpg)}}@media screen and (min-width:321px) and (max-width:480px){html:not(.android2) .c3263030632,html:not(.android2) .c3263030632:after{background-image:url(local/adapt-img/480/10x/IMG/jpg/xwedding-setup-beach-sugar-beach_cropped.jpg,q1493877128.pagespeed.ic.uOH0vMDqxn.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:1.5) and (-webkit-max-device-pixel-ratio:1.99) and (min-width:321px) and (max-width:480px),screen and (min--moz-device-pixel-ratio:1.5) and (max--moz-device-pixel-ratio:1.99) and (min-width:321px) and (max-width:480px){html:not(.android2):not(.aislow) .c3263030632,html:not(.android2):not(.aislow) .c3263030632:after{background-image:url(local/adapt-img/480/15x/IMG/jpg/xwedding-setup-beach-sugar-beach_cropped.jpg,q1493877128.pagespeed.ic.s0eoJRfLKA.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:2) and (min-width:321px) and (max-width:480px),screen and (min--moz-device-pixel-ratio:2) and (min-width:321px) and (max-width:480px){html:not(.android2):not(.aislow) .c3263030632,html:not(.android2):not(.aislow) .c3263030632:after{background-image:url(local/adapt-img/480/20x/IMG/jpg/xwedding-setup-beach-sugar-beach_cropped.jpg,q1493877129.pagespeed.ic.JLw6JKO731.jpg)}}@media screen and (min-width:481px) and (max-width:640px){html:not(.android2) .c3263030632,html:not(.android2) .c3263030632:after{background-image:url(local/adapt-img/640/10x/IMG/jpg/xwedding-setup-beach-sugar-beach_cropped.jpg,q1493877129.pagespeed.ic.Am6JVLS-nX.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:1.5) and (-webkit-max-device-pixel-ratio:1.99) and (min-width:481px) and (max-width:640px),screen and (min--moz-device-pixel-ratio:1.5) and (max--moz-device-pixel-ratio:1.99) and (min-width:481px) and (max-width:640px){html:not(.android2):not(.aislow) .c3263030632,html:not(.android2):not(.aislow) .c3263030632:after{background-image:url(local/adapt-img/640/15x/IMG/jpg/xwedding-setup-beach-sugar-beach_cropped.jpg,q1493877129.pagespeed.ic.6SMqAgBpj5.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:2) and (min-width:481px) and (max-width:640px),screen and (min--moz-device-pixel-ratio:2) and (min-width:481px) and (max-width:640px){html:not(.android2):not(.aislow) .c3263030632,html:not(.android2):not(.aislow) .c3263030632:after{background-image:url(local/adapt-img/640/20x/IMG/jpg/xwedding-setup-beach-sugar-beach_cropped.jpg,q1493877129.pagespeed.ic.OlbBwjOo-y.jpg)}}@media screen and (min-width:641px) and (max-width:960px){html:not(.android2) .c3263030632,html:not(.android2) .c3263030632:after{background-image:url(local/adapt-img/960/10x/IMG/jpg/xwedding-setup-beach-sugar-beach_cropped.jpg,q1493877129.pagespeed.ic.rCk1Rbt119.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:1.5) and (-webkit-max-device-pixel-ratio:1.99) and (min-width:641px) and (max-width:960px),screen and (min--moz-device-pixel-ratio:1.5) and (max--moz-device-pixel-ratio:1.99) and (min-width:641px) and (max-width:960px){html:not(.android2):not(.aislow) .c3263030632,html:not(.android2):not(.aislow) .c3263030632:after{background-image:url(local/adapt-img/960/15x/IMG/jpg/xwedding-setup-beach-sugar-beach_cropped.jpg,q1493877130.pagespeed.ic.uyWmoszQeq.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:2) and (min-width:641px) and (max-width:960px),screen and (min--moz-device-pixel-ratio:2) and (min-width:641px) and (max-width:960px){html:not(.android2):not(.aislow) .c3263030632,html:not(.android2):not(.aislow) .c3263030632:after{background-image:url(IMG/jpg/xwedding-setup-beach-sugar-beach_cropped.jpg,q1453120642.pagespeed.ic.L_rJv4iAKW.jpg)}}@media screen and (min-width:961px) and (max-width:1440px){html:not(.android2) .c3263030632,html:not(.android2) .c3263030632:after{background-image:url(local/adapt-img/1440/10x/IMG/jpg/xwedding-setup-beach-sugar-beach_cropped.jpg,q1493877130.pagespeed.ic.34CxUt21Ge.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:1.5) and (-webkit-max-device-pixel-ratio:1.99) and (min-width:961px) and (max-width:1440px),screen and (min--moz-device-pixel-ratio:1.5) and (max--moz-device-pixel-ratio:1.99) and (min-width:961px) and (max-width:1440px){html:not(.android2):not(.aislow) .c3263030632,html:not(.android2):not(.aislow) .c3263030632:after{background-image:url(IMG/jpg/xwedding-setup-beach-sugar-beach_cropped.jpg,q1453120642.pagespeed.ic.L_rJv4iAKW.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:2) and (min-width:961px) and (max-width:1440px),screen and (min--moz-device-pixel-ratio:2) and (min-width:961px) and (max-width:1440px){html:not(.android2):not(.aislow) .c3263030632,html:not(.android2):not(.aislow) .c3263030632:after{background-image:url(IMG/jpg/xwedding-setup-beach-sugar-beach_cropped.jpg,q1453120642.pagespeed.ic.L_rJv4iAKW.jpg)}}@media screen and (min-width:1441px){html:not(.android2) .c3263030632,html:not(.android2) .c3263030632:after{background-image:url(IMG/jpg/xwedding-setup-beach-sugar-beach_cropped.jpg,q1453120642.pagespeed.ic.L_rJv4iAKW.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:1.5) and (-webkit-max-device-pixel-ratio:1.99) and (min-width:1441px),screen and (min--moz-device-pixel-ratio:1.5) and (max--moz-device-pixel-ratio:1.99) and (min-width:1441px){html:not(.android2):not(.aislow) .c3263030632,html:not(.android2):not(.aislow) .c3263030632:after{background-image:url(IMG/jpg/xwedding-setup-beach-sugar-beach_cropped.jpg,q1453120642.pagespeed.ic.L_rJv4iAKW.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:2) and (min-width:1441px),screen and (min--moz-device-pixel-ratio:2) and (min-width:1441px){html:not(.android2):not(.aislow) .c3263030632,html:not(.android2):not(.aislow) .c3263030632:after{background-image:url(IMG/jpg/xwedding-setup-beach-sugar-beach_cropped.jpg,q1453120642.pagespeed.ic.L_rJv4iAKW.jpg)}}html.android2 .c3263030632,html.android2 .c3263030632:after{background-image:url(local/adapt-img/320/15x/IMG/jpg/xwedding-setup-beach-sugar-beach_cropped.jpg,q1493877128.pagespeed.ic.lT_x1_qklT.jpg)}@media screen and (max-width:160px){html:not(.android2) .c1191155699,html:not(.android2) .c1191155699:after{background-image:url(local/adapt-img/160/10x/IMG/jpg/xcouple-on-honeymoon.jpg,q1493877130.pagespeed.ic.si1U44_ryu.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:1.5) and (-webkit-max-device-pixel-ratio:1.99) and (max-width:160px),screen and (min--moz-device-pixel-ratio:1.5) and (max--moz-device-pixel-ratio:1.99) and (max-width:160px){html:not(.android2):not(.aislow) .c1191155699,html:not(.android2):not(.aislow) .c1191155699:after{background-image:url(local/adapt-img/160/15x/IMG/jpg/xcouple-on-honeymoon.jpg,q1493877130.pagespeed.ic.oxgse8viml.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:2) and (max-width:160px),screen and (min--moz-device-pixel-ratio:2) and (max-width:160px){html:not(.android2):not(.aislow) .c1191155699,html:not(.android2):not(.aislow) .c1191155699:after{background-image:url(local/adapt-img/160/20x/IMG/jpg/xcouple-on-honeymoon.jpg,q1493877130.pagespeed.ic.W2AISq-Z6D.jpg)}}@media screen and (min-width:161px) and (max-width:320px){html:not(.android2) .c1191155699,html:not(.android2) .c1191155699:after{background-image:url(local/adapt-img/320/10x/IMG/jpg/xcouple-on-honeymoon.jpg,q1493877130.pagespeed.ic.e0Xa8eujE1.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:1.5) and (-webkit-max-device-pixel-ratio:1.99) and (min-width:161px) and (max-width:320px),screen and (min--moz-device-pixel-ratio:1.5) and (max--moz-device-pixel-ratio:1.99) and (min-width:161px) and (max-width:320px){html:not(.android2):not(.aislow) .c1191155699,html:not(.android2):not(.aislow) .c1191155699:after{background-image:url(local/adapt-img/320/15x/IMG/jpg/xcouple-on-honeymoon.jpg,q1493877130.pagespeed.ic.tF4Thwi8Dy.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:2) and (min-width:161px) and (max-width:320px),screen and (min--moz-device-pixel-ratio:2) and (min-width:161px) and (max-width:320px){html:not(.android2):not(.aislow) .c1191155699,html:not(.android2):not(.aislow) .c1191155699:after{background-image:url(local/adapt-img/320/20x/IMG/jpg/xcouple-on-honeymoon.jpg,q1493877130.pagespeed.ic.QDE5RUQNdg.jpg)}}@media screen and (min-width:321px) and (max-width:480px){html:not(.android2) .c1191155699,html:not(.android2) .c1191155699:after{background-image:url(local/adapt-img/480/10x/IMG/jpg/xcouple-on-honeymoon.jpg,q1493877130.pagespeed.ic.CAP7L7jpTJ.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:1.5) and (-webkit-max-device-pixel-ratio:1.99) and (min-width:321px) and (max-width:480px),screen and (min--moz-device-pixel-ratio:1.5) and (max--moz-device-pixel-ratio:1.99) and (min-width:321px) and (max-width:480px){html:not(.android2):not(.aislow) .c1191155699,html:not(.android2):not(.aislow) .c1191155699:after{background-image:url(local/adapt-img/480/15x/IMG/jpg/xcouple-on-honeymoon.jpg,q1493877131.pagespeed.ic.dP4XOfn0Fu.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:2) and (min-width:321px) and (max-width:480px),screen and (min--moz-device-pixel-ratio:2) and (min-width:321px) and (max-width:480px){html:not(.android2):not(.aislow) .c1191155699,html:not(.android2):not(.aislow) .c1191155699:after{background-image:url(local/adapt-img/480/20x/IMG/jpg/xcouple-on-honeymoon.jpg,q1493877131.pagespeed.ic.CxFj592R2x.jpg)}}@media screen and (min-width:481px) and (max-width:640px){html:not(.android2) .c1191155699,html:not(.android2) .c1191155699:after{background-image:url(local/adapt-img/640/10x/IMG/jpg/xcouple-on-honeymoon.jpg,q1493877131.pagespeed.ic.SaXh4S591O.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:1.5) and (-webkit-max-device-pixel-ratio:1.99) and (min-width:481px) and (max-width:640px),screen and (min--moz-device-pixel-ratio:1.5) and (max--moz-device-pixel-ratio:1.99) and (min-width:481px) and (max-width:640px){html:not(.android2):not(.aislow) .c1191155699,html:not(.android2):not(.aislow) .c1191155699:after{background-image:url(local/adapt-img/640/15x/IMG/jpg/xcouple-on-honeymoon.jpg,q1493877131.pagespeed.ic.zalrDGw8f_.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:2) and (min-width:481px) and (max-width:640px),screen and (min--moz-device-pixel-ratio:2) and (min-width:481px) and (max-width:640px){html:not(.android2):not(.aislow) .c1191155699,html:not(.android2):not(.aislow) .c1191155699:after{background-image:url(local/adapt-img/640/20x/IMG/jpg/xcouple-on-honeymoon.jpg,q1493877131.pagespeed.ic.YU3_WsjuKv.jpg)}}@media screen and (min-width:641px) and (max-width:960px){html:not(.android2) .c1191155699,html:not(.android2) .c1191155699:after{background-image:url(local/adapt-img/960/10x/IMG/jpg/xcouple-on-honeymoon.jpg,q1493877132.pagespeed.ic.DC1PH9J_gx.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:1.5) and (-webkit-max-device-pixel-ratio:1.99) and (min-width:641px) and (max-width:960px),screen and (min--moz-device-pixel-ratio:1.5) and (max--moz-device-pixel-ratio:1.99) and (min-width:641px) and (max-width:960px){html:not(.android2):not(.aislow) .c1191155699,html:not(.android2):not(.aislow) .c1191155699:after{background-image:url(local/adapt-img/960/15x/IMG/jpg/xcouple-on-honeymoon.jpg,q1493877132.pagespeed.ic.6OsRfg3qaI.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:2) and (min-width:641px) and (max-width:960px),screen and (min--moz-device-pixel-ratio:2) and (min-width:641px) and (max-width:960px){html:not(.android2):not(.aislow) .c1191155699,html:not(.android2):not(.aislow) .c1191155699:after{background-image:url(IMG/jpg/xcouple-on-honeymoon.jpg,q1453120161.pagespeed.ic.lETkZ2IPL3.jpg)}}@media screen and (min-width:961px) and (max-width:1440px){html:not(.android2) .c1191155699,html:not(.android2) .c1191155699:after{background-image:url(local/adapt-img/1440/10x/IMG/jpg/xcouple-on-honeymoon.jpg,q1493877132.pagespeed.ic.wp7OhnZvje.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:1.5) and (-webkit-max-device-pixel-ratio:1.99) and (min-width:961px) and (max-width:1440px),screen and (min--moz-device-pixel-ratio:1.5) and (max--moz-device-pixel-ratio:1.99) and (min-width:961px) and (max-width:1440px){html:not(.android2):not(.aislow) .c1191155699,html:not(.android2):not(.aislow) .c1191155699:after{background-image:url(IMG/jpg/xcouple-on-honeymoon.jpg,q1453120161.pagespeed.ic.lETkZ2IPL3.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:2) and (min-width:961px) and (max-width:1440px),screen and (min--moz-device-pixel-ratio:2) and (min-width:961px) and (max-width:1440px){html:not(.android2):not(.aislow) .c1191155699,html:not(.android2):not(.aislow) .c1191155699:after{background-image:url(IMG/jpg/xcouple-on-honeymoon.jpg,q1453120161.pagespeed.ic.lETkZ2IPL3.jpg)}}@media screen and (min-width:1441px){html:not(.android2) .c1191155699,html:not(.android2) .c1191155699:after{background-image:url(IMG/jpg/xcouple-on-honeymoon.jpg,q1453120161.pagespeed.ic.lETkZ2IPL3.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:1.5) and (-webkit-max-device-pixel-ratio:1.99) and (min-width:1441px),screen and (min--moz-device-pixel-ratio:1.5) and (max--moz-device-pixel-ratio:1.99) and (min-width:1441px){html:not(.android2):not(.aislow) .c1191155699,html:not(.android2):not(.aislow) .c1191155699:after{background-image:url(IMG/jpg/xcouple-on-honeymoon.jpg,q1453120161.pagespeed.ic.lETkZ2IPL3.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:2) and (min-width:1441px),screen and (min--moz-device-pixel-ratio:2) and (min-width:1441px){html:not(.android2):not(.aislow) .c1191155699,html:not(.android2):not(.aislow) .c1191155699:after{background-image:url(IMG/jpg/xcouple-on-honeymoon.jpg,q1453120161.pagespeed.ic.lETkZ2IPL3.jpg)}}html.android2 .c1191155699,html.android2 .c1191155699:after{background-image:url(local/adapt-img/320/15x/IMG/jpg/xcouple-on-honeymoon.jpg,q1493877130.pagespeed.ic.tF4Thwi8Dy.jpg)}@media screen and (max-width:160px){html:not(.android2) .c1325258756,html:not(.android2) .c1325258756:after{background-image:url(local/adapt-img/160/10x/IMG/jpg/xkids.jpg,q1493877132.pagespeed.ic.kDTU7pm2nX.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:1.5) and (-webkit-max-device-pixel-ratio:1.99) and (max-width:160px),screen and (min--moz-device-pixel-ratio:1.5) and (max--moz-device-pixel-ratio:1.99) and (max-width:160px){html:not(.android2):not(.aislow) .c1325258756,html:not(.android2):not(.aislow) .c1325258756:after{background-image:url(local/adapt-img/160/15x/IMG/jpg/xkids.jpg,q1493877132.pagespeed.ic.JVDdCGaSyg.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:2) and (max-width:160px),screen and (min--moz-device-pixel-ratio:2) and (max-width:160px){html:not(.android2):not(.aislow) .c1325258756,html:not(.android2):not(.aislow) .c1325258756:after{background-image:url(local/adapt-img/160/20x/IMG/jpg/xkids.jpg,q1493877132.pagespeed.ic.MHKTLAIV6s.jpg)}}@media screen and (min-width:161px) and (max-width:320px){html:not(.android2) .c1325258756,html:not(.android2) .c1325258756:after{background-image:url(local/adapt-img/320/10x/IMG/jpg/xkids.jpg,q1493877133.pagespeed.ic.7XhnDDQmbs.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:1.5) and (-webkit-max-device-pixel-ratio:1.99) and (min-width:161px) and (max-width:320px),screen and (min--moz-device-pixel-ratio:1.5) and (max--moz-device-pixel-ratio:1.99) and (min-width:161px) and (max-width:320px){html:not(.android2):not(.aislow) .c1325258756,html:not(.android2):not(.aislow) .c1325258756:after{background-image:url(local/adapt-img/320/15x/IMG/jpg/xkids.jpg,q1493877133.pagespeed.ic.50pBHggrZA.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:2) and (min-width:161px) and (max-width:320px),screen and (min--moz-device-pixel-ratio:2) and (min-width:161px) and (max-width:320px){html:not(.android2):not(.aislow) .c1325258756,html:not(.android2):not(.aislow) .c1325258756:after{background-image:url(local/adapt-img/320/20x/IMG/jpg/xkids.jpg,q1493877133.pagespeed.ic.X9s-949lTW.jpg)}}@media screen and (min-width:321px) and (max-width:480px){html:not(.android2) .c1325258756,html:not(.android2) .c1325258756:after{background-image:url(local/adapt-img/480/10x/IMG/jpg/xkids.jpg,q1493877133.pagespeed.ic.Ph_LQhMBzG.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:1.5) and (-webkit-max-device-pixel-ratio:1.99) and (min-width:321px) and (max-width:480px),screen and (min--moz-device-pixel-ratio:1.5) and (max--moz-device-pixel-ratio:1.99) and (min-width:321px) and (max-width:480px){html:not(.android2):not(.aislow) .c1325258756,html:not(.android2):not(.aislow) .c1325258756:after{background-image:url(local/adapt-img/480/15x/IMG/jpg/xkids.jpg,q1493877133.pagespeed.ic.hcE8d4Neiv.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:2) and (min-width:321px) and (max-width:480px),screen and (min--moz-device-pixel-ratio:2) and (min-width:321px) and (max-width:480px){html:not(.android2):not(.aislow) .c1325258756,html:not(.android2):not(.aislow) .c1325258756:after{background-image:url(local/adapt-img/480/20x/IMG/jpg/xkids.jpg,q1493877133.pagespeed.ic.5uuruSWDcy.jpg)}}@media screen and (min-width:481px) and (max-width:640px){html:not(.android2) .c1325258756,html:not(.android2) .c1325258756:after{background-image:url(local/adapt-img/640/10x/IMG/jpg/xkids.jpg,q1493877133.pagespeed.ic.vSEZFdb4FZ.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:1.5) and (-webkit-max-device-pixel-ratio:1.99) and (min-width:481px) and (max-width:640px),screen and (min--moz-device-pixel-ratio:1.5) and (max--moz-device-pixel-ratio:1.99) and (min-width:481px) and (max-width:640px){html:not(.android2):not(.aislow) .c1325258756,html:not(.android2):not(.aislow) .c1325258756:after{background-image:url(local/adapt-img/640/15x/IMG/jpg/xkids.jpg,q1493877134.pagespeed.ic.r81X7RjG4N.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:2) and (min-width:481px) and (max-width:640px),screen and (min--moz-device-pixel-ratio:2) and (min-width:481px) and (max-width:640px){html:not(.android2):not(.aislow) .c1325258756,html:not(.android2):not(.aislow) .c1325258756:after{background-image:url(local/adapt-img/640/20x/IMG/jpg/xkids.jpg,q1493877135.pagespeed.ic.z-8KiYRQpQ.jpg)}}@media screen and (min-width:641px) and (max-width:960px){html:not(.android2) .c1325258756,html:not(.android2) .c1325258756:after{background-image:url(local/adapt-img/960/10x/IMG/jpg/xkids.jpg,q1493877135.pagespeed.ic.4dfSmsjouQ.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:1.5) and (-webkit-max-device-pixel-ratio:1.99) and (min-width:641px) and (max-width:960px),screen and (min--moz-device-pixel-ratio:1.5) and (max--moz-device-pixel-ratio:1.99) and (min-width:641px) and (max-width:960px){html:not(.android2):not(.aislow) .c1325258756,html:not(.android2):not(.aislow) .c1325258756:after{background-image:url(local/adapt-img/960/15x/IMG/jpg/xkids.jpg,q1493877136.pagespeed.ic.v6HrRZbSeR.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:2) and (min-width:641px) and (max-width:960px),screen and (min--moz-device-pixel-ratio:2) and (min-width:641px) and (max-width:960px){html:not(.android2):not(.aislow) .c1325258756,html:not(.android2):not(.aislow) .c1325258756:after{background-image:url(IMG/jpg/xkids.jpg,q1448485361.pagespeed.ic.6iAMsSeBI-.jpg)}}@media screen and (min-width:961px) and (max-width:1440px){html:not(.android2) .c1325258756,html:not(.android2) .c1325258756:after{background-image:url(local/adapt-img/1440/10x/IMG/jpg/xkids.jpg,q1493877137.pagespeed.ic.qrpha3Q9DY.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:1.5) and (-webkit-max-device-pixel-ratio:1.99) and (min-width:961px) and (max-width:1440px),screen and (min--moz-device-pixel-ratio:1.5) and (max--moz-device-pixel-ratio:1.99) and (min-width:961px) and (max-width:1440px){html:not(.android2):not(.aislow) .c1325258756,html:not(.android2):not(.aislow) .c1325258756:after{background-image:url(IMG/jpg/xkids.jpg,q1448485361.pagespeed.ic.6iAMsSeBI-.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:2) and (min-width:961px) and (max-width:1440px),screen and (min--moz-device-pixel-ratio:2) and (min-width:961px) and (max-width:1440px){html:not(.android2):not(.aislow) .c1325258756,html:not(.android2):not(.aislow) .c1325258756:after{background-image:url(IMG/jpg/xkids.jpg,q1448485361.pagespeed.ic.6iAMsSeBI-.jpg)}}@media screen and (min-width:1441px){html:not(.android2) .c1325258756,html:not(.android2) .c1325258756:after{background-image:url(IMG/jpg/xkids.jpg,q1448485361.pagespeed.ic.6iAMsSeBI-.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:1.5) and (-webkit-max-device-pixel-ratio:1.99) and (min-width:1441px),screen and (min--moz-device-pixel-ratio:1.5) and (max--moz-device-pixel-ratio:1.99) and (min-width:1441px){html:not(.android2):not(.aislow) .c1325258756,html:not(.android2):not(.aislow) .c1325258756:after{background-image:url(IMG/jpg/xkids.jpg,q1448485361.pagespeed.ic.6iAMsSeBI-.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:2) and (min-width:1441px),screen and (min--moz-device-pixel-ratio:2) and (min-width:1441px){html:not(.android2):not(.aislow) .c1325258756,html:not(.android2):not(.aislow) .c1325258756:after{background-image:url(IMG/jpg/xkids.jpg,q1448485361.pagespeed.ic.6iAMsSeBI-.jpg)}}html.android2 .c1325258756,html.android2 .c1325258756:after{background-image:url(local/adapt-img/320/15x/IMG/jpg/xkids.jpg,q1493877133.pagespeed.ic.50pBHggrZA.jpg)}@media screen and (max-width:160px){html:not(.android2) .c3684895642,html:not(.android2) .c3684895642:after{background-image:url(local/adapt-img/160/10x/IMG/jpg/xgolf1.jpg,q1493877137.pagespeed.ic.lpGY5CyTui.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:1.5) and (-webkit-max-device-pixel-ratio:1.99) and (max-width:160px),screen and (min--moz-device-pixel-ratio:1.5) and (max--moz-device-pixel-ratio:1.99) and (max-width:160px){html:not(.android2):not(.aislow) .c3684895642,html:not(.android2):not(.aislow) .c3684895642:after{background-image:url(local/adapt-img/160/15x/IMG/jpg/xgolf1.jpg,q1493877137.pagespeed.ic.xgRXLqiN3J.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:2) and (max-width:160px),screen and (min--moz-device-pixel-ratio:2) and (max-width:160px){html:not(.android2):not(.aislow) .c3684895642,html:not(.android2):not(.aislow) .c3684895642:after{background-image:url(local/adapt-img/160/20x/IMG/jpg/xgolf1.jpg,q1493877137.pagespeed.ic.rhMDFWkhUc.jpg)}}@media screen and (min-width:161px) and (max-width:320px){html:not(.android2) .c3684895642,html:not(.android2) .c3684895642:after{background-image:url(local/adapt-img/320/10x/IMG/jpg/xgolf1.jpg,q1493877137.pagespeed.ic.bGzJrOm5OH.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:1.5) and (-webkit-max-device-pixel-ratio:1.99) and (min-width:161px) and (max-width:320px),screen and (min--moz-device-pixel-ratio:1.5) and (max--moz-device-pixel-ratio:1.99) and (min-width:161px) and (max-width:320px){html:not(.android2):not(.aislow) .c3684895642,html:not(.android2):not(.aislow) .c3684895642:after{background-image:url(local/adapt-img/320/15x/IMG/jpg/xgolf1.jpg,q1493877138.pagespeed.ic.bH_RIras0d.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:2) and (min-width:161px) and (max-width:320px),screen and (min--moz-device-pixel-ratio:2) and (min-width:161px) and (max-width:320px){html:not(.android2):not(.aislow) .c3684895642,html:not(.android2):not(.aislow) .c3684895642:after{background-image:url(local/adapt-img/320/20x/IMG/jpg/xgolf1.jpg,q1493877138.pagespeed.ic.OKPTRwiq1U.jpg)}}@media screen and (min-width:321px) and (max-width:480px){html:not(.android2) .c3684895642,html:not(.android2) .c3684895642:after{background-image:url(local/adapt-img/480/10x/IMG/jpg/xgolf1.jpg,q1493877138.pagespeed.ic.SQgFqE-2wF.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:1.5) and (-webkit-max-device-pixel-ratio:1.99) and (min-width:321px) and (max-width:480px),screen and (min--moz-device-pixel-ratio:1.5) and (max--moz-device-pixel-ratio:1.99) and (min-width:321px) and (max-width:480px){html:not(.android2):not(.aislow) .c3684895642,html:not(.android2):not(.aislow) .c3684895642:after{background-image:url(local/adapt-img/480/15x/IMG/jpg/xgolf1.jpg,q1493877138.pagespeed.ic.bsq6cmdQPO.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:2) and (min-width:321px) and (max-width:480px),screen and (min--moz-device-pixel-ratio:2) and (min-width:321px) and (max-width:480px){html:not(.android2):not(.aislow) .c3684895642,html:not(.android2):not(.aislow) .c3684895642:after{background-image:url(local/adapt-img/480/20x/IMG/jpg/xgolf1.jpg,q1493877138.pagespeed.ic.8ky8esFfJj.jpg)}}@media screen and (min-width:481px) and (max-width:640px){html:not(.android2) .c3684895642,html:not(.android2) .c3684895642:after{background-image:url(local/adapt-img/640/10x/IMG/jpg/xgolf1.jpg,q1493877138.pagespeed.ic.-eI3PXe32I.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:1.5) and (-webkit-max-device-pixel-ratio:1.99) and (min-width:481px) and (max-width:640px),screen and (min--moz-device-pixel-ratio:1.5) and (max--moz-device-pixel-ratio:1.99) and (min-width:481px) and (max-width:640px){html:not(.android2):not(.aislow) .c3684895642,html:not(.android2):not(.aislow) .c3684895642:after{background-image:url(local/adapt-img/640/15x/IMG/jpg/xgolf1.jpg,q1493877138.pagespeed.ic.fm9fsMB8-F.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:2) and (min-width:481px) and (max-width:640px),screen and (min--moz-device-pixel-ratio:2) and (min-width:481px) and (max-width:640px){html:not(.android2):not(.aislow) .c3684895642,html:not(.android2):not(.aislow) .c3684895642:after{background-image:url(local/adapt-img/640/20x/IMG/jpg/xgolf1.jpg,q1493877139.pagespeed.ic.vg0_z78p-D.jpg)}}@media screen and (min-width:641px) and (max-width:960px){html:not(.android2) .c3684895642,html:not(.android2) .c3684895642:after{background-image:url(local/adapt-img/960/10x/IMG/jpg/xgolf1.jpg,q1493877139.pagespeed.ic.NlwefRzVr4.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:1.5) and (-webkit-max-device-pixel-ratio:1.99) and (min-width:641px) and (max-width:960px),screen and (min--moz-device-pixel-ratio:1.5) and (max--moz-device-pixel-ratio:1.99) and (min-width:641px) and (max-width:960px){html:not(.android2):not(.aislow) .c3684895642,html:not(.android2):not(.aislow) .c3684895642:after{background-image:url(local/adapt-img/960/15x/IMG/jpg/xgolf1.jpg,q1493877139.pagespeed.ic.ZZl6RwK4e5.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:2) and (min-width:641px) and (max-width:960px),screen and (min--moz-device-pixel-ratio:2) and (min-width:641px) and (max-width:960px){html:not(.android2):not(.aislow) .c3684895642,html:not(.android2):not(.aislow) .c3684895642:after{background-image:url(IMG/jpg/xgolf1.jpg,q1450701486.pagespeed.ic.49I0McwgDm.jpg)}}@media screen and (min-width:961px) and (max-width:1440px){html:not(.android2) .c3684895642,html:not(.android2) .c3684895642:after{background-image:url(local/adapt-img/1440/10x/IMG/jpg/xgolf1.jpg,q1493877140.pagespeed.ic.MQQOVpdROE.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:1.5) and (-webkit-max-device-pixel-ratio:1.99) and (min-width:961px) and (max-width:1440px),screen and (min--moz-device-pixel-ratio:1.5) and (max--moz-device-pixel-ratio:1.99) and (min-width:961px) and (max-width:1440px){html:not(.android2):not(.aislow) .c3684895642,html:not(.android2):not(.aislow) .c3684895642:after{background-image:url(IMG/jpg/xgolf1.jpg,q1450701486.pagespeed.ic.49I0McwgDm.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:2) and (min-width:961px) and (max-width:1440px),screen and (min--moz-device-pixel-ratio:2) and (min-width:961px) and (max-width:1440px){html:not(.android2):not(.aislow) .c3684895642,html:not(.android2):not(.aislow) .c3684895642:after{background-image:url(IMG/jpg/xgolf1.jpg,q1450701486.pagespeed.ic.49I0McwgDm.jpg)}}@media screen and (min-width:1441px){html:not(.android2) .c3684895642,html:not(.android2) .c3684895642:after{background-image:url(IMG/jpg/xgolf1.jpg,q1450701486.pagespeed.ic.49I0McwgDm.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:1.5) and (-webkit-max-device-pixel-ratio:1.99) and (min-width:1441px),screen and (min--moz-device-pixel-ratio:1.5) and (max--moz-device-pixel-ratio:1.99) and (min-width:1441px){html:not(.android2):not(.aislow) .c3684895642,html:not(.android2):not(.aislow) .c3684895642:after{background-image:url(IMG/jpg/xgolf1.jpg,q1450701486.pagespeed.ic.49I0McwgDm.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:2) and (min-width:1441px),screen and (min--moz-device-pixel-ratio:2) and (min-width:1441px){html:not(.android2):not(.aislow) .c3684895642,html:not(.android2):not(.aislow) .c3684895642:after{background-image:url(IMG/jpg/xgolf1.jpg,q1450701486.pagespeed.ic.49I0McwgDm.jpg)}}html.android2 .c3684895642,html.android2 .c3684895642:after{background-image:url(local/adapt-img/320/15x/IMG/jpg/xgolf1.jpg,q1493877138.pagespeed.ic.bH_RIras0d.jpg)}@media screen and (max-width:160px){html:not(.android2) .c327030203,html:not(.android2) .c327030203:after{background-image:url(local/adapt-img/160/10x/IMG/jpg/xwedding-la-pirogue-2.jpg,q1493877140.pagespeed.ic.PX7rPdS7xs.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:1.5) and (-webkit-max-device-pixel-ratio:1.99) and (max-width:160px),screen and (min--moz-device-pixel-ratio:1.5) and (max--moz-device-pixel-ratio:1.99) and (max-width:160px){html:not(.android2):not(.aislow) .c327030203,html:not(.android2):not(.aislow) .c327030203:after{background-image:url(local/adapt-img/160/15x/IMG/jpg/xwedding-la-pirogue-2.jpg,q1493877140.pagespeed.ic.ISz7vC0m26.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:2) and (max-width:160px),screen and (min--moz-device-pixel-ratio:2) and (max-width:160px){html:not(.android2):not(.aislow) .c327030203,html:not(.android2):not(.aislow) .c327030203:after{background-image:url(local/adapt-img/160/20x/IMG/jpg/xwedding-la-pirogue-2.jpg,q1493877140.pagespeed.ic.W11Y46h6G0.jpg)}}@media screen and (min-width:161px) and (max-width:320px){html:not(.android2) .c327030203,html:not(.android2) .c327030203:after{background-image:url(local/adapt-img/320/10x/IMG/jpg/xwedding-la-pirogue-2.jpg,q1493877140.pagespeed.ic.9M4xWDc73R.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:1.5) and (-webkit-max-device-pixel-ratio:1.99) and (min-width:161px) and (max-width:320px),screen and (min--moz-device-pixel-ratio:1.5) and (max--moz-device-pixel-ratio:1.99) and (min-width:161px) and (max-width:320px){html:not(.android2):not(.aislow) .c327030203,html:not(.android2):not(.aislow) .c327030203:after{background-image:url(local/adapt-img/320/15x/IMG/jpg/xwedding-la-pirogue-2.jpg,q1493877140.pagespeed.ic.dsrVuYXKMl.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:2) and (min-width:161px) and (max-width:320px),screen and (min--moz-device-pixel-ratio:2) and (min-width:161px) and (max-width:320px){html:not(.android2):not(.aislow) .c327030203,html:not(.android2):not(.aislow) .c327030203:after{background-image:url(local/adapt-img/320/20x/IMG/jpg/xwedding-la-pirogue-2.jpg,q1493877140.pagespeed.ic.mpV2DkfKku.jpg)}}@media screen and (min-width:321px) and (max-width:480px){html:not(.android2) .c327030203,html:not(.android2) .c327030203:after{background-image:url(local/adapt-img/480/10x/IMG/jpg/xwedding-la-pirogue-2.jpg,q1493877140.pagespeed.ic.itBtOJUeY8.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:1.5) and (-webkit-max-device-pixel-ratio:1.99) and (min-width:321px) and (max-width:480px),screen and (min--moz-device-pixel-ratio:1.5) and (max--moz-device-pixel-ratio:1.99) and (min-width:321px) and (max-width:480px){html:not(.android2):not(.aislow) .c327030203,html:not(.android2):not(.aislow) .c327030203:after{background-image:url(local/adapt-img/480/15x/IMG/jpg/xwedding-la-pirogue-2.jpg,q1493877140.pagespeed.ic.lhd0IU5DBZ.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:2) and (min-width:321px) and (max-width:480px),screen and (min--moz-device-pixel-ratio:2) and (min-width:321px) and (max-width:480px){html:not(.android2):not(.aislow) .c327030203,html:not(.android2):not(.aislow) .c327030203:after{background-image:url(local/adapt-img/480/20x/IMG/jpg/xwedding-la-pirogue-2.jpg,q1493877141.pagespeed.ic.XxJN-2_M_q.jpg)}}@media screen and (min-width:481px) and (max-width:640px){html:not(.android2) .c327030203,html:not(.android2) .c327030203:after{background-image:url(local/adapt-img/640/10x/IMG/jpg/xwedding-la-pirogue-2.jpg,q1493877141.pagespeed.ic.-eiGa2TbET.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:1.5) and (-webkit-max-device-pixel-ratio:1.99) and (min-width:481px) and (max-width:640px),screen and (min--moz-device-pixel-ratio:1.5) and (max--moz-device-pixel-ratio:1.99) and (min-width:481px) and (max-width:640px){html:not(.android2):not(.aislow) .c327030203,html:not(.android2):not(.aislow) .c327030203:after{background-image:url(local/adapt-img/640/15x/IMG/jpg/xwedding-la-pirogue-2.jpg,q1493877141.pagespeed.ic.tbejvwZkgV.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:2) and (min-width:481px) and (max-width:640px),screen and (min--moz-device-pixel-ratio:2) and (min-width:481px) and (max-width:640px){html:not(.android2):not(.aislow) .c327030203,html:not(.android2):not(.aislow) .c327030203:after{background-image:url(local/adapt-img/640/20x/IMG/jpg/xwedding-la-pirogue-2.jpg,q1493877141.pagespeed.ic.2-IkxXvtjD.jpg)}}@media screen and (min-width:641px) and (max-width:960px){html:not(.android2) .c327030203,html:not(.android2) .c327030203:after{background-image:url(local/adapt-img/960/10x/IMG/jpg/xwedding-la-pirogue-2.jpg,q1493877141.pagespeed.ic.C8utR11r7p.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:1.5) and (-webkit-max-device-pixel-ratio:1.99) and (min-width:641px) and (max-width:960px),screen and (min--moz-device-pixel-ratio:1.5) and (max--moz-device-pixel-ratio:1.99) and (min-width:641px) and (max-width:960px){html:not(.android2):not(.aislow) .c327030203,html:not(.android2):not(.aislow) .c327030203:after{background-image:url(local/adapt-img/960/15x/IMG/jpg/xwedding-la-pirogue-2.jpg,q1493877142.pagespeed.ic.DAkJRHJS0y.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:2) and (min-width:641px) and (max-width:960px),screen and (min--moz-device-pixel-ratio:2) and (min-width:641px) and (max-width:960px){html:not(.android2):not(.aislow) .c327030203,html:not(.android2):not(.aislow) .c327030203:after{background-image:url(IMG/jpg/xwedding-la-pirogue-2.jpg,q1449658507.pagespeed.ic.pZneUJ0Ak1.jpg)}}@media screen and (min-width:961px) and (max-width:1440px){html:not(.android2) .c327030203,html:not(.android2) .c327030203:after{background-image:url(local/adapt-img/1440/10x/IMG/jpg/xwedding-la-pirogue-2.jpg,q1493877142.pagespeed.ic.uIxZ76WSZi.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:1.5) and (-webkit-max-device-pixel-ratio:1.99) and (min-width:961px) and (max-width:1440px),screen and (min--moz-device-pixel-ratio:1.5) and (max--moz-device-pixel-ratio:1.99) and (min-width:961px) and (max-width:1440px){html:not(.android2):not(.aislow) .c327030203,html:not(.android2):not(.aislow) .c327030203:after{background-image:url(IMG/jpg/xwedding-la-pirogue-2.jpg,q1449658507.pagespeed.ic.pZneUJ0Ak1.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:2) and (min-width:961px) and (max-width:1440px),screen and (min--moz-device-pixel-ratio:2) and (min-width:961px) and (max-width:1440px){html:not(.android2):not(.aislow) .c327030203,html:not(.android2):not(.aislow) .c327030203:after{background-image:url(IMG/jpg/xwedding-la-pirogue-2.jpg,q1449658507.pagespeed.ic.pZneUJ0Ak1.jpg)}}@media screen and (min-width:1441px){html:not(.android2) .c327030203,html:not(.android2) .c327030203:after{background-image:url(IMG/jpg/xwedding-la-pirogue-2.jpg,q1449658507.pagespeed.ic.pZneUJ0Ak1.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:1.5) and (-webkit-max-device-pixel-ratio:1.99) and (min-width:1441px),screen and (min--moz-device-pixel-ratio:1.5) and (max--moz-device-pixel-ratio:1.99) and (min-width:1441px){html:not(.android2):not(.aislow) .c327030203,html:not(.android2):not(.aislow) .c327030203:after{background-image:url(IMG/jpg/xwedding-la-pirogue-2.jpg,q1449658507.pagespeed.ic.pZneUJ0Ak1.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:2) and (min-width:1441px),screen and (min--moz-device-pixel-ratio:2) and (min-width:1441px){html:not(.android2):not(.aislow) .c327030203,html:not(.android2):not(.aislow) .c327030203:after{background-image:url(IMG/jpg/xwedding-la-pirogue-2.jpg,q1449658507.pagespeed.ic.pZneUJ0Ak1.jpg)}}html.android2 .c327030203,html.android2 .c327030203:after{background-image:url(local/adapt-img/320/15x/IMG/jpg/xwedding-la-pirogue-2.jpg,q1493877140.pagespeed.ic.dsrVuYXKMl.jpg)}@media screen and (max-width:160px){html:not(.android2) .c2237042522,html:not(.android2) .c2237042522:after{background-image:url(local/adapt-img/160/10x/IMG/xarton395.png,q1493877153.pagespeed.ic.M7D1s_TYSa.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:1.5) and (-webkit-max-device-pixel-ratio:1.99) and (max-width:160px),screen and (min--moz-device-pixel-ratio:1.5) and (max--moz-device-pixel-ratio:1.99) and (max-width:160px){html:not(.android2):not(.aislow) .c2237042522,html:not(.android2):not(.aislow) .c2237042522:after{background-image:url(local/adapt-img/160/15x/IMG/xarton395.png,q1493877153.pagespeed.ic.To8fQndVs1.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:2) and (max-width:160px),screen and (min--moz-device-pixel-ratio:2) and (max-width:160px){html:not(.android2):not(.aislow) .c2237042522,html:not(.android2):not(.aislow) .c2237042522:after{background-image:url(local/adapt-img/160/20x/IMG/xarton395.png,q1493877153.pagespeed.ic.faPn_6wA6d.jpg)}}@media screen and (min-width:161px) and (max-width:320px){html:not(.android2) .c2237042522,html:not(.android2) .c2237042522:after{background-image:url(local/adapt-img/320/10x/IMG/xarton395.png,q1493877153.pagespeed.ic.faPn_6wA6d.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:1.5) and (-webkit-max-device-pixel-ratio:1.99) and (min-width:161px) and (max-width:320px),screen and (min--moz-device-pixel-ratio:1.5) and (max--moz-device-pixel-ratio:1.99) and (min-width:161px) and (max-width:320px){html:not(.android2):not(.aislow) .c2237042522,html:not(.android2):not(.aislow) .c2237042522:after{background-image:url(local/adapt-img/320/15x/IMG/xarton395.png,q1493877153.pagespeed.ic.3LPYX99MA9.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:2) and (min-width:161px) and (max-width:320px),screen and (min--moz-device-pixel-ratio:2) and (min-width:161px) and (max-width:320px){html:not(.android2):not(.aislow) .c2237042522,html:not(.android2):not(.aislow) .c2237042522:after{background-image:url(IMG/xarton395.png,q1455336718.pagespeed.ic.3LPYX99MA9.jpg)}}@media screen and (min-width:321px){html:not(.android2) .c2237042522,html:not(.android2) .c2237042522:after{background-image:url(local/adapt-img/480/10x/IMG/xarton395.png,q1493877153.pagespeed.ic.3LPYX99MA9.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:1.5) and (-webkit-max-device-pixel-ratio:1.99) and (min-width:321px),screen and (min--moz-device-pixel-ratio:1.5) and (max--moz-device-pixel-ratio:1.99) and (min-width:321px){html:not(.android2):not(.aislow) .c2237042522,html:not(.android2):not(.aislow) .c2237042522:after{background-image:url(IMG/xarton395.png,q1455336718.pagespeed.ic.3LPYX99MA9.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:2) and (min-width:321px),screen and (min--moz-device-pixel-ratio:2) and (min-width:321px){html:not(.android2):not(.aislow) .c2237042522,html:not(.android2):not(.aislow) .c2237042522:after{background-image:url(IMG/xarton395.png,q1455336718.pagespeed.ic.3LPYX99MA9.jpg)}}html.android2 .c2237042522,html.android2 .c2237042522:after{background-image:url(local/adapt-img/320/15x/IMG/xarton395.png,q1493877153.pagespeed.ic.3LPYX99MA9.jpg)}@media screen and (max-width:160px){html:not(.android2) .c2232516363,html:not(.android2) .c2232516363:after{background-image:url(local/adapt-img/160/10x/IMG/xarton397.png,q1493877154.pagespeed.ic.IG4SClfno3.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:1.5) and (-webkit-max-device-pixel-ratio:1.99) and (max-width:160px),screen and (min--moz-device-pixel-ratio:1.5) and (max--moz-device-pixel-ratio:1.99) and (max-width:160px){html:not(.android2):not(.aislow) .c2232516363,html:not(.android2):not(.aislow) .c2232516363:after{background-image:url(local/adapt-img/160/15x/IMG/xarton397.png,q1493877154.pagespeed.ic.QtxOC8LxYZ.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:2) and (max-width:160px),screen and (min--moz-device-pixel-ratio:2) and (max-width:160px){html:not(.android2):not(.aislow) .c2232516363,html:not(.android2):not(.aislow) .c2232516363:after{background-image:url(local/adapt-img/160/20x/IMG/xarton397.png,q1493877154.pagespeed.ic.A3D1pSGGTL.jpg)}}@media screen and (min-width:161px) and (max-width:320px){html:not(.android2) .c2232516363,html:not(.android2) .c2232516363:after{background-image:url(local/adapt-img/320/10x/IMG/xarton397.png,q1493877154.pagespeed.ic.A3D1pSGGTL.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:1.5) and (-webkit-max-device-pixel-ratio:1.99) and (min-width:161px) and (max-width:320px),screen and (min--moz-device-pixel-ratio:1.5) and (max--moz-device-pixel-ratio:1.99) and (min-width:161px) and (max-width:320px){html:not(.android2):not(.aislow) .c2232516363,html:not(.android2):not(.aislow) .c2232516363:after{background-image:url(local/adapt-img/320/15x/IMG/xarton397.png,q1493877154.pagespeed.ic.tCTjUNCiQV.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:2) and (min-width:161px) and (max-width:320px),screen and (min--moz-device-pixel-ratio:2) and (min-width:161px) and (max-width:320px){html:not(.android2):not(.aislow) .c2232516363,html:not(.android2):not(.aislow) .c2232516363:after{background-image:url(IMG/xarton397.png,q1455336832.pagespeed.ic.BnGSLnzzIl.jpg)}}@media screen and (min-width:321px) and (max-width:480px){html:not(.android2) .c2232516363,html:not(.android2) .c2232516363:after{background-image:url(local/adapt-img/480/10x/IMG/xarton397.png,q1493877155.pagespeed.ic.tCTjUNCiQV.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:1.5) and (-webkit-max-device-pixel-ratio:1.99) and (min-width:321px) and (max-width:480px),screen and (min--moz-device-pixel-ratio:1.5) and (max--moz-device-pixel-ratio:1.99) and (min-width:321px) and (max-width:480px){html:not(.android2):not(.aislow) .c2232516363,html:not(.android2):not(.aislow) .c2232516363:after{background-image:url(IMG/xarton397.png,q1455336832.pagespeed.ic.BnGSLnzzIl.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:2) and (min-width:321px) and (max-width:480px),screen and (min--moz-device-pixel-ratio:2) and (min-width:321px) and (max-width:480px){html:not(.android2):not(.aislow) .c2232516363,html:not(.android2):not(.aislow) .c2232516363:after{background-image:url(IMG/xarton397.png,q1455336832.pagespeed.ic.BnGSLnzzIl.jpg)}}@media screen and (min-width:481px){html:not(.android2) .c2232516363,html:not(.android2) .c2232516363:after{background-image:url(IMG/xarton397.png,q1455336832.pagespeed.ic.BnGSLnzzIl.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:1.5) and (-webkit-max-device-pixel-ratio:1.99) and (min-width:481px),screen and (min--moz-device-pixel-ratio:1.5) and (max--moz-device-pixel-ratio:1.99) and (min-width:481px){html:not(.android2):not(.aislow) .c2232516363,html:not(.android2):not(.aislow) .c2232516363:after{background-image:url(IMG/xarton397.png,q1455336832.pagespeed.ic.BnGSLnzzIl.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:2) and (min-width:481px),screen and (min--moz-device-pixel-ratio:2) and (min-width:481px){html:not(.android2):not(.aislow) .c2232516363,html:not(.android2):not(.aislow) .c2232516363:after{background-image:url(IMG/xarton397.png,q1455336832.pagespeed.ic.BnGSLnzzIl.jpg)}}html.android2 .c2232516363,html.android2 .c2232516363:after{background-image:url(local/adapt-img/320/15x/IMG/xarton397.png,q1493877154.pagespeed.ic.tCTjUNCiQV.jpg)}@media screen and (max-width:160px){html:not(.android2) .c3566326438,html:not(.android2) .c3566326438:after{background-image:url(local/adapt-img/160/10x/IMG/xarton399.png,q1493877155.pagespeed.ic.2XVESZHm8M.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:1.5) and (-webkit-max-device-pixel-ratio:1.99) and (max-width:160px),screen and (min--moz-device-pixel-ratio:1.5) and (max--moz-device-pixel-ratio:1.99) and (max-width:160px){html:not(.android2):not(.aislow) .c3566326438,html:not(.android2):not(.aislow) .c3566326438:after{background-image:url(local/adapt-img/160/15x/IMG/xarton399.png,q1493877156.pagespeed.ic.g803h3gDxE.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:2) and (max-width:160px),screen and (min--moz-device-pixel-ratio:2) and (max-width:160px){html:not(.android2):not(.aislow) .c3566326438,html:not(.android2):not(.aislow) .c3566326438:after{background-image:url(local/adapt-img/160/20x/IMG/xarton399.png,q1493877156.pagespeed.ic.qLg8FaScAi.jpg)}}@media screen and (min-width:161px) and (max-width:320px){html:not(.android2) .c3566326438,html:not(.android2) .c3566326438:after{background-image:url(local/adapt-img/320/10x/IMG/xarton399.png,q1493877156.pagespeed.ic.qLg8FaScAi.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:1.5) and (-webkit-max-device-pixel-ratio:1.99) and (min-width:161px) and (max-width:320px),screen and (min--moz-device-pixel-ratio:1.5) and (max--moz-device-pixel-ratio:1.99) and (min-width:161px) and (max-width:320px){html:not(.android2):not(.aislow) .c3566326438,html:not(.android2):not(.aislow) .c3566326438:after{background-image:url(local/adapt-img/320/15x/IMG/xarton399.png,q1493877156.pagespeed.ic.iopbg5OG0N.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:2) and (min-width:161px) and (max-width:320px),screen and (min--moz-device-pixel-ratio:2) and (min-width:161px) and (max-width:320px){html:not(.android2):not(.aislow) .c3566326438,html:not(.android2):not(.aislow) .c3566326438:after{background-image:url(IMG/xarton399.png,q1455337307.pagespeed.ic.iopbg5OG0N.jpg)}}@media screen and (min-width:321px){html:not(.android2) .c3566326438,html:not(.android2) .c3566326438:after{background-image:url(local/adapt-img/480/10x/IMG/xarton399.png,q1493877156.pagespeed.ic.iopbg5OG0N.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:1.5) and (-webkit-max-device-pixel-ratio:1.99) and (min-width:321px),screen and (min--moz-device-pixel-ratio:1.5) and (max--moz-device-pixel-ratio:1.99) and (min-width:321px){html:not(.android2):not(.aislow) .c3566326438,html:not(.android2):not(.aislow) .c3566326438:after{background-image:url(IMG/xarton399.png,q1455337307.pagespeed.ic.iopbg5OG0N.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:2) and (min-width:321px),screen and (min--moz-device-pixel-ratio:2) and (min-width:321px){html:not(.android2):not(.aislow) .c3566326438,html:not(.android2):not(.aislow) .c3566326438:after{background-image:url(IMG/xarton399.png,q1455337307.pagespeed.ic.iopbg5OG0N.jpg)}}html.android2 .c3566326438,html.android2 .c3566326438:after{background-image:url(local/adapt-img/320/15x/IMG/xarton399.png,q1493877156.pagespeed.ic.iopbg5OG0N.jpg)}@media screen and (max-width:160px){html:not(.android2) .c3603422828,html:not(.android2) .c3603422828:after{background-image:url(local/adapt-img/160/10x/IMG/xarton401.png,q1493877157.pagespeed.ic.SYoXNMVTSM.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:1.5) and (-webkit-max-device-pixel-ratio:1.99) and (max-width:160px),screen and (min--moz-device-pixel-ratio:1.5) and (max--moz-device-pixel-ratio:1.99) and (max-width:160px){html:not(.android2):not(.aislow) .c3603422828,html:not(.android2):not(.aislow) .c3603422828:after{background-image:url(local/adapt-img/160/15x/IMG/xarton401.png,q1493877157.pagespeed.ic.Alv1eHjsp8.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:2) and (max-width:160px),screen and (min--moz-device-pixel-ratio:2) and (max-width:160px){html:not(.android2):not(.aislow) .c3603422828,html:not(.android2):not(.aislow) .c3603422828:after{background-image:url(local/adapt-img/160/20x/IMG/xarton401.png,q1493877157.pagespeed.ic.H93FALymDX.jpg)}}@media screen and (min-width:161px) and (max-width:320px){html:not(.android2) .c3603422828,html:not(.android2) .c3603422828:after{background-image:url(local/adapt-img/320/10x/IMG/xarton401.png,q1493877157.pagespeed.ic.H93FALymDX.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:1.5) and (-webkit-max-device-pixel-ratio:1.99) and (min-width:161px) and (max-width:320px),screen and (min--moz-device-pixel-ratio:1.5) and (max--moz-device-pixel-ratio:1.99) and (min-width:161px) and (max-width:320px){html:not(.android2):not(.aislow) .c3603422828,html:not(.android2):not(.aislow) .c3603422828:after{background-image:url(local/adapt-img/320/15x/IMG/xarton401.png,q1493877157.pagespeed.ic.HJICwjjUpi.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:2) and (min-width:161px) and (max-width:320px),screen and (min--moz-device-pixel-ratio:2) and (min-width:161px) and (max-width:320px){html:not(.android2):not(.aislow) .c3603422828,html:not(.android2):not(.aislow) .c3603422828:after{background-image:url(IMG/xarton401.png,q1455337442.pagespeed.ic.HJICwjjUpi.jpg)}}@media screen and (min-width:321px){html:not(.android2) .c3603422828,html:not(.android2) .c3603422828:after{background-image:url(local/adapt-img/480/10x/IMG/xarton401.png,q1493877157.pagespeed.ic.HJICwjjUpi.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:1.5) and (-webkit-max-device-pixel-ratio:1.99) and (min-width:321px),screen and (min--moz-device-pixel-ratio:1.5) and (max--moz-device-pixel-ratio:1.99) and (min-width:321px){html:not(.android2):not(.aislow) .c3603422828,html:not(.android2):not(.aislow) .c3603422828:after{background-image:url(IMG/xarton401.png,q1455337442.pagespeed.ic.HJICwjjUpi.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:2) and (min-width:321px),screen and (min--moz-device-pixel-ratio:2) and (min-width:321px){html:not(.android2):not(.aislow) .c3603422828,html:not(.android2):not(.aislow) .c3603422828:after{background-image:url(IMG/xarton401.png,q1455337442.pagespeed.ic.HJICwjjUpi.jpg)}}html.android2 .c3603422828,html.android2 .c3603422828:after{background-image:url(local/adapt-img/320/15x/IMG/xarton401.png,q1493877157.pagespeed.ic.HJICwjjUpi.jpg)}@media screen and (max-width:160px){html:not(.android2) .c2883859622,html:not(.android2) .c2883859622:after{background-image:url(local/adapt-img/160/10x/IMG/xarton502.png,q1493877158.pagespeed.ic.e9D0uOCOM5.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:1.5) and (-webkit-max-device-pixel-ratio:1.99) and (max-width:160px),screen and (min--moz-device-pixel-ratio:1.5) and (max--moz-device-pixel-ratio:1.99) and (max-width:160px){html:not(.android2):not(.aislow) .c2883859622,html:not(.android2):not(.aislow) .c2883859622:after{background-image:url(local/adapt-img/160/15x/IMG/xarton502.png,q1493877158.pagespeed.ic.zd-antezY_.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:2) and (max-width:160px),screen and (min--moz-device-pixel-ratio:2) and (max-width:160px){html:not(.android2):not(.aislow) .c2883859622,html:not(.android2):not(.aislow) .c2883859622:after{background-image:url(local/adapt-img/160/20x/IMG/xarton502.png,q1493877158.pagespeed.ic.l3T5hzKgDQ.png)}}@media screen and (min-width:161px) and (max-width:320px){html:not(.android2) .c2883859622,html:not(.android2) .c2883859622:after{background-image:url(local/adapt-img/320/10x/IMG/xarton502.png,q1493877158.pagespeed.ic.l3T5hzKgDQ.png)}}@media screen and (-webkit-min-device-pixel-ratio:1.5) and (-webkit-max-device-pixel-ratio:1.99) and (min-width:161px) and (max-width:320px),screen and (min--moz-device-pixel-ratio:1.5) and (max--moz-device-pixel-ratio:1.99) and (min-width:161px) and (max-width:320px){html:not(.android2):not(.aislow) .c2883859622,html:not(.android2):not(.aislow) .c2883859622:after{background-image:url(local/adapt-img/320/15x/IMG/xarton502.png,q1493877158.pagespeed.ic.RNf_l5wTrp.png)}}@media screen and (-webkit-min-device-pixel-ratio:2) and (min-width:161px) and (max-width:320px),screen and (min--moz-device-pixel-ratio:2) and (min-width:161px) and (max-width:320px){html:not(.android2):not(.aislow) .c2883859622,html:not(.android2):not(.aislow) .c2883859622:after{background-image:url(local/adapt-img/320/20x/IMG/xarton502.png,q1493877158.pagespeed.ic.OHvW2CO9qw.png)}}@media screen and (min-width:321px) and (max-width:480px){html:not(.android2) .c2883859622,html:not(.android2) .c2883859622:after{background-image:url(local/adapt-img/480/10x/IMG/xarton502.png,q1493877158.pagespeed.ic.RNf_l5wTrp.png)}}@media screen and (-webkit-min-device-pixel-ratio:1.5) and (-webkit-max-device-pixel-ratio:1.99) and (min-width:321px) and (max-width:480px),screen and (min--moz-device-pixel-ratio:1.5) and (max--moz-device-pixel-ratio:1.99) and (min-width:321px) and (max-width:480px){html:not(.android2):not(.aislow) .c2883859622,html:not(.android2):not(.aislow) .c2883859622:after{background-image:url(local/adapt-img/480/15x/IMG/xarton502.png,q1493877158.pagespeed.ic.o09zAri9ya.png)}}@media screen and (-webkit-min-device-pixel-ratio:2) and (min-width:321px) and (max-width:480px),screen and (min--moz-device-pixel-ratio:2) and (min-width:321px) and (max-width:480px){html:not(.android2):not(.aislow) .c2883859622,html:not(.android2):not(.aislow) .c2883859622:after{background-image:url(local/adapt-img/480/20x/IMG/xarton502.png,q1493877158.pagespeed.ic.njJBeRWvVU.png)}}@media screen and (min-width:481px) and (max-width:640px){html:not(.android2) .c2883859622,html:not(.android2) .c2883859622:after{background-image:url(local/adapt-img/640/10x/IMG/xarton502.png,q1493877158.pagespeed.ic.OHvW2CO9qw.png)}}@media screen and (-webkit-min-device-pixel-ratio:1.5) and (-webkit-max-device-pixel-ratio:1.99) and (min-width:481px) and (max-width:640px),screen and (min--moz-device-pixel-ratio:1.5) and (max--moz-device-pixel-ratio:1.99) and (min-width:481px) and (max-width:640px){html:not(.android2):not(.aislow) .c2883859622,html:not(.android2):not(.aislow) .c2883859622:after{background-image:url(local/adapt-img/640/15x/IMG/xarton502.png,q1493877159.pagespeed.ic.njJBeRWvVU.png)}}@media screen and (-webkit-min-device-pixel-ratio:2) and (min-width:481px) and (max-width:640px),screen and (min--moz-device-pixel-ratio:2) and (min-width:481px) and (max-width:640px){html:not(.android2):not(.aislow) .c2883859622,html:not(.android2):not(.aislow) .c2883859622:after{background-image:url(IMG/xarton502.png,q1493381526.pagespeed.ic.PF19gQ1Oa7.png)}}@media screen and (min-width:641px) and (max-width:960px){html:not(.android2) .c2883859622,html:not(.android2) .c2883859622:after{background-image:url(local/adapt-img/960/10x/IMG/xarton502.png,q1493877159.pagespeed.ic.njJBeRWvVU.png)}}@media screen and (-webkit-min-device-pixel-ratio:1.5) and (-webkit-max-device-pixel-ratio:1.99) and (min-width:641px) and (max-width:960px),screen and (min--moz-device-pixel-ratio:1.5) and (max--moz-device-pixel-ratio:1.99) and (min-width:641px) and (max-width:960px){html:not(.android2):not(.aislow) .c2883859622,html:not(.android2):not(.aislow) .c2883859622:after{background-image:url(IMG/xarton502.png,q1493381526.pagespeed.ic.PF19gQ1Oa7.png)}}@media screen and (-webkit-min-device-pixel-ratio:2) and (min-width:641px) and (max-width:960px),screen and (min--moz-device-pixel-ratio:2) and (min-width:641px) and (max-width:960px){html:not(.android2):not(.aislow) .c2883859622,html:not(.android2):not(.aislow) .c2883859622:after{background-image:url(IMG/xarton502.png,q1493381526.pagespeed.ic.PF19gQ1Oa7.png)}}@media screen and (min-width:961px){html:not(.android2) .c2883859622,html:not(.android2) .c2883859622:after{background-image:url(IMG/xarton502.png,q1493381526.pagespeed.ic.PF19gQ1Oa7.png)}}@media screen and (-webkit-min-device-pixel-ratio:1.5) and (-webkit-max-device-pixel-ratio:1.99) and (min-width:961px),screen and (min--moz-device-pixel-ratio:1.5) and (max--moz-device-pixel-ratio:1.99) and (min-width:961px){html:not(.android2):not(.aislow) .c2883859622,html:not(.android2):not(.aislow) .c2883859622:after{background-image:url(IMG/xarton502.png,q1493381526.pagespeed.ic.PF19gQ1Oa7.png)}}@media screen and (-webkit-min-device-pixel-ratio:2) and (min-width:961px),screen and (min--moz-device-pixel-ratio:2) and (min-width:961px){html:not(.android2):not(.aislow) .c2883859622,html:not(.android2):not(.aislow) .c2883859622:after{background-image:url(IMG/xarton502.png,q1493381526.pagespeed.ic.PF19gQ1Oa7.png)}}html.android2 .c2883859622,html.android2 .c2883859622:after{background-image:url(local/adapt-img/320/15x/IMG/xarton502.png,q1493877158.pagespeed.ic.RNf_l5wTrp.png)}@media screen and (max-width:160px){html:not(.android2) .c877261388,html:not(.android2) .c877261388:after{background-image:url(local/adapt-img/160/10x/IMG/xarton403.jpg,q1493877143.pagespeed.ic.sqEeE_-qrY.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:1.5) and (-webkit-max-device-pixel-ratio:1.99) and (max-width:160px),screen and (min--moz-device-pixel-ratio:1.5) and (max--moz-device-pixel-ratio:1.99) and (max-width:160px){html:not(.android2):not(.aislow) .c877261388,html:not(.android2):not(.aislow) .c877261388:after{background-image:url(local/adapt-img/160/15x/IMG/xarton403.jpg,q1493877143.pagespeed.ic.a6Q-nKt_gJ.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:2) and (max-width:160px),screen and (min--moz-device-pixel-ratio:2) and (max-width:160px){html:not(.android2):not(.aislow) .c877261388,html:not(.android2):not(.aislow) .c877261388:after{background-image:url(local/adapt-img/160/20x/IMG/xarton403.jpg,q1493877143.pagespeed.ic.5WN_vxqEF1.jpg)}}@media screen and (min-width:161px) and (max-width:320px){html:not(.android2) .c877261388,html:not(.android2) .c877261388:after{background-image:url(local/adapt-img/320/10x/IMG/xarton403.jpg,q1493877143.pagespeed.ic.4kK_4fIKCT.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:1.5) and (-webkit-max-device-pixel-ratio:1.99) and (min-width:161px) and (max-width:320px),screen and (min--moz-device-pixel-ratio:1.5) and (max--moz-device-pixel-ratio:1.99) and (min-width:161px) and (max-width:320px){html:not(.android2):not(.aislow) .c877261388,html:not(.android2):not(.aislow) .c877261388:after{background-image:url(local/adapt-img/320/15x/IMG/xarton403.jpg,q1493877143.pagespeed.ic.ZVzf0VIwIb.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:2) and (min-width:161px) and (max-width:320px),screen and (min--moz-device-pixel-ratio:2) and (min-width:161px) and (max-width:320px){html:not(.android2):not(.aislow) .c877261388,html:not(.android2):not(.aislow) .c877261388:after{background-image:url(local/adapt-img/320/20x/IMG/xarton403.jpg,q1493877143.pagespeed.ic.c2hNampcRS.jpg)}}@media screen and (min-width:321px) and (max-width:480px){html:not(.android2) .c877261388,html:not(.android2) .c877261388:after{background-image:url(local/adapt-img/480/10x/IMG/xarton403.jpg,q1493877143.pagespeed.ic.ubkBz-dhol.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:1.5) and (-webkit-max-device-pixel-ratio:1.99) and (min-width:321px) and (max-width:480px),screen and (min--moz-device-pixel-ratio:1.5) and (max--moz-device-pixel-ratio:1.99) and (min-width:321px) and (max-width:480px){html:not(.android2):not(.aislow) .c877261388,html:not(.android2):not(.aislow) .c877261388:after{background-image:url(local/adapt-img/480/15x/IMG/xarton403.jpg,q1493877143.pagespeed.ic.WDT_sFwaCc.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:2) and (min-width:321px) and (max-width:480px),screen and (min--moz-device-pixel-ratio:2) and (min-width:321px) and (max-width:480px){html:not(.android2):not(.aislow) .c877261388,html:not(.android2):not(.aislow) .c877261388:after{background-image:url(IMG/xarton403.jpg,q1448485365.pagespeed.ic.OT88d1jOup.jpg)}}@media screen and (min-width:481px) and (max-width:640px){html:not(.android2) .c877261388,html:not(.android2) .c877261388:after{background-image:url(local/adapt-img/640/10x/IMG/xarton403.jpg,q1493877144.pagespeed.ic.AFA-tc5crd.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:1.5) and (-webkit-max-device-pixel-ratio:1.99) and (min-width:481px) and (max-width:640px),screen and (min--moz-device-pixel-ratio:1.5) and (max--moz-device-pixel-ratio:1.99) and (min-width:481px) and (max-width:640px){html:not(.android2):not(.aislow) .c877261388,html:not(.android2):not(.aislow) .c877261388:after{background-image:url(IMG/xarton403.jpg,q1448485365.pagespeed.ic.OT88d1jOup.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:2) and (min-width:481px) and (max-width:640px),screen and (min--moz-device-pixel-ratio:2) and (min-width:481px) and (max-width:640px){html:not(.android2):not(.aislow) .c877261388,html:not(.android2):not(.aislow) .c877261388:after{background-image:url(IMG/xarton403.jpg,q1448485365.pagespeed.ic.OT88d1jOup.jpg)}}@media screen and (min-width:641px){html:not(.android2) .c877261388,html:not(.android2) .c877261388:after{background-image:url(IMG/xarton403.jpg,q1448485365.pagespeed.ic.OT88d1jOup.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:1.5) and (-webkit-max-device-pixel-ratio:1.99) and (min-width:641px),screen and (min--moz-device-pixel-ratio:1.5) and (max--moz-device-pixel-ratio:1.99) and (min-width:641px){html:not(.android2):not(.aislow) .c877261388,html:not(.android2):not(.aislow) .c877261388:after{background-image:url(IMG/xarton403.jpg,q1448485365.pagespeed.ic.OT88d1jOup.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:2) and (min-width:641px),screen and (min--moz-device-pixel-ratio:2) and (min-width:641px){html:not(.android2):not(.aislow) .c877261388,html:not(.android2):not(.aislow) .c877261388:after{background-image:url(IMG/xarton403.jpg,q1448485365.pagespeed.ic.OT88d1jOup.jpg)}}html.android2 .c877261388,html.android2 .c877261388:after{background-image:url(local/adapt-img/320/15x/IMG/xarton403.jpg,q1493877143.pagespeed.ic.ZVzf0VIwIb.jpg)}@media screen and (max-width:160px){html:not(.android2) .c1848168,html:not(.android2) .c1848168:after{background-image:url(local/adapt-img/160/10x/IMG/xarton405.jpg,q1493877144.pagespeed.ic.pRvyakLEok.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:1.5) and (-webkit-max-device-pixel-ratio:1.99) and (max-width:160px),screen and (min--moz-device-pixel-ratio:1.5) and (max--moz-device-pixel-ratio:1.99) and (max-width:160px){html:not(.android2):not(.aislow) .c1848168,html:not(.android2):not(.aislow) .c1848168:after{background-image:url(local/adapt-img/160/15x/IMG/xarton405.jpg,q1493877144.pagespeed.ic.lgC4cgYLEr.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:2) and (max-width:160px),screen and (min--moz-device-pixel-ratio:2) and (max-width:160px){html:not(.android2):not(.aislow) .c1848168,html:not(.android2):not(.aislow) .c1848168:after{background-image:url(local/adapt-img/160/20x/IMG/xarton405.jpg,q1493877144.pagespeed.ic.xsJwA3-Quw.jpg)}}@media screen and (min-width:161px) and (max-width:320px){html:not(.android2) .c1848168,html:not(.android2) .c1848168:after{background-image:url(local/adapt-img/320/10x/IMG/xarton405.jpg,q1493877144.pagespeed.ic.RsIwROmjJt.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:1.5) and (-webkit-max-device-pixel-ratio:1.99) and (min-width:161px) and (max-width:320px),screen and (min--moz-device-pixel-ratio:1.5) and (max--moz-device-pixel-ratio:1.99) and (min-width:161px) and (max-width:320px){html:not(.android2):not(.aislow) .c1848168,html:not(.android2):not(.aislow) .c1848168:after{background-image:url(local/adapt-img/320/15x/IMG/xarton405.jpg,q1493877144.pagespeed.ic.Zu_V8pz5VJ.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:2) and (min-width:161px) and (max-width:320px),screen and (min--moz-device-pixel-ratio:2) and (min-width:161px) and (max-width:320px){html:not(.android2):not(.aislow) .c1848168,html:not(.android2):not(.aislow) .c1848168:after{background-image:url(local/adapt-img/320/20x/IMG/xarton405.jpg,q1493877144.pagespeed.ic.hVLRl8TxW5.jpg)}}@media screen and (min-width:321px) and (max-width:480px){html:not(.android2) .c1848168,html:not(.android2) .c1848168:after{background-image:url(local/adapt-img/480/10x/IMG/xarton405.jpg,q1493877144.pagespeed.ic.uOBbrQwgEW.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:1.5) and (-webkit-max-device-pixel-ratio:1.99) and (min-width:321px) and (max-width:480px),screen and (min--moz-device-pixel-ratio:1.5) and (max--moz-device-pixel-ratio:1.99) and (min-width:321px) and (max-width:480px){html:not(.android2):not(.aislow) .c1848168,html:not(.android2):not(.aislow) .c1848168:after{background-image:url(local/adapt-img/480/15x/IMG/xarton405.jpg,q1493877144.pagespeed.ic.tr4ximydkO.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:2) and (min-width:321px) and (max-width:480px),screen and (min--moz-device-pixel-ratio:2) and (min-width:321px) and (max-width:480px){html:not(.android2):not(.aislow) .c1848168,html:not(.android2):not(.aislow) .c1848168:after{background-image:url(IMG/xarton405.jpg,q1450181451.pagespeed.ic.jzAw0QePx2.jpg)}}@media screen and (min-width:481px) and (max-width:640px){html:not(.android2) .c1848168,html:not(.android2) .c1848168:after{background-image:url(local/adapt-img/640/10x/IMG/xarton405.jpg,q1493877144.pagespeed.ic.IGRtv6AVKE.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:1.5) and (-webkit-max-device-pixel-ratio:1.99) and (min-width:481px) and (max-width:640px),screen and (min--moz-device-pixel-ratio:1.5) and (max--moz-device-pixel-ratio:1.99) and (min-width:481px) and (max-width:640px){html:not(.android2):not(.aislow) .c1848168,html:not(.android2):not(.aislow) .c1848168:after{background-image:url(IMG/xarton405.jpg,q1450181451.pagespeed.ic.jzAw0QePx2.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:2) and (min-width:481px) and (max-width:640px),screen and (min--moz-device-pixel-ratio:2) and (min-width:481px) and (max-width:640px){html:not(.android2):not(.aislow) .c1848168,html:not(.android2):not(.aislow) .c1848168:after{background-image:url(IMG/xarton405.jpg,q1450181451.pagespeed.ic.jzAw0QePx2.jpg)}}@media screen and (min-width:641px){html:not(.android2) .c1848168,html:not(.android2) .c1848168:after{background-image:url(IMG/xarton405.jpg,q1450181451.pagespeed.ic.jzAw0QePx2.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:1.5) and (-webkit-max-device-pixel-ratio:1.99) and (min-width:641px),screen and (min--moz-device-pixel-ratio:1.5) and (max--moz-device-pixel-ratio:1.99) and (min-width:641px){html:not(.android2):not(.aislow) .c1848168,html:not(.android2):not(.aislow) .c1848168:after{background-image:url(IMG/xarton405.jpg,q1450181451.pagespeed.ic.jzAw0QePx2.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:2) and (min-width:641px),screen and (min--moz-device-pixel-ratio:2) and (min-width:641px){html:not(.android2):not(.aislow) .c1848168,html:not(.android2):not(.aislow) .c1848168:after{background-image:url(IMG/xarton405.jpg,q1450181451.pagespeed.ic.jzAw0QePx2.jpg)}}html.android2 .c1848168,html.android2 .c1848168:after{background-image:url(local/adapt-img/320/15x/IMG/xarton405.jpg,q1493877144.pagespeed.ic.Zu_V8pz5VJ.jpg)}@media screen and (max-width:160px){html:not(.android2) .c1462607974,html:not(.android2) .c1462607974:after{background-image:url(local/adapt-img/160/10x/IMG/xarton407.jpg,q1493877142.pagespeed.ic.zNa1n-JlND.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:1.5) and (-webkit-max-device-pixel-ratio:1.99) and (max-width:160px),screen and (min--moz-device-pixel-ratio:1.5) and (max--moz-device-pixel-ratio:1.99) and (max-width:160px){html:not(.android2):not(.aislow) .c1462607974,html:not(.android2):not(.aislow) .c1462607974:after{background-image:url(local/adapt-img/160/15x/IMG/xarton407.jpg,q1493877142.pagespeed.ic.Mfjhleazw7.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:2) and (max-width:160px),screen and (min--moz-device-pixel-ratio:2) and (max-width:160px){html:not(.android2):not(.aislow) .c1462607974,html:not(.android2):not(.aislow) .c1462607974:after{background-image:url(local/adapt-img/160/20x/IMG/xarton407.jpg,q1493877142.pagespeed.ic.tTQ7QUPo2m.jpg)}}@media screen and (min-width:161px) and (max-width:320px){html:not(.android2) .c1462607974,html:not(.android2) .c1462607974:after{background-image:url(local/adapt-img/320/10x/IMG/xarton407.jpg,q1493877143.pagespeed.ic.ydBKTL8WH7.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:1.5) and (-webkit-max-device-pixel-ratio:1.99) and (min-width:161px) and (max-width:320px),screen and (min--moz-device-pixel-ratio:1.5) and (max--moz-device-pixel-ratio:1.99) and (min-width:161px) and (max-width:320px){html:not(.android2):not(.aislow) .c1462607974,html:not(.android2):not(.aislow) .c1462607974:after{background-image:url(local/adapt-img/320/15x/IMG/xarton407.jpg,q1493877143.pagespeed.ic.zNtY4r1X3R.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:2) and (min-width:161px) and (max-width:320px),screen and (min--moz-device-pixel-ratio:2) and (min-width:161px) and (max-width:320px){html:not(.android2):not(.aislow) .c1462607974,html:not(.android2):not(.aislow) .c1462607974:after{background-image:url(local/adapt-img/320/20x/IMG/xarton407.jpg,q1493877143.pagespeed.ic.X_VFt4Ub_o.jpg)}}@media screen and (min-width:321px) and (max-width:480px){html:not(.android2) .c1462607974,html:not(.android2) .c1462607974:after{background-image:url(local/adapt-img/480/10x/IMG/xarton407.jpg,q1493877143.pagespeed.ic.EDE1Z67kYp.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:1.5) and (-webkit-max-device-pixel-ratio:1.99) and (min-width:321px) and (max-width:480px),screen and (min--moz-device-pixel-ratio:1.5) and (max--moz-device-pixel-ratio:1.99) and (min-width:321px) and (max-width:480px){html:not(.android2):not(.aislow) .c1462607974,html:not(.android2):not(.aislow) .c1462607974:after{background-image:url(local/adapt-img/480/15x/IMG/xarton407.jpg,q1493877143.pagespeed.ic.iA4oKT8Uzk.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:2) and (min-width:321px) and (max-width:480px),screen and (min--moz-device-pixel-ratio:2) and (min-width:321px) and (max-width:480px){html:not(.android2):not(.aislow) .c1462607974,html:not(.android2):not(.aislow) .c1462607974:after{background-image:url(IMG/xarton407.jpg,q1448485364.pagespeed.ic.GEsh70Q3WY.jpg)}}@media screen and (min-width:481px) and (max-width:640px){html:not(.android2) .c1462607974,html:not(.android2) .c1462607974:after{background-image:url(local/adapt-img/640/10x/IMG/xarton407.jpg,q1493877143.pagespeed.ic.Bbs1UPeFsg.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:1.5) and (-webkit-max-device-pixel-ratio:1.99) and (min-width:481px) and (max-width:640px),screen and (min--moz-device-pixel-ratio:1.5) and (max--moz-device-pixel-ratio:1.99) and (min-width:481px) and (max-width:640px){html:not(.android2):not(.aislow) .c1462607974,html:not(.android2):not(.aislow) .c1462607974:after{background-image:url(IMG/xarton407.jpg,q1448485364.pagespeed.ic.GEsh70Q3WY.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:2) and (min-width:481px) and (max-width:640px),screen and (min--moz-device-pixel-ratio:2) and (min-width:481px) and (max-width:640px){html:not(.android2):not(.aislow) .c1462607974,html:not(.android2):not(.aislow) .c1462607974:after{background-image:url(IMG/xarton407.jpg,q1448485364.pagespeed.ic.GEsh70Q3WY.jpg)}}@media screen and (min-width:641px){html:not(.android2) .c1462607974,html:not(.android2) .c1462607974:after{background-image:url(IMG/xarton407.jpg,q1448485364.pagespeed.ic.GEsh70Q3WY.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:1.5) and (-webkit-max-device-pixel-ratio:1.99) and (min-width:641px),screen and (min--moz-device-pixel-ratio:1.5) and (max--moz-device-pixel-ratio:1.99) and (min-width:641px){html:not(.android2):not(.aislow) .c1462607974,html:not(.android2):not(.aislow) .c1462607974:after{background-image:url(IMG/xarton407.jpg,q1448485364.pagespeed.ic.GEsh70Q3WY.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:2) and (min-width:641px),screen and (min--moz-device-pixel-ratio:2) and (min-width:641px){html:not(.android2):not(.aislow) .c1462607974,html:not(.android2):not(.aislow) .c1462607974:after{background-image:url(IMG/xarton407.jpg,q1448485364.pagespeed.ic.GEsh70Q3WY.jpg)}}html.android2 .c1462607974,html.android2 .c1462607974:after{background-image:url(local/adapt-img/320/15x/IMG/xarton407.jpg,q1493877143.pagespeed.ic.zNtY4r1X3R.jpg)}@media screen and (max-width:160px){html:not(.android2) .c1823870968,html:not(.android2) .c1823870968:after{background-image:url(local/adapt-img/160/10x/IMG/xarton413.jpg,q1493877159.pagespeed.ic.dQA2Wojd3j.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:1.5) and (-webkit-max-device-pixel-ratio:1.99) and (max-width:160px),screen and (min--moz-device-pixel-ratio:1.5) and (max--moz-device-pixel-ratio:1.99) and (max-width:160px){html:not(.android2):not(.aislow) .c1823870968,html:not(.android2):not(.aislow) .c1823870968:after{background-image:url(local/adapt-img/160/15x/IMG/xarton413.jpg,q1493877159.pagespeed.ic.UkPlLhgXgz.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:2) and (max-width:160px),screen and (min--moz-device-pixel-ratio:2) and (max-width:160px){html:not(.android2):not(.aislow) .c1823870968,html:not(.android2):not(.aislow) .c1823870968:after{background-image:url(local/adapt-img/160/20x/IMG/xarton413.jpg,q1493877159.pagespeed.ic.BGLslMPNNR.jpg)}}@media screen and (min-width:161px) and (max-width:320px){html:not(.android2) .c1823870968,html:not(.android2) .c1823870968:after{background-image:url(local/adapt-img/320/10x/IMG/xarton413.jpg,q1493877159.pagespeed.ic.e0M6SsTMeY.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:1.5) and (-webkit-max-device-pixel-ratio:1.99) and (min-width:161px) and (max-width:320px),screen and (min--moz-device-pixel-ratio:1.5) and (max--moz-device-pixel-ratio:1.99) and (min-width:161px) and (max-width:320px){html:not(.android2):not(.aislow) .c1823870968,html:not(.android2):not(.aislow) .c1823870968:after{background-image:url(local/adapt-img/320/15x/IMG/xarton413.jpg,q1493877159.pagespeed.ic.37wgBrFeE_.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:2) and (min-width:161px) and (max-width:320px),screen and (min--moz-device-pixel-ratio:2) and (min-width:161px) and (max-width:320px){html:not(.android2):not(.aislow) .c1823870968,html:not(.android2):not(.aislow) .c1823870968:after{background-image:url(IMG/xarton413.jpg,q1448485364.pagespeed.ic.37wgBrFeE_.jpg)}}@media screen and (min-width:321px){html:not(.android2) .c1823870968,html:not(.android2) .c1823870968:after{background-image:url(local/adapt-img/480/10x/IMG/xarton413.jpg,q1493877159.pagespeed.ic.37wgBrFeE_.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:1.5) and (-webkit-max-device-pixel-ratio:1.99) and (min-width:321px),screen and (min--moz-device-pixel-ratio:1.5) and (max--moz-device-pixel-ratio:1.99) and (min-width:321px){html:not(.android2):not(.aislow) .c1823870968,html:not(.android2):not(.aislow) .c1823870968:after{background-image:url(IMG/xarton413.jpg,q1448485364.pagespeed.ic.37wgBrFeE_.jpg)}}@media screen and (-webkit-min-device-pixel-ratio:2) and (min-width:321px),screen and (min--moz-device-pixel-ratio:2) and (min-width:321px){html:not(.android2):not(.aislow) .c1823870968,html:not(.android2):not(.aislow) .c1823870968:after{background-image:url(IMG/xarton413.jpg,q1448485364.pagespeed.ic.37wgBrFeE_.jpg)}}html.android2 .c1823870968,html.android2 .c1823870968:after{background-image:url(local/adapt-img/320/15x/IMG/xarton413.jpg,q1493877159.pagespeed.ic.37wgBrFeE_.jpg)}
+
+
+//<![CDATA[
+var blocs_replier_tout=0;var blocs_slide='normal';var blocs_title_sep=/\|\|/g;var blocs_title_def='Déplier||Replier';var blocs_js_cookie='';
+//]]>//<![CDATA[
+var box_settings={tt_img:true,sel_g:"#documents_portfolio a[type='image/jpeg'],#documents_portfolio a[type='image/png'],#documents_portfolio a[type='image/gif']",sel_c:".mediabox, .fancybox",trans:"elastic",speed:"200",ssSpeed:"2500",maxW:"90%",maxH:"90%",minW:"400px",minH:"",opa:"0.3",str_ssStart:"Slideshow",str_ssStop:"Stop",str_cur:"{current}/{total}",str_prev:"Previous",str_next:"Next",str_close:"Close",splash_url:""};
+//]]>
+
+
+a.spip_mail:before{content:""!important}span.mcrypt{background:transparent url(http://www.lapirogue.com/plugins/auto/couteau_suisse/v1.9.8/img/mailcrypt/leure.gif.pagespeed.ce.skN9tFRKCK.gif) no-repeat scroll .1em center;padding-left:12px;text-decoration:none;float:none;margin:0;display:inline}
+
+.texteencadre-spip{color:#003;background:#eef;border-bottom:2px solid #06c;border-left:1px solid #39f;border-right:2px solid #06c;border-top:1px solid #39f;margin:1em 0;padding:.25em;position:relative}.caractencadre-spip{color:#f60;font-weight:bold}.caractencadre2-spip{color:#009;font-weight:bold}acronym.spip_acronym{cursor:help;border-bottom:1px dotted}a[hreflang]:after{content:"\0000a0[" attr(hreflang) "]";color:#999;background:transparent;font-size:x-small}sup,sup.typo_exposants{font-size:78%;font-variant:normal;vertical-align:24%}sub{font-size:60%;font-variant:normal;vertical-align:-20%}.caps{font-variant:small-caps}
+
+
+
+
+var cs_prive=window.location.pathname.match(/\/ecrire\/$/)!=null;jQuery.fn.cs_todo=function(){return this.not('.cs_done').addClass('cs_done');};function lancerlien(a,b){return'ma'+'ilto'+':'+a.replace(new RegExp(b,'g'),'@');}
+var cs_init=function(){if(!cs_prive)jQuery("a.spip_out,a.spip_url,a.spip_glossaire",this).attr("target","_blank");jQuery('span.mcrypt',this).attr('class','cryptOK').html('&#6'+'4;');jQuery("a["+cs_sel_jQuery+"title*='..']",this).each(function(){this.title=this.title.replace(/\.\..t\.\./g,'[@]');});}
+if(typeof onAjaxLoad=='function')onAjaxLoad(cs_init);if(window.jQuery){var cs_sel_jQuery=typeof jQuery(document).selector=='undefined'?'@':'';var cs_CookiePlugin="prive/javascript/jquery.cookie.js";jQuery(document).ready(function(){cs_init.apply(document);});}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+La Pirogue Resort & Spa, Mauritius - Official Website
+
+
+
+
+
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WX49BB');
+
+
+
+La Pirogue Resort & Spa - Mauritius
+
+Wolmar Coastal Rd, Flic en Flac - Mauritius
+Phone: +230 403 3900
+Map & direction
+Contact us
+
+
+
+Language
+English
+français
+
+
+
+
+
+Book now
+
+
+
+
+
+
+
+Contact us
+
+
+Book your stay
+
+
+Discover La Pirogue
+
+
+Who We Are
+
+
+Why Stay at La Pirogue ?
+
+
+About Sun Resorts
+
+
+About Mauritius
+
+
+
+
+Plan your stay
+
+
+Compare Rooms
+
+
+Photo Gallery
+
+
+Our Videos
+
+
+
+
+Find special deals
+
+
+Hot deals
+
+
+Golf packages
+
+
+Couple & honeymoon
+
+
+Family deals
+
+
+
+
+Plan an event
+
+
+Plan a Golf Event
+
+
+Plan a Wedding
+
+
+Plan a Business Event
+
+
+
+
+Dine with us
+
+
+Our Restaurants
+
+
+Our Bars
+
+
+Beachside Dining
+
+
+
+
+Things to do
+
+
+Aura Spa & Hammam
+
+
+Beach & Deep Sea Activities
+
+
+Diving at La Pirogue
+
+
+Kids & Teens Club
+
+
+Sports & Fitness Facilities
+
+
+Cultural Activities & Nightlife
+
+
+Golf Course
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+DISCOVER
+6 Good Reasons to choose our resort.Learn More
+
+
+The genuine spirit
+
+
+
+
+
+
+
+Island Romance Package
+A romantic holiday in MauritiusWith VIP amenities and servicesBook now
+
+
+The genuine spirit
+
+
+
+
+
+
+
+Honeymoon Offer
+Plan your honeymoon in MauritiusEnjoy VIP amenities and servicesBook Now
+
+
+The genuine spirit
+
+
+
+
+
+
+
+PLAN A FAMILY HOLIDAY
+Kids Stay & Eat Free. Book early for best rates.BOOK NOW
+
+
+The genuine spirit
+
+
+
+
+
+
+
+GOLF ON AN ISLAND
+The Ile aux Cerfs Golf ClubAn 18-hole course by Bernhard Langer.Learn more
+
+
+The genuine spirit
+
+
+
+
+
+
+
+PLAN AN EVENT
+                        Planning a Wedding or Conference? We’ve beach, golf and indoor venues.DISCOVER
+
+
+The genuine spirit
+
+
+
+
+
+
+ 
+
+
+
+
+Follow us
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+La Pirogue Resort & Spa - Your authentic resort
+
+The unrivaled charm of its cosy and unique thatch-roofed bungalows in a lush coconut grove on the flamboyant sunset coast, La Pirogue weaves privacy into an intimate nest. Here, guests revel in the exquisite feeling of stepping from one’s very own island home straight into the gardens and onto an endless beach and vast lagoon. The resort’s vast expanse offers sheer luxury of space to lovebirds, seasoned couples on a romantic escapade to rekindle the flame, families as well as full-fledged tribes for an affectionate bonding time.
+Read more
+
+
+
+ 
+
+
+
+Hotel benefits  La Pirogue Resort & Spa
+
+
+
+
+
+So much to do in our resort!
+
+
+
+
+
+
+
+Free Wi-Fi for guests
+
+
+
+
+
+
+
+Free green fees at the Ile aux Cerfs Golf Club
+
+
+
+
+
+
+
+Free Stay & Meals for Kids!
+
+
+
+
+
+
+
+
+Book your stay
+
+
+ 
+
+
+
+
+
+News - La Pirogue Resort & Spa
+
+
+
+
+
+La Pirogue Resort & Spa Enhanced Renovations
+
+As a tribute to the long successful history of the iconic La Pirogue Resort & Spa, we are proud to announce the second and final renovation phase of the resort, which has been planned for the 10th June through to the 15th August 2017. During this phase, a larger part of the resort will not be usable.
+For guests who already booked La Pirogue Resort & Spa, the (...)
+
+Read more
+
+
+
+
+Videos
+
+
+
+Discover all that is on offer at La Pirogue in Mauritius
+
+
+ 
+
+
+
+
+Amazing cuisine to try
+Something for all tastes
+
+
+
+
+
+
+
+
+Timeless Memories at Sun Resorts
+A wealth of possibilities for fulfilling moments and emotions
+
+
+
+
+
+
+
+
+Guest Reviews
+Read what guests say about La Pirogue
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+Savour the Mauritian flavours
+Gourmets are in for a surprise! To meet the demands of the varied clientele who come from all 4 corners of the world, this Mauritius hotel has 4 restaurants. They feature Mauritian gastronomy and international cuisines, with the restaurants serving innovative and tasty treats, appetizing snacks and specially prepared menus for all guests, all made from the freshest ingredients. Whether your feet are in the sand or by the dangling in the pool, the restaurants offer a promise of tasty moments to share with your loved ones and friends.
+Read more
+
+
+ 
+
+
+
+
+Your hotel on video
+Watch our videos to discover our hotel.A taster of what lies ahead on your stay in Mauritius !
+
+
+
+
+Our videos
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Follow us
+
+
+
+
+
+
+
+
+
+
+
+
+Sun Resorts group
+
+News
+FAQ
+Blog
+Contact
+Legal Information
+Sitemap
+
+Discover all our hotels
+
+Long Beach Golf & Spa Resort, Mauritius
+Sugar Beach Golf & Spa Resort, Mauritius
+La Pirogue Resort & Spa, Mauritius
+Ambre Resort & Spa, Mauritius
+Kanuhura Maldives
+
+
+
+
+Subscribe to our Newsletter >
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Book
+Email
+Phone
+Map
+
+
+Top
+ eval(mod_pagespeed_ua8x7FRHou);
+eval(mod_pagespeed_Nb$WFYCuwS);
+$(document).foundation();
+
+//<![CDATA[
+;(function($,window,document,undefined)
+{$.fn.doubleTapToGo=function(params)
+{if(!('ontouchstart'in window)&&!navigator.msMaxTouchPoints&&!navigator.userAgent.toLowerCase().match(/windows phone os 7/i))return false;this.each(function()
+{var curItem=false;$(this).on('click',function(e)
+{var item=$(this);if(item[0]!=curItem[0])
+{e.preventDefault();curItem=item;}});$(document).on('click touchstart MSPointerDown',function(e)
+{var resetItem=true,parents=$(e.target).parents();for(var i=0;i<parents.length;i++)
+if(parents[i]==curItem[0])
+resetItem=false;if(resetItem)
+curItem=false;});});return this;};})(jQuery,window,document);
+//]]>
+$(function()
+{$('#nav li:has(ul)').doubleTapToGo();});
+
+
+var $head=$('#resa');$('.menu-waypoint').each(function(i){var $el=$(this),animClassDown=$el.data('animateDown'),animClassUp=$el.data('animateUp');$el.waypoint(function(direction){if(direction==='down'&&animClassDown){$head.attr('class','menu '+animClassDown);}
+else if(direction==='up'&&animClassUp){$head.attr('class','menu '+animClassUp);}},{offset:'70'});});
+
+
+$(function(){$("#slider_inside").responsiveSlides({auto:true,pager:true,nav:false,speed:500,namespace:"centered-btns"});$("#slider_article").responsiveSlides({auto:true,pager:true,nav:false,speed:500,namespace:"centered-btns"});});
+$(".resa-down").click(function(){});
+
+
+jQuery(document).ready(function(){jQuery('#menu nav').meanmenu();});
+
+jQuery(document).ready(function(){var theLanguage=$('html').attr('lang');if(theLanguage==='fr'){$(".mean-nav li:first a").attr("href","https://gc.synxis.com/?Hotel=58300&Chain=14463&Dest=SUN&locale=fr-FR");}
+else{$(".mean-nav li:first a").attr("href","https://gc.synxis.com/?Hotel=58300&Chain=14463&Dest=SUN&locale=en-US");}});
+
+
+//<![CDATA[
+jQuery(document).ready(function($){var offset=300,offset_opacity=800,scroll_top_duration=700,$back_to_top=$('.cd-top');$(window).scroll(function(){($(this).scrollTop()>offset)?$back_to_top.addClass('cd-is-visible'):$back_to_top.removeClass('cd-is-visible cd-fade-out');if($(this).scrollTop()>offset_opacity){$back_to_top.addClass('cd-fade-out');}});$back_to_top.on('click',function(event){event.preventDefault();$('body,html').animate({scrollTop:0,},scroll_top_duration);});});
+//]]>!function(){var a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src="//config1.veinteractive.com/tags/DF9DE487/70E5/4D1D/AC8D/FE30ACAF9FC1/tag.js";var b=document.getElementsByTagName("head")[0];if(b)b.appendChild(a,b);else{var b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)}}();
+window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"68a6d937b7","applicationID":"10137261","transactionName":"NlFWYBYCVhFSAhZRDg8bYUYNTEsSWhFMSAkR","queueTime":0,"applicationTime":1015,"atts":"GhZVFl4YRR8=","errorBeacon":"bam.nr-data.net","agent":""}

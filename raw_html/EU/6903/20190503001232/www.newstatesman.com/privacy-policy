@@ -1,0 +1,2496 @@
+<!DOCTYPE html>
+<!--[if lte IE 7]> <html lang="en" class="ie ie7"> <![endif]-->
+<!--[if IE 8 ]> <html lang="en" class="ie ie8"> <![endif]-->
+<!--[if IE 9 ]> <html lang="en" class="ie ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en"> <!--<![endif]-->
+<head>
+<meta charset="utf-8" /><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o||n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({1:[function(e,n,t){function r(){}function o(e,n,t){return function(){return i(e,[c.now()].concat(u(arguments)),n?null:this,t),n?void 0:this}}var i=e("handle"),a=e(3),u=e(4),f=e("ee").get("tracer"),c=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,n){s[n]=o(d+n,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,o="function"==typeof n;return i(l+"tracer",[c.now(),e,t],r),function(){if(f.emit((o?"":"no-")+"fn-start",[c.now(),r,o],t),o)try{return n.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],t),e}finally{f.emit("fn-end",[c.now()],t)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=o(l+n)}),newrelic.noticeError=function(e,n){"string"==typeof e&&(e=new Error(e)),i("err",[e,c.now(),!1,n])}},{}],2:[function(e,n,t){function r(e,n){if(!o)return!1;if(e!==o)return!1;if(!n)return!0;if(!i)return!1;for(var t=i.split("."),r=n.split("."),a=0;a<r.length;a++)if(r[a]!==t[a])return!1;return!0}var o=null,i=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var u=navigator.userAgent,f=u.match(a);f&&u.indexOf("Chrome")===-1&&u.indexOf("Chromium")===-1&&(o="Safari",i=f[1])}n.exports={agent:o,version:i,match:r}},{}],3:[function(e,n,t){function r(e,n){var t=[],r="",i=0;for(r in e)o.call(e,r)&&(t[i]=n(r,e[r]),i+=1);return t}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],4:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(o<0?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=r},{}],5:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function o(e){function n(e){return e&&e instanceof r?e:e?f(e,u,i):i()}function t(t,r,o,i){if(!d.aborted||i){e&&e(t,r,o);for(var a=n(o),u=v(t),f=u.length,c=0;c<f;c++)u[c].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function l(e,n){h[e]=v(e).concat(n)}function m(e,n){var t=h[e];if(t)for(var r=0;r<t.length;r++)t[r]===n&&t.splice(r,1)}function v(e){return h[e]||[]}function g(e){return p[e]=p[e]||o(t)}function w(e,n){c(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var h={},y={},b={on:l,addEventListener:l,removeEventListener:m,emit:t,get:g,listeners:v,context:n,buffer:w,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",f=e("gos"),c=e(3),s={},p={},d=n.exports=o();d.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(o.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){o.buffer([e],r),o.emit(e,n,t)}var o=e("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!E++){var e=x.info=NREUM.info,n=l.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();c(y,function(n,t){e[n]||(e[n]=t)}),f("mark",["onload",a()+x.offset],null,"api");var t=l.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function o(){"complete"===l.readyState&&i()}function i(){f("mark",["domContent",a()+x.offset],null,"api")}function a(){return O.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-x.offset}var u=(new Date).getTime(),f=e("handle"),c=e(3),s=e("ee"),p=e(2),d=window,l=d.document,m="addEventListener",v="attachEvent",g=d.XMLHttpRequest,w=g&&g.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:g,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var h=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1123.min.js"},b=g&&w&&w[m]&&!/CriOS/.test(navigator.userAgent),x=n.exports={offset:u,now:a,origin:h,features:{},xhrWrappable:b,userAgent:p};e(1),l[m]?(l[m]("DOMContentLoaded",i,!1),d[m]("load",r,!1)):(l[v]("onreadystatechange",o),d[v]("onload",r)),f("mark",["firstbyte",u],null,"api");var E=0,O=e(5)},{}]},{},["loader"]);</script>
+<link rel="apple-touch-icon" href="https://www.newstatesman.com/sites/all/modules/touch_icons/apple-touch-icon.png" type="image/png" />
+<link rel="shortcut icon" href="https://www.newstatesman.com/sites/default/files/favicon_0.jpg" type="image/jpeg" />
+<script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@graph": [
+        {
+            "@type": "NewsArticle",
+            "headline": "Privacy Policy",
+            "name": "Privacy Policy",
+            "description": "This Privacy Policy sets out how New Statesman Limited collects and uses information from users (“User” or “you”) of our website and/or any website which is operated by New Statesman Limited (“New Statesman Limited”, “our”, “we” or “us”). This Privacy Policy applies to the Website and all products and services offered by New Statesman Limited. What Information Do We Collect? We may collect the following information: (a) personal information from Users in a variety of ways, including, but not limited to, when Users visit our Website, register on the Website, place an order, subscribe to the newsletter, respond to a survey, fill out a form, and in connection with other activities, services, features or resources we make available on our Website. Users may be asked for, as appropriate, name, email address, mailing address, phone number, credit card information. Users may, however, visit our Website anonymously. We will collect personal identification information from Users only if they voluntarily submit such information to us. Users can always refuse to supply personally identification information, except that it may prevent them from engaging in certain Website related activities. (b) non-personal information about Users whenever they interact with our Website. Non-personal identification information may include the browser name, the type of computer and technical information about Users means of connection to our Website, such as the operating system and the Internet Service Provider’s utilised and other similar information. (c) cookies and log files may be used on our Website to enhance User experience. A cookie is a small text file written to an individual\u0027s hard drive that contains the user ID. User’s web browser places cookies on their hard drive for record-keeping purposes and sometimes to track information about them. User may choose to set their web browser to refuse cookies, or to alert you when cookies at being sent. If they do so, note that some parts of the Website may not function properly. You can find out more about the use of cookies and how you can remove them by going to http://allaboutcookies.orgor http://www.cookiecentral.com. How we use collected information Any personal data that you give us will be treated with the utmost care and security. The personal data we collect is used to provide you with the service that you have requested or to respond to an enquiry that you have made. New Statesman Limited uses User personal information we have collected for the following purposes: • to personalise User experience: we may use information individually or aggregated to understand how our Users use the services and resources provided on our Website. • to improve our Website: we continually strive to improve our Website offerings based on the information and feedback we receive from you. • to improve customer service: your information helps us to more effectively respond to your customer service requests and support needs. • to process transactions: we may use the information Users provide when placing an order to service that order, as well as provide relevant information about our other products. We do not automatically share this information with third parties except to the extent necessary to provide the service or when explicitly given permission by the User. The User can at any time change its preferences by contacting us via our Website. • to administer Website features: such as content, promotions and surveys and to send Users information they agreed to receive about topics we think will be of interest to them. • to send periodic emails: the email address Users provide will be used to send them information and updates pertaining to their orders as well as (a) respond to their inquiries and requests or (b) provide relevant information about our other products. If User decides to opt-in to our mailing list, they will receive emails that may include company news, updates, related product or service information, etc. If at any time the User would like to unsubscribe from receiving future emails, we include detailed unsubscribe instructions at the bottom of each email or User may contact us via our Website. User’ right to Opt-out If you do not want to continue to receive e-mail communications from us please let us know by sending an e-mail to unsubscribe@newstatesman.com. Should you request that we amend or suppress records containing your personal data we will endeavour to do so as promptly as practical; however you may receive communications for a transitional period whilst we process your records. How we protect your information We adopt appropriate data collection, storage and processing practices and security measures to protect against unauthorised access, alteration, disclosure or destruction of your personal information, username, password, transaction information and data stored on our Website. Sensitive and private data exchange between the Website and its Users happens over a SSL secured communication channel and is encrypted and protected with digital signatures. Our Website is also in compliance with PCI vulnerability standards in order to create as secure of an environment as possible for Users. Sharing your personal information Unless we are given explicit permission to do so; we do not sell, trade, or rent Users personal information. We may without consent share generic aggregated information not linked to any personal identification information regarding visitors and users with our business partners, trusted affiliates and advertisers for the purposes outlined above. We may use third party service providers to help us operate our business and the Website or administer activities on our behalf, such as sending out newsletters or surveys.   List of websites https://www.newstatesman.com https://subscribe.newstatesman.com https://www.citymetric.com/ http://www.newstatesmanmedia.com tech.newstatesman.com   Third party websites Users may find advertising or other content on our Website that link to the sites and services of our partners, suppliers, advertisers, sponsors, licensors and other third parties. We do not control the content or links that appear on these sites and are not responsible for the practices employed by websites linked to or from our Site. In addition, these sites or services, including their content and links, may be constantly changing. These sites and services may have their own privacy policies and customer service policies. Browsing and interaction on any other website, including websites which have a link to our Website, is subject to that website’s own terms and policies. Advertising Ads appearing on our Website may be delivered to Users by advertising partners, who may set cookies. These cookies allow the ad server to recognise your computer each time they send you an online advertisement to compile non personal identification information about you or others who use your computer. This information allows ad networks to, among other things, deliver targeted advertisements that they believe will be of most interest to you. This privacy policy does not cover the use of cookies by any advertisers. Changes/Updates to Privacy Policy In order to keep up with changing legislation and best practice, we may revise this privacy policy at any time. When we do, we will post a notification on the main page of our Website. We encourage Users to frequently check this page for any changes to stay informed about how we are helping to protect the personal information we collect. You acknowledge and agree that it is your responsibility to review this privacy policy periodically and become aware of modifications. Your acceptance of these terms By using this Website, you signify your acceptance of this policy. If you do not agree to this policy, please do not use our Website. Your continued use of the Website following the posting of changes to this policy will be deemed your acceptance of those changes. Contact us If you have any questions about this Privacy Policy, the practices of this Website, or your dealings with this Website, please contact us at unsubscribe@newstatesman.com or alternatively: Data Protection Officer New Statesman Limited Standard House 12-13 Essex Street London WC2R 3AA United Kingdom",
+            "author": {
+                "@type": "Organization",
+                "@id": "https://www.newstatesman.com",
+                "name": "NS Admin",
+                "url": "https://www.newstatesman.com/privacy-policy",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://www.newstatesman.com/sites/all/themes/creative-responsive-theme/images/newstatesman_logo@2x.png",
+                    "width": "50",
+                    "height": "50"
+                }
+            },
+            "publisher": {
+                "@type": "Organization",
+                "@id": "https://www.newstatesman.com",
+                "name": "Newstatesman",
+                "url": "https://www.newstatesman.com/privacy-policy",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://www.newstatesman.com/sites/all/themes/creative-responsive-theme/images/newstatesman_logo@2x.png",
+                    "width": "50",
+                    "height": "50"
+                }
+            },
+            "datePublished": "1 November, 2011 - 16:52",
+            "dateModified": "2 May, 2019 - 13:47",
+            "image": {
+                "@type": "ImageObject",
+                "url": "",
+                "width": "500",
+                "height": "200"
+            },
+            "mainEntityOfPage": "https://www.newstatesman.com/privacy-policy"
+        }
+    ]
+}</script>
+<meta name="viewport" content="width=device-width" />
+<meta name="keywords" content="New Statesman magazine, International Politics, British Politics, Britain, UK, Tony Blair, Gordon Brown, Geoffrey Robinson, David Cameron, Sir Menzies Campbell, Labour, Conservative, Liberal Democrat, UK Politics, House of Commons, House of Lords, Legislation, politics magazine" />
+<meta name="robots" content="follow, index" />
+<meta name="news_keywords" content="New Statesman magazine, International Politics, British Politics, Britain, UK, Tony Blair, Gordon Brown, Geoffrey Robinson, David Cameron, Sir Menzies Campbell, Labour, Conservative, Liberal Democrat, UK Politics, House of Commons, House of Lords, Legislation, politics magazin" />
+<meta name="generator" content="Drupal 7 (http://drupal.org)" />
+<meta name="rights" content="New Statesman Ltd" />
+<link rel="canonical" href="https://www.newstatesman.com/privacy-policy" />
+<link rel="shortlink" href="https://www.newstatesman.com/node/200310" />
+<meta property="fb:pages" content="100959719644" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.newstatesman.com/privacy-policy" />
+<meta property="og:title" content="Privacy Policy" />
+<meta property="og:description" content="This Privacy Policy sets out how New Statesman Limited collects and uses information from users (“User” or “you”) of our website and/or any website which is operated by New Statesman Limited (“New Statesman Limited”, “our”, “we” or “us”). This Privacy Policy applies to the Website and all products and services offered by New Statesman Limited. What Information Do We Collect? We may collect the following information: (a) personal information from Users in a variety of ways, including, but not limited to, when Users visit our Website, register on the Website, place an order, subscribe to the newsletter, respond to a survey, fill out a form, and in connection with other activities, services, features or resources we make available on our Website. Users may be asked for, as appropriate, name, email address, mailing address, phone number, credit card information. Users may, however, visit our Website anonymously. We will collect personal identification information from Users only if they voluntarily submit such information to us. Users can always refuse to supply personally identification information, except that it may prevent them from engaging in certain Website related activities. (b) non-personal information about Users whenever they interact with our Website. Non-personal identification information may include the browser name, the type of computer and technical information about Users means of connection to our Website, such as the operating system and the Internet Service Provider’s utilised and other similar information. (c) cookies and log files may be used on our Website to enhance User experience. A cookie is a small text file written to an individual&#039;s hard drive that contains the user ID. User’s web browser places cookies on their hard drive for record-keeping purposes and sometimes to track information about them. User may choose to set their web browser to refuse cookies, or to alert you when cookies at being sent. If they do so, note that some parts of the Website may not function properly. You can find out more about the use of cookies and how you can remove them by going to http://allaboutcookies.orgor http://www.cookiecentral.com. How we use collected information Any personal data that you give us will be treated with the utmost care and security. The personal data we collect is used to provide you with the service that you have requested or to respond to an enquiry that you have made. New Statesman Limited uses User personal information we have collected for the following purposes: • to personalise User experience: we may use information individually or aggregated to understand how our Users use the services and resources provided on our Website. • to improve our Website: we continually strive to improve our Website offerings based on the information and feedback we receive from you. • to improve customer service: your information helps us to more effectively respond to your customer service requests and support needs. • to process transactions: we may use the information Users provide when placing an order to service that order, as well as provide relevant information about our other products. We do not automatically share this information with third parties except to the extent necessary to provide the service or when explicitly given permission by the User. The User can at any time change its preferences by contacting us via our Website. • to administer Website features: such as content, promotions and surveys and to send Users information they agreed to receive about topics we think will be of interest to them. • to send periodic emails: the email address Users provide will be used to send them information and updates pertaining to their orders as well as (a) respond to their inquiries and requests or (b) provide relevant information about our other products. If User decides to opt-in to our mailing list, they will receive emails that may include company news, updates, related product or service information, etc. If at any time the User would like to unsubscribe from receiving future emails, we include detailed unsubscribe instructions at the bottom of each email or User may contact us via our Website. User’ right to Opt-out If you do not want to continue to receive e-mail communications from us please let us know by sending an e-mail to unsubscribe@newstatesman.com. Should you request that we amend or suppress records containing your personal data we will endeavour to do so as promptly as practical; however you may receive communications for a transitional period whilst we process your records. How we protect your information We adopt appropriate data collection, storage and processing practices and security measures to protect against unauthorised access, alteration, disclosure or destruction of your personal information, username, password, transaction information and data stored on our Website. Sensitive and private data exchange between the Website and its Users happens over a SSL secured communication channel and is encrypted and protected with digital signatures. Our Website is also in compliance with PCI vulnerability standards in order to create as secure of an environment as possible for Users. Sharing your personal information Unless we are given explicit permission to do so; we do not sell, trade, or rent Users personal information. We may without consent share generic aggregated information not linked to any personal identification information regarding visitors and users with our business partners, trusted affiliates and advertisers for the purposes outlined above. We may use third party service providers to help us operate our business and the Website or administer activities on our behalf, such as sending out newsletters or surveys.   List of websites https://www.newstatesman.com https://subscribe.newstatesman.com https://www.citymetric.com/ http://www.newstatesmanmedia.com tech.newstatesman.com   Third party websites Users may find advertising or other content on our Website that link to the sites and services of our partners, suppliers, advertisers, sponsors, licensors and other third parties. We do not control the content or links that appear on these sites and are not responsible for the practices employed by websites linked to or from our Site. In addition, these sites or services, including their content and links, may be constantly changing. These sites and services may have their own privacy policies and customer service policies. Browsing and interaction on any other website, including websites which have a link to our Website, is subject to that website’s own terms and policies. Advertising Ads appearing on our Website may be delivered to Users by advertising partners, who may set cookies. These cookies allow the ad server to recognise your computer each time they send you an online advertisement to compile non personal identification information about you or others who use your computer. This information allows ad networks to, among other things, deliver targeted advertisements that they believe will be of most interest to you. This privacy policy does not cover the use of cookies by any advertisers. Changes/Updates to Privacy Policy In order to keep up with changing legislation and best practice, we may revise this privacy policy at any time. When we do, we will post a notification on the main page of our Website. We encourage Users to frequently check this page for any changes to stay informed about how we are helping to protect the personal information we collect. You acknowledge and agree that it is your responsibility to review this privacy policy periodically and become aware of modifications. Your acceptance of these terms By using this Website, you signify your acceptance of this policy. If you do not agree to this policy, please do not use our Website. Your continued use of the Website following the posting of changes to this policy will be deemed your acceptance of those changes. Contact us If you have any questions about this Privacy Policy, the practices of this Website, or your dealings with this Website, please contact us at unsubscribe@newstatesman.com or alternatively: Data Protection Officer New Statesman Limited Standard House 12-13 Essex Street London WC2R 3AA United Kingdom" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@NewStatesman" />
+<meta name="twitter:creator" content="@NewStatesman" />
+<meta name="twitter:creator:id" content="19906615" />
+<meta name="twitter:url" content="https://www.newstatesman.com/privacy-policy" />
+<meta name="twitter:title" content="Privacy Policy" />
+<title>Privacy Policy</title>
+<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+<script src="/sites/all/themes/creative-responsive-theme/js/vendor/modernizr.js"></script>
+<script>
+  var j = 1;
+</script>
+
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/android-chrome-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-TileImage" content="/mstile-144x144.png">
+<meta name="theme-color" content="#ffffff">
+<!--<meta name="google-site-verification" content="-wzk9l4dBtL8YHJVF-afrZXha3QSFTKJvhfaoTyOL2Y" />--->
+
+<!--[if gt IE 9 | !IE ]><!-->
+            <link href="/sites/all/modules/paywall/assets/css/ev-widgets.min.css" rel="stylesheet">
+            <link href="/sites/all/modules/paywall/assets/css/prefixed-bootstrap.css" rel="stylesheet">
+            <script type="text/javascript" src="/sites/all/modules/paywall/assets/js/ev-widgets.min.js?ver=3.5.36.2"></script>
+            <script type="text/javascript" src="/sites/all/modules/paywall/assets/js/ev-em.min.js"></script>
+            <script type="text/javascript" src="/sites/all/modules/paywall/assets/js/ev-dab.min.js"></script>
+          <![endif]-->
+<!-- Online Advertising -->
+<script type="text/javascript">
+  
+  window.AD_UNITS_TOGGLE_OFF = [];
+</script>
+
+
+<script type="text/javascript" src="//static.amp.services/clients/GlobalData/NewStatesman.js"></script>
+
+
+<script type="text/javascript" src="https://www.newstatesman.com/sites/default/files/js/js_qikmINIYTWe4jcTUn8cKiMr8bmSDiZB9LQqvceZ6wlM.js"></script>
+<script type="text/javascript" src="https://www.newstatesman.com/sites/default/files/js/js_obFUyTbqtcoGQtszVI46l1_oD927PzlDtlr_ilpYBqE.js"></script>
+<script type="text/javascript" src="https://www.newstatesman.com/sites/default/files/js/js_gZQ5qWcXh9Rvx1si1IfJ7HKd105dXMuvgPb8rxp_ors.js"></script>
+<script type="text/javascript" src="https://www.newstatesman.com/sites/default/files/js/js_MCOUP4Wg651UnH3BcLMsnlvntLIMKa4W2tq2NihbPKs.js"></script>
+<script type="text/javascript" src="https://www.newstatesman.com/sites/default/files/js/js_BrZYhJ6Cz6-vaPzVf1_OfuIG5PqGoQNQc0S1fUe11FI.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"creative_responsive_theme","theme_token":"JoYr1r20AZpEuaogarSoj88pNgLLd4u_Uq0ZG3o-inE","js":{"misc\/jquery.js":1,"misc\/jquery-extend-3.4.0.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/modules\/views_slideshow\/js\/views_slideshow.js":1,"sites\/all\/modules\/google_cse\/google_cse.js":1,"sites\/all\/modules\/NS_custom\/js\/custom-us.js":1,"sites\/all\/modules\/lazyloader\/jquery.lazyloader.js":1,"misc\/progress.js":1,"sites\/all\/modules\/quicktabs\/js\/quicktabs.js":1,"sites\/all\/modules\/cs_adaptive_image\/cs_adaptive_image.js":1,"sites\/all\/modules\/vscc\/js\/vscc.js":1,"sites\/all\/libraries\/jquery.cycle\/jquery.cycle.all.js":1,"sites\/all\/modules\/views_slideshow\/contrib\/views_slideshow_cycle\/js\/views_slideshow_cycle.js":1,"sites\/all\/themes\/creative-responsive-theme\/js\/custom.js":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"sites\/all\/modules\/views_slideshow\/views_slideshow.css":1,"modules\/book\/book.css":1,"sites\/all\/modules\/date\/date_api\/date.css":1,"modules\/field\/theme\/field.css":1,"modules\/node\/node.css":1,"sites\/all\/modules\/NS_custom\/css\/custom.css":1,"sites\/all\/modules\/paywall\/assets\/css\/ev-custom.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/views\/css\/views.css":1,"sites\/all\/modules\/lazyloader\/lazyloader.css":1,"sites\/all\/modules\/ckeditor\/css\/ckeditor.css":1,"sites\/all\/modules\/ctools\/css\/ctools.css":1,"sites\/default\/files\/sl_sprites.css":1,"sites\/all\/modules\/vscc\/vscc.css":1,"sites\/all\/modules\/views_slideshow\/contrib\/views_slideshow_cycle\/views_slideshow_cycle.css":1,"sites\/all\/themes\/creative-responsive-theme\/style.css":1,"sites\/all\/themes\/creative-responsive-theme\/styles\/style-america.css":1}},"googleCSE":{"cx":"014587529549946006773:q0ke2unon2y","language":"en","resultsWidth":800,"domain":"www.google.com"},"custommodule":{"currentNid":"200310"},"better_exposed_filters":{"views":{"event_section":{"displays":{"event_featured_article":{"filters":[]}}},"related_book":{"displays":{"block":{"filters":[]}}},"ns_new_offers":{"displays":{"articlefooterspromo":{"filters":[]}}},"ns_offers_america":{"displays":{"articlefooterspromo":{"filters":[]}}},"spotlight_carousel_us":{"displays":{"block_2":{"filters":[]}}}}},"viewsSlideshow":{"spotlight_carousel_us-block_2":{"methods":{"goToSlide":["viewsSlideshowPager","viewsSlideshowSlideCounter","viewsSlideshowCycle"],"nextSlide":["viewsSlideshowPager","viewsSlideshowSlideCounter","viewsSlideshowCycle"],"pause":["viewsSlideshowControls","viewsSlideshowCycle"],"play":["viewsSlideshowControls","viewsSlideshowCycle"],"previousSlide":["viewsSlideshowPager","viewsSlideshowSlideCounter","viewsSlideshowCycle"],"transitionBegin":["viewsSlideshowPager","viewsSlideshowSlideCounter"],"transitionEnd":[]},"paused":0}},"viewsSlideshowControls":{"spotlight_carousel_us-block_2":{"top":{"type":"vsccControls"}}},"viewsSlideshowCycle":{"#views_slideshow_cycle_main_spotlight_carousel_us-block_2":{"num_divs":3,"id_prefix":"#views_slideshow_cycle_main_","div_prefix":"#views_slideshow_cycle_div_","vss_id":"spotlight_carousel_us-block_2","effect":"fade","transition_advanced":1,"timeout":5000,"speed":500,"delay":2000,"sync":1,"random":0,"pause":1,"pause_on_click":0,"action_advanced":1,"start_paused":0,"remember_slide":0,"remember_slide_days":1,"pause_in_middle":0,"pause_when_hidden":0,"pause_when_hidden_type":"full","amount_allowed_visible":"","nowrap":0,"fixed_height":1,"items_per_slide":1,"wait_for_image_load":1,"wait_for_image_load_timeout":3000,"cleartype":1,"cleartypenobg":1,"advanced_options":"{}"}},"urlIsAjaxTrusted":{"\/privacy-policy":true},"quicktabs":{"qt_trending":{"name":"trending","tabs":[{"bid":"views_delta_right_bar_blocks-lasthour","hide_title":1}],"better_exposed_filters":{"views":{"related_book":{"displays":{"block":{"filters":[]}}}}}}}});
+//--><!]]>
+</script>
+ 
+<style type="text/css" media="all">
+@import url("https://www.newstatesman.com/modules/system/system.base.css?pqw4ie");
+@import url("https://www.newstatesman.com/modules/system/system.menus.css?pqw4ie");
+@import url("https://www.newstatesman.com/modules/system/system.messages.css?pqw4ie");
+@import url("https://www.newstatesman.com/modules/system/system.theme.css?pqw4ie");
+</style>
+<style type="text/css" media="screen">
+@import url("https://www.newstatesman.com/sites/all/modules/views_slideshow/views_slideshow.css?pqw4ie");
+</style>
+<style type="text/css" media="all">
+@import url("https://www.newstatesman.com/modules/book/book.css?pqw4ie");
+@import url("https://www.newstatesman.com/sites/all/modules/date/date_api/date.css?pqw4ie");
+@import url("https://www.newstatesman.com/modules/field/theme/field.css?pqw4ie");
+@import url("https://www.newstatesman.com/modules/node/node.css?pqw4ie");
+@import url("https://www.newstatesman.com/sites/all/modules/NS_custom/css/custom.css?pqw4ie");
+@import url("https://www.newstatesman.com/sites/all/modules/paywall/assets/css/ev-custom.css?pqw4ie");
+@import url("https://www.newstatesman.com/modules/search/search.css?pqw4ie");
+@import url("https://www.newstatesman.com/modules/user/user.css?pqw4ie");
+@import url("https://www.newstatesman.com/sites/all/modules/views/css/views.css?pqw4ie");
+@import url("https://www.newstatesman.com/sites/all/modules/lazyloader/lazyloader.css?pqw4ie");
+@import url("https://www.newstatesman.com/sites/all/modules/ckeditor/css/ckeditor.css?pqw4ie");
+</style>
+<style type="text/css" media="all">
+@import url("https://www.newstatesman.com/sites/all/modules/ctools/css/ctools.css?pqw4ie");
+@import url("https://www.newstatesman.com/sites/default/files/sl_sprites.css?pqw4ie");
+@import url("https://www.newstatesman.com/sites/all/modules/vscc/vscc.css?pqw4ie");
+@import url("https://www.newstatesman.com/sites/all/modules/views_slideshow/contrib/views_slideshow_cycle/views_slideshow_cycle.css?pqw4ie");
+</style>
+<style type="text/css" media="all">
+@import url("https://www.newstatesman.com/sites/all/themes/creative-responsive-theme/style.css?pqw4ie");
+@import url("https://www.newstatesman.com/sites/all/themes/creative-responsive-theme/styles/style-america.css?pqw4ie");
+</style>
+
+
+<meta name="google-site-verification" content="GfOJMinBD7e8A_EFHIWacMNjU-AM1WaPrpnAVzwr7-4"/>
+<meta name="DCSext.WebsiteName" content="www.newstatesman.com" />
+
+
+<!-- Facebook Conversion Code for Checkouts - New Statesman 1 -->
+    <script>(function() {
+    var _fbq = window._fbq || (window._fbq = []);
+    if (!_fbq.loaded) {
+    var fbds = document.createElement('script');
+    fbds.async = true;
+    fbds.src = '//connect.facebook.net/en_US/fbds.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(fbds, s);
+    _fbq.loaded = true;
+    }
+    })();
+    window._fbq = window._fbq || [];
+    window._fbq.push(['track', '6025943409225', {'value':'0.00','currency':'GBP'}]);
+    </script>
+    <noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?ev=6025943409225&amp;cd[value]=0.00&amp;cd[currency]=GBP&amp;noscript=1" /></noscript>
+    
+    <!-- Facebook tracking pixel -->
+    <script>(function() {
+    var _fbq = window._fbq || (window._fbq = []);
+    if (!_fbq.loaded) {
+    var fbds = document.createElement('script');
+    fbds.async = true;
+    fbds.src = '//connect.facebook.net/en_US/fbds.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(fbds, s);
+    _fbq.loaded = true;
+    }
+    _fbq.push(['addPixelId', '526380280843209']);
+    })();
+    window._fbq = window._fbq || [];
+    window._fbq.push(['track', 'PixelInitialized', {}]);
+    </script>
+    <noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?id=526380280843209&amp;ev=PixelInitialized" /></noscript>
+    
+
+<!-- Facebook Conversion Code for New Statesman - MasterBrand Philips 2015 -->
+      <script>(function() {
+      var _fbq = window._fbq || (window._fbq = []);
+      if (!_fbq.loaded) {
+      var fbds = document.createElement('script');
+      fbds.async = true;
+      fbds.src = '//connect.facebook.net/en_US/fbds.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(fbds, s);
+      _fbq.loaded = true;
+      }
+      })();
+      window._fbq = window._fbq || [];
+      window._fbq.push(['track', '6032031760848', {'value':'0.00','currency':'GBP'}]);
+      </script>
+      <noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?ev=6032031760848&amp;cd[value]=0.00&amp;cd[currency]=GBP&amp;noscript=1" /></noscript>
+<!-- end of Facebook Conversion Code- MasterBrand Philips 2015 -->
+
+
+<!-- OnScroll tag: New Statesman -->
+<script src="//tags.onscroll.com/3380db1e-7e02-4e5d-b02b-291ba90d3565/tag.min.js" async defer></script>
+
+<!-- Hotjar Tracking Code for www.newstatesman.com -->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:899208,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+ <!-- On mouse hover sponsered artilce --->
+
+ <!-- On mouse hover sponsered artilce --->
+  
+
+<!--- Added Organization name and address for structure data elements ------>	
+	<script type="application/ld+json">
+	{
+	  "@context": "http://schema.org",
+	  "@type": "Organization",
+	  "url": "https://www.newstatesman.com/us",
+	  "name": "Newstatesman."
+	 
+     
+	}
+</script>
+<!--- End Organization name and address for structure data elements -->
+
+
+  
+</head>
+
+
+      <script>
+        EV.Core.init({
+            serviceName: "default",
+            realmName: "default_realm",
+            icDomain: "https://cmp.evolok.net/ic/api",
+            recaptchaSiteKey: "6LcHrpAUAAAAAGAkDcosec3_d7Ssqggm8j9bz5e2"
+        });
+
+        EV.Translate.addTranslationTable("en", {
+          "ev.widgets.errors.attribute_validation_failed": "Details are invalid. Please enter valid details",
+          "ev.widgets.errors.general_attributes": "Details are invalid. Please enter valid details",
+          "ev.widgets.errors.general_attribute": "Details are invalid. Please enter valid details",          
+          "ev.widgets.errors.forgot_password_success": "Password reset email sent",
+          "ev.widgets.errors.duplicate_user_profile": "Email already exits! Please use different email for signup",        
+          "ev.widgets.errors.undefined_order_id": "The order has not been created. Please enter valid billing address and delivery address.",  
+          "ev.widgets.errors.invalid_form": "Please enter valid profile details.",  
+          "ev.widgets.errors.identifiers_invalid": "The password you have entered is incorrect. Please re-enter your password, or click the forgot password button below to reset it.",
+          "ev.widgets.errors.identifier_value_empty": "Please enter a valid email address.",
+          "ev.widgets.errors.validators_value_empty": "Please enter a valid password.",
+          "ev.widgets.productProfile.submit" : "Click To Proceed",
+          "ev.widgets.productSelection.orderType.GIFT": "Tick this box if this is a gift",
+          "ev.widgets.errors.not_robot": "Please tick the captcha box below"
+
+        });
+
+      EV.Translate.setActiveLanguage("en", true);
+
+        EV.Widgets = {};
+        EV.Widgets.Display = {};
+
+        EV.Em.init({
+            url: "https://cmp.evolok.net/acd/api/3.0",
+            sidCookieDomain: ".newstatesman.com",
+            meterHD: false
+        });
+
+        EV.Social.init({
+            icDomain: "https://cmp.evolok.net/evolok-idm-web/api",
+            serviceName: "default",
+            realmName: "default_realm",
+            redirectUri: "/my-account",
+            socialAttributeMapping: {
+                "email_address": "email",
+                "first_name": "firstName",
+                "last_name": "lastName"
+            },
+            socialKeys: {
+                facebook   : "296323097570420",
+                google   : "733730641858-49sls9g1ol0ko0sv6eihg9gqhtrh6v7o.apps.googleusercontent.com",
+            }
+        });
+
+        EV.Event.init();
+
+        EV.PM.init({
+            pmDomain: "https://cmp.evolok.net/pm/api/v2",
+            version: 2,
+            stripeKey: "pk_live_iGYXuxWCb49iOFMJ7G4F86Yy",
+            skipSummary: false,
+            skipProfile: false,
+            skipValidation: false,
+            skipSessionCreation: false,
+            skipLogin: false
+        });
+
+
+        var TNS_Data = {};
+
+        TNS_Data.countries = [];
+
+        EV.Widgets.Display = {
+                "newsletterSpecialOffers": {
+                    "type": "checkbox",
+                    "values": {"true": {"caption": "Send me exclusive offers from the New Statesman", "id": "true"} }
+                },
+                "newsletterWeeklyHighlights": {
+                    "type": "checkbox",
+                    "values": {"true": {"caption": "Send me the editor's Weekly Highlights email", "id": "true"} }
+                },
+                "NewStatesman_The_Morning_Call_by_Stephen_Bush": {
+                    "type": "checkbox",
+                    "values": {"true": {"caption": "Send me the Morning Call email from Stephen Bush", "id": "true"} }
+                },
+                "delivery_address": {
+                    "type": "label",
+                    "values": [
+                      { "caption": "Delivery Address", "value": "Delivery Address" }
+                    ]
+                }
+            };
+
+        TNS_Data.auth = {};
+
+        // EV.Dab.init();
+
+      </script>
+<!--- Evlolok init ENDS -->
+
+<!--Twitter conversion tracking pixel for philips -->
+
+<script src="https://platform.twitter.com/oct.js" type="text/javascript"></script>
+<script type="text/javascript">twttr.conversion.trackPid('ntow3', { tw_sale_amount: 0, tw_order_quantity: 0 });</script>
+<noscript>
+<img height="1" width="1" style="display:none;" alt="" src="https://analytics.twitter.com/i/adsct?txn_id=ntow3&p_id=Twitter&tw_sale_amount=0&tw_order_quantity=0" />
+<img height="1" width="1" style="display:none;" alt="" src="//t.co/i/adsct?txn_id=ntow3&p_id=Twitter&tw_sale_amount=0&tw_order_quantity=0" />
+</noscript>
+
+<!-- End of Twitter conversion tracking pixel for philips -->
+
+
+
+
+
+<body class="html not-front not-logged-in no-sidebars page-node page-node- page-node-200310 node-type-page page-america article-theme privacypolicy" >
+ 
+ 
+<div class="tns-modal-wrapper"><div class="tns-modal tns-modal--login"><a><span class="ev-nslogo"><img src="https://www.newstatesman.com/sites/default/files/styles/large/public/ns-ga.jpeg?itok=soqxWQNh"></span></a><a><span class="tns-ev-close tns-close">&times;</span></a><ev-login ev-ready="login_loaded" auth-scheme-name="default" forgot-password-service="edit_password" show-social="true" recaptcha="false" social-style="icons" social-networks="['facebook', 'google']" remember-me="true" title="Login" show-labels="false" show-header="false" show-container="false"  auto-populate="true" submitbtn-caption="Log In" override-translation-key="ev.login"></ev-login><span class="tns-right">Don't have an account? <a name="register" class="tns-goto-register" data-context="Login">Sign up</a></span></div><div class="tns-modal tns-modal--register"><a><span class="ev-nslogo"><img src="https://www.newstatesman.com/sites/default/files/styles/large/public/ns-ga.jpeg?itok=soqxWQNh"></span></a><a><span class="tns-ev-close tns-close">&times;</span></a><ev-registration show-labels="false" show-header="false" id="registration" auth-scheme-name="default" recaptcha="true" service-name="default" title="register" submitbtn-caption="Create Account" auto-login="true" show-social="true" social-style="icons" social-networks="['facebook', 'google']" hidden-attributes="{'registration': 'true'}"></ev-registration><div class="tns-pp ng-scope">By registering, I Agree to the <a href="/terms/" target="_blank">Terms of Service</a> and <a href="/privacy-policy/" target="_blank">Privacy Policy</a></div><span class="tns-right">Already a member? <a name="login" class="tns-goto-login" data-context="Register">Log in</a></span></div><div class="tns-modal tns-modal--paywall"><a><span class="tns-ev-close tns-close">&times;</span></a><ev-paywall modal="false"></ev-paywall></div><div class="tns-modal tns-modal--paywallNotifier"><a><span class="tns-ev-close tns-close">&times;</span></a><ev-paywall-notifier modal="false"></ev-paywall-notifier></div><div name="sociallogin" class="tns-modal tns-modal--sociallogin"><a><span class="tns-ev-close tns-close">&times;</span></a><ev-social-registration id="socialRegistration" auth-scheme-name="default" service-name="registration" title="Create an Account"
+                modal-keyboard="true" modal-backdrop="true" auto-populate="true" auto-register="false"
+                show-error-msgs="true" submitBtn-caption="Create Account" cancel-anchor-caption="" show-labels="false">
+            </ev-social-registration></div></div>
+ <script>
+   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ 
+    ga('create', 'UA-121540-1', 'auto');
+
+           ga('set', 'dimension4', '200310');
+
+      
+              ga('set', 'dimension5', "2011-11-01 16:52:19");
+      
+              ga('set', 'dimension6', "NS Admin");
+
+     
+   ga('send', 'pageview');
+ 
+ </script>
+
+ 
+     
+ <!-- 
+<div class="row">
+        <div class="partners">
+              <div class="large-12 columns">
+                  <div class ="gibraltar-logo">
+                    <a href="/gibraltar/"><img src="/sites/all/themes/creative-responsive-theme/images/gibraltar.png" alt="Gibraltar"></a>
+                   </div>
+                   <div class ="philips">
+                    <a href="/livinghealth/"><img src="/sites/all/themes/creative-responsive-theme/images/philips.jpg" alt="Philips"></a>
+                  </div>
+
+              </div>    
+      </div>
+ </div>
+-->
+
+
+<div id='div-out_of_banner'> 
+  <script type='text/javascript'>
+googletag.display('div-out_of_banner');
+</script> 
+</div>
+
+<div class="mobile-banner header-mobile-banner" style="text-align: center;">
+  <div id='div-gpt-ad-1438880573916-1'>
+  <script type='text/javascript'>
+    googletag.cmd.push(function() { googletag.display('div-gpt-ad-1438880573916-1'); });
+  </script> 
+  </div>
+</div>
+
+
+<!-- .top-leaderboard -->
+
+<header class="site-header header-america clearfix">
+  <div class="row">
+
+    <div class="ns-switcher">
+      <div class="mobile-login-container">
+        <button name="login" class="tns-btn tns-login"></button>  
+        <div class="ev-myaccount">
+          <button name="login" class="tns-login"></button> 
+          <ul class="ev-myaccount-list">
+            <li><a href="/my-account" class="navLoggedIn">My Account</a></li>
+            <li><a href="" class="navLoggedIn" onclick="javascript:EV.Core.UI.logout();">Log out</a></li>
+          </ul>
+        </div>
+      </div>
+      <label for="check" class="ns-switcher_selected america_selected"><b>America EDITION</b> <small>US</small></label>
+      <input id="check" type="checkbox">
+      <div class="ns-switcher_close">
+        <label onclick="javascript:location.href='/uk';" for="check"><b>UK EDITION</b> <small>UK</small></label>
+      </div>  
+    </div>
+    
+    <h1 class="site-logo">
+            <a href="/us" title="Home"><img src="/sites/all/themes/creative-responsive-theme/images/new-statesman-america.png" alt="New Statesman America"/></a>
+          </h1>
+    <div class="region region-ns-offers-america">
+  <div id="block-views-ns-offers-america-ns-new-offers" class="block block-views">
+
+      
+  <div class="content">
+    <div class="view view-ns-offers-america view-id-ns_offers_america view-display-id-ns_new_offers secondary-content-box primary-offer-box row view-dom-id-9711b62a3dbf97b9230190a2f369bb5d">
+        
+  
+  
+      <div class="view-content">
+        <div>
+      
+          <div class="large-7 small-7 xsmall-7 columns offer-text">
+                <h3> </h3>
+<div class="cta"><a href="/us-subscribe">Subscribe</a></div>
+<h6 class="new-text">from just $2 per issue</h6>
+                </div>    
+          <img typeof="foaf:Image" src="https://www.newstatesman.com/sites/default/files/styles/magazine-cover-thumb/public/magazinecovers/2019_18_a_very_british_scandal_med.jpg?itok=_r08rIuu" alt="" />    </div>
+    </div>
+  
+  
+  
+  
+  
+  
+</div>  </div>
+  
+</div> <!-- /.block -->
+</div>
+ <!-- /.region -->
+    <div class="header-promotion">
+	<div>
+		<div <div class="promotion christmas-promotion">
+	      <a href="https://www.newstatesman.com/subscribe">
+	        <img src="/sites/all/themes/creative-responsive-theme/images/New-Statesman-Subscribe-Offer.png" alt="New Statesman Christmas offer: Subscribe for just £1.96 an issue">
+	      </a>
+	    </div>
+	    <!-- .christmas-promotion -->
+	</div>
+	
+	<div>
+		<div class="twitter-follow-promotion">
+			<a href="https://twitter.com/NewStatesman"><strong>Follow us</strong> on Twitter </a>
+		</div>
+		<!-- .follow-promotion -->
+	</div>
+
+	<div>
+		<div class="podcast-promotion">
+			<a href="/podcast/"><small>New Statesman</small> <span>Podcast</span></a>
+		</div>
+		<!-- .podcast-promotion -->
+	</div>
+
+
+</div>
+<!-- header-promotion -->
+  </div>
+  <!-- .row -->
+
+    <nav class="site-nav">
+        <div class="row">
+          <div class="nav-links">
+            <ul class="site-categories clearfix">
+                            <div class="region region-mainnav-us">
+  <div id="block-menu-block-5" class="block block-menu-block">
+
+      
+  <div class="content">
+    <div class="menu-block-wrapper menu-block-5 menu-name-menu-main-menu-america parent-mlid-0 menu-level-1">
+  <ul class="menu"><li class="first leaf menu-mlid-12268 menu-mlid-9698"><a href="/us">Home</a></li>
+<li class="leaf has-children menu-mlid-12219 pl-removedmenu"><a href="/us/politics">Politics</a></li>
+<li class="leaf has-children menu-mlid-12225"><a href="/us/culture">Culture</a></li>
+<li class="leaf has-children menu-mlid-12229 wl-removedmenu"><a href="/world">World</a></li>
+<li class="last leaf has-children menu-mlid-12237 sl-removedmenu"><a href="/sci_tech">Science &amp; Tech</a></li>
+</ul></div>
+  </div>
+  
+</div> <!-- /.block -->
+</div>
+ <!-- /.region -->
+                          </ul>
+            <div class="content-links-toggle">More</div>
+            <ul class="content-links">
+                            <div class="region region-mainnav2-us">
+  <div id="block-menu-block-6" class="block block-menu-block">
+
+      
+  <div class="content">
+    <div class="menu-block-wrapper menu-block-6 menu-name-menu-main-menu-2-america parent-mlid-0 menu-level-1">
+  <ul class="menu"><li class="first leaf menu-mlid-12249 II"><a href="/long-reads">Long Reads</a></li>
+<li class="leaf menu-mlid-12250 mag-link"><a href="/magazine">Magazine</a></li>
+<li class="leaf has-children menu-mlid-12251 sp" id="sp"><a href="/spotlight-america">Spotlight</a></li>
+<li class="leaf menu-mlid-12271"><a href="/events">Events</a></li>
+<li class="last leaf menu-mlid-12261 subscribe-link"><a href="/us-subscribe">Subscribe</a></li>
+</ul></div>
+  </div>
+  
+</div> <!-- /.block -->
+</div>
+ <!-- /.region -->
+                          </ul>
+            <div class="mega-menu-row mega-menu row politics-mg">
+                <div class="close-hover-mega-menu">Close menu</div>
+
+                <div class="row">
+                  <div class="large-12 columns">
+                    <div class="row">
+                      <div class="large-9 columns">
+                                               </div>
+                      <div class="large-3 columns">
+                                               </div>
+                    </div>
+                    <!-- .row -->
+
+                    <div class="main-mega-menu-section">
+                      <div class="large-12 columns ns-network">
+
+                        <div class="mega-menu-logo">
+                          <img src="/sites/all/themes/creative-responsive-theme/images/nsnetworks.png">
+                        </div>
+
+                        <div class="network-sites">
+                          <div class="row">
+                            <div class="large-4 columns">
+                              <h1>Consumer</h1>
+                              <h2><a href="http://www.citymetric.com">CityMetric</a></h2>
+                            </div>
+                            <div class="large-4 columns">
+                              <h1>Business</h1>
+                              <h2><a href="http://tech.newstatesman.com/">New Statesman Tech</a></h2>
+                            </div>
+                            <div class="large-4 columns">
+                              <h1><a href="/spotlight">Spotlight</a></h1>
+                              <h2><a href="/cyber">Cyber</a></h2>
+                              <h2 class="viewall"><a href="/spotlight">View All</a></h2>
+
+
+                            </div>
+                          </div>
+                        </div>
+                        <!-- .network-sites -->
+
+                      </div>
+                      <!-- .ns-network -->
+                    </div>
+                    <!-- .main-mega-menu-section -->
+
+                  </div>
+                  <!-- .large-8 -->
+
+                </div>
+                <!-- .row -->
+
+              </div>
+              <!-- .politics-mg -->
+
+            <div class="mega-menu-row mega-menu row culture-mg">
+                <div class="close-hover-mega-menu">Close menu</div>
+
+                <div class="row">
+
+                  <div class="large-12 columns">
+
+                    <div class="row">
+                      <div class="large-9 columns">
+                                               </div>
+                      <div class="large-3 columns">
+                                               </div>
+                    </div>
+                    <!-- .row -->
+
+                    <div class="main-mega-menu-section">
+                      <div class="large-12 columns ns-network">
+
+                        <div class="mega-menu-logo">
+                          <img src="/sites/all/themes/creative-responsive-theme/images/nsnetworks.png">
+                        </div>
+
+                        <div class="network-sites">
+                          <div class="row">
+                            <div class="large-4 columns">
+                              <h1>Consumer</h1>
+                              <h2><a href="http://www.citymetric.com">CityMetric</a></h2>
+                            </div>
+                            <div class="large-4 columns">
+                              <h1>Business</h1>
+                              <h2><a href="http://tech.newstatesman.com/">New Statesman Tech</a></h2>
+                            </div>
+                            <div class="large-4 columns">
+                              <h1><a href="/spotlight">Spotlight</a></h1>
+                              <h2><a href="/cyber">Cyber</a></h2>
+                             <!-- <h2><a href="https://www.newstatesman.com/northern-powerhouse">Northern Powerhouse</a></h2>
+                              <h2><a href="https://www.newstatesman.com/skills">Skills</a></h2>
+                              <h2><a href="https://www.newstatesman.com/manufacturing">Manufacturing</a></h2> <h2><a href="https://www.newstatesman.com/investment">Investment</a></h2>-->
+                              <h2 class="viewall"><a href="/spotlight">View All</a></h2></h2>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- .network-sites -->
+
+                      </div>
+                      <!-- .ns-network -->
+                    </div>
+                    <!-- .main-mega-menu-section -->
+
+                  </div>
+                  <!-- .large-8 -->
+
+                </div>
+                <!-- .row -->
+              </div>
+              <!-- .culture-mg -->
+
+            <div class="mega-menu-row mega-menu row world-mg">
+                <div class="close-hover-mega-menu">Close menu</div>
+
+                <div class="row">
+
+                  <div class="large-12 columns">
+
+                    <div class="row">
+                      <div class="large-9 columns">
+                                               </div>
+                      <div class="large-3 columns">
+                                               </div>
+                    </div>
+                    <!-- .row -->
+
+                    <div class="main-mega-menu-section">
+                      <div class="large-12 columns ns-network">
+
+                        <div class="mega-menu-logo">
+                          <img src="/sites/all/themes/creative-responsive-theme/images/nsnetworks.png">
+                        </div>
+
+                        <div class="network-sites">
+                          <div class="row">
+                            <div class="large-4 columns">
+                              <h1>Consumer</h1>
+                              <h2><a href="http://www.citymetric.com">CityMetric</a></h2>
+                            </div>
+                            <div class="large-4 columns">
+                              <h1>Business</h1>
+                              <h2><a href="http://tech.newstatesman.com/">New Statesman Tech</a></h2>
+                            </div>
+                            <div class="large-4 columns">
+                              <h1><a href="/spotlight">Spotlight</a></h1>
+                              <h2><a href="/cyber">Cyber</a></h2>
+                             <!-- <h2><a href="https://www.newstatesman.com/northern-powerhouse">Northern Powerhouse</a></h2>
+                              <h2><a href="https://www.newstatesman.com/skills">Skills</a></h2>
+                              <h2><a href="https://www.newstatesman.com/manufacturing">Manufacturing</a></h2> <h2><a href="https://www.newstatesman.com/investment">Investment</a></h2>-->
+                              <h2 class="viewall"><a href="/spotlight">View All</a></h2></h2>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- .network-sites -->
+
+                      </div>
+                      <!-- .ns-network -->
+                    </div>
+                    <!-- .main-mega-menu-section -->
+
+                  </div>
+                  <!-- .large-8 -->
+
+                </div>
+                <!-- .row -->
+            </div>
+            <!-- world-mg -->
+
+            <div class="mega-menu-row mega-menu row science_tech-mg">
+                <div class="close-hover-mega-menu">Close menu</div>
+
+                <div class="row">
+
+                  <div class="large-12 columns">
+
+                    <div class="row">
+                      <div class="large-9 columns">
+                                               </div>
+                      <div class="large-3 columns">
+                                               </div>
+                    </div>
+                    <!-- .row -->
+
+                    <div class="main-mega-menu-section">
+                      <div class="large-12 columns ns-network">
+
+                        <div class="mega-menu-logo">
+                          <img src="/sites/all/themes/creative-responsive-theme/images/nsnetworks.png">
+                        </div>
+
+                        <div class="network-sites">
+                          <div class="row">
+                            <div class="large-4 columns">
+                              <h1>Consumer</h1>
+                              <h2><a href="http://www.citymetric.com">CityMetric</a></h2>
+                            </div>
+                            <div class="large-4 columns">
+                              <h1>Business</h1>
+                              <h2><a href="http://tech.newstatesman.com/">New Statesman Tech</a></h2>
+                            </div>
+                            <div class="large-4 columns">
+                              <h1><a href="/spotlight">Spotlight</a></h1>
+                              <h2><a href="/cyber">Cyber</a></h2>
+                             <!-- <h2><a href="https://www.newstatesman.com/northern-powerhouse">Northern Powerhouse</a></h2>
+                              <h2><a href="https://www.newstatesman.com/skills">Skills</a></h2>
+                              <h2><a href="https://www.newstatesman.com/manufacturing">Manufacturing</a></h2> <h2><a href="https://www.newstatesman.com/investment">Investment</a></h2>-->
+                              <h2 class="viewall"><a href="/spotlight">View All</a></h2></h2>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- .network-sites -->
+
+                      </div>
+                      <!-- .ns-network -->
+                    </div>
+                    <!-- .main-mega-menu-section -->
+
+                  </div>
+                  <!-- .large-8 -->
+
+                </div>
+                <!-- .row -->
+            </div>
+            <!-- ns_tech-mg -->
+
+
+			<div class="mega-menu-row mega-menu row event-mg">
+                <div class="close-hover-mega-menu">Close menu</div>
+
+                <div class="row">
+
+                  <div class="large-12 columns">
+
+                    <div class="row">
+
+                         
+                    </div>
+                    <!-- .row -->
+
+                    <div class="main-mega-menu-section">
+                      <div class="large-12 columns ns-network">
+
+                        <div class="mega-menu-logo">
+                          <img src="/sites/all/themes/creative-responsive-theme/images/nsnetworks.png">
+                        </div>
+
+                        <div class="network-sites">
+                          <div class="row">
+                            <div class="large-4 columns">
+                              <h1>Consumer</h1>
+                              <h2><a href="http://www.citymetric.com">CityMetric</a></h2>
+                            </div>
+                            <div class="large-4 columns">
+                              <h1>Business</h1>
+                              <h2><a href="http://tech.newstatesman.com/">New Statesman Tech</a></h2>
+                            </div>
+                            <div class="large-4 columns">
+                              <h1><a href="/spotlight">Spotlight</a></h1>
+                              <h2><a href="/cyber">Cyber</a></h2>
+                             <!-- <h2><a href="https://www.newstatesman.com/northern-powerhouse">Northern Powerhouse</a></h2>
+                              <h2><a href="https://www.newstatesman.com/skills">Skills</a></h2>
+                              <h2><a href="https://www.newstatesman.com/manufacturing">Manufacturing</a></h2> <h2><a href="https://www.newstatesman.com/investment">Investment</a></h2>-->
+                              <h2 class="viewall"><a href="/spotlight">View All</a></h2></h2>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- .network-sites -->
+
+                      </div>
+                      <!-- .ns-network -->
+                    </div>
+                    <!-- .main-mega-menu-section -->
+
+                  </div>
+                  <!-- .large-8 -->
+
+                </div>
+                <!-- .row -->
+            </div>
+            <!-- events -->
+
+            <div class= 'tns-evo-profile ev'>
+              <button name="login" class="tns-btn tns-login" >Login</button>  <button name="register" class="tns-btn tns-register">Register</button>            </div>
+
+            </div>
+
+            
+
+            <div class="site-search"><div class="region region-search">
+  <div id="block-search-form" class="block block-search">
+
+      
+  <div class="content">
+    <form class="google-cse" action="/privacy-policy" method="post" id="search-block-form" accept-charset="UTF-8"><div><div class="container-inline">
+      <h2 class="element-invisible">Search form</h2>
+    <div class="form-item form-type-textfield form-item-search-block-form">
+  <label class="element-invisible" for="edit-search-block-form--2">Search </label>
+ <input title="Enter the terms you wish to search for." type="text" id="edit-search-block-form--2" name="search_block_form" value="" size="15" maxlength="128" class="form-text" />
+</div>
+<div class="form-actions form-wrapper" id="edit-actions"><input type="submit" id="edit-submit" name="op" value="Search" class="form-submit" /></div><input type="hidden" name="form_build_id" value="form-5gG5NftXv3Ww5v9JCXgs_O_HV49VjNeI5OpuzSTe1K8" />
+<input type="hidden" name="form_id" value="search_block_form" />
+</div>
+</div></form>  </div>
+  
+</div> <!-- /.block -->
+</div>
+ <!-- /.region -->
+</div>
+            <div class="mega-menu-toggle mobile-mega-menu-toggle">Menu</div>
+            <div class="search-toggle">Search</div>
+
+        </nav>       
+
+</header>
+<!-- chcek if donation payed cookie is set on the thank-you page -->
+
+   <body onload="checkCookie();">     
+     
+<!--donation cookie end-->
+
+    
+
+
+
+<div id="container">
+    </div>
+</div>
+<!-- Banner --> 
+
+<!-- content-sidebar-wrap  -->
+<div class="row" >
+  <div class="large-8 columns article-column" style="background:none">
+    <div id="content" class="row">       <section id="post-content" role="main" class="article-body"> 		  
+       				      <h1 class="page-title">Privacy Policy</h1>
+			        
+                                              <div class="region region-content">
+  
+          
+
+                      <span property="dc:title" content="Privacy Policy" class="rdf-meta element-hidden"></span>  
+      
+    
+  <div class="content node-page">
+    <div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"> <p>
+	<span id="docs-internal-guid-0d5f4aa1-6ee5-e2db-8f32-8052507bb8b9"><span style="font-size: 13pt; font-family: Arial; color: rgb(101, 101, 101); background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">This Privacy Policy sets out how </span>New Statesman Limited<span style="font-size: 13pt; font-family: Arial; color: rgb(101, 101, 101); background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;"> collects and uses information from users (“User” or “you”) of our website and/or any website which is operated by</span><span style="font-size: 13pt; font-family: Arial; color: rgb(255, 0, 0); background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;"> New Statesman Limited (“New Statesman Limited”,</span><span style="font-size: 13pt; font-family: Arial; color: rgb(101, 101, 101); background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;"> “our”, “we” or “us”). This Privacy Policy applies to the Website and all products and services offered by </span>New Statesman Limited<span style="font-size: 13pt; font-family: Arial; color: rgb(101, 101, 101); background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">.</span></span></p>
+<h3 dir="ltr" style="line-height:1.704;margin-top:10pt;margin-bottom:10pt;">
+	<span id="docs-internal-guid-0d5f4aa1-6ee5-e2db-8f32-8052507bb8b9"><span style="font-size: 12pt; font-family: Arial; color: rgb(10, 10, 10); background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">What Information Do We Collect?</span></span></h3>
+<h3 dir="ltr" style="line-height:1.704;margin-top:19pt;margin-bottom:19pt;">
+	<span id="docs-internal-guid-0d5f4aa1-6ee5-e2db-8f32-8052507bb8b9"><span style="font-size: 19pt; font-family: Arial; color: rgb(10, 10, 10); background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">We may collect the following information:</span></span></h3>
+<p>
+	<span id="docs-internal-guid-0d5f4aa1-6ee5-e2db-8f32-8052507bb8b9"><span style="font-size: 13pt; font-family: Arial; color: rgb(101, 101, 101); background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">(a) personal information from Users in a variety of ways, including, but not limited to, when Users visit our Website, register on the Website, place an order, subscribe to the newsletter, respond to a survey, fill out a form, and in connection with other activities, services, features or resources we make available on our Website. Users may be asked for, as appropriate, name, email address, mailing address, phone number, credit card information. Users may, however, visit our Website anonymously. We will collect personal identification information from Users only if they voluntarily submit such information to us. Users can always refuse to supply personally identification information, except that it may prevent them from engaging in certain Website related activities.</span></span></p>
+<p>
+	<span id="docs-internal-guid-0d5f4aa1-6ee5-e2db-8f32-8052507bb8b9"><span style="font-size: 13pt; font-family: Arial; color: rgb(101, 101, 101); background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">(b) non-personal information about Users whenever they interact with our Website. Non-personal identification information may include the browser name, the type of computer and technical information about Users means of connection to our Website, such as the operating system and the Internet Service Provider’s utilised and other similar information.</span></span></p>
+<p>
+	<span id="docs-internal-guid-0d5f4aa1-6ee5-e2db-8f32-8052507bb8b9"><span style="font-size: 13pt; font-family: Arial; color: rgb(101, 101, 101); background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">(c) cookies and log files may be used on our Website to enhance User experience. A cookie is a small text file written to an individual's hard drive that contains the user ID. User’s web browser places cookies on their hard drive for record-keeping purposes and sometimes to track information about them. User may choose to set their web browser to refuse cookies, or to alert you when cookies at being sent. If they do so, note that some parts of the Website may not function properly. You can find out more about the use of cookies and how you can remove them by going to </span><a href="http://allaboutcookies.org/" style="text-decoration-line: none;"><span style="font-size: 13pt; font-family: Arial; color: rgb(47, 40, 61); background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; text-decoration-line: underline; text-decoration-skip-ink: none; vertical-align: baseline; white-space: pre-wrap;">http://allaboutcookies.org</span></a><span style="font-size: 13pt; font-family: Arial; color: rgb(101, 101, 101); background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">or </span><a href="http://www.cookiecentral.com/" style="text-decoration-line: none;"><span style="font-size: 13pt; font-family: Arial; color: rgb(47, 40, 61); background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; text-decoration-line: underline; text-decoration-skip-ink: none; vertical-align: baseline; white-space: pre-wrap;">http://www.cookiecentral.com</span></a><span style="font-size: 13pt; font-family: Arial; color: rgb(101, 101, 101); background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">.</span></span></p>
+<h3 dir="ltr" style="line-height:1.704;margin-top:19pt;margin-bottom:19pt;">
+	<span id="docs-internal-guid-0d5f4aa1-6ee5-e2db-8f32-8052507bb8b9"><span style="font-size: 19pt; font-family: Arial; color: rgb(10, 10, 10); background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">How we use collected information</span></span></h3>
+<p>
+	<span id="docs-internal-guid-0d5f4aa1-6ee5-e2db-8f32-8052507bb8b9"><span style="font-size: 13pt; font-family: Arial; color: rgb(101, 101, 101); background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">Any personal data that you give us will be treated with the utmost care and security. The personal data we collect is used to provide you with the service that you have requested or to respond to an enquiry that you have made.</span></span></p>
+<p>
+	<span id="docs-internal-guid-0d5f4aa1-6ee5-e2db-8f32-8052507bb8b9">New Statesman Limited<span style="font-size: 13pt; font-family: Arial; color: rgb(101, 101, 101); background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;"> uses User personal information we have collected for the following purposes:</span></span></p>
+<p>
+	<span id="docs-internal-guid-0d5f4aa1-6ee5-e2db-8f32-8052507bb8b9"><span style="font-size: 13pt; font-family: Arial; color: rgb(101, 101, 101); background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">• to personalise User experience: we may use information individually or aggregated to understand how our Users use the services and resources provided on our Website.</span></span></p>
+<p>
+	<span id="docs-internal-guid-0d5f4aa1-6ee5-e2db-8f32-8052507bb8b9"><span style="font-size: 13pt; font-family: Arial; color: rgb(101, 101, 101); background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">• to improve our Website: we continually strive to improve our Website offerings based on the information and feedback we receive from you.</span></span></p>
+<p>
+	<span id="docs-internal-guid-0d5f4aa1-6ee5-e2db-8f32-8052507bb8b9"><span style="font-size: 13pt; font-family: Arial; color: rgb(101, 101, 101); background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">• to improve customer service: your information helps us to more effectively respond to your customer service requests and support needs.</span></span></p>
+<p>
+	<span id="docs-internal-guid-0d5f4aa1-6ee5-e2db-8f32-8052507bb8b9"><span style="font-size: 13pt; font-family: Arial; color: rgb(101, 101, 101); background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">• to process transactions: we may use the information Users provide when placing an order to service that order, as well as provide relevant information about our other products. We do not automatically share this information with third parties except to the extent necessary to provide the service or when explicitly given permission by the User. The User can at any time change its preferences by contacting us via our Website.</span></span></p>
+<p>
+	<span id="docs-internal-guid-0d5f4aa1-6ee5-e2db-8f32-8052507bb8b9"><span style="font-size: 13pt; font-family: Arial; color: rgb(101, 101, 101); background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">• to administer Website features: such as content, promotions and surveys</span></span></p>
+<p>
+	<span id="docs-internal-guid-0d5f4aa1-6ee5-e2db-8f32-8052507bb8b9"><span style="font-size: 13pt; font-family: Arial; color: rgb(101, 101, 101); background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">and to send Users information they agreed to receive about topics we think will be of interest to them.</span></span></p>
+<p>
+	<span id="docs-internal-guid-0d5f4aa1-6ee5-e2db-8f32-8052507bb8b9"><span style="font-size: 13pt; font-family: Arial; color: rgb(101, 101, 101); background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">• to send periodic emails: the email address Users provide will be used to send them information and updates pertaining to their orders as well as (a) respond to their inquiries and requests or (b) provide relevant information about our other products.</span></span></p>
+<p>
+	<span id="docs-internal-guid-0d5f4aa1-6ee5-e2db-8f32-8052507bb8b9"><span style="font-size: 13pt; font-family: Arial; color: rgb(101, 101, 101); background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">If User decides to opt-in to our mailing list, they will receive emails that may include company news, updates, related product or service information, etc. If at any time the User would like to unsubscribe from receiving future emails, we include detailed unsubscribe instructions at the bottom of each email or User may contact us via our Website.</span></span></p>
+<h3 dir="ltr" style="line-height:1.704;margin-top:19pt;margin-bottom:19pt;">
+	<span id="docs-internal-guid-0d5f4aa1-6ee5-e2db-8f32-8052507bb8b9"><span style="font-size: 19pt; font-family: Arial; color: rgb(10, 10, 10); background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">User’ right to Opt-out</span></span></h3>
+<p>
+	<span id="docs-internal-guid-0d5f4aa1-6ee5-e2db-8f32-8052507bb8b9"><span style="font-size: 13pt; font-family: Arial; color: rgb(101, 101, 101); background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">If you do not want to continue to receive e-mail communications from us please let us know by sending an e-mail to </span><a href="https://www.globaldata.com/privacy-policy/unsubscribe@globaldata.com" style="text-decoration-line: none;"><span style="font-size: 13pt; font-family: Arial; color: rgb(255, 0, 0); background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; text-decoration-line: underline; text-decoration-skip-ink: none; vertical-align: baseline; white-space: pre-wrap;">unsubscribe@newstatesman.com</span></a><span style="font-size: 13pt; font-family: Arial; color: rgb(255, 0, 0); background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; text-decoration-line: underline; text-decoration-skip-ink: none; vertical-align: baseline; white-space: pre-wrap;">.</span><span style="font-size: 13pt; font-family: Arial; color: rgb(101, 101, 101); background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;"> Should you request that we amend or suppress records containing your personal data we will endeavour to do so as promptly as practical; however you may receive communications for a transitional period whilst we process your records.</span></span></p>
+<h3 dir="ltr" style="line-height:1.704;margin-top:19pt;margin-bottom:19pt;">
+	<span id="docs-internal-guid-0d5f4aa1-6ee5-e2db-8f32-8052507bb8b9"><span style="font-size: 19pt; font-family: Arial; color: rgb(10, 10, 10); background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">How we protect your information</span></span></h3>
+<p>
+	<span id="docs-internal-guid-0d5f4aa1-6ee5-e2db-8f32-8052507bb8b9"><span style="font-size: 13pt; font-family: Arial; color: rgb(101, 101, 101); background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">We adopt appropriate data collection, storage and processing practices and security measures to protect against unauthorised access, alteration, disclosure or destruction of your personal information, username, password, transaction information and data stored on our Website.</span></span></p>
+<p>
+	<span id="docs-internal-guid-0d5f4aa1-6ee5-e2db-8f32-8052507bb8b9"><span style="font-size: 13pt; font-family: Arial; color: rgb(101, 101, 101); background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">Sensitive and private data exchange between the Website and its Users happens over a SSL secured communication channel and is encrypted and protected with digital signatures. Our Website is also in compliance with PCI vulnerability standards in order to create as secure of an environment as possible for Users.</span></span></p>
+<h3 dir="ltr" style="line-height:1.704;margin-top:19pt;margin-bottom:19pt;">
+	<span id="docs-internal-guid-0d5f4aa1-6ee5-e2db-8f32-8052507bb8b9"><span style="font-size: 19pt; font-family: Arial; color: rgb(10, 10, 10); background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">Sharing your personal information</span></span></h3>
+<p>
+	<span id="docs-internal-guid-0d5f4aa1-6ee5-e2db-8f32-8052507bb8b9"><span style="font-size: 13pt; font-family: Arial; color: rgb(101, 101, 101); background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">Unless we are given explicit permission to do so; we do not sell, trade, or rent Users personal information. We may without consent share generic aggregated information not linked to any personal identification information regarding visitors and users with our business partners, trusted affiliates and advertisers for the purposes outlined above. We may use third party service providers to help us operate our business and the Website or administer activities on our behalf, such as sending out newsletters or surveys.</span></span></p>
+<p>
+	 </p>
+<h3>
+	List of websites</h3>
+<p dir="ltr" style="line-height:1.38;margin-top:0pt;margin-bottom:0pt;">
+	<span id="docs-internal-guid-0d5f4aa1-6ee5-e2db-8f32-8052507bb8b9"><a href="https://www.newstatesman.com/" style="text-decoration-line: none;"><span style="font-size: 11pt; font-family: Arial; color: rgb(255, 0, 0); background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">https://www.newstatesman.c</span></a><span style="font-size: 11pt; font-family: Arial; color: rgb(255, 0, 0); background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">om</span></span></p>
+<p dir="ltr" style="line-height:1.38;margin-top:0pt;margin-bottom:0pt;">
+	<span id="docs-internal-guid-0d5f4aa1-6ee5-e2db-8f32-8052507bb8b9"><span style="font-size: 11pt; font-family: Arial; color: rgb(255, 0, 0); background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;"><a href="https://subscribe.newstatesman.com">https://subscribe.newstatesman.com</a></span><br class="kix-line-break" /><br /><span style="font-size: 11pt; font-family: Arial; color: rgb(255, 0, 0); background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;"><a href="https://www.citymetric.com/">https://www.citymetric.com/</a></span><br class="kix-line-break" /><br /><span style="font-size: 11pt; font-family: Arial; color: rgb(255, 0, 0); background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;"><a href="http://www.newstatesmanmedia.com">http://www.newstatesmanmedia.com</a></span><br class="kix-line-break" /><br /><span style="font-size: 11pt; font-family: Arial; color: rgb(255, 0, 0); background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">tech.newstatesman.com</span></span></p>
+<p>
+	 </p>
+<h3 dir="ltr" style="line-height:1.704;margin-top:19pt;margin-bottom:19pt;">
+	<span id="docs-internal-guid-0d5f4aa1-6ee5-e2db-8f32-8052507bb8b9"><span style="font-size: 19pt; font-family: Arial; color: rgb(10, 10, 10); background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">Third party websites</span></span></h3>
+<p>
+	<span id="docs-internal-guid-0d5f4aa1-6ee5-e2db-8f32-8052507bb8b9"><span style="font-size: 13pt; font-family: Arial; color: rgb(101, 101, 101); background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">Users may find advertising or other content on our Website that link to the sites and services of our partners, suppliers, advertisers, sponsors, licensors and other third parties. We do not control the content or links that appear on these sites and are not responsible for the practices employed by websites linked to or from our Site. In addition, these sites or services, including their content and links, may be constantly changing. These sites and services may have their own privacy policies and customer service policies. Browsing and interaction on any other website, including websites which have a link to our Website, is subject to that website’s own terms and policies.</span></span></p>
+<h3 dir="ltr" style="line-height:1.704;margin-top:19pt;margin-bottom:19pt;">
+	<span id="docs-internal-guid-0d5f4aa1-6ee5-e2db-8f32-8052507bb8b9"><span style="font-size: 19pt; font-family: Arial; color: rgb(10, 10, 10); background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">Advertising</span></span></h3>
+<p>
+	<span id="docs-internal-guid-0d5f4aa1-6ee5-e2db-8f32-8052507bb8b9"><span style="font-size: 13pt; font-family: Arial; color: rgb(101, 101, 101); background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">Ads appearing on our Website may be delivered to Users by advertising partners, who may set cookies. These cookies allow the ad server to recognise your computer each time they send you an online advertisement to compile non personal identification information about you or others who use your computer. This information allows ad networks to, among other things, deliver targeted advertisements that they believe will be of most interest to you. This privacy policy does not cover the use of cookies by any advertisers.</span></span></p>
+<h3 dir="ltr" style="line-height:1.704;margin-top:19pt;margin-bottom:19pt;">
+	<span id="docs-internal-guid-0d5f4aa1-6ee5-e2db-8f32-8052507bb8b9"><span style="font-size: 19pt; font-family: Arial; color: rgb(10, 10, 10); background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">Changes/Updates to Privacy Policy</span></span></h3>
+<p>
+	<span id="docs-internal-guid-0d5f4aa1-6ee5-e2db-8f32-8052507bb8b9"><span style="font-size: 13pt; font-family: Arial; color: rgb(101, 101, 101); background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">In order to keep up with changing legislation and best practice, we may revise this privacy policy at any time. When we do, we will post a notification on the main page of our Website. We encourage Users to frequently check this page for any changes to stay informed about how we are helping to protect the personal information we collect. You acknowledge and agree that it is your responsibility to review this privacy policy periodically and become aware of modifications.</span></span></p>
+<h3 dir="ltr" style="line-height:1.704;margin-top:19pt;margin-bottom:19pt;">
+	<span id="docs-internal-guid-0d5f4aa1-6ee5-e2db-8f32-8052507bb8b9"><span style="font-size: 19pt; font-family: Arial; color: rgb(10, 10, 10); background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">Your acceptance of these terms</span></span></h3>
+<p>
+	<span id="docs-internal-guid-0d5f4aa1-6ee5-e2db-8f32-8052507bb8b9"><span style="font-size: 13pt; font-family: Arial; color: rgb(101, 101, 101); background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">By using this Website, you signify your acceptance of this policy. If you do not agree to this policy, please do not use our Website. Your continued use of the Website following the posting of changes to this policy will be deemed your acceptance of those changes.</span></span></p>
+<h3 dir="ltr" style="line-height:1.704;margin-top:19pt;margin-bottom:19pt;">
+	<span id="docs-internal-guid-0d5f4aa1-6ee5-e2db-8f32-8052507bb8b9"><span style="font-size: 19pt; font-family: Arial; color: rgb(10, 10, 10); background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">Contact us</span></span></h3>
+<p>
+	<span id="docs-internal-guid-0d5f4aa1-6ee5-e2db-8f32-8052507bb8b9"><span style="font-size: 13pt; font-family: Arial; color: rgb(101, 101, 101); background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">If you have any questions about this Privacy Policy, the practices of this Website, or your dealings with this Website, please contact us at </span><span style="font-size: 13pt; font-family: Arial; color: rgb(255, 0, 0); background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;"><a href="mailto:unsubscribe@newstatesman.com">unsubscribe@newstatesman.com</a></span><span style="font-size: 13pt; font-family: Arial; color: rgb(101, 101, 101); background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;"> or alternatively:</span></span></p>
+<p>
+	<span id="docs-internal-guid-0d5f4aa1-6ee5-e2db-8f32-8052507bb8b9"><span style="font-size: 13pt; font-family: Arial; color: rgb(101, 101, 101); background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">Data Protection Officer</span></span></p>
+<p>
+	<span id="docs-internal-guid-0d5f4aa1-6ee5-e2db-8f32-8052507bb8b9">New Statesman Limited</span></p>
+<p>
+	<span id="docs-internal-guid-0d5f4aa1-6ee5-e2db-8f32-8052507bb8b9"><span style="font-size: 13pt; font-family: Arial; color: rgb(101, 101, 101); background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">Standard House</span></span></p>
+<p>
+	<span id="docs-internal-guid-0d5f4aa1-6ee5-e2db-8f32-8052507bb8b9"><span style="font-size: 13pt; font-family: Arial; color: rgb(101, 101, 101); background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">12-13 Essex Street</span></span></p>
+<p>
+	<span id="docs-internal-guid-0d5f4aa1-6ee5-e2db-8f32-8052507bb8b9"><span style="font-size: 13pt; font-family: Arial; color: rgb(101, 101, 101); background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">London WC2R 3AA</span></span></p>
+<p>
+	<span id="docs-internal-guid-0d5f4aa1-6ee5-e2db-8f32-8052507bb8b9"><span style="font-size: 13pt; font-family: Arial; color: rgb(101, 101, 101); background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;">United Kingdom</span></span></p>
+<p>
+	 </p>
+ </div></div></div>  </div>
+
+      <footer>
+          </footer>
+  
+   
+<!--</div>-->
+</div>
+ <!-- /.region -->
+
+            </section>
+      <!-- /#main --> 
+    </div>
+  </div>
+    
+  
+  
+  
+  
+
+                      
+            
+          
+          <div class="large-4 columns right-sidebar">
+            <div class="scrolling-content clearfix">
+              <aside id="sidebar-second" role="complementary">
+                <div class="secondary-content-box desktop-only-banner mpu"> 
+                    <!-- /5269235/New_Statesman_2015_Dynamic_MPU_Top -->
+                    <div id='div-gpt-ad-1434618587891-5'>
+                      <script type='text/javascript'>
+                      googletag.cmd.push(function() { googletag.display('div-gpt-ad-1434618587891-5'); });
+                      </script>
+                    </div>
+                </div>
+				
+				
+				
+				
+                                <div class="secondary-content-box most-popular">
+                  <h2 class="scb-heading">Most Popular</h2>
+                  <div class="region region-sidebar-second-trending">
+  <div id="block-quicktabs-trending" class="block block-quicktabs">
+
+      
+  <div class="content">
+    <div  id="quicktabs-trending" class="quicktabs-wrapper quicktabs-style-nostyle"><div class="item-list"><ul class="quicktabs-tabs quicktabs-style-nostyle"><li class="active first last"><a href="/privacy-policy?qt-trending=0#qt-trending" id="quicktabs-tab-trending-0" class="active">Last hour</a></li>
+</ul></div><div id="quicktabs-container-trending" class="quicktabs_main quicktabs-style-nostyle"><div  id="quicktabs-tabpage-trending-0" class="quicktabs-tabpage "><div id="block-views-right-bar-blocks-lasthour" class="block block-views">
+
+      
+  <div class="content">
+    <div class="view view-right-bar-blocks view-id-right_bar_blocks view-display-id-lasthour view-dom-id-0838475cdea9179315768ebdc31a8dc0">
+        
+  
+  
+      <div class="view-content">
+      <div class="article-list vertical-article-list clearfix">    <ul>          <li class="article-list vertical-article-list small-thumbs-article-list clearfix">  
+  <div class="large-4 small-4 xsmall-4 columns">        <a href="/politics/elections/2019/05/new-statesman-2019-local-elections-liveblog"><img typeof="foaf:Image" src="https://www.newstatesman.com/sites/default/files/styles/most_popular_homesectiontrending_264_198/public/blogs_2019/04/gettyimages-954054750_1_.jpg?itok=woOEd53A" alt="The New Statesman 2019 local elections liveblog" title="What to look out for in the 2019 local elections?" /></a>  </div>  
+          <div class="large-8 small-8 xsmall-8 columns"><h5> <a href="/politics/elections/2019/05/new-statesman-2019-local-elections-liveblog">The New Statesman 2019 local elections liveblog</a></h5><div class="article-author">By <a href="/writers/stephen_bush">Stephen Bush</a></div>
+</div>  </li>
+          <li class="article-list vertical-article-list small-thumbs-article-list clearfix">  
+  <div class="large-4 small-4 xsmall-4 columns">        <a href="/politics/staggers/2019/04/human-supremacism-why-are-animal-rights-activists-still-orphans-left"><img typeof="foaf:Image" src="https://www.newstatesman.com/sites/default/files/styles/most_popular_homesectiontrending_264_198/public/blogs_2019/04/gettyimages-1165034.jpg?itok=c2lfJJKJ" alt="Human supremacism: why are animal rights activists still the “orphans of the left”?" title="Why are animal rights activists still the “orphans of the left”? On human supremacism" /></a>  </div>  
+          <div class="large-8 small-8 xsmall-8 columns"><h5> <a href="/politics/staggers/2019/04/human-supremacism-why-are-animal-rights-activists-still-orphans-left">Human supremacism: why are animal rights activists still the “orphans of the left”?</a></h5><div class="article-author">By Will Kymlicka</div>
+</div>  </li>
+          <li class="article-list vertical-article-list small-thumbs-article-list clearfix">  
+  <div class="large-4 small-4 xsmall-4 columns">        <a href="/politics/feminism/2019/05/welcome-age-ironic-bigotry-where-old-hatreds-are-cloaked-woke-new-language"><img typeof="foaf:Image" src="https://www.newstatesman.com/sites/default/files/styles/most_popular_homesectiontrending_264_198/public/blogs_2019/05/gettyimages-1078445212.jpg?itok=Vs3bEKVt" alt="Welcome to the age of ironic bigotry, where old hatreds are cloaked in woke new language" title="Welcome to the age of ironic bigotry, where old hatreds are cloaked in woke new language" /></a>  </div>  
+          <div class="large-8 small-8 xsmall-8 columns"><h5> <a href="/politics/feminism/2019/05/welcome-age-ironic-bigotry-where-old-hatreds-are-cloaked-woke-new-language">Welcome to the age of ironic bigotry, where old hatreds are cloaked in woke new language</a></h5><div class="article-author">By <a href="/writers/helen_lewis">Helen Lewis</a></div>
+</div>  </li>
+          <li class="article-list vertical-article-list small-thumbs-article-list clearfix">  
+  <div class="large-4 small-4 xsmall-4 columns">        <a href="/culture/books/2019/05/what-ancient-greeks-teach-us"><img typeof="foaf:Image" src="https://www.newstatesman.com/sites/default/files/styles/most_popular_homesectiontrending_264_198/public/Longreads_2019/05/2019_18_medea_illo2.jpg?itok=ue54nAC2" alt="" /></a>  </div>  
+          <div class="large-8 small-8 xsmall-8 columns"><h5> <a href="/culture/books/2019/05/what-ancient-greeks-teach-us">What the Ancient Greeks teach us</a></h5><div class="article-author">By <a href="/writers/320122">Emily Wilson</a></div>
+</div>  </li>
+      </ul></div>    </div>
+  
+  
+  
+  
+  
+  
+</div>  </div>
+  
+</div> <!-- /.block -->
+</div></div></div>  </div>
+  
+</div> <!-- /.block -->
+<div id="block-views-c1e18aa439ae9743fc67d9b22e746635" class="block block-views">
+
+      
+  <div class="content">
+    <div class="view view-right-bar-blocks view-id-right_bar_blocks view-display-id-homepagesponsored sidebar-sponsored-article view-dom-id-25f54e98cd0cf775cce5574792a6c301">
+        
+  
+  
+      <div class="view-content">
+        <div class="row post-id-318793">
+      
+  <div class="large-4 small-4 xsmall-4 columns">        <a href="/spotlight/emerging-technologies/2019/04/technology-and-border-control"><img typeof="foaf:Image" src="https://www.newstatesman.com/sites/default/files/styles/trending_264_198/public/blogs_2019/04/22012019_leidos_ms_125_.jpg?itok=P1eRi0PQ" alt="Technology and border control" title="Technology and border control" /></a>  </div>  
+          <div class="large-8 small-8 xsmall-8 columns"><h5> <a href="/spotlight/emerging-technologies/2019/04/technology-and-border-control">Technology and border control</a></h5><div class="article-author">By Leidos</div>
+</div>    
+          
+<div class="sponsored-hover-2017">
+	<div class="large-4 small-4 xsmall-4 columns">       
+	  <a href="/spotlight/emerging-technologies/2019/04/technology-and-border-control"><img typeof="foaf:Image" src="https://www.newstatesman.com/sites/default/files/styles/trending_264_198/public/blogs_2019/04/22012019_leidos_ms_125_.jpg?itok=P1eRi0PQ" alt="Technology and border control" title="Technology and border control" /></a>
+	 
+	 </div>  
+	<div class="large-8 small-8 xsmall-8 columns"><h5> <a href="/spotlight/fintech/2018/04/evolving-education"><a href="/spotlight/emerging-technologies/2019/04/technology-and-border-control">Technology and border control</a></a></h5>
+		<div class="article-author">By  Leidos  </div>
+	</div>    
+	<div class="large-8 small-8 xsmall-8 columns"> <p> <p>
+	Leidos and the <em>New Statesman</em> hosted a round table event in Westminster to discuss how technology can help the UK facilitate the movement of people and goods.</p>
+ </p>
+<p><a href="/node/318793" class="readmore">Read More</a></p>
+</div>
+
+ </div>    </div>
+    </div>
+  
+  
+  
+  
+  
+  
+</div>  </div>
+  
+</div> <!-- /.block -->
+</div>
+ <!-- /.region -->
+                                 </div>
+                <!-- .most-popular -->
+				
+                <div class="secondary-content-box desktop-only-banner mpu">
+                    <!-- /5269235/New_Statesman_2015_Dynamic_MPU_2 -->
+                    <div id='div-gpt-ad-1434618587891-6'>
+                    <script type='text/javascript'>
+                    googletag.cmd.push(function() { googletag.display('div-gpt-ad-1434618587891-6'); });
+                    </script>
+                    </div>
+                </div>
+                <!-- .mpu -->
+                                                                <div class="secondary-content-box podcast-box">
+                  <h2 class="scb-heading">Podcasts</h2>
+                  <iframe width="300" height="300" src="https://embed.acast.com/newstatesman" scrolling="no" frameborder="0" style="border:none;overflow:hidden;"></iframe>
+                  <iframe width="300" height="300" src="https://embed.acast.com/srsly" scrolling="no" frameborder="0" style="border:none;overflow:hidden;"></iframe>
+                  <div class="cta"><a href="/podcast/">View all podcasts</a></div>
+                </div>
+                                              </aside>
+              <!-- #sidebar-first -->
+	      
+	      <div class="secondary-content-box desktop-banner mpu elevator-banner clearfix">
+		<div class="mobile-banner desktop-and-mobile-banner mpu"> 
+                    <!-- /5269235/New_Statesman_2015_Dynamic_MPU_3 -->
+                    <div id='div-gpt-ad-1434618587891-3'>
+                      <script type='text/javascript'>
+                      googletag.cmd.push(function() { googletag.display('div-gpt-ad-1434618587891-3'); });
+                      </script>
+                    </div>
+		</div>
+            </div>
+              
+            </div>
+            
+         <div class="subscribe-toggle"><a href="https://subscribe.newstatesman.com/?utm_source=onsite&utm_medium=adhesiontab&utm_campaign=subscribe">SUBSCRIBE</a></div>
+          <div class="sidebar-toggle">More</div>
+         
+       
+  
+
+</div>
+</div>
+</div>
+</div>
+
+
+<footer id="nsfooter">
+  <div class="row">
+    <div class="footerwrapper">
+      <div class="large-2 columns footerlogo">
+        <img src="https://newstatesman.com/sites/all/themes/creative-responsive-theme/images/newstatesman_logo@2x.png" alt="">
+      </div>
+      <div class="large-10 columns">
+        <div class="link-footer">
+        <div class="region region-footer">
+  <div id="block-menu-menu-footer-menu" class="block block-menu">
+
+      
+  <div class="content">
+    <ul class="menu"><li class="first leaf"><a href="http://www.newstatesmanmedia.com/">NS Media Group</a></li>
+<li class="leaf"><a href="/about-new-statesman">About us</a></li>
+<li class="leaf"><a href="/advertising">Advertising</a></li>
+<li class="leaf"><a href="/contact-new-statesman">Contact us</a></li>
+<li class="leaf"><a href="/history">History</a></li>
+<li class="leaf active-trail"><a href="/privacy-policy" class="active-trail active">Privacy policy</a></li>
+<li class="leaf"><a href="/page/rss">RSS feeds</a></li>
+<li class="leaf"><a href="https://subscribe.newstatesman.com/">Subscribe</a></li>
+<li class="leaf"><a href="/terms-and-conditions">T&amp;Cs</a></li>
+<li class="last leaf"><a href="http://www.newstatesman.com/page/supplements">Supplements</a></li>
+</ul>  </div>
+  
+</div> <!-- /.block -->
+<div id="block-block-51" class="block block-block">
+
+      
+  <div class="content">
+     <!-- Start of Leadin Embed --><script type="text/javascript" src="//js.leadin.com/js/v1/2099850.js" id="LeadinEmbed-2099850" crossorigin="use-credentials" async="" defer="defer"></script><!-- End of Leadin Embed -->  </div>
+  
+</div> <!-- /.block -->
+</div>
+ <!-- /.region -->
+ 
+        </div>
+      </div>
+    </div>
+    <div class="large-12">
+      <div class="sociallist">
+          <ul>
+            <li><a href="https://www.twitter.com/newstatesman"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+            <li><a href="https://en-gb.facebook.com/NewStatesman/"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+          </ul>
+        </div>
+      </div>
+  </div>
+</footer>  
+
+  
+    
+      <script src="/sites/all/themes/creative-responsive-theme/js/foundation.min.js"></script>
+      <script>
+          //$(document).foundation();
+      </script>
+      <script type="text/javascript" src="/sites/all/themes/creative-responsive-theme/js/ux.js"></script>
+      
+      <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+      <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+      <script type="text/javascript" src="/sites/all/themes/creative-responsive-theme/js/slick/slick.min.js"></script>
+      <script type="text/javascript" src="/sites/all/themes/creative-responsive-theme/js/jquery.sticky.js"></script>
+	 <!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script>---->
+	     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+  $( function() {
+    $( "#accordion" ).accordion({
+      heightStyle: "content"
+    });
+  } );
+  </script>
+	  
+	
+<script type="text/javascript" src="/sites/all/modules/paywall/assets/js/ev-custom.min.js?v=1.6.0"></script><script type="text/javascript" src="/sites/all/modules/paywall/assets/js/ev-ui.js"></script>
+
+      
+
+  <script type="text/javascript" src="/sites/all/themes/creative-responsive-theme/js/inArticleBanners.js"></script>
+ 
+
+<!-- Infinite Ad Serving -->
+
+
+<script type='text/javascript'>
+
+jQuery(document).ready(function() {
+
+var first1=0;
+var first2=0;
+var first3=0;
+var first4=0;
+var first5=0;
+var first6=0;
+
+var article_type=0
+
+//alert(article_type);
+
+    //Load the second article onlym when you get to the bottom of the first.
+    jQuery(window).bind('scroll', function() {
+
+
+
+
+function detectmob() { 
+ if( navigator.userAgent.match(/Android/i)
+ || navigator.userAgent.match(/webOS/i)
+ || navigator.userAgent.match(/iPhone/i)
+ || navigator.userAgent.match(/iPad/i)
+ || navigator.userAgent.match(/iPod/i)
+ || navigator.userAgent.match(/BlackBerry/i)
+ || navigator.userAgent.match(/Windows Phone/i)
+ ){
+    return true;
+  }
+ else {
+    return false;
+  }
+}
+
+
+
+detectmobvalue=detectmob();     
+
+
+      if(detectmobvalue===false && article_type==0){
+
+        // Desktop Ads
+
+       //alert ('not mobile'); 
+
+       // console.log('not mobile');
+      
+        jQuery('.article-mpu-1').each(function() {
+
+            var count2 = jQuery("#container").find('.article-mpu-1').length;
+            count2 -= 1;
+
+
+            for (b = 0; b <= count2; b++) {
+
+                var element = jQuery(".article-mpu-1").eq(b);
+
+                var topOfElement = element.offset().top;
+                var bottomOfElement = element.offset().top + element.outerHeight(true);
+
+                var scrollTopPosition = jQuery(window).scrollTop() + $(window).height();
+                var windowScrollTop = jQuery(window).scrollTop()
+
+                if (windowScrollTop > topOfElement && windowScrollTop < bottomOfElement) {
+                    // Element is partially visible (above viewable area)
+                     console.log("article-mpu-1"+(b)+" is partially visible (above viewable area)");
+
+
+                    if (element.hasClass("Added") || b == 0) {
+                        if(b == 0){
+                           jQuery(".article-mpu-1").eq(1).empty();
+                           jQuery(".article-mpu-1").eq(1).removeClass("Added");
+
+
+                           jQuery(".article-mpu-2").eq(1).empty();
+                           jQuery(".article-mpu-2").eq(1).removeClass("Added");
+
+                           jQuery(".article-mpu-3").eq(1).empty();
+                           jQuery(".article-mpu-3").eq(1).removeClass("Added");
+
+                           jQuery(".article-mpu-4").eq(1).empty();
+                           jQuery(".article-mpu-4").eq(1).removeClass("Added");
+
+
+                           jQuery(".article-mpu-5").eq(1).empty();
+                           jQuery(".article-mpu-5").eq(1).removeClass("Added");
+
+                           jQuery(".video-inread").eq(1).empty();
+                           jQuery(".video-inread").eq(1).removeClass("Added");
+
+
+                           jQuery(".bottom-leaderboard-section").eq(1).empty();
+                           jQuery(".bottom-leaderboard-section").eq(1).removeClass("Added");
+
+
+
+                        }
+
+
+                    } else {
+                        
+                        console.log('removed all ads');
+ 
+                          // Cleaning ads 
+                         jQuery(".article-mpu-1").empty();
+                         jQuery(".article-mpu-1").removeClass("Added");
+
+                         jQuery(".article-mpu-2").empty();
+                         jQuery(".article-mpu-2").removeClass("Added");
+
+                         jQuery(".article-mpu-3").empty();
+                         jQuery(".article-mpu-3").removeClass("Added");
+
+                         jQuery(".article-mpu-5").empty();
+                         jQuery(".article-mpu-5").removeClass("Added");
+
+
+                        jQuery(".video-inread").empty();
+                        jQuery(".video-inread").removeClass("Added");
+
+                        jQuery(".bottom-leaderboard-section").empty();
+                        jQuery(".bottom-leaderboard-section").removeClass("Added");
+
+                        
+                        
+                        element.append("<div id='Unit2'><script type='text/javascript'>googletag.cmd.push(function() { googletag.display('Unit2'); });<\/script><\/div>");
+                        jQuery(".article-mpu-2").last().append("<div id='Unit3'><script type='text/javascript'>googletag.cmd.push(function() { googletag.display('Unit3'); });<\/script><\/div>");
+                        jQuery(".article-mpu-3").last().append("<div id='Unit4'><script type='text/javascript'>googletag.cmd.push(function() { googletag.display('Unit4'); });<\/script><\/div>");
+                        jQuery(".article-mpu-5").last().append("<div id='Unit6'><script type='text/javascript'>googletag.cmd.push(function() { googletag.display('Unit6'); });<\/script><\/div>");
+                        jQuery(".video-inread").last().append("<div id='1x3'><script type='text/javascript'>googletag.cmd.push(function() { googletag.display('1x3'); });<\/script><\/div>");
+                        jQuery(".bottom-leaderboard-section").last().append("<div id='Unit5'><script type='text/javascript'>googletag.cmd.push(function() { googletag.display('Unit5'); });<\/script><\/div>");
+                        if (b != 0) {
+
+                            streamamp.refreshBids("Unit2");
+                            streamamp.refreshBids("Unit3");
+                            streamamp.refreshBids("Unit4");
+                            streamamp.refreshBids("Unit5");
+                            streamamp.refreshBids("Unit6");
+                            streamamp.refreshBids("1x3");
+
+                            
+
+                        }
+                        //first1++;
+
+
+                        element.addClass("Added");
+                        jQuery(".article-mpu-2").last().addClass("Added");
+                        jQuery(".article-mpu-3").last().addClass("Added");
+                        jQuery(".article-mpu-5").last().addClass("Added");
+                        jQuery(".video-inread").last().addClass("Added");
+                        jQuery(".bottom-leaderboard-section").last().addClass("Added");
+
+                         // alert('added all ads');
+                         console.log('article-mpu-2'+b); 
+                         console.log('added all ads'); 
+                    }
+
+                
+
+                } else if (windowScrollTop > bottomOfElement && windowScrollTop > topOfElement) {
+                    // Element is hidden (above viewable area)
+                    //   console.log("Element is hidden (above viewable area)");
+
+                    //jQuery(".article-mpu-1").eq(b).empty();
+                   // jQuery(".article-mpu-1").eq(b).removeClass("Added");
+
+                } else if (scrollTopPosition < topOfElement && scrollTopPosition < bottomOfElement) {
+                    // Element is hidden (below viewable area)
+                    // console.log("Element is hidden (below viewable area)");
+
+                   // jQuery(".article-mpu-1").eq(b).empty();
+                   // jQuery(".article-mpu-1").eq(b).removeClass("Added");
+
+
+                } else if (scrollTopPosition < bottomOfElement && scrollTopPosition > topOfElement) {
+                    // Element is partially visible (below viewable area)
+                    //console.log("Element is partially visible (below viewable area)");
+
+                } else {
+                    // Element is completely visible
+                    //console.log("Element is completely visible");
+
+                     console.log("article-mpu-1"+(b)+" is completely visible (above viewable area)");
+
+                    if (element.hasClass("Added") || b == 0) {
+                        if(b == 0){
+                           jQuery(".article-mpu-1").eq(1).empty();
+                           jQuery(".article-mpu-1").eq(1).removeClass("Added");
+
+
+                           jQuery(".article-mpu-2").eq(1).empty();
+                           jQuery(".article-mpu-2").eq(1).removeClass("Added");
+
+                           jQuery(".article-mpu-3").eq(1).empty();
+                           jQuery(".article-mpu-3").eq(1).removeClass("Added");
+
+                           jQuery(".article-mpu-4").eq(1).empty();
+                           jQuery(".article-mpu-4").eq(1).removeClass("Added");
+
+
+                           jQuery(".article-mpu-5").eq(1).empty();
+                           jQuery(".article-mpu-5").eq(1).removeClass("Added");
+
+                           jQuery(".video-inread").eq(1).empty();
+                           jQuery(".video-inread").eq(1).removeClass("Added");
+
+
+                           jQuery(".bottom-leaderboard-section").eq(1).empty();
+                           jQuery(".bottom-leaderboard-section").eq(1).removeClass("Added");
+
+                            
+
+                        }
+
+
+                    } else {
+                        
+                        console.log('removed all ads');
+ 
+                          // Cleaning ads 
+                         jQuery(".article-mpu-1").empty();
+                         jQuery(".article-mpu-1").removeClass("Added");
+
+                         jQuery(".article-mpu-2").empty();
+                         jQuery(".article-mpu-2").removeClass("Added");
+
+                         jQuery(".article-mpu-3").empty();
+                         jQuery(".article-mpu-3").removeClass("Added");
+
+                         jQuery(".article-mpu-5").empty();
+                         jQuery(".article-mpu-5").removeClass("Added");
+
+
+                        jQuery(".video-inread").empty();
+                        jQuery(".video-inread").removeClass("Added");
+
+                        jQuery(".bottom-leaderboard-section").empty();
+                        jQuery(".bottom-leaderboard-section").removeClass("Added");
+
+                        
+                        
+                        element.append("<div id='Unit2'><script type='text/javascript'>googletag.cmd.push(function() { googletag.display('Unit2'); });<\/script><\/div>");
+                        jQuery(".article-mpu-2").last().append("<div id='Unit3'><script type='text/javascript'>googletag.cmd.push(function() { googletag.display('Unit3'); });<\/script><\/div>");
+                        jQuery(".article-mpu-3").last().append("<div id='Unit4'><script type='text/javascript'>googletag.cmd.push(function() { googletag.display('Unit4'); });<\/script><\/div>");
+                        jQuery(".article-mpu-5").last().append("<div id='Unit6'><script type='text/javascript'>googletag.cmd.push(function() { googletag.display('Unit6'); });<\/script><\/div>");
+                        jQuery(".video-inread").last().append("<div id='1x3'><script type='text/javascript'>googletag.cmd.push(function() { googletag.display('1x3'); });<\/script><\/div>");
+                        jQuery(".bottom-leaderboard-section").eq(b).append("<div id='Unit5'><script type='text/javascript'>googletag.cmd.push(function() { googletag.display('Unit5'); });<\/script><\/div>");
+                        if (b != 0) {
+
+                            streamamp.refreshBids("Unit2");
+                            streamamp.refreshBids("Unit3");
+                            streamamp.refreshBids("Unit4");
+                            streamamp.refreshBids("Unit5");
+                            streamamp.refreshBids("Unit6");
+                            streamamp.refreshBids("1x3");
+
+                            
+
+                        }
+                        //first1++;
+
+
+                        element.addClass("Added");
+                        jQuery(".article-mpu-2").last().addClass("Added");
+                        jQuery(".article-mpu-3").last().addClass("Added");
+                        jQuery(".article-mpu-5").last().addClass("Added");
+                        jQuery(".video-inread").last().addClass("Added");
+                        jQuery(".bottom-leaderboard-section").last().addClass("Added");
+
+                         // alert('added all ads');
+                         console.log('article-mpu-2'+b); 
+                         console.log('added all ads'); 
+                    }
+
+
+                }
+
+            }
+
+        });
+
+    
+
+
+  }else if(detectmobvalue===true){
+
+
+////////alert('mobile');
+ console.log('mobile');
+/// Mobile ADs
+
+  jQuery('.title.inf_class').each(function() {
+
+            var count2 = jQuery(".html").find('.title.inf_class').length;
+            count2 -= 1;
+
+            console.log(count2);
+
+
+            for (b = 0; b <= count2; b++) {
+
+                var element = jQuery(".title.inf_class").eq(b);
+
+                var topOfElement = element.offset().top;
+                var bottomOfElement = element.offset().top + element.outerHeight(true);
+
+                var scrollTopPosition = jQuery(window).scrollTop() + $(window).height();
+                var windowScrollTop = jQuery(window).scrollTop()
+
+                if (windowScrollTop > topOfElement && windowScrollTop < bottomOfElement) {
+                    // Element is partially visible (above viewable area) 
+                     console.log("Element is partially visible (above viewable area)");
+
+
+                      if (jQuery(".article-mpu-5").last().hasClass("Added")  || b == 0) {
+                        if(b == 0){
+
+                          //streamamp.refreshBids("Unit2");
+
+                           jQuery(".article-mpu-5").eq(1).empty();
+                           jQuery(".article-mpu-5").eq(1).removeClass("Added");
+
+
+                           jQuery(".article-mpu-51").eq(1).empty();
+                           jQuery(".article-mpu-51").eq(1).removeClass("Added");
+
+                           jQuery(".article-mpu-52").eq(1).empty();
+                           jQuery(".article-mpu-52").eq(1).removeClass("Added");
+
+                           jQuery(".video-inread").eq(1).empty();
+                           jQuery(".video-inread").eq(1).removeClass("Added");
+
+
+                           jQuery(".video-inread1").eq(1).empty();
+                           jQuery(".video-inread1").eq(1).removeClass("Added");
+
+                           jQuery(".video-inread2").eq(1).empty();
+                           jQuery(".video-inread2").eq(1).removeClass("Added");
+
+
+                           jQuery(".bottom-leaderboard-section").eq(1).empty();
+                           jQuery(".bottom-leaderboard-section").eq(1).removeClass("Added");
+
+                        }
+
+
+                   } else {
+
+                        
+                        console.log('removed all ads');
+
+                          // Cleaning ads  
+                        jQuery(".article-mpu-5").empty();
+                        jQuery(".article-mpu-5").removeClass("Added");
+
+                        jQuery(".article-mpu-51").empty();
+                        jQuery(".article-mpu-51").removeClass("Added");
+
+                        jQuery(".article-mpu-52").empty();
+                        jQuery(".article-mpu-52").removeClass("Added");
+
+                        jQuery(".video-inread").empty();
+                        jQuery(".video-inread").removeClass("Added");
+
+                        jQuery(".video-inread1").empty();
+                        jQuery(".video-inread1").removeClass("Added");
+
+
+                        jQuery(".video-inread2").empty();
+                        jQuery(".video-inread2").removeClass("Added");
+
+                        jQuery(".bottom-leaderboard-section").empty();
+                        jQuery(".bottom-leaderboard-section").removeClass("Added");
+
+
+                        
+                        jQuery(".article-mpu-5").last().append("<div id='Unit3' class='sidebarad" + b + "'><script type='text/javascript'>googletag.cmd.push(function() { googletag.display('Unit3'); });<\/script><\/div>");
+                        jQuery(".article-mpu-51").last().append("<div id='Unit4' class='sidebarad" + b + "'><script type='text/javascript'>googletag.cmd.push(function() { googletag.display('Unit4'); });<\/script><\/div>");
+                        jQuery(".article-mpu-52").last().append("<div id='Unit2' class='sidebarad" + b + "'><script type='text/javascript'>googletag.cmd.push(function() { googletag.display('Unit2'); });<\/script><\/div>");
+                        jQuery(".video-inread").last().append("<div id='1x3'><script type='text/javascript'>googletag.cmd.push(function() { googletag.display('1x3'); });<\/script><\/div>");
+                        jQuery(".video-inread1").eq(b).append("<div id='1x1'><script type='text/javascript'>googletag.cmd.push(function() { googletag.display('1x1'); });<\/script><\/div>");
+                        jQuery(".video-inread2").eq(b).append("<div id='1x2'><script type='text/javascript'>googletag.cmd.push(function() { googletag.display('1x2'); });<\/script><\/div>");
+                        jQuery(".bottom-leaderboard-section").last().append("<div id='Unit5'><script type='text/javascript'>googletag.cmd.push(function() { googletag.display('Unit5'); });<\/script><\/div>");
+
+
+                       if (b != 0) {
+
+                            streamamp.refreshBids("Unit2");
+                            streamamp.refreshBids("Unit3");
+                            streamamp.refreshBids("Unit4");
+                            streamamp.refreshBids("1x3");
+                            streamamp.refreshBids("1x2");
+                            streamamp.refreshBids("1x1");
+                            streamamp.refreshBids("Unit5");
+
+                        }
+                     
+
+
+                        jQuery(".article-mpu-5").last().addClass("Added");
+                        jQuery(".article-mpu-51").last().addClass("Added");
+                        jQuery(".article-mpu-52").last().addClass("Added");
+                        jQuery(".video-inread").last().addClass("Added");
+                        jQuery(".video-inread1").last().addClass("Added");
+                        jQuery(".video-inread2").last().addClass("Added");
+                        jQuery(".bottom-leaderboard-section").last().addClass("Added");
+
+                         // alert('added all ads');
+                          console.log('added all ads'); 
+                    }
+
+                
+
+                } else if (windowScrollTop > bottomOfElement && windowScrollTop > topOfElement) {
+                    // Element is hidden (above viewable area)
+                    //   console.log("Element is hidden (above viewable area)");
+
+                    //jQuery(".article-mpu-1").eq(b).empty();
+                   // jQuery(".article-mpu-1").eq(b).removeClass("Added");
+
+                } else if (scrollTopPosition < topOfElement && scrollTopPosition < bottomOfElement) {
+                    // Element is hidden (below viewable area)
+                    // console.log("Element is hidden (below viewable area)");
+
+                   // jQuery(".article-mpu-1").eq(b).empty();
+                   // jQuery(".article-mpu-1").eq(b).removeClass("Added");
+
+
+                } else if (scrollTopPosition < bottomOfElement && scrollTopPosition > topOfElement) {
+                    // Element is partially visible (below viewable area)
+                    //console.log("Element is partially visible (below viewable area)");
+
+                } else {
+                	
+                    // Element is completely visible
+                    console.log("Element is completely visible");
+
+                      if (jQuery(".article-mpu-5").last().hasClass("Added") || b == 0) {
+                        if(b == 0){
+
+
+                           jQuery(".article-mpu-5").eq(1).empty();
+                           jQuery(".article-mpu-5").eq(1).removeClass("Added");
+
+
+                           jQuery(".article-mpu-51").eq(1).empty();
+                           jQuery(".article-mpu-51").eq(1).removeClass("Added");
+
+                           jQuery(".article-mpu-52").eq(1).empty();
+                           jQuery(".article-mpu-52").eq(1).removeClass("Added");
+
+                           jQuery(".video-inread").eq(1).empty();
+                           jQuery(".video-inread").eq(1).removeClass("Added");
+
+
+                           jQuery(".video-inread1").eq(1).empty();
+                           jQuery(".video-inread1").eq(1).removeClass("Added");
+
+                           jQuery(".video-inread2").eq(1).empty();
+                           jQuery(".video-inread2").eq(1).removeClass("Added");
+
+
+                           jQuery(".bottom-leaderboard-section").eq(1).empty();
+                           jQuery(".bottom-leaderboard-section").eq(1).removeClass("Added");
+
+                        }
+
+
+                    } else { 
+
+                        
+                        console.log('removed all ads');
+
+                          // Cleaning ads  
+                        jQuery(".article-mpu-5").empty();
+                        jQuery(".article-mpu-5").removeClass("Added");
+
+                        jQuery(".article-mpu-51").empty();
+                        jQuery(".article-mpu-51").removeClass("Added");
+
+                        jQuery(".article-mpu-52").empty();
+                        jQuery(".article-mpu-52").removeClass("Added");
+
+                        jQuery(".video-inread").empty();
+                        jQuery(".video-inread").removeClass("Added");
+
+                        jQuery(".video-inread1").empty();
+                        jQuery(".video-inread1").removeClass("Added");
+
+
+                        jQuery(".video-inread2").empty();
+                        jQuery(".video-inread2").removeClass("Added");
+
+                        jQuery(".bottom-leaderboard-section").empty();
+                        jQuery(".bottom-leaderboard-section").removeClass("Added");
+
+
+                        
+                        jQuery(".article-mpu-5").last().append("<div id='Unit3' class='sidebarad" + b + "'><script type='text/javascript'>googletag.cmd.push(function() { googletag.display('Unit3'); });<\/script><\/div>");
+                        jQuery(".article-mpu-51").last().append("<div id='Unit4' class='sidebarad" + b + "'><script type='text/javascript'>googletag.cmd.push(function() { googletag.display('Unit4'); });<\/script><\/div>");
+                        jQuery(".article-mpu-52").last().append("<div id='Unit2' class='sidebarad" + b + "'><script type='text/javascript'>googletag.cmd.push(function() { googletag.display('Unit2'); });<\/script><\/div>");
+                        jQuery(".video-inread").last().append("<div id='1x3'><script type='text/javascript'>googletag.cmd.push(function() { googletag.display('1x3'); });<\/script><\/div>");
+                        jQuery(".video-inread1").eq(b).append("<div id='1x1'><script type='text/javascript'>googletag.cmd.push(function() { googletag.display('1x1'); });<\/script><\/div>");
+                        jQuery(".video-inread2").eq(b).append("<div id='1x2'><script type='text/javascript'>googletag.cmd.push(function() { googletag.display('1x2'); });<\/script><\/div>");
+                        jQuery(".bottom-leaderboard-section").last().append("<div id='Unit5'><script type='text/javascript'>googletag.cmd.push(function() { googletag.display('Unit5'); });<\/script><\/div>");
+
+
+                       if (b != 0) {
+
+                            streamamp.refreshBids("Unit2");
+                            streamamp.refreshBids("Unit3");
+                            streamamp.refreshBids("Unit4");
+                            streamamp.refreshBids("1x3");
+                            streamamp.refreshBids("1x2");
+                            streamamp.refreshBids("1x1");
+                            streamamp.refreshBids("Unit5");
+
+                        }
+                     
+
+
+                        jQuery(".article-mpu-5").last().addClass("Added");
+                        jQuery(".article-mpu-51").last().addClass("Added");
+                        jQuery(".article-mpu-52").last().addClass("Added");
+                        jQuery(".video-inread").last().addClass("Added");
+                        jQuery(".video-inread1").last().addClass("Added");
+                        jQuery(".video-inread2").last().addClass("Added");
+                        jQuery(".bottom-leaderboard-section").last().addClass("Added");
+
+                         // alert('added all ads');
+                          console.log('added all ads'); 
+                    }
+                }
+
+            }
+
+        });
+
+
+  }else if(detectmobvalue===false && article_type==1){
+
+
+      //alert('long read');
+      console.log("long read");
+
+
+        jQuery('.title.inf_class').each(function() {
+
+            var count2 = jQuery(".html").find('.title.inf_class').length;
+            count2 -= 1;
+
+            console.log(count2);
+
+
+            for (b = 0; b <= count2; b++) {
+
+                var element = jQuery(".title.inf_class").eq(b);
+
+                var topOfElement = element.offset().top;
+                var bottomOfElement = element.offset().top + element.outerHeight(true);
+
+                var scrollTopPosition = jQuery(window).scrollTop() + $(window).height();
+                var windowScrollTop = jQuery(window).scrollTop()
+
+                if (windowScrollTop > topOfElement && windowScrollTop < bottomOfElement) {
+                    // Element is partially visible (above viewable area)
+                     console.log("Element is partially visible (above viewable area)");
+
+
+                      if (jQuery(".article-mpu-5").eq(b).hasClass("Added") || jQuery(".article-mpu-51").eq(b).hasClass("Added")  || b == 0) {
+                        if(b == 0){
+                           jQuery(".article-mpu-5").eq(1).empty();
+                           jQuery(".article-mpu-5").eq(1).removeClass("Added");
+
+
+                           jQuery(".article-mpu-51").eq(1).empty();
+                           jQuery(".article-mpu-51").eq(1).removeClass("Added");
+
+                           jQuery(".article-mpu-52").eq(1).empty();
+                           jQuery(".article-mpu-52").eq(1).removeClass("Added");
+
+                           jQuery(".video-inread").eq(1).empty();
+                           jQuery(".video-inread").eq(1).removeClass("Added");
+
+
+                           jQuery(".video-inread1").eq(1).empty();
+                           jQuery(".video-inread1").eq(1).removeClass("Added");
+
+                           jQuery(".video-inread2").eq(1).empty();
+                           jQuery(".video-inread2").eq(1).removeClass("Added");
+
+
+                           jQuery(".bottom-leaderboard-section").eq(1).empty();
+                           jQuery(".bottom-leaderboard-section").eq(1).removeClass("Added");
+
+                        }
+
+
+                    } else {
+
+                        
+                        console.log('removed all ads');
+
+                          // Cleaning ads  
+                        jQuery(".article-mpu-5").empty();
+                        jQuery(".article-mpu-5").removeClass("Added");
+
+                        jQuery(".article-mpu-51").empty();
+                        jQuery(".article-mpu-51").removeClass("Added");
+
+                        jQuery(".article-mpu-52").empty();
+                        jQuery(".article-mpu-52").removeClass("Added");
+
+                        jQuery(".video-inread").empty();
+                        jQuery(".video-inread").removeClass("Added");
+
+                        jQuery(".video-inread1").empty();
+                        jQuery(".video-inread1").removeClass("Added");
+
+
+                        jQuery(".video-inread2").empty();
+                        jQuery(".video-inread2").removeClass("Added");
+
+                        jQuery(".bottom-leaderboard-section").empty();
+                        jQuery(".bottom-leaderboard-section").removeClass("Added");
+
+
+                        
+                        jQuery(".article-mpu-5").eq(b).append("<div id='Unit2' class='sidebarad" + b + "'><script type='text/javascript'>googletag.cmd.push(function() { googletag.display('Unit2'); });<\/script><\/div>");
+                        jQuery(".article-mpu-51").eq(b).append("<div id='Unit3' class='sidebarad" + b + "'><script type='text/javascript'>googletag.cmd.push(function() { googletag.display('Unit3'); });<\/script><\/div>");
+                        jQuery(".article-mpu-52").eq(b).append("<div id='Unit4' class='sidebarad" + b + "'><script type='text/javascript'>googletag.cmd.push(function() { googletag.display('Unit4'); });<\/script><\/div>");
+                        jQuery(".video-inread").eq(b).append("<div id='1x3'><script type='text/javascript'>googletag.cmd.push(function() { googletag.display('1x3'); });<\/script><\/div>");
+                        jQuery(".video-inread1").eq(b).append("<div id='1x1'><script type='text/javascript'>googletag.cmd.push(function() { googletag.display('1x1'); });<\/script><\/div>");
+                        jQuery(".video-inread2").eq(b).append("<div id='1x2'><script type='text/javascript'>googletag.cmd.push(function() { googletag.display('1x2'); });<\/script><\/div>");
+                        jQuery(".bottom-leaderboard-section").eq(b).append("<div id='Unit5'><script type='text/javascript'>googletag.cmd.push(function() { googletag.display('Unit5'); });<\/script><\/div>");
+
+
+                       if (b != 0) {
+
+                            streamamp.refreshBids("Unit2");
+                            streamamp.refreshBids("Unit3");
+                            streamamp.refreshBids("Unit4");
+                            streamamp.refreshBids("1x3");
+                            streamamp.refreshBids("1x2");
+                            streamamp.refreshBids("1x1");
+                            streamamp.refreshBids("Unit5");
+
+                        }
+                     
+
+
+                        jQuery(".article-mpu-5").eq(b).addClass("Added");
+                        jQuery(".article-mpu-51").eq(b).addClass("Added");
+                        jQuery(".article-mpu-52").eq(b).addClass("Added");
+                        jQuery(".video-inread").eq(b).addClass("Added");
+                        jQuery(".video-inread1").eq(b).addClass("Added");
+                        jQuery(".video-inread2").eq(b).addClass("Added");
+                        jQuery(".bottom-leaderboard-section").eq(b).addClass("Added");
+
+                         // alert('added all ads');
+                          console.log('added all ads'); 
+                    }
+
+                
+
+                } else if (windowScrollTop > bottomOfElement && windowScrollTop > topOfElement) {
+                    // Element is hidden (above viewable area)
+                    //   console.log("Element is hidden (above viewable area)");
+
+                    //jQuery(".article-mpu-1").eq(b).empty();
+                   // jQuery(".article-mpu-1").eq(b).removeClass("Added");
+
+                } else if (scrollTopPosition < topOfElement && scrollTopPosition < bottomOfElement) {
+                    // Element is hidden (below viewable area)
+                    // console.log("Element is hidden (below viewable area)");
+
+                   // jQuery(".article-mpu-1").eq(b).empty();
+                   // jQuery(".article-mpu-1").eq(b).removeClass("Added");
+
+
+                } else if (scrollTopPosition < bottomOfElement && scrollTopPosition > topOfElement) {
+                    // Element is partially visible (below viewable area)
+                    //console.log("Element is partially visible (below viewable area)");
+
+                } else {
+                    // Element is completely visible
+                    console.log("Element is completely visible");
+
+                      if (jQuery(".article-mpu-5").eq(b).hasClass("Added") || jQuery(".article-mpu-51").eq(b).hasClass("Added")  || b == 0) {
+                        if(b == 0){
+                           jQuery(".article-mpu-5").eq(1).empty();
+                           jQuery(".article-mpu-5").eq(1).removeClass("Added");
+
+
+                           jQuery(".article-mpu-51").eq(1).empty();
+                           jQuery(".article-mpu-51").eq(1).removeClass("Added");
+
+                           jQuery(".article-mpu-52").eq(1).empty();
+                           jQuery(".article-mpu-52").eq(1).removeClass("Added");
+
+                           jQuery(".video-inread").eq(1).empty();
+                           jQuery(".video-inread").eq(1).removeClass("Added");
+
+
+                           jQuery(".video-inread1").eq(1).empty();
+                           jQuery(".video-inread1").eq(1).removeClass("Added");
+
+                           jQuery(".video-inread2").eq(1).empty();
+                           jQuery(".video-inread2").eq(1).removeClass("Added");
+
+
+                           jQuery(".bottom-leaderboard-section").eq(1).empty();
+                           jQuery(".bottom-leaderboard-section").eq(1).removeClass("Added");
+
+                        }
+
+
+                    } else {
+
+                        
+                        console.log('removed all ads');
+
+                          // Cleaning ads  
+                        jQuery(".article-mpu-5").empty();
+                        jQuery(".article-mpu-5").removeClass("Added");
+
+                        jQuery(".article-mpu-51").empty();
+                        jQuery(".article-mpu-51").removeClass("Added");
+
+                        jQuery(".article-mpu-52").empty();
+                        jQuery(".article-mpu-52").removeClass("Added");
+
+                        jQuery(".video-inread").empty();
+                        jQuery(".video-inread").removeClass("Added");
+
+                        jQuery(".video-inread1").empty();
+                        jQuery(".video-inread1").removeClass("Added");
+
+
+                        jQuery(".video-inread2").empty();
+                        jQuery(".video-inread2").removeClass("Added");
+
+                        jQuery(".bottom-leaderboard-section").empty();
+                        jQuery(".bottom-leaderboard-section").removeClass("Added");
+
+
+                        
+                        jQuery(".article-mpu-5").eq(b).append("<div id='Unit2' class='sidebarad" + b + "'><script type='text/javascript'>googletag.cmd.push(function() { googletag.display('Unit2'); });<\/script><\/div>");
+                        jQuery(".article-mpu-51").eq(b).append("<div id='Unit3' class='sidebarad" + b + "'><script type='text/javascript'>googletag.cmd.push(function() { googletag.display('Unit3'); });<\/script><\/div>");
+                        jQuery(".article-mpu-52").eq(b).append("<div id='Unit4' class='sidebarad" + b + "'><script type='text/javascript'>googletag.cmd.push(function() { googletag.display('Unit4'); });<\/script><\/div>");
+                        jQuery(".video-inread").eq(b).append("<div id='1x3'><script type='text/javascript'>googletag.cmd.push(function() { googletag.display('1x3'); });<\/script><\/div>");
+                        jQuery(".video-inread1").eq(b).append("<div id='1x1'><script type='text/javascript'>googletag.cmd.push(function() { googletag.display('1x1'); });<\/script><\/div>");
+                        jQuery(".video-inread2").eq(b).append("<div id='1x2'><script type='text/javascript'>googletag.cmd.push(function() { googletag.display('1x2'); });<\/script><\/div>");
+                        jQuery(".bottom-leaderboard-section").eq(b).append("<div id='Unit5'><script type='text/javascript'>googletag.cmd.push(function() { googletag.display('Unit5'); });<\/script><\/div>");
+
+
+                       if (b != 0) {
+
+                            streamamp.refreshBids("Unit2");
+                            streamamp.refreshBids("Unit3");
+                            streamamp.refreshBids("Unit4");
+                            streamamp.refreshBids("1x3");
+                            streamamp.refreshBids("1x2");
+                            streamamp.refreshBids("1x1");
+                            streamamp.refreshBids("Unit5");
+
+                        } 
+                     
+
+
+                        jQuery(".article-mpu-5").eq(b).addClass("Added");
+                        jQuery(".article-mpu-51").eq(b).addClass("Added");
+                        jQuery(".article-mpu-52").eq(b).addClass("Added");
+                        jQuery(".video-inread").eq(b).addClass("Added");
+                        jQuery(".video-inread1").eq(b).addClass("Added");
+                        jQuery(".video-inread2").eq(b).addClass("Added");
+                        jQuery(".bottom-leaderboard-section").eq(b).addClass("Added");
+
+                         // alert('added all ads');
+                          console.log('added all ads');  
+                    }
+                }
+
+            }
+ 
+        });
+
+  }
+
+ 
+
+
+    });
+});
+
+
+
+</script><script type="text/javascript">
+$(".homepage_sticky").sticky({ topSpacing: 100 });
+</script>
+
+
+
+<script type="text/javascript">
+  $('.header-promotion').slick({
+      autoplay: true,
+      autoplaySpeed: 3000,
+    });
+
+ jQuery(document).ready(function(){
+		//setTimeout( function(){ 
+		
+			var current_height = $('.view-display-id-homepagesponsored').position();
+			if(current_height!=undefined){
+			//$('.sponsored-hover-2017').show();
+			$('.sponsored-hover-2017').css("top",current_height.top);
+			$('.joyride').css("top",current_height.top);
+			$('.joyride').css("bottom","auto");
+			}
+		/* Code for sending Sponsered article to GA on hover -- NNAS-2 */
+						
+			//jQuery(".sidebar-sponsored-article").hover(function(){
+			jQuery(".sidebar-sponsored-article-2017").hover(function(){
+			
+			
+			
+			// jQuery(".page-node .view-display-id-homepagesponsored:hover .sponsored-hover-2017").toggle();
+			// ga('send', 'pageview', match);
+			});
+      // var pageURL = $(location).attr("href");
+            // alert(pageURL);
+      if(window.location.href.indexOf("/2017/") > -1) {
+		//if(window.location.href=="https://www.newstatesman.com/politics/brexit/2017/11/leader-brexit-betrayal"){
+		// if(window.location.href == "https://np-ind-new-statesman.pantheonsite.io/politics/brexit/2017/11/leader-brexit-betrayal") {
+        $(".view-display-id-homepagesponsored").on("mouseover",function(){
+		var current_height = $(this).position();
+          $('.sponsored-hover-2017').show();
+		  $('.sponsored-hover-2017').css("top",current_height.top);
+		  $('.joyride').css("top",current_height.top);
+		  $('.joyride').css("bottom","auto");
+		  var match = $(this).find('div:first a').attr('href');
+		  console.log(match);
+		  // ga('send', 'pageview', match);
+		  ga('send', 'pageview', "https://www.newstatesman.com"+match);
+        });
+		 $(".view-display-id-homepagesponsored").on("mouseleave",function(){
+		var current_height = $(this).position();
+		
+		          //$('.sponsored-hover-2017').delay(100000).hide();
+		          $('.sponsored-hover-2017').delay(4000).fadeOut();
+		  // $('.sponsored-hover-2017').css("top",current_height.top);
+		  // $('.joyride').css("top",current_height.top);
+        });
+		
+      }
+			
+	/* Code end for sending Sponsered article to GA on hover -- NNAS-2 */
+ jQuery('.supplements-thumb p img').removeAttr('style');   
+   jQuery('.supplements-thumb p img').each(function(){
+      jQuery(this).removeAttr('width');
+      jQuery(this).removeAttr('height');      
+   });   
+ });
+  
+</script>
+
+
+
+<!-- Google Code for Remarketing Tag -->
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 975790991;
+var google_custom_params = window.google_tag_params;
+var google_remarketing_only = true;
+/* ]]> */
+</script>
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+<div style="display:inline;">
+<img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/975790991/?value=0&guid=ON&script=0"/>
+</div>
+
+</noscript>
+
+
+
+<!-- Google Code for Remarketing Tag end -->
+
+
+
+
+
+<!-- Ad-blocker -->
+
+<script src="/sites/all/themes/creative-responsive-theme/js/blockadblock.js"></script>
+
+<!-- Ad blocker content -->
+
+				
+				<!--<div class="donate" id="donate">
+					<div id="donate-close" class="donate-close"> X </div>
+				  
+															<br>
+					 
+						<div class="cta-link donate-link">
+							<a id="nothanks-link" href="#" style="text-decoration: none; padding: 10px; background:black;">No Thanks</a>&nbsp; &nbsp;&nbsp;&nbsp;
+							<a href="" style="text-decoration: none; padding: 10px;" target="_blank" id="gotofeedback"></a>
+						</div>
+						<br/><br/>
+									</div>-->
+				<div class="donate-toggle" id="donate-toggle" style="display:none;">
+					Close   ASD
+				</div>
+	
+
+<!-- Ad blocker content end-->
+
+<script>
+// $(function() {
+  if (!getCookie('donation')) {
+        $("#donate").show();
+        
+    }else{
+        $("#donate").hide();      
+        
+    }
+  
+$("#donate-close").click(function(){
+   // checkCookie();
+      //if(chek === true){
+        $("#donate").hide();
+      //}        
+        
+    });
+	
+$("#nothanks-link, #gotofeedback").click(function(){
+        checkCookie();
+        $("#donate").hide();
+
+    });
+
+//intiate the donation cookie
+function setCookie() {
+    var expdate = new Date ();
+      expdate.setTime (expdate.getTime() + (1 * 24 * 60 * 60 * 1000));
+      var expires = "expires="+expdate.toUTCString();
+      document.cookie="donation=Initiated ;"+expires+";path=/";
+      //window.location.href="https://subscribe.newstatesman.com/";
+}
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0; i<ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1);
+        if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
+    }
+    return "";
+}
+
+//check if the user has payed and dontion cookie is set to payed
+function checkCookie() {
+  var expdate = new Date ();
+      expdate.setTime (expdate.getTime() + (1 * 24 * 60 * 60 * 1000));
+      var expires = "expires="+expdate.toUTCString();
+    var donate123 = getCookie("donation");
+    if (donate123 == "Initiated") {      
+        document.getElementById("donate").style.display="none";
+        document.getElementById("donate").style.display="none";
+        document.body.style.overflow = "visible";
+        document.cookie="donation=Payed ; path=/ ; expires = " + expires ;       
+    } else {
+          setCookie();
+        }    
+    }
+
+// });	
+
+
+// function hideDonationPopup() {
+//     var expdate = new Date ();
+//       expdate.setTime (expdate.getTime() + (24 * 60 * 60 * 1000));
+//       document.cookie="donationPopup=hide; path=/; expires = " + expdate ; 
+// }
+
+// $('.donate-toggle').click(function(e) { 
+
+// if(e.target.id!="donate123")
+// { 
+    // document.getElementById("donate123").style.display="none";
+    // document.getElementById("donate-toggle123").style.display="none";
+    // document.body.style.overflow = "visible";
+    // hideDonationPopup();
+  // }
+ // else{
+  //  e.stopPropagation();
+ // }
+//});
+
+// $('.donate-close').click(function(e) { 
+
+// if(e.target.id!="donate123")
+// { 
+    // document.getElementById("donate123").style.display="none";
+    // document.getElementById("donate-toggle123").style.display="none";
+    // document.body.style.overflow = "visible";
+    // hideDonationPopup();
+  // }
+ // else{
+  //  e.stopPropagation();
+ // }
+//});
+
+//for addressing donation complains.this function will set the cookie so that the donation popup is not showed for 60 days
+// function setDonationComplainCookie() {
+    // var expdate = new Date ();
+      // expdate.setTime (expdate.getTime() + (24 * 60 * 60 * 1000 * 60));
+      // document.cookie="donationPopup=Complain; path=/ ; expires = " + expdate ;  
+
+// }
+//for addressing donation complains of subscribers.this function will set the cookie so that the donation popup is never again showed
+// function setDonationSubscriberCookie() {
+    // var expdate = new Date ();
+      // expdate.setTime (expdate.getTime() + (24 * 60 * 60 * 1000 * 6000));
+      // document.cookie="donationPopup=Subscriber; path=/ ; expires = " + expdate ; 
+
+// }
+
+</script>
+
+
+<!--<script src="http://imakewebthings.github.com/jquery-waypoints/waypoints.min.js" type="text/javascript"></script>--->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.5/waypoints.min.js"></script>
+<script type="text/javascript">
+$(function() {   
+    $('#leaderslot2').waypoint(function() {
+      var PathName  = window.location.pathname;
+
+      alert(PathName);
+      ga('send', 'event', 'AdCount', PathName+' leaderslot2 view count', { "nonInteraction": 1 });
+        
+     }, {
+       offset: '100%'
+     });
+
+   $('.secondary-content-box.mpu.article-mpu-1').waypoint(function() {
+      var PathName  = window.location.pathname;
+      ga('send', 'event', 'AdCount', PathName+' article-mpu-1 view count', { "nonInteraction": 1 });
+     }, {
+       offset: '100%'
+     });
+
+   $('.secondary-content-box.mpu.article-mpu-2').waypoint(function() {
+      var PathName  = window.location.pathname;
+      ga('send', 'event', 'AdCount', PathName+' article-mpu-2 view count', { "nonInteraction": 1 });
+     }, {
+       offset: '100%'
+     });
+
+
+   $('.secondary-content-box.mpu.article-mpu-3').waypoint(function() {
+     var PathName  = window.location.pathname;
+     ga('send', 'event', 'AdCount', PathName+' article-mpu-3 view count', { "nonInteraction": 1 });
+
+     }, {
+       offset: '100%'
+     });
+
+
+});
+
+</script>
+
+<script>
+    var donate = getCookie("donation");
+    var donationPopup = getCookie("donationPopup");
+  // IP whitelist array 
+  //var ar = ["86.178.61.94"];
+  //var ar = ["115.119.113.194", "10.8.23.3","5.148.40.2","86.178.61.94"];
+  var ip = "10.223.192.155";
+  var ip_new = "91.200.82.73";
+  //alert(ip_new)
+  var temp_disable = true;
+  
+    /*if ( temp_disable || (donate == "Payed") || (donationPopup == "hide") || (donationPopup == "Complain")|| (donationPopup == "Subscriber"))
+        {           
+            document.getElementById("donate1234").style.display="none";
+            document.getElementById("donate-toggle12345").style.display="none";
+            document.body.style.overflow = "visible";
+        }*/
+    /* Code for IP whitelisting */
+    //else if(jQuery.inArray("86.178.61.94",ar) == 0){
+    //else if(jQuery.inArray("86.178.61.94",ar) == 0 || jQuery.inArray("115.119.113.194",ar) == 0 || jQuery.inArray("5.148.40.2",ar) == 0){
+     if(ip == "86.178.61.94" || ip_new == "86.178.61.94"){
+      //alert("In Array");
+      $( "#donate" ).css( "display","none" );
+      $( "#donate-toggle" ).css( "display","none" );
+      $( "body" ).css( "overflow","visible" );
+    }
+    /* Code end for IP whitelisting */
+        else
+        {
+            //alert("Inelse");
+			// document.getElementById('donate').style.display = 'block';
+            // document.getElementById('donate-toggle').style.display = 'block';
+            // document.body.style.overflow = "hidden";
+        }
+  
+    //alert('ad blocker detected');
+    jQuery(".ad-blocker-wraper").css("ad-blocker-detected");
+
+    function adBlockDetected() {
+      /* Event fired if adBlock is Detected */    
+    }
+    function adBlockNotDetected() {
+        //alert('No Adblocker found');
+    }
+
+    if (typeof blockAdBlock === 'undefined') {
+        adBlockDetected();
+    } else {
+        blockAdBlock.setOption({debug: true});
+        blockAdBlock.onDetected(adBlockDetected).onNotDetected(adBlockNotDetected);
+    }
+
+    function checkAgain() {
+
+        // setTimeout 300ms for the recheck is visible when you click on the button
+        setTimeout(function () {
+            if (typeof blockAdBlock === 'undefined') {
+                adBlockDetected();
+            } else {
+                blockAdBlock.onDetected(adBlockDetected).onNotDetected(adBlockNotDetected);
+                blockAdBlock.check();
+            }
+        }, 300);
+    }
+</script>
+
+
+<!-- Ad-blocker end -->
+
+
+
+
+<script>
+(function(){
+	
+  var test = document.createElement('div'); 
+  test.innerHTML = '&nbsp;';
+  test.className = 'adsbox';
+  document.body.appendChild(test);
+  window.setTimeout(function() {
+    if (test.offsetHeight === 0) {
+      ga('set', 'dimension1', 'Ads Blocked');
+      ga('send', 'event', 'AdSense', 'Ads blocked', { "nonInteraction": 1 });
+    }else{
+      ga('set', 'dimension1', 'Ads Displaying');
+      ga('send', 'event', 'AdSense', 'Ads not blocked', { "nonInteraction": 1 });
+    }
+    test.remove();
+  }, 100);
+})();
+</script>
+
+<script type="text/javascript">
+ jQuery(document).ready(function() {
+	 
+			
+jQuery("ul.event-months li").hover(
+  
+ function() {
+    jQuery(this).addClass("showevents");
+  
+  }, function() {
+    jQuery(this).removeClass("showevents");
+  }
+  
+);
+
+	// jQuery(".sidebar-sponsored-article").hover(function(){
+	// console.log("you made onover");
+	// jQuery(".sponsored-hover").toggle();
+	// });
+	
+	
+
+	
+			
+	});			
+ 
+ 
+ jQuery(".close-toggle").click(function(){ 
+	console.log("you made click");
+	jQuery(".joyride").toggle();
+	//jQuery(".joyride").hide();
+	});
+ </script>
+
+ 
+<!--Pardot Onboarding Tracking code-->
+ 
+
+<script type="text/javascript">
+piAId = '510131';
+piCId = '6800';
+piHostname = 'pi.pardot.com';
+
+(function() {
+	function async_load(){
+		var s = document.createElement('script'); s.type = 'text/javascript';
+		s.src = ('https:' == document.location.protocol ? 'https://pi' : 'http://cdn') + '.pardot.com/pd.js';
+		var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
+	}
+	if(window.attachEvent) { window.attachEvent('onload', async_load); }
+	else { window.addEventListener('load', async_load, false); }
+})();
+</script>
+
+
+
+<!--Pardot Onboarding Tracking code-->
+<!-- <script src="/sites/all/themes/creative-responsive-theme/js/jquery.curlies.js"></script>
+ <script>
+    $(document).ready(function () {
+        $('body').curlies();
+    });
+    </script> -->
+	
+	<script src="/sites/all/themes/creative-responsive-theme/js/jquery.curlies.js"></script>
+ <script>
+    $(document).ready(function () {
+       
+        $('.home-section-1,.home-section-2,.home-section-3,.home-section-4,.home-section-5,.home-section-6,.make_equal,.main-content, .content, .conferences-theme ,.mag-title,.issue-contents,#post-content').curlies();
+    });
+    </script>
+
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"d4f02fb7e7","applicationID":"14767184","transactionName":"ZwEDZxBQXkZTAUJfVl5LIFAWWF9bHQxZUlxvFABUB25GXFcV","queueTime":0,"applicationTime":440,"atts":"S0YAEVhKTUg=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>

@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en-US" xmlns:fb="http://ogp.me/ns/fb#" xmlns:addthis="http://www.addthis.com/help/api-spec"  prefix="og: http://ogp.me/ns#">
+<head>
+<meta charset="UTF-8"><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o||n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({1:[function(e,n,t){function r(){}function o(e,n,t){return function(){return i(e,[c.now()].concat(u(arguments)),n?null:this,t),n?void 0:this}}var i=e("handle"),a=e(2),u=e(3),f=e("ee").get("tracer"),c=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,n){s[n]=o(d+n,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,o="function"==typeof n;return i(l+"tracer",[c.now(),e,t],r),function(){if(f.emit((o?"":"no-")+"fn-start",[c.now(),r,o],t),o)try{return n.apply(this,arguments)}finally{f.emit("fn-end",[c.now()],t)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=o(l+n)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,c.now()])}},{}],2:[function(e,n,t){function r(e,n){var t=[],r="",i=0;for(r in e)o.call(e,r)&&(t[i]=n(r,e[r]),i+=1);return t}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],3:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(o<0?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=r},{}],4:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function o(e){function n(e){return e&&e instanceof r?e:e?f(e,u,i):i()}function t(t,r,o,i){if(!d.aborted||i){e&&e(t,r,o);for(var a=n(o),u=m(t),f=u.length,c=0;c<f;c++)u[c].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function l(e,n){v[e]=m(e).concat(n)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(t)}function g(e,n){c(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var v={},y={},b={on:l,emit:t,get:w,listeners:m,context:n,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",f=e("gos"),c=e(2),s={},p={},d=n.exports=o();d.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(o.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){o.buffer([e],r),o.emit(e,n,t)}var o=e("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!x++){var e=h.info=NREUM.info,n=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();c(y,function(n,t){e[n]||(e[n]=t)}),f("mark",["onload",a()+h.offset],null,"api");var t=d.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function o(){"complete"===d.readyState&&i()}function i(){f("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),f=e("handle"),c=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1039.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=n.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),f("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="p:domain_verify" content="745957e224f30fa47d4c7204f87a09da"/>
+<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" href="/apple-icon.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+<link rel="profile" href="https://gmpg.org/xfn/11">
+<link rel="pingback" href="https://www.visitgozo.com/xmlrpc.php">
+
+<link type="text/css" media="all" href="https://www.visitgozo.com/wp-content/cache/autoptimize/css/autoptimize_af20f804fa1d6ada84903a68b42b7e34.css" rel="stylesheet" /><link type="text/css" media="screen" href="https://www.visitgozo.com/wp-content/cache/autoptimize/css/autoptimize_9554f52d6f8b4f766d0d7f1f64378e44.css" rel="stylesheet" /><link type="text/css" media="print" href="https://www.visitgozo.com/wp-content/cache/autoptimize/css/autoptimize_6227d8fd272cb447666e4cd4385e7a83.css" rel="stylesheet" /><link type="text/css" media=" projection" href="https://www.visitgozo.com/wp-content/cache/autoptimize/css/autoptimize_448e3219520decce764370292be3e3a1.css" rel="stylesheet" /><title>Privacy - visitgozo.com</title>
+<link rel="alternate" hreflang="en" href="https://www.visitgozo.com/privacy/" />
+<link rel="alternate" hreflang="fr" href="https://www.visitgozo.com/fr/declaration-de-confidentialite/" />
+<link rel="alternate" hreflang="de" href="https://www.visitgozo.com/de/datenschutzrichtlinien/" />
+<link rel="alternate" hreflang="it" href="https://www.visitgozo.com/it/informativa-sulla-privacy/" />
+<link rel="alternate" hreflang="ru" href="https://www.visitgozo.com/ru/%d0%bf%d0%be%d0%bb%d0%b8%d1%82%d0%b8%d0%ba%d0%b0-%d0%ba%d0%be%d0%bd%d1%84%d0%b8%d0%b4%d0%b5%d0%bd%d1%86%d0%b8%d0%b0%d0%bb%d1%8c%d0%bd%d0%be%d1%81%d1%82%d0%b8/" />
+<link rel="alternate" hreflang="es" href="https://www.visitgozo.com/es/politica-de-privacidad/" />
+<link rel="alternate" hreflang="sv" href="https://www.visitgozo.com/sv/sekretesspolicy/" />
+
+<!-- This site is optimized with the Yoast SEO plugin v4.7.1 - https://yoast.com/wordpress/plugins/seo/ -->
+<link rel="canonical" href="https://www.visitgozo.com/privacy/" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Privacy - visitgozo.com" />
+<meta property="og:description" content="We are committed to protecting our visitors’ privacy and we will not collect any personal information about you as a visitor unless you provide it voluntarily. Pursuant to the Data Protection Act 2001 which came fully into force on 15 July 2003, we have a legal duty to respect and protect any personal information we &hellip;" />
+<meta property="og:url" content="https://www.visitgozo.com/privacy/" />
+<meta property="og:site_name" content="visitgozo.com" />
+<meta property="article:publisher" content="https://www.facebook.com/VisitGozo" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:description" content="We are committed to protecting our visitors’ privacy and we will not collect any personal information about you as a visitor unless you provide it voluntarily. Pursuant to the Data Protection Act 2001 which came fully into force on 15 July 2003, we have a legal duty to respect and protect any personal information we [&hellip;]" />
+<meta name="twitter:title" content="Privacy - visitgozo.com" />
+<meta name="twitter:site" content="@VisitGozo" />
+<meta name="twitter:creator" content="@VisitGozo" />
+<!-- / Yoast SEO plugin. -->
+
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel="alternate" type="application/rss+xml" title="visitgozo.com &raquo; Feed" href="https://www.visitgozo.com/feed/" />
+<link rel="alternate" type="application/rss+xml" title="visitgozo.com &raquo; Comments Feed" href="https://www.visitgozo.com/comments/feed/" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.2.1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.2.1\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/www.visitgozo.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.7.5"}};
+			!function(a,b,c){function d(a){var b,c,d,e,f=String.fromCharCode;if(!k||!k.fillText)return!1;switch(k.clearRect(0,0,j.width,j.height),k.textBaseline="top",k.font="600 32px Arial",a){case"flag":return k.fillText(f(55356,56826,55356,56819),0,0),!(j.toDataURL().length<3e3)&&(k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57331,65039,8205,55356,57096),0,0),b=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57331,55356,57096),0,0),c=j.toDataURL(),b!==c);case"emoji4":return k.fillText(f(55357,56425,55356,57341,8205,55357,56507),0,0),d=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55357,56425,55356,57341,55357,56507),0,0),e=j.toDataURL(),d!==e}return!1}function e(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i,j=b.createElement("canvas"),k=j.getContext&&j.getContext("2d");for(i=Array("flag","emoji4"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type='text/javascript' src='https://www.visitgozo.com/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+
+<link rel='https://api.w.org/' href='https://www.visitgozo.com/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.visitgozo.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://www.visitgozo.com/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 4.7.5" />
+<link rel='shortlink' href='https://www.visitgozo.com/?p=7217' />
+<link rel="alternate" type="application/json+oembed" href="https://www.visitgozo.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.visitgozo.com%2Fprivacy%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://www.visitgozo.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.visitgozo.com%2Fprivacy%2F&#038;format=xml" />
+<script type="text/javascript">document.documentElement.className += " js";</script>
+<meta name="generator" content="WPML ver:3.7.0 stt:1,4,3,27,46,2,51;" />
+		
+					<!-- Easy Columns 2.1.1 by Pat Friedl http://www.patrickfriedl.com -->
+			
+			
+<script type="text/javascript">
+	var vgCurrentLang = 'en';
+	var vgAjaxURL = 'https://www.visitgozo.com/wp-admin/admin-ajax.php';
+</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-23304770-21', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!-- Facebook Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window,document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1203288913089766'); 
+fbq('track', 'PageView', {lang : 'en', url : 'https://www.visitgozo.com/privacy/'});
+</script>
+<noscript>
+ <img height="1" width="1" 
+src="https://www.facebook.com/tr?id=1203288913089766&ev=PageView
+&noscript=1"/>
+</noscript>
+<!-- End Facebook Pixel Code -->
+</head>
+
+<body data-rsssl=1 class="page-template-default page page-id-7217 no-banners">
+<div id="page" class="hfeed site">
+	<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+
+	<header id="masthead" class="site-header" role="banner">
+		<div class="wrap">
+			<div class="site-branding">
+				<a href="https://www.visitgozo.com/" rel="home" class="logo">
+					<img src="https://www.visitgozo.com/wp-content/themes/visitgozo/images/logo-visitgozo.svg" alt="visitgozo.com" />
+				</a>
+			</div><!-- .site-branding -->
+
+			<div class="site-navigation txt-alignright">
+				<div class="nav-item clickable item-lang icon-globe relative">
+
+														<select class="lang-select" id="lang-select-dropdown" style="width:80px;">
+					  					    	<option value="https://www.visitgozo.com/privacy/" selected>en</option>
+					    					    	<option value="https://www.visitgozo.com/fr/declaration-de-confidentialite/" >fr</option>
+					    					    	<option value="https://www.visitgozo.com/de/datenschutzrichtlinien/" >de</option>
+					    					    	<option value="https://www.visitgozo.com/it/informativa-sulla-privacy/" >it</option>
+					    					    	<option value="https://www.visitgozo.com/ru/%d0%bf%d0%be%d0%bb%d0%b8%d1%82%d0%b8%d0%ba%d0%b0-%d0%ba%d0%be%d0%bd%d1%84%d0%b8%d0%b4%d0%b5%d0%bd%d1%86%d0%b8%d0%b0%d0%bb%d1%8c%d0%bd%d0%be%d1%81%d1%82%d0%b8/" >ru</option>
+					    					    	<option value="https://www.visitgozo.com/es/politica-de-privacidad/" >es</option>
+					    					    	<option value="https://www.visitgozo.com/sv/sekretesspolicy/" >sv</option>
+					    					</select>
+				</div>
+				<div class="nav-item clickable item-search icon-search">
+					Search				</div>
+				<div class="nav-item clickable item-menu icon-menu highlight">
+					Menu				</div>
+			</div>
+		</div>
+
+		
+	</header><!-- #masthead -->
+
+	<div class="site-overlay menu-overlay">
+		<div class="wrap overlay-content">
+			<span class="btn-close icon-cancel-circled clickable"></span>
+			<div class="row">
+				<div class="col col-20 heading">
+					Menu				</div>
+				<div class="col col-50 submenu-items">
+						<div class="menu-main-menu-container"><ul id="primary-menu" class="menu"><li id="menu-item-6409" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-6409"><a href="https://www.visitgozo.com/">Home</a></li>
+<li id="menu-item-6414" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-6414"><a href="https://www.visitgozo.com/gozo-and-comino/">Gozo and Comino</a>
+<ul class="sub-menu">
+	<li id="menu-item-8353" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-8353"><a href="https://www.visitgozo.com/gozo-and-comino/gozo/">Gozo</a>
+	<ul class="sub-menu">
+		<li id="menu-item-8357" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8357"><a href="https://www.visitgozo.com/gozo-and-comino/gozo/getting-around-gozo/">Getting around Gozo</a></li>
+		<li id="menu-item-8358" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8358"><a href="https://www.visitgozo.com/gozo-and-comino/gozo/getting-here/">Getting Here</a></li>
+		<li id="menu-item-8359" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8359"><a href="https://www.visitgozo.com/gozo-and-comino/gozo/gozo-360/">Gozo 360</a></li>
+		<li id="menu-item-18084" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-18084"><a href="https://www.visitgozo.com/gozo-and-comino/gozo/mgarr-harbour/">Mġarr Harbour</a></li>
+		<li id="menu-item-8360" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8360"><a href="https://www.visitgozo.com/gozo-and-comino/gozo/pharmacies/">Pharmacies</a></li>
+		<li id="menu-item-8361" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8361"><a href="https://www.visitgozo.com/gozo-and-comino/gozo/seasons-in-gozo/">Seasons in Gozo</a></li>
+	</ul>
+</li>
+	<li id="menu-item-8354" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8354"><a href="https://www.visitgozo.com/gozo-and-comino/comino/">Comino</a></li>
+	<li id="menu-item-8355" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8355"><a href="https://www.visitgozo.com/gozo-and-comino/history/">History</a></li>
+	<li id="menu-item-8356" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8356"><a href="https://www.visitgozo.com/gozo-and-comino/gallery/">Gallery</a></li>
+</ul>
+</li>
+<li id="menu-item-6410" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-6410"><a href="https://www.visitgozo.com/what-to-do-in-gozo/">What to Do</a>
+<ul class="sub-menu">
+	<li id="menu-item-8367" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-8367"><a href="https://www.visitgozo.com/what-to-do-in-gozo/enjoy/">Enjoy</a>
+	<ul class="sub-menu">
+		<li id="menu-item-8362" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8362"><a href="https://www.visitgozo.com/what-to-do-in-gozo/enjoy/annual-events/">Annual Events</a></li>
+		<li id="menu-item-8363" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8363"><a href="https://www.visitgozo.com/what-to-do-in-gozo/enjoy/events/">Events</a></li>
+		<li id="menu-item-8364" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8364"><a href="https://www.visitgozo.com/what-to-do-in-gozo/enjoy/food-and-drink/">Food and drink</a></li>
+		<li id="menu-item-8365" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8365"><a href="https://www.visitgozo.com/what-to-do-in-gozo/enjoy/night-life/">Night Life</a></li>
+		<li id="menu-item-8366" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8366"><a href="https://www.visitgozo.com/what-to-do-in-gozo/enjoy/shopping/">Shopping</a></li>
+	</ul>
+</li>
+	<li id="menu-item-8368" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-8368"><a href="https://www.visitgozo.com/what-to-do-in-gozo/escape/">Escape</a>
+	<ul class="sub-menu">
+		<li id="menu-item-8369" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8369"><a href="https://www.visitgozo.com/what-to-do-in-gozo/escape/abseiling-rock-climbing-bouldering/">Abseiling, Rock Climbing &#038; Bouldering</a></li>
+		<li id="menu-item-8370" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8370"><a href="https://www.visitgozo.com/what-to-do-in-gozo/escape/adventure-day-tour/">Adventure Day Tour</a></li>
+		<li id="menu-item-8371" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8371"><a href="https://www.visitgozo.com/what-to-do-in-gozo/escape/country-walks-rambling/">Country Walks/ Rambling</a></li>
+		<li id="menu-item-18096" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-18096"><a href="https://www.visitgozo.com/what-to-do-in-gozo/escape/boat-trips/">Boat Trips</a></li>
+		<li id="menu-item-8372" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8372"><a href="https://www.visitgozo.com/what-to-do-in-gozo/escape/segway-tours/">Segway Tours</a></li>
+		<li id="menu-item-8373" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8373"><a href="https://www.visitgozo.com/what-to-do-in-gozo/escape/horse-racing/">Horse Racing</a></li>
+		<li id="menu-item-8374" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8374"><a href="https://www.visitgozo.com/what-to-do-in-gozo/escape/kayaking/">Kayaking</a></li>
+		<li id="menu-item-8375" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8375"><a href="https://www.visitgozo.com/what-to-do-in-gozo/escape/biking/">Biking</a></li>
+		<li id="menu-item-8376" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8376"><a href="https://www.visitgozo.com/what-to-do-in-gozo/escape/diving/">Diving</a></li>
+		<li id="menu-item-8377" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8377"><a href="https://www.visitgozo.com/what-to-do-in-gozo/escape/eco-tour/">Eco Tour</a></li>
+		<li id="menu-item-8378" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8378"><a href="https://www.visitgozo.com/what-to-do-in-gozo/escape/horse-riding/">Horse Riding</a></li>
+		<li id="menu-item-8379" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8379"><a href="https://www.visitgozo.com/what-to-do-in-gozo/escape/quad-bike-tours/">Quad Bike Tours</a></li>
+		<li id="menu-item-8380" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8380"><a href="https://www.visitgozo.com/what-to-do-in-gozo/escape/shooting/">Shooting</a></li>
+		<li id="menu-item-8381" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8381"><a href="https://www.visitgozo.com/what-to-do-in-gozo/escape/water-sports/">Water Sports</a></li>
+	</ul>
+</li>
+	<li id="menu-item-8384" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-8384"><a href="https://www.visitgozo.com/what-to-do-in-gozo/experience/">Experience</a>
+	<ul class="sub-menu">
+		<li id="menu-item-8385" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8385"><a href="https://www.visitgozo.com/what-to-do-in-gozo/experience/conferences-incentives/">Conferences &#038; Incentives</a></li>
+		<li id="menu-item-8386" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8386"><a href="https://www.visitgozo.com/what-to-do-in-gozo/experience/health-wellbeing-spas/">Health &#038; Wellbeing (Spas)</a></li>
+		<li id="menu-item-8387" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8387"><a href="https://www.visitgozo.com/what-to-do-in-gozo/experience/learning-english/">Learning English</a></li>
+		<li id="menu-item-8388" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8388"><a href="https://www.visitgozo.com/what-to-do-in-gozo/experience/local-artisanal-products/">Local Artisanal Products</a></li>
+		<li id="menu-item-8389" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8389"><a href="https://www.visitgozo.com/what-to-do-in-gozo/experience/tastes-of-gozo/">Tastes of Gozo</a></li>
+		<li id="menu-item-8390" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8390"><a href="https://www.visitgozo.com/what-to-do-in-gozo/experience/weddings-honeymoons/">Weddings &#038; Honeymoons</a></li>
+	</ul>
+</li>
+</ul>
+</li>
+<li id="menu-item-6413" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-6413"><a href="https://www.visitgozo.com/where-to-stay-in-gozo/">Where to stay</a>
+<ul class="sub-menu">
+	<li id="menu-item-8391" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8391"><a href="https://www.visitgozo.com/where-to-stay-in-gozo/aparthotels/">Aparthotels</a></li>
+	<li id="menu-item-8392" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8392"><a href="https://www.visitgozo.com/where-to-stay-in-gozo/boutique-hotels/">Boutique Hotels</a></li>
+	<li id="menu-item-8393" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8393"><a href="https://www.visitgozo.com/where-to-stay-in-gozo/farmhouses/">Farmhouses</a></li>
+	<li id="menu-item-8394" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8394"><a href="https://www.visitgozo.com/where-to-stay-in-gozo/guesthouses/">Guesthouses</a></li>
+	<li id="menu-item-8395" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8395"><a href="https://www.visitgozo.com/where-to-stay-in-gozo/hotels/">Hotels</a></li>
+	<li id="menu-item-8396" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8396"><a href="https://www.visitgozo.com/where-to-stay-in-gozo/self-catering-apartments/">Self-Catering Apartments</a></li>
+	<li id="menu-item-8397" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8397"><a href="https://www.visitgozo.com/where-to-stay-in-gozo/villas/">Villas</a></li>
+</ul>
+</li>
+<li id="menu-item-6411" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-6411"><a href="https://www.visitgozo.com/where-to-go-in-gozo/">Where To Go</a>
+<ul class="sub-menu">
+	<li id="menu-item-8398" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8398"><a href="https://www.visitgozo.com/where-to-go-in-gozo/archaeological-sites/">Archaeological Sites</a></li>
+	<li id="menu-item-8399" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8399"><a href="https://www.visitgozo.com/where-to-go-in-gozo/beaches/">Beaches</a></li>
+	<li id="menu-item-8400" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8400"><a href="https://www.visitgozo.com/where-to-go-in-gozo/churches-and-chapels/">Churches and Chapels</a></li>
+	<li id="menu-item-8401" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8401"><a href="https://www.visitgozo.com/where-to-go-in-gozo/museums/">Museums</a></li>
+	<li id="menu-item-8403" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8403"><a href="https://www.visitgozo.com/where-to-go-in-gozo/niches/">Niches</a></li>
+	<li id="menu-item-8404" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8404"><a href="https://www.visitgozo.com/where-to-go-in-gozo/parks-and-gardens/">Parks and Gardens</a></li>
+	<li id="menu-item-8405" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8405"><a href="https://www.visitgozo.com/where-to-go-in-gozo/retreat-houses/">Retreat Houses</a></li>
+	<li id="menu-item-8406" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8406"><a href="https://www.visitgozo.com/where-to-go-in-gozo/sight-seeing-places-interest/">Sight Seeing &#038; Places of Interest</a></li>
+	<li id="menu-item-8407" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8407"><a href="https://www.visitgozo.com/where-to-go-in-gozo/towns-villages/">Towns &#038; Villages</a></li>
+</ul>
+</li>
+<li id="menu-item-6415" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6415"><a href="https://www.visitgozo.com/plan-my-trip-to-gozo/">Plan My Trip</a></li>
+<li id="menu-item-6412" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6412"><a href="https://www.visitgozo.com/facts/">Facts</a></li>
+<li id="menu-item-21028" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-21028"><a href="https://www.visitgozo.com/blog/">Blog</a></li>
+</ul></div>						<div id="submenu-wrap" class="fl oflow"></div>
+						<br class="clear" />
+					<div class="login-wrap">
+						<ul class="login-links">
+															<li><a href="https://www.visitgozo.com/my-account">Sign In</a></li>
+								<li><a href="https://www.visitgozo.com/my-account">Register</a></li>
+													</ul>
+						<p class="note">
+							Sign in / Register to save Your Trip or add content on visitgozo.com						</p>
+					</div>
+				</div>
+				<div class="col col-30 quick-links">
+					<div class="menu-quick-links-container"><ul id="menu-quick-links" class="menu"><li id="menu-item-8785" class="icon-heart menu-item menu-item-type-post_type menu-item-object-page menu-item-8785"><a href="https://www.visitgozo.com/my-gozo/">My Gozo</a></li>
+<li id="menu-item-8780" class="icon-briefcase menu-item menu-item-type-post_type menu-item-object-page menu-item-8780"><a href="https://www.visitgozo.com/plan-my-trip-to-gozo/">Plan My Trip to Gozo</a></li>
+<li id="menu-item-8781" class="icon-map menu-item menu-item-type-post_type menu-item-object-page menu-item-8781"><a href="https://www.visitgozo.com/interactive-map/">Interactive Map</a></li>
+<li id="menu-item-8782" class="icon-camera-outline menu-item menu-item-type-post_type menu-item-object-page menu-item-8782"><a href="https://www.visitgozo.com/gozo-and-comino/gallery/">Gallery</a></li>
+</ul></div>				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="site-overlay search-overlay">
+		<div class="wrap overlay-content">
+			<span class="btn-close icon-cancel-circled clickable"></span>
+			<div class="row">
+				<div class="col col-20 heading">
+					Search				</div>
+			</div>
+			<div class="overlay-search-input relative">
+				<div class="ui-front">
+					<input type="text" name="search-input" value="" placeholder="Search" />
+					<span class="icon icon-search"></span>
+				</div>
+				<div class="message section-padding-top none no-search-results">Sorry no results were found.</div>
+			</div>
+		</div>
+	</div>
+
+		
+	
+	
+				<div class="wrap">
+				<div id="breadcrumbs">	You are here
+<span xmlns:v="http://rdf.data-vocabulary.org/#"><span typeof="v:Breadcrumb"><a href="https://www.visitgozo.com/" rel="v:url" property="v:title">Home</a> › <span class="breadcrumb_last">Privacy</span></span></span></div>			</div>
+			<div id="content" class="site-content">
+	
+	<div id="primary" class="content-area wrap">
+		<main id="main" class="site-main" role="main">
+
+			
+				
+<article id="post-7217" class="post-7217 page type-page status-publish hentry">
+	<header class="entry-header">
+		<h1 class="entry-title">Privacy</h1>	</header><!-- .entry-header -->
+
+	
+	<div class="entry-content">
+		<p>We are committed to protecting our visitors’ privacy and we will not collect any personal information about you as a visitor unless you provide it voluntarily.</p>
+<p>Pursuant to the Data Protection Act 2001 which came fully into force on 15 July 2003, we have a legal duty to respect and protect any personal information we collect from you and we will abide by such duty. We take all safeguards necessary to prevent unauthorised access and we do not pass on your details collected from you as a visitor and/or user, to any third party unless you give us your consent to do so and unless we are compelled to do so by law.</p>
+<p>If you give your consent, we may pass on generic, but never specific, personal information, to our tourism partners for purposes of research and marketing. We disclaim any responsibility or liability for the use that our tourism partners make of such information. We shall not be responsible for any direct, indirect, punitive, incidental, consequential or other damages arising from unauthorized access to or alteration of or unlawful transmission of data by third parties.</p>
+<p>As a visitor, we collect three types of information on you:</p>
+<ol>
+<li>Contact or feedback information;</li>
+<li>Web page download information;</li>
+<li>Site usage information.</li>
+</ol>
+<p>Some of the interactive features of this site, including the registration form requires you to enter personal information. Mandatory information includes:</p>
+<ol>
+<li>Name</li>
+<li>Surname</li>
+<li>Email address</li>
+<li>Country</li>
+<li>Preferred Language.</li>
+</ol>
+<p>Additional (not mandatory) information includes:</p>
+<ol>
+<li>Telephone</li>
+<li>Address</li>
+<li>Locality</li>
+<li>Postcode</li>
+</ol>
+<p>Failure to enter the mandatory information related to the above will result in the registration not being processed. We store this information in encrypted format, and dispose of it once the purpose for which it was collected has been achieved. The length of time for which it is stored may vary according to the purpose for which it has been collected.</p>
+<p>When you fill the form on the “Contact Us” page, we use the personal information submitted in the form only to respond to your message. This personal information will not be kept longer than necessary and will be deleted once the feedback requirement is met. Mandatory information includes:</p>
+<ol>
+<li>Full name</li>
+<li>Email address</li>
+<li>Enquiry</li>
+</ol>
+<p>Failure to enter information related to the above will result in the form not being sent.</p>
+<p>This privacy statement applies only to this web portal and not to any third party sites that are linked from this site. By using this website, you consent to such processing, and you warrant that all data provided by you is accurate.</p>
+<p>If you have any queries in relation to personal information on you, if any, held by us please contact us on the email address provided under “<a href="https://www.visitgozo.com/contact-us/">Contact Us</a>” section.</p>
+<script data-cfasync="false" type="text/javascript">
+var addthis_config = {"data_track_clickback":true,"ui_atversion":300,"ignore_server_config":true};
+var addthis_share = {};
+</script>
+                <!-- AddThis Settings Begin -->
+                <script data-cfasync="false" type="text/javascript">
+                    var addthis_product = "wpp-5.3.5";
+                    var wp_product_version = "wpp-5.3.5";
+                    var wp_blog_version = "4.7.5";
+                    var addthis_plugin_info = {"info_status":"enabled","cms_name":"WordPress","plugin_name":"Share Buttons by AddThis","plugin_version":"5.3.5","anonymous_profile_id":"wp-05e83084e2fdcb499a74d419324b936c","plugin_mode":"WordPress","select_prefs":{"addthis_per_post_enabled":true,"addthis_above_enabled":true,"addthis_below_enabled":false,"addthis_sidebar_enabled":false,"addthis_mobile_toolbar_enabled":false,"addthis_above_showon_home":false,"addthis_above_showon_posts":true,"addthis_above_showon_pages":false,"addthis_above_showon_archives":false,"addthis_above_showon_categories":false,"addthis_above_showon_excerpts":false,"addthis_below_showon_home":true,"addthis_below_showon_posts":true,"addthis_below_showon_pages":true,"addthis_below_showon_archives":true,"addthis_below_showon_categories":true,"addthis_below_showon_excerpts":true,"addthis_sidebar_showon_home":true,"addthis_sidebar_showon_posts":true,"addthis_sidebar_showon_pages":true,"addthis_sidebar_showon_archives":true,"addthis_sidebar_showon_categories":true,"addthis_mobile_toolbar_showon_home":true,"addthis_mobile_toolbar_showon_posts":true,"addthis_mobile_toolbar_showon_pages":true,"addthis_mobile_toolbar_showon_archives":true,"addthis_mobile_toolbar_showon_categories":true,"sharing_enabled_on_post_via_metabox":true},"page_info":{"template":"pages","post_type":""}};
+                    if (typeof(addthis_config) == "undefined") {
+                        var addthis_config = {"data_track_clickback":true,"ui_atversion":300,"ignore_server_config":true};
+                    }
+                    if (typeof(addthis_share) == "undefined") {
+                        var addthis_share = {};
+                    }
+                    if (typeof(addthis_layers) == "undefined") {
+                        var addthis_layers = {};
+                    }
+                </script>
+                <script
+                    data-cfasync="false"
+                    type="text/javascript"
+                    src="//s7.addthis.com/js/300/addthis_widget.js#pubid=wp-05e83084e2fdcb499a74d419324b936c "
+                    async="async"
+                >
+                </script>
+                <script data-cfasync="false" type="text/javascript">
+                    (function() {
+                        var at_interval = setInterval(function () {
+                            if(window.addthis) {
+                                clearInterval(at_interval);
+                                addthis.layers(addthis_layers);
+                            }
+                        },1000)
+                    }());
+                </script>
+                <!-- AddThis Sharing Buttons below -->			</div><!-- .entry-content -->
+
+	<footer class="entry-footer">
+			</footer><!-- .entry-footer -->
+</article><!-- #post-## -->
+
+
+			
+		</main><!-- #main -->
+	</div><!-- #primary -->
+
+	
+	
+	
+	
+			<div class="section section-check-out section-padding-bottom wrap">
+				<h3 class="section-title">Also check out</h3>
+				<div class="checkout-slider slides-wrap">
+									<a class="slide oflow relative" href="https://www.visitgozo.com/gozo-and-comino/gozo/seasons-in-gozo/">
+						<div class="slide-image bg-cover fullwidth-fullheight" style="background-image: url('https://www.visitgozo.com/wp-content/uploads/2016/07/Aquadot-1-700x500.jpg'); ?>"></div>
+						<div class="slide-title valign-middle">Seasons in Gozo</div>
+					</a>
+									<a class="slide oflow relative" href="https://www.visitgozo.com/what-to-do-in-gozo/enjoy/food-and-drink/">
+						<div class="slide-image bg-cover fullwidth-fullheight" style="background-image: url('https://www.visitgozo.com/wp-content/uploads/2016/07/Food-gozo-700x500.jpg'); ?>"></div>
+						<div class="slide-title valign-middle">Food and drink</div>
+					</a>
+									<a class="slide oflow relative" href="https://www.visitgozo.com/what-to-do-in-gozo/enjoy/annual-events/operas/">
+						<div class="slide-image bg-cover fullwidth-fullheight" style="background-image: url('https://www.visitgozo.com/wp-content/uploads/2016/07/Opera-selfie-at-Aurora-700x500.jpg'); ?>"></div>
+						<div class="slide-title valign-middle">Operas</div>
+					</a>
+									<a class="slide oflow relative" href="https://www.visitgozo.com/plan-my-trip-to-gozo/">
+						<div class="slide-image bg-cover fullwidth-fullheight" style="background-image: url('https://www.visitgozo.com/wp-content/uploads/2016/07/pexels-photo-58457-2-700x500.jpeg'); ?>"></div>
+						<div class="slide-title valign-middle">Plan My Trip to Gozo</div>
+					</a>
+									<a class="slide oflow relative" href="https://www.visitgozo.com/gozo-and-comino/gallery/">
+						<div class="slide-image bg-cover fullwidth-fullheight" style="background-image: url('https://www.visitgozo.com/wp-content/uploads/2016/07/pexels-photo-93820-700x500.jpeg'); ?>"></div>
+						<div class="slide-title valign-middle">Gallery</div>
+					</a>
+								</div>
+			</div>
+
+								<div class="section section-newsletter section-padding-bottom wrap txt-aligncenter">
+						<h3 class="section-title">Newsletter</h3>
+						<!-- Begin MailChimp Signup Form -->
+    <div id="mc_embed_signup" class="footer-newsletter-form">
+        <form action="//visitgozo.us4.list-manage.com/subscribe/post?u=46dac67f5c86bbad29504ca04&amp;id=9e0e6ddfa6" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+            <div id="mc_embed_signup_scroll" class="mc_embed_signup_scroll_container">
+
+                <div class="mc-field-group">
+                    <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="Email*" type="email">
+                </div>
+                <div class="mc-field-group">
+                    <input type="text" value="" name="FNAME" class="" id="mce-FNAME" placeholder="Name">
+                </div>
+                <div class="mc-field-group">
+                    <input type="text" value="" name="LNAME" class="" id="mce-LNAME" placeholder="Surname">
+                </div>
+
+                <div id="mce-responses" class="clear" style="display:none;">
+                    <div class="response" id="mce-error-response" style="display:none"></div>
+                    <div class="response" id="mce-success-response" style="display:none"></div>
+                </div>
+ <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                <div style="position: absolute; left: -5000px;"><input type="text" name="b_46dac67f5c86bbad29504ca04_9e0e6ddfa6" tabindex="-1" value=""></div><div class="clear subscribe-button-container">
+					<div class="note" id="note-responsive" style="display:none">
+						<input type="checkbox" name="terms" value="terms" id="terms-newsletter">
+							I have read and understood the <a href="https://www.visitgozo.com/terms-of-use/" target="_blank">Terms & Conditions</a>.
+					</div>
+				<input value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button clickable" type="button"></div>
+				</div>
+			<div id="note-not-responsive" class="note" style="">
+				<input type="checkbox" name="terms" value="terms" id="terms-newsletter">
+					I have read and understood the <a href="https://www.visitgozo.com/terms-of-use/" target="_blank">Terms & Conditions</a>.
+			</div>
+        </form>
+    </div>
+    <!--End mc_embed_signup-->					</div>
+						
+	</div><!-- #content -->
+	<footer id="colophon" class="site-footer" role="contentinfo">
+		<div class="row wrap">
+			<div class="col col-50 txt-logo">
+				<a href="https://www.visitgozo.com">visitgozo.com</a>
+			</div>
+			<div class="col col-50 ta-in-footer">
+				<div class="ta-poweredby oflow fr">
+					<div class="fl ta-poweredby-txt">
+						Rating & Reviews<br/>
+						Powered By					</div>
+					<div class="fl">
+						<a href="http://www.tripadvisor.com/" target="_blank" rel="nofollow">
+							<img src="https://www.visitgozo.com/wp-content/themes/visitgozo/images/logo-ta.png" alt="Rating & Reviews Powered By TripAdvisor" />
+						</a>
+					</div>
+				</div>
+				<div class="clear txt-alignright">
+					<a href="https://www.tripadvisor.co.uk/Tourism-g190313-Island_of_Gozo-Vacations.html" target="_blank" rel="nofollow">what other travelers say about Gozo on TripAdvisor</a>.
+				</div>
+			</div>
+		</div>
+		<div class="footer-links">
+			<div class="wrap">
+				<div class="footer-menu oflow">
+					<div class="social-menu oflow">
+						<div class="title">Connect with us</div>
+						<a href="https://www.facebook.com/VisitGozo" target="_blank" rel="nofollow" class="fl icon-facebook">Facebook</a>
+						<a href="https://twitter.com/VisitGozo" target="_blank" rel="nofollow" class="fl icon-twitter">Twitter</a>
+						<a href="https://plus.google.com/+VisitGozoOnline" target="_blank" rel="nofollow" class="fl icon-gplus">Google+</a>
+						<a href="https://www.youtube.com/user/VisitGozoOnline" target="_blank" rel="nofollow" class="fl icon-youtube-play">YouTube</a>
+						<a href="https://www.pinterest.com/visitgozo0636/" target="_blank" rel="nofollow" class="fl icon-pinterest">Pinterest</a>
+					</div>
+					<div class="foot-main-menu"><ul id="menu-main-menu" class="menu"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-6409"><a href="https://www.visitgozo.com/">Home</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-6414"><a href="https://www.visitgozo.com/gozo-and-comino/">Gozo and Comino</a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-8353"><a href="https://www.visitgozo.com/gozo-and-comino/gozo/">Gozo</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8354"><a href="https://www.visitgozo.com/gozo-and-comino/comino/">Comino</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8355"><a href="https://www.visitgozo.com/gozo-and-comino/history/">History</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8356"><a href="https://www.visitgozo.com/gozo-and-comino/gallery/">Gallery</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-6410"><a href="https://www.visitgozo.com/what-to-do-in-gozo/">What to Do</a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-8367"><a href="https://www.visitgozo.com/what-to-do-in-gozo/enjoy/">Enjoy</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-8368"><a href="https://www.visitgozo.com/what-to-do-in-gozo/escape/">Escape</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-8384"><a href="https://www.visitgozo.com/what-to-do-in-gozo/experience/">Experience</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-6413"><a href="https://www.visitgozo.com/where-to-stay-in-gozo/">Where to stay</a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8391"><a href="https://www.visitgozo.com/where-to-stay-in-gozo/aparthotels/">Aparthotels</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8392"><a href="https://www.visitgozo.com/where-to-stay-in-gozo/boutique-hotels/">Boutique Hotels</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8393"><a href="https://www.visitgozo.com/where-to-stay-in-gozo/farmhouses/">Farmhouses</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8394"><a href="https://www.visitgozo.com/where-to-stay-in-gozo/guesthouses/">Guesthouses</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8395"><a href="https://www.visitgozo.com/where-to-stay-in-gozo/hotels/">Hotels</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8396"><a href="https://www.visitgozo.com/where-to-stay-in-gozo/self-catering-apartments/">Self-Catering Apartments</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8397"><a href="https://www.visitgozo.com/where-to-stay-in-gozo/villas/">Villas</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-6411"><a href="https://www.visitgozo.com/where-to-go-in-gozo/">Where To Go</a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8398"><a href="https://www.visitgozo.com/where-to-go-in-gozo/archaeological-sites/">Archaeological Sites</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8399"><a href="https://www.visitgozo.com/where-to-go-in-gozo/beaches/">Beaches</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8400"><a href="https://www.visitgozo.com/where-to-go-in-gozo/churches-and-chapels/">Churches and Chapels</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8401"><a href="https://www.visitgozo.com/where-to-go-in-gozo/museums/">Museums</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8403"><a href="https://www.visitgozo.com/where-to-go-in-gozo/niches/">Niches</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8404"><a href="https://www.visitgozo.com/where-to-go-in-gozo/parks-and-gardens/">Parks and Gardens</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8405"><a href="https://www.visitgozo.com/where-to-go-in-gozo/retreat-houses/">Retreat Houses</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8406"><a href="https://www.visitgozo.com/where-to-go-in-gozo/sight-seeing-places-interest/">Sight Seeing &#038; Places of Interest</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8407"><a href="https://www.visitgozo.com/where-to-go-in-gozo/towns-villages/">Towns &#038; Villages</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6415"><a href="https://www.visitgozo.com/plan-my-trip-to-gozo/">Plan My Trip</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6412"><a href="https://www.visitgozo.com/facts/">Facts</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-21028"><a href="https://www.visitgozo.com/blog/">Blog</a></li>
+</ul></div>				</div>
+				<div class="footer-partners oflow">
+					<span class="title">Our Partners</span>
+					<a href="http://www.gozo.gov.mt/" target="_blank" rel="nofollow"><img src="https://www.visitgozo.com/wp-content/themes/visitgozo/images/logo-ministry.png" alt="Ministry for Gozo" /></a>
+					<a href="http://www.eco-gozo.com/" target="_blank" rel="nofollow"><img src="https://www.visitgozo.com/wp-content/themes/visitgozo/images/logo-ecogozo.png" alt="Eco Gozo" /></a>
+					<a href="http://www.islandofgozo.org/" target="_blank" rel="nofollow"><img src="https://www.visitgozo.com/wp-content/themes/visitgozo/images/logo-islandofgozo.png" alt="Island of Gozo" /></a>
+					<a href="http://www.visitmalta.com/" target="_blank" rel="nofollow"><img src="https://www.visitgozo.com/wp-content/themes/visitgozo/images/logo-visitmalta.png" alt="Visit Malta" /></a>
+					<a href="http://www.mta.com.mt/" target="_blank" rel="nofollow"><img src="https://www.visitgozo.com/wp-content/themes/visitgozo/images/logo-mta.png" alt="MTA" /></a>
+					<a href="http://www.gov.mt/" target="_blank" rel="nofollow"><img src="https://www.visitgozo.com/wp-content/themes/visitgozo/images/logo-govmt.png" alt="Government of Malta" /></a>
+					<a href="http://www.responsibletravel.com/Gozo-Travel-Guide/" target="_blank" rel="nofollow"><img src="https://www.visitgozo.com/wp-content/themes/visitgozo/images/logo-responsibletravel.png" alt="responsibletravel.com" /></a>
+					<a href="http://www.tourism.gov.mt/" target="_blank" rel="nofollow"><img src="https://www.visitgozo.com/wp-content/themes/visitgozo/images/logo-ministrytourism.png" alt="Ministry for Tourism" /></a>
+				</div>
+				<div class="footer-copyright row">
+					<div class="col col-50">
+						Copyright &copy; 2017 VisitGozo.com. |
+						<a href="https://www.visitgozo.com/terms-of-use/">Terms of Use</a> |
+						<a href="https://www.visitgozo.com/privacy/">Privacy</a>
+					</div>
+					<div class="col col-50 txt-alignright">
+						<a href="https://www.visitgozo.com/contact-us/">Contact Us</a> |
+						<a href="https://www.visitgozo.com/sitemap/">Sitemap</a> |
+						<a href="https://www.visitgozo.com/friends-of-visitgozo/">Friends of VisitGozo</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer><!-- #colophon -->
+</div><!-- #page -->
+
+
+<script type="text/html" id="tmpl_auto_complete_search">
+	<a class="" href="<%= permalink %>">
+		<div class="item-image fullwidth-fullheight bg-cover" style="background-image: url('<%= thumbnail[0] %>');"></div>
+		<div class="item-title row">
+			<span class="col col-80"><%= title %></span>
+			<span class="col col-20 actions"><span data-listing-id="<%= post_id %>" class="icon-heart my-gozo-trigger <% if (in_my_gozo) { %>added<% } %>"></span></span>
+		</div>
+	</a>
+</script>
+
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:301423,hjsv:5};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type='text/javascript'>
+/* <![CDATA[ */
+var uiAutocompleteL10n = {"noResults":"No results found.","oneResult":"1 result found. Use up and down arrow keys to navigate.","manyResults":"%d results found. Use up and down arrow keys to navigate.","itemSelected":"Item selected."};
+/* ]]> */
+</script>
+
+
+
+<script type='text/javascript'>
+/* <![CDATA[ */
+var icl_vars = {"current_language":"en","icl_home":"https:\/\/www.visitgozo.com\/","ajax_url":"https:\/\/www.visitgozo.com\/wp-admin\/admin-ajax.php","url_type":"1"};
+/* ]]> */
+</script>
+
+<!--wp_footer-->
+<script type="text/javascript" defer src="https://www.visitgozo.com/wp-content/cache/autoptimize/js/autoptimize_57323a24e9c01c3ae125473234bf1bcb.js"></script><script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"48f3345114","applicationID":"33253956","transactionName":"bldUMBAEWhVYB0daXVcddwcWDFsIFhRSVFc=","queueTime":0,"applicationTime":492,"atts":"QhBXRlgeSRs=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>

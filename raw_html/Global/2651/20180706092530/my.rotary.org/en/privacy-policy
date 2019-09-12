@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang="en" dir="ltr"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" dir="ltr"> <!--<![endif]-->
+
+<head>
+  <meta charset="utf-8" /><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"VQIDVFJaDhADUVBbAgkGUw=="};window.NREUM||(NREUM={}),__nr_require=function(t,n,e){function r(e){if(!n[e]){var o=n[e]={exports:{}};t[e][0].call(o.exports,function(n){var o=t[e][1][n];return r(o||n)},o,o.exports)}return n[e].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<e.length;o++)r(e[o]);return r}({1:[function(t,n,e){function r(t){try{s.console&&console.log(t)}catch(n){}}var o,i=t("ee"),a=t(15),s={};try{o=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(s.console=!0,o.indexOf("dev")!==-1&&(s.dev=!0),o.indexOf("nr_dev")!==-1&&(s.nrDev=!0))}catch(c){}s.nrDev&&i.on("internal-error",function(t){r(t.stack)}),s.dev&&i.on("fn-err",function(t,n,e){r(e.stack)}),s.dev&&(r("NR AGENT IN DEVELOPMENT MODE"),r("flags: "+a(s,function(t,n){return t}).join(", ")))},{}],2:[function(t,n,e){function r(t,n,e,r,s){try{p?p-=1:o(s||new UncaughtException(t,n,e),!0)}catch(f){try{i("ierr",[f,c.now(),!0])}catch(d){}}return"function"==typeof u&&u.apply(this,a(arguments))}function UncaughtException(t,n,e){this.message=t||"Uncaught error with no additional information",this.sourceURL=n,this.line=e}function o(t,n){var e=n?null:c.now();i("err",[t,e])}var i=t("handle"),a=t(16),s=t("ee"),c=t("loader"),f=t("gos"),u=window.onerror,d=!1,l="nr@seenError",p=0;c.features.err=!0,t(1),window.onerror=r;try{throw new Error}catch(h){"stack"in h&&(t(8),t(7),"addEventListener"in window&&t(5),c.xhrWrappable&&t(9),d=!0)}s.on("fn-start",function(t,n,e){d&&(p+=1)}),s.on("fn-err",function(t,n,e){d&&!e[l]&&(f(e,l,function(){return!0}),this.thrown=!0,o(e))}),s.on("fn-end",function(){d&&!this.thrown&&p>0&&(p-=1)}),s.on("internal-error",function(t){i("ierr",[t,c.now(),!0])})},{}],3:[function(t,n,e){t("loader").features.ins=!0},{}],4:[function(t,n,e){function r(t){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var o=t("ee"),i=t("handle"),a=t(8),s=t(7),c="learResourceTimings",f="addEventListener",u="resourcetimingbufferfull",d="bstResource",l="resource",p="-start",h="-end",m="fn"+p,w="fn"+h,v="bstTimer",y="pushState",g=t("loader");g.features.stn=!0,t(6);var b=NREUM.o.EV;o.on(m,function(t,n){var e=t[0];e instanceof b&&(this.bstStart=g.now())}),o.on(w,function(t,n){var e=t[0];e instanceof b&&i("bst",[e,n,this.bstStart,g.now()])}),a.on(m,function(t,n,e){this.bstStart=g.now(),this.bstType=e}),a.on(w,function(t,n){i(v,[n,this.bstStart,g.now(),this.bstType])}),s.on(m,function(){this.bstStart=g.now()}),s.on(w,function(t,n){i(v,[n,this.bstStart,g.now(),"requestAnimationFrame"])}),o.on(y+p,function(t){this.time=g.now(),this.startPath=location.pathname+location.hash}),o.on(y+h,function(t){i("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),f in window.performance&&(window.performance["c"+c]?window.performance[f](u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["c"+c]()},!1):window.performance[f]("webkit"+u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["webkitC"+c]()},!1)),document[f]("scroll",r,{passive:!0}),document[f]("keypress",r,!1),document[f]("click",r,!1)}},{}],5:[function(t,n,e){function r(t){for(var n=t;n&&!n.hasOwnProperty(u);)n=Object.getPrototypeOf(n);n&&o(n)}function o(t){s.inPlace(t,[u,d],"-",i)}function i(t,n){return t[1]}var a=t("ee").get("events"),s=t(18)(a,!0),c=t("gos"),f=XMLHttpRequest,u="addEventListener",d="removeEventListener";n.exports=a,"getPrototypeOf"in Object?(r(document),r(window),r(f.prototype)):f.prototype.hasOwnProperty(u)&&(o(window),o(f.prototype)),a.on(u+"-start",function(t,n){var e=t[1],r=c(e,"nr@wrapped",function(){function t(){if("function"==typeof e.handleEvent)return e.handleEvent.apply(e,arguments)}var n={object:t,"function":e}[typeof e];return n?s(n,"fn-",null,n.name||"anonymous"):e});this.wrapped=t[1]=r}),a.on(d+"-start",function(t){t[1]=this.wrapped||t[1]})},{}],6:[function(t,n,e){var r=t("ee").get("history"),o=t(18)(r);n.exports=r,o.inPlace(window.history,["pushState","replaceState"],"-")},{}],7:[function(t,n,e){var r=t("ee").get("raf"),o=t(18)(r),i="equestAnimationFrame";n.exports=r,o.inPlace(window,["r"+i,"mozR"+i,"webkitR"+i,"msR"+i],"raf-"),r.on("raf-start",function(t){t[0]=o(t[0],"fn-")})},{}],8:[function(t,n,e){function r(t,n,e){t[0]=a(t[0],"fn-",null,e)}function o(t,n,e){this.method=e,this.timerDuration=isNaN(t[1])?0:+t[1],t[0]=a(t[0],"fn-",this,e)}var i=t("ee").get("timer"),a=t(18)(i),s="setTimeout",c="setInterval",f="clearTimeout",u="-start",d="-";n.exports=i,a.inPlace(window,[s,"setImmediate"],s+d),a.inPlace(window,[c],c+d),a.inPlace(window,[f,"clearImmediate"],f+d),i.on(c+u,r),i.on(s+u,o)},{}],9:[function(t,n,e){function r(t,n){d.inPlace(n,["onreadystatechange"],"fn-",s)}function o(){var t=this,n=u.context(t);t.readyState>3&&!n.resolved&&(n.resolved=!0,u.emit("xhr-resolved",[],t)),d.inPlace(t,y,"fn-",s)}function i(t){g.push(t),h&&(x?x.then(a):w?w(a):(E=-E,O.data=E))}function a(){for(var t=0;t<g.length;t++)r([],g[t]);g.length&&(g=[])}function s(t,n){return n}function c(t,n){for(var e in t)n[e]=t[e];return n}t(5);var f=t("ee"),u=f.get("xhr"),d=t(18)(u),l=NREUM.o,p=l.XHR,h=l.MO,m=l.PR,w=l.SI,v="readystatechange",y=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],g=[];n.exports=u;var b=window.XMLHttpRequest=function(t){var n=new p(t);try{u.emit("new-xhr",[n],n),n.addEventListener(v,o,!1)}catch(e){try{u.emit("internal-error",[e])}catch(r){}}return n};if(c(p,b),b.prototype=p.prototype,d.inPlace(b.prototype,["open","send"],"-xhr-",s),u.on("send-xhr-start",function(t,n){r(t,n),i(n)}),u.on("open-xhr-start",r),h){var x=m&&m.resolve();if(!w&&!m){var E=1,O=document.createTextNode(E);new h(a).observe(O,{characterData:!0})}}else f.on("fn-end",function(t){t[0]&&t[0].type===v||a()})},{}],10:[function(t,n,e){function r(t){var n=this.params,e=this.metrics;if(!this.ended){this.ended=!0;for(var r=0;r<d;r++)t.removeEventListener(u[r],this.listener,!1);if(!n.aborted){if(e.duration=a.now()-this.startTime,4===t.readyState){n.status=t.status;var i=o(t,this.lastSize);if(i&&(e.rxSize=i),this.sameOrigin){var c=t.getResponseHeader("X-NewRelic-App-Data");c&&(n.cat=c.split(", ").pop())}}else n.status=0;e.cbTime=this.cbTime,f.emit("xhr-done",[t],t),s("xhr",[n,e,this.startTime])}}}function o(t,n){var e=t.responseType;if("json"===e&&null!==n)return n;var r="arraybuffer"===e||"blob"===e||"json"===e?t.response:t.responseText;return h(r)}function i(t,n){var e=c(n),r=t.params;r.host=e.hostname+":"+e.port,r.pathname=e.pathname,t.sameOrigin=e.sameOrigin}var a=t("loader");if(a.xhrWrappable){var s=t("handle"),c=t(11),f=t("ee"),u=["load","error","abort","timeout"],d=u.length,l=t("id"),p=t(14),h=t(13),m=window.XMLHttpRequest;a.features.xhr=!0,t(9),f.on("new-xhr",function(t){var n=this;n.totalCbs=0,n.called=0,n.cbTime=0,n.end=r,n.ended=!1,n.xhrGuids={},n.lastSize=null,p&&(p>34||p<10)||window.opera||t.addEventListener("progress",function(t){n.lastSize=t.loaded},!1)}),f.on("open-xhr-start",function(t){this.params={method:t[0]},i(this,t[1]),this.metrics={}}),f.on("open-xhr-end",function(t,n){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&n.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),f.on("send-xhr-start",function(t,n){var e=this.metrics,r=t[0],o=this;if(e&&r){var i=h(r);i&&(e.txSize=i)}this.startTime=a.now(),this.listener=function(t){try{"abort"===t.type&&(o.params.aborted=!0),("load"!==t.type||o.called===o.totalCbs&&(o.onloadCalled||"function"!=typeof n.onload))&&o.end(n)}catch(e){try{f.emit("internal-error",[e])}catch(r){}}};for(var s=0;s<d;s++)n.addEventListener(u[s],this.listener,!1)}),f.on("xhr-cb-time",function(t,n,e){this.cbTime+=t,n?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof e.onload||this.end(e)}),f.on("xhr-load-added",function(t,n){var e=""+l(t)+!!n;this.xhrGuids&&!this.xhrGuids[e]&&(this.xhrGuids[e]=!0,this.totalCbs+=1)}),f.on("xhr-load-removed",function(t,n){var e=""+l(t)+!!n;this.xhrGuids&&this.xhrGuids[e]&&(delete this.xhrGuids[e],this.totalCbs-=1)}),f.on("addEventListener-end",function(t,n){n instanceof m&&"load"===t[0]&&f.emit("xhr-load-added",[t[1],t[2]],n)}),f.on("removeEventListener-end",function(t,n){n instanceof m&&"load"===t[0]&&f.emit("xhr-load-removed",[t[1],t[2]],n)}),f.on("fn-start",function(t,n,e){n instanceof m&&("onload"===e&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=a.now()))}),f.on("fn-end",function(t,n){this.xhrCbStart&&f.emit("xhr-cb-time",[a.now()-this.xhrCbStart,this.onload,n],n)})}},{}],11:[function(t,n,e){n.exports=function(t){var n=document.createElement("a"),e=window.location,r={};n.href=t,r.port=n.port;var o=n.href.split("://");!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=n.hostname||e.hostname,r.pathname=n.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname);var i=!n.protocol||":"===n.protocol||n.protocol===e.protocol,a=n.hostname===document.domain&&n.port===e.port;return r.sameOrigin=i&&(!n.hostname||a),r}},{}],12:[function(t,n,e){function r(){}function o(t,n,e){return function(){return i(t,[f.now()].concat(s(arguments)),n?null:this,e),n?void 0:this}}var i=t("handle"),a=t(15),s=t(16),c=t("ee").get("tracer"),f=t("loader"),u=NREUM;"undefined"==typeof window.newrelic&&(newrelic=u);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],l="api-",p=l+"ixn-";a(d,function(t,n){u[n]=o(l+n,!0,"api")}),u.addPageAction=o(l+"addPageAction",!0),u.setCurrentRouteName=o(l+"routeName",!0),n.exports=newrelic,u.interaction=function(){return(new r).get()};var h=r.prototype={createTracer:function(t,n){var e={},r=this,o="function"==typeof n;return i(p+"tracer",[f.now(),t,e],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],e),o)try{return n.apply(this,arguments)}catch(t){throw c.emit("fn-err",[arguments,this,t],e),t}finally{c.emit("fn-end",[f.now()],e)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,n){h[n]=o(p+n)}),newrelic.noticeError=function(t){"string"==typeof t&&(t=new Error(t)),i("err",[t,f.now()])}},{}],13:[function(t,n,e){n.exports=function(t){if("string"==typeof t&&t.length)return t.length;if("object"==typeof t){if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if(!("undefined"!=typeof FormData&&t instanceof FormData))try{return JSON.stringify(t).length}catch(n){return}}}},{}],14:[function(t,n,e){var r=0,o=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);o&&(r=+o[1]),n.exports=r},{}],15:[function(t,n,e){function r(t,n){var e=[],r="",i=0;for(r in t)o.call(t,r)&&(e[i]=n(r,t[r]),i+=1);return e}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],16:[function(t,n,e){function r(t,n,e){n||(n=0),"undefined"==typeof e&&(e=t?t.length:0);for(var r=-1,o=e-n||0,i=Array(o<0?0:o);++r<o;)i[r]=t[n+r];return i}n.exports=r},{}],17:[function(t,n,e){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],18:[function(t,n,e){function r(t){return!(t&&t instanceof Function&&t.apply&&!t[a])}var o=t("ee"),i=t(16),a="nr@original",s=Object.prototype.hasOwnProperty,c=!1;n.exports=function(t,n){function e(t,n,e,o){function nrWrapper(){var r,a,s,c;try{a=this,r=i(arguments),s="function"==typeof e?e(r,a):e||{}}catch(f){l([f,"",[r,a,o],s])}u(n+"start",[r,a,o],s);try{return c=t.apply(a,r)}catch(d){throw u(n+"err",[r,a,d],s),d}finally{u(n+"end",[r,a,c],s)}}return r(t)?t:(n||(n=""),nrWrapper[a]=t,d(t,nrWrapper),nrWrapper)}function f(t,n,o,i){o||(o="");var a,s,c,f="-"===o.charAt(0);for(c=0;c<n.length;c++)s=n[c],a=t[s],r(a)||(t[s]=e(a,f?s+o:o,i,s))}function u(e,r,o){if(!c||n){var i=c;c=!0;try{t.emit(e,r,o,n)}catch(a){l([a,e,r,o])}c=i}}function d(t,n){if(Object.defineProperty&&Object.keys)try{var e=Object.keys(t);return e.forEach(function(e){Object.defineProperty(n,e,{get:function(){return t[e]},set:function(n){return t[e]=n,n}})}),n}catch(r){l([r])}for(var o in t)s.call(t,o)&&(n[o]=t[o]);return n}function l(n){try{t.emit("internal-error",n)}catch(e){}}return t||(t=o),e.inPlace=f,e.flag=a,e}},{}],ee:[function(t,n,e){function r(){}function o(t){function n(t){return t&&t instanceof r?t:t?c(t,s,i):i()}function e(e,r,o,i){if(!l.aborted||i){t&&t(e,r,o);for(var a=n(o),s=h(e),c=s.length,f=0;f<c;f++)s[f].apply(a,r);var d=u[y[e]];return d&&d.push([g,e,r,a]),a}}function p(t,n){v[t]=h(t).concat(n)}function h(t){return v[t]||[]}function m(t){return d[t]=d[t]||o(e)}function w(t,n){f(t,function(t,e){n=n||"feature",y[e]=n,n in u||(u[n]=[])})}var v={},y={},g={on:p,emit:e,get:m,listeners:h,context:n,buffer:w,abort:a,aborted:!1};return g}function i(){return new r}function a(){(u.api||u.feature)&&(l.aborted=!0,u=l.backlog={})}var s="nr@context",c=t("gos"),f=t(15),u={},d={},l=n.exports=o();l.backlog=u},{}],gos:[function(t,n,e){function r(t,n,e){if(o.call(t,n))return t[n];var r=e();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return t[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(t,n,e){function r(t,n,e,r){o.buffer([t],r),o.emit(t,n,e)}var o=t("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(t,n,e){function r(t){var n=typeof t;return!t||"object"!==n&&"function"!==n?-1:t===window?0:a(t,i,function(){return o++})}var o=1,i="nr@id",a=t("gos");n.exports=r},{}],loader:[function(t,n,e){function r(){if(!x++){var t=b.info=NREUM.info,n=l.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(t&&t.licenseKey&&t.applicationID&&n))return u.abort();f(y,function(n,e){t[n]||(t[n]=e)}),c("mark",["onload",a()+b.offset],null,"api");var e=l.createElement("script");e.src="https://"+t.agent,n.parentNode.insertBefore(e,n)}}function o(){"complete"===l.readyState&&i()}function i(){c("mark",["domContent",a()+b.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(s=Math.max((new Date).getTime(),s))-b.offset}var s=(new Date).getTime(),c=t("handle"),f=t(15),u=t("ee"),d=window,l=d.document,p="addEventListener",h="attachEvent",m=d.XMLHttpRequest,w=m&&m.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:m,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1071.min.js"},g=m&&w&&w[p]&&!/CriOS/.test(navigator.userAgent),b=n.exports={offset:s,now:a,origin:v,features:{},xhrWrappable:g};t(12),l[p]?(l[p]("DOMContentLoaded",i,!1),d[p]("load",r,!1)):(l[h]("onreadystatechange",o),d[h]("onload",r)),c("mark",["firstbyte",s],null,"api");var x=0,E=t(17)},{}]},{},["loader",2,10,4,3]);</script>
+<meta name="Language_type" content="en" />
+<link rel="shortcut icon" href="https://my.rotary.org/sites/all/themes/rotary_org/favicon.ico" type="image/vnd.microsoft.icon" />
+<meta name="Update_date" content="Year" />
+<link rel="shortlink" href="/en/node/19881" />
+<meta name="Generator" content="Drupal 7 (http://drupal.org)" />
+<link rel="canonical" href="/en/privacy-policy" />
+<meta name="Topics" content="Policies &amp; procedures" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>Privacy Policy | My Rotary</title>
+  <link type="text/css" rel="stylesheet" href="https://my.rotary.org/sites/default/files/css/css_xE-rWrJf-fncB6ztZfd2huxqgxu4WO-qwma6Xer30m4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://my.rotary.org/sites/default/files/css/css_lkvHUqwuaMnlSkPLjR6wgdcvM88sr5Mi-fDRQ-vdqKU.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://my.rotary.org/sites/default/files/css/css_AH5VXict_OZiP9vURA_jLOzHuzzLov1tFWXoykPEQF0.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://my.rotary.org/sites/default/files/css/css_4kf69LHnmlDBpRqfgY4chS_4DUZwveYvqB7BzXxl2UI.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://my.rotary.org/sites/default/files/css/css_xN5y4Co6Xwc9AiR5OE-JS_CQaPwDwpx2Yr_CUAXYU9M.css" media="all" />
+
+<!--[if gte IE 9]><!-->
+<style type="text/css" media="all">
+<!--/*--><![CDATA[/*><!--*/
+.button{filter:none;}
+
+/*]]>*/-->
+</style>
+<!--<![endif]-->
+  <script type="text/javascript" src="https://my.rotary.org/sites/all/modules/contrib/respondjs/lib/respond.min.js?pbeb8s"></script>
+<script type="text/javascript" src="https://my.rotary.org/sites/default/files/js/js_yQfB5uqH5jv8uqSqk7z7vHVZQEVVA4llBpwcG5FmRRM.js"></script>
+<script type="text/javascript" src="https://my.rotary.org/sites/default/files/js/js_tUWz3IGRc3BiLi9CprjNM-eGym_1PxpCwimo82mISfk.js"></script>
+<script type="text/javascript" src="https://my.rotary.org/sites/default/files/js/js_xCFoGJ3UGilKXgvk_ka43nRAPJhmz37u_lOx8-nlgS4.js"></script>
+<script type="text/javascript" src="https://my.rotary.org/sites/default/files/js/js_dUYlSFxNLOLww8khz-CrM-oScohVwwXTAKL9FKubvCo.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","//www.google-analytics.com/analytics.js","ga");ga("create", "UA-37277988-1", {"cookieDomain":".my.rotary.org"});ga("require", "linkid", "linkid.js");ga("send", "pageview");
+//--><!]]>
+</script>
+<script type="text/javascript" src="https://my.rotary.org/sites/default/files/js/js_12j4kBPKAvlv52N6ABF25bNA2Q52UPWYVt8QwIOPb5U.js"></script>
+<script type="text/javascript" src="https://fast.fonts.com/jsapi/4cd19262-20e0-4a36-8095-41a62c28852f.js"></script>
+<script type="text/javascript" src="https://my.rotary.org/sites/default/files/js/js_SG1vpya1MVQh1jD1vSkbFRHD4t2rai8EnIUSTU9iKf0.js"></script>
+<script type="text/javascript" src="https://my.rotary.org/sites/default/files/js/js_gQxcdJ7atBiA3Vi45fU8_yGHSFJzZIf4sMZ7JktLoc8.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"en\/","ajaxPageState":{"theme":"rotary_org","theme_token":"1t30q4a0wmMywwEw-jxR2PVSfct-WlXzp8s4EmFMWRI","jquery_version":"1.7","js":{"sites\/all\/modules\/custom\/rotary_social\/js\/rotary_social.js":1,"0":1,"1":1,"sites\/all\/themes\/rotary_org\/js\/foundation.min.js":1,"sites\/all\/themes\/rotary_org\/js\/jquery.hoverIntent.r6.js":1,"sites\/all\/themes\/rotary_org\/js\/chosen.jquery.min.js":1,"sites\/all\/themes\/rotary_org\/js\/flexnav\/jquery.flexnav.js":1,"sites\/all\/themes\/rotary_org\/js\/rotary_org.js":1,"sites\/all\/themes\/rotary_org\/js\/formtips.js":1,"sites\/all\/themes\/rotary_org\/js\/parts-kit\/index.js":1,"sites\/all\/modules\/contrib\/respondjs\/lib\/respond.min.js":1,"sites\/all\/modules\/contrib\/jquery_update\/replace\/jquery\/1.7\/jquery.min.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/modules\/contrib\/jquery_update\/replace\/ui\/external\/jquery.cookie.js":1,"sites\/all\/modules\/contrib\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.core.min.js":1,"sites\/all\/modules\/contrib\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.widget.min.js":1,"sites\/all\/modules\/contrib\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.accordion.min.js":1,"sites\/all\/modules\/contrib\/jquery_update\/replace\/misc\/jquery.form.min.js":1,"misc\/form.js":1,"misc\/ajax.js":1,"sites\/all\/modules\/contrib\/jquery_update\/js\/jquery_update.js":1,"sites\/all\/modules\/custom\/ad_tracking\/ad_tracking.js":1,"sites\/all\/modules\/custom\/rotary_browser_alert\/assets\/js\/getBrowser.js":1,"sites\/all\/modules\/custom\/rotary_browser_alert\/assets\/js\/ie-truth-master\/ie-truth.js":1,"sites\/all\/modules\/custom\/rotary_browser_alert\/assets\/js\/rotaryBrowserAlert.js":1,"sites\/all\/modules\/features\/rotary_cda_links\/rotary_cda_links.js":1,"sites\/all\/modules\/custom\/rotary_cookie_compliance\/js\/rotary_cookie_compliance.js":1,"sites\/all\/modules\/custom\/rotary_hub_services\/modules\/rotary_hub_membershippins\/rotary_hub_membershippins.js":1,"sites\/all\/modules\/custom\/rotary_toggle_block\/js\/rotary_toggle_block.js":1,"sites\/all\/modules\/custom\/rotary_utilities\/js\/modal.js":1,"sites\/all\/modules\/custom\/rotary_utilities\/js\/matchMedia.js":1,"sites\/all\/modules\/custom\/rotary_utilities\/js\/matchMedia.addListener.js":1,"sites\/all\/modules\/custom\/rotary_utilities\/js\/behaviors.js":1,"sites\/all\/modules\/custom\/rotary_utilities\/js\/conditional_links.js":1,"sites\/all\/modules\/custom\/rotary_adobe_analytics\/js\/adobe_dtm.js":1,"sites\/all\/modules\/custom\/rotary_adobe_analytics_myrotary\/js\/login_overlay.js":1,"sites\/all\/modules\/custom\/rotary_content_effectiveness\/modules\/rotary_content_effectiveness_adobe_analytics\/rotary_content_effectiveness_adobe_analytics.js":1,"sites\/all\/modules\/custom\/ad_tracking\/vendors\/adroll.js":1,"sites\/all\/modules\/custom\/ad_tracking\/vendors\/facebook.js":1,"sites\/all\/modules\/custom\/ad_tracking\/vendors\/quantcast.js":1,"sites\/all\/modules\/custom\/ad_tracking\/vendors\/twitter.js":1,"sites\/all\/modules\/custom\/ad_tracking\/vendors\/adwords.js":1,"sites\/all\/modules\/custom\/ad_tracking\/vendors\/doubleclick.js":1,"sites\/all\/modules\/contrib\/colorbox\/js\/colorbox.js":1,"sites\/all\/modules\/contrib\/colorbox\/styles\/default\/colorbox_style.js":1,"sites\/all\/modules\/contrib\/colorbox\/js\/colorbox_load.js":1,"sites\/all\/modules\/custom\/rotary_responsive\/rotary_responsive.js":1,"sites\/all\/modules\/contrib\/views_slideshow\/js\/views_slideshow.js":1,"sites\/all\/modules\/features\/rotary_scheduled_alerts\/assets\/js\/rotary_scheduled_alerts.js":1,"sites\/all\/modules\/features\/rotary_task_navigator\/js\/rotary_task_navigator.js":1,"sites\/all\/modules\/custom\/rotary_content_effectiveness\/js\/rotary_content_effectiveness.js":1,"sites\/all\/modules\/contrib\/google_analytics\/googleanalytics.js":1,"2":1,"misc\/collapse.js":1,"sites\/all\/modules\/features\/rotary_analytics\/rotary_analytics.js":1,"misc\/progress.js":1,"sites\/default\/modules\/contrib\/ctools\/js\/modal.js":1,"sites\/all\/modules\/custom\/rotary_login_choice\/rotary_login_choice.js":1,"sites\/all\/modules\/custom\/rotary_login_choice\/js\/give.js":1,"sites\/all\/modules\/custom\/rotary_login_overlay\/rotary_login_overlay.js":1,"sites\/all\/modules\/features\/rotary_config\/js\/rotary_config.js":1,"sites\/all\/modules\/custom\/rotary_search\/js\/rotary_search.js":1,"sites\/all\/themes\/rotary_org\/js\/parts-kit\/font-loading.js":1,"https:\/\/fast.fonts.com\/jsapi\/4cd19262-20e0-4a36-8095-41a62c28852f.js":1,"sites\/all\/modules\/custom\/rotary_utilities\/js\/ajax.js":1,"sites\/all\/themes\/rotary_org\/js\/vendor\/custom.modernizr.js":1,"sites\/all\/themes\/rotary_org\/js\/jquery-placeholder-master\/jquery.placeholder.js":1,"sites\/all\/themes\/rotary_org\/js\/rotary.placeholder.js":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"misc\/ui\/jquery.ui.core.css":1,"misc\/ui\/jquery.ui.theme.css":1,"misc\/ui\/jquery.ui.accordion.css":1,"modules\/comment\/comment.css":1,"sites\/all\/modules\/contrib\/date\/date_api\/date.css":1,"sites\/all\/modules\/contrib\/date\/date_popup\/themes\/datepicker.1.7.css":1,"modules\/field\/theme\/field.css":1,"sites\/all\/modules\/contrib\/google_appliance\/theme\/google_appliance.css":1,"sites\/all\/modules\/contrib\/i18n_menu_overview\/css\/i18n_menu_overview.css":1,"sites\/all\/modules\/contrib\/mollom\/mollom.css":1,"modules\/node\/node.css":1,"sites\/all\/modules\/custom\/rotary_browser_alert\/assets\/css\/rotary_browser_alert.css":1,"sites\/all\/modules\/features\/rotary_cda_links\/rotary_cda_links.css":1,"sites\/all\/modules\/custom\/rotary_cookie_compliance\/css\/rotary_cookie_compliance.css":1,"sites\/all\/modules\/features\/rotary_scheduled_alerts\/assets\/css\/rotary_scheduled_alerts.admin.css":1,"sites\/all\/modules\/custom\/rotary_subscriptions_defaults\/rotary_subscriptions_defaults.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/contrib\/views\/css\/views.css":1,"sites\/all\/modules\/contrib\/colorbox\/styles\/default\/colorbox_style.css":1,"sites\/default\/modules\/contrib\/ctools\/css\/ctools.css":1,"sites\/all\/modules\/contrib\/views_slideshow\/views_slideshow.css":1,"sites\/all\/modules\/features\/rotary_scheduled_alerts\/assets\/css\/rotary_scheduled_alerts.css":1,"sites\/all\/modules\/custom\/rotary_content_effectiveness\/css\/rotary_content_effectiveness.css":1,"sites\/all\/modules\/custom\/rotary_login_choice\/rotary_login_choice.css":1,"sites\/default\/modules\/contrib\/ctools\/css\/modal.css":1,"sites\/all\/themes\/rotary_org\/stylesheets\/parts-kit\/my-rotary.css":1,"sites\/all\/themes\/rotary_org\/stylesheets\/normalize.css":1,"sites\/all\/themes\/rotary_org\/stylesheets\/foundation.css":1,"sites\/all\/themes\/rotary_org\/stylesheets\/style.css":1,"0":1}},"ad_tracking":{"enabledVendors":["adroll","facebook","quantcast","twitter","adwords","doubleclick"],"adroll":{"adv_id":"UZZVVKW2DBHJVMRGC2HUWA","pix_id":"6SQRYXNSQJH3XCUSDDQ7S4"},"facebook":{"initCode":"218380185030747","events":[]},"quantcast":{"qacct":"p-cdV8WAwFygU6_","orderid":"","revenue":""},"doubleclick":{"account_id":"5385516"}},"colorbox":{"opacity":"0.85","current":"{current} of {total}","previous":"\u00ab Prev","next":"Next \u00bb","close":"Close","maxWidth":"98%","maxHeight":"98%","fixed":true,"mobiledetect":true,"mobiledevicewidth":"480px"},"nodia":{"layoutClass":"nodia-layout-1"},"rotaryBrowserAlert":{"rbaReAppearence":2592000,"rbaOutdatedHeader":"Alert","rbaOutdatedMessage":"You are using an outdated browser, and some features of this site may not display correctly. We recommend you \u003Ca href=\u0022\/en\/update-your-browser\u0022\u003Eupgrade to a newer browser.\u003C\/a\u003E","rbaCompatibilityHeader":"Alert","rbaCompatibilityMessage":"It looks like you have enabled Internet Explorer\u0027s \u0022compatibility view.\u0022 Rotary.org works best if you turn this off.","rbaIE":10,"rbaEdge":12,"rbaFirefox":28,"rbaChrome":29,"rbaSafariMac":8,"rbaOpera":17,"rbaSafariIOS":7},"rotary_social":{"language":"en","facebookAppId":785201354877225},"googleanalytics":{"trackOutbound":1,"trackMailto":1,"trackDownload":1,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls|xml|z|zip","trackColorbox":1,"trackDomainMode":"1"},"rotary_adobe_analytics":{"DTM":{"id":"7404c57832630d792eeacf138929345e114b09ff","script":"satelliteLib-135194b9cc79d1574a0e97126cd0e86051d15e9e.js","DDO":{"pageData":{"pageURL":"https:\/\/my.rotary.org\/privacy-policy","pageRef":"https:\/\/www.rotary.org\/en\/privacy-policy","pageID":"node\/19881","pageName":"My Rotary - Privacy Policy","pageTitle":"Privacy Policy","language":"English"},"siteData":{"siteDomain":"my.rotary.org","siteName":"My Rotary","date":"2018-07-06"},"userData":{"loginStatus":"not logged in"}}}},"rotaryAnalytics":{"saGroups":[],"drupalGroups":[]},"CToolsModal":{"loadingText":"Loading...","closeText":"Close Window","closeImage":"\u003Cimg typeof=\u0022foaf:Image\u0022 src=\u0022https:\/\/my.rotary.org\/sites\/default\/modules\/contrib\/ctools\/images\/icon-close-window.png\u0022 alt=\u0022Close window\u0022 title=\u0022Close window\u0022 \/\u003E","throbber":"\u003Cimg typeof=\u0022foaf:Image\u0022 src=\u0022https:\/\/my.rotary.org\/sites\/default\/modules\/contrib\/ctools\/images\/throbber.gif\u0022 alt=\u0022Loading\u0022 title=\u0022Loading...\u0022 \/\u003E"},"rotary_login_choice":{"path":"\/en\/login-choice\/js","modal_settings":{"modalSize":{"type":"dynamic","width":670,"height":90,"addHeight":100,"contentRight":0,"contentBottom":33},"modalTheme":"give_modal"}},"rotary_login_overlay":{"path":"\/en\/login-overlay","modal_settings":{"modalSize":{"type":"dynamic","width":670,"height":250,"addHeight":110,"contentRight":0,"contentBottom":33}}},"urlIsAjaxTrusted":{"\/en\/search\/all\/":true,"\/en\/privacy-policy":true,"\/en\/system\/ajax":true},"ajax":{"edit-yes":{"method":"html","callback":"rotary_content_effectiveness_submit","wrapper":"feedback-collect-form","effect":"fade","speed":900,"progress":{"type":"throbber"},"event":"mousedown","keypress":true,"prevent":"click","url":"\/en\/system\/ajax","submit":{"_triggering_element_name":"op","_triggering_element_value":"Yes"}},"edit-no":{"callback":"more_feedback_info_form_ajax_callback","wrapper":"feedback-collect-form","effect":"fade","speed":900,"progress":{"type":"throbber"},"event":"mousedown","keypress":true,"prevent":"click","url":"\/en\/system\/ajax","submit":{"_triggering_element_name":"op","_triggering_element_value":"No"}}},"rotary_org":{"themeBasePath":"\/sites\/all\/themes\/rotary_org"}});
+//--><!]]>
+</script>
+</head>
+
+<body class="html not-front not-logged-in no-sidebars page-node page-node- page-node-19881 node-type-page i18n-en domain-myrotary" >
+      <div role="alert" class="outdated-browser-alert-wrapper">
+    <div id="outdated-browser-alert" class="row">
+      <div class="alert-message-wrapper">
+        <h3></h3>
+        <p></p>
+      </div>
+      <div class="alert-dismiss-wrapper">
+        <a class="alert-dismiss-link"></a>
+      </div>
+    </div>
+  </div>
+  <header class="site-header">
+  <div class="site-header-container" data-nav-header="">
+    <p class="site-header-logo">
+      <a href="/">Rotary International</a>
+      <!-- use this for the home page: <span>Rotary International</span> -->
+      <strong>My Rotary</strong>
+    </p>
+    <button aria-controls="site-navigation" class="site-nav-toggle-mobile" data-module="nav-toggle" data-features="setToWindowHeight" data-toggle="navigation" aria-expanded="false">
+      <span class="site-nav-toggle-mobile-icon"></span>
+      <span class="a11y-sr-only">Main </span>
+      Menu
+    </button>
+    <button aria-controls="site-search" class="site-nav-toggle-search" data-module="nav-toggle" data-features="focusInput" data-toggle="search" aria-expanded="false">
+      <span class="site-nav-toggle-search-icon"></span>
+        Search
+    </button>
+  </div>
+  <div class="site-nav-container" id="site-navigation">
+    <div class="site-nav-utility">
+        <div class="site-nav-utility-container">
+          <p class="site-nav-utility-login">
+                          <a href="/en/user/login?destination=privacy-policy" id="top-bar-sign-in" class="prompt-login" data-path="privacy-policy">Sign In</a>              <a href="/user/register">Register</a>
+                      </p>
+          <ul class="site-nav-utility-links -large">
+            <li>
+              <a href="https://www.rotary.org/en">
+                <svg focusable="false" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="12.298" height="11" viewBox="0 0 12.298 11"><defs><path id="a" d="M0 0h12.298v11H0z"></path></defs><clipPath id="b"><use xlink:href="#a" overflow="visible"></use></clipPath><path clip-path="url(#b)" d="M12.14 5.705L6.66.218c-.282-.29-.74-.29-1.02 0L.156 5.705c-.28.29-.175.53.232.53H1.53v4.213c0 .304.013.552.564.552h2.66V6.773h2.786V11h2.793c.42 0 .43-.247.43-.552V6.234h1.144c.406 0 .51-.238.23-.53"></path></svg>
+                Rotary.org
+              </a>
+            </li>
+              <!-- this comment is necessary to eliminate white space
+              -->
+            <li>
+              <a href="/en/search/club-finder">
+                <svg focusable="false" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="8.035" height="11" viewBox="0 0 8.035 11"><defs><path id="a" d="M0 0h8.035v11H0z"></path></defs><clipPath id="b"><use xlink:href="#a" overflow="visible"></use></clipPath><path clip-path="url(#b)" d="M7.818 4.017c0 .525-.106 1.024-.3 1.48-.576 1.363-3.5 5.147-3.5 5.147S1.092 6.86.514 5.497c-.192-.455-.298-.955-.298-1.48 0-2.1 1.7-3.8 3.8-3.8s3.8 1.702 3.8 3.8m-3.8-1.885c-.938 0-1.697.76-1.697 1.697s.76 1.697 1.697 1.697 1.697-.76 1.697-1.698-.76-1.698-1.697-1.698"></path><g><defs><path id="c" d="M0 0h8.035v11H0z"></path></defs><clipPath id="d"><use xlink:href="#c" overflow="visible"></use></clipPath><path clip-path="url(#d)" d="M4.017 11l-.172-.222c-.12-.156-2.95-3.822-3.53-5.196C.105 5.086 0 4.56 0 4.017S.106 2.95.316 2.453c.203-.48.492-.908.86-1.277.37-.37.8-.66 1.278-.86C2.95.105 3.474 0 4.017 0 4.56 0 5.085.106 5.58.316c.48.202.91.49 1.278.86.37.37.66.8.86 1.278.21.496.317 1.022.317 1.564S7.93 5.086 7.72 5.58c-.582 1.375-3.41 5.042-3.53 5.197L4.016 11zm0-10.566c-.957 0-1.857.373-2.534 1.05C.807 2.16.433 3.06.433 4.017c0 .484.096.953.282 1.395.48 1.134 2.67 4.044 3.302 4.875.634-.83 2.823-3.74 3.303-4.875.187-.442.28-.91.28-1.395 0-.957-.372-1.857-1.048-2.534C5.874.807 4.974.433 4.017.433m0 5.31c-1.056 0-1.915-.86-1.915-1.915s.86-1.915 1.915-1.915 1.915.86 1.915 1.915-.86 1.915-1.915 1.915m0-3.395c-.816 0-1.48.664-1.48 1.48s.664 1.48 1.48 1.48 1.48-.665 1.48-1.48-.664-1.48-1.48-1.48"></path></g></svg>
+                Club Finder              </a>
+            </li>
+          </ul>
+          <div class="site-nav-utility-search" id="site-search">
+            <form class="search-form search-google-appliance-search-form" novalidate="1" action="/en/search/all/" method="post" id="rotary-search-gsa-header-desktop-form" accept-charset="UTF-8"><div><div class="container-inline">
+  <div id="edit-basic" class="form-wrapper"><div class="form-item form-type-textfield form-item-search-keys">
+  <input title="Enter the terms you wish to search for." type="text" id="edit-search-keys" name="search_keys" value="" size="60" maxlength="128" class="form-text" />
+</div>
+<button type="submit" id="edit-submit" name="op" value="Search" class="form-submit"><svg
+  focusable="false"
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    width="16"
+    height="16"
+    viewBox="0 0 16 16">
+  <defs>
+    <path id="a" d="M0 0h16v16H0z"></path>
+  </defs>
+  <path
+    fill="#FFF"
+    d="M15.64 13.536L11.814 9.71a6.242 6.242 0 0 0 .908-3.252C12.723 2.998 9.725 0 6.265 0A6.265 6.265 0 0 0 0 6.265c0 3.459 2.998 6.458 6.458 6.458 1.15 0 2.227-.312 3.154-.853l3.847 3.848a.964.964 0 0 0 1.363 0l.955-.954c.376-.377.24-.851-.137-1.228M1.928 6.265a4.337 4.337 0 0 1 4.337-4.337c2.396 0 4.53 2.134 4.53 4.53a4.337 4.337 0 0 1-4.337 4.337c-2.396 0-4.53-2.134-4.53-4.53">
+  </path>
+</svg>
+</button></div><input type="hidden" name="form_build_id" value="form-V_FDfzSiJXa7kdVxAF_3m-0JTWCJFCyOWpgYFRJAp30" />
+<input type="hidden" name="form_id" value="rotary_search_gsa_header_desktop_form" />
+</div>
+</div></form>          </div>
+          <ul class="site-nav-utility-ctas">
+                          <li>
+                <a href="https://www.rotary.org/en/get-involved/join">Join</a>              </li>
+                        <!-- this comment is necessary to eliminate white space
+              -->
+                          <li>
+                <a href="https://www.rotary.org/en/donate">Give</a>              </li>
+                      </ul>
+        </div>
+    </div>
+    <nav class="site-nav" data-nav aria-label="main navigation">
+        <ul class="site-nav-list"><li class="site-nav-item" data-module="nav-group" data-features="setHeight"><p class="site-nav-item-heading"><a href="/en/exchange-ideas" id="header-main-menu-676" data-nav-headinglink="">Exchange Ideas</a></p><ul data-nav-sublist="" class="site-nav-sublist"><li class="site-nav-subitem"><p class="site-nav-subitem-heading"><a href="/en/exchange-ideas/groups" id="header-main-menu-677">Discussion Groups</a></p><ul data-nav-sublist=""><li class=""><a href="/en/exchange-ideas/groups/my" id="header-main-menu-848">My Groups</a></li>
+<li class=""><a href="/en/exchange-ideas/groups" id="header-main-menu-13161">Find a Group</a></li>
+<li class=""><a href="/en/node/add/group" id="header-main-menu-849">Start a Group</a></li>
+<li class=""><a href="/en/search/people" id="header-main-menu-22261">Search People</a></li>
+</ul></li>
+<li class="site-nav-subitem"><p class="site-nav-subitem-heading"><a href="/en/exchange-ideas/events" id="header-main-menu-761">Events</a></p><ul data-nav-sublist=""><li class=""><a href="http://www.riconvention.org" target="_blank" id="header-main-menu-789">International Convention</a></li>
+<li class=""><a href="/en/exchange-ideas/events/international-assembly" id="header-main-menu-793">International Assembly</a></li>
+<li class=""><a href="/en/exchange-ideas/events/rotary-institutes" id="header-main-menu-792">Rotary Institutes</a></li>
+<li class=""><a href="/en/exchange-ideas/events/donor-events" id="header-main-menu-791">Donor Events</a></li>
+<li class=""><a href="/en/exchange-ideas/events/district-conferences" id="header-main-menu-70641">District Conferences</a></li>
+<li class=""><a href="/en/exchange-ideas/project-fairs" id="header-main-menu-58466">Project Fairs</a></li>
+<li class=""><a href="/en/exchange-ideas/events/rotary-day-united-nations" id="header-main-menu-58516">Rotary Day at the United Nations</a></li>
+</ul></li>
+<li class="site-nav-subitem"><p class="site-nav-subitem-heading"><a href="/en/exchange-ideas/club-connections" id="header-main-menu-759">Club Connections</a></p><ul data-nav-sublist=""><li class=""><a href="/en/exchange-ideas/club-connections/rotary-clubs" id="header-main-menu-786">Rotary Clubs</a></li>
+<li class=""><a href="/en/exchange-ideas/club-connections/rotaract-clubs" id="header-main-menu-787">Rotaract Clubs</a></li>
+<li class=""><a href="/en/exchange-ideas/club-connections/interact-clubs" id="header-main-menu-788">Interact Clubs</a></li>
+<li class=""><a href="/en/exchange-ideas/club-connections/alumni" id="header-main-menu-22421">Alumni</a></li>
+</ul></li>
+</ul></li>
+<li class="site-nav-item" data-module="nav-group" data-features="setHeight"><p class="site-nav-item-heading"><a href="/en/take-action" id="header-main-menu-750" data-nav-headinglink="">Take Action</a></p><ul data-nav-sublist="" class="site-nav-sublist"><li class="site-nav-subitem"><p class="site-nav-subitem-heading"><a href="/en/donate" id="header-main-menu-763">Give</a></p><ul data-nav-sublist=""><li class=""><a href="/en/take-action/give/ways-give" id="header-main-menu-885">Ways to Give</a></li>
+<li class=""><a href="/en/take-action/give/planned-giving" id="header-main-menu-6786">Planned Giving</a></li>
+<li class=""><a href="/en/take-action/give/recognition" id="header-main-menu-891">Donor Recognition</a></li>
+</ul><p><a href="/en/donate" class="u-button u-button-red -fluid" id="header-main-menu-883">Give Now</a></p><p class="site-nav-subitem-heading"><a href="/en/take-action/end-polio" class="" id="header-main-menu-1943">End Polio</a></p></li>
+<li class="site-nav-subitem"><p class="site-nav-subitem-heading"><a href="/en/take-action/develop-projects" id="header-main-menu-767">Develop Projects</a></p><ul data-nav-sublist=""><li class=""><a href="/en/take-action/develop-projects/project-lifecycle-resources" id="header-main-menu-795">Lifecycle of a Project</a></li>
+<li class=""><a href="/en/user/login?destination=/secure/13301" id="header-main-menu-6861" class="prompt-login" data-path="/secure/13301">Rotary Club Central</a></li>
+<li class=""><a href="http://ideas.rotary.org#_secure/15486" id="header-main-menu-797">Rotary Ideas</a></li>
+<li class=""><a href="/en/secure/showcase" target="_blank" id="header-main-menu-796">Rotary Showcase</a></li>
+</ul></li>
+<li class="site-nav-subitem"><p class="site-nav-subitem-heading"><a href="/en/take-action/apply-grants" id="header-main-menu-765">Apply for Grants</a></p><ul data-nav-sublist=""><li class=""><a href="/en/user/login?destination=/secure/application/236" id="header-main-menu-6946" class="prompt-login" data-path="/secure/application/236">Grant Center</a></li>
+<li class=""><a href="/en/take-action/apply-grants/district-grants" id="header-main-menu-799">District Grants</a></li>
+<li class=""><a href="/en/take-action/apply-grants/global-grants" id="header-main-menu-800">Global Grants</a></li>
+<li class=""><a href="/en/take-action/apply-grants/qualification" id="header-main-menu-6901">Qualification</a></li>
+<li class=""><a href="/en/take-action/apply-grants/grant-travel" id="header-main-menu-801">Grant Travel</a></li>
+</ul></li>
+<li class="site-nav-subitem"><p class="site-nav-subitem-heading"><a href="/en/take-action/empower-leaders" id="header-main-menu-766">Empower Leaders</a></p><ul data-nav-sublist=""><li class=""><a href="/en/take-action/empower-leaders/sponsor-rotaract-club" id="header-main-menu-806">Sponsor a Rotaract club</a></li>
+<li class=""><a href="/en/take-action/empower-leaders/sponsor-interact-club" id="header-main-menu-807">Sponsor an Interact club</a></li>
+<li class=""><a href="/en/take-action/empower-leaders/organize-ryla-event" id="header-main-menu-808">Organize a RYLA Event</a></li>
+<li class=""><a href="/en/take-action/empower-leaders/create-scholarship" id="header-main-menu-809">Create a Scholarship</a></li>
+<li class=""><a href="/en/take-action/empower-leaders/start-exchange" id="header-main-menu-810">Start an Exchange</a></li>
+<li class=""><a href="/en/take-action/empower-leaders/support-peace-centers" id="header-main-menu-811">Support Peace Centers</a></li>
+<li class=""><a href="/en/take-action/empower-leaders/join-rotarian-action-group" id="header-main-menu-895">Join a Rotarian Action Group</a></li>
+<li class=""><a href="/en/take-action/empower-leaders/form-rotary-fellowship" id="header-main-menu-900">Form a Rotary Fellowship</a></li>
+<li class=""><a href="/en/take-action/empower-leaders/organize-rotary-community-corps" id="header-main-menu-812">Organize a Rotary Community Corps</a></li>
+</ul></li>
+</ul></li>
+<li class="site-nav-item" data-module="nav-group" data-features="setHeight"><p class="site-nav-item-heading"><a href="/en/learning-reference" id="header-main-menu-5551" data-nav-headinglink="">Learning & Reference</a></p><ul data-nav-sublist="" class="site-nav-sublist"><li class="site-nav-subitem"><p class="site-nav-subitem-heading"><a href="/en/learning-reference/learn-role" id="header-main-menu-5591">Learn by Role</a></p><ul data-nav-sublist=""><li class=""><a href="/en/learning-reference/learn-role/new-member" id="header-main-menu-5876">New Member</a></li>
+<li class=""><a href="/en/learning-reference/learn-role/club-roles" id="header-main-menu-5921">Club Roles</a></li>
+<li class=""><a href="/en/learning-reference/learn-role/trainers" id="header-main-menu-5961">Trainers</a></li>
+<li class=""><a href="/en/learning-reference/learn-role/district-roles" id="header-main-menu-6001">District Roles</a></li>
+<li class=""><a href="/en/learning-reference/learn-role/district-committees" id="header-main-menu-58641">District committees</a></li>
+</ul></li>
+<li class="site-nav-subitem"><p class="site-nav-subitem-heading"><a href="/en/learning-reference/learn-topic" id="header-main-menu-5631">Learn by Topic</a></p><ul data-nav-sublist=""><li class=""><a href="/en/learning-reference/learn-topic/membership" id="header-main-menu-6041">Membership</a></li>
+<li class=""><a href="/en/learning-reference/learn-topic/fundraising" id="header-main-menu-6081">Fundraising</a></li>
+<li class=""><a href="/en/take-action/develop-projects/project-lifecycle-resources" id="header-main-menu-6121">Projects</a></li>
+<li class=""><a href="/en/take-action/apply-grants" id="header-main-menu-13836">Grants</a></li>
+<li class=""><a href="/en/learning-reference/learn-topic/start-club" id="header-main-menu-6161">Start a Club</a></li>
+<li class=""><a href="/en/learning-reference/learn-topic/public-relations" id="header-main-menu-6201">Public Relations</a></li>
+<li class=""><a href="/en/learning-reference/learn-topic/awards" id="header-main-menu-11686">Awards</a></li>
+<li class=""><a href="/en/learning-reference/learn-topic/rotaract" id="header-main-menu-6241">Rotaract</a></li>
+<li class=""><a href="/en/learning-reference/learn-topic/interact" id="header-main-menu-6281">Interact</a></li>
+</ul></li>
+<li class="site-nav-subitem"><p class="site-nav-subitem-heading"><a href="/en/learning-reference/about-rotary" id="header-main-menu-5671">About Rotary</a></p><ul data-nav-sublist=""><li class=""><a href="/en/learning-reference/about-rotary/our-priorities" id="header-main-menu-6321">Our Priorities</a></li>
+<li class=""><a href="/en/learning-reference/about-rotary/our-structure" id="header-main-menu-6361">Our Structure</a></li>
+<li class=""><a href="/en/learning-reference/about-rotary/leadership" id="header-main-menu-6406">Leadership</a></li>
+<li class=""><a href="/en/learning-reference/about-rotary/partners" id="header-main-menu-15206">Our Partners</a></li>
+<li class=""><a href="/en/learning-reference/about-rotary/history" id="header-main-menu-6446">History</a></li>
+<li class=""><a href="/en/learning-reference/about-rotary/financials" id="header-main-menu-6486">Financials</a></li>
+<li class=""><a href="/en/user/login?destination=/secure/13011" id="header-main-menu-9991" class="prompt-login" data-path="/secure/13011">Official Directory</a></li>
+</ul><p class="site-nav-subitem-heading"><a href="/en/learning-reference/policies-and-procedures" class="" id="header-main-menu-5711">Policies & Procedures</a></p><ul data-nav-sublist=""><li class=""><a href="/en/learning-reference/about-rotary/governance-documents">Governance Documents</a></li>
+<li class=""><a href="/en/learning-reference/about-rotary/councils">Councils on Legislation and Resolutions</a></li>
+</ul></li>
+<li class="site-nav-subitem"><p class="site-nav-subitem-heading"><a href="/en/learning-reference/document-center" id="header-main-menu-5751">Document Center</a></p><p class="site-nav-subitem-heading"><a href="/en/user/login?destination=/secure/13161" id="header-main-menu-5791" class="prompt-login" data-path="/secure/13161">Learning Center</a></p><p class="site-nav-subitem-heading"><a href="/en/learning-reference/webinars/upcoming" id="header-main-menu-5836">Webinars</a></p></li>
+</ul></li>
+<li class="site-nav-item" data-module="nav-group" data-features="setHeight"><p class="site-nav-item-heading"><a href="/en/manage" id="header-main-menu-752" data-nav-headinglink="">Manage</a></p><ul data-nav-sublist="" class="site-nav-sublist"><li class="site-nav-subitem"><p class="site-nav-subitem-heading"><a href="/en/manage/club-district-administration" id="header-main-menu-775">Club & District Administration</a></p><ul data-nav-sublist=""><li class=""><a href="/en/manage/club-district-administration/826" id="header-main-menu-13121">Club Administration</a></li>
+<li class=""><a href="/en/manage/club-district-administration/831" id="header-main-menu-881">District Administration</a></li>
+<li class=""><a href="/en/manage/club-district-administration/836" id="header-main-menu-882">Contributions</a></li>
+<li class=""><a href="/en/manage/club-district-administration/4916" id="header-main-menu-831">Reports</a></li>
+<li class=""><a href="/en/user/login?destination=/secure/13301" id="header-main-menu-46016" class="prompt-login" data-path="/secure/13301">Rotary Club Central</a></li>
+</ul></li>
+<li class="site-nav-subitem"><p class="site-nav-subitem-heading"><a href="/en/manage/community-marketplace" id="header-main-menu-777">Community Marketplace</a></p><ul data-nav-sublist=""><li class=""><a href="/en/manage/community-marketplace/official-rotary-apps" id="header-main-menu-6966">Official Rotary Apps</a></li>
+<li class=""><a href="/en/manage/community-marketplace/club-management-systems-website-vendors" id="header-main-menu-6971">Club Management Systems & Website Providers</a></li>
+<li class=""><a href="/en/exchange-ideas/marketplace-resources" id="header-main-menu-6951">Marketplace Resources</a></li>
+</ul></li>
+<li class="site-nav-subitem"><p class="site-nav-subitem-heading"><a href="/en/user/login?destination=/secure/application/136" id="header-main-menu-15271" class="prompt-login" data-path="/secure/application/136">Brand Center</a></p><ul data-nav-sublist=""><li class=""><a href="/en/user/login?destination=/secure/101746" target="_blank" id="header-main-menu-15391" class="prompt-login" data-path="/secure/101746">Our Story</a></li>
+<li class=""><a href="/en/user/login?destination=/secure/101751" target="_blank" id="header-main-menu-833" class="prompt-login" data-path="/secure/101751">Guidelines</a></li>
+<li class=""><a href="/en/user/login?destination=/secure/101756" target="_blank" id="header-main-menu-832" class="prompt-login" data-path="/secure/101756">Logos</a></li>
+<li class=""><a href="/en/user/login?destination=/secure/101761" target="_blank" id="header-main-menu-15431" class="prompt-login" data-path="/secure/101761">Materials</a></li>
+<li class=""><a href="/en/user/login?destination=/secure/101766" target="_blank" id="header-main-menu-6956" class="prompt-login" data-path="/secure/101766">Ads</a></li>
+<li class=""><a href="/en/user/login?destination=/secure/101771" target="_blank" id="header-main-menu-15471" class="prompt-login" data-path="/secure/101771">Images & Video</a></li>
+<li class=""><a href="/en/manage/brand-center/strengthening-rotary-initiative" id="header-main-menu-15511">Strengthening Rotary Resources</a></li>
+</ul></li>
+<li class="site-nav-subitem"><p class="site-nav-subitem-heading"><a href="/en/manage/products-services" id="header-main-menu-778">Products & Services</a></p><ul data-nav-sublist=""><li class=""><a href="/en/user/login?destination=/secure/application/506" id="header-main-menu-6976" class="prompt-login" data-path="/secure/application/506">Shop.rotary.org</a></li>
+<li class=""><a href="/en/member-center/licensed-vendors" id="header-main-menu-55921">Licensed Vendors</a></li>
+<li class=""><a href="/en/manage/products-services/special-offers" id="header-main-menu-835">Special Offers</a></li>
+<li class=""><a href="/en/member-center/rotary-global-rewards/offers" id="header-main-menu-56671">Rotary Global Rewards</a></li>
+</ul><p class="site-nav-subitem-heading"><a href="/en/manage/products-services/travel-expenses" class="" id="header-main-menu-776">Travel & Expenses</a></p></li>
+</ul></li>
+<li class="site-nav-item" data-module="nav-group" data-features="setHeight"><p class="site-nav-item-heading"><a href="/en/rotary-foundation" id="header-main-menu-753" data-nav-headinglink="">The Rotary Foundation</a></p><ul data-nav-sublist="" class="site-nav-sublist"><li class="site-nav-subitem"><p class="site-nav-subitem-heading"><a href="/en/take-action/apply-grants" id="header-main-menu-10216">Apply for Grants</a></p><ul data-nav-sublist=""><li class=""><a href="/en/take-action/apply-grants/district-grants" id="header-main-menu-12041">District Grants</a></li>
+<li class=""><a href="/en/take-action/apply-grants/global-grants" id="header-main-menu-12046">Global Grants</a></li>
+<li class=""><a href="/en/user/login?destination=/secure/application/236" id="header-main-menu-12056" class="prompt-login" data-path="/secure/application/236">Grant Center</a></li>
+</ul></li>
+<li class="site-nav-subitem"><p class="site-nav-subitem-heading"><a href="/en/donate" id="header-main-menu-10256">Give</a></p><ul data-nav-sublist=""><li class=""><a href="/en/take-action/give/ways-give" id="header-main-menu-12231">Ways to Give</a></li>
+<li class=""><a href="/en/take-action/give/planned-giving" id="header-main-menu-12226">Planned Giving</a></li>
+<li class=""><a href="/en/take-action/give/recognition" id="header-main-menu-12221">Donor Recognition</a></li>
+</ul></li>
+<li class="site-nav-subitem"><p class="site-nav-subitem-heading"><a href="/en/learning-reference/about-rotary/rotary-foundation" id="header-main-menu-10261">About</a></p><p class="site-nav-subitem-heading"><a href="/en/manage/club-district-administration/4916" id="header-main-menu-13791">Foundation Reports</a></p><p class="site-nav-subitem-heading"><a href="/en/rotary-foundation/history-rotary-foundation" id="header-main-menu-10266">History</a></p></li>
+</ul></li>
+<li class="site-nav-item" data-module="nav-group" data-features="setHeight"><p class="site-nav-item-heading"><a href="/en/member-news" id="header-main-menu-754" data-nav-headinglink="">News & Media</a></p><ul data-nav-sublist="" class="site-nav-sublist"><li class="site-nav-subitem"><p class="site-nav-subitem-heading"><a href="/en/news-media/office-president" id="header-main-menu-783">Office of the President</a></p><ul data-nav-sublist=""><li class=""><a href="/en/news-media/office-president/ri-president" id="header-main-menu-1627">About the President</a></li>
+<li class=""><a href="/en/news-media/office-president/presidential-theme" id="header-main-menu-839">Presidential Theme</a></li>
+<li class=""><a href="/en/news-media/office-president/presidential-message" id="header-main-menu-840">Presidential Message</a></li>
+<li class=""><a href="/en/news-media/office-president/presidents-representatives" id="header-main-menu-842">President's Representatives</a></li>
+<li class=""><a href="/en/news-media/office-president/rotary-international-committees" id="header-main-menu-7061">Rotary International Committees</a></li>
+<li class=""><a href="/en/news-media/office-president/rotary-foundation-committees" id="header-main-menu-58426">Foundation Committees</a></li>
+<li class=""><a href="/en/news-media/office-president/rotary-citation" id="header-main-menu-54041">Rotary Citation</a></li>
+<li class=""><a href="/en/news-media/office-president/ri-president-elect" id="header-main-menu-15631">President-elect</a></li>
+</ul></li>
+<li class="site-nav-subitem"><p class="site-nav-subitem-heading"><a href="/en/news-media/magazines" class="" id="header-main-menu-1960">Magazines</a></p><ul data-nav-sublist=""><li class=""><a href="/en/news-media/magazines/rotarian">The Rotarian</a></li>
+<li class=""><a href="/en/news-media/regional-magazines">Regional Magazines</a></li>
+</ul><p class="site-nav-subitem-heading"><a href="/en/news-features/newsletters#_secure/16821" class="" id="header-main-menu-1961">Newsletters</a></p><p class="site-nav-subitem-heading"><a href="http://blog.rotary.org/" class="" target="_blank" id="header-main-menu-13916">Rotary Voices Blog</a></p><p class="site-nav-subitem-heading"><a href="http://www.rotaryleader-en.org" class="" id="header-main-menu-56751">Rotary Leader</a></p></li>
+<li class="site-nav-subitem"><p class="site-nav-subitem-heading"><a href="/en/member-news/news-features" class="" id="header-main-menu-779">News & Features</a></p><p class="site-nav-subitem-heading"><a href="/en/member-news/announcements" class="" id="header-main-menu-1959">Announcements</a></p><p class="site-nav-subitem-heading"><a href="/en/news-media/calendar" class="" id="header-main-menu-53406">Calendar</a></p></li>
+<li class="site-nav-subitem"><p class="site-nav-subitem-heading"><a href="/en/news-features/media-center?domain=publicsite" class="" id="header-main-menu-14576">Media Center</a></p><p class="site-nav-subitem-heading"><a href="/en/user/login?destination=/secure/application/136" class="prompt-login" id="header-main-menu-57961" data-path="/secure/application/136">Brand Center</a></p><p class="site-nav-subitem-heading"><a href="http://images.rotary.org/rotary_images/" class="" id="header-main-menu-785">Rotary Images</a></p><p class="site-nav-subitem-heading"><a href="http://video.rotary.org/set_language/?language_code=en&amp;redirect_to=/" class="" id="header-main-menu-14581">Rotary Video</a></p></li>
+</ul></li>
+<li class="site-nav-item" data-module="nav-group" data-features="setHeight"><p class="site-nav-item-heading"><a href="/en/member-center" id="header-main-menu-53591" data-nav-headinglink="">Member Center</a></p><ul data-nav-sublist="" class="site-nav-sublist"><li class="site-nav-subitem"><p class="site-nav-subitem-heading"><a href="/en/member-center/join-rotary-and-make-difference" class="" id="header-main-menu-54506">Join Us!</a></p><p class="site-nav-subitem-heading"><a href="/en/member-center/member-referral" class="" id="header-main-menu-54556">Refer a new member</a></p><p class="site-nav-subitem-heading"><a href="/en/member-center/member-relocation" class="" id="header-main-menu-54596">Rejoin or change clubs</a></p><p class="site-nav-subitem-heading"><a href="http://www.riconvention.org" class="" id="header-main-menu-54641">International Convention</a></p><ul data-nav-sublist=""><li class=""><a href="/en/user/login?destination=https%3A//my.rotary.org/en/secure/application/231%3Fdeep-link%3Dhttp%3A//events.rotaryintl.org/%3FEventId%3D61bdf788-67c5-4a2f-92e7-3b561a7c7840" class="prompt-login" data-path="https://my.rotary.org/en/secure/application/231?deep-link=http://events.rotaryintl.org/?EventId=61bdf788-67c5-4a2f-92e7-3b561a7c7840">Register</a></li>
+</ul></li>
+<li class="site-nav-subitem"><p class="site-nav-subitem-heading"><a href="/en/member-center/rotary-global-rewards/offers" class="" id="header-main-menu-54756">Rotary Global Rewards</a></p><p class="site-nav-subitem-heading"><a href="/en/member-center/online-tools" class="" id="header-main-menu-54791">Online tools</a></p><ul data-nav-sublist=""><li class=""><a href="/en/user/login?destination=/secure/application/341" class="prompt-login" data-path="/secure/application/341">Rotary Club Central</a></li>
+<li class=""><a href="/en/user/login?destination=/secure/application/136" class="prompt-login" data-path="/secure/application/136">Brand Center</a></li>
+<li class=""><a href="/en/secure/showcase">Rotary Showcase</a></li>
+<li class=""><a href="http://ideas.rotary.org">Rotary Ideas</a></li>
+<li class=""><a href="/en/user/login?destination=/secure/application/261" class="prompt-login" data-path="/secure/application/261">Learning Center</a></li>
+<li class=""><a href="/en/exchange-ideas/groups">Discussion Groups</a></li>
+</ul></li>
+<li class="site-nav-subitem"><p class="site-nav-subitem-heading"><a href="/en/member-center/awards-recognition" class="" id="header-main-menu-55031">Awards & Recognition</a></p><ul data-nav-sublist=""><li class=""><a href="/en/learning-reference/learn-topic/awards">Awards</a></li>
+<li class=""><a href="/en/take-action/give/recognition">Donor Recognition</a></li>
+</ul><p class="site-nav-subitem-heading"><a href="/en/member-center/products-services" class="" id="header-main-menu-55196">Products & Services</a></p><ul data-nav-sublist=""><li class=""><a href="/en/user/login?destination=/secure/application/506" target="_blank" class="prompt-login" data-path="/secure/application/506">Shop.rotary.org</a></li>
+<li class=""><a href="/en/member-center/licensed-vendors">Licensed Vendors</a></li>
+<li class=""><a href="/en/member-center/rotary-credit-card">Rotary Credit Card</a></li>
+<li class=""><a href="/en/manage/community-marketplace">Community Marketplace</a></li>
+<li class=""><a href="/en/manage/community-marketplace/official-rotary-apps">Official Rotary Apps</a></li>
+</ul></li>
+<li class="site-nav-subitem"><p class="site-nav-subitem-heading"><a href="/en/news-media/magazines/rotarian" class="" id="header-main-menu-57876">The Rotarian</a></p><ul data-nav-sublist=""><li class=""><a href="/en/news-media/regional-magazines">Regional Magazines</a></li>
+</ul><p class="site-nav-subitem-heading"><a href="/en/member-center/resources-reference" class="" id="header-main-menu-55516">Resources & reference</a></p><ul data-nav-sublist=""><li class=""><a href="/en/user/profile/edit">Profile/Account Settings</a></li>
+<li class=""><a href="/en/learning-reference/learn-topic/membership">Membership Materials</a></li>
+<li class=""><a href="/en/manage/club-district-administration">Club & District Administration</a></li>
+<li class=""><a href="/en/news-media/calendar">Calendar</a></li>
+<li class=""><a href="/en/user/login?destination=/secure/application/361" class="prompt-login" data-path="/secure/application/361">Official Directory</a></li>
+</ul><p class="site-nav-subitem-heading"><a href="/en/user/login?destination=/secure/application/136" class="prompt-login" id="header-main-menu-57871" data-path="/secure/application/136">Brand Center</a></p></li>
+</ul></li>
+</ul>    </nav> <!-- /.section, /#navigation -->
+    <ul class="site-nav-utility-links -small">
+      <li>
+        <a href="https://www.rotary.org/en">
+          <svg focusable="false" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="12.298" height="11" viewBox="0 0 12.298 11">
+            <defs>
+              <path id="a" d="M0 0h12.298v11H0z"></path>
+            </defs>
+            <clipPath id="b">
+              <use xlink:href="#a" overflow="visible"></use>
+            </clipPath>
+            <path clip-path="url(#b)" d="M12.14 5.705L6.66.218c-.282-.29-.74-.29-1.02 0L.156 5.705c-.28.29-.175.53.232.53H1.53v4.213c0 .304.013.552.564.552h2.66V6.773h2.786V11h2.793c.42 0 .43-.247.43-.552V6.234h1.144c.406 0 .51-.238.23-.53"></path>
+          </svg>
+          Rotary.org
+        </a>
+      </li>
+      <!-- this comment is necessary to eliminate white space
+        -->
+      <li>
+        <a href="/en/search/club-finder">
+          <svg focusable="false" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="8.035" height="11" viewBox="0 0 8.035 11">
+            <defs>
+              <path id="a" d="M0 0h8.035v11H0z"></path>
+            </defs>
+            <clipPath id="b">
+              <use xlink:href="#a" overflow="visible"></use>
+            </clipPath>
+            <path clip-path="url(#b)" d="M7.818 4.017c0 .525-.106 1.024-.3 1.48-.576 1.363-3.5 5.147-3.5 5.147S1.092 6.86.514 5.497c-.192-.455-.298-.955-.298-1.48 0-2.1 1.7-3.8 3.8-3.8s3.8 1.702 3.8 3.8m-3.8-1.885c-.938 0-1.697.76-1.697 1.697s.76 1.697 1.697 1.697 1.697-.76 1.697-1.698-.76-1.698-1.697-1.698"></path>
+            <g>
+              <defs>
+                <path id="c" d="M0 0h8.035v11H0z"></path>
+              </defs>
+              <clipPath id="d">
+                <use xlink:href="#c" overflow="visible"></use>
+              </clipPath>
+              <path clip-path="url(#d)" d="M4.017 11l-.172-.222c-.12-.156-2.95-3.822-3.53-5.196C.105 5.086 0 4.56 0 4.017S.106 2.95.316 2.453c.203-.48.492-.908.86-1.277.37-.37.8-.66 1.278-.86C2.95.105 3.474 0 4.017 0 4.56 0 5.085.106 5.58.316c.48.202.91.49 1.278.86.37.37.66.8.86 1.278.21.496.317 1.022.317 1.564S7.93 5.086 7.72 5.58c-.582 1.375-3.41 5.042-3.53 5.197L4.016 11zm0-10.566c-.957 0-1.857.373-2.534 1.05C.807 2.16.433 3.06.433 4.017c0 .484.096.953.282 1.395.48 1.134 2.67 4.044 3.302 4.875.634-.83 2.823-3.74 3.303-4.875.187-.442.28-.91.28-1.395 0-.957-.372-1.857-1.048-2.534C5.874.807 4.974.433 4.017.433m0 5.31c-1.056 0-1.915-.86-1.915-1.915s.86-1.915 1.915-1.915 1.915.86 1.915 1.915-.86 1.915-1.915 1.915m0-3.395c-.816 0-1.48.664-1.48 1.48s.664 1.48 1.48 1.48 1.48-.665 1.48-1.48-.664-1.48-1.48-1.48"></path>
+              </g>
+            </svg>
+            Club Finder          </a>
+      </li>
+      <!-- this comment is necessary to eliminate white space
+        -->
+      <li>
+        <a href="/en/user/location-language">
+          <svg focusable="false" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="11" height="11" viewBox="0 0 11 11">
+            <defs>
+              <path id="a" d="M0 0h11v11H0z"></path>
+            </defs>
+            <clipPath id="b">
+              <use xlink:href="#a" overflow="visible"></use>
+            </clipPath>
+            <path clip-path="url(#b)" d="M5.5 0A5.506 5.506 0 0 0 0 5.5C0 8.533 2.467 11 5.5 11S11 8.533 11 5.5C11 2.468 8.533 0 5.5 0m4.691 5.5a4.672 4.672 0 0 1-.972 2.854.749.749 0 0 1-.182-.873c.173-.378.218-1.253.179-1.594-.039-.34-.216-1.161-.696-1.169-.48-.007-.81-.166-1.095-.735-.592-1.185 1.112-1.412.519-2.068-.165-.185-1.021.758-1.147-.498-.008-.089.078-.224.193-.363A4.698 4.698 0 0 1 10.191 5.5M4.855.856c-.112.218-.408.307-.588.471-.392.354-.56.306-.771.646-.212.34-.898.831-.898 1.077s.347.536.52.479.629-.053.897.041c.269.095 2.243.19 1.614 1.858-.199.531-1.073.441-1.306 1.321-.034.128-.155.679-.163.859-.015.278.196 1.328-.072 1.328-.27 0-.996-.939-.996-1.109 0-.17-.188-.767-.188-1.278s-.869-.503-.869-1.181c0-.613.471-.917.365-1.211-.104-.292-.932-.303-1.277-.338A4.701 4.701 0 0 1 4.855.856m-.83 9.095c.281-.148.31-.34.565-.351.292-.013.53-.114.859-.186.293-.064.816-.361 1.277-.399.388-.032 1.154.021 1.36.395a4.658 4.658 0 0 1-4.061.541"></path>
+          </svg>
+          Language        </a>
+      </li>
+    </ul>
+  </div>
+</header>
+  <div class="row" role="breadcrumb-container">
+    <div class="large-12 columns">
+              <nav id="breadcrumb" class="breadcrumb"><h2 class="element-invisible">You are here</h2><a href="/en">Home</a> | Privacy Policy</nav>
+          </div>
+  </div>
+
+  <div class="row" role="main">
+          <div class="alert_messages">
+          <div class="region region-alert-messages">
+    <div id="block-rotary-scheduled-alerts-all-alerts" class="block block-rotary-scheduled-alerts">
+
+    
+  <div class="content">
+    <div></div>  </div>
+</div>
+  </div>
+      </div>
+                  <section class="large-8 small-12 columns">
+          <a id="main-content"></a>
+            <h1 class="page-title">Privacy Policy</h1>                                <div class="region region-content">
+    <div id="block-system-main" class="block block-system">
+
+    
+  <div class="content">
+    <div  about="/en/privacy-policy" typeof="foaf:Document" class="ds-1col node node-page node-full view-mode-full clearfix">
+
+  
+  <div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><h3>ROTARY’S PRIVACY POLICY</h3>
+<h4>Introduction</h4>
+<p>Rotary International and The Rotary Foundation of Rotary International ("Rotary") respect your privacy and are committed to protecting it through our compliance with this website privacy policy (“Policy”).</p>
+<p>Maintaining protection of the information entrusted to our care by our constituents is of the utmost importance to Rotary.</p>
+<p>This Policy describes the types of information we may collect from you or that you may provide when you visit our website www.rotary.org (our "Website") and our practices for collecting, using, protecting and disclosing that information.</p>
+<p>Please note that supplementary rules apply in relation to individuals whose data we collect if they are located in the European Union or European Economic Area (in which case, please see the EU Privacy Notice below).</p>
+<p>This Policy applies to information we collect:</p>
+<ul><li>On our Website.</li>
+<li>In e-mail, text and other electronic messages between you and our Website.</li>
+<li>Through mobile and desktop applications you download from our Website, which provide dedicated non-browser-based interaction between you and our Website.</li>
+<li>When you interact with our advertising and applications on third-party websites and services, if those applications or advertising include links to this Policy.</li>
+<li>Through our Rotary clubs, districts and partner organizations when you become a member.</li>
+<li>When you sign up for any events that we host.</li>
+<li>When you interact with us in another way - for example, contacting us with an inquiry.</li>
+</ul><p>This Policy outlines our policies and practices regarding your personal information (information relating to you from which you can be identified) and how we will treat it. This Policy may change from time to time (see <em>Changes to our Privacy Policy</em> section below), so please check the Policy periodically for updates. If any questions arise about the meaning or interpretation of this Policy, the English-language version of this Policy is the official text.</p>
+<h4>Information We Collect About You and How We Collect It</h4>
+<p>We collect several types of information from and about users of our Website and others, including information:</p>
+<ul><li>by which you may be personally identified, including your name, postal address, e-mail address or telephone number ("personal information");</li>
+<li>that is about you individually but is not held in a form to identify you, such as age, gender, language preferences, expertise, date of birth; and/or</li>
+<li>about your internet connection, the equipment you use to access our Website and usage details.</li>
+</ul><p>We collect this information:</p>
+<ul><li>Directly from you when you provide it to us.</li>
+<li>Automatically as you navigate through the Website. Information collected automatically may include usage details, IP addresses and information collected through cookies, and other tracking technologies.</li>
+<li>From third parties we contract with to provide services on our behalf (such as event organizers).</li>
+<li>From clubs and partners in our global network.</li>
+</ul><h4>Information You Provide to Us</h4>
+<p>We collect information you provide when you interact with our Website or when dealing with Rotary or our network offline including:</p>
+<ul><li>Information that you provide by making an inquiry or joining as a member. This includes information provided at the time of registering to Rotary.org through My Rotary, donating to The Rotary Foundation, subscribing to services available on our Website, including ideas.rotary.org, posting material or requesting further services or signing up to a Rotary club. We may also ask you for information when you enter a contest or promotion sponsored by us, and when you report a problem with our Website.</li>
+<li>Records and copies of your correspondence (including e-mail and other electronic messages, including social media posts), if you contact us.</li>
+<li>Your responses to surveys that we might ask you to complete for research purposes.</li>
+<li>Details of transactions you carry out through our Website and of the fulfillment of your orders. You may be required to provide financial information before placing an order through our Website.</li>
+<li>Your search queries on our Website.</li>
+<li>There may be features that are developed in the future that may result in the collection of additional new information. </li>
+</ul><p>You also may provide information to be published or displayed (hereinafter, "<strong>posted</strong>") on public areas of the Website, or transmitted to other users of the Website or third parties (collectively, "User Content"). Your User Content is posted on and transmitted to others at your own risk. Although we limit access to certain pages and you may set certain privacy settings for such information by logging into your account profile, please be aware that no security measures are perfect or impenetrable. Additionally, we cannot control the actions of other users of the Website with whom you may choose to share your User Content.</p>
+<h4>Usage Details, IP Addresses, Cookies and Other Technologies</h4>
+<p>As you navigate through and interact with our Website, we may automatically collect certain information about your equipment, browsing actions and patterns, including:</p>
+<ul><li>Details of your visits to our Website, including traffic data, location data, logs and other communication data and the resources that you access and use on our Website.</li>
+<li>Information about your computer and internet connection, including your IP address, operating system and browser type.</li>
+</ul><p>The information we collect in this way is anonymous. It is aggregated into statistical data to help us improve our Website and to deliver a better and more personalized service by enabling us to:</p>
+<ul><li>Estimate our audience size, browser statistics, popularity of content and usage patterns.</li>
+<li>Speed up your searches.</li>
+<li>Recognize you when you return to our Website.</li>
+</ul><p>The technologies we use for this automatic data collection may include:</p>
+<ul><li><strong>Cookies (or browser cookies).</strong> A cookie is a small file placed on the hard drive of your computer. You may refuse to accept browser cookies by activating the appropriate setting on your browser. However, if you select this setting you may be unable to access certain parts of our Website. Unless you have adjusted your browser setting so that it will refuse cookies, our system will issue cookies when you direct your browser to our Website.</li>
+</ul><p>We do not collect personal information automatically, but we may tie this information to personal information about you that we collect from other sources or you provide to us, in which case we will process such personal information in accordance with the remainder of this Policy.</p>
+<h4>Third-party Advertiser Use of Cookies and Other Tracking Technologies</h4>
+<p>Some advertisements on Rotary.org and the advertisements and offers on Rotary Global Rewards are served by third-party advertisers, ad networks, and ad servers. Additionally, some of the applications accessible from, or on, our Website may be owned by third parties. These third parties may use cookies alone or in conjunction with other tracking technologies to collect information about our users. We do not control these third parties' tracking technologies or how they may be used. If you have any questions about an advertisement on Rotary.org or an advertisement or offer on Rotary Global Rewards, you should contact the responsible advertiser directly. For information about how you can opt out of receiving targeted advertising from these providers, see <em>Choices About How We Use and Disclose Your Information</em> section below.</p>
+<h4>How We Use Your Information</h4>
+<p>We use information that we collect about you or that you provide to us, including any personal information</p>
+<ul><li>To present our Website and its contents to you.</li>
+<li>To provide you with information, products or services that you request from us.</li>
+<li>To offer and fulfill our core business purposes which include:</li>
+<ul><li>Fulfilling Rotary's obligation to Rotarians</li>
+<li>Financial processing</li>
+<li>Supporting The Rotary Foundation</li>
+<li>Facilitating convention and special event planning</li>
+<li>Communicating key organizational messages</li>
+<li>Supporting the programs and membership of Rotary</li>
+<li>Complying with any legal obligations</li>
+</ul><li>To fulfill any other purpose for which you provide it.</li>
+<li>To carry out our obligations and enforce our rights arising from any contracts entered into between you and us, including for billing and collection.</li>
+<li>To notify you about changes to our Website or any products or services we offer or provide though it.</li>
+<li>To allow you to participate in interactive features on our Website.</li>
+<li>Store information about your preferences, allowing us to customize our Website according to your individual interests.</li>
+<li>In any other way we may describe when you provide the information.</li>
+<li>For any other purpose where we have your consent.</li>
+</ul><p>We may also use your information to contact you about our own and third-parties' goods and services that may be of interest to you. Rotary confirms that it will not sell or trade its membership data without the prior approval of the Rotary Board of Directors. If you do not want us to use your information in this way, you may opt-out of these contacts by notifying us. For more information, see <em>Choices About How We Use and Disclose Your Information</em> section below.</p>
+<h4>Disclosure of Your Information</h4>
+<p>We may disclose aggregated information about our users, and information that cannot be used to identify any individual, without restriction.</p>
+<p>We may disclose personal information that we collect or you provide as described in this Policy:</p>
+<ul><li>To contractors, service providers and other third parties we use to support our business and who are bound by contractual obligations to keep personal information confidential and use it only for the purposes for which we disclose it to them.</li>
+<li>To third parties to market their products or services to you if you have consented to these disclosures. We contractually require these third parties to keep personal information confidential and use it only for the purposes for which we disclose it to them. For more information, see <em>Choices About How We Use and Disclose Your Information</em> section below.</li>
+<li>To fulfill the purpose for which you provide it.</li>
+<li>For any other purpose disclosed by us when you provide the information.</li>
+<li>With your consent.</li>
+</ul><p>We may also disclose your personal information:</p>
+<ul><li>To comply with any court order, law or legal process, including to respond to any government or regulatory request.</li>
+<li>If we believe disclosure is necessary or appropriate to protect the rights, property, or safety of Rotary, Rotarians, Rotary clubs, Rotary districts or others. This includes exchanging information with other companies and organizations for the purposes of fraud protection and credit risk reduction.</li>
+</ul><h4>Choices About How We Use and Disclose Your Information</h4>
+<p>We strive to provide you with choices regarding the personal information you provide to us. We have created mechanisms to provide you with the following control over your information:</p>
+<ul><li><strong>Tracking Technologies and Advertising.</strong> You can set your browser to refuse all or some browser cookies, or to alert you when cookies are being sent. If you disable or refuse cookies, please note that some parts of this site may then be inaccessible or not function properly. You also will not be able to use Rotary Global Rewards.</li>
+<li><strong>Disclosure of Your Information for Third-Party Advertising.</strong> If you do not want us to share your personal information with unaffiliated or non-agent third parties for promotional purposes, for some third-party advertisers you can opt-out by logging into our Website and adjusting your user preferences in your account profile by checking or unchecking the relevant boxes. Otherwise you can send us an e-mail stating your request to <a href="mailto:Contact.Center@rotary.org">Contact.Center@rotary.org</a>.</li>
+<li><strong>Promotional Offers.</strong> If you do not wish to have your contact information used by Rotary to promote our own or third parties' products or services, for some third parties’ products or services you can opt-out by logging into our Website and adjusting your user preferences in your account profile by checking or unchecking the relevant boxes. Otherwise you can send us an e-mail stating your request to <a href="mailto:Contact.Center@rotary.org">Contact.Center@rotary.org</a>. If we have sent you a promotional e-mail, you may send us a return e-mail asking to be omitted from future e-mail distributions.</li>
+</ul><h4>Donor Privacy Information</h4>
+<p>Rotary will not sell, trade or share a donor's personal information, including their name, phone number, email, or physical address with non-Rotary third parties nor will it send donors mailings on behalf of other unrelated organizations. This policy applies to all information received by Rotary, both online and offline, as well as any electronic, written or oral communication. Rotary occasionally uses third-party vendors to manage and process donor information. These vendors are bound by strict confidentiality agreements.</p>
+<h4>Accessing and Correcting Your Information</h4>
+<p>Where you are a registered user on this Website, you can review and change your personal information by logging into our Website and visiting your account profile page on My Rotary.</p>
+<p>You may also send us an e-mail at <a href="mailto:Contact.Center@rotary.org">Contact.Center@rotary.org</a> to request access to, correct or delete any personal information that you have provided to us. We cannot delete your personal information except by also deleting your user account. We may not accommodate a request to change information if we believe the change would violate any law or legal requirement or cause the information to be incorrect.</p>
+<p>If you delete your User Content from the Website, copies of your User Content may remain viewable in cached and archived pages, or might have been copied or stored by other Website users. Proper access and use of information provided on our Website, including User Content, is governed by our <a href="https://my.rotary.org/en/rotary-international-website-terms-use">Terms of Use</a>, although for EU/EEA based individuals this does not prejudice your mandatory rights under EU Protection Law (see EU Privacy Notice below).</p>
+<h4>Children Under the Age of 16</h4>
+<p>Our Website is not intended for children under 16 years of age. No one under age 16 may provide any personal information to or on our Website. We do not knowingly collect personal information from children under 16. If you are under 16, do not use or provide any information on our Website or on or through any of its features/register on our Website, make any purchases through our Website, use any of the interactive or public comment features of our Website or provide any information about yourself to us, including your name, address, telephone number, e-mail address or any screen name or user name you may use. If we learn we have collected or received personal information from a child under 16 without verification of parental consent, we will delete that information. If you believe we might have any information from or about a child under 16, please contact us at <a href="mailto:Contact.Center@rotary.org">Contact.Center@rotary.org</a>.</p>
+<h4>California Privacy Rights</h4>
+<p>California state law permits users of our Website that are California residents to request certain information regarding our disclosure of personal information (if any) to third parties for their direct marketing purposes. To make such a request, please send an e-mail to <a href="mailto:Contact.Center@rotary.org">Contact.Center@rotary.org</a>.</p>
+<h4>Data Security</h4>
+<p>We have implemented technical and operational measures designed to secure your personal information from accidental loss and from unauthorized access, use, alteration and disclosure. All personal information you provide to us is stored on password-protected databases on our secure servers behind firewalls and we use Secure Sockets Layer (SSL) to ensure that the transmission of sensitive data for payments and contributions is encrypted and appropriately safeguarded. We train our employees on the importance of information security and focus specifically on practices for protecting against unauthorized disclosure of personal data. We have a documented incident response plan for acting upon events that violate Rotary’s security or privacy policies, should they occur, and this plan is reviewed and updated on an ongoing basis.</p>
+<p>The safety and security of your information also depends on you. Where we have given you (or where you have chosen) a password for access to certain parts of our Website, you are responsible for keeping this password confidential. Passwords registered with our Website are encrypted to ensure protection against unauthorized access to your personal information. We ask you not to share your password with anyone. We urge you to be careful about giving out information in public areas of our Website. The information you share in public areas may be viewed by any user of our Website.</p>
+<p>Unfortunately, the transmission of information via the internet is not completely secure. Although we do our best to protect your personal information, we cannot guarantee the security of your personal information transmitted to our Website or over any public network. Any transmission of personal information is at your own risk. Without prejudice to any mandatory legal obligations to which we may be subject, we are not responsible for circumvention of any privacy settings or security measures contained on our Website.</p>
+<h4>Changes to Our Privacy Policy</h4>
+<p>Rotary may change, add, modify or remove portions of this Policy at any time, which shall become effective immediately upon posting on this page. The date the Policy was last revised is identified at the bottom of the page. It is your responsibility to review this Policy for any changes. By continuing to use our Website, you agree to any changes in the Policy.</p>
+<h4>EU Privacy Notice</h4>
+<p>If you are a resident of the European Union (EU) or European Economic Area (EEA) whose personal information we collect, the following additional information applies to you.</p>
+<p><strong>1 Introduction</strong></p>
+<p>1.1 - Where you are an EU or EEA resident and Rotary knowingly collects your personal information (also called 'personal data'), we will do so in accordance with applicable laws that regulate data protection and privacy. This includes, without limitation, the EU General Data Protection Regulation (2016/679) ('GDPR') and EU member state national laws that implement or regulate the collection, processing and privacy of your personal data (together, 'EU Data Protection Law').</p>
+<p>1.2 - This EU privacy notice ('EU Privacy Notice') which should be read in conjunction Rotary's Privacy Policy provides further information as required under EU Data Protection Law on how we handle or process the personal data we collect and who we may share it with.</p>
+<p>1.3 - This Privacy Notice also provides information on your legal rights under EU Data Protection Law and how you can exercise them.</p>
+<p><strong>2 How personal data is collected</strong></p>
+<p>2.1 - Because of the global nature of our organization and its club network, Rotary may hold and process personal data that is collected from clubs, districts and partner organizations around the world, including within the EU/EEA.</p>
+<p>2.2 - This also means that if you are a member or individual contact of this network resident in the EU/EEA, your personal data may be transferred from the EU/EEA to Rotary headquarters in the United States.</p>
+<p>2.3 - US data privacy laws are currently not considered to meet the same legal standards of protection for personal data as set out under EU Data Protection Law. However, in order to safeguard personal data received from the EU/EEA, we only allow such a transfer of personal data to the US or other third countries under an approved contract or another appropriate mechanism which is legally authorized under EU Data Protection Law.</p>
+<p>2.4 - This is to make sure that the personal data that Rotary receives and processes (so far as it relates to residents of the EU/EEA) is properly safeguarded in accordance with similar legal standards of privacy you would eniov under EU Data Protection Law.</p>
+<p><strong>3 Direct Marketing</strong></p>
+<p>3.1 - If Rotary provides direct marketing communications to individuals in the EU/EEA regarding services and/or events which may be of interest, this will be done in accordance with EU Data Protection Law, and in particular where we contact individuals for direct marketing purposes by SMS, email, fax, social media and/or any other electronic communication channels, this will only be with the individual's consent or in relation to similar services to services that the individual has purchased (or made direct enquiries about purchasing) from Rotary before.</p>
+<p>3.2 - Individuals are also free to object or withdraw consent to receive direct marketing from us at any time, by contacting us using the email address below.</p>
+<p><strong>4 The lawful grounds on which we collect and process personal data</strong></p>
+<p>4.1 - We process your personal data for the above purposes, relying on one or more of the following lawful grounds under EU Data Protection Law:</p>
+<p>(a) where you have freely provided your specific, informed and unambiguous consent for Rotary to process your personal data for particular purposes:</p>
+<p>(b) where we agree to provide services to you, in order to set up and perform our contractual obligations to you and/or enforce our rights:</p>
+<p>(c) where we need to process and use your personal data in connection with our legitimate interests as a global network and being able to effectively manage and operate our organization in a consistent manner across all territories. We will always seek to pursue these legitimate interests in a way that does not unduly infringe on your legal rights and freedoms and, in particular, your right to privacy: and/or</p>
+<p>(d) where we need to comply with a legal obligation or for the purpose of us being able to establish, exercise or defend legal claims.</p>
+<p>4.2 - Please also note that some of the personal data we receive and that we process may include what is known as 'sensitive' or 'special category' personal data about you, for example, information regarding your ethnic origin or political, philosophical and religious beliefs. This is not the type of data that Rotary or its clubs would routinely collect, but if we process such sensitive or special category data we will only do this in specific situations where:</p>
+<p>(a) you have provided this with your explicit consent for us to use it: or,</p>
+<p>(b) there is a legal obligation on us to process such data in accordance with EU Data Protection Law</p>
+<p>(c) it is needed to protect your vital interests (or those of someone else) such as in a medical emergency: or,</p>
+<p>(d) where you have clearly chosen to publicize such information: or,</p>
+<p>(e) where needed in connection with a legal claim that we have or may be subject to.</p>
+<p><strong>5 Disclosing vour personal data to third parties</strong></p>
+<p>5.1 - We may disclose your personal data to certain third party organizations who are processing data solely in accordance with our instructions (called 'data processors') such as companies and/or organizations that support our business and operations (for example providers of web or database hosting, IT support, payment providers, event organizers, agencies we use to conduct fraud checks or mail management service providers) as well as professionals we use such as lawyers, insurers, auditors or accountants. We only use those data processors who can guarantee to us that adequate safeguards are put in place by them to protect the personal data they process on our behalf.</p>
+<p>5.2 - We may also disclose your personal data to third parties who make their own determination as to how they process your personal data and for what purpose(s) (called “data controllers”). The external third party data controllers identified above may handle your personal data in accordance with their own chosen procedures and you should check the relevant privacy policies of these companies or organizations to understand how they may use your personal data.</p>
+<p>5.3 - Other than as described above, we will treat your personal data as private and will not routinely disclose it to third parties without you knowing about it. The exceptions are in relation to legal proceedings or where we are legally required to do so and cannot tell you (such as a criminal investigation). We always aim to ensure that your personal data is only used by third parties we deal with for lawful purposes and who observe the principles of EU Data Protection Law.</p>
+<p><strong>6 How long we retain your personal data for</strong></p>
+<p>6.1 - Rotary retains personal data identifying you for as long as necessary in the circumstances - for instance, as long you are a member of a club or have a relationship with our network: for a reasonable period to send you marketing where we have regular contact with you, or as may be needed to enforce or defend contract claims or as is required by applicable law.</p>
+<p>6.2 - Rotary has adopted a data retention policy for EU residents (which we may make available on request) that sets out the different periods we may retain personal data for in respect of relevant purposes in accordance with our duties under EU Data Protection Law. The criteria we use for determining the relevant retention and disposal periods we adopt are based on the purpose for which we hold data and the reasonable expectations of those whose personal data we collect in these circumstances, taking into account various legislative requirements and guidance issued by relevant EU regulatory authorities.</p>
+<p>6.3 - In accordance with the above retention policy, the personal data that we no longer need will be disposed of and/or anonymized so you can no longer be identified from it.</p>
+<p><strong>7 Your personal data rights</strong></p>
+<p>7.1 - In accordance with your legal rights under EU Data Protection Law, you have a 'subject access request' right under which can request information about the personal data that we hold about you, what we use that personal data for and who it may be disclosed to as well as certain other information.</p>
+<p>7.2 - Usually we will have one month to respond to a subject access request. However, we reserve the right to verify your identity and we may, in case of complex requests, require a further two months to respond. We may also charge for administrative time in dealing with any manifestly unreasonable or excessive requests. We may also require further information to locate the specific information you seek and certain legal exemptions under EU Data Protection Law may apply when responding to your subject access request.</p>
+<p>7.3 - Under EU Data Protection Law. EU/EEA residents also have the following rights. which are exercisable by making a request to us in writing:</p>
+<p>(a) that we correct personal data that we hold about you which is inaccurate or incomplete:</p>
+<p>(b) that we erase your personal data without undue delay if we no longer need to hold or process it:</p>
+<p>(c) to object to any automated processing (if applicable) that we carry out in relation to your personal data. for example if we conduct any automated credit scoring:</p>
+<p>(d) to object to our use of your personal data for direct marketing:</p>
+<p>(e) to object and/or to restrict the use of your personal data for purpose other than those set out above unless we have a compelling legitimate reason: or</p>
+<p>(f) that we transfer personal data to another party where the personal data has been collected with your consent or is being used to perform contract with you and is being processed by automated means.</p>
+<p>7.4 - So we can fully comply, please note that these requests may also be forwarded on to third party data processors who are involved in the processing of your personal data on our behalf.</p>
+<p>7.5 - If you would like to exercise any of the rights set out above, please contact us at the address below.</p>
+<p>7.6 - If you make a request and are not satisfied with our response, or believe that we are illegally processing your personal data, you have the right to complain to the Office of the Information Commissioner in the United Kingdom.</p>
+<h4>Contact Information</h4>
+<p>If you have any questions about Rotary’s privacy protection practices or believe we have not adhered to this Policy, please contact us at <a href="mailto:Contact.Center@rotary.org">Contact.Center@rotary.org</a></p>
+<p>Last modified: 9 May 2018</p>
+</div></div></div></div>
+
+  </div>
+</div>
+  </div>
+          </section>
+
+        <aside class="large-4 small-12 columns">
+                <div class="region region-right-sidebar">
+    <div id="block-rotary-task-navigator-new-rotary-task-navigation-block" class="block block-rotary-task-navigator">
+
+    
+  <div class="content">
+    <form novalidate="1" action="/en/privacy-policy" method="post" id="rotary-task-navigator-navigation-form" accept-charset="UTF-8"><div><div class="intro">What do you want to do?</div><div class="form-item form-type-select form-item-action-list">
+ <select class="full-width form-select" id="edit-action-list" name="action_list"><option value="" selected="selected">I want to...</option><option value="/en/user/profile/edit">View or update my profile</option><option value="/en/user/password">Change my password</option><option value="/en/secure/101756">Download logos</option><option value="/en/take-action/give">Make a donation</option><option value="/en/secure/35006">View my giving history</option><option value="/en/secure/139386">Register to attend the Convention</option><option value="/en/secure/13011">Access the Official Directory</option><option value="/en/secure/13161">Take an online course</option><option value="/en/member-news">Read news about Rotary</option><option value="/en/learning-reference/document-center">Find a document</option><option value="/en/manage/club-district-administration/826">Update club data</option><option value="/en/secure/9571">View or pay club invoice</option><option value="/en/manage/club-district-administration/4916">Run reports</option><option value="/en/secure/13301">View or set club goals</option><option value="/en/secure/13166">Apply for or manage a grant</option><option value="/en/showcase">Browse projects on Rotary Showcase</option><option value="/en/exchange-ideas/groups">Join a discussion group</option><option value="/en/learning-reference/learn-topic/rotaryorg-resources">Learn how to use the website</option></select>
+</div>
+<input type="hidden" name="form_build_id" value="form-njd-K0YvuenvRagTY9oLEpWbjIIiKjldjHbrC_yrzUg" />
+<input type="hidden" name="form_id" value="rotary_task_navigator_navigation_form" />
+</div></form>  </div>
+</div>
+<div id="block-rotary-social-social-side" class="block block-rotary-social">
+
+    
+  <div class="content">
+    <div class='social_side' id="social-links"><div class=" "><div id = "fb-root"></div><a class=custom_button_facebook id=custom_button_facebook  title='Facebook'>Facebook</a><a  href='https://twitter.com/share?text=Privacy%20Policy' class='custom_button_twitter' id='custom_button_twitter' alt=Twitter title=Twitter target='_blank'>Twitter</a><a class='custom_button_linkedin' id='custom_button_linkedin' href='http://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fmy.rotary.org%2Fen%2Fprivacy-policy&title=Privacy%20Policy%20%7C%20My%20Rotary' target='_blank'  title='LinkedIn'>LinkedIn</a><a class='custom_button_email' id='custom_button_email' href='mailto:?subject=Rotary.org: Privacy%20Policy&body=This%20message%20has%20been%20sent%20by%20a%20Rotary.org%20visitor%0A%0APrivacy%20Policy%0A%0Ahttps://my.rotary.org/en/privacy-policy'  title='Email'>Email</a><a class="custom_button_print" id="custom_button_print"  onclick="window.print();" title="Print" >Print</a></div></div>  </div>
+</div>
+  </div>
+                </aside>
+    </div>
+  <!-- Content bottom region -->
+    <div class="row">
+     <div class="region region-content-bottom">
+    <div id="feedback-collect-form"><div id="block-rotary-content-effectiveness-rotary-content-effectiveness" class="block block-rotary-content-effectiveness">
+
+    
+  <div class="content">
+    <form novalidate="1" action="/en/privacy-policy" method="post" id="rotary-content-effectiveness-feedback-form" accept-charset="UTF-8"><div><div id="edit-headline" class="form-item form-type-item">
+ <div class="headline">Please help us improve. Was this page helpful?</div>
+</div>
+<input class="white feedback-submit-yes form-submit" type="submit" id="edit-yes" name="op" value="Yes" /><input class="white feedback-submit-no form-submit" type="submit" id="edit-no" name="op" value="No" /><input type="hidden" name="form_build_id" value="form-okvSyCK-JzF0E0CaN3ejotGxALGHTRAj_zvm0iXOzk0" />
+<input type="hidden" name="form_id" value="rotary_content_effectiveness_feedback_form" />
+</div></form>  </div>
+</div>
+</div>  </div>
+  </div>
+    <!-- End of content bottom -->
+  <footer class="site-footer" aria-label="site footer">
+    <div class="layout-container -padding-reduced u-container"><div class="site-footer-myrotary u-container u-width-11">
+      <h2 class="a11y-sr-only">My Rotary Links</h2>
+      <div class="u-grid-row"><div id="block-rotary-menu-rotary-footer-menu" class="block block-rotary-menu">
+
+    
+  <div class="content">
+    <div class="u-grid-2">
+      </div>
+
+<div class="u-grid-2">
+      </div>
+
+<div class="u-grid-2">
+      </div>
+
+<div class="u-grid-2">
+      </div>
+
+<div class="u-grid-2">
+      </div>
+
+<div class="u-grid-2">
+      </div>
+
+  </div>
+</div>
+</div>
+    </div><div id="block-rotary-menu-rotary-tertiary-nav" class="block block-rotary-menu">
+
+    
+  <div class="content">
+    <ul class="site-footer-nav u-container">
+  <li class="site-footer-nav-item"><a href="/en/contact">Contact Us</a></li><li class="site-footer-nav-item"><a href="https://www.rotary.org/en/about-rotary/careers">Careers</a></li><li class="site-footer-nav-item"><a href="https://www.rotary.org/en">Rotary.org</a></li><li class="site-footer-nav-item"><a href="http://www.endpolio.org">End Polio Now</a></li></ul>
+  </div>
+</div>
+<div id="block-rotary-social-social-footer" class="block block-rotary-social">
+
+    
+  <div class="content">
+    <ul class="site-footer-social u-container">
+      <li class="site-footer-nav-item">
+      <a href="http://twitter.com/rotary">
+        <img alt="" src="/sites/all/themes/rotary_org/images/parts-kit/social-twitter.svg">
+        <span class="a11y-sr-only">Twitter</span>
+      </a>
+    </li>
+      <li class="site-footer-nav-item">
+      <a href="http://www.facebook.com/rotary">
+        <img alt="" src="/sites/all/themes/rotary_org/images/parts-kit/social-facebook.svg">
+        <span class="a11y-sr-only">Facebook</span>
+      </a>
+    </li>
+      <li class="site-footer-nav-item">
+      <a href="http://www.youtube.com/user/RotaryInternational">
+        <img alt="" src="/sites/all/themes/rotary_org/images/parts-kit/social-youtube.svg">
+        <span class="a11y-sr-only">Youtube</span>
+      </a>
+    </li>
+      <li class="site-footer-nav-item">
+      <a href="http://www.snapchat.com/add/rotary">
+        <img alt="" src="/sites/all/themes/rotary_org/images/parts-kit/social-snapchat.svg">
+        <span class="a11y-sr-only">Snapchat</span>
+      </a>
+    </li>
+      <li class="site-footer-nav-item">
+      <a href="http://instagram.com/rotaryinternational">
+        <img alt="" src="/sites/all/themes/rotary_org/images/parts-kit/social-instagram.svg">
+        <span class="a11y-sr-only">Instagram</span>
+      </a>
+    </li>
+      <li class="site-footer-nav-item">
+      <a href="http://www.linkedin.com/company/10422">
+        <img alt="" src="/sites/all/themes/rotary_org/images/parts-kit/social-linkedin.svg">
+        <span class="a11y-sr-only">LinkedIn</span>
+      </a>
+    </li>
+  </ul>
+  </div>
+</div>
+<div id="block-rotary-myrotary-blocks-language-switcher" class="block block-rotary-myrotary-blocks">
+
+    
+  <div class="content">
+    <ul class="site-footer-nav">
+          <li class="site-footer-nav-item">
+            <a href="/en/contact"><strong>Contact Us</strong></a>
+          </li>
+          <li class="site-footer-nav-item -margin-reduced">
+            <a href="/en/user/location-language"><strong>Change Language/Location</strong></a>
+          </li>
+        </ul>  </div>
+</div>
+<div class="u-text-centered"><div id="block-rotary-menu-rotary-site-info" class="block block-rotary-menu">
+
+    
+  <div class="content">
+    <div id="site-info" class="footer-section"><p><span>© 2018 Rotary International.</span> <span>All Rights Reserved.</span> <a href="/en/privacy-policy" class="active">Privacy Policy</a> <a href="/en/rotary-international-website-terms-use">Terms of Use</a> <a href="/en/contact">Contact Us</a></p></div>  </div>
+</div>
+</div><p class="u-text-centered">
+                    <a href="https://www.endpolio.org">
+                      <img alt="End Polio Now" src="/sites/all/themes/rotary_org/images/parts-kit/logo-end-polio.svg" height="80" width="80">
+                    </a>
+                  </p></div>    <div class="layout-container -padding-reduced u-text-centered u-container">
+          </div>
+  </footer>
+  <div id="user_relationships_popup_form" class="user_relationships_ui_popup_form"></div><div id='ZN_8Bx6STtNwACtxWZ'><!--DO NOT REMOVE-CONTENTS PLACED HERE--></div><script type="text/javascript" src="https://my.rotary.org/sites/default/files/js/js_p8TYkKRePRG_g931OQ79X378ZLAHfbC8mkO1PDQ7afQ.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+$ = jQuery.noConflict();
+//--><!]]>
+</script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+
+    if ('__proto__' in {}) {
+      document.write('<script src=/sites/all/themes/rotary_org/js/vendor/zepto.js><\/script>');
+    }
+    // Else we should already have jQuery by virtue of our
+    
+//--><!]]>
+</script>
+<script type="text/javascript" src="https://my.rotary.org/sites/all/themes/rotary_org/js/foundation.min.js?pbeb8s"></script>
+<script type="text/javascript" src="https://my.rotary.org/sites/default/files/js/js_CtGg9dszHUjo__T6ddmIIHkZHWXjIUGv58YvDYEpzRg.js"></script>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"7ae08086d6","applicationID":"35195815","transactionName":"NQBSN0EHWBcAVkFfWAxKZRFaSRkND1FQThkSDUA=","queueTime":0,"applicationTime":24,"atts":"GUdRQQkdSxk=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>

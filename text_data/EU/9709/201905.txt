@@ -1,0 +1,268 @@
+
+
+
+
+
+ 
+
+
+
+italki: Learn a language online
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    function get_cookie(Name) {
+      var search = Name + "="//查询检索的值
+      var returnvalue = "";//返回值
+      if (document.cookie.length > 0) {
+        sd = document.cookie.indexOf(search);
+        if (sd!= -1) {
+          sd += search.length;
+          end = document.cookie.indexOf(";", sd);
+          if (end == -1)
+            end = document.cookie.length;
+          //unescape() 函数可对通过 escape() 编码的字符串进行解码。
+          returnvalue=unescape(document.cookie.substring(sd, end))
+        }
+      }
+      return returnvalue;
+    }
+    function set_Cookie(name,value)
+    {
+      var Days = 30;
+      var exp = new Date();
+      exp.setTime(exp.getTime() + Days*24*60*60*1000);
+      document.cookie = name + "="+ escape (value) + ";path=/;expires=" + exp.toGMTString();
+    }
+
+
+    var currentPathname = window.location.pathname;
+    var curretHostname = window.location.host;
+    var firstPathname = currentPathname.split('/')[1];
+    var secondPathname = currentPathname.split('/')[2];
+    var currentUrl = currentPathname.substr(1, currentPathname.length);
+    var urlWhiteList = ['','/','home','dashboard','lessons'];
+    if(firstPathname === 'lesson'){
+      set_Cookie('kp.lessonDetailUrl',true)
+    }else{
+      set_Cookie('kp.lessonDetailUrl',false)
+    }
+    //标志当前是老网站
+    set_Cookie('kp.currentSite', 'www');
+    
+    if(get_cookie('kp.betaVersion') && urlWhiteList.indexOf(firstPathname)>-1){
+      var betaPathname = currentUrl;
+      switch (secondPathname) {
+          case 'sessions':
+            betaPathname = 'lessons/sessions';
+            break;
+          case 'packages':
+            betaPathname = 'lessons/packages';
+            break;
+          case 'problems':
+            betaPathname = 'lessons/sessions';
+            break;
+      }
+      if(firstPathname === 'home' || firstPathname === '/'){
+        betaPathname = '';
+      }
+
+     window.location.href = 'https://beta.italki.com/' + betaPathname + location.search;
+
+    }
+  
+
+    window.KP = window.KP || {
+        kpLoadBegin: new Date().getTime()
+      };
+    window.prerenderReady = false;
+  
+
+    #preLoader {
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      position: fixed;
+      background-color: white;
+      z-index: 9999;
+      -moz-user-select: none;
+      -webkit-user-select: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'PingFang SC', 'Roboto', "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+
+    .kp-loading {
+      z-index: 999;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      margin: -15px 0 0 -15px;
+      border-bottom: 3px solid rgb(245, 191, 187);
+      border-left: 3px solid rgb(245, 191, 187);
+      border-right: 3px solid rgb(245, 191, 187);
+      border-top: 3px solid rgb(255, 67, 56);
+      border-radius: 100%;
+      height: 50px;
+      width: 50px;
+      -webkit-animation: rot .5s infinite linear;
+      -moz-animation: rot .5s infinite linear;
+      animation: rot .5s infinite linear;
+    }
+
+    .kp-loading2 {
+      z-index: 999;
+      margin: 0;
+      border-bottom: 3px solid rgb(245, 191, 187);
+      border-left: 3px solid rgb(245, 191, 187);
+      border-right: 3px solid rgb(245, 191, 187);
+      border-top: 3px solid rgb(255, 67, 56);
+      border-radius: 100%;
+      height: 50px;
+      width: 50px;
+      -webkit-animation: rot .5s infinite linear;
+      -moz-animation: rot .5s infinite linear;
+      animation: rot .5s infinite linear;
+    }
+
+    @-webkit-keyframes type {
+      from {
+        width: 0
+      }
+    }
+
+    @-webkit-keyframes rot {
+      from {
+        -webkit-transform: rotate(0deg);
+      }
+      to {
+        -webkit-transform: rotate(359deg);
+      }
+    }
+
+    @-moz-keyframes rot {
+      from {
+        -moz-transform: rotate(0deg);
+      }
+      to {
+        -moz-transform: rotate(359deg);
+      }
+    }
+
+    @keyframes rot {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(359deg);
+      }
+    }
+  
+
+
+
+  (function(w, d, s, l, i) {
+    w[l] = w[l] || [];
+    w[l].push({
+      'gtm.start': new Date().getTime(), event: 'gtm.js'
+    });
+    var f = d.getElementsByTagName(s)[0],
+      j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+    j.async = true;
+    j.src =
+      '//www.googletagmanager.com/gtm.js?id=' + i + dl;
+    f.parentNode.insertBefore(j, f);
+  })(window, document, 'script', 'dataLayer', 'GTM-NTB65X');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+One moment...
+italki is changing the way the world learns foreign languages.
+
+
+
+
+
+
+
+
+
+
+  var addthis_config = {
+    "data_track_addressbar": false,
+    "data_track_clickback": false,
+    "data_ga_property": 'UA-1200794-24',
+    "data_ga_social": true,
+    "pubid": "italkicom"
+  };
+  var addthis_share = {
+    url: '',
+    title: '',
+    description: ''
+  };
+
+
+  var CE_SNAPSHOT_NAME = 'Italki Home Page';
+
+
+
+
+  var SITEID='italki-com';
+  (function(b, t, r, a, i, n) {
+      b['bt']=b['bt'] || function() {
+          (b['_bt']=b['_bt']||[]).push(arguments);
+      },
+      i = t.createElement(r),
+      n = t.getElementsByTagName(r)[0];
+      i.async = 1;
+      i.src = a;
+      n.parentNode.insertBefore(i, n);
+
+      //是否显示跳到新网站的弹层
+      // if(get_cookie("kp.jumpNewSite") && get_cookie("kp.jumpNewSite") == 0){
+      //   $("#jumpNewSiteHint").hide();
+      // }else{
+      //   $("#jumpNewSiteHint").show();
+      // }
+  })(
+      window,
+      document,
+      'script',
+      'https://cdn.boomtrain.com/p13n/'+SITEID+'/p13n.min.js'
+  );
+
+
+

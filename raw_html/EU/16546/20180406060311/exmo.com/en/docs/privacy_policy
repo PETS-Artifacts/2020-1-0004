@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8"><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var o=t[n]={exports:{}};e[n][0].call(o.exports,function(t){var o=e[n][1][t];return r(o||t)},o,o.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(e,t,n){function r(){}function o(e,t,n){return function(){return i(e,[f.now()].concat(u(arguments)),t?null:this,n),t?void 0:this}}var i=e("handle"),a=e(2),u=e(3),c=e("ee").get("tracer"),f=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,t){s[t]=o(d+t,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,o="function"==typeof t;return i(l+"tracer",[f.now(),e,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],n),o)try{return t.apply(this,arguments)}catch(e){throw c.emit("fn-err",[arguments,this,e],n),e}finally{c.emit("fn-end",[f.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=o(l+t)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,f.now()])}},{}],2:[function(e,t,n){function r(e,t){var n=[],r="",i=0;for(r in e)o.call(e,r)&&(n[i]=t(r,e[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],3:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,o=n-t||0,i=Array(o<0?0:o);++r<o;)i[r]=e[t+r];return i}t.exports=r},{}],4:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function o(e){function t(e){return e&&e instanceof r?e:e?c(e,u,i):i()}function n(n,r,o,i){if(!d.aborted||i){e&&e(n,r,o);for(var a=t(o),u=m(n),c=u.length,f=0;f<c;f++)u[f].apply(a,r);var p=s[y[n]];return p&&p.push([b,n,r,a]),a}}function l(e,t){v[e]=m(e).concat(t)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(n)}function g(e,t){f(e,function(e,n){t=t||"feature",y[n]=t,t in s||(s[t]=[])})}var v={},y={},b={on:l,emit:n,get:w,listeners:m,context:t,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",c=e("gos"),f=e(2),s={},p={},d=t.exports=o();d.backlog=s},{}],gos:[function(e,t,n){function r(e,t,n){if(o.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[t]=r,r}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){o.buffer([e],r),o.emit(e,t,n)}var o=e("ee").get("handle");t.exports=r,r.ee=o},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=h.info=NREUM.info,t=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return s.abort();f(y,function(t,n){e[t]||(e[t]=n)}),c("mark",["onload",a()+h.offset],null,"api");var n=d.createElement("script");n.src="https://"+e.agent,t.parentNode.insertBefore(n,t)}}function o(){"complete"===d.readyState&&i()}function i(){c("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),c=e("handle"),f=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1071.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=t.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),c("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script>
+    
+    <meta name="viewport" content="width=1180, maximum-scale=4.0, user-scalable=yes">
+    <title>Privacy Policy of Exmo Bitcoin Exchange</title>
+    <meta name="description" content="This policy is the Privacy Policy of EXMO Finance LLP (Exmo), the most advanced bitcoin exchange service" />
+    <link href="//fonts.googleapis.com/css?family=Roboto:100,400,500,700" rel="stylesheet" type="text/css">
+
+    <link rel="apple-touch-icon" sizes="57x57" href="/static/img/favicon2/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/static/img/favicon2/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/static/img/favicon2/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/static/img/favicon2/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/static/img/favicon2/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/static/img/favicon2/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/static/img/favicon2/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/static/img/favicon2/android-icon-192x192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/img/favicon2/apple-touch-icon-512x512.png">
+
+    <link rel="shortcut icon" type="image/png" sizes="192x192"  href="/static/img/favicon2/android-icon-192x192.png">
+    <link rel="shortcut icon" type="image/png" sizes="96x96" href="/static/img/favicon2/favicon-96x96.png">
+    <link rel="shortcut icon" type="image/png" href="/favicon.ico">
+
+    <meta name="msapplication-config" content="/browserconfig.xml" />
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/static/img/favicon2/apple-touch-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    
+
+    <link href="/static/styles.min.css?release=1522833951" rel="stylesheet"  type="text/css">
+
+
+    <script src="/static/js/vendors/modernizr.js"></script>
+    <script src="/static/js/vendors/jquery.min.js"></script>
+    <script src="/static/js/vendors/pushstream.js"></script>
+    <script src="/static/js/vendors/angular.min.js"></script>
+    <script src="/static/js/errorHandlers.js"></script>
+
+</head>
+<body class="lang_en bg_gray not_signed_mod" ng-app="App">
+<script>
+Settings={}; User={}; 
+Settings.lang="en"; 
+Settings.pusher_key='be4b37b7434968bb1e17'; 
+Settings.release='1522833951'; 
+Settings.websocket_transport='centrifugo'; 
+Settings.socketio_server=''; 
+Settings.ws_nginx_server='api.exmo.com'; 
+Settings.development=0; 
+Settings.chat_max_msgs_in_window=100; 
+Settings.default_para='BTC_RUB'; 
+Settings.reload_chart=300000; 
+Settings.comission=0.2; 
+Settings.captcha=1; 
+Settings.HMAC_token='d9855eac49c9411c7f9e9446a15a15f0c23f25ee89196b3b11fc334af9182d4f' 
+Settings.request_time='1522994591' 
+Settings.centrifugo_url='https://ws.exmoney.com' 
+Settings.centrifugo_user_id='5ac70d9feff04' 
+Settings.lang='en'; 
+Settings.online=6896;
+Settings.currencies={"USD":{"id":8,"name":"USD","isFiat":true,"description":"\u0414\u043e\u043b\u043b\u0430\u0440"},"EUR":{"id":12,"name":"EUR","isFiat":true,"description":"\u0415\u0432\u0440\u043e"},"RUB":{"id":6,"name":"RUB","isFiat":true,"description":"\u0420\u0443\u0431\u043b\u044c"},"PLN":{"id":32,"name":"PLN","isFiat":true,"description":"Polish z\u0142oty"},"UAH":{"id":23,"name":"UAH","isFiat":true,"description":"Hryvnia"},"BTC":{"id":7,"name":"BTC","isFiat":false,"description":"Bitcoin"},"LTC":{"id":9,"name":"LTC","isFiat":false,"description":"Litecoin"},"DOGE":{"id":13,"name":"DOGE","isFiat":false,"description":"Dogecoin"},"DASH":{"id":21,"name":"DASH","isFiat":false,"description":"Dash"},"ETH":{"id":22,"name":"ETH","isFiat":false,"description":"Ethereum"},"WAVES":{"id":24,"name":"WAVES","isFiat":false,"description":"Waves"},"ZEC":{"id":25,"name":"ZEC","isFiat":false,"description":"Zcash"},"USDT":{"id":26,"name":"USDT","isFiat":false,"description":"Tether"},"XMR":{"id":27,"name":"XMR","isFiat":false,"description":"Monero"},"XRP":{"id":28,"name":"XRP","isFiat":false,"description":"Ripple"},"KICK":{"id":29,"name":"KICK","isFiat":false,"description":"KickCoin"},"ETC":{"id":30,"name":"ETC","isFiat":false,"description":"Ethereum Classic"},"BCH":{"id":31,"name":"BCH","isFiat":false,"description":"Bitcoin Cash"}}; 
+</script>
+<div class="container ">
+    <!--Header-->
+<header class="header row" ng-controller="TopPanelCtrl">
+    <div class="section_inner">
+        <div class="info_block"><a href="/en/" class="logo"></a></div>
+        <nav class="nav">
+            <ul class="menu">
+                <li><a href="/en/trade" class="">Buy & Sell</a></li>
+<li><a href="/en/exchange" class="">Exchange</a></li>
+<li><a href="/en/news" class="">News</a></li>
+<li><a target="_blank" href="https://crowdsale.exmo.com/en/?utm_source=exmo&utm_medium=exmo_site&utm_campaign=crowdsale">EXMO coin</a></li>
+
+            </ul>
+        </nav>
+        <div class="user_default">
+    <div class="user_default_lang"><div class="user_default_lang_active en">en</div><div class="user_default_lang_drop"><ul class="lang_list"><li><a href="/en?change_lang" class="en">English</a></li><li><a href="/es?change_lang" class="es">Español</a></li><li><a href="/fr?change_lang" class="fr">Français</a></li><li><a href="/de?change_lang" class="de">Deutsch</a></li><li><a href="/it?change_lang" class="it">Italiano</a></li><li><a href="/pt?change_lang" class="pt">Português</a></li><li><a href="/ro?change_lang" class="ro">Română</a></li><li><a href="/zh?change_lang" class="zh">中文</a></li><li><a href="/ru?change_lang" class="ru">Русский</a></li><li><a href="/uk?change_lang" class="uk">Українська</a></li><li><a href="/pl?change_lang" class="pl">Polski</a></li></ul></div></div>
+    <div class="user_block_support" ng-click="changePage('/en/support')">Support</div>
+    <a href="/en/login" class="btn_header btn_authorization">Sign In</a>
+    <a href="/en/register" class="btn_header btn_registration">Registration</a>
+</div>
+
+    </div>
+</header>
+<!--end Header-->
+
+    <!--PARTIAL = doc_tpl-->
+<div class="section_black">
+    <div class="top_block_black row">
+        <div class="section_inner">
+            <div class="row">
+                <h2 class="top_block_black_text">EXMO legal documents</h2>
+
+            </div>
+
+        </div>
+    </div>
+    <div class="container_black">
+        <div class="section_inner">
+            <div class="sidebar_black">
+                <div class="sidebar_black_inner">
+                    <ul class="menu_wiki">
+                        <li><a class="{{$agreement_active}}" href="/en/docs/agreement">User agreement</a></li>
+                        <li><a class="{{$aml_active}}" href="/en/docs/aml">AML Policy</a></li>
+                        <li><a class="{{$crosschain_active}}" href="/en/docs/crosschain_recovery">Cross-chain recovery policy</a></li>
+                        <li><a class="active" href="/en/docs/privacy_policy">Privacy policy</a></li>
+                        <li><a class="{{$other_active}}" href="/en/docs/other">Other documents</a></li>
+                    </ul>
+
+                </div>
+            </div>
+
+            <div class="content_black">
+                <div class="info_agree">
+    <h1 class="info_agree_title">Privacy policy</h1>
+
+    <div class="row info_agree_block mb_medium">
+
+        <p><span class="text_bold">This policy is the Privacy Policy of EXMO Finance LLP (EXMO).</span></p>
+
+        <p>EXMO and its affiliates (hereinafter, EXMO "we", "us" or "our") are committed to protecting and respecting your privacy. EXMO uses information collected about you in order to meet legal obligations and provide a better service.</p>
+
+        <p>This policy together with Terms of Use and other documents referred to it sets the basis on which Personal Data we collect, process and use your Personal data.</p>
+
+        <p>Please read the following carefully to understand our views and practices regarding your personal data and how we will treat it. By visiting this website you are accepting and consenting to the practices described in this policy.</p>
+
+        <p>For the purpose of the Data Protection Act 1998 (the "Act"), the data controller is Exmo Finance LLP (49 Station Road, Polegate, East Sussex, BN26 6EA) and any questions relating this policy should be directed to Exmo Finance LLP (49 Station Road, Polegate, East Sussex, BN26 6EA).</p>
+
+    </div>
+
+    <h3 class="agreement_list_title text_bold text_uppercase">1. GATHERING AND USE OF PERSONAL DATA</h3>
+
+    <p>We may collect and process the following data about you:</p>
+
+    <p><span class="text_bold">Information you give to us.</span></p>
+
+    <p>You may give us information about you by filling in forms on www.exmo.com ("our site") or by corresponding with us by phone, e-mail or otherwise. This includes information you provide when you register to use our site, subscribe to our service, search for a product, place an order on our site, participate in discussion boards or other social media functions on our site, enter a competition, promotion or survey, and when you report a problem with our site. The information you give us may include: your name; your photographic identification; your address; your phone number; your e-mail address; your banking details including account numbers; your date of birth; and your trades.</p>
+
+    <p><span class="text_bold">Information we collect about you</span></p>
+
+    <p>With regard to each of your visits to our site we may automatically collect the following information:</p>
+
+    <ul class="agreement_list">
+        <li class="agreement_text_node"><span class="text_bold">technical information</span>, including the internet protocol (IP) address used to connect your computer to the internet, your login information, browser type and version, time zone setting, browser plug-in types and versions, operating system and platform;</li>
+        <li class="agreement_text_node"><span class="text_bold">information about your visit</span>, including the full Uniform Resource Locators (URL) clickstream to, through and from our site (including date and time); products you viewed or searched for; page response times, download errors, length of visits to certain pages, page interaction information (such as scrolling, clicks, and mouse-overs), and methods used to browse away from the page and any phone number used to call our customer service number;</li>
+        <li class="agreement_text_node"><span class="text_bold">information about geo-location</span>. We may collect information about real-time location based information from your device at any time while you download or use our services. We may use this information to optimize your experience.</li>
+        <li class="agreement_text_node"><span class="text_bold">information we receive from other sources</span>. We may receive information about you if you use any of the other websites we operate or the other services we provide. We are also working closely with third parties (including, for example, business partners, sub-contractors in technical, payment and delivery services, advertising networks, analytics providers, search information providers, credit reference agencies) and may receive information about you from them.</li>
+    </ul>
+
+    <h3 class="agreement_list_title text_bold text_uppercase">2. USE OF COOKIES</h3>
+
+    <p>Cookies are typically stored on your computer's hard drive, which assigns a unique identification to your computer. We also may use cookies stored in emails to help us confirm your receipt of, and response to. We also may use service provider(s) who will place cookies on the hard drive of your computer and will receive information that we select that will give us information about the way our users and visitors navigate on our site, what products are browsed, and general transaction information.</p>
+    <p>Information collected from cookies is used by us to evaluate the effectiveness of our site, analyse trends, see what difficulties our visitors may experience in accessing our site, and administer the platform.  We need this information to improve the quality of our service.</p>
+    <p>You are agreeing that we may use browser feature known as a "cookie" for the purposes set above.</p>
+
+    <h3 class="agreement_list_title text_bold text_uppercase">3. THE WAY WE USE YOUR PERSONAL DATA</h3>
+
+    <p><span class="text_bold">We will use personal data you give to us to:</span></p>
+    <ul class="agreement_list">
+        <li class="agreement_text_node">сarry out our obligations arising from any contracts entered into between you and us, and to provide you with information, products and services that you request from us;</li>
+        <li class="agreement_text_node">provide you with information about other goods and services we offer that are similar to those that you have already purchased or enquired about;</li>
+        <li class="agreement_text_node">provide you, or permit selected third parties to provide you, with information about goods or services we feel may interest you. If you are an existing customer, we will only contact you by electronic means (e-mail or SMS) with information about goods and services similar to those which were the subject of a previous sale or negotiations of a sale to you. If you are a new customer, and where we permit selected third parties to use your data, we (or they) will contact you by electronic means only if you have consented to this. If you do not want us to use your data in this way, or to pass your details on to third parties for marketing purposes, please tick the relevant box situated on the form on which we collect your data;</li>
+        <li class="agreement_text_node">notify you about changes to our service;</li>
+        <li class="agreement_text_node">ensure that content from our site is presented in the most effective manner for you and for your computer;</li>
+    </ul>
+
+    <p><span class="text_bold">We will use personal data we collect about you in the following way:</span></p>
+    <ul class="agreement_list">
+        <li class="agreement_text_node">to administer our site and for internal operations including troubleshooting, data analysis, testing, research, statistical and survey purposes;</li>
+        <li class="agreement_text_node">to improve our site to ensure that content is presented in the most effective manner for you and for your computer;</li>
+        <li class="agreement_text_node">to allow you to participate in interactive features of our service, when you choose to do so;</li>
+        <li class="agreement_text_node">as part of our efforts to keep our site safe and secure;</li>
+        <li class="agreement_text_node">to measure or understand the effectiveness of advertising we serve to you and others, and to deliver relevant advertising to you;</li>
+        <li class="agreement_text_node">to make suggestions and recommendations to you and other users of our site about goods or services that may interest you or them.</li>
+    </ul>
+
+    <p><span class="text_bold">We will use personal data we receive from other sources in the following way:</span></p>
+
+    <p>we may combine this information with information you give to us and information we collect about you. We may use this information and the combined information for the purposes set out above (depending on the types of information we receive).</p>
+
+    <h3 class="agreement_list_title text_bold text_uppercase">4. DISCLOSURE OF YOUR PERSONAL DATA</h3>
+
+    <p>We may share your personal information with any member group, which means our subsidiaries, our ultimate holding company and subsidiaries, as defined in the UK Companies Act 2006.</p>
+
+    <p><span class="text_bold">We may share your information with selected third parties including:</span></p>
+    <ul class="agreement_list">
+        <li class="agreement_text_node">business partners, suppliers and sub-contractors for the performance of any contract we enter into with them or you.</li>
+        <li class="agreement_text_node">advertisers and advertising networks that require the data to select and serve relevant adverts to you and others. We do not disclose information about identifiable individuals to our advertisers, but we may provide them with aggregate information about our users (for example, we may inform them that 500 females aged under 30 have clicked on their advertisement on any given day). We may also use such aggregate information to help advertisers reach the kind of audience they want to target (for example, women in SW1). We may make use of the personal data we have collected from you to enable us to comply with our advertisers' wishes by displaying their advertisement to that target audience.</li>
+        <li class="agreement_text_node">analytics and search engine providers that assist us in the improvement and optimisation of our site.</li>
+    </ul>
+
+    <p><span class="text_bold">We may disclose your personal information to third parties:</span></p>
+    <ul class="agreement_list">
+        <li class="agreement_text_node">in the event that we sell or buy any business or assets, in which case we may disclose your personal data to the prospective seller or buyer of such business or assets.</li>
+        <li class="agreement_text_node">if EXMO or substantially all of its assets are acquired by a third party, in which case personal data held by it about its customers will be one of the transferred assets.</li>
+        <li class="agreement_text_node">if we are under a duty to disclose or share your personal data in order to comply with any legal obligation, or in order to enforce or apply our terms of use and other agreements; or to protect the rights, property, or safety of EXMO, our customers, or others. This includes exchanging information with other companies and organizations for the purposes of fraud protection and credit risk reduction.</li>
+    </ul>
+
+    <h3 class="agreement_list_title text_bold text_uppercase">5. SECURITY AND STORAGE OF PERSONAL DATA</h3>
+
+    <p>We have implemented security measures to ensure the confidentiality of your personal data and to protect your them from loss, misuse, alteration or destruction. Only authorized personnel of EXMO have access to your personal data, and these personnel are required to treat the information as confidential. The security measures in place will, from time to time, be reviewed in line with legal and technical developments.</p>
+    <p>The data that we collect from you may be transferred to, and stored at, a destination outside of the European Economic Area ("EEA"). It may be processed by a staff member operating outside the EEA who work for us or for one of our suppliers. Such staff may be engaged in amongst other things, the fulfillment of your order, the processing of your payment details and the provision of support services. By submitting your personal data, you agree to this transfer, storing or processing. We will take all steps reasonably necessary to ensure that your data is treated securely and in accordance with this privacy policy.</p>
+    <p>Unfortunately, the transmission of information via the internet is not completely secure. Although we will do our best to protect your personal data, we cannot guarantee the security of your data transmitted to our site, and any transmission is at your own risk. Once we have received your information, we will use strict procedures and security features to try to prevent unauthorized access.</p>
+
+    <h3 class="agreement_list_title text_bold text_uppercase">6. YOUR RIGHTS</h3>
+    <p>You have the right to ask us not to process your personal data for marketing purposes. We will usually inform you (before collecting your data) if we intend to use your data for such purposes, or if we intend to disclose your information to any third party for such purposes. You can exercise your right to prevent such processing by checking certain boxes on the forms we use to collect your data. You can also exercise the right at any time by contacting us. Our site may, from time to time, contain links to and from the websites of our partner networks, advertisers and affiliates. If you follow a link to any of these websites, please note that these websites have their own privacy policies and that we do not accept any responsibility or liability for these policies. Please check these policies before you submit any personal data to these websites.</p>
+
+    <h3 class="agreement_list_title text_bold text_uppercase">7. ACCESS TO PERSONAL DATA</h3>
+    <p>The Data Protection Act gives you the right to access information held about you. Your right of access can be exercised in accordance with the Act. Any access request may be subject to a fee of £10 to meet our costs in providing you with details of the information we hold about you.</p>
+
+    <h3 class="agreement_list_title text_bold text_uppercase">8. RETENTION OF PERSONAL DATA</h3>
+    <p>We will hold your personal data only for as long as it is necessary for us to do so, having regard to the purposes described in this privacy policy and our own legal and regulatory requirements. In accordance with our record keeping obligations we will retain accounts and personal data for, at least a period of five years after they are closed by you.</p>
+
+    <h3 class="agreement_list_title text_bold text_uppercase">9. CHANGES TO THIS PRIVACY POLICY</h3>
+    <p>Any changes we may make to our privacy policy in the future will be posted on this page and, where appropriate, notified to you by e-mail. Please check back frequently to see any updates or changes to our privacy policy.</p>
+
+</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <!--Footer-->
+
+<footer class="footer">
+    <div class="section_inner_footer">
+        <div class="row footer_head">
+            <a href="/en/" class="footer_logo"></a>
+
+            <div class="user_default_lang"><div class="user_default_lang_active en">en</div><div class="user_default_lang_drop"><ul class="lang_list"><li><a href="/en?change_lang" class="en">English</a></li><li><a href="/es?change_lang" class="es">Español</a></li><li><a href="/fr?change_lang" class="fr">Français</a></li><li><a href="/de?change_lang" class="de">Deutsch</a></li><li><a href="/it?change_lang" class="it">Italiano</a></li><li><a href="/pt?change_lang" class="pt">Português</a></li><li><a href="/ro?change_lang" class="ro">Română</a></li><li><a href="/zh?change_lang" class="zh">中文</a></li><li><a href="/ru?change_lang" class="ru">Русский</a></li><li><a href="/uk?change_lang" class="uk">Українська</a></li><li><a href="/pl?change_lang" class="pl">Polski</a></li><li><a class="empty-element" href="" onclick="return false;">&nbsp;</a></li></ul></div></div>
+
+            <div class="footer_head_text">
+                <span class="white_text">42841</span> <span class="gray_text">Active Traders</span>
+                &nbsp;
+                <span class="white_text">2400 BTC</span> <span class="gray_text">24h Volume</span>
+            </div>
+
+        </div>
+
+        <div class="row footer_body gray_text">
+            <div class="col span3">
+                <div class="row footer_menu_title">Subscribe</div>
+                <div class="row soc_med">
+                    <ul class="soc_med_list">
+                        <li><a target="_blank" href="https://t.me/exmo_official" class="soc_med_tel">Telegram<br>6,611 Subscribers</a></li>
+                        <li><a target="_blank" href="https://twitter.com/Exmo_com" class="soc_med_tw">Twitter<br>12,843 Subscribers</a></li>
+                        <li><a target="_blank" href="https://www.facebook.com/exmo.market" class="soc_med_fb">Facebook<br>4,492 Subscribers</a></li>
+                        
+                    </ul>
+                </div>
+
+            </div>
+            <div class="col span9">
+                <div class="col span3">
+                    <div class="row footer_menu_title">Products</div>
+                    <div class="row">
+                        <ul class="footer_menu_1">
+                            <li><a href="/en/wallet">Finance</a></li>
+                            <li><a href="/en/trade">Buy & Sell</a></li>
+                            <li><a href="/en/api">API</a></li>
+                            <li><a target="_blank" href="https://crowdsale.exmo.com/en/?utm_source=exmo&utm_medium=exmo_site&utm_campaign=crowdsale">EXMO coin</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col span3">
+                    <div class="row footer_menu_title">Information</div>
+                    <div class="row">
+                        <ul class="footer_menu_2">
+                            <li><a href="/en/support">Customer support</a></li>
+                            <li><a href="/en/support">EXMOWIKI</a></li>
+                            <li><a href="/en/docs/fees">Fees &amp; Limits</a></li>
+                            <li><a href="/en/referal_program">Referral Program</a></li>
+                            <li><a href="/en/articles">About Bitcoin</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col span3">
+                    <div class="row footer_menu_title">Company</div>
+                    <div class="row">
+                        <ul class="footer_menu_3">
+                            <li><a href="/en/contacts">Contacts</a></li>
+                            <li><a href="/en/news">News</a></li>
+                            <li><a href="/en/careers">Employment</a></li>
+                            <li><a href="/en/about_us">About Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col span3">
+                    <div class="row footer_menu_title">Legal Documents</div>
+                    <div class="row">
+                        <ul class="footer_menu_4">
+                            <li><a href="/en/docs/agreement/">User agreement</a></li>
+                            <li><a href="/en/docs/aml">AML Policy</a></li>
+                            <li><a href="/en/docs/privacy_policy">Privacy policy</a></li>
+                            <li><a href="/en/docs/crosschain_recovery">Cross-chain recovery policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+
+
+    <div class="row footer_bottom">
+        <div class="section_inner_footer">
+            <div class="footer_bottom_text1">
+                Copyright © EXMO FINANCE LLP 2013 - 2018<br>
+                49 Station Road, Polegate, England
+            </div>
+        </div>
+    </div>
+
+</footer>
+
+<!--end footer-->
+
+</div>
+
+<!--ALERT============================================================================================================-->
+<div ng-controller="AlertCtrl">
+
+
+    <!--Popup Message-->
+    <div class="popup_container" id="popup_msg_container" style="display: none">
+        <div class="gl_table text_center">
+            <div class="gl_table-cell">
+                <div class="popup popup-msg">
+                    <div class="popup_title">Notification</div>
+                    <div class="popup_body">
+                        <p class="modal_text"></p>
+                        <p class="modal_text_optional"></p>
+
+
+                        <div class="popup_controls">
+                            <button class="btn btn_medium btn_apply" ng-click="Alert.maction()">OK</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Popup Question-->
+    <div class="popup_container" id="popup_question_container" style="display: none">
+        <div class="gl_table text_center">
+            <div class="gl_table-cell">
+                <div class="popup popup-msg">
+                    <!--<a class="popup_close" href="#" id="popup_close_msg" ng-click="Alert.qaction(false)"></a>-->
+                    <div class="popup_title">Question</div>
+                    <div class="popup_body">
+                        <p class="modal_text"></p>
+                        <p class="modal_text_optional"></p>
+
+
+                        <div class="popup_controls">
+                            <button class="btn btn_medium btn_apply" ng-click="Alert.qaction(true)">Yes</button>
+                            <button class="btn btn_medium btn_apply" ng-click="Alert.qaction(false)">No</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Popup Confirmation-->
+    <div class="popup_container" id="popup_confirm_container" style="display: none">
+        <div class="gl_table text_center">
+            <div class="gl_table-cell">
+                <div class="popup popup-confirm">
+                    <div class="popup_title">Confirm operation</div>
+                    <div class="popup_body">
+                        <p>
+                            To confirm the operation
+                            enter the two-factor authentication code:
+                        </p>
+
+
+                        <div class="row popup_controls_confirm">
+                            <div class="row">
+                                <input class="input_std" type="text" name="kod" placeholder="Code">
+                            </div>
+                            <div class="row popup_controls_confirm_btns">
+                                <button class="btn btn_medium btn_apply" ng-click="Alert.totp_action(true)">Yes</button>
+                                <button class="btn btn_medium btn_apply" ng-click="Alert.totp_action(false)">No</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Popup Password Confirmation-->
+    <div class="popup_container" id="popup_confirm_pwd_container" style="display: none">
+        <div class="gl_table text_center">
+            <div class="gl_table-cell">
+                <div class="popup popup-confirm">
+                    <div class="popup_title">Confirm operation</div>
+                    <div class="popup_body">
+                        <p>
+                            To confirm the operation
+                            enter password:
+                        </p>
+
+
+                        <div class="row popup_controls_confirm">
+                            <div class="row">
+                                <input class="input_std" type="password" name="kod" placeholder="Password">
+                            </div>
+                            <div class="row popup_controls_confirm_btns">
+                                <button class="btn btn_medium btn_apply" ng-click="Alert.pwd_action(true)">Yes</button>
+                                <button class="btn btn_medium btn_apply" ng-click="Alert.pwd_action(false)">No</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="notifications"></div>
+
+<script type="text/javascript" src="/static/script.min.js?release=1522833951"></script>
+<script type="text/javascript" src="/static/js/lang/en.js?release=1522833951"></script>
+
+<!-- GA counter -->
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-48018114-1', 'auto');
+    ga('create', 'UA-48018114-2', 'auto', {'name': 'newTracker'});  // New tracker.
+
+    ga('require', 'displayfeatures');
+    ga('require', 'linkid', 'linkid.js');
+
+    ga('send', 'pageview');
+    ga('newTracker.send', 'pageview'); // Send page view for new tracker.
+
+</script>
+<!-- /GA counter -->
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1944514822431437');
+    fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+               src="https://www.facebook.com/tr?id=1944514822431437&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Facebook Pixel Code -->
+
+<!-- DO NOT MODIFY -->
+<!-- Quora Pixel Code (JS Helper) -->
+<script>
+    !function(q,e,v,n,t,s){if(q.qp) return; n=q.qp=function(){n.qp?n.qp.apply(n,arguments):n.queue.push(arguments);}; n.queue=[];t=document.createElement(e);t.async=!0;t.src=v; s=document.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t,s);}(window, 'script', 'https://a.quora.com/qevents.js');
+    qp('init', '2346b31f643c4a27bcfcb6ba9990224a');
+    qp('track', 'ViewContent');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://q.quora.com/_/ad/2346b31f643c4a27bcfcb6ba9990224a/pixel?tag=ViewContent&noscript=1"/></noscript>
+<!-- End of Quora Pixel Code -->
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function (d, w, c) {
+        (w[c] = w[c] || []).push(function () {
+            try {
+                w.yaCounter23948095 = new Ya.Metrika({id: 23948095,
+                    webvisor: true,
+                    clickmap: true,
+                    trackLinks: true,
+                    accurateTrackBounce: true,
+                    trackHash: true});
+            } catch (e) {
+            }
+        });
+
+        var n = d.getElementsByTagName("script")[0],
+                s = d.createElement("script"),
+                f = function () {
+                    n.parentNode.insertBefore(s, n);
+                };
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+        if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+        } else {
+            f();
+        }
+    })(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript>
+    <div><img src="//mc.yandex.ru/watch/23948095" style="position:absolute; left:-9999px;" alt=""/></div>
+</noscript>
+<!-- /Yandex.Metrika counter -->
+<!-- VK Pixel Code -->
+<script type="text/javascript">(window.Image ? (new Image()) : document.createElement('img')).src = 'https://vk.com/rtrg?p=VK-RTRG-155477-i4M0i';</script>
+<!-- End VK Pixel Code -->
+
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"89daa41a34","applicationID":"143389731","transactionName":"ZANVZkUHVkoFU0daVl1JYkBeSVFXAFVLHUlbFg==","queueTime":0,"applicationTime":146,"atts":"SERWEA0dRUQ=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>

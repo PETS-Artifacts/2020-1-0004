@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:fb="http://www.facebook.com/2008/fbml">
+<head>
+<script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"UgEGUl9UGwEJVVJUBgA="};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o||e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(t,e,n){function r(t){try{s.console&&console.log(t)}catch(e){}}var o,i=t("ee"),a=t(15),s={};try{o=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(s.console=!0,o.indexOf("dev")!==-1&&(s.dev=!0),o.indexOf("nr_dev")!==-1&&(s.nrDev=!0))}catch(c){}s.nrDev&&i.on("internal-error",function(t){r(t.stack)}),s.dev&&i.on("fn-err",function(t,e,n){r(n.stack)}),s.dev&&(r("NR AGENT IN DEVELOPMENT MODE"),r("flags: "+a(s,function(t,e){return t}).join(", ")))},{}],2:[function(t,e,n){function r(t,e,n,r,o){try{d?d-=1:i("err",[o||new UncaughtException(t,e,n)])}catch(s){try{i("ierr",[s,(new Date).getTime(),!0])}catch(c){}}return"function"==typeof f&&f.apply(this,a(arguments))}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function o(t){i("err",[t,(new Date).getTime()])}var i=t("handle"),a=t(16),s=t("ee"),c=t("loader"),f=window.onerror,u=!1,d=0;c.features.err=!0,t(1),window.onerror=r;try{throw new Error}catch(l){"stack"in l&&(t(8),t(7),"addEventListener"in window&&t(5),c.xhrWrappable&&t(9),u=!0)}s.on("fn-start",function(t,e,n){u&&(d+=1)}),s.on("fn-err",function(t,e,n){u&&(this.thrown=!0,o(n))}),s.on("fn-end",function(){u&&!this.thrown&&d>0&&(d-=1)}),s.on("internal-error",function(t){i("ierr",[t,(new Date).getTime(),!0])})},{}],3:[function(t,e,n){t("loader").features.ins=!0},{}],4:[function(t,e,n){function r(t){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var o=t("ee"),i=t("handle"),a=t(8),s=t(7),c="learResourceTimings",f="addEventListener",u="resourcetimingbufferfull",d="bstResource",l="resource",p="-start",h="-end",m="fn"+p,w="fn"+h,v="bstTimer",y="pushState";t("loader").features.stn=!0,t(6);var g=NREUM.o.EV;o.on(m,function(t,e){var n=t[0];n instanceof g&&(this.bstStart=Date.now())}),o.on(w,function(t,e){var n=t[0];n instanceof g&&i("bst",[n,e,this.bstStart,Date.now()])}),a.on(m,function(t,e,n){this.bstStart=Date.now(),this.bstType=n}),a.on(w,function(t,e){i(v,[e,this.bstStart,Date.now(),this.bstType])}),s.on(m,function(){this.bstStart=Date.now()}),s.on(w,function(t,e){i(v,[e,this.bstStart,Date.now(),"requestAnimationFrame"])}),o.on(y+p,function(t){this.time=Date.now(),this.startPath=location.pathname+location.hash}),o.on(y+h,function(t){i("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),f in window.performance&&(window.performance["c"+c]?window.performance[f](u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["c"+c]()},!1):window.performance[f]("webkit"+u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["webkitC"+c]()},!1)),document[f]("scroll",r,!1),document[f]("keypress",r,!1),document[f]("click",r,!1)}},{}],5:[function(t,e,n){function r(t){for(var e=t;e&&!e.hasOwnProperty(u);)e=Object.getPrototypeOf(e);e&&o(e)}function o(t){s.inPlace(t,[u,d],"-",i)}function i(t,e){return t[1]}var a=t("ee").get("events"),s=t(17)(a),c=t("gos"),f=XMLHttpRequest,u="addEventListener",d="removeEventListener";e.exports=a,"getPrototypeOf"in Object?(r(document),r(window),r(f.prototype)):f.prototype.hasOwnProperty(u)&&(o(window),o(f.prototype)),a.on(u+"-start",function(t,e){if(t[1]){var n=t[1];if("function"==typeof n){var r=c(n,"nr@wrapped",function(){return s(n,"fn-",null,n.name||"anonymous")});this.wrapped=t[1]=r}else"function"==typeof n.handleEvent&&s.inPlace(n,["handleEvent"],"fn-")}}),a.on(d+"-start",function(t){var e=this.wrapped;e&&(t[1]=e)})},{}],6:[function(t,e,n){var r=t("ee").get("history"),o=t(17)(r);e.exports=r,o.inPlace(window.history,["pushState","replaceState"],"-")},{}],7:[function(t,e,n){var r=t("ee").get("raf"),o=t(17)(r),i="equestAnimationFrame";e.exports=r,o.inPlace(window,["r"+i,"mozR"+i,"webkitR"+i,"msR"+i],"raf-"),r.on("raf-start",function(t){t[0]=o(t[0],"fn-")})},{}],8:[function(t,e,n){function r(t,e,n){t[0]=a(t[0],"fn-",null,n)}function o(t,e,n){this.method=n,this.timerDuration="number"==typeof t[1]?t[1]:0,t[0]=a(t[0],"fn-",this,n)}var i=t("ee").get("timer"),a=t(17)(i),s="setTimeout",c="setInterval",f="clearTimeout",u="-start",d="-";e.exports=i,a.inPlace(window,[s,"setImmediate"],s+d),a.inPlace(window,[c],c+d),a.inPlace(window,[f,"clearImmediate"],f+d),i.on(c+u,r),i.on(s+u,o)},{}],9:[function(t,e,n){function r(t,e){d.inPlace(e,["onreadystatechange"],"fn-",s)}function o(){var t=this,e=u.context(t);t.readyState>3&&!e.resolved&&(e.resolved=!0,u.emit("xhr-resolved",[],t)),d.inPlace(t,w,"fn-",s)}function i(t){v.push(t),h&&(g=-g,b.data=g)}function a(){for(var t=0;t<v.length;t++)r([],v[t]);v.length&&(v=[])}function s(t,e){return e}function c(t,e){for(var n in t)e[n]=t[n];return e}t(5);var f=t("ee"),u=f.get("xhr"),d=t(17)(u),l=NREUM.o,p=l.XHR,h=l.MO,m="readystatechange",w=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],v=[];e.exports=u;var y=window.XMLHttpRequest=function(t){var e=new p(t);try{u.emit("new-xhr",[e],e),e.addEventListener(m,o,!1)}catch(n){try{u.emit("internal-error",[n])}catch(r){}}return e};if(c(p,y),y.prototype=p.prototype,d.inPlace(y.prototype,["open","send"],"-xhr-",s),u.on("send-xhr-start",function(t,e){r(t,e),i(e)}),u.on("open-xhr-start",r),h){var g=1,b=document.createTextNode(g);new h(a).observe(b,{characterData:!0})}else f.on("fn-end",function(t){t[0]&&t[0].type===m||a()})},{}],10:[function(t,e,n){function r(t){var e=this.params,n=this.metrics;if(!this.ended){this.ended=!0;for(var r=0;r<d;r++)t.removeEventListener(u[r],this.listener,!1);if(!e.aborted){if(n.duration=(new Date).getTime()-this.startTime,4===t.readyState){e.status=t.status;var i=o(t,this.lastSize);if(i&&(n.rxSize=i),this.sameOrigin){var a=t.getResponseHeader("X-NewRelic-App-Data");a&&(e.cat=a.split(", ").pop())}}else e.status=0;n.cbTime=this.cbTime,f.emit("xhr-done",[t],t),s("xhr",[e,n,this.startTime])}}}function o(t,e){var n=t.responseType;if("json"===n&&null!==e)return e;var r="arraybuffer"===n||"blob"===n||"json"===n?t.response:t.responseText;return h(r)}function i(t,e){var n=c(e),r=t.params;r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.sameOrigin=n.sameOrigin}var a=t("loader");if(a.xhrWrappable){var s=t("handle"),c=t(11),f=t("ee"),u=["load","error","abort","timeout"],d=u.length,l=t("id"),p=t(14),h=t(13),m=window.XMLHttpRequest;a.features.xhr=!0,t(9),f.on("new-xhr",function(t){var e=this;e.totalCbs=0,e.called=0,e.cbTime=0,e.end=r,e.ended=!1,e.xhrGuids={},e.lastSize=null,p&&(p>34||p<10)||window.opera||t.addEventListener("progress",function(t){e.lastSize=t.loaded},!1)}),f.on("open-xhr-start",function(t){this.params={method:t[0]},i(this,t[1]),this.metrics={}}),f.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),f.on("send-xhr-start",function(t,e){var n=this.metrics,r=t[0],o=this;if(n&&r){var i=h(r);i&&(n.txSize=i)}this.startTime=(new Date).getTime(),this.listener=function(t){try{"abort"===t.type&&(o.params.aborted=!0),("load"!==t.type||o.called===o.totalCbs&&(o.onloadCalled||"function"!=typeof e.onload))&&o.end(e)}catch(n){try{f.emit("internal-error",[n])}catch(r){}}};for(var a=0;a<d;a++)e.addEventListener(u[a],this.listener,!1)}),f.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),f.on("xhr-load-added",function(t,e){var n=""+l(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),f.on("xhr-load-removed",function(t,e){var n=""+l(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),f.on("addEventListener-end",function(t,e){e instanceof m&&"load"===t[0]&&f.emit("xhr-load-added",[t[1],t[2]],e)}),f.on("removeEventListener-end",function(t,e){e instanceof m&&"load"===t[0]&&f.emit("xhr-load-removed",[t[1],t[2]],e)}),f.on("fn-start",function(t,e,n){e instanceof m&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=(new Date).getTime()))}),f.on("fn-end",function(t,e){this.xhrCbStart&&f.emit("xhr-cb-time",[(new Date).getTime()-this.xhrCbStart,this.onload,e],e)})}},{}],11:[function(t,e,n){e.exports=function(t){var e=document.createElement("a"),n=window.location,r={};e.href=t,r.port=e.port;var o=e.href.split("://");!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=e.hostname||n.hostname,r.pathname=e.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname);var i=!e.protocol||":"===e.protocol||e.protocol===n.protocol,a=e.hostname===document.domain&&e.port===n.port;return r.sameOrigin=i&&(!e.hostname||a),r}},{}],12:[function(t,e,n){function r(){}function o(t,e,n){return function(){return i(t,[(new Date).getTime()].concat(s(arguments)),e?null:this,n),e?void 0:this}}var i=t("handle"),a=t(15),s=t(16),c=t("ee").get("tracer"),f=NREUM;"undefined"==typeof window.newrelic&&(newrelic=f);var u=["setPageViewName","setCustomAttribute","finished","addToTrace","inlineHit"],d="api-",l=d+"ixn-";a(u,function(t,e){f[e]=o(d+e,!0,"api")}),f.addPageAction=o(d+"addPageAction",!0),e.exports=newrelic,f.interaction=function(){return(new r).get()};var p=r.prototype={createTracer:function(t,e){var n={},r=this,o="function"==typeof e;return i(l+"tracer",[Date.now(),t,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[Date.now(),r,o],n),o)try{return e.apply(this,arguments)}finally{c.emit("fn-end",[Date.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,e){p[e]=o(l+e)}),newrelic.noticeError=function(t){"string"==typeof t&&(t=new Error(t)),i("err",[t,(new Date).getTime()])}},{}],13:[function(t,e,n){e.exports=function(t){if("string"==typeof t&&t.length)return t.length;if("object"==typeof t){if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if(!("undefined"!=typeof FormData&&t instanceof FormData))try{return JSON.stringify(t).length}catch(e){return}}}},{}],14:[function(t,e,n){var r=0,o=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);o&&(r=+o[1]),e.exports=r},{}],15:[function(t,e,n){function r(t,e){var n=[],r="",i=0;for(r in t)o.call(t,r)&&(n[i]=e(r,t[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],16:[function(t,e,n){function r(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(o<0?0:o);++r<o;)i[r]=t[e+r];return i}e.exports=r},{}],17:[function(t,e,n){function r(t){return!(t&&"function"==typeof t&&t.apply&&!t[a])}var o=t("ee"),i=t(16),a="nr@original",s=Object.prototype.hasOwnProperty,c=!1;e.exports=function(t){function e(t,e,n,o){function nrWrapper(){var r,a,s,c;try{a=this,r=i(arguments),s="function"==typeof n?n(r,a):n||{}}catch(u){d([u,"",[r,a,o],s])}f(e+"start",[r,a,o],s);try{return c=t.apply(a,r)}catch(l){throw f(e+"err",[r,a,l],s),l}finally{f(e+"end",[r,a,c],s)}}return r(t)?t:(e||(e=""),nrWrapper[a]=t,u(t,nrWrapper),nrWrapper)}function n(t,n,o,i){o||(o="");var a,s,c,f="-"===o.charAt(0);for(c=0;c<n.length;c++)s=n[c],a=t[s],r(a)||(t[s]=e(a,f?s+o:o,i,s))}function f(e,n,r){if(!c){c=!0;try{t.emit(e,n,r)}catch(o){d([o,e,n,r])}c=!1}}function u(t,e){if(Object.defineProperty&&Object.keys)try{var n=Object.keys(t);return n.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(r){d([r])}for(var o in t)s.call(t,o)&&(e[o]=t[o]);return e}function d(e){try{t.emit("internal-error",e)}catch(n){}}return t||(t=o),e.inPlace=n,e.flag=a,e}},{}],ee:[function(t,e,n){function r(){}function o(t){function e(t){return t&&t instanceof r?t:t?s(t,a,i):i()}function n(n,r,o){t&&t(n,r,o);for(var i=e(o),a=l(n),s=a.length,c=0;c<s;c++)a[c].apply(i,r);var u=f[w[n]];return u&&u.push([v,n,r,i]),i}function d(t,e){m[t]=l(t).concat(e)}function l(t){return m[t]||[]}function p(t){return u[t]=u[t]||o(n)}function h(t,e){c(t,function(t,n){e=e||"feature",w[n]=e,e in f||(f[e]=[])})}var m={},w={},v={on:d,emit:n,get:p,listeners:l,context:e,buffer:h};return v}function i(){return new r}var a="nr@context",s=t("gos"),c=t(15),f={},u={},d=e.exports=o();d.backlog=f},{}],gos:[function(t,e,n){function r(t,e,n){if(o.call(t,e))return t[e];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return t[e]=r,r}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],handle:[function(t,e,n){function r(t,e,n,r){o.buffer([t],r),o.emit(t,e,n)}var o=t("ee").get("handle");e.exports=r,r.ee=o},{}],id:[function(t,e,n){function r(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:a(t,i,function(){return o++})}var o=1,i="nr@id",a=t("gos");e.exports=r},{}],loader:[function(t,e,n){function r(){if(!g++){var t=y.info=NREUM.info,e=u.getElementsByTagName("script")[0];if(t&&t.licenseKey&&t.applicationID&&e){c(w,function(e,n){t[e]||(t[e]=n)});var n="https"===m.split(":")[0]||t.sslForHttp;y.proto=n?"https://":"http://",s("mark",["onload",a()],null,"api");var r=u.createElement("script");r.src=y.proto+t.agent,e.parentNode.insertBefore(r,e)}}}function o(){"complete"===u.readyState&&i()}function i(){s("mark",["domContent",a()],null,"api")}function a(){return(new Date).getTime()}var s=t("handle"),c=t(15),f=window,u=f.document,d="addEventListener",l="attachEvent",p=f.XMLHttpRequest,h=p&&p.prototype;NREUM.o={ST:setTimeout,CT:clearTimeout,XHR:p,REQ:f.Request,EV:f.Event,PR:f.Promise,MO:f.MutationObserver},t(12);var m=""+location,w={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-963.min.js"},v=p&&h&&h[d]&&!/CriOS/.test(navigator.userAgent),y=e.exports={offset:a(),origin:m,features:{},xhrWrappable:v};u[d]?(u[d]("DOMContentLoaded",i,!1),f[d]("load",r,!1)):(u[l]("onreadystatechange",o),f[l]("onload",r)),s("mark",["firstbyte",a()],null,"api");var g=0},{}]},{},["loader",2,10,4,3]);</script>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+	<title>Privacy Policy | SiteJabber</title>
+	<meta name="description" content="Privacy policy for SiteJabber, the leading consumer destination for online business reviews." />	<meta name="robots" content="index" />
+	<link href="https://plus.google.com/+SitejabberReviews" rel="publisher" />
+
+
+	<script>
+	   WebFontConfig = {
+		  google: { families: ['Source+Sans+Pro:400,600,700,900'] }
+	   };
+	   (function(d) {
+		  var wf = d.createElement('script'), s = d.scripts[0];
+		  wf.src = 'https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.24/webfontloader.js';
+		  s.parentNode.insertBefore(wf, s);
+	   })(document);
+	</script>
+<script>
+var loader = true;
+(function(e,t){typeof module!="undefined"&&module.exports?module.exports=t():typeof define=="function"&&define.amd?define(t):this[e]=t()})("$script",function(){function h(e,t){for(var n=0,i=e.length;n<i;++n)if(!t(e[n]))return r;return 1}function p(e,t){h(e,function(e){return!t(e)})}function d(e,t,n){function g(e){return e.call?e():u[e]}function y(){if(!--m){u[o]=1,s&&s();for(var e in f)h(e.split("|"),g)&&!p(f[e],g)&&(f[e]=[])}}e=e[i]?e:[e];var r=t&&t.call,s=r?t:n,o=r?e.join(""):t,m=e.length;return setTimeout(function(){p(e,function(e){if(e===null)return y();if(l[e])return o&&(a[o]=1),l[e]==2&&y();l[e]=1,o&&(a[o]=1),v(!/^https?:\/\//.test(e)&&c?c+e+".js":e,y)})},0),d}function v(n,i){var u=e.createElement("script"),a=r;u.onload=u.onerror=u[o]=function(){if(u[s]&&!/^c|loade/.test(u[s])||a)return;u.onload=u[o]=null,a=1,l[n]=2,i()},u.async=1,u.src=n,t.insertBefore(u,t.lastChild)}var e=document,t=e.getElementsByTagName("head")[0],n="string",r=!1,i="push",s="readyState",o="onreadystatechange",u={},a={},f={},l={},c;return d.get=v,d.order=function(e,t,n){(function r(i){i=e.shift(),e.length?d(i,r):d(i,t,n)})()},d.path=function(e){c=e},d.ready=function(e,t,n){e=e[i]?e:[e];var r=[];return!p(e,function(e){u[e]||r[i](e)})&&h(e,function(e){return u[e]})?t():!function(e){f[e]=f[e]||[],f[e][i](t),n&&n(r)}(e.join("|")),d},d.done=function(e){d([null],e)},d})
+</script>
+<link rel="stylesheet" type="text/css" href="https://static2.sitejabber.com/css/sj-combined.min.1471653374.css" />	<style>html { display:none; }</style>
+<script>
+if (self == top) {
+document.documentElement.style.display = 'block';
+} else {
+top.location = self.location;
+}
+</script>
+
+<!--[if lt IE 9]>
+	<script type="text/javascript" src="https://static3.sitejabber.com/js/html5shiv.min.1471653374.js" timestamp="1"></script><![endif]-->
+
+<!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-PRGXBK"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PRGXBK');</script>
+<!-- End Google Tag Manager -->
+
+<!-- Facebook Retargeting Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+
+fbq('init', '105781903176235');
+fbq('track', "PageView");</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=105781903176235&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Facebook Pixel Code -->
+
+<script>
+var loader = loader || false;
+if (!loader)
+(function(e,t){typeof module!="undefined"&&module.exports?module.exports=t():typeof define=="function"&&define.amd?define(t):this[e]=t()})("$script",function(){function h(e,t){for(var n=0,i=e.length;n<i;++n)if(!t(e[n]))return r;return 1}function p(e,t){h(e,function(e){return!t(e)})}function d(e,t,n){function g(e){return e.call?e():u[e]}function y(){if(!--m){u[o]=1,s&&s();for(var e in f)h(e.split("|"),g)&&!p(f[e],g)&&(f[e]=[])}}e=e[i]?e:[e];var r=t&&t.call,s=r?t:n,o=r?e.join(""):t,m=e.length;return setTimeout(function(){p(e,function(e){if(e===null)return y();if(l[e])return o&&(a[o]=1),l[e]==2&&y();l[e]=1,o&&(a[o]=1),v(!/^https?:\/\//.test(e)&&c?c+e+".js":e,y)})},0),d}function v(n,i){var u=e.createElement("script"),a=r;u.onload=u.onerror=u[o]=function(){if(u[s]&&!/^c|loade/.test(u[s])||a)return;u.onload=u[o]=null,a=1,l[n]=2,i()},u.async=1,u.src=n,t.insertBefore(u,t.lastChild)}var e=document,t=e.getElementsByTagName("head")[0],n="string",r=!1,i="push",s="readyState",o="onreadystatechange",u={},a={},f={},l={},c;return d.get=v,d.order=function(e,t,n){(function r(i){i=e.shift(),e.length?d(i,r):d(i,t,n)})()},d.path=function(e){c=e},d.ready=function(e,t,n){e=e[i]?e:[e];var r=[];return!p(e,function(e){u[e]||r[i](e)})&&h(e,function(e){return u[e]})?t():!function(e){f[e]=f[e]||[],f[e][i](t),n&&n(r)}(e.join("|")),d},d.done=function(e){d([null],e)},d})
+$script('https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js', 'jquery');
+$script.ready('jquery', function() {
+	$script('https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js', 'jqueryui');
+});
+$script.ready('jqueryui', function() {
+	$script('https://static2.sitejabber.com/js/master.min.1471653374.js', 'app');
+});
+</script>
+<div id="fb-root"></div>
+<script>$script.ready('app', function() {app.setConfig({fbAppId: 108661832535975, enableGACode: '1', loadFacebookLibrary: '', loadTwitterLibrary: ''});app.trackingCode('1', [{key: 'dimension1', value: 0}, {key: 'dimension8', value: 'web'}], '');}) </script><script>$script.ready('app', function() {app.setConfig({fingerPrintUrl: 'https://static2.sitejabber.com/js/fingerprintjs2/fingerprint2.min.1471653374.js', setFingerprintUrl: 'https://www.sitejabber.com/set-fingerprint'});app.loadFingerprintLib();}) </script>
+	
+</head>
+<body>
+	<!-- google_ad_section_start(weight=ignore) -->
+
+
+
+<header >
+	<div id="header_top_container">
+		<div id="header_top">
+			<a href="/" id="header_logo"><img src="https://static0.sitejabber.com/img/glb/sitejabber_logo_light_165x66.1471653374.png" alt="SiteJabber Online Business Reviews and Complaints" /></a>
+			<div id="header_search">
+				<form name="glb_search" method="GET" action="/search" id="glb_search">
+										<label for="keyword">Online Business Reviews:<span id="tagline">Find Trustworthy Sites, Avoid Scams</span></label>
+										<div id="header_search_box">
+						<input name="keyword" id="keyword" type="text" placeholder="Enter a website, business, or keyword" value="" />
+						<a id="header_search_button" class="search_button"></a>
+					</div>
+				</form>
+			</div>
+						<div id="nsf_info">
+				<a href="http://nsf.gov/awardsearch/showAward?AWD_ID=1127567" target="_blank"><span id="nsf_logo"></span></a>
+				<div id="nsf_text">SiteJabber was developed<br />in part with a grant from the<br />US Government&rsquo;s NSF</div>
+			</div>
+									<a href="https://biz.sitejabber.com/" class="button gray flat " id="site_owner_button">SiteJabber for Business</a>					</div>
+	</div>
+	<div id="header_bottom_container">
+		<div id="header_bottom">
+			<ul id="header_nav" class="nav_menu">
+				<li class="home_tab"><a href="/">Home</a></li>
+				<li class="review_tab"><a href="/online-business-review">Write a Review</a></li>
+				<li class="blog_tab"><a href="/blog">Consumer Tips</a></li>
+				<li class="browse_tab"><a href="/best">Best of 2016</a></li>
+				<li class="sitemap_tab"><a href="/c">Index</a></li>
+				<li class="about_tab"><a href="/about-us">About Us</a></li>
+							</ul>
+
+						<div id="login_links">
+				<ul>
+	        		<li><a href="https://www.sitejabber.com/login">Log in</a></li>
+	        		<li><a href="https://www.sitejabber.com/registration">Sign up</a></li>
+				</ul>
+			</div>
+						<div class="clear"></div>
+		</div>
+	</div>
+</header>
+
+
+
+
+
+
+<!-- google_ad_section_end -->
+
+<script>$script.ready('app', function() {app.setConfig({searchEmpty: 'Please enter a keyword to search', searchUrl: '/search-autocomplete/', registerDialogUrl: 'https://www.sitejabber.com/registration-dialog', hideHeaderExtensionPromptUrl: '/hide-header-extension-prompt'});app.headerDefault();}) </script>	<div id="container">
+		<div id="content_container">
+			<div id="content">
+												<div id="flashMessageJs" class="message" style="display:none;"></div>
+				<div id="info">
+<div id="content_wrapper">
+
+<div id="left_column">
+	<h1>Privacy</h1>
+
+	<h2>SiteJabber Principles</h2>
+	<p>
+		Here at SiteJabber, we believe strongly in openness and trust. The more we trust each other by 
+		being open and honest, the more we all can benefit from our collective experiences. We hope this is 
+		reflected in our privacy policy below.
+	</p>
+
+	<h2>The Information We Collect</h2>
+	<p>
+		When you visit SiteJabber, you provide us with two types of information: personal information you 
+		knowingly choose to disclose that is collected by us, and website use information collected by us as 
+		you interact with the SiteJabber website. When you register with SiteJabber, you provide us with 
+		certain personal information, such as your name and email address. When you enter SiteJabber, we may 
+		collect your browser type and IP address. This information is gathered for all SiteJabber visitors 
+		but will be kept private and not used to track individual activity and only be used to deter spammers 
+		or otherwise improve the SiteJabber experience. In addition, we may store information from your browser 
+		using &quot;cookies.&quot; A cookie is a piece of data stored on the user's computer tied to information
+		about the user. We may use session ID cookies to confirm that users are logged in. These cookies 
+		terminate once the user closes the browser. We may use a persistent cookie that stores your login ID 
+		and password, to make it easier for you to log in when you come back to SiteJabber. You can remove or 
+		block this cookie using the settings in your browser, if you want to disable this convenience feature.
+	</p>
+	<p>
+		When you use SiteJabber, you may set up your personal profile, form relationships, send messages, 
+		perform searches and queries, post in forms, and transmit information through various channels. 
+		We collect this information so we can provide you with high-quality service and offer personalized 
+		features. In most cases, we retain it so that, for instance, you can return to view prior 
+		messages you have sent or easily see your friends list. When you update information, we may keep a 
+		backup copy of the prior version for a reasonable period of time to enable reversion to the prior 
+		version of that information.
+	</p>
+	<p>
+		You post all Posted Content (as defined in the SiteJabber Terms of Use) the SiteJabber website at 
+		your own risk. Although we allow you to set privacy options that limit access to your pages, please 
+		be aware that no security measures for any website are impenetrable or 100% secure. We cannot 
+		control the actions of other users with whom you may choose to share your pages and information. 
+		Therefore, we cannot and do not guarantee that Posted Content on the SiteJabber website will not 
+		be viewed by unauthorized persons. We are not responsible for circumvention of any privacy settings 
+		or security measures contained on the SiteJabber website. You understand and acknowledge that, even 
+		after removal, copies of Posted Content may remain viewable in cached and archived pages or if 
+		other users have copied or stored your Posted Content.
+	</p>
+	<p>
+		Any improper collection or misuse of information provided on SiteJabber is a violation of the 
+		SiteJabber   Terms of Service and should be reported to <a href="mailto:privacy@SiteJabber.com" 
+		target="_blank">privacy@SiteJabber.com</a>.
+	</p>
+	<p>
+		If you choose to use our invitation service to tell a friend about our website, we will ask you for 
+		your friend's email address. We will automatically send your friend an email inviting him or her to 
+		visit the site. SiteJabber stores this information to send this email, to register a friend 
+		connection if your invitation is accepted, and to track the success of our referral program. 
+		Your friend may contact us at <a href="mailto:info@SiteJabber.com" target="_blank">info@SiteJabber.com</a> 
+		to request that we remove this information from our database.
+	</p>
+	<p>
+		SiteJabber may also collect information about you from other sources, such as newspapers, blogs, 
+		instant messaging services, and other users of the SiteJabber service through the operation of the 
+		service (e.g., photo tags) in order to provide you with more useful information and a more 
+		personalized experience.
+	</p>
+	<p>
+		By using SiteJabber, you consent to have your personal data transferred to and processed in the 
+		United States.
+	</p>
+
+	<h2>Children Under Age 13</h2>
+	<p>
+		SiteJabber does not knowingly collect or solicit personal information from anyone under the age of 
+		13 or knowingly   allow such persons to register. If you are under 13, please do not attempt to 
+		register for SiteJabber or send any information about yourself to us, including your name, address,
+		telephone number or email address. No one under age 13 may provide any personal information to or 
+		on SiteJabber. In the event that we learn that we have collected personal information from a child 
+		under age 13 without verification of parental consent, we will delete that information as quickly 
+		as possible.  If you believe that we might have any information from or about a child under 13, 
+		please contact us at <a href="mailto:info@SiteJabber.com" target="_blank">info@SiteJabber.com</a>.
+	</p>
+
+	<h2>Children Between Ages of 13 and 18</h2>
+	<p>
+		We recommend that minors over the age of 13 ask their parents for permission before sending any 
+		information about themselves to anyone over the Internet. 
+	</p>
+
+	<h2>Use of Information Obtained by SiteJabber</h2>
+	<p>
+		When you register with SiteJabber, you create your own profile and privacy settings. Your profile 
+		information, as well as your first name, last initial and photo, are displayed to people in the 
+		SiteJabber community to enable you to connect with people on SiteJabber. We may occasionally use 
+		your name and email address to send you notifications regarding new services offered by SiteJabber 
+		that we think you may find valuable.
+	</p>
+	<p>
+		Profile information is used by SiteJabber primarily to be presented back to and edited by you when 
+		you   access the service, and to be presented to others permitted by your privacy settings to view 
+		that information. In some cases, where your privacy settings permit it, other SiteJabber users may 
+		be able to supplement your profile.
+	</p>
+	<p>
+		SiteJabber reserves the right to send you notices about your account, even if you opt out of all 
+		voluntary email notifications.
+	</p>
+	<p>
+		SiteJabber may use information in your profile without identifying you as an individual to third 
+		parties. We may do this for purposes such as aggregating how many people in a particular network 
+		enjoy a band or movie, and personalizing advertisements and promotions. We believe this benefits 
+		you&mdash;by enabling us and others to provide information that&rsquo;s more likely interesting to 
+		you   individually. For example, if you indicated a favorite movie in your profile, you may see an 
+		advertisement highlighting a screening of a similar movie in your town, based on your demographic 
+		profile. But we would <strong><em>not</em></strong> identify you individually to the movie studio.
+	</p>
+	<p>
+		We may use information about you that we collect from other sources, including but not limited to 
+		newspapers and online sources such as blogs, instant messaging services, and other users of 
+		SiteJabber, to supplement your profile.
+	</p>
+
+	<h2>Sharing Your Information with Third Parties</h2>
+	<p>
+		SiteJabber does not provide contact information to third party marketers without your permission. 
+		We only share your information with third parties in limited circumstances where we believe such 
+		sharing is (1) reasonably necessary to offer the service, (2) legally required or, (3) specifically
+		permitted by you. For example:
+	</p>
+	<ul class="disc">
+		<li>
+			We may provide information to service providers to help us bring you the services we offer. 
+			Specifically, we may use third parties to facilitate our business, such as to host the service at 
+			a co-location facility for servers, to send out email updates about SiteJabber, to remove 
+			repetitive information from our user lists, to process payments for products or services, or to 
+			provide search results or links (including sponsored links). In connection with these offerings 
+			and business operations, our service providers may have access to your personal information for 
+			use for a limited time in connection with these business activities. Where we utilize third 
+			parties for the processing of any personal information, we implement reasonable contractual and 
+			technical protections limiting the use of that information to the SiteJabber-specified purposes. 
+		</li>
+		<li>
+			We occasionally provide demonstration accounts that allow non-users a glimpse into the 
+			SiteJabber world. Such accounts have only limited capabilities and passwords are changed 
+			regularly to limit possible misuse. 
+		</li>
+		<li>
+			We may be required to disclose user information pursuant to lawful requests, such as subpoenas 
+			or court orders, or in compliance with applicable laws. We do not reveal information until we 
+			have a good faith belief that an information request by law enforcement or private litigants 
+			meets applicable legal standards. Additionally, we may share account or other information when 
+			we believe it is necessary to comply with law, to protect our interests or property, to 
+			prevent fraud or other illegal activity perpetrated through the SiteJabber service or using 
+			the SiteJabber name, or to prevent imminent bodily harm. This may include sharing information 
+			with other companies, lawyers, agents or government agencies. 
+		</li>
+		<li>
+			If the ownership of all or substantially all of the SiteJabber business, or individual business
+			units owned by SiteJabber were to change, your user information may be transferred to the new 
+			owner so the service can continue operations. In any such transfer of information, your user 
+			information would remain subject to the promises made in any pre-existing Privacy Policy. 
+		</li>
+	</ul>
+	<p>
+		When you use SiteJabber, certain information you post or share with third parties, such as 
+		personal information, posts, messages, photos, or other information, may be shared with other 
+		users; and all such sharing of information is done at your own risk. Please keep in mind that if 
+		you disclose personal information in your profile or when posting text, messages, photos, or other 
+		items, this information may become publicly available. Your email address and full last name will 
+		be kept private unless otherwise noted.
+	</p>
+
+	<h2>Links</h2>
+	<p>
+		SiteJabber may contain links to third party websites. We are of course not responsible for the 
+		privacy   practices of other web sites. We encourage our users to be aware when they leave our 
+		site to read the privacy statements of each and every web site that collects personally 
+		identifiable information. This Privacy Policy applies solely to information collected by SiteJabber
+		on the SiteJabber website.
+	</p>
+
+	<h2>Third Party Advertising</h2>
+	<p>
+		Advertisements that appear on SiteJabber are sometimes delivered (or &quot;served&quot;) directly 
+		to you by third party advertisers. They automatically receive your IP address when this 
+		happens. These third party advertisers may also download cookies to your computer, or use other 
+		technologies such as JavaScript and &quot;web beacons&quot; (also known as &quot;1x1 gifs&quot;)
+		to measure the effectiveness of their ads and to personalize advertising content. Such activities 
+		allow the advertisers to recognize your computer each time they send you an advertisement in order 
+		to measure the effectiveness of their ads and to personalize advertising content. In this way, 
+		they may compile information about where individuals using your computer or browser saw their
+		 advertisements and determine which advertisements are clicked. SiteJabber does not have access to 
+		 or control of the cookies that may be placed by the third party advertisers. Third party 
+		 advertisers have no access to your contact information stored on SiteJabber unless you choose to 
+		 share it with them. This privacy policy covers the use of cookies by SiteJabber, and does not 
+		 cover the use of cookies or other tracking technologies by any of its advertisers. SiteJabber uses Google Analytics, Google Analytics Demographics and Interest Reporting, Remarketing with Google Analytics, Google Display Network Impression Reporting, DoubleClick Platform integrations, and Google Adsense to collect data via Google advertising cookies and anonymous identifiers, in addition to data collected through a standard Google Analytics implementation. You may be able to opt-out of some of advertisers' practices by visiting the following links: <a href="http://www.networkadvertising.org/choices/" target="_blank" rel="nofollow">Network Advertising Initiative</a>, <a href="http://www.d1.sc.omtrdc.net/optout.html?omniture=1&popup=1&locale=en_US&second=1&second_has_cookie=0" target="_blank" rel="nofollow">Omniture</a>, <a href="http://www.aboutads.info/choices/" target="_blank" rel="nofollow">Digital Advertising Alliance</a>, <a href="https://tools.google.com/dlpage/gaoptout/" target="_blank" rel="nofollow">Google Analytics</a> and <a href="http://privacychoice.org/trackerblock" target="_blank" rel="nofollow">PrivacyChoice</a>. Please note that opting out does not prevent the display of advertisements to you. Some pages and links are also monetized via <a href="http://www.viglink.com/legal/disclosures/users" target="_blank" rel="nofollow">VigLink</a>.
+	</p>
+
+	<h2>Changing or Removing Information</h2>
+	<p>
+		Access and control over most personal information on SiteJabber is readily available through our 
+		profile editing tools. SiteJabber users may modify or delete any of their profile information at 
+		any time by logging into their account. Information will be updated immediately (or as soon as 
+		practicable). Removed information may persist in backup copies for a reasonable period of time but 
+		will not be generally available to members of SiteJabber. 
+	</p>
+	<p>
+		Where you make use of the communication features of the SiteJabber service to share information 
+		with other SiteJabber members, however (e.g., writing a post), you generally cannot remove such 
+		communications.
+	</p>
+
+	<h2>Security</h2>
+	<p>
+		SiteJabber takes appropriate precautions to protect our users' information. Your account information
+		is located on a secured server behind a firewall. Because email and instant messaging are not 
+		recognized as secure communications, we request that you not send private information to us by 
+		email or instant messaging services. If you have any questions about the security practices of 
+		SiteJabber, please contact us at <a href="mailto:privacy@SiteJabber.com" 
+		target="_blank">privacy@SiteJabber.com</a>. 
+	</p>
+
+	<h2>Terms of Service, Notices and Revisions</h2>
+	<p>
+		Your use of SiteJabber, and any disputes arising from it, is subject to this Privacy Policy and 
+		our   Terms of Service. We reserve the right to change our Privacy Policy and our Terms of Service 
+		at any time. Non-material changes and clarifications will be effective immediately, and material 
+		changes will be effective within 30 days, after posting on the SiteJabber website.  If we make 
+		changes, we will post them and will indicate at the top of this page the policy's new effective 
+		date. If we make material changes to this policy, we will notify you here, by email, or through 
+		notice on our home page. We encourage you to refer to this policy on an ongoing basis, so that you 
+		understand our current privacy policy. Unless stated otherwise, our current privacy policy applies 
+		to all information that we have about you and your account.
+	</p>
+
+	<h2>Contacting the Web Site</h2>
+	<p>
+		If you have any questions about this privacy policy, please contact us at 
+		<a href="mailto:privacy@SiteJabber.com" target="_blank">privacy@SiteJabber.com</a>.
+	</p>
+
+</div>
+
+<div id="right_column">
+
+	<div class="side_box">
+		<div class="side_box_heading"></div>
+		<div class="side_box_content">
+			<h3>More Information</h3>
+			<div class="link">
+				<a href="/about-us">About Us</a>			</div>
+						<div class="link">
+				<a href="/faq">Frequently Asked Questions</a>			</div>
+			<div class="link">
+				<a href="/press">Press</a>			</div>
+			<div class="link">
+				<a href="/contact-us">Contact Us</a>			</div>
+		</div>
+	</div>
+
+	<div class="side_box">
+		<div class="side_box_heading"></div>
+		<div class="side_box_content">
+			<h3>Follow Us</h3>
+			<div id="sitejabber_icon">
+				<div class="link"><a href="/blog/" />SiteJabber Blog</a></div>
+			</div>
+			<div id="facebook_icon">
+				<div class="link"><a href="http://www.facebook.com/pages/SiteJabber/147174205872" />Facebook Fan Page</a></div>
+			</div>
+			<div id="twitter_icon">
+				<div class="link"><a href="http://www.twitter.com/sitejabber" />Follow Us on Twitter</a></div>
+			</div>
+		</div>
+	</div>
+
+	</div>
+<div class="clear"></div>
+
+</div>
+</div>
+			</div>
+		</div>
+	</div>
+	<!-- google_ad_section_start(weight=ignore) -->
+
+
+
+
+<footer  id="footer" >
+
+		<div id="social_media">
+		<a href="http://www.facebook.com/SiteJabber" target="_blank" id="facebook_image"><span id="facebook_icon"></span></a>		<a href="http://www.twitter.com/SiteJabber" target="_blank" id="twitter_image"><span id="twitter_icon"></span></a>		<a href="https://www.linkedin.com/company/sitejabber" target="_blank" id="linkedin_image"><span id="linkedin_icon"></span></a>		<a href="https://plus.google.com/+SitejabberReviews" target="_blank" id="google_plus_image"><span id="google_plus_icon"></span></a>	</div>
+
+	<ul id="footer_links">
+		<li><a href="/">Home</a>&nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;&nbsp;&nbsp;</li>
+		<li><a href="/online-business-review">Write a Review</a>&nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;&nbsp;&nbsp;</li>
+		<li><a href="/blog">Consumer Tips</a>&nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;&nbsp;&nbsp;</li>
+		<li><a href="/best">Best of SiteJabber</a>&nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;&nbsp;&nbsp;</li>
+		<li><a href="/extension-download">Browser Add-On</a>&nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;&nbsp;&nbsp;</li>
+		<li><a href="/press">Press</a>&nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;&nbsp;&nbsp;</li>
+		<li><a href="/about-us">About Us</a>&nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;&nbsp;&nbsp;</li>
+		<li><a href="/faq">FAQ</a>&nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;&nbsp;&nbsp;</li>
+		<li><a href="https://biz.sitejabber.com/faq">Biz FAQ</a>&nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;&nbsp;&nbsp;</li>
+		<li><a href="https://biz.sitejabber.com/">SJ for Business</a>&nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;&nbsp;&nbsp;</li>
+		<li>
+			<a href="#" id="link-58932436">SJ Support</a><script type="text/javascript">$script.ready('app', function() { 
+//<![CDATA[
+$("#link-58932436").bind("click", function (event) {$.ajax({beforeSend:function (XMLHttpRequest) {dialogInit({title: 'SiteJabber Support', dialogClass: 'sj_dialog non_modal ', autoResize: true, fluid: false, maxWidth: 350, width: 470, modal: false, resizable: false, draggable: true, yOffset: 160}, '<img src="https://static2.sitejabber.com/img/loading.1471653374.gif" alt="" />');}, dataType:"html", success:function (data, textStatus) {$("#dialog").html(data);}, url:"\/feedback"});
+return false;});
+//]]>
+ }) </script>		</li>
+	</ul>
+
+	
+	<ul id="footer_info">
+		<li><a href="/terms">Terms of Service</a>&nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;&nbsp;&nbsp;</li>
+		<li><a href="/privacy">Privacy Policy</a>&nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;&nbsp;&nbsp;</li>
+		<li>Copyright &copy; 2008-2016 GGL Projects, Inc.</li>
+	</ul>
+
+				<div id="url_sitemap_links">
+			<ol>
+				<li>Website Sitemap:</li>
+				<li><a href="/sm/num">#</a></li>
+						<li><a href="/sm/a">A</a></li>
+						<li><a href="/sm/b">B</a></li>
+						<li><a href="/sm/c">C</a></li>
+						<li><a href="/sm/d">D</a></li>
+						<li><a href="/sm/e">E</a></li>
+						<li><a href="/sm/f">F</a></li>
+						<li><a href="/sm/g">G</a></li>
+						<li><a href="/sm/h">H</a></li>
+						<li><a href="/sm/i">I</a></li>
+						<li><a href="/sm/j">J</a></li>
+						<li><a href="/sm/k">K</a></li>
+						<li><a href="/sm/l">L</a></li>
+						<li><a href="/sm/m">M</a></li>
+						<li><a href="/sm/n">N</a></li>
+						<li><a href="/sm/o">O</a></li>
+						<li><a href="/sm/p">P</a></li>
+						<li><a href="/sm/q">Q</a></li>
+						<li><a href="/sm/r">R</a></li>
+						<li><a href="/sm/s">S</a></li>
+						<li><a href="/sm/t">T</a></li>
+						<li><a href="/sm/u">U</a></li>
+						<li><a href="/sm/v">V</a></li>
+						<li><a href="/sm/w">W</a></li>
+						<li><a href="/sm/x">X</a></li>
+						<li><a href="/sm/y">Y</a></li>
+						<li><a href="/sm/z">Z</a></li>
+						<li>| <a href="/newly-added">Newly Added</a></li>
+			</ol>
+
+		</div>	</footer>
+<!-- google_ad_section_end -->
+
+<script>$script.ready('app', function() {app.setConfig({hideFooterExtensionPromptUrl: '/hide-footer-extension-prompt'});app.footer();}) </script>		<!-- end of #container -->
+					
+<script>$script.ready('app', function() {app.setConfig({hideFooterExtensionPromptUrl: '/hide-footer-extension-prompt'});app.lazyLoading();}) </script>
+	<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"6400293bd7","applicationID":"2913611","transactionName":"YgQAYRZRXhBYARUKWFtOI1YQWV8NFhIABFJGTgZcF0BcAkA=","queueTime":0,"applicationTime":157,"atts":"TkMDF15LTR4=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>

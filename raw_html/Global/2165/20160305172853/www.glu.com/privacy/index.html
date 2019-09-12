@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+
+<head>
+	
+	<title>Glu | The Leader in 3D Freemium Mobile Gaming</title>
+	
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Cache-control" content="public" />
+	
+	<meta property="og:title" content="Glu | The Leader in 3D Freemium Mobile Gaming">
+	
+	<link rel="icon" type="image/png" href="http://www.glu.com/images/favicon-32x32.png" sizes="32x32" />
+	
+	<style type="text/css">
+	
+		html {
+			background-color: #010101;
+		}
+		
+		body {
+			display: none;
+		}
+	
+	</style>
+	
+	<script type="text/javascript" src="http://www.glu.com/scripts/jquery.js"></script>
+	<script type="text/javascript" src="http://www.glu.com/scripts/match-media.js"></script>
+	<script type="text/javascript">
+	
+		//determine if we're dealing with a touch device
+		var is_touch_device = 'ontouchstart' in window;
+		
+		if(is_touch_device)
+		{
+			//load stylesheet for touch devices
+			$("head").append('<link rel="stylesheet" type="text/css" href="http://www.glu.com/styles/styles_mobile.css" />');
+			//set meta viewport setting
+			$("head").append('<meta name="viewport" content="width=device-width, initial-scale=1" />');
+		}
+		else
+		{
+			//load full stylesheet for non-touch devices
+			$("head").append('<link rel="stylesheet" type="text/css" href="http://www.glu.com/styles/styles.css" />');
+		}
+	
+	
+		//set up mobile detection
+		var isMobile = {
+		    Android: function() {
+		        return navigator.userAgent.match(/Android/i);
+		    },
+		    BlackBerry: function() {
+		        return navigator.userAgent.match(/BlackBerry/i);
+		    },
+		    iOS: function() {
+		        return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+		    },
+		    Opera: function() {
+		        return navigator.userAgent.match(/Opera Mini/i);
+		    },
+		    Windows: function() {
+		        return navigator.userAgent.match(/IEMobile/i);
+		    },
+		    any: function() {
+		        return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+		    }
+		};
+		
+		// -- Newsletter Signup Scripts -- //
+		
+		function newsletterSignup()
+		{
+			var email_address = $("#newsletter").val();
+			
+			//verify email address
+			if(validateEmail(email_address))
+			{
+				//save the email address
+				$.ajax(
+					{
+						type: "POST",
+						data: "email=" + email_address,
+						url: "http://www.glu.com/ajax/newsletterSignup",
+						success: function(returned_data)
+						{
+							switch(returned_data)
+							{
+								case "success":
+									alert("You have been successfully signed up for our newsletter. Thank you.");
+								break;
+								
+								case "failure":
+									alert("There was a problem signing you up for our Newsletter. Please try again.");
+								break;
+								
+								case "invalid":
+									alert("Please enter a valid email address");
+								break;
+							}
+						}
+					});
+			}
+			else
+			{
+				alert("Please enter a valid email address");
+				return false;
+			}
+		}
+		
+		
+		function validateEmail(email)
+		{
+			var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+			    
+			return re.test(email);
+		}
+		
+		
+		function resetNewsletterForm()
+		{
+			var val = $("#newsletter").val();
+			
+			//clear the Email Address label if it exists
+			if(val == "Email Address")
+			{
+				$("#newsletter").val("");
+			}
+			
+			//reapply the email address label if the form is blank
+			if(val == "" || val == " ")
+			{
+				$("#newsletter").val("Email Address");
+			}
+		}
+		
+		// -- Search Field Scripts -- //
+		
+		function submitSearch()
+		{
+			//verify that there is a search term defined
+			var search_term = $("#search").val();
+			
+			if(search_term != "")
+			{
+				document.form2.submit();
+			}
+			else
+			{
+				alert("Please provide a search term.");
+				return false;
+			}
+		}
+	
+	</script>
+	
+	<!--[if lt IE 9]>
+	<link rel="stylesheet" type="text/css" href="http://www.glu.com/styles/ie.css" />
+	<script type="text/javascript" src="http://www.glu.com/scripts/jquery-ie.js"></script>
+	<![endif]-->
+	
+</head>
+
+<body>
+	
+	<div class="header_wrapper">
+		
+		<div class="header">
+			
+			<div class="top_hat full">
+				
+				<div class="newsletter_signup top_hat_container">
+					
+					Newsletter:&nbsp;&nbsp;<input type="text" name="newsletter" id="newsletter" value="Email Address" onfocus="resetNewsletterForm();" onblur="resetNewsletterForm();" />&nbsp;&nbsp;<a class="button" onclick="newsletterSignup();">Sign Up</a>
+					
+				</div>
+				
+				<div class="social_media top_hat_container">
+					
+					<ul>
+						<li>
+							<a href="https://twitter.com/glumobile" target="_blank"><img name="twitter_button" id="twitter_button" class="full_image" data-src="http://www.glu.com/images/glu_twitter_icon.jpg" alt="Twitter Icon" /></a>
+						</li>
+						<li>
+							<a href="https://www.facebook.com/glu.mobile" target="_blank"><img name="facebook_button" id="facebook_button" class="full_image" data-src="http://www.glu.com/images/glu_facebook_icon.jpg" alt="Facebook Icon" /></a>
+						</li>
+						<li>
+							<a href="http://www.youtube.com/glumobilegames/" target="_blank"><img name="youtube_button" id="youtube_button" class="full_image" data-src="http://www.glu.com/images/glu_youtube_icon.jpg"  alt="Youtube Icon" /></a>
+						</li>
+					</ul>
+					
+				</div>
+				
+				<div class="search top_hat_container">
+					
+					<form name="form2" id="form2" method="post" action="http://www.glu.com/search/">
+						<input type="text" name="search" id="search" />&nbsp;&nbsp;<a class="button" type="submit" onclick="submitSearch();">Search</a>
+					</form>
+					
+				</div>
+				
+				<div class="customer_care top_hat_container">
+					
+					<ul>
+						<li><img class="full_image" data-src="http://www.glu.com/images/glu_guy.jpg" alt="Glu Guy" /></li>
+						<li><a class="button" href="http://www.glu.com/support/">Customer Care</a></li>
+					</ul>
+					
+				</div>
+				
+			</div>
+			
+			<div class="logo full">
+				<a href="http://www.glu.com/">
+					<img class="full_image" data-src="http://www.glu.com/images/glu_logo.jpg" alt="Glu Logo" />
+				</a>
+			</div>
+			
+			<div class="nav">
+				
+				<ul class="nav full">
+
+					<li><a href="http://www.glu.com/">Home</a></li>					
+					<li><a href="http://www.glu.com/games/genre/all">Games</a></li>					
+					<li><a href="http://www.glu.com/news/category/all">News</a></li>					
+					<li><a href="http://www.glu.com/community">Community</a></li>					
+					<li><a href="http://www.glu.com/support">Support</a></li>					
+					<li><a href="http://www.glu.com/careers">Careers</a></li>					
+					<li><a href="http://www.glu.com/gluglobal">Glu Global</a></li>
+					
+				</ul>
+				
+				<ul class="nav mobile">
+				
+					<li><a href="http://www.glu.com/"><img class="mobile_image" data-src-mobile="http://www.glu.com/images/glu_logo_mobile.png" data-src="http://www.glu.com/images/glu_logo_mobile.png" data-src-large="http://www.glu.com/images/glu_logo_mobile.png" alt="Glu Logo" /></a></li>
+					<li><a href="http://www.glu.com/games/genre/all">Games</a></li>
+					<li><a href="http://www.glu.com/news/category/all">News</a></li>	
+					<li><a href="http://www.glu.com/community">Forums</a></li>					
+					<li><a href="http://www.glu.com/support">Support</a></li>															
+					
+				</ul>
+				
+			</div>
+			
+		</div>
+		
+	</div>	
+	<script type="text/javascript">
+	
+		window.games = new Array();
+		
+					
+		window.games["Kendall & Kylie"] = new Array();			
+					
+		window.games["Cooking Dash 2016"] = new Array();			
+					
+		window.games["Tap Sports Baseball 2015"] = new Array();			
+					
+		window.games["Kim Kardashian: Hollywood"] = new Array();			
+					
+		window.games["Racing Rivals"] = new Array();			
+			
+		
+				
+		window.games["Kendall & Kylie"]["game_id"] = "107";
+		window.games["Kendall & Kylie"]["friendly_name"] = "kendall-and-kylie";
+		window.games["Kendall & Kylie"]["ios_link"] = "http://bit.ly/1KVfgsE";
+		window.games["Kendall & Kylie"]["android_link"] = "http://bit.ly/1RLaJKW";
+		window.games["Kendall & Kylie"]["mac_link"] = "";
+		window.games["Kendall & Kylie"]["windows_link"] = "";
+		window.games["Kendall & Kylie"]["amazon_link"] = "";	
+		window.games["Kendall & Kylie"]["facebook_link"] = "";			
+				
+		window.games["Cooking Dash 2016"]["game_id"] = "98";
+		window.games["Cooking Dash 2016"]["friendly_name"] = "cooking-dash-2016";
+		window.games["Cooking Dash 2016"]["ios_link"] = "https://itunes.apple.com/us/app/cooking-dash-2016/id978866413?mt=8";
+		window.games["Cooking Dash 2016"]["android_link"] = "https://play.google.com/store/apps/details?id=com.playfirst.cookingdashx&hl=en";
+		window.games["Cooking Dash 2016"]["mac_link"] = "";
+		window.games["Cooking Dash 2016"]["windows_link"] = "";
+		window.games["Cooking Dash 2016"]["amazon_link"] = "http://www.amazon.com/Glu-Mobile-Inc-COOKING-DASH/dp/B00YQACP5I";	
+		window.games["Cooking Dash 2016"]["facebook_link"] = "";			
+				
+		window.games["Tap Sports Baseball 2015"]["game_id"] = "95";
+		window.games["Tap Sports Baseball 2015"]["friendly_name"] = "tap-sports-baseball-2015";
+		window.games["Tap Sports Baseball 2015"]["ios_link"] = "https://itunes.apple.com/us/app/tap-sports-baseball-2015/id952758849?mt=8";
+		window.games["Tap Sports Baseball 2015"]["android_link"] = "https://play.google.com/store/apps/details?id=com.glu.baseball15&hl=en";
+		window.games["Tap Sports Baseball 2015"]["mac_link"] = "";
+		window.games["Tap Sports Baseball 2015"]["windows_link"] = "";
+		window.games["Tap Sports Baseball 2015"]["amazon_link"] = "http://bit.ly/tsb15amazon";	
+		window.games["Tap Sports Baseball 2015"]["facebook_link"] = "";			
+				
+		window.games["Kim Kardashian: Hollywood"]["game_id"] = "66";
+		window.games["Kim Kardashian: Hollywood"]["friendly_name"] = "kim-kardashian-hollywood";
+		window.games["Kim Kardashian: Hollywood"]["ios_link"] = "https://itunes.apple.com/us/app/kim-kardashian-hollywood/id860822992?mt=8";
+		window.games["Kim Kardashian: Hollywood"]["android_link"] = "https://play.google.com/store/apps/details?id=com.glu.stardomkim&hl=en";
+		window.games["Kim Kardashian: Hollywood"]["mac_link"] = "";
+		window.games["Kim Kardashian: Hollywood"]["windows_link"] = "";
+		window.games["Kim Kardashian: Hollywood"]["amazon_link"] = "http://www.amazon.com/Glu-Mobile-Inc-KIM-KARDASHIAN/dp/B00LBH2UMM";	
+		window.games["Kim Kardashian: Hollywood"]["facebook_link"] = "https://apps.facebook.com/stardomk/";			
+				
+		window.games["Racing Rivals"]["game_id"] = "93";
+		window.games["Racing Rivals"]["friendly_name"] = "racing-rivals";
+		window.games["Racing Rivals"]["ios_link"] = "https://itunes.apple.com/us/app/racing-rivals/id604186826?mt=8";
+		window.games["Racing Rivals"]["android_link"] = "https://play.google.com/store/apps/details?id=com.ciegames.RacingRivals";
+		window.games["Racing Rivals"]["mac_link"] = "";
+		window.games["Racing Rivals"]["windows_link"] = "";
+		window.games["Racing Rivals"]["amazon_link"] = "http://www.amazon.com/gp/product/B00LV9X5U6";	
+		window.games["Racing Rivals"]["facebook_link"] = "https://apps.facebook.com/racingrivals/";			
+				
+		$(document).ready(function()
+		{
+			
+			if(is_touch_device)
+			{
+				startMobileSlideshow();
+				updateDownloadLinks();
+			}		
+			else
+			{
+				startFullSlideshow();
+			}
+		}); 
+		
+		
+		function updateDownloadLinks()
+		{
+			$(".game.mobile").each(function()
+			{
+				var game_name = $(this).find("h3.game_name").text();
+				
+				if(isMobile.iOS())
+				{
+					if(window.games[game_name]["ios_link"] != "")
+					{
+						//update the hrefs on the get it now buttons to the ios link
+						$(this).find(".get > a.button").attr("href", window.games[game_name]["ios_link"]);
+					}
+				}
+				
+				if(isMobile.Android())
+				{
+					if(window.games[game_name]["android_link"] != "")
+					{
+						//update the hrefs on the get it now buttons to the android link
+						$(this).find(".get > a.button").attr("href", window.games[game_name]["android_link"]);
+					}
+				}
+				
+				if(isMobile.Windows())
+				{
+					if(window.games[game_name]["windows_link"] != "")
+					{
+						//update the hrefs on the get it now buttons to the windows link
+						$(this).find(".get > a.button").attr("href", window.games[game_name]["windows_link"]);
+					}
+				}
+			});
+		}
+		
+		// -- Desktop slideshow code -- //
+		var slideshow_data = [{"game_id":"107","game_name":"Kendall & Kylie","friendly_name":"kendall-and-kylie","box_art":"ELYUvo3r23Ctz2aC.png","tag_line":"Achieve ultimate #SquadGoals in the #KendallKylieGame","description":"<p><!-- [if gte mso 9]><xml>\n <o:DocumentProperties>\n  <o:Revision>0<\/o:Revision>\n  <o:TotalTime>0<\/o:TotalTime>\n  <o:Pages>1<\/o:Pages>\n  <o:Words>93<\/o:Words>\n  <o:Characters>535<\/o:Characters>\n  <o:Company>Glu Mobile<\/o:Company>\n  <o:Lines>4<\/o:Lines>\n  <o:Paragraphs>1<\/o:Paragraphs>\n  <o:CharactersWithSpaces>627<\/o:CharactersWithSpaces>\n  <o:Version>14.0<\/o:Version>\n <\/o:DocumentProperties>\n<\/xml><![endif]--> <!-- [if gte mso 9]><xml>\n <w:WordDocument>\n  <w:View>Normal<\/w:View>\n  <w:Zoom>0<\/w:Zoom>\n  <w:TrackMoves\/>\n  <w:TrackFormatting\/>\n  <w:PunctuationKerning\/>\n  <w:ValidateAgainstSchemas\/>\n  <w:SaveIfXMLInvalid>false<\/w:SaveIfXMLInvalid>\n  <w:IgnoreMixedContent>false<\/w:IgnoreMixedContent>\n  <w:AlwaysShowPlaceholderText>false<\/w:AlwaysShowPlaceholderText>\n  <w:DoNotPromoteQF\/>\n  <w:LidThemeOther>EN-US<\/w:LidThemeOther>\n  <w:LidThemeAsian>JA<\/w:LidThemeAsian>\n  <w:LidThemeComplexScript>X-NONE<\/w:LidThemeComplexScript>\n  <w:Compatibility>\n   <w:BreakWrappedTables\/>\n   <w:SnapToGridInCell\/>\n   <w:WrapTextWithPunct\/>\n   <w:UseAsianBreakRules\/>\n   <w:DontGrowAutofit\/>\n   <w:SplitPgBreakAndParaMark\/>\n   <w:EnableOpenTypeKerning\/>\n   <w:DontFlipMirrorIndents\/>\n   <w:OverrideTableStyleHps\/>\n   <w:UseFELayout\/>\n  <\/w:Compatibility>\n  <m:mathPr>\n   <m:mathFont m:val=\"Cambria Math\"\/>\n   <m:brkBin m:val=\"before\"\/>\n   <m:brkBinSub m:val=\"--\"\/>\n   <m:smallFrac m:val=\"off\"\/>\n   <m:dispDef\/>\n   <m:lMargin m:val=\"0\"\/>\n   <m:rMargin m:val=\"0\"\/>\n   <m:defJc m:val=\"centerGroup\"\/>\n   <m:wrapIndent m:val=\"1440\"\/>\n   <m:intLim m:val=\"subSup\"\/>\n   <m:naryLim m:val=\"undOvr\"\/>\n  <\/m:mathPr><\/w:WordDocument>\n<\/xml><![endif]--><!-- [if gte mso 9]><xml>\n <w:LatentStyles DefLockedState=\"false\" DefUnhideWhenUsed=\"true\"\n  DefSemiHidden=\"true\" DefQFormat=\"false\" DefPriority=\"99\"\n  LatentStyleCount=\"276\">\n  <w:LsdException Locked=\"false\" Priority=\"0\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" QFormat=\"true\" Name=\"Normal\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"9\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" QFormat=\"true\" Name=\"heading 1\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"9\" QFormat=\"true\" Name=\"heading 2\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"9\" QFormat=\"true\" Name=\"heading 3\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"9\" QFormat=\"true\" Name=\"heading 4\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"9\" QFormat=\"true\" Name=\"heading 5\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"9\" QFormat=\"true\" Name=\"heading 6\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"9\" QFormat=\"true\" Name=\"heading 7\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"9\" QFormat=\"true\" Name=\"heading 8\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"9\" QFormat=\"true\" Name=\"heading 9\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"39\" Name=\"toc 1\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"39\" Name=\"toc 2\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"39\" Name=\"toc 3\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"39\" Name=\"toc 4\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"39\" Name=\"toc 5\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"39\" Name=\"toc 6\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"39\" Name=\"toc 7\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"39\" Name=\"toc 8\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"39\" Name=\"toc 9\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"35\" QFormat=\"true\" Name=\"caption\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"10\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" QFormat=\"true\" Name=\"Title\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"1\" Name=\"Default Paragraph Font\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"11\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" QFormat=\"true\" Name=\"Subtitle\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"22\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" QFormat=\"true\" Name=\"Strong\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"20\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" QFormat=\"true\" Name=\"Emphasis\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"59\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Table Grid\"\/>\n  <w:LsdException Locked=\"false\" UnhideWhenUsed=\"false\" Name=\"Placeholder Text\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"1\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" QFormat=\"true\" Name=\"No Spacing\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"60\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Light Shading\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"61\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Light List\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"62\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Light Grid\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"63\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Medium Shading 1\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"64\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Medium Shading 2\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"65\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Medium List 1\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"66\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Medium List 2\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"67\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Medium Grid 1\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"68\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Medium Grid 2\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"69\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Medium Grid 3\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"70\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Dark List\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"71\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Colorful Shading\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"72\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Colorful List\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"73\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Colorful Grid\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"60\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Light Shading Accent 1\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"61\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Light List Accent 1\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"62\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Light Grid Accent 1\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"63\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Medium Shading 1 Accent 1\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"64\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Medium Shading 2 Accent 1\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"65\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Medium List 1 Accent 1\"\/>\n  <w:LsdException Locked=\"false\" UnhideWhenUsed=\"false\" Name=\"Revision\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"34\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" QFormat=\"true\" Name=\"List Paragraph\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"29\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" QFormat=\"true\" Name=\"Quote\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"30\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" QFormat=\"true\" Name=\"Intense Quote\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"66\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Medium List 2 Accent 1\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"67\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Medium Grid 1 Accent 1\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"68\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Medium Grid 2 Accent 1\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"69\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Medium Grid 3 Accent 1\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"70\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Dark List Accent 1\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"71\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Colorful Shading Accent 1\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"72\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Colorful List Accent 1\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"73\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Colorful Grid Accent 1\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"60\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Light Shading Accent 2\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"61\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Light List Accent 2\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"62\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Light Grid Accent 2\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"63\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Medium Shading 1 Accent 2\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"64\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Medium Shading 2 Accent 2\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"65\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Medium List 1 Accent 2\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"66\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Medium List 2 Accent 2\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"67\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Medium Grid 1 Accent 2\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"68\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Medium Grid 2 Accent 2\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"69\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Medium Grid 3 Accent 2\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"70\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Dark List Accent 2\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"71\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Colorful Shading Accent 2\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"72\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Colorful List Accent 2\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"73\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Colorful Grid Accent 2\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"60\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Light Shading Accent 3\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"61\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Light List Accent 3\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"62\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Light Grid Accent 3\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"63\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Medium Shading 1 Accent 3\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"64\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Medium Shading 2 Accent 3\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"65\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Medium List 1 Accent 3\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"66\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Medium List 2 Accent 3\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"67\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Medium Grid 1 Accent 3\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"68\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Medium Grid 2 Accent 3\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"69\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Medium Grid 3 Accent 3\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"70\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Dark List Accent 3\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"71\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Colorful Shading Accent 3\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"72\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Colorful List Accent 3\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"73\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Colorful Grid Accent 3\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"60\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Light Shading Accent 4\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"61\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Light List Accent 4\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"62\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Light Grid Accent 4\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"63\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Medium Shading 1 Accent 4\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"64\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Medium Shading 2 Accent 4\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"65\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Medium List 1 Accent 4\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"66\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Medium List 2 Accent 4\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"67\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Medium Grid 1 Accent 4\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"68\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Medium Grid 2 Accent 4\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"69\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Medium Grid 3 Accent 4\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"70\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Dark List Accent 4\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"71\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Colorful Shading Accent 4\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"72\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Colorful List Accent 4\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"73\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Colorful Grid Accent 4\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"60\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Light Shading Accent 5\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"61\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Light List Accent 5\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"62\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Light Grid Accent 5\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"63\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Medium Shading 1 Accent 5\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"64\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Medium Shading 2 Accent 5\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"65\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Medium List 1 Accent 5\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"66\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Medium List 2 Accent 5\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"67\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Medium Grid 1 Accent 5\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"68\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Medium Grid 2 Accent 5\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"69\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Medium Grid 3 Accent 5\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"70\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Dark List Accent 5\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"71\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Colorful Shading Accent 5\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"72\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Colorful List Accent 5\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"73\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Colorful Grid Accent 5\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"60\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Light Shading Accent 6\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"61\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Light List Accent 6\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"62\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Light Grid Accent 6\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"63\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Medium Shading 1 Accent 6\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"64\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Medium Shading 2 Accent 6\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"65\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Medium List 1 Accent 6\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"66\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Medium List 2 Accent 6\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"67\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Medium Grid 1 Accent 6\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"68\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Medium Grid 2 Accent 6\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"69\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Medium Grid 3 Accent 6\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"70\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Dark List Accent 6\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"71\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Colorful Shading Accent 6\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"72\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Colorful List Accent 6\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"73\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" Name=\"Colorful Grid Accent 6\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"19\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" QFormat=\"true\" Name=\"Subtle Emphasis\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"21\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" QFormat=\"true\" Name=\"Intense Emphasis\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"31\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" QFormat=\"true\" Name=\"Subtle Reference\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"32\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" QFormat=\"true\" Name=\"Intense Reference\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"33\" SemiHidden=\"false\"\n   UnhideWhenUsed=\"false\" QFormat=\"true\" Name=\"Book Title\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"37\" Name=\"Bibliography\"\/>\n  <w:LsdException Locked=\"false\" Priority=\"39\" QFormat=\"true\" Name=\"TOC Heading\"\/>\n <\/w:LatentStyles>\n<\/xml><![endif]--> <!-- [if gte mso 10]>\n<style>\n \/* Style Definitions *\/\ntable.MsoNormalTable\n\t{mso-style-name:\"Table Normal\";\n\tmso-tstyle-rowband-size:0;\n\tmso-tstyle-colband-size:0;\n\tmso-style-noshow:yes;\n\tmso-style-priority:99;\n\tmso-style-parent:\"\";\n\tmso-padding-alt:0in 5.4pt 0in 5.4pt;\n\tmso-para-margin-top:0in;\n\tmso-para-margin-right:0in;\n\tmso-para-margin-bottom:8.0pt;\n\tmso-para-margin-left:0in;\n\tline-height:107%;\n\tmso-pagination:widow-orphan;\n\tfont-size:11.0pt;\n\tfont-family:Calibri;\n\tmso-ascii-font-family:Calibri;\n\tmso-ascii-theme-font:minor-latin;\n\tmso-hansi-font-family:Calibri;\n\tmso-hansi-theme-font:minor-latin;}\n<\/style>\n<![endif]--> <!--StartFragment--> <!--EndFragment--><\/p>\n<p class=\"MsoNormal\" style=\"margin-bottom: .15pt; line-height: 105%;\"><span style=\"font-size: 12.0pt; mso-bidi-font-size: 11.0pt; line-height: 105%; font-family: 'Times New Roman'; mso-fareast-font-family: 'Times New Roman';\">Join Kendall and Kylie Jenner as the up-and-coming star of a new adventure... choose your own path &ndash; the story is yours! Showcase your personal style by selecting your character&rsquo;s hair, makeup, outfit, accessories and more! Snap a pic of your digital self, choose your facial expression, customize it with stickers, text, and post it to your feed. Start a life in fashion, media, and more... Kendall and Kylie will be there as friends and supporters who help you connect with the right people. Make your mark and increase your online following. Share what you&rsquo;re doing with your friends, earning likes and followers as you go!<\/span><\/p>","trailer_url":"<iframe width=\"560\" height=\"315\" src=\"https:\/\/www.youtube.com\/embed\/p1Qe9CBOXoA\" frameborder=\"0\" allowfullscreen><\/iframe>","forum_link":"N\/A","ios_link":"http:\/\/bit.ly\/1KVfgsE","google_link":"http:\/\/bit.ly\/1RLaJKW","mac_link":"","windows_link":"","amazon_link":"","facebook_link":"","release_date":"2016-02-16 00:00:00","published":"1","featured":"1","archived":"0","genre_name":"Casual","genre_id":"28","studio_id":"1","studio_name":"Glu"},{"game_id":"98","game_name":"Cooking Dash 2016","friendly_name":"cooking-dash-2016","box_art":"lKG4GrMx2OC5Fknj.jpeg","tag_line":"Get it FREE!","description":"<p><span style=\"color: #898989; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Arial, Verdana, sans-serif; font-size: 12px; line-height: 18px;\">Flo cooks her way to TV fame as a celebrity chef in this fast-paced, new time management game &ndash; COOKING DASH 2016! IT&rsquo;S THE MOST AMAZINGLY FUN DASH GAME EVER!<\/span><br style=\"color: #898989; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Arial, Verdana, sans-serif; font-size: 12px; line-height: 18px;\" \/><br style=\"color: #898989; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Arial, Verdana, sans-serif; font-size: 12px; line-height: 18px;\" \/><span style=\"color: #898989; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Arial, Verdana, sans-serif; font-size: 12px; line-height: 18px;\">Sharpen your skill as you prepare, cook, assemble and serve delicious menu items in each exotic restaurant &hellip; in front of a live studio audience! Hear them gasp and cheer as you try to earn profits in each exciting episode! Quirky customers, superstar VIPs, and fast-paced kitchen action and TV fame await!&nbsp;<\/span><br style=\"color: #898989; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Arial, Verdana, sans-serif; font-size: 12px; line-height: 18px;\" \/><br style=\"color: #898989; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Arial, Verdana, sans-serif; font-size: 12px; line-height: 18px;\" \/><span style=\"color: #898989; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Arial, Verdana, sans-serif; font-size: 12px; line-height: 18px;\">COOK YOUR WAY TO STARDOM!<\/span><br style=\"color: #898989; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Arial, Verdana, sans-serif; font-size: 12px; line-height: 18px;\" \/><span style=\"color: #898989; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Arial, Verdana, sans-serif; font-size: 12px; line-height: 18px;\">Control the fast-paced chaos as you dash your way around the kitchen, preparing meals for crazy customers! Collect tons of tips for excellent service and make those profits! YOU ARE DESTINED FOR FABULOUS TV CHEF MEGA-FAME!<\/span><br style=\"color: #898989; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Arial, Verdana, sans-serif; font-size: 12px; line-height: 18px;\" \/><br style=\"color: #898989; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Arial, Verdana, sans-serif; font-size: 12px; line-height: 18px;\" \/><span style=\"color: #898989; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Arial, Verdana, sans-serif; font-size: 12px; line-height: 18px;\">HUNDREDS OF EPISODES TO COMPLETE!<\/span><br style=\"color: #898989; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Arial, Verdana, sans-serif; font-size: 12px; line-height: 18px;\" \/><span style=\"color: #898989; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Arial, Verdana, sans-serif; font-size: 12px; line-height: 18px;\">Tons of fun cooking play across unique restaurant shows like the Vegas-themed Table Steaks, crazy Taco Train, and exotic Adventurous Eats with many more on the way!<\/span><br style=\"color: #898989; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Arial, Verdana, sans-serif; font-size: 12px; line-height: 18px;\" \/><br style=\"color: #898989; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Arial, Verdana, sans-serif; font-size: 12px; line-height: 18px;\" \/><span style=\"color: #898989; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Arial, Verdana, sans-serif; font-size: 12px; line-height: 18px;\">COLLECT AND UPGRADE!<\/span><br style=\"color: #898989; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Arial, Verdana, sans-serif; font-size: 12px; line-height: 18px;\" \/><span style=\"color: #898989; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Arial, Verdana, sans-serif; font-size: 12px; line-height: 18px;\">Wanna get more successful and famous? Spend your profits on upgrades for food and appliances for your restaurant! Upgrade to shiny stoves, fancy food prep stations, and more to ensure all customers get three-star service!<\/span><br style=\"color: #898989; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Arial, Verdana, sans-serif; font-size: 12px; line-height: 18px;\" \/><br style=\"color: #898989; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Arial, Verdana, sans-serif; font-size: 12px; line-height: 18px;\" \/><span style=\"color: #898989; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Arial, Verdana, sans-serif; font-size: 12px; line-height: 18px;\">PREP AWESOME RECIPES FOR MORE CUSTOMERS!<\/span><br style=\"color: #898989; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Arial, Verdana, sans-serif; font-size: 12px; line-height: 18px;\" \/><span style=\"color: #898989; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Arial, Verdana, sans-serif; font-size: 12px; line-height: 18px;\">Make special Recipes in the Prep Kitchen and attract customers with their favorite dishes! They&rsquo;ll get you more and more famous, drop cool items, and give you special powers to blast your coffers with mega-profits and keep your star on the rise!&nbsp;<\/span><br style=\"color: #898989; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Arial, Verdana, sans-serif; font-size: 12px; line-height: 18px;\" \/><br style=\"color: #898989; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Arial, Verdana, sans-serif; font-size: 12px; line-height: 18px;\" \/><span style=\"color: #898989; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Arial, Verdana, sans-serif; font-size: 12px; line-height: 18px;\">BECOME SUPER-FAMOUS!<\/span><br style=\"color: #898989; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Arial, Verdana, sans-serif; font-size: 12px; line-height: 18px;\" \/><span style=\"color: #898989; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Arial, Verdana, sans-serif; font-size: 12px; line-height: 18px;\">Fan the flames of your fame as you start your OWN SHOW full of the most elite VIPs coming to see YOU and your amazing cheffing skills! It&rsquo;s FOOD and FAME for you as you host the hippest dinner parties in the WORLD in front of MILLIONS of VIEWERS! It&rsquo;s a TV Chef dream come true!&nbsp;<\/span><br style=\"color: #898989; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Arial, Verdana, sans-serif; font-size: 12px; line-height: 18px;\" \/><br style=\"color: #898989; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Arial, Verdana, sans-serif; font-size: 12px; line-height: 18px;\" \/><span style=\"color: #898989; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Arial, Verdana, sans-serif; font-size: 12px; line-height: 18px;\">PLAY WITH FRIENDS!<\/span><br style=\"color: #898989; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Arial, Verdana, sans-serif; font-size: 12px; line-height: 18px;\" \/><span style=\"color: #898989; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Arial, Verdana, sans-serif; font-size: 12px; line-height: 18px;\">Exchange gifts and compete with friends on your never-ending quest to be the best!<\/span><br style=\"color: #898989; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Arial, Verdana, sans-serif; font-size: 12px; line-height: 18px;\" \/><br style=\"color: #898989; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Arial, Verdana, sans-serif; font-size: 12px; line-height: 18px;\" \/><span style=\"color: #898989; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Arial, Verdana, sans-serif; font-size: 12px; line-height: 18px;\">WHAT ARE YOU WAITING FOR?!?<\/span><br style=\"color: #898989; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Arial, Verdana, sans-serif; font-size: 12px; line-height: 18px;\" \/><span style=\"color: #898989; font-family: 'Lucida Grande', 'Lucida Sans Unicode', Arial, Verdana, sans-serif; font-size: 12px; line-height: 18px;\">Show your stuff and feed the hungry stomachs -- and fragile egos -- of the guests and VIPs! Download the FREE Cooking Dash&reg; 2016 today! THIS IS THE MOST INSANELY FUN DASH GAME EVER!<\/span><\/p>","trailer_url":"","forum_link":"http:\/\/ggnbb.glu.com\/forum.php","ios_link":"https:\/\/itunes.apple.com\/us\/app\/cooking-dash-2016\/id978866413?mt=8","google_link":"https:\/\/play.google.com\/store\/apps\/details?id=com.playfirst.cookingdashx&hl=en","mac_link":"","windows_link":"","amazon_link":"http:\/\/www.amazon.com\/Glu-Mobile-Inc-COOKING-DASH\/dp\/B00YQACP5I","facebook_link":"","release_date":"2015-06-16 00:00:00","published":"1","featured":"1","archived":"0","genre_name":"Casual, Family","genre_id":"28, 25","studio_id":"1","studio_name":"Glu"},{"game_id":"95","game_name":"Tap Sports Baseball 2015","friendly_name":"tap-sports-baseball-2015","box_art":"OtrXXeUCxcbsvxPU.jpg","tag_line":"Step up to the plate for a complete baseball experience on mobile!","description":"<p>Choose your major league players, set your pro lineup and challenge your friends in Tap Sports Baseball 2015! Step up to the plate for a complete baseball experience featuring simple controls, amazing graphics, and real stats.<\/p>\n<p>DRAFT YOUR TEAM FROM REAL PLAYERS<br \/>Choose from your real-life favorite major league players, sign them to your team and climb the standings!<\/p>\n<p>EASY ONE-TOUCH CONTROLS<br \/>Tap to swing and watch homeruns fly out of the park! Avoid bad pitches and perfect your timing to make contact. Simple controls and short gameplay sessions let you play anywhere, anytime!<\/p>\n<p>MANAGE YOUR TEAM<br \/>Choose when to bunt, steal bases, call in pinch hitters or sub in pitchers. &nbsp;Master real game strategies to guide your team to victory.<\/p>\n<p>COMPETE IN TOURNAMENTS AND LEAGUES<br \/>Dominate players around the world to climb the standings. &nbsp;Ensure your team has the best lineup when going head-to-head online in live Tournaments and Leagues!<\/p>\n<p>PLAY WITH YOUR FRIENDS<br \/>Get social and compete in multiple games simultaneously with players around the world via email, username or even Facebook! &nbsp;Link your account then invite and see your friends in-game.<\/p>\n<p>OFFICIALLY LICENSED PRODUCT OF MAJOR LEAGUE BASEBALL PLAYERS ASSOCIATION-MLBPA trademarks and copyrighted works, including the MLBPA logo, &nbsp;BIG LEAGUE CHALLENGE&reg;, and other intellectual property rights are owned and\/or held by MLBPA and may not be used without MLBPA&rsquo;s written consent. Visit www.MLBPLAYERS.com, the PLAYERS CHOICE&reg; on the web.<\/p>\n<p>&nbsp;<\/p>\n<p>PLEASE NOTE:<\/p>\n<p>- This game is free to play, but you can choose to pay real money for some extra items, which will charge your account. &nbsp;You can disable in-app purchasing by adjusting your device settings.<\/p>\n<p>- Please buy carefully.<\/p>\n<p>- Advertising appears in this game.<\/p>\n<p>- This game permits users to interact with one another (eg. chat rooms, player to player chat, messaging). Linking to social networking sites are not intended for persons under age 13.<\/p>\n<p>- A network connection is required to play.<\/p>\n<p>- For information about how Glu collects and uses your data, please read our privacy policy at: &nbsp;www.Glu.com\/privacy<\/p>\n<p>- If you have a problem with this game, please contact us at: www.Glu.com\/support<\/p>\n<p>&nbsp;<\/p>","trailer_url":"","forum_link":"http:\/\/ggnbb.glu.com","ios_link":"https:\/\/itunes.apple.com\/us\/app\/tap-sports-baseball-2015\/id952758849?mt=8","google_link":"https:\/\/play.google.com\/store\/apps\/details?id=com.glu.baseball15&hl=en","mac_link":"","windows_link":"","amazon_link":"http:\/\/bit.ly\/tsb15amazon","facebook_link":"","release_date":"2015-04-01 00:00:00","published":"1","featured":"1","archived":"0","genre_name":"Casual, Family, Multiplayer","genre_id":"28, 25, 24","studio_id":"1","studio_name":"Glu"},{"game_id":"66","game_name":"Kim Kardashian: Hollywood","friendly_name":"kim-kardashian-hollywood","box_art":"KBP9afnPBdDPA65F.jpg","tag_line":"Create your own aspiring celebrity and rise to fame and fortune! ","description":"<p class=\"p1\">Join KIM KARDASHIAN on a red carpet adventure in Kim Kardashian: Hollywood! Create your own aspiring celebrity and rise to fame and fortune!<\/p>\n<p class=\"p2\">&nbsp;<\/p>\n<p class=\"p1\">\u22c6 CREATE YOUR OWN STAR and customize your look with hundreds of style options, including Kim Kardashian&rsquo;s personal picks!<\/p>\n<p class=\"p1\">\u22c6 STAR in a huge interactive adventure as you encounter other celebs, dedicated fans, persistent paparazzi&hellip; and even hang out with Kim herself!<\/p>\n<p class=\"p1\">\u22c6 RULE THE RED CARPET as an A-list movie actor, cover model, fashion designer and more &ndash; what you do is up to you!<\/p>\n<p class=\"p1\">\u22c6 TAKE OVER L.A. in a virtual world complete with exclusive clubs, upscale boutiques, and luxury homes! Travel to New York City and Miami!<\/p>\n<p class=\"p1\">\u22c6 DATE AND DUMP CELEBS at the best parties and hottest clubs! Flirt and become the next huge celebrity power-couple!<\/p>\n<p class=\"p1\">\u22c6 BRING YOUR FRIENDS ALONG FOR THE RIDE using Game Center and Facebook &ndash; help each other rise to fame, compare styles, send gifts, and see who can be the biggest star!<\/p>\n<p class=\"p2\">&nbsp;<\/p>\n<p class=\"p1\">FOLLOW US:<\/p>\n<p class=\"p1\">facebook.com\/GluMobile<\/p>\n<p class=\"p1\">Twitter @GluMobile<\/p>\n<p class=\"p2\">&nbsp;<\/p>\n<p class=\"p1\">*** Kim Kardashian: Hollywood requires an iPhone 3GS, iPod Third Generation, iPad or later device to run ***<\/p>\n<p class=\"p2\">&nbsp;<\/p>\n<p class=\"p1\">&copy; 2014 Glu Mobile Inc. All Rights Reserved.<\/p>\n<p class=\"p2\">&nbsp;<\/p>\n<p class=\"p1\">Kim Kardashian: Hollywood,TM and &copy; 2014 Kimsaprincess, Inc. All rights reserved. Kim Kardashian and Kardashian Kollection and all related designs, stylizations and images are trademarks and copyrights owned by, in part or whole, by Kimsaprincess, Inc. and used under license herein.<\/p>\n<p class=\"p2\">&nbsp;<\/p>\n<p class=\"p1\">*** Kim Kardashian: Hollywood is free to play. Players can purchase additional items for real money, or earn them through special offers. Please adjust your device settings if you wish to lock out the ability to purchase in-game content ***<\/p>","trailer_url":"","forum_link":"http:\/\/ggnbb.glu.com\/forumdisplay.php?162-Kim-Kardashian-Hollywood","ios_link":"https:\/\/itunes.apple.com\/us\/app\/kim-kardashian-hollywood\/id860822992?mt=8","google_link":"https:\/\/play.google.com\/store\/apps\/details?id=com.glu.stardomkim&hl=en","mac_link":"","windows_link":"","amazon_link":"http:\/\/www.amazon.com\/Glu-Mobile-Inc-KIM-KARDASHIAN\/dp\/B00LBH2UMM","facebook_link":"https:\/\/apps.facebook.com\/stardomk\/","release_date":"2014-10-02 00:00:00","published":"1","featured":"1","archived":"0","genre_name":"Casual, Family","genre_id":"28, 25","studio_id":"1","studio_name":"Glu"},{"game_id":"93","game_name":"Racing Rivals","friendly_name":"racing-rivals","box_art":"br3sEIqHzWEWDrc6.jpg","tag_line":"Live Opponents. Real Competition","description":"<p>LIVE OPPONENTS. REAL COMPETITION.&nbsp;<br \/>True real-time racing at your fingertips. Racing Rivals lets you challenge or be challenged by live opponents in game lobbies with feature race replays and live chat.<\/p>\n<p>HIGH STAKES BETTING&nbsp;<br \/> Back your bets with skill unless you're prepared to lose cash - or your car! The stakes are high and the risk is real. Can you handle it?&nbsp;<\/p>\n<p>WEEKLY EVENTS!<br \/>Does your team have what it takes to dominate Turf Wars? Race in weekly competitions to control cities, earn gems, and bonuses for your team! Exclusive Prizes means cars no one else can buy, wrapped in livery no one else has seen.<\/p>\n<p>OFFICIALLY LICENSED CARS&nbsp;<br \/>Racing Rivals presents a huge collection of licensed cars ranging from tunes and exotics to classic American muscle. Featured brands include McLaren, Subaru, Dodge, Mitsubishi, Ford, RWB, Scion, BMW, Acura and SRT with more on the way! &nbsp;<\/p>\n<p>TUNE, UPGRADE &amp; CUSTOMIZE\u2028&nbsp;<br \/>Find the optimal tune for your car with hundreds performance parts in thousands of combinations - everything from air filters to crankshafts will impact your car's performance. Up your game by adding NOS, a supercharger or turbo, custom rims from the biggest players like Volk Racing, Pacer, and SSR, plus real world tires from Nitto!<\/p>","trailer_url":"","forum_link":"http:\/\/bit.ly\/RacingRivalsForums","ios_link":"https:\/\/itunes.apple.com\/us\/app\/racing-rivals\/id604186826?mt=8","google_link":"https:\/\/play.google.com\/store\/apps\/details?id=com.ciegames.RacingRivals","mac_link":"","windows_link":"","amazon_link":"http:\/\/www.amazon.com\/gp\/product\/B00LV9X5U6","facebook_link":"https:\/\/apps.facebook.com\/racingrivals\/","release_date":"2014-09-04 00:00:00","published":"1","featured":"1","archived":"0","genre_name":"Action\/Adventure, Multiplayer, Racing","genre_id":"23, 24, 26","studio_id":"1","studio_name":"Glu"}];
+
+		var max_slides = 4;	
+		var slide_index = 0;
+		var slide_delay = 5000; //Time in milliseconds between slide changes
+		var slide_timer;
+		
+		function startFullSlideshow()
+		{
+			var count = 0;
+			
+			for(var key in slideshow_data)
+			{
+				if(!slideshow_data.hasOwnProperty(key))
+				{
+					continue;
+				}
+				else
+				{
+					if(count < max_slides)
+					{	
+						var game_box_art = "http://glu-ggn-assets-146154827.us-east-1.elb.amazonaws.com/" + slideshow_data[key].box_art;
+						
+						//populate the thumbnail image
+						$("#slideshow_thumb_" + count + "_img").attr("src", game_box_art);
+						
+						//populate the onclick handler
+						$("#slideshow_thumb_" + count + " > a").attr("onclick", "populateGameInfo(" + count + "); stopSlideShow();");
+						
+						//load the large box art and game info for the first title
+						if(count == 0)
+						{
+							populateGameInfo(0);
+						}
+						
+						count++;
+					}
+				}
+			}
+			
+			startSlideShow();
+		}
+		
+		
+		function startSlideShow()
+		{
+			slide_timer = setInterval("showNextSlide()", slide_delay);
+		}
+		
+		
+		function stopSlideShow()
+		{
+			clearTimeout(slide_timer);
+		}
+		
+		
+		function showNextSlide()
+		{
+			if(slide_index < max_slides - 1)
+			{
+				populateGameInfo(slide_index + 1);
+			}
+			else
+			{
+				populateGameInfo(0);
+			}
+		}
+		
+		
+		function populateGameInfo(key)
+		{
+			//set the slide_index var to the selected slide's index
+			slide_index = key;
+			
+			//highlight the currently selected game
+			$(".slideshow_thumbs .thumb img").removeClass("rounded_image_yellow");
+			$("#slideshow_thumb_" + key + "_img").addClass("rounded_image_yellow");
+
+			var game_box_art = "http://glu-ggn-assets-146154827.us-east-1.elb.amazonaws.com/" + slideshow_data[key].box_art;
+			var game_id = slideshow_data[key].game_id;
+			var friendly_name = slideshow_data[key].friendly_name;
+			var game_link = "http://www.glu.com/games/view/" + friendly_name;
+			var game_name = slideshow_data[key].game_name;
+			var game_forum = slideshow_data[key].forum_link;
+			var game_tag_line = slideshow_data[key].tag_line;
+			var game_ios_link = slideshow_data[key].ios_link;
+			var game_google_link = slideshow_data[key].google_link;
+			var game_mac_link = slideshow_data[key].mac_link;
+			var game_windows_link = slideshow_data[key].windows_link;
+			var game_amazon_link = slideshow_data[key].amazon_link;
+			var game_facebook_link = slideshow_data[key].facebook_link;
+			
+			//populate box art
+			$("#box_art_img").hide();
+			$("#box_art_img").attr("src", game_box_art);
+			$("#box_art_img").fadeIn('fast');
+			
+			//populate other game info
+			$("#game_name").text(game_name);
+			$("#game_trailer_button").attr("href", "http://www.glu.com/games/view/" + friendly_name + "#trailer");
+			$("#game_forum_button").attr("href", game_forum);
+			$("#game_tag_line").text(game_tag_line);
+			$("#game_link").attr("href", game_link);
+			$("#game_image_link").attr("href", game_link);
+			$("#game_title_link").attr("href", game_link);
+			
+			//set up game links
+			$("#game_buttons").html("");
+			
+			if(game_ios_link != "" && game_ios_link !== null)
+			{
+				var button = "<a class='button' href='" + game_ios_link + "' target='_blank'>iPhone/iPad</a> ";
+				$("#game_buttons").append(button);
+			}
+			
+			if(game_google_link != "" && game_google_link !== null)
+			{
+				var button = "<a class='button' href='" + game_google_link + "' target='_blank'>Google Play</a> ";
+				$("#game_buttons").append(button);
+			}
+			
+			if(game_mac_link != "" && game_mac_link !== null)
+			{
+				var button = "<a class='button' href='" + game_mac_link + "' target='_blank'>Mac</a> ";
+				$("#game_buttons").append(button);
+			}
+			
+			if(game_windows_link != "" && game_windows_link !== null)
+			{
+				var button = "<a class='button' href='" + game_windows_link + "' target='_blank'>Windows</a> ";
+				$("#game_buttons").append(button);
+			}
+			
+			if(game_amazon_link != "" && game_amazon_link !== null)
+			{
+				var button = "<a class='button' href='" + game_amazon_link + "' target='_blank'>Amazon</a> ";
+				$("#game_buttons").append(button);
+			}
+			
+			if(game_facebook_link != "" && game_facebook_link !== null)
+			{
+				var button = "<a class='button' href='" + game_facebook_link + "' target='_blank'>Facebook</a> ";
+				$("#game_buttons").append(button);
+			}
+			
+		}
+		
+		
+		// -- Mobile slideshow code -- //
+		var m_slideshow_images = new Array();
+		var m_max_slides = 4;	
+		var m_slide_index = 0;
+		var m_slide_delay = 4000; //Time in milliseconds between slide changes
+		var m_slide_timer;
+			
+		
+		function startMobileSlideshow()
+		{	
+			m_preloadMobileSlideshowImages();
+			m_populateGameInfo(0);
+			m_startSlideShow();
+		}
+		
+		
+		function m_preloadMobileSlideshowImages()
+		{
+			var count = 0;
+			
+			for(var key in slideshow_data)
+			{
+				if(!slideshow_data.hasOwnProperty(key))
+				{
+					continue;
+				}
+				else
+				{
+					if(count < max_slides)
+					{	
+						//preload mobile slideshow images
+						m_slideshow_images[count] = new Image();
+						m_slideshow_images[count].src = "http://glu-ggn-assets-146154827.us-east-1.elb.amazonaws.com/" + slideshow_data[key].box_art;
+						
+						count++;
+					}
+				}
+			}
+		}
+		
+		
+		function m_startSlideShow()
+		{
+			m_slide_timer = setInterval("m_showNextSlide()", m_slide_delay);
+		}
+		
+		
+		function m_stopSlideShow()
+		{
+			clearTimeout(m_slide_timer);
+		}
+		
+		
+		function m_showPreviousSlide()
+		{
+			if(m_slide_index >= 1)
+			{
+				populateGameInfo(m_slide_index - 1);
+			}
+			else
+			{
+				populateGameInfo(m_max_slides - 1);
+			}
+		}
+		
+		
+		function m_showNextSlide()
+		{
+			if(m_slide_index < m_max_slides - 1)
+			{
+				m_populateGameInfo(m_slide_index + 1);
+			}
+			else
+			{
+				m_populateGameInfo(0);
+			}
+		}
+		
+		
+		function m_populateGameInfo(key)
+		{
+			//set the slide_index var to the selected slide's index
+			m_slide_index = key;
+
+			var game_box_art = "http://glu-ggn-assets-146154827.us-east-1.elb.amazonaws.com/" + slideshow_data[key].box_art;
+			var game_id = slideshow_data[key].game_id;
+			var friendly_name  = slideshow_data[key].friendly_name;
+			var game_link = "http://www.glu.com/games/view/" + friendly_name;
+			var game_name = slideshow_data[key].game_name;
+			var game_forum_link = slideshow_data[key].forum_link;
+			var game_trailer_link = "http://www.glu.com/games/view/" + friendly_name + "#m_trailer";
+			var game_get_link = m_updateGetLink(key, friendly_name);
+			
+			//populate box art
+			$("#mobile_slideshow_image").attr("src", game_box_art);
+			
+			//populate other game info
+			$("#mobile_game_image_link").attr("href", game_link);
+			$("#mobile_game_link").attr("href", game_link);
+			$("#mobile_download_link").attr("href", game_get_link);
+			$("#mobile_trailer_link").attr("href", game_trailer_link);
+
+		}
+		
+		
+		function m_updateGetLink(key, friendly_name)
+		{
+			var link = "http://www.glu.com/games/view/ + friendly_name";
+			
+			if(isMobile.iOS())
+			{
+				if(slideshow_data[key].ios_link != "")
+				{
+					link = slideshow_data[key].ios_link;
+				}
+			}
+			
+			if(isMobile.Android())
+			{
+				if(slideshow_data[key].google_link != "")
+				{
+					link = slideshow_data[key].google_link;
+				}
+			}
+			
+			if(isMobile.Windows())
+			{
+				if(slideshow_data[key].windows_link != "")
+				{
+					link = slideshow_data[key].windows_link;
+				}
+			}
+			
+			return link;
+		}
+		
+	</script>
+	
+	<div class="slideshow_wrapper">
+		
+		<div class="slideshow full">
+			
+			<div class="right slideshow_thumbs">
+				
+				<div class="thumb" id="slideshow_thumb_0">
+					
+					<a onclick="">
+						
+						<img src="" class="rounded_image" alt="slideshow thumb" id="slideshow_thumb_0_img" />
+						
+					</a>
+				
+				</div>
+				
+				<div class="thumb" id="slideshow_thumb_1">
+					
+					<a onclick="">
+						
+						<img src="" class="rounded_image" alt="slideshow thumb" id="slideshow_thumb_1_img" />
+						
+					</a>
+				
+				</div>
+				
+				<div class="thumb" id="slideshow_thumb_2">
+					
+					<a onclick="">
+						
+						<img src="" class="rounded_image" alt="slideshow thumb" id="slideshow_thumb_2_img" />
+						
+					</a>
+				
+				</div>
+				
+				<div class="thumb" id="slideshow_thumb_3">
+					
+					<a onclick="">
+						
+						<img src="" class="rounded_image" alt="slideshow thumb" id="slideshow_thumb_3_img" />
+						
+					</a>
+				
+				</div>
+				
+			</div>
+			
+			<div class="game_info">
+				
+				<div class="box_art" id="box_art">				
+					
+					<a href="" id="game_image_link">
+						<img class="full_image rounded_image" alt="Box Art" src="" id="box_art_img" />
+					</a>
+					
+				</div>
+				
+				<div class="game_deets">
+					
+					<div class="game_name">
+						
+						<a href="" id="game_title_link"><span id="game_name">Game Name</span></a>
+						
+						<div class="game_buttons" id="game_buttons">
+
+
+
+						</div>
+						
+					</div>
+					
+					<div class="game_description" id="game_description">
+						
+						<span id="game_tag_line"></span><span class="yellow uppercase"><a href="" id="game_link">&nbsp;&nbsp;See more</a></span>
+						
+					</div>
+					
+					<!--
+					<div class="controls right">
+						
+						<a class="button" id="game_trailer_button" href="">Trailer</a>
+						
+						<a class="button" href="" id="game_forum_button" target="_blank">Forum</a>
+						
+					</div>
+					-->
+					
+				</div>
+				
+			</div>
+			
+			<div class="game_slides">
+				
+			</div>
+			
+		</div>
+		
+		<div class="slideshow mobile">
+			
+			<div id="mobile_slideshow_container" class="mobile_slideshow_container">
+				
+				<a href="" id="mobile_game_image_link">
+					<img alt="mobile slideshow image" src="" id="mobile_slideshow_image" />
+				</a>
+				
+			</div>
+			
+			<div class="slideshow_links">
+				
+				<ul>
+					<li><a href="" id="mobile_download_link">Get It Now</a></li>
+					<li><a href="" id="mobile_game_link">More Info</a></li>
+					<li><a href="" id="mobile_trailer_link">Trailer</a></li>
+				</ul>
+				
+			</div>
+			
+		</div>
+		
+	</div>
+
+	<div class="content_wrapper clear">
+		
+		<div class="content">
+			
+			<div class="right full">
+				
+				
+	<div class="news_sidebar">
+		
+		<h1>Latest News</h1>
+		
+		<div class="glu_twitter">
+			<a class="twitter-timeline" href="https://twitter.com/glumobile" data-widget-id="573637472090873856">Tweets by @glumobile</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+		</div>	
+	
+	</div>
+				
+			</div>
+			
+			<div class="page_sub_content">
+				
+				<div class="full home_controls">
+					
+					<ul>
+						
+						<li class="yellow our_games">More Games</li>
+						<li class="game_categories">Game Categories <img class="full_image" data-src="http://www.glu.com/images/glu_triangle_full.png" alt="Down arrow" />
+															<ul>
+										<li><a href="http://www.glu.com/games/genre/all">All</a></li>
+										<li><a href="http://www.glu.com/games/">Featured</a></li>
+																			<li><a href="http://www.glu.com/games/genre/23">Action/Adventure</a></li>
+																			<li><a href="http://www.glu.com/games/genre/28">Casual</a></li>
+																			<li><a href="http://www.glu.com/games/genre/25">Family</a></li>
+																			<li><a href="http://www.glu.com/games/genre/27">FPS/TPS</a></li>
+																			<li><a href="http://www.glu.com/games/genre/30">MMO/RPG</a></li>
+																			<li><a href="http://www.glu.com/games/genre/24">Multiplayer</a></li>
+																			<li><a href="http://www.glu.com/games/genre/26">Racing</a></li>
+																			<li><a href="http://www.glu.com/games/genre/32">Strategy</a></li>
+																			<li><a href="http://www.glu.com/games/genre/31">Zombies</a></li>
+																	</ul>
+													</li>
+						<li class="all_games"><a href="http://www.glu.com/games/genre/all">All Games <img class="full_image plus" data-src="http://www.glu.com/images/glu_plus_icon_full.png"></a></li>
+						
+					</ul>
+					
+				</div>
+			
+				<div class="games home">
+				
+					
+							<div class="game mobile">
+							
+								<h3 class="game_name">Kendall & Kylie</h3>
+								
+								<div class="game_info">
+									
+									<div class="get">
+										<a class="button" href="http://www.glu.com/games/view/kendall-and-kylie">Get It Now</a>
+									</div>
+
+									<div class="game_deets">
+										<ul>
+											<li>Casual</li>
+											<li>Released: 2/16/2016</li>
+										</ul>
+									</div>
+
+									<div class="game_availability">
+										<ul>
+											<li>Available for:</li>
+											<li>
+												<a href="http://bit.ly/1KVfgsE" target="_blank">iPhone/iPad</a> | <a href="http://bit.ly/1RLaJKW" target="_blank">Google Play</a>											</li>
+										</ul>
+									</div>
+									
+								</div>
+								
+								<div class="box_art">
+									<a href="http://www.glu.com/games/view/kendall-and-kylie">
+										<img class="mobile_image" data-src-mobile="http://glu-ggn-assets-146154827.us-east-1.elb.amazonaws.com/ELYUvo3r23Ctz2aC_thumb.png" data-src="http://glu-ggn-assets-146154827.us-east-1.elb.amazonaws.com/ELYUvo3r23Ctz2aC_mobile.png" data-src-large="http://glu-ggn-assets-146154827.us-east-1.elb.amazonaws.com/ELYUvo3r23Ctz2aC.png" alt="Box Art" />
+									</a>
+								</div>
+																
+							</div>
+
+					
+										
+					
+							<div class="game mobile">
+							
+								<h3 class="game_name">Cooking Dash 2016</h3>
+								
+								<div class="game_info">
+									
+									<div class="get">
+										<a class="button" href="http://www.glu.com/games/view/cooking-dash-2016">Get It Now</a>
+									</div>
+
+									<div class="game_deets">
+										<ul>
+											<li>Casual, Family</li>
+											<li>Released: 6/16/2015</li>
+										</ul>
+									</div>
+
+									<div class="game_availability">
+										<ul>
+											<li>Available for:</li>
+											<li>
+												<a href="https://itunes.apple.com/us/app/cooking-dash-2016/id978866413?mt=8" target="_blank">iPhone/iPad</a> | <a href="https://play.google.com/store/apps/details?id=com.playfirst.cookingdashx&hl=en" target="_blank">Google Play</a> | <a href="http://www.amazon.com/Glu-Mobile-Inc-COOKING-DASH/dp/B00YQACP5I" target="_blank">Amazon</a>											</li>
+										</ul>
+									</div>
+									
+								</div>
+								
+								<div class="box_art">
+									<a href="http://www.glu.com/games/view/cooking-dash-2016">
+										<img class="mobile_image" data-src-mobile="http://glu-ggn-assets-146154827.us-east-1.elb.amazonaws.com/lKG4GrMx2OC5Fknj_thumb.jpeg" data-src="http://glu-ggn-assets-146154827.us-east-1.elb.amazonaws.com/lKG4GrMx2OC5Fknj_mobile.jpeg" data-src-large="http://glu-ggn-assets-146154827.us-east-1.elb.amazonaws.com/lKG4GrMx2OC5Fknj.jpeg" alt="Box Art" />
+									</a>
+								</div>
+																
+							</div>
+
+					
+										
+					
+							<div class="game mobile">
+							
+								<h3 class="game_name">Tap Sports Baseball 2015</h3>
+								
+								<div class="game_info">
+									
+									<div class="get">
+										<a class="button" href="http://www.glu.com/games/view/tap-sports-baseball-2015">Get It Now</a>
+									</div>
+
+									<div class="game_deets">
+										<ul>
+											<li>Casual, Family, Multiplayer</li>
+											<li>Released: 4/1/2015</li>
+										</ul>
+									</div>
+
+									<div class="game_availability">
+										<ul>
+											<li>Available for:</li>
+											<li>
+												<a href="https://itunes.apple.com/us/app/tap-sports-baseball-2015/id952758849?mt=8" target="_blank">iPhone/iPad</a> | <a href="https://play.google.com/store/apps/details?id=com.glu.baseball15&hl=en" target="_blank">Google Play</a> | <a href="http://bit.ly/tsb15amazon" target="_blank">Amazon</a>											</li>
+										</ul>
+									</div>
+									
+								</div>
+								
+								<div class="box_art">
+									<a href="http://www.glu.com/games/view/tap-sports-baseball-2015">
+										<img class="mobile_image" data-src-mobile="http://glu-ggn-assets-146154827.us-east-1.elb.amazonaws.com/OtrXXeUCxcbsvxPU_thumb.jpg" data-src="http://glu-ggn-assets-146154827.us-east-1.elb.amazonaws.com/OtrXXeUCxcbsvxPU_mobile.jpg" data-src-large="http://glu-ggn-assets-146154827.us-east-1.elb.amazonaws.com/OtrXXeUCxcbsvxPU.jpg" alt="Box Art" />
+									</a>
+								</div>
+																
+							</div>
+
+					
+										
+					
+							<div class="game mobile">
+							
+								<h3 class="game_name">Kim Kardashian: Hollywood</h3>
+								
+								<div class="game_info">
+									
+									<div class="get">
+										<a class="button" href="http://www.glu.com/games/view/kim-kardashian-hollywood">Get It Now</a>
+									</div>
+
+									<div class="game_deets">
+										<ul>
+											<li>Casual, Family</li>
+											<li>Released: 10/2/2014</li>
+										</ul>
+									</div>
+
+									<div class="game_availability">
+										<ul>
+											<li>Available for:</li>
+											<li>
+												<a href="https://itunes.apple.com/us/app/kim-kardashian-hollywood/id860822992?mt=8" target="_blank">iPhone/iPad</a> | <a href="https://play.google.com/store/apps/details?id=com.glu.stardomkim&hl=en" target="_blank">Google Play</a> | <a href="http://www.amazon.com/Glu-Mobile-Inc-KIM-KARDASHIAN/dp/B00LBH2UMM" target="_blank">Amazon</a> | <a href="https://apps.facebook.com/stardomk/" target="_blank">Facebook</a>											</li>
+										</ul>
+									</div>
+									
+								</div>
+								
+								<div class="box_art">
+									<a href="http://www.glu.com/games/view/kim-kardashian-hollywood">
+										<img class="mobile_image" data-src-mobile="http://glu-ggn-assets-146154827.us-east-1.elb.amazonaws.com/KBP9afnPBdDPA65F_thumb.jpg" data-src="http://glu-ggn-assets-146154827.us-east-1.elb.amazonaws.com/KBP9afnPBdDPA65F_mobile.jpg" data-src-large="http://glu-ggn-assets-146154827.us-east-1.elb.amazonaws.com/KBP9afnPBdDPA65F.jpg" alt="Box Art" />
+									</a>
+								</div>
+																
+							</div>
+
+					
+										
+					
+							<div class="game mobile">
+							
+								<h3 class="game_name">Racing Rivals</h3>
+								
+								<div class="game_info">
+									
+									<div class="get">
+										<a class="button" href="http://www.glu.com/games/view/racing-rivals">Get It Now</a>
+									</div>
+
+									<div class="game_deets">
+										<ul>
+											<li>Action/Adventure, Multiplayer, Racing</li>
+											<li>Released: 9/4/2014</li>
+										</ul>
+									</div>
+
+									<div class="game_availability">
+										<ul>
+											<li>Available for:</li>
+											<li>
+												<a href="https://itunes.apple.com/us/app/racing-rivals/id604186826?mt=8" target="_blank">iPhone/iPad</a> | <a href="https://play.google.com/store/apps/details?id=com.ciegames.RacingRivals" target="_blank">Google Play</a> | <a href="http://www.amazon.com/gp/product/B00LV9X5U6" target="_blank">Amazon</a> | <a href="https://apps.facebook.com/racingrivals/" target="_blank">Facebook</a>											</li>
+										</ul>
+									</div>
+									
+								</div>
+								
+								<div class="box_art">
+									<a href="http://www.glu.com/games/view/racing-rivals">
+										<img class="mobile_image" data-src-mobile="http://glu-ggn-assets-146154827.us-east-1.elb.amazonaws.com/br3sEIqHzWEWDrc6_thumb.jpg" data-src="http://glu-ggn-assets-146154827.us-east-1.elb.amazonaws.com/br3sEIqHzWEWDrc6_mobile.jpg" data-src-large="http://glu-ggn-assets-146154827.us-east-1.elb.amazonaws.com/br3sEIqHzWEWDrc6.jpg" alt="Box Art" />
+									</a>
+								</div>
+																
+							</div>
+
+					
+										
+							<div class="game full first">
+								
+								<div class="box_art">
+									
+									<a href="http://www.glu.com/games/view/racing-rivals">
+										<img class="full_image rounded_image" alt="box art" data-src="http://glu-ggn-assets-146154827.us-east-1.elb.amazonaws.com/br3sEIqHzWEWDrc6_thumb.jpg" />
+									</a>
+									
+								</div>
+								
+								<div class="game_deets">
+									
+									<h1><a href="http://www.glu.com/games/view/racing-rivals">Racing Rivals</a></h1>
+									
+									<p>
+										Download: 
+										<a href='https://itunes.apple.com/us/app/racing-rivals/id604186826?mt=8' target='_blank'>iPhone/iPad</a> | <a href='https://play.google.com/store/apps/details?id=com.ciegames.RacingRivals' target='_blank'>Google Play</a> | <a href='http://www.amazon.com/gp/product/B00LV9X5U6' target='_blank'>Amazon</a> | <a href='https://apps.facebook.com/racingrivals/' target='_blank'>Facebook</a>									</p>
+									
+									<p>Genre: Action/Adventure, Multiplayer, Racing</p>
+									
+									<p>Live Opponents. Real Competition <a href="http://www.glu.com/games/view/racing-rivals">More.</a></p>
+									
+								</div>
+								
+							</div>
+					
+										
+									
+				</div>
+			
+			</div>
+			
+		</div>
+		
+	</div>
+	
+
+	<div class="footer_wrapper clear">
+	
+		<div class="footer">
+			
+			<ul class="nav full">
+				
+				<li><a href="http://www.glu.com/">Home</a></li>
+				<li>|</li>
+				<li><a href="http://www.glu.com/games/genre/all">Games</a></li>
+				<li>|</li>
+				<li><a href="http://www.glu.com/news/category/all">News</a></li>
+				<li>|</li>
+				<li><a href="http://www.glu.com/community">Community</a></li>
+				<li>|</li>
+				<li><a href="http://www.glu.com/support">Support</a></li>
+				<li>|</li>
+				<li><a href="http://www.glu.com/careers">Careers</a></li>
+				<li>|</li>
+				<!-- <li><a href="http://www.glu.com/glu_global">Glu Global</a></li>
+				<li>|</li> -->
+				<li><a href="http://www.glu.com/contact">Contact</a></li>
+				<li>|</li>
+				<li><a href="http://www.glu.com/about">About</a></li>
+				<li>|</li>
+				<li><a href="http://phx.corporate-ir.net/phoenix.zhtml?c=207033&p=irol-news&nyo=0" target="_blank">Press</a></li>
+				<li>|</li>
+				<li><a href="http://phx.corporate-ir.net/phoenix.zhtml?c=207033&p=irol-irhome" target="_blank">Investors</a></li>
+				<li>|</li>
+				<li><a href="http://www.glu.com/privacy">Privacy</a></li>
+				<li>|</li>
+				<li><a href="http://www.glu.com/terms">Terms</a></li>
+				
+			</ul>
+			
+			<ul class="nav mobile">
+				
+				<li><a href="http://www.glu.com/careers">Careers</a></li>
+				<li>|</li>
+				<li><a href="http://www.glu.com/about">About</a></li>
+				<li>|</li>
+				<li><a href="http://www.glu.com/contact">Contact</a></li>
+				<li>|</li>
+				<li><a href="http://phx.corporate-ir.net/phoenix.zhtml?c=207033&p=irol-irhome" target="_blank">Investors</a></li>
+				<li>|</li>
+				<li><a href="http://www.glu.com/privacy">Privacy</a></li>
+				<li>|</li>
+				<li><a href="http://www.glu.com/terms">Terms</a></li>
+				
+			</ul>
+			
+			<div class="copyright">
+				<p>&copy;2014 Glu Mobile Inc All Rights Reserved</p>
+			</div>
+			
+		</div>
+	
+	</div>
+	
+	<script type="text/javascript">
+	
+		function loadMobileImages()
+		{
+			$(".mobile_image").each(function()
+			{
+				var img_src = $(this).attr("data-src-mobile");
+	
+				$(this).attr("src", img_src);
+			});
+		}
+		
+		
+		function loadMediumMobileImages()
+		{
+			$(".mobile_image").each(function()
+			{
+				var img_src = $(this).attr("data-src");
+	
+				$(this).attr("src", img_src);
+			});
+		}
+		
+		
+		function loadLargeMobileImages()
+		{
+			$(".mobile_image").each(function()
+			{
+				var img_src = $(this).attr("data-src-large");
+	
+				$(this).attr("src", img_src);
+			});
+		}
+		
+		
+		function loadFullImages()
+		{
+			$(".full_image").each(function()
+			{
+				var img_src = $(this).data("src");
+
+				$(this).attr("src", img_src);
+			});
+		}
+		
+		
+		$(document).ready(function()
+		{
+			if(is_touch_device)
+			{
+				//display mobile images
+				if(window.matchMedia("(min-width: 20em)").matches && window.matchMedia("(max-width: 30em)").matches)
+				{
+					loadMobileImages();
+				}
+
+				//display medium images
+				if(window.matchMedia("(min-width: 30em)").matches && window.matchMedia("(max-width: 48em)").matches)
+				{
+					loadMediumMobileImages();
+				}
+
+				//display large mobile images
+				if(window.matchMedia("(min-width: 48em)").matches)
+				{
+					loadLargeMobileImages();
+				}
+			}
+			else
+			{
+				loadFullImages();
+			}
+		});
+	
+	</script>
+
+	<!-- Google Analytics Code -->
+                <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-44034331-1', 'glu.com');
+  ga('send', 'pageview');
+
+</script>
+	
+</body>

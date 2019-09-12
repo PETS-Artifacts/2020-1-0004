@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <!--[if IE]><![endif]-->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o||n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({1:[function(e,n,t){function r(){}function o(e,n,t){return function(){return i(e,[c.now()].concat(u(arguments)),n?null:this,t),n?void 0:this}}var i=e("handle"),a=e(2),u=e(3),f=e("ee").get("tracer"),c=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,n){s[n]=o(d+n,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,o="function"==typeof n;return i(l+"tracer",[c.now(),e,t],r),function(){if(f.emit((o?"":"no-")+"fn-start",[c.now(),r,o],t),o)try{return n.apply(this,arguments)}finally{f.emit("fn-end",[c.now()],t)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=o(l+n)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,c.now()])}},{}],2:[function(e,n,t){function r(e,n){var t=[],r="",i=0;for(r in e)o.call(e,r)&&(t[i]=n(r,e[r]),i+=1);return t}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],3:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(o<0?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=r},{}],4:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function o(e){function n(e){return e&&e instanceof r?e:e?f(e,u,i):i()}function t(t,r,o,i){if(!d.aborted||i){e&&e(t,r,o);for(var a=n(o),u=m(t),f=u.length,c=0;c<f;c++)u[c].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function l(e,n){v[e]=m(e).concat(n)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(t)}function g(e,n){c(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var v={},y={},b={on:l,emit:t,get:w,listeners:m,context:n,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",f=e("gos"),c=e(2),s={},p={},d=n.exports=o();d.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(o.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){o.buffer([e],r),o.emit(e,n,t)}var o=e("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!x++){var e=h.info=NREUM.info,n=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();c(y,function(n,t){e[n]||(e[n]=t)}),f("mark",["onload",a()+h.offset],null,"api");var t=d.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function o(){"complete"===d.readyState&&i()}function i(){f("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),f=e("handle"),c=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1039.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=n.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),f("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+<link rel="shortcut icon" href="https://www.seas.harvard.edu/favicon.ico" type="image/vnd.microsoft.icon" />
+<script type="text/javascript">var _sf_startpt=(new Date()).getTime();</script>
+<meta name="description" content="This Privacy Policy discloses the privacy practices for www.seas.harvard.edu.What information do we gather about you?We collect information from you when you access www.seas.harvard.edu." />
+<meta name="generator" content="Drupal 7 (http://drupal.org)" />
+<link rel="canonical" href="https://www.seas.harvard.edu/privacy-policy" />
+<link rel="shortlink" href="https://www.seas.harvard.edu/node/23776" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:url" content="https://www.seas.harvard.edu/privacy-policy" />
+<meta name="twitter:title" content="Privacy Policy" />
+<meta name="twitter:description" content="This Privacy Policy discloses the privacy practices for www.seas.harvard.edu.What information do we gather about you?We collect information from you when you access www.seas.harvard.edu." />
+<meta name="dcterms.title" content="Privacy Policy" />
+<meta name="dcterms.date" content="2013-03-27" />
+<meta name="dcterms.type" content="Text" />
+<meta name="dcterms.format" content="text/html" />
+<meta name="dcterms.identifier" content="https://www.seas.harvard.edu/privacy-policy" />
+<meta name="pagetype" content="Content" />
+  <title>Privacy Policy | Harvard John A. Paulson School of Engineering and Applied Sciences</title>  
+  <link type="text/css" rel="stylesheet" href="https://www.seas.harvard.edu/sites/default/files/advagg_css/css__BJ6Ou6QsBRtnFTmxaakamOIS8n4QswDP2XnnZ1sxtaM__NBuvkP6eInGIkb1aJvUHx5PX79XApuxBDkk_77W5tYk__4Cfh1eboCLxqP4Svx_9aCZpk8IpLpgEzmNf3DjT1dro.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://www.seas.harvard.edu/sites/default/files/advagg_css/css__BVK3MsqV725V49Sf85fuVgFB3zALY1vcdbzZKiq482Q__nBpV3Zd2TwkMQygaG4H_-KCkK9-invGqS8VH-XeUcS4__4Cfh1eboCLxqP4Svx_9aCZpk8IpLpgEzmNf3DjT1dro.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://www.seas.harvard.edu/sites/default/files/advagg_css/css__AOn_U0g1T4byAZkUuaOkiiAFUoPxum9mYa91EYxZ6DY__deIXkmJdcOrRSELzzpJlAL6uN3wYMWw-40GerJiObL4__4Cfh1eboCLxqP4Svx_9aCZpk8IpLpgEzmNf3DjT1dro.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://www.seas.harvard.edu/sites/default/files/advagg_css/css__T-tLGqyJZPSl87dLFk7ouiiXrAPZDMdxh6yogL0HRVY__ohYLwOEDNrV-QFA-MzeTIgAVhFmaE1GsGh0TOzgJZM4__4Cfh1eboCLxqP4Svx_9aCZpk8IpLpgEzmNf3DjT1dro.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://www.seas.harvard.edu/sites/default/files/advagg_css/css__X7Mk_v03lTe10zGV_leWq5ResAp8xmDbeT5CbfT4B3c__YCJGOg9-XZc2oji-GbqeIeFIf2135zsLr7otf3K3G0g__4Cfh1eboCLxqP4Svx_9aCZpk8IpLpgEzmNf3DjT1dro.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,600,700,800|Open+Sans+Condensed:700|Oswald:700|Rambla:regular|Roboto+Condensed:700&amp;subset=latin" media="all" />
+<link type="text/css" rel="stylesheet" href="https://www.seas.harvard.edu/sites/default/files/advagg_css/css__nTNcCW_riRxXHfuhBfYI4mwto8UVfEvhovCHbeTFWLQ__OPzCS4ud-zzXetEeNx-kkyIwrmQHd-yIM3Uy0meBj9M__4Cfh1eboCLxqP4Svx_9aCZpk8IpLpgEzmNf3DjT1dro.css" media="all" />
+
+<!--[if lt IE 9]>
+<link type="text/css" rel="stylesheet" href="https://www.seas.harvard.edu/sites/all/themes/omega/seas2013/css/seas-alpha-default-narrow.css?osce0e" media="all" />
+<![endif]-->
+
+<!--[if lt IE 9]>
+<link type="text/css" rel="stylesheet" href="https://www.seas.harvard.edu/sites/all/themes/omega/seas2013/css/seas-alpha-default-normal.css?osce0e" media="all" />
+<![endif]-->
+
+<!--[if lt IE 9]>
+<link type="text/css" rel="stylesheet" href="https://www.seas.harvard.edu/sites/all/themes/omega/seas2013/css/ie.css?osce0e" media="all" />
+<![endif]-->
+
+<!--[if lt IE 7]>
+<link type="text/css" rel="stylesheet" href="https://www.seas.harvard.edu/sites/all/themes/omega/seas2013/css/ie6.css?osce0e" media="all" />
+<![endif]-->
+
+<!--[if (lt IE 9)&(!IEMobile)]>
+<link type="text/css" rel="stylesheet" href="https://www.seas.harvard.edu/sites/default/files/advagg_css/css__aU8PWFMho6vAsdeUeoTCEwpU3cntpaPr5fiT3H6-lCc__ZwpoDITEa3oYmoVDK-NpZW06Gj53wOKCSsMXJt5UhT0__4Cfh1eboCLxqP4Svx_9aCZpk8IpLpgEzmNf3DjT1dro.css" media="all" />
+<![endif]-->
+
+<!--[if gte IE 9]><!-->
+<link type="text/css" rel="stylesheet" href="https://www.seas.harvard.edu/sites/default/files/advagg_css/css__9riiN29FmfkXHGDUzvtQoRa7sjskduLlaPbe_ryqrtU__c4HoI0vDSlnWTdhCbLsx5NtlgXodhvrQfdwXsCweNww__4Cfh1eboCLxqP4Svx_9aCZpk8IpLpgEzmNf3DjT1dro.css" media="all" />
+<!--<![endif]-->
+  <script type="text/javascript">
+<!--//--><![CDATA[//><!--
+document.cookie = 'adaptive_image=' + Math.max(screen.width, screen.height) + '; path=/';
+//--><!]]>
+</script>
+<script type="text/javascript" src="https://www.seas.harvard.edu/sites/default/files/advagg_js/js__zlP_G92Vv9IzbElR725ovoWUkwub30P27WjQd7mu8ug__5TxyCYXswcwoBkNauGABDcgKYNqqKolJsPEUp1AXvZo__4Cfh1eboCLxqP4Svx_9aCZpk8IpLpgEzmNf3DjT1dro.js"></script>
+<script type="text/javascript" src="https://www.seas.harvard.edu/sites/default/files/advagg_js/js__MHuIcVWerYyS5uJx8Zgtn-zPYxqiZjesKvMwzQkIbcY__L9yjp3xh3QrRG1rZBfx7l4GIvV6ovN4Coa2ArnN6AkQ__4Cfh1eboCLxqP4Svx_9aCZpk8IpLpgEzmNf3DjT1dro.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"seas2013","theme_token":"oa-FfzEptn-7zlWZmH3Eg4f0eilCYGfnznqHEx1ykf8","css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"misc\/ui\/jquery.ui.core.css":1,"misc\/ui\/jquery.ui.theme.css":1,"misc\/ui\/jquery.ui.menu.css":1,"misc\/ui\/jquery.ui.autocomplete.css":1,"sites\/all\/modules\/adaptive_image\/css\/adaptive-image.css":1,"sites\/all\/modules\/calendar\/css\/calendar_multiday.css":1,"sites\/all\/modules\/date\/date_api\/date.css":1,"modules\/field\/theme\/field.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"sites\/all\/modules\/seas_academic_vis_json\/css\/acadvis.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/views\/css\/views.css":1,"sites\/all\/modules\/ckeditor\/css\/ckeditor.css":1,"sites\/all\/modules\/chartbeat\/chartbeat.css":1,"sites\/all\/modules\/ctools\/css\/ctools.css":1,"sites\/all\/libraries\/fontawesome\/css\/font-awesome.css":1,"sites\/all\/themes\/omega\/alpha\/css\/alpha-reset.css":1,"sites\/all\/themes\/omega\/alpha\/css\/alpha-mobile.css":1,"sites\/all\/themes\/omega\/alpha\/css\/alpha-alpha.css":1,"sites\/all\/themes\/omega\/omega\/css\/formalize.css":1,"sites\/all\/themes\/omega\/omega\/css\/omega-text.css":1,"sites\/all\/themes\/omega\/omega\/css\/omega-branding.css":1,"sites\/all\/themes\/omega\/omega\/css\/omega-menu.css":1,"sites\/all\/themes\/omega\/omega\/css\/omega-forms.css":1,"sites\/all\/themes\/omega\/omega\/css\/omega-visuals.css":1,"https:\/\/fonts.googleapis.com\/css?family=Open+Sans:300,600,700,800|Open+Sans+Condensed:700|Oswald:700|Rambla:regular|Roboto+Condensed:700\u0026subset=latin":1,"sites\/all\/themes\/omega\/seas2013\/css\/global.css":1,"sites\/all\/themes\/omega\/seas2013\/css\/seas-alpha-default-narrow.css":1,"sites\/all\/themes\/omega\/seas2013\/css\/seas-alpha-default-normal.css":1,"sites\/all\/themes\/omega\/seas2013\/css\/ie.css":1,"sites\/all\/themes\/omega\/seas2013\/css\/ie6.css":1,"ie::normal::sites\/all\/themes\/omega\/seas2013\/css\/seas2013-alpha-default.css":1,"ie::normal::sites\/all\/themes\/omega\/seas2013\/css\/seas2013-alpha-default-normal.css":1,"ie::normal::sites\/all\/themes\/omega\/alpha\/css\/grid\/alpha_default\/normal\/alpha-default-normal-12.css":1,"narrow::sites\/all\/themes\/omega\/seas2013\/css\/seas2013-alpha-default.css":1,"narrow::sites\/all\/themes\/omega\/seas2013\/css\/seas2013-alpha-default-narrow.css":1,"sites\/all\/themes\/omega\/alpha\/css\/grid\/alpha_default\/narrow\/alpha-default-narrow-12.css":1,"normal::sites\/all\/themes\/omega\/seas2013\/css\/seas2013-alpha-default.css":1,"normal::sites\/all\/themes\/omega\/seas2013\/css\/seas2013-alpha-default-normal.css":1,"sites\/all\/themes\/omega\/alpha\/css\/grid\/alpha_default\/normal\/alpha-default-normal-12.css":1,"wide::sites\/all\/themes\/omega\/seas2013\/css\/seas2013-alpha-default.css":1,"wide::sites\/all\/themes\/omega\/seas2013\/css\/seas2013-alpha-default-wide.css":1,"sites\/all\/themes\/omega\/alpha\/css\/grid\/alpha_default\/wide\/alpha-default-wide-12.css":1},"js":{"sites\/all\/libraries\/jquery\/jquery-1.8.3.min.js":1,"sites\/all\/libraries\/hoverintent\/jquery.hoverIntent.minified.js":1,"sites\/all\/modules\/jqmulti\/js\/switch.js":1,"sites\/all\/modules\/gss\/scripts\/autocomplete.js":1,"sites\/all\/libraries\/scrolldepth\/jquery.scrolldepth.min.js":1,"sites\/all\/modules\/google_analytics\/googleanalytics.js":1,"sites\/all\/themes\/omega\/omega\/js\/jquery.formalize.js":1,"sites\/all\/themes\/omega\/omega\/js\/omega-mediaqueries.js":1,"sites\/all\/themes\/omega\/seas2013\/js\/jquery.cycle.all.js":1,"sites\/all\/themes\/omega\/seas2013\/js\/seas.js":1,"sites\/all\/modules\/jquery_update\/replace\/jquery\/1.8\/jquery.min.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/modules\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.core.min.js":1,"sites\/all\/modules\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.widget.min.js":1,"sites\/all\/modules\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.position.min.js":1,"sites\/all\/modules\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.menu.min.js":1,"sites\/all\/modules\/jquery_update\/replace\/ui\/ui\/minified\/jquery.ui.autocomplete.min.js":1,"sites\/all\/modules\/waypoints\/waypoints.min.js":1}},"chartbeat":{"uid":7516,"domain":"www.seas.harvard.edu","useCanonical":true,"noCookies":false},"gss":{"key":"017820767913562127041:jeuc3kjer_y"},"googleanalytics":{"trackOutbound":1,"trackMailto":1,"trackDownload":1,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc(x|m)?|dot(x|m)?|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt(x|m)?|pot(x|m)?|pps(x|m)?|ppam|sld(x|m)?|thmx|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls(x|m|b)?|xlt(x|m)|xlam|xml|z|zip"},"urlIsAjaxTrusted":{"\/privacy-policy":true},"ogContext":{"groupType":"node","gid":"27626"},"omega":{"layouts":{"primary":"normal","order":["narrow","normal","wide"],"queries":{"narrow":"all and (min-width: 740px) and (min-device-width: 740px), (max-device-width: 979px) and (min-width: 740px) and (orientation:landscape)","normal":"all and (min-width: 980px) and (min-device-width: 980px), all and (max-device-width: 1024px) and (min-width: 1024px) and (orientation:landscape)","wide":"all and (min-width: 1220px)"}}}});
+//--><!]]>
+</script>
+  <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+</head>
+<body class="html not-front not-logged-in no-sidebars page-node page-node- page-node-23776 node-type-g-content og-context og-context-node og-context-node-27626 context-privacy-policy">
+  <div id="skip-link">
+    <a href="#main-content" class="element-invisible element-focusable">Skip to main content</a>
+  </div>
+  <div class="region region-page-top" id="region-page-top">
+  <div class="region-inner region-page-top-inner">
+      </div>
+</div>  <div class="page clearfix" id="page">
+	<div id="headerwrapper">
+					<header id="section-header" class="section section-header">
+  <div id="zone-branding-wrapper" class="zone-wrapper zone-branding-wrapper clearfix">  
+  <div id="zone-branding" class="zone zone-branding clearfix container-12">
+    <div class="grid-12 region region-branding" id="region-branding">
+  <div class="region-inner region-branding-inner">
+        <div class="block block-delta-blocks block-logo block-delta-blocks-logo odd block-without-title" id="block-delta-blocks-logo">
+  <div class="block-inner clearfix">
+                
+    <div class="content clearfix">
+      <div class="logo-img"><a href="/" id="logo" title="Return to the Harvard John A. Paulson School of Engineering and Applied Sciences home page"><img src="https://www.seas.harvard.edu/sites/default/files/seaslogo_temp_spaced.png" alt="Harvard John A. Paulson School of Engineering and Applied Sciences" /></a></div>    </div>
+  </div>
+</div><div class="block block-search block-form block-search-form even block-without-title" id="block-search-form">
+  <div class="block-inner clearfix">
+                
+    <div class="content clearfix">
+      <form class="gss" action="/privacy-policy" method="post" id="search-block-form" accept-charset="UTF-8"><div><div class="container-inline">
+      <h2 class="element-invisible">Search form</h2>
+    <div class="form-item form-type-textfield form-item-search-block-form">
+  <label class="element-invisible" for="edit-search-block-form--2">Search </label>
+ <input title="Enter the terms you wish to search for." type="text" id="edit-search-block-form--2" name="search_block_form" value="" size="15" maxlength="128" class="form-text" />
+</div>
+<div class="form-actions form-wrapper" id="edit-actions"><input type="submit" id="edit-submit" name="op" value="Search" class="form-submit" /></div><div id="edit-searchtype" class="form-radios"><div class="form-item form-type-radio form-item-searchtype">
+ <input type="radio" id="edit-searchtype-0" name="searchtype" value="0" checked="checked" class="form-radio" />  <label class="option" for="edit-searchtype-0">Site </label>
+
+</div>
+<div class="form-item form-type-radio form-item-searchtype">
+ <input type="radio" id="edit-searchtype-1" name="searchtype" value="1" class="form-radio" />  <label class="option" for="edit-searchtype-1">People </label>
+
+</div>
+</div><input type="hidden" name="form_build_id" value="form-7bB9FuMdmSWttqSugxGyPxn4nb5D9UJ_Z3V6OQ-ZFpM" />
+<input type="hidden" name="form_id" value="search_block_form" />
+</div>
+</div></form>    </div>
+  </div>
+</div><div class="block block-block block-56 block-block-56 odd block-without-title" id="block-block-56">
+  <div class="block-inner clearfix">
+                
+    <div class="content clearfix">
+      <div class="phone-link"><a href="/menu" class="view-menu"><span>Menu</span></a></div>    </div>
+  </div>
+</div>  </div>
+</div>  </div>
+</div><div id="zone-menu-wrapper" class="zone-wrapper zone-menu-wrapper clearfix">  
+  <div id="zone-menu" class="zone zone-menu clearfix container-12">
+    <div class="grid-12 region region-menu" id="region-menu">
+  <div class="region-inner region-menu-inner">
+          </div>
+</div>
+  </div>
+</div></header>			</div>
+	
+			<section id="section-content" class="section section-content">
+  <div id="zone-preface-wrapper" class="zone-wrapper zone-preface-wrapper clearfix">  
+  <div id="zone-preface" class="zone zone-preface clearfix container-12">
+    <div class="grid-12 region region-preface-second" id="region-preface-second">
+  <div class="region-inner region-preface-second-inner">
+    <div class="block block-system block-menu block-main-menu block-system-main-menu odd block-without-title" id="block-system-main-menu">
+  <div class="block-inner clearfix">
+                
+    <div class="content clearfix">
+      <ul class="menu"><li class="first expanded" id="main-menuAboutSEAS"><a href="/about-seas" title=""><span class="outer"><span class="inner">About SEAS</span></span></a><ul class="menu"><li class="first leaf" id="main-menuHistory"><a href="/about-seas/history-seas" title=""><span class="outer"><span class="inner">History</span></span></a></li>
+<li class="leaf" id="main-menuLeadership"><a href="/administration/leadership" title=""><span class="outer"><span class="inner">Leadership</span></span></a></li>
+<li class="leaf" id="main-menuTeachingAreas"><a href="/about-seas/teaching-areas" title=""><span class="outer"><span class="inner">Teaching Areas</span></span></a></li>
+<li class="leaf" id="main-menuDirectory"><a href="http://www.seas.harvard.edu/directory" title=""><span class="outer"><span class="inner">Directory</span></span></a></li>
+<li class="leaf" id="main-menuVisitUs"><a href="/visit-us" title=""><span class="outer"><span class="inner">Visit Us</span></span></a></li>
+<li class="last leaf" id="main-menuEmploymentOpportunities"><a href="/about-seas/employment" title=""><span class="outer"><span class="inner">Employment Opportunities</span></span></a></li>
+</ul></li>
+<li class="expanded" id="main-menuAcademics"><a href="/academics" title=""><span class="outer"><span class="inner">Academics</span></span></a><ul class="menu"><li class="first leaf" id="main-menuUndergraduatePrograms"><a href="/academics/undergraduate" title=""><span class="outer"><span class="inner">Undergraduate Programs</span></span></a></li>
+<li class="leaf" id="main-menuGraduatePrograms"><a href="/academics/graduate" title=""><span class="outer"><span class="inner">Graduate Programs</span></span></a></li>
+<li class="leaf" id="main-menuCourses"><a href="/academics/courses" title=""><span class="outer"><span class="inner">Courses</span></span></a></li>
+<li class="last leaf" id="main-menuApply"><a href="/academics/how-to-apply" title=""><span class="outer"><span class="inner">Apply</span></span></a></li>
+</ul></li>
+<li class="expanded" id="main-menuFacultyResearch"><a href="/faculty-research" title=""><span class="outer"><span class="inner">Faculty & Research</span></span></a><ul class="menu"><li class="first leaf" id="main-menuPeople"><a href="/faculty-research/people" title=""><span class="outer"><span class="inner">People</span></span></a></li>
+<li class="leaf" id="main-menuResearchInterests"><a href="/faculty-research/research" title=""><span class="outer"><span class="inner">Research Interests</span></span></a></li>
+<li class="leaf" id="main-menuCentersInitiatives"><a href="/faculty-research/centers-initiatives" title=""><span class="outer"><span class="inner">Centers & Initiatives</span></span></a></li>
+<li class="last leaf" id="main-menuUndergraduateResearch"><a href="/faculty-research/research-opportunities" title=""><span class="outer"><span class="inner">Undergraduate Research</span></span></a></li>
+</ul></li>
+<li class="expanded" id="main-menuNewsEvents"><a href="/news" title=""><span class="outer"><span class="inner">News & Events</span></span></a><ul class="menu"><li class="first leaf" id="main-menuCalendarsColloquia"><a href="/events" title=""><span class="outer"><span class="inner">Calendars & Colloquia</span></span></a></li>
+<li class="last leaf" id="main-menuFortheMedia"><a href="/news-events/for-the-media" title=""><span class="outer"><span class="inner">For the Media</span></span></a></li>
+</ul></li>
+<li class="expanded" id="main-menuOfficesServices"><a href="/offices-services" title=""><span class="outer"><span class="inner">Offices & Services</span></span></a><ul class="menu"><li class="first leaf" id="main-menuOfficeoftheDean"><a href="/deans-office" title=""><span class="outer"><span class="inner">Office of the Dean</span></span></a></li>
+<li class="leaf" id="main-menuComputing"><a href="/computing-office" title=""><span class="outer"><span class="inner">Computing</span></span></a></li>
+<li class="leaf" id="main-menuHumanResources"><a href="/human-resources" title=""><span class="outer"><span class="inner">Human Resources</span></span></a></li>
+<li class="leaf" id="main-menuAcademicPrograms"><a href="/office-academic-programs" title=""><span class="outer"><span class="inner">Academic Programs</span></span></a></li>
+<li class="leaf" id="main-menuFinance"><a href="/finance" title=""><span class="outer"><span class="inner">Finance</span></span></a></li>
+<li class="last leaf" id="main-menuMoreOffices"><a href="/offices-services" title=""><span class="outer"><span class="inner">More Offices...</span></span></a></li>
+</ul></li>
+<li class="last expanded" id="main-menuMakeaGift"><a href="http://campaign.harvard.edu/fas/priority/school-of-engineering-and-applied-sciences" title=""><span class="outer"><span class="inner">Make a Gift</span></span></a><ul class="menu"><li class="first last leaf" id="main-menuLearnhowyourgiftsupportsinnovativeteachingandcuttingedgeresearchatSEAS"><span title="" class="nolink"><span class="outer"><span class="inner">Learn how your gift supports innovative teaching and cutting-edge research at SEAS.</span></span></span></li>
+</ul></li>
+</ul>    </div>
+  </div>
+</div>  </div>
+</div>  </div>
+</div><div id="zone-content-wrapper" class="zone-wrapper zone-content-wrapper clearfix">  
+  <div id="zone-content" class="zone zone-content clearfix container-12">    
+        
+        <div class="grid-9 push-3 region region-content" id="region-content">
+  <div class="region-inner region-content-inner">
+    <a id="main-content"></a>
+                        <div class="block block-delta-blocks block-breadcrumb block-delta-blocks-breadcrumb odd block-without-title" id="block-delta-blocks-breadcrumb">
+  <div class="block-inner clearfix">
+                
+    <div class="content clearfix">
+      <div id="breadcrumb" class="clearfix"><ul class="breadcrumb"><li class="depth-1 odd first"><a href="/">Home</a></li><li class="depth-2 even"><a href="/communications">Office of Communications</a></li><li class="depth-3 odd"><a href="/communications/contacts">Contact Us</a></li><li class="depth-4 even last"><a href="/privacy-policy" class="active">Privacy Policy</a></li></ul></div>    </div>
+  </div>
+</div><div class="block block-delta-blocks block-page-title block-delta-blocks-page-title even block-without-title" id="block-delta-blocks-page-title">
+  <div class="block-inner clearfix">
+                
+    <div class="content clearfix">
+      <h1 id="page-title" class="title">Privacy Policy</h1>    </div>
+  </div>
+</div><div class="block block-system block-main block-system-main odd block-without-title" id="block-system-main">
+  <div class="block-inner clearfix">
+                
+    <div class="content clearfix">
+      <div  id="node-g-content-23776" class="ds-1col node node-g-content view-mode-full node-not-promoted node-not-sticky author-seasadmin odd clearfix clearfix">
+
+  
+  <div class="field field-name-two-column-content field-type-ds field-label-hidden"><div class="field-items"><div class="field-item even"><p>This Privacy Policy discloses the privacy practices for www.seas.harvard.edu.</p><h4>What information do we gather about you?</h4><p>We collect information from you when you access www.seas.harvard.edu.</p><h4>What do we use your information for?</h4><p>We use your IP address to help diagnose problems with our server and to administer our website by identifying (1) which parts of our site are most heavily used, and (2) which portion of our audience comes from within the Harvard network. We do not link IP addresses to anything personally identifiable. This means that user sessions will be tracked, but the users will remain anonymous.</p><p>Any email address you provide may be used to send you information, respond to inquiries, and/or other requests or questions.</p><p>User information may be shared with third-party partners to the extent necessary to provide and improve web services or other communications to users. Any third parties who receive user information for this purpose are prohibited from using or sharing user information for any purpose other than providing services to users.</p><p>We may also provide your information to third parties in circumstances where we believe that doing so is necessary or appropriate to: satisfy any applicable law, regulation, legal process or governmental request; detect, prevent or otherwise address fraud, security or technical issues; or protect the rights, property or safety of us, our users or others.</p><h4>Device Information Collected By Us</h4><p>We may collect non-personal information about the computer, mobile device or other device you use to access www.seas.harvard.edu, such as IP address, geolocation information, unique device identifiers, browser type, browser language or other information of this nature. We use this information in an aggregate fashion to track access to www.seas.harvard.edu. At no time do we disclose site usage by individual IP addresses.</p><h4>Cookies</h4><p>Cookies are small files that are stored on your computer (unless you block them). We use cookies to understand and save your preferences for future visits and compile aggregate data about site traffic and site interaction so that we can offer better site experiences and tools in the future. We may contract with third-party service providers to assist us in better understanding our site visitors. These service providers are not permitted to use the information collected on our behalf except to help us conduct and improve our business.</p><h4>Third-Party Cookies</h4><p>Cookies may be set by an organization other than www.seas.harvard.edu. These “third-party cookies” may, for example, originate from websites such as YouTube, Twitter, Facebook, Google+ or other social media services for which www.seas.harvard.edu has implemented “plug-ins.” Since the cookie policies of these sites change over time, you should determine their policies by visiting the privacy policy pages of these sites directly.</p><p>You may disable cookies through your individual browser options.</p><h4>Links to Third-Party Websites</h4><p>We may provide hyperlinks to third-party websites as a convenience to users of www.seas.harvard.edu. www.seas.harvard.edu does not control third-party websites and is not responsible for the contents of any linked-to, third-party websites or any hyperlink in a linked-to website. We are not responsible for the privacy practices or the content of third-party websites.</p><h4>Email Policy</h4><p>We will not share, sell, rent, swap or authorize any third party to use your email address for commercial purposes without your permission.</p><h4>User Generated Content (Including Comments and Profiles)</h4><p>We may offer, now or in the future, offer the option to participate in discussions through www.seas.harvard.edu, including submitting comments and replies on selected pages. Any information you disclose in your submission of comments, including name, email, website, and the comment itself is property of Harvard University and visible on internal servers. Additionally, information regarding name and comments shall be public the site once a comment or reply is approved for submission on the website. Comment approval is up to the discretion and approval of SEAS moderators.</p><p>SEAS reserves the right to reject or remove thereafter any content from appearing on its site.</p><h4>User Generated Content Terms of Use</h4><p>You shall not upload to, or distribute or otherwise publish on to the www.seas.harvard.edu site&nbsp; any libelous, defamatory, obscene, pornographic, abusive, or otherwise illegal material; any comment deemed to contain any of the above following. You agree that you will not deliberately disrupt discussions with repetitive messages, meaningless messages or "spam.” You agree not to use language that abuses or discriminates on the basis of race, religion, nationality, gender, sexual preference, age, region, disability, etc. You may not impersonate another user or a SEAS staff member by choosing a similar screen name. You must disclose conflicts of interest. Any comments deemed containing the above will not be approved for distribution or, if approved, will removed thereafter.</p><p>You acknowledge that any submissions you make to the Services (i.e., user-generated comments (each, a "Submission") may be edited, removed, modified, published, and displayed on the www.seas.harvard.edu site and you waive any rights you may have in having the material altered or changed in a manner not agreeable to you. Submissions made to the Services may also be included in our RSS feeds, APIs and made available for republishing through other formats.</p><p>SEAS reserves the right to delete, move, or edit Submissions that it deems abusive, defamatory, obscene, in violation of copyright or trademark laws, or otherwise unacceptable.</p><p>By making a Submission, you are consenting to its display and publication on the Site and in the Services and for related online uses.</p><p>When you share or recommend (with or without adding your own comments) any articles or content from the Services to your Facebook, Twitter, or Google+ profile, that action is governed by their respective Privacy Policies.</p><h4>Information Protection</h4><p>To prevent unauthorized access, maintain data accuracy and ensure the appropriate use of information we gather about you, we have taken commercially reasonable steps to protect the information. However, no method of transmission over the Internet, or method of electronic storage, is 100% secure.</p></div></div></div></div>
+
+    </div>
+  </div>
+</div>      </div>
+</div><aside class="grid-3 pull-9 region region-sidebar-first" id="region-sidebar-first">
+  <div class="region-inner region-sidebar-first-inner">
+    <div class="block block-og-menu block-og-single-menu-block block-og-menu-og-single-menu-block odd block-without-title" id="block-og-menu-og-single-menu-block">
+  <div class="block-inner clearfix">
+                
+    <div class="content clearfix">
+      <ul class="menu"><li class="first last expanded active-trail"><a href="/communications" class="active-trail">Office of Communications</a><ul class="menu"><li class="first expanded active-trail"><a href="/communications/contacts" class="active-trail">Contact Us</a></li>
+<li class="leaf"><a href="/communications/faqs">FAQs</a></li>
+<li class="collapsed"><a href="/communications/identity-guidelines">Identity Guidelines</a></li>
+<li class="collapsed"><a href="/communications/public-relationsmedia">Public Relations/Media</a></li>
+<li class="collapsed"><a href="/communications/websites-and-new-media">Websites and New Media</a></li>
+<li class="collapsed"><a href="/communications/publications">Publications</a></li>
+<li class="collapsed"><a href="/communications/community-emails">Community Emails</a></li>
+<li class="leaf"><a href="/communications/photography">Photography</a></li>
+<li class="leaf"><a href="/communications/student-recruitment">Student Recruitment</a></li>
+<li class="leaf"><a href="/communications/alumnidevelopment">Alumni/Development</a></li>
+<li class="collapsed"><a href="/administration/emergency-info" title="">Emergency Communications</a></li>
+<li class="last collapsed"><a href="/communications/policies">Policies</a></li>
+</ul></li>
+</ul>    </div>
+  </div>
+</div>  </div>
+</aside>  </div>
+</div><div id="zone-postscript-wrapper" class="zone-wrapper zone-postscript-wrapper clearfix">  
+  <div id="zone-postscript" class="zone zone-postscript clearfix container-12">
+    <div class="grid-12 region region-postscript-second" id="region-postscript-second">
+  <div class="region-inner region-postscript-second-inner">
+    <div class="block block-seas-feedback block-custom-feedback-block block-seas-feedback-custom-feedback-block odd block-without-title" id="block-seas-feedback-custom-feedback-block">
+  <div class="block-inner clearfix">
+                
+    <div class="content clearfix">
+      <p id="groupcontact"><a href="http://www.seas.harvard.edu/feedback/23776"><em>Send feedback on this page</em></a></p>    </div>
+  </div>
+</div>  </div>
+</div>  </div>
+</div></section>	  
+	
+			<footer id="section-footer" class="section section-footer">
+  <div id="zone-footer-wrapper" class="zone-wrapper zone-footer-wrapper clearfix">  
+  <div id="zone-footer" class="zone zone-footer clearfix container-12">
+    <div class="grid-12 region region-footer-second" id="region-footer-second">
+  <div class="region-inner region-footer-second-inner">
+    <div class="block block-block block-26 block-block-26 odd block-without-title" id="block-block-26">
+  <div class="block-inner clearfix">
+                
+    <div class="content clearfix">
+      <p><img src="/sites/default/files/seaslogo_small_temp_spaced.png" /></p>
+    </div>
+  </div>
+</div><div class="block block-block block-61 block-block-61 even block-without-title" id="block-block-61">
+  <div class="block-inner clearfix">
+                
+    <div class="content clearfix">
+      <p class="address">Harvard Paulson School<br />
+29 Oxford Street<br />
+Cambridge, MA 02138</p>
+
+<p class="footermap"><a href="https://maps.google.com/maps?q=29+Oxford+Street,+Cambridge,+MA&amp;hl=en&amp;ll=42.378614,-71.116583&amp;spn=0.009606,0.021329&amp;sll=42.378472,-71.116519&amp;sspn=0.009606,0.021329&amp;hnear=29+Oxford+St,+Cambridge,+Massachusetts+02138&amp;t=m&amp;z=16"><img alt="Google Map" src="/sites/default/files/google-map.png" /></a></p>
+
+<ul><li><a href="http://www.harvard.edu/">Harvard University</a></li>
+	<li><a href="http://trademark.harvard.edu/pages/trademark-notice">Trademark Notice</a></li>
+	<li><a href="/privacy-policy">Privacy Policy</a></li>
+</ul>    </div>
+  </div>
+</div><div class="block block-block block-36 block-block-36 odd block-without-title" id="block-block-36">
+  <div class="block-inner clearfix">
+                
+    <div class="content clearfix">
+      <p>
+
+<a aria-label="Harvard SEAS on Facebook" title="Harvard SEAS on Facebook" href="https://www.facebook.com/hseas">
+	<span class="fa fa-facebook" aria-hidden="true">&nbsp;</span>
+</a>
+
+<a aria-label="Harvard SEAS on Twitter" title="Harvard SEAS on Twitter" href="https://twitter.com/hseas">
+	<span class="fa fa-twitter" aria-hidden="true">&nbsp;</span>
+</a>
+
+<a aria-label="Harvard SEAS on Snapchat" title="Harvard SEAS on Snapchat" href="https://www.snapchat.com/add/harvardseas">
+	<span class="fa fa-snapchat-ghost" aria-hidden="true">&nbsp;</span>
+</a>
+
+<a aria-label="Harvard SEAS on Instagram" title="Harvard SEAS on Instagram" href="https://www.instagram.com/harvardseas">
+	<span class="fa fa-instagram" aria-hidden="true">&nbsp;</span>
+</a>
+
+<a aria-label="Harvard SEAS on SoundCloud" title="Harvard SEAS on SoundCloud" href="https://soundcloud.com/harvard/sets/science-seas">
+	<span class="fa fa-soundcloud" aria-hidden="true">&nbsp;</span>
+</a>
+</p>
+
+<p>
+<a aria-label="Harvard SEAS on YouTube" title="Harvard SEAS on YouTube" href="https://www.youtube.com/c/harvardengineering">
+	<span class="fa fa-youtube" aria-hidden="true">&nbsp;</span>
+</a>
+
+<a aria-label="Harvard SEAS on Tumblr" title="Harvard SEAS on Tumblr" href="http://harvardseas.tumblr.com/">
+	<span class="fa fa-tumblr" aria-hidden="true">&nbsp;</span>
+</a>
+
+<a aria-label="Harvard SEAS on LinkedIn" title="Harvard SEAS on LinkedIn" href="https://www.linkedin.com/company/harvard-school-of-engineering-and-applied-sciences">
+	<span class="fa fa-linkedin" aria-hidden="true">&nbsp;</span>
+</a>
+
+<a aria-label="Harvard SEAS on Google Plus" title="Harvard SEAS on Google Plus" href="https://plus.google.com/+harvardengineering">
+	<span class="fa fa-google-plus" aria-hidden="true">&nbsp;</span>
+</a>
+
+<a aria-label="Harvard SEAS RSS feed" title="Harvard SEAS RSS feed" href="/news.xml">
+	<span class="fa fa-rss" aria-hidden="true">&nbsp;</span>	
+</a>
+
+</p>
+
+<p>©&nbsp;2017&nbsp;President and Fellows of Harvard College</p>
+    </div>
+  </div>
+</div><div class="block block-block block-71 block-block-71 even block-without-title" id="block-block-71">
+  <div class="block-inner clearfix">
+                
+    <div class="content clearfix">
+      <p><a href="/academic-affairs/faculty-research-lecturer-positions" title="Faculty Positions">Faculty, Researcher, and Lecturer Positions</a> - <a href="/academic-affairs/postdoctoral-fellow-positions" title="Postdoctoral Positions">Postdoctoral &amp; Fellowship Positions</a> - <a href="https://sjobs.brassring.com/1033/ASP/TG/cim_searchresults.asp?PartnerId=25240&amp;SiteId=5341&amp;Function=LinkQuery&amp;LinkId=1246">Staff Positions</a></p>    </div>
+  </div>
+</div>  </div>
+</div>  </div>
+</div></footer>	</div>  <div class="region region-page-bottom" id="region-page-bottom">
+  <div class="region-inner region-page-bottom-inner">
+    <script type="text/javascript">
+  var _sf_async_config=Drupal.settings.chartbeat;
+  (function(){
+    function loadChartbeat() {
+      window._sf_endpt=(new Date()).getTime();
+      var e = document.createElement('script');
+      e.setAttribute('language', 'javascript');
+      e.setAttribute('type', 'text/javascript');
+      e.setAttribute('src',
+         (("https:" == document.location.protocol) ? "https://s3.amazonaws.com/" : "http://") +
+         "static.chartbeat.com/js/chartbeat.js");
+      document.body.appendChild(e);
+    }
+    var oldonload = window.onload;
+    window.onload = (typeof window.onload != 'function') ?
+       loadChartbeat : function() { oldonload(); loadChartbeat(); };
+  })();
+</script>  </div>
+</div><script type="text/javascript" src="https://www.seas.harvard.edu/sites/default/files/advagg_js/js__Ccf-Jr-jt7ATZMvr3bqRdkxcTjGwQYUVpohrsYa0I7E__-UagLnp8K8-TyKWgKPe65iPqmdqp2zBSKrivrGqEZno__4Cfh1eboCLxqP4Svx_9aCZpk8IpLpgEzmNf3DjT1dro.js"></script>
+<script type="text/javascript" src="https://www.seas.harvard.edu/sites/default/files/advagg_js/js__QwkAkZUm4E4Xwmrrrv2LsBrXUFeqhptsVvTJn_4oJMM__pLZFGivtmrvo6UjT9h6QKAKyOY0gW0ZXbyRIjbbt1Sg__4Cfh1eboCLxqP4Svx_9aCZpk8IpLpgEzmNf3DjT1dro.js"></script>
+<script type="text/javascript" src="https://www.seas.harvard.edu/sites/default/files/advagg_js/js__uo5mhxyStyMoE-RgKrHx0l5j1MCGIWX8tzUijl-ppcU__UpfvtHjdXJow7DRD-macwdELMKax-6_pi_V6SMaCsxg__4Cfh1eboCLxqP4Svx_9aCZpk8IpLpgEzmNf3DjT1dro.js"></script>
+<script type="text/javascript" src="https://www.seas.harvard.edu/sites/default/files/advagg_js/js__DX0BICQraLIk_-y24QLYU46I77SfJZ-eB1e3Vxh3tvc__6wCxOKdvh9g8p-O63QicqmKkxA4S0-IC1S4pMftawVI__4Cfh1eboCLxqP4Svx_9aCZpk8IpLpgEzmNf3DjT1dro.js"></script>
+<script type="text/javascript" src="https://www.seas.harvard.edu/sites/default/files/advagg_js/js__IfDBhJlJ0oV0q2aeMLhMkhuLRGu87rT5npkFmYcE8zQ__lsgMCiv5uBrjYyi3p199km26KhKL_rDNRf4xqJ6nvaQ__4Cfh1eboCLxqP4Svx_9aCZpk8IpLpgEzmNf3DjT1dro.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","//www.google-analytics.com/analytics.js","ga");ga("create", "UA-8171972-4", {"cookieDomain":"auto","siteSpeedSampleRate":100});ga("set", "anonymizeIp", true);ga("send", "pageview");jQuery(function() { 
+  jQuery.scrollDepth({
+    elements: ['#block-views-related-news-generic-block-3'] // Tracks when a visitor reaches the block at the bottom of a news article.
+  }); 
+});
+//--><!]]>
+</script>
+<script type="text/javascript" src="https://www.seas.harvard.edu/sites/default/files/advagg_js/js__a6NQUDI-6YWnMTKdTrZs_PvPoLdkMgM9SBo7IyqqfeQ__-PopjtTrGfogEWOvcdf2PhGe_3LeuJhDl_OD9k3JjTo__4Cfh1eboCLxqP4Svx_9aCZpk8IpLpgEzmNf3DjT1dro.js"></script>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"34fa818c7c","applicationID":"65778069","transactionName":"ZVAENxMCXEMFV0cKX1waMxEITFteAFFLTUBaRQ==","queueTime":0,"applicationTime":39,"atts":"SRcHQVsYT00=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>

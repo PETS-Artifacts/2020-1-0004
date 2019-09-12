@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+
+<!--
+ This website is powered by
+  ______         _              _____ __  __  _____ 
+ |  ____|       (_)            / ____|  \/  |/ ____|
+ | |__ _   _ ___ _  ___  _ __ | |    | \  / | (___  
+ |  __| | | / __| |/ _ \| '_ \| |    | |\/| |\___ \ 
+ | |  | |_| \__ \ | (_) | | | | |____| |  | |____) |
+ |_|   \__,_|___/_|\___/|_| |_|\_____|_|  |_|_____/ 
+ www.fusion-hub.com
+-->
+
+<link rel="shortcut icon" href="https://project-ascension.com/favicon.ico" type="image/x-icon">
+<link rel="icon" href="https://project-ascension.com/favicon.ico" type="image/x-icon">
+
+<html>
+	<head>
+		<title> - Ascension Classless Realm</title>
+		
+		<link rel="stylesheet" href="https://project-ascension.com/application/css/default.css" type="text/css" />
+		<link rel="stylesheet" href="https://project-ascension.com/application/css/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+		<!-- During development phase -->
+		<meta http-equiv="expires" content="0">
+		
+		<link rel="stylesheet" href="https://project-ascension.com/application/themes/avalon/css/cms.css" type="text/css" />
+		<link rel="stylesheet" href="https://project-ascension.com/application/themes/avalon/css/main.css?v=2" type="text/css" />
+ 
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+		<link href="https://fonts.googleapis.com/css?family=Droid+Serif|Open+Sans" rel="stylesheet">
+				
+
+		
+		<!-- Search engine related -->
+		<meta name="description" content="Ascension features WoW Classless Realms in a Progress-Through-Expansion format. Start in Vanilla and progress to Northrend." />
+		<meta name="keywords" content="World of Warcraft, Classless, Ascension, Awakening, Vanilla, WoW, Custom" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+		
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame -->
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		
+		<!-- Load scripts -->
+       
+
+
+		<script src="https://project-ascension.com/application/js/html5shiv.js"></script>
+		<script type="text/javascript" src="https://project-ascension.com/application/js/jquery.min.js"></script>
+		<script type="text/javascript" src="https://project-ascension.com/application/js/jquery.fancybox.js?v=2.1.5"></script>
+		<script type="text/javascript" src="https://project-ascension.com/application/js/jquery.fancybox-flash.js?v=1.0.0"></script>
+		<script type="text/javascript" src="https://project-ascension.com/application/js/router.js"></script>
+		<script type="text/javascript" src="https://project-ascension.com/application/js/require.js"></script>
+		<script type="text/javascript">
+
+			if(!window.console)
+			{
+				var console = {
+				
+					log: function()
+					{
+						// Prevent stupid browsers from doing stupid things
+						// *cough* Internet Explorer *cough*
+					}
+				};
+			}
+
+			function getCookie(c_name)
+			{
+				var i, x, y, ARRcookies = document.cookie.split(";");
+
+				for(i = 0; i < ARRcookies.length;i++)
+				{
+					x = ARRcookies[i].substr(0,ARRcookies[i].indexOf("="));
+					y = ARRcookies[i].substr(ARRcookies[i].indexOf("=")+1);
+					x = x.replace(/^\s+|\s+$/g,"");
+					
+					if(x == c_name)
+					{
+						return unescape(y);
+					}
+				}
+			}
+
+			function setCookie(c_name,value,exdays)
+			{
+				var exdate = new Date();
+				exdate.setDate(exdate.getDate() + exdays);
+				var c_value = escape(value) + ((exdays == null) ? "" : "; expires="+exdate.toUTCString());
+				document.cookie = c_name + "=" + c_value;
+			}
+
+			var Config = {
+				URL: "https://project-ascension.com/",			
+				image_path: "https://project-ascension.com/application/themes/avalon/images/",
+				CSRF: getCookie('csrf_cookie_name'),
+				language: "english",
+
+				UseFusionTooltip: 1,
+
+				Slider: {
+					interval: 5000,
+					effect: "",
+					id: "slider_bg"
+				},
+				
+				voteReminder: 0,
+
+				Theme: {
+					next: "Next",
+					previous: "Prev"
+				}
+			};
+
+			var scripts = [
+				"https://project-ascension.com/application/js/ui.js",
+				"https://project-ascension.com/application/js/fusioneditor.js",
+				"https://project-ascension.com/application/js/flux.min.js",
+				"https://project-ascension.com/application/js/jquery.placeholder.min.js",
+				"https://project-ascension.com/application/js/jquery.sort.js",
+				"https://project-ascension.com/application/js/jquery.transit.min.js",
+				"https://project-ascension.com/application/js/language.js",
+							];
+
+			if(typeof JSON == "undefined")
+			{
+				scripts.push("https://project-ascension.com/application/js/json2.js");
+			}
+
+			require(scripts, function()
+			{
+				$(document).ready(function()
+				{
+											Language.set("null");
+					
+					UI.initialize();
+
+					
+									});
+			});
+			
+			$(document).ready(function() {
+				$(".fancybox_login").fancybox({
+					type: 'ajax',
+					autoSize: false,
+					autoHeight: true,
+					width: '435',
+					openEffect: 'none',
+					href: '/login/ajax',
+					helpers: {
+						overlay: {
+							css: {
+								'background': 'rgba(255,255,255,0.5)'
+							}
+						},
+						flash: {
+							speedIn: 600,
+							speedOut: 600
+						}
+					}
+				});
+				$('#logo').hover(function() {
+					$('#logo img').fadeTo(400, 0.55);
+				}, function() {
+					$('#logo img').fadeOut();
+				});
+				$('#nav-sign-in').hover(function() {
+					$('#nav-sign-in img').fadeTo(400, 0.60);
+				}, function() {
+					$('#nav-sign-in img').fadeOut();
+				});
+				$('#nav-register').hover(function() {
+					$('#nav-register img').fadeTo(400, 0.60);
+				}, function() {
+					$('#nav-register img').fadeOut();
+				});
+			});
+		</script>
+        
+        
+
+				<script type="text/javascript">
+		// Google Analytics
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-40613737-2']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+
+		</script>
+		        
+        
+        
+	</head>
+	<body>
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">		<div style="display:none">
+		</div>
+		<section id="wrapper">
+			<div id="popup_bg"></div>
+
+<!-- confirm box -->
+<div id="confirm" class="popup">
+	<h1 class="popup_question" id="confirm_question"></h1>
+
+	<div class="popup_links">
+		<a href="javascript:void(0)" class="popup_button" id="confirm_button"></a>
+		<a href="javascript:void(0)" class="popup_hide" id="confirm_hide" onClick="UI.hidePopup()">
+			Cancel
+		</a>
+		<div style="clear:both;"></div>
+	</div>
+</div>
+
+<!-- alert box -->
+<div id="alert" class="popup">
+	<h1 class="popup_message" id="alert_message"></h1>
+
+	<div class="popup_links">
+		<a href="javascript:void(0)" class="popup_button" id="alert_button">Okay</a>
+		<div style="clear:both;"></div>
+	</div>
+</div>
+
+
+			<header>
+				<a href="/" id="logo"></a>
+				<nav class="main">
+					<ul>
+						<li><a href="/" id="nav-home">Home</a></li>
+						<li><a href="/forum" id="nav-forums">Forums</a></li>
+						<li><a href="/page/guide/" id="nav-guide">Guide</a></li>
+					
+
+						<li><a href="/page/about/" id="nav-about">About</a></li>
+						<li><a href="/news" id="nav-news">News</a></li>
+						<li><a href="/changelog" id="nav-changes">Changes</a></li>
+						<li><a href="/bugtracker/" id="nav-credits">Bugtracker</a></li>
+					</ul>
+				</nav>
+				<div class="subnav">
+					<ul>
+													<li><a href="/login" class="fancybox_login" id="nav-sign-in">
+							</a></li>
+							<li><a href="https://project-ascension.com/register" id="nav-register">
+							</a></li>
+											</ul>
+				</div>
+			</header>
+			<div id="main">
+				<div id="content_ajax"><article>
+  <h1 class="top"></h1>
+  <section class="body"> <h4 dir="ltr"><span>PRIVACY POLICY</span></h4>
+<p dir="ltr"><span>THIS PRIVACY POLICY HAS BEEN COMPILED TO BETTER SERVE THOSE WHO ARE CONCERNED WITH HOW THEIR 'PERSONALLY IDENTIFIABLE INFORMATION' (PII) IS BEING USED ONLINE. PII, AS USED IN US PRIVACY LAW AND INFORMATION SECURITY, IS INFORMATION THAT CAN BE USED ON ITS OWN OR WITH OTHER INFORMATION TO IDENTIFY, CONTACT, OR LOCATE A SINGLE PERSON, OR TO IDENTIFY AN INDIVIDUAL IN CONTEXT. PLEASE READ OUR PRIVACY POLICY CAREFULLY TO GET A CLEAR UNDERSTANDING OF HOW WE COLLECT, USE, PROTECT OR OTHERWISE HANDLE YOUR PERSONALLY IDENTIFIABLE INFORMATION IN ACCORDANCE WITH OUR WEBSITE.</span></p>
+<h4 dir="ltr"><span>WHAT PERSONAL INFORMATION DO WE COLLECT FROM THE PEOPLE THAT VISIT WEBSITE?</span></h4>
+<p dir="ltr"><span>WHEN REGISTERING ON OUR SITE, AS APPROPRIATE, YOU WILL BE ASKED TO ENTER YOUR EMAIL ADDRESS OR OTHER DETAILS TO AID IN IDENTIFYING YOUR ACCOUNT.</span></p>
+<h4 dir="ltr"><span>WHEN DO WE COLLECT INFORMATION?</span></h4>
+<p dir="ltr"><span>WE COLLECT INFORMATION FROM YOU WHEN YOU REGISTER ON OUR SITE OR ENTER INFORMATION ON OUR SITE.</span></p>
+<h4 dir="ltr"><span>HOW DO WE USE YOUR INFORMATION?</span></h4>
+<p dir="ltr"><span>WE MAY USE THE INFORMATION WE COLLECT FROM YOU WHEN YOU REGISTER, SURF THE WEBSITE, OR USE CERTAIN OTHER SITE FEATURES IN THE FOLLOWING WAYS:</span></p>
+<p dir="ltr"><span> &nbsp;</span><span>- TO ALLOW US TO BETTER SERVICE YOU REGARDING FEATURES OR IN RESPONDING TO YOUR SUPPORT REQUESTS.</span></p>
+<p dir="ltr"><span> &nbsp;</span><span>- TO SEND PERIODIC EMAILS REGARDING YOUR ACCOUNT OR OTHER SERVICES.</span></p>
+<h4 dir="ltr"><span>HOW DO WE PROTECT VISITOR INFORMATION?</span></h4>
+<p dir="ltr"><span>OUR WEBSITE IS SCANNED ON A REGULAR BASIS FOR SECURITY HOLES AND KNOWN VULNERABILITIES IN ORDER TO MAKE YOUR VISIT TO OUR SITE AS SAFE AS POSSIBLE. INFORMATION STORED ON THE WEBSITE IS ENCRYPTED USING VARIOUS ALGORITHMS.</span></p>
+<p dir="ltr"><span>YOUR PERSONAL INFORMATION IS CONTAINED BEHIND SECURED NETWORKS AND IS ONLY ACCESSIBLE BY A LIMITED NUMBER OF PERSONS WHO HAVE SPECIAL ACCESS RIGHTS TO SUCH SYSTEMS, AND ARE REQUIRED TO KEEP THE INFORMATION CONFIDENTIAL. IN ADDITION, ALL SENSITIVE INFORMATION YOU SUPPLY IS ENCRYPTED VIA SECURE SOCKET LAYER (SSL) TECHNOLOGY.</span></p>
+<p dir="ltr"><span>WE IMPLEMENT A VARIETY OF SECURITY MEASURES WHEN A USER REGISTERS AN ACCOUNT, SUBMITS, OR ACCESSES THEIR INFORMATION, USES FEATURES TO MAINTAIN THE SAFETY OF YOUR PERSONAL INFORMATION.</span></p>
+<p dir="ltr"><span>ALL TRANSACTIONS ARE PROCESSED THROUGH A GATEWAY PROVIDER AND ARE NOT STORED OR PROCESSED ON OUR SERVERS.</span></p>
+<h4 dir="ltr"><span>DO WE USE 'COOKIES'?</span></h4>
+<p dir="ltr"><span>YES. COOKIES ARE SMALL FILES THAT A SITE OR ITS SERVICE PROVIDER TRANSFERS TO YOUR COMPUTER'S HARD DRIVE THROUGH YOUR WEB BROWSER (IF YOU ALLOW) THAT ENABLES THE SITE'S OR SERVICE PROVIDER'S SYSTEMS TO RECOGNIZE YOUR BROWSER AND CAPTURE AND REMEMBER CERTAIN INFORMATION. FOR INSTANCE, WE USE COOKIES TO HELP US AUTOMATICALLY REMEMBER YOU FOR YOUR NEXT VISIT. THEY ARE ALSO USED TO HELP US UNDERSTAND YOUR PREFERENCES BASED ON PREVIOUS OR CURRENT SITE ACTIVITY, WHICH ENABLES US TO PROVIDE YOU WITH IMPROVED SERVICES. WE ALSO USE COOKIES TO HELP US COMPILE AGGREGATE DATA ABOUT SITE TRAFFIC AND SITE INTERACTION SO THAT WE CAN OFFER BETTER SITE EXPERIENCES AND TOOLS IN THE FUTURE.</span></p>
+<p dir="ltr"><span>WE USE COOKIES TO:</span></p>
+<p dir="ltr"><span> &nbsp;</span><span>- UNDERSTAND AND SAVE USER'S PREFERENCES FOR FUTURE VISITS.</span></p>
+<p dir="ltr"><span>YOU CAN CHOOSE TO HAVE YOUR COMPUTER WARN YOU EACH TIME A COOKIE IS BEING SENT, OR YOU CAN CHOOSE TO TURN OFF ALL COOKIES. YOU DO THIS THROUGH YOUR BROWSER (LIKE INTERNET EXPLORER) SETTINGS. EACH BROWSER IS A LITTLE DIFFERENT, SO LOOK AT YOUR BROWSER'S HELP MENU TO LEARN THE CORRECT WAY TO MODIFY YOUR COOKIES.</span></p>
+<h4 dir="ltr"><span>IF USERS DISABLE COOKIES IN THEIR BROWSER:</span></h4>
+<p dir="ltr"><span>IF YOU DISABLE COOKIES, SOME FEATURES WILL BE DISABLED. IT WILL TURN OFF SOME OF THE FEATURES THAT MAKE YOUR SITE EXPERIENCE MORE EFFICIENT AND SOME OF OUR SERVICES WILL NOT FUNCTION PROPERLY.</span></p>
+<p dir="ltr"><span>FEATURES THAT WILL BE DISABLED</span></p>
+<p dir="ltr"><span> &nbsp;</span><span>- REMEMBER ME FEATURE</span></p>
+<h4 dir="ltr"><span>THIRD PARTY DISCLOSURE</span></h4>
+<p dir="ltr"><span>WE DO NOT SELL, TRADE, OR OTHERWISE TRANSFER TO OUTSIDE PARTIES YOUR PERSONALLY IDENTIFIABLE INFORMATION.</span></p>
+<h4 dir="ltr"><span>THIRD PARTY LINKS</span></h4>
+<p dir="ltr"><span>WE DO NOT INCLUDE OR OFFER THIRD PARTY PRODUCTS OR SERVICES ON OUR WEBSITE.</span></p>
+<h4 dir="ltr"><span>ACCORDING TO CALOPPA WE AGREE TO THE FOLLOWING:</span></h4>
+<p dir="ltr"><span>USERS CAN VISIT OUR SITE ANONYMOUSLY</span></p>
+<p dir="ltr"><span>ONCE THIS PRIVACY POLICY IS CREATED, WE WILL ADD A LINK TO IT ON OUR HOME PAGE, OR AS A MINIMUM ON THE FIRST SIGNIFICANT PAGE AFTER ENTERING OUR WEBSITE.</span></p>
+<p dir="ltr"><span>OUR PRIVACY POLICY LINK INCLUDES THE WORD 'PRIVACY', AND CAN BE EASILY BE FOUND ON THE PAGE SPECIFIED ABOVE.</span></p>
+<p dir="ltr"><span>USERS WILL BE NOTIFIED OF ANY PRIVACY POLICY CHANGES:</span></p>
+<p dir="ltr"><span> &nbsp;</span><span>- ON OUR PRIVACY POLICY PAGE</span></p>
+<p dir="ltr"><span>USERS ARE ABLE TO CHANGE THEIR PERSONAL INFORMATION:</span></p>
+<p dir="ltr"><span> &nbsp;</span><span>- BY LOGGING INTO THEIR ACCOUNT</span></p>
+<p dir="ltr"><span> &nbsp;</span><span>- BY SENDING US A SUPPORT TICKET</span></p>
+<h4 dir="ltr"><span>HOW DOES OUR SITE HANDLE DO NOT TRACK SIGNALS?</span></h4>
+<p dir="ltr"><span>WE HONOR DO NOT TRACK SIGNALS AND DO NOT TRACK, PLANT COOKIES, OR USE ADVERTISING WHEN A DO NOT TRACK (DNT) BROWSER MECHANISM IS IN PLACE. DOES OUR SITE ALLOW THIRD PARTY BEHAVIORAL TRACKING?</span></p>
+<p dir="ltr"><span>WE DO NOT ALLOW THIRD PARTY BEHAVIORAL TRACKING</span></p>
+<h4 dir="ltr"><span>CONTACTING US</span></h4>
+<p dir="ltr"><span>IF THERE ARE ANY QUESTIONS REGARDING THIS PRIVACY POLICY YOU MAY CONTACT US USING THE INFORMATION BELOW.</span></p>
+<p dir="ltr"><span>www.project-ascension.com</span></p>
+<p><span id="docs-internal-guid-f8e91074-4c93-a817-6bb1-847325c5f511"><span>help@project-ascension.com</span></span></p> </section>
+</article>
+</div>
+				<div class="clear"></div>
+			</div>
+			<footer class="footer-bottom">
+				<div>
+					<div class="center">
+						<p><a href="/page/termsofuse">Terms of Service</a>&nbsp &nbsp<a href="/page/privacypolicy">Privacy Policy</a>&nbsp &nbsp<a href="/page/refundpolicy">Refund Policy</a></p>
+					</div>
+					<div class="center">
+						<p>&copy; Copyright  Project Ascension 2017</p>
+						<p></p>
+						<p></p>
+					</div>
+				</div>
+			</footer>
+		</section>
+	</body>
+</html>

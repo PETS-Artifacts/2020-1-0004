@@ -1,0 +1,139 @@
+See the pop-up box in the bottom corner of your window, asking you about your Cookie Permission preferences?
+That’s what we are providing for you: a quick and easy way to add a feature just like that to your site. This will allow you to ask your site visitors about their cookie preferences, enabling you to easily comply with EU Cookie Consent Policy.
+Follow the steps below to customize the plugin code.
+Once you have made your customizations, copy-and-paste the generated code into your website’s HTML code or CMS template.
+The plugin will add a cookie to your users’ browsers that identifies their cookie tracking preferences. It also allows you to conditionally enable/disable tracking JavaScript.
+
+
+Step 1: Choose a theme
+Select one of our existing color themes. Or, if you’re clever, use the jQuery ThemeRoller to create your own. Note: does not require the jQuery UI library itself.
+
+select...
+Black Tie
+Blitzer
+Cupertino
+Dark Hive
+Dot Luv
+Eggplant
+Excite Bike
+Flick
+Hot Sneaks
+Humanity
+Le Frog
+Mint Choc
+Overcast
+Pepper Grinder
+Redmond
+Smoothness
+South Street
+Start
+Sunny
+Swanky Purse
+Trontastic
+UI Darkness
+UI Lightness
+Vader
+
+
+
+Step 2: Customize Your Consent Levels (Optional)
+By default, we provide four pre-defined levels of permission:
+
+Strictly Necessary and Performance
+            
+Remember what is in your shopping basket
+Remember how far you are through an order
+
+Functional
+            
+Remember your log-in details
+Make sure you’re secure when logged in to the website
+Make sure the website looks consistent
+
+Tracking
+            
+Monitor how you travel through the website
+
+Targeting
+            
+Allow you to share pages with social networks like Facebook
+Send information to other websites so that advertising is more relevant to you
+
+
+If you would like to create your own Consent Levels, use the boxes below.
+Note that permissions build on each level — anything defined in Level 1 will be included as a permission in Level 2.
+You have reached the maximum number of levels
++ Add another level
+
+
+Step 3: Link to the Edit Settings panel
+We supply an Edit Setting panel, which is accessible from a link in the pop-up.
+But you need to have a persistent link to the Edit Setting panel — usually in the footer of the page.
+Identify the HTML element you want to use as your Edit Settings link.
+
+You can either supply a jQuery object ( i.e. $('#my-button') ) or a CSS selector string ( i.e. '#my-button' ).
+
+
+Step 5: Include a link to jQuery?
+Check this box if you need to include a link to jQuery.
+Include link to jQuery
+If you are already including jQuery on your site, do not check this box.
+
+
+Step 6: The Code
+Copy and paste this code into the footer of your document. If you are including jQuery yourself, make sure this comes after jQuery has loaded.
+
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+
+<!-- Cookie Consent by https://PrivacyPolicies.com -->
+<script type="text/javascript" src="//privacypolicies.com/cookie-consent/releases/latest/cookie-consent.js"></script>
+<script type="text/javascript">
+	$(function(){
+		var cookieconsent = $.cookieconsent({
+			default_level_id: '',
+			edit_settings_element: ,
+			jqueryui_theme_css: '',
+			cookie_policy_url: '',
+			levels:[
+
+			]
+		});
+	});
+</script>
+<noscript><a href="https://privacypolicies.com/cookie-consent/">Powered by PrivacyPolicies.com</a></noscript>
+<!-- End Cookie Consent -->
+
+
+
+Step 7: Respect Your Users’ Privacy Preferences
+This tool helps you inform your users about your Cookie Policy, and allows them to communicate their privacy preferences to you.
+But it is still up to you to make sure that your website actually respects the choices made by your users.
+Fortunately — this tool provides two easy way to do that. The first option can be used by almost anyone who knows how to edit their site’s markup. The second way is best used by developers.
+Enable/Disable Scripts (for Anyone)
+Most tracking tools (like Google Analytics) use cookies, and are therefore subject to the Cookie Consent laws. These tools usually require you to add some JavaScript code to your site. This plugin allows you to disable or enable that tracking code based on the user’s specific privacy preferences.
+To do that:
+
+Organize different scripts into separate <script> elements. For example, make sure that the JavaScript that manages user authentication is not in the same <script> block as your Google Analytics code.
+For any <script> element you want to toggle, change type="text/javascript" to type="text/plain".
+Add a cookieconsent-level attribute to each one, and set the value of that attribute to the lowest privacy level at which it should be activated.
+
+This can be done for embedded or linked scripts.
+In the following example, there is a linked script that handles essential site functions (user sessions) and the Google Analytics tracking script. The first one will be enabled at the lowest privacy level (“Strictly Necessary and Performance”), but the second will only be activated if the user opts-in to the “Tracking” preference.
+<!-- Shopping Cart Cookies -->
+<script type="text/plain" cookieconsent-level="strictly-necessary-and-performance" src="/js/shopping-cart-sessions.js"></script>
+<!-- Google Tracking Code -->
+<script type="text/plain" cookieconsent-level="tracking">
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', /* Google Property ID */, 'auto');
+    ga('send', 'pageview');
+</script>
+
+Privacy Preference Cookie (for Developers)
+In addition to toggling JavaScript elements, this plugin also sets a cookie on the user’s browser.
+By default, the name of the cookie is cookie_consent_level (this can be changed). The value of the cookie is the level id.
+This cookie persists for a year, and can be used by your site to determine what sorts of things to do with user data.
+
+

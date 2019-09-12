@@ -1,0 +1,692 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+        <link rel="apple-touch-icon" sizes="180x180" href="/apps/coincodex/img/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/apps/coincodex/img/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="192x192" href="/apps/coincodex/img/android-chrome-192x192.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/apps/coincodex/img/favicon-16x16.png">
+        <link rel="manifest" href="/apps/coincodex/img/site.webmanifest">
+        <link rel="mask-icon" href="/apps/coincodex/img/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="/apps/coincodex/img/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="CoinCodex">
+        <meta name="application-name" content="CoinCodex">
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="msapplication-config" content="/apps/coincodex/img/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+
+        <base href="/">
+        <!--<link href="/manifest.json" rel="manifest" />-->
+
+        <meta property="fb:app_id" content="279120312589607" /> 
+                <meta property="og:image" content="https://coincodex.com/apps/coincodex/img/cover-image.jpg" /> 
+                        <title></title>
+                                        <meta property="og:type" content="WebSite">
+        
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@coincodex" />
+        <meta name="twitter:creator" content="@coincodex" />
+        
+        <link rel="stylesheet" href="/apps/coincodex/node_modules/bootstrap/dist/css/bootstrap.min.css?version=92" />
+        <link rel="stylesheet" href="/apps/coincodex/css/reset.css?version=92" />
+        <link href="/apps/coincodex/css/roboto.css?version=92" rel="stylesheet">
+        <link href="/apps/coincodex/css/droid_sans_mono.css?version=92" rel="stylesheet">
+        <link rel="stylesheet" href="/apps/coincodex/node_modules/font-awesome/css/font-awesome.min.css?version=92" />
+        <link rel="stylesheet" href="/apps/coincodex/node_modules/angular-motion/dist/angular-motion.min.css?version=92" />
+        <link rel="stylesheet" href="/apps/coincodex/node_modules/bootstrap-additions/dist/bootstrap-additions.min.css?version=92" />
+
+		<link rel="stylesheet" href="/apps/coincodex/cache/styles.css?version=92" />
+
+        <meta name="fragment" content="!">  
+
+        <style type="text/css">
+        #app {
+            min-height: 750px;
+            opacity: 1;
+            transition: opacity 1s ease-in-out;
+        }
+
+        /* way the hell off screen */
+        .scrollbar-measure {
+            width: 100px;
+            height: 100px;
+            overflow: scroll;
+            position: absolute;
+            top: -9999px;
+        }
+
+        [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+            display: none !important;
+        }
+
+        #app.ng-cloak {
+            opacity: 0;
+            display: block !important;
+        }
+        </style>
+
+	</head>
+	<body aria-label="CoinCodex" nng-app="CoinCodex" ng-strict-di>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10&appId=279120312589607';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <div id="navbar" class="hidden-xs hidden-sm">
+
+        <div class="upper-nav" ng-controller="menuCtrl">
+
+            <div class="container">
+
+                <a href="/" class="logo" ng-click="back_to_home()">
+                    <img src="/apps/coincodex/img/coincodex-logo-desktop.png" alt="CoinCodex">
+                </a>
+
+                <ul class="auth ng-hide ng-cloak" ng-show="!user.logged_in">
+                    <li><a ng-click="show_login(false, false, 'navbar')" class="button button-secondary" href=""><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a></li>
+                    <li><a ng-click="show_register('navbar')" class="button button-primary" href=""><i class="fa fa-user-plus" aria-hidden="true"></i> Register</a></li>
+                </ul>
+
+                <ul class="auth ng-hide ng-cloak" ng-show="user.logged_in">
+                    <li><div> <span ng-bind="user.email"></span></div></li>
+                    <li><a ng-click="logout()" class="button button-secondary" href=""><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a></li>
+                </ul>
+
+                <ul class="ng-cloak">
+                    <li class="popup_menu_container">
+                        <a class="button button-white" ng-click="toggle_popup('watchlists')" href=""><i  ng-click="toggle_popup('watchlists')" class="fa fa-star" aria-hidden="true"></i> Watchlist <i ng-click="toggle_popup('watchlists')" class="fa fa-caret-down" aria-hidden="true" style="pointer-events: none"></i></a>
+                        <div class="popup_menu watchlists" ng-class="{'open' : popups['watchlists']}">
+                            <div class="coin-entry" ng-show="user.settings.watchlist && user.settings.watchlist.length > 0" ng-repeat="symbol in user.settings.watchlist">
+                                <a class="row" href="/crypto/{{coins[symbol].shortname}}" ng-click="goto_coin(coins[symbol], $event)">
+                                    <div class="coin"><span style="background-image: url(/en/resources/images/admin/coins/{{coins[symbol].shortname}}.png:resizebox?20x20);"><span ng-bind="coins[symbol].display_symbol"></span></span></div>
+                                    <div class="price">
+                                        <span ng-bind-html="coins[symbol].last_price_usd | usd2current | currency : true : {'html' : true}"></span>
+                                    </div>
+                                    <div class="price-change" ng-class="{'price-change-down' : (symbol | percentChange : '1D') < 0}"><span ng-bind="symbol | percentChange : '1D' | number : 2"></span>%</div>
+                                </a>
+                            </div>
+                            <div ng-show="!user.settings.watchlist || user.settings.watchlist.length == 0">
+                                No Items in Watchlist
+                            </div>
+                        </div>
+                    </li>
+                    <!--<li><a class="button button-white" href=""><span class="flag-icon flag-icon-us"></span> English <i class="fa fa-caret-down" aria-hidden="true"></i></a></li>-->
+                    <li class="popup_menu_container">
+                        <a class="button button-white" style="width: 110px;padding: 0;text-align: center;" ng-click="toggle_popup('currencies')" href=""><span ng-click="ttoggle_popup('currencies')" class="currency-select {{user.settings.currency}}"><span ng-bind="user.settings.currency" style="pointer-events: none"></span><i ng-click="ttoggle_popup('currencies')" class="fa fa-caret-down" aria-hidden="true" style="pointer-events: none"></i></span></a>
+                        <div class="popup_menu currencies" ng-class="{'open' : popups['currencies']}">
+                            <div class="entry currency-select {{currency}}" ng-click="set_currency(currency)" ng-repeat="currency in ['BTC', 'ETH']" ng-show="user.settings.currency != currency" ng-bind="currency"></div>
+                            <hr>
+                            <div class="entry currency-select {{currency}}" ng-click="set_currency(currency)" ng-repeat="currency in ['USD', 'EUR', 'GBP', 'CAD', 'AUD', 'JPY', 'KRW', 'ZAR']" ng-show="user.settings.currency != currency" ng-bind="currency"></div>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="market-overview ng-cloak" ng-click="go('/market-overview/', $event)" style="cursor: pointer">
+                    <li>
+                        <div class="title">BTC Dominance</div>
+                        <div class="value value-upx" ng-show="all_coins_loaded"><span ng-bind="btc_dominance() | number : 1"></span>%</div>
+                        <div class="value value-upx" ng-show="!all_coins_loaded" style="opacity: 0.1">████</div>
+                    </li>
+                    <li>
+                        <div class="title">Total Market Cap</div>
+                        <div class="value value-downx" ng-show="all_coins_loaded">
+                            <span ng-bind-html="total_market_cap() | usd2current | currency : true : {'html' : true}"></span>
+                        </div>
+                        <div class="value value-upx" ng-show="!all_coins_loaded" style="opacity: 0.1">████</div>
+                    </li>
+                    <li>
+                        <div class="title">Total Volume</div>
+                        <div class="value value-downx" ng-show="all_coins_loaded">
+                            <span ng-bind-html="total_volume() | usd2current | currency : true : {'html' : true}"></span>
+                        </div>
+                        <div class="value value-upx" ng-show="!all_coins_loaded" style="opacity: 0.1">████</div>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="lower-nav" ng-controller="menuCtrl">
+            <div class="container">
+                <ul>
+                    <li><a href="/" ng-click="back_to_home()">All Coins</a></li>
+                    <li><a href="/ico-calendar/" ng-click="go('/ico-calendar', $event)">ICO Calendar</a></li>
+                    <li><a href="/exchanges/" ng-click="go('/exchanges', $event)">Exchanges</a></li>
+                    <li><a href="/news/" ng-click="go('/news', $event)">News</a></li>
+                    <!--<li><a href="/wallets/" ng-click="go('/wallets', $event)">Wallets</a></li>-->
+                    <li><a href="/guides/" ng-click="go('/guides', $event)">Guides</a></li>
+                    <li><a href="/portfolio/" ng-click="go('/portfolio', $event)">Portfolio</a></li>
+                    <li><a href="/market-overview/" ng-click="go('/market-overview', $event)">Market Overview<!--<span class="new" style="
+    background: #4a90e2;
+    display:  inline-block;
+    line-height: 15px;
+    font-size: 9px;
+    border-radius:  3px;
+    color:  #fff;
+    text-transform: uppercase;
+    position:  absolute;
+    top: 50%;
+    right: -18px;
+    width: 26px;
+    text-align:  center;
+    margin-top: -8.5px;
+">New</span>--></a></li>
+                    <!--<li><a href="/casino-games/" ng-click="ad_clicked_bitstarz();$event.preventDefault();">Casino Games</a></li>-->
+                </ul>
+
+                    <span class="search-button open" ng-click="xxxopen_search()" ng-class="{'displaying_results' : search_value.length > 1 && (!search_results.searching || search_results.length > 0)}">
+                        <span class="search-filter">
+                            <input type="text" ng-model="search_value" placeholder="Search for coins, ICOs, exchanges..." ng-model-options="{ debounce: 150 }" ng-keydown="filter_search_keypress($event)">
+                            <div class="popup_menu_container search" ng-if="search_value != '' && (!search_results.searching || search_results.length > 0)">
+                                <div class="popup_menu search" ng-class="{'open' : search_value.length > 1 && (!search_results.searching || search_results.length > 0)}">
+                                    <div class="category coin_category" ng-show="search_results.coins.length > 0">Coins</div>
+                                    <div class="coin-entry" ng-repeat="coin in search_results.coins">
+                                        <a class="row" href="/crypto/{{coin.shortname}}/" ng-click="goto_coin(coin, $event, 'search')">
+                                            <div class="coin" ng-class="{'selected' : $index == search_selected}"><span class="name" style="background-image: url(/en/resources/images/admin/coins/{{coin.shortname}}.png:resizebox?20x20);"><span ng-bind="coin.name"></span> <span class="symbol">(<span ng-bind="coin.display_symbol"></span>)</span></span></div>
+                                        </a>
+                                    </div>
+                                    <div class="category ico_category" ng-show="search_results.icos.length > 0">ICOs</div>
+                                    <div class="coin-entry" ng-repeat="coin in search_results.icos">
+                                        <a class="row" href="/ico/{{coin.slug}}/" ng-click="goto_ico(coin, $event, 'search')">
+                                            <div class="coin" ng-class="{'selected' : ($index + search_results.coins.length) == search_selected}"><span class="name" style="background-image: url(/en/resources/images/admin/coins/{{coin.slug}}.png:resizebox?20x20);"><span ng-bind="coin.name"></span> ICO</span></div>
+                                        </a>
+                                    </div>
+                                    <div class="category exchange_category" ng-show="search_results.exchanges.length > 0">Exchanges</div>
+                                    <div class="coin-entry" ng-repeat="coin in search_results.exchanges">
+                                        <a class="row" href="/exchange/{{coin.shortname}}/" ng-click="goto_exchange(coin, $event, 'search')">
+                                            <div class="coin" ng-class="{'selected' : ($index + search_results.coins.length + search_results.icos.length) == search_selected}"><span class="name" style="background-image: url(/en/resources/images/admin/exchanges/{{coin.shortname}}.png:resizebox?20x20);"><span ng-bind="coin.name"></span> </span></div>
+                                        </a>
+                                    </div>
+                                    <div ng-if="search_results.length == 0 && !search_results.searching" class="no-results">
+                                        No Results
+                                    </div>
+                                </div>
+                            </div>
+                        </span>
+
+                        <span ng-if="!search_results.searching"><i class="fa fa-search" aria-hidden="true"></i></span>
+                        <span class="ng-cloak" ng-if="search_results.searching"><i class="fa fa-refresh fa-spin" aria-hidden="true"></i></span>
+                    </span>
+
+                <span class="socials">
+                    <a href="https://www.facebook.com/CoinCodex/" target="_blank" ng-click="social_clicked('facebook')"><i class="fa fa-facebook"></i></a>
+                    <a href="https://twitter.com/CoinCodex" target="_blank"  ng-click="social_clicked('twitter')"><i class="fa fa-twitter"></i></a>
+                </span>
+
+            </div>
+        </div>
+
+        <div ng-controller="breadcrumbsCtrl" class="ng-cloak">
+            <div class="breadcrumbs" ng-if="crumbs">
+                <div class="container">
+                    <ul>
+                        <li><a href="/" ng-click="back_to_home()">Home</a></li>
+                        <li ng-repeat="crumb in crumbs" class="crumb_{{$index}}">
+                            <a ng-if="!$last" href="{{crumb.url}}" ng-click="go(crumb.url)" ng-bind="crumb.name"></a>
+                            <span ng-if="$last" ng-bind="crumb.name"></span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="navbar-mobile" class="hidden-md hidden-lg" ng-controller="menuCtrl">
+
+        <span class="menu open-menu" ng-click="show_aside()"><i class="fa fa-bars"></i></span>
+        <a href="/" class="logo" ng-click="go('/', $event)">CoinCodex</a>
+        <span class="search" ng-click="open_search_aside()"><i class="fa fa-search"></i></span>
+
+    </div>
+
+    <div class="container">
+        <div id="app">
+			<div layout-padding ng-view class="ng-cloak">
+			</div>
+		</div>
+
+    </div>
+
+    <!--<div class="social-floater" ng-if="!is_mobile() && !blocking_ads">
+
+        <div id="twitter-floater" class="twitter">
+            <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+        </div>
+        
+        <div class="facebook">
+            <div class="fb-like" data-href="https://www.facebook.com/CoinCodex" data-layout="button" data-action="like" data-size="small" data-show-faces="false" data-share="false"></div>
+        </div>
+
+    </div>-->
+
+    <footer id="footer" ng-controller="footerCtrl">
+
+        <div class="market">
+
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-xs-4 col-sm-3 hidden-xs">
+
+                        <div class="market-label">Active ICOs <a href="/ico-calendar/">(View All)</a></div>
+                        <div class="market-value">208</div>
+
+                    </div>
+
+                    <div class="col-xs-4 col-sm-3">
+
+                        <div class="market-label">Currencies</div>
+                        <div class="market-value"><span ng-bind="num_currencies()"></span></div>
+
+                    </div>
+
+                    <div class="col-xs-4 col-sm-3">
+
+                        <div class="market-label">Gainers <i class="fa fa-caret-up" aria-hidden="true"></i></div>
+                        <div class="market-value"><span ng-bind="gainers() | number : 1"></span>%</div>
+
+                    </div>
+
+                    <div class="col-xs-4 col-sm-3">
+
+                        <div class="market-label">Losers <i class="fa fa-caret-down" aria-hidden="true"></i></div>
+                        <div class="market-value"><span ng-bind="losers() | number : 1"></span>%</div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="navigation">
+
+            <div class="container">
+
+                <div class="row">
+
+                    <div class="col-xs-6 col-sm-3">
+
+                        <h4>CoinCodex</h4>
+
+                        <ul class="links">
+                            <li><a href="/page/about-us/" ng-click="go('/page/about-us', $event)">About Us</a></li>
+                            <li><a href="/page/contact-us/" ng-click="go('/page/contact-us', $event)">Contact Us</a></li>
+                            <li><a href="/page/advertising/" ng-click="go('/page/advertising', $event)">Advertising</a></li>
+                            <li><a href="/page/faq/" ng-click="go('/page/faq', $event)">FAQ</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-xs-6 col-sm-3">
+                        <h4>Menu</h4>
+
+                        <ul class="links">
+                            <li><a href="/" ng-click="go('/', $event)">All Coins</a></li>
+                            <li><a href="/ico-calendar/" ng-click="go('/ico-calendar', $event)">ICO Calendar</a></li>
+                            <li><a href="/news/" ng-click="go('/news', $event)">News</a></li>
+                            <li><a href="/exchanges/" ng-click="go('/exchanges', $event)">Exchanges</a></li>
+                            <!--<li><a href="/wallets/" ng-click="go('/wallets', $event)">Wallets</a></li>-->
+                            <li><a href="/guides/" ng-click="go('/guides', $event)">Guides</a></li>
+                        </ul>
+
+                    </div>
+
+                    <div class="col-xs-12 col-sm-3">
+
+                        <div class="newbies">
+
+                            <h4>New to Crypto?</h4>
+
+                            <a class="button button-transparent" href="/guides" ng-click="go('/guides', $event)"><i class="fa fa-info" aria-hidden="true"></i> Start Here</a>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-xs-12 col-sm-3">
+
+                        <h4>What is CoinCodex?</h4>
+
+                        <p>Complete cryptocurrency market coverage with real-time coin prices, charts and crypto market
+                            cap featuring over <span ng-bind="roundto(num_currencies(), 100)"></span> coins on more than <span ng-bind="roundto(num_exchanges, 10)"></span> exchanges.</p>
+
+                        <ul class="social">
+                            <li><a href="https://www.facebook.com/CoinCodex/" target="_blank" rel="nofollow"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                            <li><a href="https://twitter.com/CoinCodex" target="_blank" rel="nofollow"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                            <!--<li><a href="https://www.reddit.com/user/CoinCodex/" target="_blank" rel="nofollow"><i class="fa fa-reddit" aria-hidden="true"></i></a></li>-->
+                            <!--<li><a href="https://coincodex.slack.com" target="_blank" rel="nofollow"><i class="fa fa-slack" aria-hidden="true"></i></a></li>-->
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="legal">
+
+            <div class="container">
+
+                <div class="row">
+
+                    <div class="col-sm-4">
+
+                        <span class="copyright">CoinCodex &copy; 2017. All rights reserved.</span>
+
+                    </div>
+
+                    <div class="col-sm-8 text-right">
+
+                        <span>By using this site you agree to <a href="/page/terms-of-service/" ng-click="go('/page/terms-of-service/', $event)">Terms of Service</a>, <a href="/page/privacy-policy/" ng-click="go('/page/privacy-policy/', $event)">Privacy Policy</a> and <a href="/page/cookie-policy/" ng-click="go('/page/cookie-policy/', $event)">Cookie Policy</a>.</span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </footer>
+    <div id="connecting" class="connected"></div>
+
+        <script async src='https://www.googletagservices.com/tag/js/gpt.js'></script>
+        <script>
+            window.prerenderReady = false;
+            var check_googletag_ready = function() {
+                //console.log("googletag", window.googletag != undefined, window.googletag);
+                if (window.googletag != undefined && googletag.pubads != undefined) {
+                    googletag.pubads().disableInitialLoad();
+                    googletag.enableServices();                    
+                } else {
+                    setTimeout(check_googletag_ready, 10);
+                }
+            };
+
+            setTimeout(check_googletag_ready);
+        </script>
+
+        <script type="text/javascript">
+            setTimeout(function() {
+                !function(f,b,e,v,n,t,s)
+                {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+                n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+                if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+                n.queue=[];t=b.createElement(e);t.async=!0;
+                t.src=v;s=b.getElementsByTagName(e)[0];
+                s.parentNode.insertBefore(t,s)}(window, document,'script',
+                'https://connect.facebook.net/en_US/fbevents.js');
+                fbq('init', '1956290191319367');
+                fbq('track', 'PageView');
+
+                (function (i, s, o, g, r, a, m) {
+                    i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                        (i[r].q = i[r].q || []).push(arguments)
+                    }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                    m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+                })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+                window.ga('create', 'UA-105571553-4', 'auto');
+
+                function getParameterByName(name, url) {
+                    if (!url) url = window.location.href;
+                    name = name.replace(/[\[\]]/g, "\\$&");
+                    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                        results = regex.exec(url);
+                    if (!results) return null;
+                    if (!results[2]) return '';
+                    return decodeURIComponent(results[2].replace(/\+/g, " "));
+                }
+
+                var action = getParameterByName("action");
+                //console.log("ACTION!", action);
+                if (action === "registered_google") {
+                    ga('send', 'event', 'Register', 'success', 'google');
+                }
+                if (action === "logged_in_google") {
+                    ga('send', 'event', 'Login', 'success', 'google');
+                }
+                if (action === "registered_facebook") {
+                    ga('send', 'event', 'Register', 'success', 'facebook');
+                }
+                if (action === "logged_in_facebook") {
+                    ga('send', 'event', 'Login', 'success', 'facebook');
+                }
+
+                function removeParam(parameter) {
+                    var url=document.location.href;
+                    var urlparts= url.split('?');
+
+                    if (urlparts.length>=2)  {
+                        var urlBase=urlparts.shift(); 
+                        var queryString=urlparts.join("?"); 
+
+                        var prefix = encodeURIComponent(parameter)+'=';
+                        var pars = queryString.split(/[&;]/g);
+                        for (var i= pars.length; i-->0;)               
+                        if (pars[i].lastIndexOf(prefix, 0)!==-1)   
+                            pars.splice(i, 1);
+                        url = urlBase+'?'+pars.join('&');
+                        window.history.pushState('',document.title,url); // added this line to push the new url directly to url bar .
+                    }
+                    return url;
+                }
+
+                removeParam("action");
+            }, 16);
+        </script>
+
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-8131648498075630",
+            enable_page_level_ads: true
+          });
+        </script>
+
+		<script type="text/javascript">
+			var coincodex = {
+                "serve_ads" : true,
+                "rates" : {"AED_currency":3.6731004848792,"AFN":75.600802462923,"ALL":108.94974714782,"AMD":484.26011755804,"ANG":1.7762058636715,"AOA_currency":299.34902364697,"ARS":37.727038523079,"AUD":1.4028497499245,"AWG":1.800000347086,"AZN":1.7024986723959,"BAM":1.5940976283611,"BBD":2.0030005588085,"BDT_currency":83.820094025608,"BGN":1.6976976047592,"BHD":0.37700485573369,"BIF":1786.0002013099,"BMD":1,"BND_currency":1.4104032098517,"BOB_currency":6.9117507713987,"BRL":3.892404195576,"BSD_currency":1.0002499019482,"BTC_currency":0.00015445328742542,"BTN_currency":73.510093262019,"BWP":10.641499168729,"BYN":2.1378000992666,"BYR":19600.002210938,"BZD":2.0114017763863,"CAD":1.2828950793612,"CDF":1625.0003037003,"CHF":0.98927504139001,"CLF":0.022600507439789,"CLP":662.099663153,"CNY":6.8689021321495,"COP":3014.8503399708,"CRC_currency":582.87502906846,"CUC":1,"CUP":26.500002603145,"CVE":95.810511847782,"CZK":22.321952671348,"DJF":177.72045169777,"DKK":6.4703553813955,"DOP":49.954983808436,"DZD":118.41008215527,"EGP":17.904501011756,"ERN":14.999831663271,"ETB":27.950043038669,"EUR":0.86771509789562,"FJD":2.1395502806191,"FKP":0.77001992273865,"GBP":0.76978477194712,"GEL":2.6198158361476,"GGP":0.76980559710947,"GHS":4.9600399843117,"GIP":0.77001992273865,"GMD":49.475020217762,"GNF":9117.4999010805,"GTQ":7.7101510518442,"GYD":209.36006271845,"HKD":7.836650897391,"HNL":24.125001301573,"HRK":6.4455074918522,"HTG":69.855508949614,"HUF":279.90053728919,"IDR":15163.601710961,"ILS":3.6304106374929,"IMP_currency":0.76980559710947,"INR":73.614994811064,"IQD":1190.0001344958,"IRR":42105.00450778,"ISK":114.00001995745,"JEP":0.76980559710947,"JMD":134.56047627146,"JOD":0.71050247645889,"JPY":114.3385078077,"KES":100.79410682614,"KGS":68.860510459438,"KHR":4085.0001770139,"KMF":427.62502906846,"KPW":900.0006611989,"KRW":1124.3701967631,"KWD":0.30350070979095,"KYD_currency":0.83389069566455,"KZT":364.83009444211,"LAK":8530.0007922239,"LBP":1510.1503325084,"LKR_currency":169.8504735989,"LRD":156.20216026351,"LSL":14.434979504569,"LTL":2.9527407649082,"LVL_currency":0.60489026874872,"LYD":1.3904691909077,"MAD":9.4679032185288,"MDL_currency":16.900499977439,"MGA":3439.9999531434,"MKD":53.456504913003,"MMK":1528.5501192241,"MNT":2565.9267370789,"MOP":8.0784050008157,"MRO":356.50006941721,"MUR":34.520219497211,"MVR":15.41012554102,"MWK":727.3050530521,"MXN":18.8838823656,"MYR":4.1394956145679,"MZN":60.530187808256,"NAD":14.404991270786,"NGN":363.00059438484,"NIO_currency":32.203126030412,"NOK":8.2012109831906,"NPR":117.25499630353,"NZD":1.5296854012141,"OMR_currency":0.38498957006452,"PAB":1.0001501147119,"PEN":3.3114003880422,"PGK":3.2521501980126,"PHP":54.255508255441,"PKR":123.54975478371,"PLN":3.7327211892556,"PYG":5905.0959979244,"QAR":3.6410314702912,"RON":4.0510980066849,"RSD":102.85976769531,"RUB":65.668303755818,"RWF":868.50009805181,"SAR":3.7502507696633,"SBD_currency":7.9762506377706,"SCR_currency":13.620129081298,"SDG":18.01050195583,"SEK":9.0287109571592,"SGD":1.3780053312416,"SHP_currency":1.3208975297887,"SLL":8400.0004616244,"SOS":579.00011540611,"SRD":7.4579852349599,"STD":21254.152610261,"SVC":8.7555516411963,"SYP":514.99969109343,"SZL":14.535020981351,"THB":32.503502098135,"TJS":9.4279510122764,"TMT_currency":3.5,"TND":2.8149727711002,"TOP_currency":2.2793062097163,"TRY_currency":6.0346504670043,"TTD":6.7417506325643,"TWD":30.74250728013,"TZS":2285.3009340085,"UAH_currency":28.281002592733,"UGX":3797.5502528522,"USD":1,"UYU":32.950052583535,"UZS":8185.0009189103,"VEF":248519.97829845,"VND":23342.502633515,"VUV":113.82175136144,"WST":2.624374811272,"XAF":568.13969518904,"XAG":0.068159020939701,"XAU_currency":0.00083387420907769,"XCD":2.7025498675867,"XDR":0.71878915564379,"XOF":575.00040522295,"XPF":105.89008739626,"YER":250.34972389306,"ZAR":14.535351580803,"ZMK":9001.1980603097,"ZMW":11.582501483793,"ZWL":322.35504732518},
+                "focused" : true,
+                "has_focus" : true,
+                "visible" : true,
+                "version" : "92",
+                "all_coins_changed" : "1538590645",
+                "all_buysell_coins" : {"binance":["","123","456","ADA","ADAU","ADX","AE","AETH","AGI","AION","AMB","APPC","ARDR","ARK","ARN","AST","BAT","BCCU","BCD","BCH","BCN","BCPT","BLZL","BNB","BNBU","BNT","BQX","BRD","BT","BTC","BTG","BTM","BTS","CDT","CHAT","CLOAK","CM","CND","CTR","CUSDT","CVC","DASH","DATA","DENT","DGD","DLT","DNT","DOCK","EDO","ELC","ELF","ENG","ENJ","EOS","EOSU","ETC","ETCU","ETH","ETHOS","ETHU","EVX","FUEL","FUN","GAS","GNT","GO","GRS","GTO","GVT","GXS","HC","HCC","HOT","HOT2","HSR","ICN","ICX","ICXU","INS","IOST","IOT","IOTA","IOTAU","IOTX","KEY","KMD","KNC","LEND","LINK","LLT","LOOM","LRC","LSK","LTC","LTCU","LUN","MANA","MCO","MDA","MFT","MOD","MTH","MTL","NAS","NAV","NCASH","NEBL","NEO","NEOU","NPXS","NULS","NXS","OAX","OMG","ONT","ONTU","OST","PAX","PAX2","PHX","PIVX","POA","POE","POLY","POWR","PPT","QKC","QLC","QSP","QTUM","QTUMU","RCN","RDN","REP","REQ","RLC","RPX","SALT","SC","SDT","SKY","SNGLS","SNM","SNT","STEEM","STORJ","STORM","STRAT","SUB","SYS","THETA","TNB","TNT","TRIG","TRX","TRXU","TUSD","TUSDU","USDT","VEN","VET","VIA","VIB","VIBE","WABI","WAN","WAVES","WINGS","WPR","WTC","XEM","XLM","XLMU","XMR","XRB","XRP","XRPU","XVG","XZC","YOYO","YOYOW","ZEC","ZEN","ZIL","ZRX"],"kucoin":["ABT","ACAT","ACT","ADB","AGI","AION","AIX","AMB","AOA","APH","ARN","ARY","AXP","AXPR","BAX","BCD","BCH","BCPT","BHC","BNTY","BOS","BPT","BRD","BTC","BTG","BTM","BU","CAG","CAN","CAPP","CAT","CBC","CFD","CHP","CHSB","COFI","COSM","COV","CPC","CRPT","CS","CTR","CV","CVC","CXO","DACC","DADI","DAG","DASH","DAT","DATX","DBC","DCC","DCR","DEB","DENT","DGB","DNA","DOCK","DRGN","DTA","EBTC","EDN","EDR","EGT","ELA","ELEC","ELF","ELIX","ENJ","EOS","ETC","ETH","ETN","EVX","EXY","FLIXX","FOTA","GAS","GAT","GLA","GO","GVT","HAT","HAV","HC","HKN","HPB","HSR","HST","IHT","ING","INS","IOG","IOST","IOTX","ITC","J8T","JNT","KCS","KEY","KICK","KNC","LA","LALA","LEND","LOC","LOCI","LOOM","LTC","LYM","MAN","MANA","MEE","MOBI","MOD","MTC","MTH","MTN","MVP","MWAT","NANO","NEBL","NEO","NULS","NUSD","OCN","OLT","OMG","OMX","ONION","ONT","OPEN","PARETO","PAY","PBL","PHX","PLAY","POE","POLL","POLY","POWR","PPT","PRL","PURA","QKC","QLC","QSP","QTUM","R","RDN","REQ","RHOC","RPX","SAY","SHL","SNC","SNM","SNOV","SNT","SOUL","SPF","SPHTX","SRN","STK","STX","SUB","TEL","TFD","TFL","TIME","TIO","TKY","TMT","TNC","TOMO","TRAC","TRX","UKG","USDC","USDT","USE","UT","UTK","VEN","VET","WAN","WAX","WPR","WTC","XAS","XLM","XLR","XRB","ZIL","ZINC","ZPT","ZRX"],"coinex":["ABC","ABT","BBC","BBN","BBT","BCH","BTC","BTM","BTU","BTV","CAR","CBC","CBT","CDY","CET","CH","CMT","CNN","COD","CTX","DAC","DAS","DBC","DBT","DCR","DET","DOG","EBC","EBT","EET","EGT","EOS","ETC","ETH","FXT","GNT","GSB","GSE","HBC","HBT","HET","HOT","HSR","HUS","HYD","ICX","KAN","LEB","LEE","LEU","LFT","LOO","LTC","LVB","MBC","MBT","MET","MGD","MTB","MTE","NAN","NAS","NEO","NOB","OBC","OBT","OLT","OMG","QTU","RBC","RBT","RET","RHO","ROB","ROE","SBC","SBT","SCB","SCU","SDT","SEE","SET","SOP","TC","TCT","TH","THP","TRX","ULT","USC","USD","USDT","USH","VEN","VET","VIT","WHC","WIN","WWB","XMC","XMR","XMV","XRP","YBC","YET","ZEC","ZIL","ZRX"],"changenow":["ETH","ETC","BTG","BTC","BCH","LTC","XRP","XMR","ADA"]},
+                "blocking_ads" : "unknown",
+                "is_mobile" : false,
+                "top_coins_num" : 100,
+                "onesignal_app_id" : "3275e797-09d5-4af7-9a4f-0cfd83396768",
+                "all_icos_num" : 1085,
+                "active_icos_num" : 208,
+                "report_ga_event" : function(category, action, label, direct) {
+                    var color = "blue";
+                    if (direct) {
+                        color = "black";
+                        ga('send', 'event', category, action, label, {
+                            nonInteraction: true
+                        });
+                    } else {
+                        coincodex.ga_events_waiting.push({
+                            "url": document.location.pathname,
+                            "category": category,
+                            "action": action,
+                            "label": label,
+                            "referer" : document.referrer
+                        });
+                        var events_waiting = coincodex.ga_events_waiting.length;
+
+                        setTimeout(function() {
+                            if (coincodex.ga_events_waiting.length === events_waiting) {
+                                console.log("reporting events locally...");
+                                $.ajax({
+                                    type: "POST",
+                                    //the url where you want to sent the userName and password to
+                                    url: '/api/coincodexuser/report_ga_events',
+                                    dataType: 'json',
+                                    async: true,
+                                    //json object to sent to the authentication url
+                                    data: JSON.stringify(coincodex.ga_events_waiting),
+                                    success: function() {
+                                        console.log(".... DONE reporting events locally");
+                                    }
+                                });
+                                coincodex.ga_events_waiting = [];
+                            }
+                        }, 2500);
+                    }
+                    console.info("%c reporting event ", "background: " + color + "; color: white", category, action, label, document.location.pathname, direct?"ga":"local");
+                },
+                "ga_events_waiting" : [],
+                "all_coins_worker" : false,
+                "location" : false
+            };
+            if (window.Worker) {
+                coincodex.all_coins_worker = new Worker('/apps/coincodex/lib/load_data.js');
+            }
+
+console.info("version", coincodex.version);
+
+            setInterval(function() {
+                coincodex.has_focus = document.hasFocus();
+            }, 1000);
+
+            (function(a){if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino/i.test(a)||/1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(a.substr(0,4))) coincodex.is_mobile = true;})(navigator.userAgent||navigator.vendor||window.opera);
+
+            window.onfocus = function() {
+                coincodex.focused = true;
+            };
+
+            window.onblur = function() {
+                //coincodex.focused = false;
+            };
+
+            if (navigator.userAgent.indexOf("Prerender") !== -1) {
+                coincodex.serve_ads = false;
+            }
+
+(function(window) {
+    var FuckAdBlock=function(t){this._options={checkOnLoad:!1,resetOnEnd:!1,loopCheckTime:50,loopMaxNumber:5,baitClass:"pub_300x250 pub_300x250m pub_728x90 text-ad textAd text_ad text_ads text-ads text-ad-links",baitStyle:"width: 1px !important; height: 1px !important; position: absolute !important; left: -10000px !important; top: -1000px !important;",debug:!1},this._var={version:"3.2.1",bait:null,checking:!1,loop:null,loopNumber:0,event:{detected:[],notDetected:[]}},void 0!==t&&this.setOption(t);var e=this,o=function(){setTimeout(function(){!0===e._options.checkOnLoad&&(!0===e._options.debug&&e._log("onload->eventCallback","A check loading is launched"),null===e._var.bait&&e._creatBait(),setTimeout(function(){e.check()},1))},1)};void 0!==window.addEventListener?window.addEventListener("load",o,!1):window.attachEvent("onload",o)};FuckAdBlock.prototype._options=null,FuckAdBlock.prototype._var=null,FuckAdBlock.prototype._bait=null,FuckAdBlock.prototype._log=function(t,e){console.log("[FuckAdBlock]["+t+"] "+e)},FuckAdBlock.prototype.setOption=function(t,e){if(void 0!==e){var o=t;(t={})[o]=e}for(var i in t)this._options[i]=t[i],!0===this._options.debug&&this._log("setOption",'The option "'+i+'" he was assigned to "'+t[i]+'"');return this},FuckAdBlock.prototype._creatBait=function(){var t=document.createElement("div");t.setAttribute("class",this._options.baitClass),t.setAttribute("style",this._options.baitStyle),this._var.bait=window.document.body.appendChild(t),this._var.bait.offsetParent,this._var.bait.offsetHeight,this._var.bait.offsetLeft,this._var.bait.offsetTop,this._var.bait.offsetWidth,this._var.bait.clientHeight,this._var.bait.clientWidth,!0===this._options.debug&&this._log("_creatBait","Bait has been created")},FuckAdBlock.prototype._destroyBait=function(){window.document.body.removeChild(this._var.bait),this._var.bait=null,!0===this._options.debug&&this._log("_destroyBait","Bait has been removed")},FuckAdBlock.prototype.check=function(t){if(void 0===t&&(t=!0),!0===this._options.debug&&this._log("check","An audit was requested "+(!0===t?"with a":"without")+" loop"),!0===this._var.checking)return!0===this._options.debug&&this._log("check","A check was canceled because there is already an ongoing"),!1;this._var.checking=!0,null===this._var.bait&&this._creatBait();var e=this;return this._var.loopNumber=0,!0===t&&(this._var.loop=setInterval(function(){e._checkBait(t)},this._options.loopCheckTime)),setTimeout(function(){e._checkBait(t)},1),!0===this._options.debug&&this._log("check","A check is in progress ..."),!0},FuckAdBlock.prototype._checkBait=function(t){var e=!1;if(null===this._var.bait&&this._creatBait(),null===window.document.body.getAttribute("abp")&&null!==this._var.bait.offsetParent&&0!=this._var.bait.offsetHeight&&0!=this._var.bait.offsetLeft&&0!=this._var.bait.offsetTop&&0!=this._var.bait.offsetWidth&&0!=this._var.bait.clientHeight&&0!=this._var.bait.clientWidth||(e=!0),void 0!==window.getComputedStyle){var o=window.getComputedStyle(this._var.bait,null);!o||"none"!=o.getPropertyValue("display")&&"hidden"!=o.getPropertyValue("visibility")||(e=!0)}!0===this._options.debug&&this._log("_checkBait","A check ("+(this._var.loopNumber+1)+"/"+this._options.loopMaxNumber+" ~"+(1+this._var.loopNumber*this._options.loopCheckTime)+"ms) was conducted and detection is "+(!0===e?"positive":"negative")),!0===t&&(this._var.loopNumber++,this._var.loopNumber>=this._options.loopMaxNumber&&this._stopLoop()),!0===e?(this._stopLoop(),this._destroyBait(),this.emitEvent(!0),!0===t&&(this._var.checking=!1)):null!==this._var.loop&&!1!==t||(this._destroyBait(),this.emitEvent(!1),!0===t&&(this._var.checking=!1))},FuckAdBlock.prototype._stopLoop=function(t){clearInterval(this._var.loop),this._var.loop=null,this._var.loopNumber=0,!0===this._options.debug&&this._log("_stopLoop","A loop has been stopped")},FuckAdBlock.prototype.emitEvent=function(t){!0===this._options.debug&&this._log("emitEvent","An event with a "+(!0===t?"positive":"negative")+" detection was called");var e=this._var.event[!0===t?"detected":"notDetected"];for(var o in e)!0===this._options.debug&&this._log("emitEvent","Call function "+(parseInt(o)+1)+"/"+e.length),e.hasOwnProperty(o)&&e[o]();return!0===this._options.resetOnEnd&&this.clearEvent(),this},FuckAdBlock.prototype.clearEvent=function(){this._var.event.detected=[],this._var.event.notDetected=[],!0===this._options.debug&&this._log("clearEvent","The event list has been cleared")},FuckAdBlock.prototype.on=function(t,e){return this._var.event[!0===t?"detected":"notDetected"].push(e),!0===this._options.debug&&this._log("on",'A type of event "'+(!0===t?"detected":"notDetected")+'" was added'),this},FuckAdBlock.prototype.onDetected=function(t){return this.on(!0,t)},FuckAdBlock.prototype.onNotDetected=function(t){return this.on(!1,t)},window.FuckAdBlock=FuckAdBlock,void 0===window.fuckAdBlock&&(window.fuckAdBlock=new FuckAdBlock({checkOnLoad:!0,resetOnEnd:!0}));
+})(window);
+
+fuckAdBlock.setOption("loopMaxNumber", 10);
+
+fuckAdBlock.on(true, function() {
+    coincodex.blocking_ads = true;
+
+    console.log("blocking_ads");
+    localStorage.setItem('puppy_killer', true);
+});
+
+fuckAdBlock.onNotDetected(function() {
+    console.log("not blocking_ads");
+    localStorage.setItem('puppy_killer', false);
+    coincodex.blocking_ads = false;
+});
+
+fuckAdBlock.check(true);
+</script>
+        <script async type="text/javascript" src="/api/coincodex/get_js?t=92"></script>
+        <link rel="stylesheet" type="text/css" href="/apps/coincodex/node_modules/selectize/dist/css/selectize.bootstrap3.css" />
+
+        <script type="text/javascript" src="/apps/coincodex/node_modules/amstock3/amcharts/amcharts.js?version=1"></script>
+        <script type="text/javascript" src="/apps/coincodex/node_modules/amstock3/amcharts/serial.js?version=1"></script>
+        <script type="text/javascript" src="/apps/coincodex/node_modules/amstock3/amcharts/amstock.js?version=1"></script>
+        <script type="text/javascript" src="/apps/coincodex/node_modules/amcharts3/amcharts/themes/light.js?v=1"></script>
+        <script type="text/javascript" src="/apps/coincodex/node_modules/amstock3/amcharts/plugins/export/export.js?version=1"></script>
+        <!--<script src="//www.amcharts.com/lib/3/plugins/tools/datePadding/datePadding.min.js"></script>-->
+        <link href="/apps/coincodex/node_modules/amstock3/amcharts/export/export.css?version=1" rel="stylesheet" type="text/css">
+        <style type="text/css">
+            .amcharts-export-menu {
+                display: none;
+            }
+        </style>
+
+        <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+        <script type="text/javascript">
+            var OneSignal = window.OneSignal || [];
+        </script>
+    <!-- FANCYBAR ON SCROLL -->
+    <!--<script src="//m.servedby-buysellads.com/monetization.js" type="text/javascript"></script>
+    <script>
+
+        fuckAdBlock.onNotDetected(function() {
+            console.log("bsa", _bsa)
+            if(typeof _bsa !== 'undefined' && _bsa && coincodex.is_mobile && false) {
+                console.log("PLACE FANCYBAR");
+                _bsa.init('fancybar', 'CKYDV2QM', 'placement:coincodex');
+            }
+        });
+
+    </script>-->
+
+        <script type="text/javascript">
+
+            setTimeout(function() {
+                // https://davidwalsh.name/detect-scrollbar-width
+                // Create the measurement node
+                var scrollDiv = document.createElement("div");
+                scrollDiv.className = "scrollbar-measure";
+                document.body.appendChild(scrollDiv);
+
+                // Get the scrollbar width
+                var scrollbarWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth;
+                //console.warn("scrollbarWidth", scrollbarWidth); // Mac:  15
+
+                // Delete the DIV 
+                document.body.removeChild(scrollDiv);
+
+                //https://stackoverflow.com/questions/1409225/changing-a-css-rule-set-from-javascript
+                function getCSSRule(ruleName) {
+                    ruleName = ruleName.toLowerCase();
+                    var result = null;
+                    var find = Array.prototype.find;
+
+                    find.call(document.styleSheets, styleSheet => {
+                        result = find.call(styleSheet.cssRules, cssRule => {
+                            return cssRule instanceof CSSStyleRule 
+                                && cssRule.selectorText.toLowerCase() == ruleName;
+                        });
+                        return result != null;
+                    });
+                    return result;
+                }
+
+                getCSSRule('.modal-open').style["margin-right"] = scrollbarWidth + "px"; 
+            }, 100);
+            
+
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', "https://coincodex.com/api/country_code");
+            xhr.onload = function() {
+                if (xhr.status === 200) {
+                    coincodex.location = xhr.responseText;
+                } else {
+                    coincodex.location = "??";
+                }
+            };
+            xhr.send();
+
+            (function(h,o,t,j,a,r){
+                h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+                h._hjSettings={hjid:1031493,hjsv:6};
+                a=o.getElementsByTagName('head')[0];
+                r=o.createElement('script');r.async=1;
+                r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+                a.appendChild(r);
+            })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+        </script>
+	</body>
+</html>

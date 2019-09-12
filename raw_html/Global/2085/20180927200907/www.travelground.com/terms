@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"UwEGWFBADgUFVVRXAQ=="};window.NREUM||(NREUM={}),__nr_require=function(t,n,e){function r(e){if(!n[e]){var o=n[e]={exports:{}};t[e][0].call(o.exports,function(n){var o=t[e][1][n];return r(o||n)},o,o.exports)}return n[e].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<e.length;o++)r(e[o]);return r}({1:[function(t,n,e){function r(t){try{s.console&&console.log(t)}catch(n){}}var o,i=t("ee"),a=t(15),s={};try{o=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(s.console=!0,o.indexOf("dev")!==-1&&(s.dev=!0),o.indexOf("nr_dev")!==-1&&(s.nrDev=!0))}catch(c){}s.nrDev&&i.on("internal-error",function(t){r(t.stack)}),s.dev&&i.on("fn-err",function(t,n,e){r(e.stack)}),s.dev&&(r("NR AGENT IN DEVELOPMENT MODE"),r("flags: "+a(s,function(t,n){return t}).join(", ")))},{}],2:[function(t,n,e){function r(t,n,e,r,s){try{p?p-=1:o(s||new UncaughtException(t,n,e),!0)}catch(f){try{i("ierr",[f,c.now(),!0])}catch(d){}}return"function"==typeof u&&u.apply(this,a(arguments))}function UncaughtException(t,n,e){this.message=t||"Uncaught error with no additional information",this.sourceURL=n,this.line=e}function o(t,n){var e=n?null:c.now();i("err",[t,e])}var i=t("handle"),a=t(16),s=t("ee"),c=t("loader"),f=t("gos"),u=window.onerror,d=!1,l="nr@seenError",p=0;c.features.err=!0,t(1),window.onerror=r;try{throw new Error}catch(h){"stack"in h&&(t(8),t(7),"addEventListener"in window&&t(5),c.xhrWrappable&&t(9),d=!0)}s.on("fn-start",function(t,n,e){d&&(p+=1)}),s.on("fn-err",function(t,n,e){d&&!e[l]&&(f(e,l,function(){return!0}),this.thrown=!0,o(e))}),s.on("fn-end",function(){d&&!this.thrown&&p>0&&(p-=1)}),s.on("internal-error",function(t){i("ierr",[t,c.now(),!0])})},{}],3:[function(t,n,e){t("loader").features.ins=!0},{}],4:[function(t,n,e){function r(t){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var o=t("ee"),i=t("handle"),a=t(8),s=t(7),c="learResourceTimings",f="addEventListener",u="resourcetimingbufferfull",d="bstResource",l="resource",p="-start",h="-end",m="fn"+p,w="fn"+h,v="bstTimer",y="pushState",g=t("loader");g.features.stn=!0,t(6);var b=NREUM.o.EV;o.on(m,function(t,n){var e=t[0];e instanceof b&&(this.bstStart=g.now())}),o.on(w,function(t,n){var e=t[0];e instanceof b&&i("bst",[e,n,this.bstStart,g.now()])}),a.on(m,function(t,n,e){this.bstStart=g.now(),this.bstType=e}),a.on(w,function(t,n){i(v,[n,this.bstStart,g.now(),this.bstType])}),s.on(m,function(){this.bstStart=g.now()}),s.on(w,function(t,n){i(v,[n,this.bstStart,g.now(),"requestAnimationFrame"])}),o.on(y+p,function(t){this.time=g.now(),this.startPath=location.pathname+location.hash}),o.on(y+h,function(t){i("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),f in window.performance&&(window.performance["c"+c]?window.performance[f](u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["c"+c]()},!1):window.performance[f]("webkit"+u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["webkitC"+c]()},!1)),document[f]("scroll",r,{passive:!0}),document[f]("keypress",r,!1),document[f]("click",r,!1)}},{}],5:[function(t,n,e){function r(t){for(var n=t;n&&!n.hasOwnProperty(u);)n=Object.getPrototypeOf(n);n&&o(n)}function o(t){s.inPlace(t,[u,d],"-",i)}function i(t,n){return t[1]}var a=t("ee").get("events"),s=t(18)(a,!0),c=t("gos"),f=XMLHttpRequest,u="addEventListener",d="removeEventListener";n.exports=a,"getPrototypeOf"in Object?(r(document),r(window),r(f.prototype)):f.prototype.hasOwnProperty(u)&&(o(window),o(f.prototype)),a.on(u+"-start",function(t,n){var e=t[1],r=c(e,"nr@wrapped",function(){function t(){if("function"==typeof e.handleEvent)return e.handleEvent.apply(e,arguments)}var n={object:t,"function":e}[typeof e];return n?s(n,"fn-",null,n.name||"anonymous"):e});this.wrapped=t[1]=r}),a.on(d+"-start",function(t){t[1]=this.wrapped||t[1]})},{}],6:[function(t,n,e){var r=t("ee").get("history"),o=t(18)(r);n.exports=r,o.inPlace(window.history,["pushState","replaceState"],"-")},{}],7:[function(t,n,e){var r=t("ee").get("raf"),o=t(18)(r),i="equestAnimationFrame";n.exports=r,o.inPlace(window,["r"+i,"mozR"+i,"webkitR"+i,"msR"+i],"raf-"),r.on("raf-start",function(t){t[0]=o(t[0],"fn-")})},{}],8:[function(t,n,e){function r(t,n,e){t[0]=a(t[0],"fn-",null,e)}function o(t,n,e){this.method=e,this.timerDuration=isNaN(t[1])?0:+t[1],t[0]=a(t[0],"fn-",this,e)}var i=t("ee").get("timer"),a=t(18)(i),s="setTimeout",c="setInterval",f="clearTimeout",u="-start",d="-";n.exports=i,a.inPlace(window,[s,"setImmediate"],s+d),a.inPlace(window,[c],c+d),a.inPlace(window,[f,"clearImmediate"],f+d),i.on(c+u,r),i.on(s+u,o)},{}],9:[function(t,n,e){function r(t,n){d.inPlace(n,["onreadystatechange"],"fn-",s)}function o(){var t=this,n=u.context(t);t.readyState>3&&!n.resolved&&(n.resolved=!0,u.emit("xhr-resolved",[],t)),d.inPlace(t,y,"fn-",s)}function i(t){g.push(t),h&&(x?x.then(a):w?w(a):(E=-E,O.data=E))}function a(){for(var t=0;t<g.length;t++)r([],g[t]);g.length&&(g=[])}function s(t,n){return n}function c(t,n){for(var e in t)n[e]=t[e];return n}t(5);var f=t("ee"),u=f.get("xhr"),d=t(18)(u),l=NREUM.o,p=l.XHR,h=l.MO,m=l.PR,w=l.SI,v="readystatechange",y=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],g=[];n.exports=u;var b=window.XMLHttpRequest=function(t){var n=new p(t);try{u.emit("new-xhr",[n],n),n.addEventListener(v,o,!1)}catch(e){try{u.emit("internal-error",[e])}catch(r){}}return n};if(c(p,b),b.prototype=p.prototype,d.inPlace(b.prototype,["open","send"],"-xhr-",s),u.on("send-xhr-start",function(t,n){r(t,n),i(n)}),u.on("open-xhr-start",r),h){var x=m&&m.resolve();if(!w&&!m){var E=1,O=document.createTextNode(E);new h(a).observe(O,{characterData:!0})}}else f.on("fn-end",function(t){t[0]&&t[0].type===v||a()})},{}],10:[function(t,n,e){function r(t){var n=this.params,e=this.metrics;if(!this.ended){this.ended=!0;for(var r=0;r<d;r++)t.removeEventListener(u[r],this.listener,!1);if(!n.aborted){if(e.duration=a.now()-this.startTime,4===t.readyState){n.status=t.status;var i=o(t,this.lastSize);if(i&&(e.rxSize=i),this.sameOrigin){var c=t.getResponseHeader("X-NewRelic-App-Data");c&&(n.cat=c.split(", ").pop())}}else n.status=0;e.cbTime=this.cbTime,f.emit("xhr-done",[t],t),s("xhr",[n,e,this.startTime])}}}function o(t,n){var e=t.responseType;if("json"===e&&null!==n)return n;var r="arraybuffer"===e||"blob"===e||"json"===e?t.response:t.responseText;return h(r)}function i(t,n){var e=c(n),r=t.params;r.host=e.hostname+":"+e.port,r.pathname=e.pathname,t.sameOrigin=e.sameOrigin}var a=t("loader");if(a.xhrWrappable){var s=t("handle"),c=t(11),f=t("ee"),u=["load","error","abort","timeout"],d=u.length,l=t("id"),p=t(14),h=t(13),m=window.XMLHttpRequest;a.features.xhr=!0,t(9),f.on("new-xhr",function(t){var n=this;n.totalCbs=0,n.called=0,n.cbTime=0,n.end=r,n.ended=!1,n.xhrGuids={},n.lastSize=null,p&&(p>34||p<10)||window.opera||t.addEventListener("progress",function(t){n.lastSize=t.loaded},!1)}),f.on("open-xhr-start",function(t){this.params={method:t[0]},i(this,t[1]),this.metrics={}}),f.on("open-xhr-end",function(t,n){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&n.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),f.on("send-xhr-start",function(t,n){var e=this.metrics,r=t[0],o=this;if(e&&r){var i=h(r);i&&(e.txSize=i)}this.startTime=a.now(),this.listener=function(t){try{"abort"===t.type&&(o.params.aborted=!0),("load"!==t.type||o.called===o.totalCbs&&(o.onloadCalled||"function"!=typeof n.onload))&&o.end(n)}catch(e){try{f.emit("internal-error",[e])}catch(r){}}};for(var s=0;s<d;s++)n.addEventListener(u[s],this.listener,!1)}),f.on("xhr-cb-time",function(t,n,e){this.cbTime+=t,n?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof e.onload||this.end(e)}),f.on("xhr-load-added",function(t,n){var e=""+l(t)+!!n;this.xhrGuids&&!this.xhrGuids[e]&&(this.xhrGuids[e]=!0,this.totalCbs+=1)}),f.on("xhr-load-removed",function(t,n){var e=""+l(t)+!!n;this.xhrGuids&&this.xhrGuids[e]&&(delete this.xhrGuids[e],this.totalCbs-=1)}),f.on("addEventListener-end",function(t,n){n instanceof m&&"load"===t[0]&&f.emit("xhr-load-added",[t[1],t[2]],n)}),f.on("removeEventListener-end",function(t,n){n instanceof m&&"load"===t[0]&&f.emit("xhr-load-removed",[t[1],t[2]],n)}),f.on("fn-start",function(t,n,e){n instanceof m&&("onload"===e&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=a.now()))}),f.on("fn-end",function(t,n){this.xhrCbStart&&f.emit("xhr-cb-time",[a.now()-this.xhrCbStart,this.onload,n],n)})}},{}],11:[function(t,n,e){n.exports=function(t){var n=document.createElement("a"),e=window.location,r={};n.href=t,r.port=n.port;var o=n.href.split("://");!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=n.hostname||e.hostname,r.pathname=n.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname);var i=!n.protocol||":"===n.protocol||n.protocol===e.protocol,a=n.hostname===document.domain&&n.port===e.port;return r.sameOrigin=i&&(!n.hostname||a),r}},{}],12:[function(t,n,e){function r(){}function o(t,n,e){return function(){return i(t,[f.now()].concat(s(arguments)),n?null:this,e),n?void 0:this}}var i=t("handle"),a=t(15),s=t(16),c=t("ee").get("tracer"),f=t("loader"),u=NREUM;"undefined"==typeof window.newrelic&&(newrelic=u);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],l="api-",p=l+"ixn-";a(d,function(t,n){u[n]=o(l+n,!0,"api")}),u.addPageAction=o(l+"addPageAction",!0),u.setCurrentRouteName=o(l+"routeName",!0),n.exports=newrelic,u.interaction=function(){return(new r).get()};var h=r.prototype={createTracer:function(t,n){var e={},r=this,o="function"==typeof n;return i(p+"tracer",[f.now(),t,e],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],e),o)try{return n.apply(this,arguments)}catch(t){throw c.emit("fn-err",[arguments,this,t],e),t}finally{c.emit("fn-end",[f.now()],e)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,n){h[n]=o(p+n)}),newrelic.noticeError=function(t){"string"==typeof t&&(t=new Error(t)),i("err",[t,f.now()])}},{}],13:[function(t,n,e){n.exports=function(t){if("string"==typeof t&&t.length)return t.length;if("object"==typeof t){if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if(!("undefined"!=typeof FormData&&t instanceof FormData))try{return JSON.stringify(t).length}catch(n){return}}}},{}],14:[function(t,n,e){var r=0,o=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);o&&(r=+o[1]),n.exports=r},{}],15:[function(t,n,e){function r(t,n){var e=[],r="",i=0;for(r in t)o.call(t,r)&&(e[i]=n(r,t[r]),i+=1);return e}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],16:[function(t,n,e){function r(t,n,e){n||(n=0),"undefined"==typeof e&&(e=t?t.length:0);for(var r=-1,o=e-n||0,i=Array(o<0?0:o);++r<o;)i[r]=t[n+r];return i}n.exports=r},{}],17:[function(t,n,e){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],18:[function(t,n,e){function r(t){return!(t&&t instanceof Function&&t.apply&&!t[a])}var o=t("ee"),i=t(16),a="nr@original",s=Object.prototype.hasOwnProperty,c=!1;n.exports=function(t,n){function e(t,n,e,o){function nrWrapper(){var r,a,s,c;try{a=this,r=i(arguments),s="function"==typeof e?e(r,a):e||{}}catch(f){l([f,"",[r,a,o],s])}u(n+"start",[r,a,o],s);try{return c=t.apply(a,r)}catch(d){throw u(n+"err",[r,a,d],s),d}finally{u(n+"end",[r,a,c],s)}}return r(t)?t:(n||(n=""),nrWrapper[a]=t,d(t,nrWrapper),nrWrapper)}function f(t,n,o,i){o||(o="");var a,s,c,f="-"===o.charAt(0);for(c=0;c<n.length;c++)s=n[c],a=t[s],r(a)||(t[s]=e(a,f?s+o:o,i,s))}function u(e,r,o){if(!c||n){var i=c;c=!0;try{t.emit(e,r,o,n)}catch(a){l([a,e,r,o])}c=i}}function d(t,n){if(Object.defineProperty&&Object.keys)try{var e=Object.keys(t);return e.forEach(function(e){Object.defineProperty(n,e,{get:function(){return t[e]},set:function(n){return t[e]=n,n}})}),n}catch(r){l([r])}for(var o in t)s.call(t,o)&&(n[o]=t[o]);return n}function l(n){try{t.emit("internal-error",n)}catch(e){}}return t||(t=o),e.inPlace=f,e.flag=a,e}},{}],ee:[function(t,n,e){function r(){}function o(t){function n(t){return t&&t instanceof r?t:t?c(t,s,i):i()}function e(e,r,o,i){if(!l.aborted||i){t&&t(e,r,o);for(var a=n(o),s=h(e),c=s.length,f=0;f<c;f++)s[f].apply(a,r);var d=u[y[e]];return d&&d.push([g,e,r,a]),a}}function p(t,n){v[t]=h(t).concat(n)}function h(t){return v[t]||[]}function m(t){return d[t]=d[t]||o(e)}function w(t,n){f(t,function(t,e){n=n||"feature",y[e]=n,n in u||(u[n]=[])})}var v={},y={},g={on:p,emit:e,get:m,listeners:h,context:n,buffer:w,abort:a,aborted:!1};return g}function i(){return new r}function a(){(u.api||u.feature)&&(l.aborted=!0,u=l.backlog={})}var s="nr@context",c=t("gos"),f=t(15),u={},d={},l=n.exports=o();l.backlog=u},{}],gos:[function(t,n,e){function r(t,n,e){if(o.call(t,n))return t[n];var r=e();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return t[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(t,n,e){function r(t,n,e,r){o.buffer([t],r),o.emit(t,n,e)}var o=t("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(t,n,e){function r(t){var n=typeof t;return!t||"object"!==n&&"function"!==n?-1:t===window?0:a(t,i,function(){return o++})}var o=1,i="nr@id",a=t("gos");n.exports=r},{}],loader:[function(t,n,e){function r(){if(!x++){var t=b.info=NREUM.info,n=l.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(t&&t.licenseKey&&t.applicationID&&n))return u.abort();f(y,function(n,e){t[n]||(t[n]=e)}),c("mark",["onload",a()+b.offset],null,"api");var e=l.createElement("script");e.src="https://"+t.agent,n.parentNode.insertBefore(e,n)}}function o(){"complete"===l.readyState&&i()}function i(){c("mark",["domContent",a()+b.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(s=Math.max((new Date).getTime(),s))-b.offset}var s=(new Date).getTime(),c=t("handle"),f=t(15),u=t("ee"),d=window,l=d.document,p="addEventListener",h="attachEvent",m=d.XMLHttpRequest,w=m&&m.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:m,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1071.min.js"},g=m&&w&&w[p]&&!/CriOS/.test(navigator.userAgent),b=n.exports={offset:s,now:a,origin:v,features:{},xhrWrappable:g};t(12),l[p]?(l[p]("DOMContentLoaded",i,!1),d[p]("load",r,!1)):(l[h]("onreadystatechange",o),d[h]("onload",r)),c("mark",["firstbyte",s],null,"api");var x=0,E=t(17)},{}]},{},["loader",2,10,4,3]);</script>
+      <link rel="shortcut icon" href="/img/new_view_page_2014/favicon.ico">
+    <title>TravelGround - Terms of Use</title>
+
+  
+      
+                        <link rel="stylesheet" href="/homepage/assets/css/pikaday.css?v=d0beb16310"/>
+                        <link rel="stylesheet" href="/header/assets/css/header.css?v=d0beb16310"/>
+                        <link rel="stylesheet" href="/homepage/assets/css/font-awesome-4.7.0/css/font-awesome.min.css?v=d0beb16310"/>
+                        <link rel="stylesheet" href="/login/assets/css/login.css?v=d0beb16310"/>
+                        <link rel="stylesheet" href="/header/assets/css/footer_tg.css?v=d0beb16310"/>
+                        <script type="text/javascript" src="/js/modernizr.custom.min.js?v=d0beb16310"></script>
+          <link rel="stylesheet" href="/css/headerfooter/reset.css?v=d0beb16310">
+      <link rel="stylesheet" href="/css/headerfooter/style.css?v=d0beb16310">
+      <link rel="stylesheet" href="/css/newView.css?v=d0beb16310">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/contact/assets/css/about.css?v=d0beb16310">
+  
+  <!--[if lt IE 10]>
+                                    <script type="text/javascript" src="/homepage/assets/js/plugins/respond.js?v=d0beb16310"></script>
+                               <![endif]-->
+
+</head>
+<body>
+  
+<div id="header" class="header contact not_ie tg" data-tab_origin="">
+  <div class="header-container">
+    <div class="content-container">
+                <p class="header-text header-text-long">The easiest way to find and book accommodation across South Africa!</p>
+          <p class="header-text header-text-short">Find accommodation in South Africa now!</p>
+          <ul class="header-links">
+            <li><a href="/favourites" title="Favourites"><i class="fa fa-heart-o"></i>Favourites</a></li>
+            <li class="separator">|</li>
+                        <li><a href="/login" title="Login" class="login_link"><i class="fa fa-sign-in"></i>Login</a></li>
+        
+                
+      </ul>
+    </div>
+  </div>
+
+  <div class="body-container not-homepage">
+      <div id="nav-btn" class="header-btn">
+              </div>
+
+      <div class="logo-container">
+        <a href="/">
+          <div class="logo" alt="TravelGround">
+              <img src="/header/assets/img/logos/tg_logo_flat.png">
+          </div>
+        </a>
+      </div>
+
+      <div class="value-container not-homepage">
+        <ul class="value-list">
+          <li>
+            <div class="icon">
+              <span class = "fa-stack fa-lg">
+                <i class = "fa fa-square fa-stack-2x"></i>
+                <i class = "fa fa-tag fa-stack-1x"></i>
+              </span>
+            </div>
+            <div class="value"><span class="lekke">GREAT</span><br>SAVINGS</div>
+          </li>
+          <li>
+            <div class="icon">
+              <span class = "fa-stack fa-lg">
+                  <i class = "fa fa-square fa-stack-2x"></i>
+                  <i class = "fa fa-check fa-stack-1x"></i>
+              </span>
+            </div>
+            <div class="value"><span class="lekke">EASY</span><br>BOOKING</div>
+          </li>
+          <li>
+            <div class="icon">
+              <span class = "fa-stack fa-lg">
+                  <i class = "fa fa-square fa-stack-2x"></i>
+                  <i class = "fa fa-lock fa-stack-1x"></i>
+              </span>
+            </div>
+            <div class="value"><span class="lekke">SECURE</span><br>PAYMENT</div>
+          </li>
+        </ul>
+      </div>
+
+            <div class="search-container new tg">
+          <form class="form-search" action="/forms/search.php" method="post">
+              <div class="col-full autocomplete clearfix">
+                <div class="field">
+                  <input id="search-bar" name="q" type="text" class="tg-input" placeholder="Region or Establishment" value="" autocomplete ="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+                  <div class="icon" tabIndex="-1"><div><i class="fa fa-search fa-lg"></i></div></div>
+                  <div class="tg-btn green btn-search" tabIndex="0">SEARCH</div>
+                </div>
+              </div>
+          </form>
+      </div>
+      
+              <div id="search-btn" class="header-btn">
+          <span class="fa-stack fa-lg">
+            <i class="fa fa-square fa-stack-2x fa-inverse"></i>
+            <i class="fa fa-search fa-stack-1x"></i>
+          </span>
+        </div>
+            <div id="menu-btn" class="header-btn">
+        <span class="fa-stack fa-lg">
+          <i class="fa fa-square fa-stack-2x fa-inverse"></i>
+          <i class="fa fa-bars fa-stack-1x"></i>
+        </span>
+      </div>
+  </div>
+
+          <div class="header-border"></div>
+  
+      <div class="breadcrumb-container cropped ">
+      <div class="crumbs-container">
+        <ul class="crumbs-list">
+            <li class="home"><a href="/" title="TravelGround Homepage"><i class="fa fa-home fa-lg"></i></a></li>
+            <li class="crumb-separator"></li>
+                                            <li class="crumb"><a href="/terms" title="Terms of Use">Terms of Use</a></li>
+                  <li class="crumb-separator"></li>
+                                    </ul>
+      </div>
+    </div>
+  
+  <div id="menu" class="drawer" data-active="0">
+    <div class="drawer-wrapper">
+      <span class="fa fa-times fa-lg close-menu-btn"></span>
+      <h3>Menu</h3>
+      <ul>
+        <li>
+          <a href="/">
+            <span>Home</span>
+            <i class="fa fa-home fa-lg"></i>
+          </a>
+        </li>
+                  <li>
+            <a href="/login">
+              <span>Login</span>
+              <i class="fa fa-sign-in fa-lg"></i>
+            </a>
+          </li>
+                <li>
+          <a href="/favourites">
+            <span>Favourites</span>
+            <i class="fa fa-heart fa-lg"></i>
+          </a>
+        </li>
+                <li>
+          <a href="/contact">
+            <span>Contact</span>
+            <i class="fa fa-phone fa-lg"></i>
+          </a>
+        </li>
+        <li>
+          <a href="/about">
+            <span>About</span>
+            <i class="fa fa-info fa-lg"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+            <div class="header-border"></div>
+      </div>
+
+        <div id="search" class="search drawer clearfix" data-active="0">
+        <div class="drawer-wrapper">
+          <form id="search-form" name="search-form" method="GET">
+            <div class="col-full autocomplete clearfix">
+              <div class="label">Where are you going?</div>
+              <div class="field">
+                <input id="autocomplete" class="tg-input" name="q" type="text" value="" placeholder="Region or Establishment" data-permalink="" data-category="" autocomplete ="off" readonly  onfocus="this.removeAttribute('readonly');">
+                <div class="icon" tabIndex="-1"><div><i class="fa fa-search fa-lg"></i></div></div>
+              </div>
+            </div>
+            <div class="col-third">
+              <div class="label left">Check In</div>
+              <div class="field start-date left" data-active="0">
+                <input id="search-start-date" class="tg-input" name="in" type="text" value="" data-date="" placeholder="Check In" readonly>
+                <div class="icon" tabIndex="-1"><div class=""><i class="fa fa-calendar-o fa-lg"></i></div></div>
+              </div>
+            </div>
+            <div class="col-third">
+              <div class="label middle">Check Out</div>
+              <div class="field end-date middle" data-active="0">
+                <input id="search-end-date" class="tg-input" name="out" type="text" value="" data-date="" placeholder="Check Out" readonly>
+                <div class="icon" tabIndex="-1"><div class=""><i class="fa fa-calendar-o fa-lg"></i></div></div>
+              </div>
+            </div>
+            <div class="col-third pax">
+              <div class="label right">Number of Guests</div>
+              <div class="field right">
+                <select id="search-pax" name="pax" class="tg-select unselected">
+                  <option value="1" >1 Guest</option>
+                  <option value="2"  selected="selected">2 Guests</option>
+                                      <option value="3" >3 Guests</option>
+                                      <option value="4" >4 Guests</option>
+                                      <option value="5" >5 Guests</option>
+                                      <option value="6" >6 Guests</option>
+                                      <option value="7" >7 Guests</option>
+                                      <option value="8" >8 Guests</option>
+                                      <option value="9" >9 Guests</option>
+                                      <option value="10" >10 Guests</option>
+                                      <option value="11" >11 Guests</option>
+                                      <option value="12" >12 Guests</option>
+                                      <option value="13" >13 Guests</option>
+                                      <option value="14" >14 Guests</option>
+                                      <option value="15" >15 Guests</option>
+                                      <option value="16" >16 Guests</option>
+                                      <option value="17" >17 Guests</option>
+                                      <option value="18" >18 Guests</option>
+                                      <option value="19" >19 Guests</option>
+                                      <option value="20" >20 Guests</option>
+                                  </select>
+                <div class="icon" tabindex="-1"><div><i class="fa fa-male fa-lg"></i></div></div>
+              </div>
+            </div>
+            <div class="tg-btn green submit-btn" tabIndex="0">SEARCH ACCOMMODATION</div>
+            <div class="notice-box hidden"><span class="fa fa-exclamation-circle"></span>&nbsp;Please first enter a valid destination. </div>
+          </form>
+        </div>
+        <div class="header-border"></div>
+      </div>
+
+  
+      <div id="login_modal" class="modal">
+              <!-- Modal content -->
+                <div class="modal-content login-container">
+                  <span class="close">x</span>
+                <div id=""  class = "modal_box">
+            <div class="login-form">
+
+            <h1>Login</h1>
+            <p class="lead">Log in to TravelGround to access and manage your bookings</p>
+            <form id="login-form" action="/login/check" method="post" >
+
+              <!-- fake fields are a workaround for chrome autofill getting the wrong fields -->
+              
+              <div >
+                <div class="form-group ">
+                  <label for="email" class="control-label">Your email</label>
+                  <input autocomplete ="off" readonly  onfocus="this.removeAttribute('readonly');" name="email" id="email_login" type="text" placeholder="Your email address" value="" class="form-control -input" data-state="invalid">
+                  <span class="help-block"></span>
+                </div>
+                <div class="form-group  " id="pin-container">
+                  <label for="pin" class="control-label">Your pin/password</label>
+                  <input name="pin" id="pin" type="password" autocomplete ="off" readonly  onfocus="this.removeAttribute('readonly');" placeholder="Your pin/password" value="" class="form-control -input" data-state="invalid">
+                                    <span class="help-block login-error"></span>
+                </div>
+
+                <div >
+                  <div >
+
+                    <!--[if gt IE 8]>
+                    <button type="submit" class="btn btn-success btn-log-in disabled" >Log In</button>
+                    <![endif]-->
+                    <!--[if lt IE 9]>
+                    <button type="submit" class="btn btn-success btn-log-in" >Log In</button>
+                    <![endif]-->
+                    <!--[if !IE]> -->
+                    <button type="submit" class="tg-btn green disabled btn-log-in"><div id="check-user-spinner" class="hidden"><i  class=" fa fa-cog fa-spin fa-fw" aria-hidden="true"></i></div><div class="login_text">Log In</div></button>
+                    <!-- <![endif]-->
+                  </div>
+                </div>
+                <div class="links">
+                  <div class=" forgot-pin">
+                    <span class="forgot-pin-btn">Forgot your password?</span>
+                  </div>
+                  <div class="forgot-pin">
+                    <span class="signup-form-button">Create an account</span>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="sign-up-form hidden">
+
+            <h1>Sign up</h1>
+            <form id="sign-up-form" action="/login/signup" method="post" >
+
+              <!-- fake fields are a workaround for chrome autofill getting the wrong fields -->
+              
+              <div >
+                <div class=" form-group">
+                  <label for="fname" class="control-label">Your first name</label>
+                  <input name="fname" id="fname_signup" type="text" placeholder="Your first name" class="form-control -input" data-state="invalid">
+                  <span class="help-block"></span>
+                </div>
+
+                <div class="  form-group ">
+                  <label for="surname" class="control-label">Your surname</label>
+                  <input name="surname" id="surname_signup" type="text" placeholder="Your surname" class="form-control -input" data-state="invalid">
+                  <span class="help-block"></span>
+                </div>
+                <div class=" form-group ">
+                  <label for="cellphone" class="control-label">Your cellphone <div class='country_container tiny'><input checked="checked" id="ZA" value="ZA" class="country" name="country" type="radio"><div class="country_text">South Africa</div> <input name="country" id="INT" value="INT" class="country" type="radio"><div class="country_text">Other</div></div></label>
+                    <select class="form-control hidden" id="newCountry" name="newCountry"><option value="NONE"></option><option value="AF">Afghanistan</option><option value="AL">Albania</option><option value="DZ">Algeria</option><option value="AS">American Samoa</option><option value="AD">Andorra</option><option value="AO">Angola</option><option value="AI">Anguilla</option><option value="AQ">Antarctica</option><option value="AG">Antigua and Barbuda</option><option value="AR">Argentina</option><option value="AM">Armenia</option><option value="AW">Aruba</option><option value="AU">Australia</option><option value="AT">Austria</option><option value="AZ">Azerbaijan</option><option value="BS">Bahamas</option><option value="BH">Bahrain</option><option value="BD">Bangladesh</option><option value="BB">Barbados</option><option value="BY">Belarus</option><option value="BE">Belgium</option><option value="BZ">Belize</option><option value="BJ">Benin</option><option value="BM">Bermuda</option><option value="BT">Bhutan</option><option value="BO">Bolivia</option><option value="BA">Bosnia and Herzegowina</option><option value="BW">Botswana</option><option value="BV">Bouvet Island</option><option value="BR">Brazil</option><option value="IO">British Indian Ocean Territory</option><option value="BN">Brunei Darussalam</option><option value="BG">Bulgaria</option><option value="BF">Burkina Faso</option><option value="BI">Burundi</option><option value="KH">Cambodia</option><option value="CM">Cameroon</option><option value="CA">Canada</option><option value="CV">Cape Verde</option><option value="KY">Cayman Islands</option><option value="CF">Central African Republic</option><option value="TD">Chad</option><option value="CL">Chile</option><option value="CN">China</option><option value="CX">Christmas Island</option><option value="CC">Cocos (Keeling) Islands</option><option value="CO">Colombia</option><option value="KM">Comoros</option><option value="CG">Congo</option><option value="CK">Cook Islands</option><option value="CR">Costa Rica</option><option value="CI">Cote D'Ivoire</option><option value="HR">Croatia</option><option value="CU">Cuba</option><option value="CY">Cyprus</option><option value="CZ">Czech Republic</option><option value="DK">Denmark</option><option value="DJ">Djibouti</option><option value="DM">Dominica</option><option value="DO">Dominican Republic</option><option value="TP">East Timor</option><option value="EC">Ecuador</option><option value="EG">Egypt</option><option value="SV">El Salvador</option><option value="GQ">Equatorial Guinea</option><option value="ER">Eritrea</option><option value="EE">Estonia</option><option value="ET">Ethiopia</option><option value="FK">Falkland Islands (Malvinas)</option><option value="FO">Faroe Islands</option><option value="FJ">Fiji</option><option value="FI">Finland</option><option value="FR">France</option><option value="FX">France, Metropolitan</option><option value="GF">French Guiana</option><option value="PF">French Polynesia</option><option value="TF">French Southern Territories</option><option value="GA">Gabon</option><option value="GM">Gambia</option><option value="GE">Georgia</option><option value="DE">Germany</option><option value="GH">Ghana</option><option value="GI">Gibraltar</option><option value="GR">Greece</option><option value="GL">Greenland</option><option value="GD">Grenada</option><option value="GP">Guadeloupe</option><option value="GU">Guam</option><option value="GT">Guatemala</option><option value="GN">Guinea</option><option value="GW">Guinea-bissau</option><option value="GY">Guyana</option><option value="HT">Haiti</option><option value="HM">Heard and Mc Donald Islands</option><option value="HN">Honduras</option><option value="HK">Hong Kong</option><option value="HU">Hungary</option><option value="IS">Iceland</option><option value="IN">India</option><option value="ID">Indonesia</option><option value="IR">Iran (Islamic Republic of)</option><option value="IQ">Iraq</option><option value="IE">Ireland</option><option value="IL">Israel</option><option value="IT">Italy</option><option value="JM">Jamaica</option><option value="JP">Japan</option><option value="JO">Jordan</option><option value="KZ">Kazakhstan</option><option value="KE">Kenya</option><option value="KI">Kiribati</option><option value="KP">Korea</option><option value="KW">Kuwait</option><option value="KG">Kyrgyzstan</option><option value="LA">Lao People's Democratic Republic</option><option value="LV">Latvia</option><option value="LB">Lebanon</option><option value="LS">Lesotho</option><option value="LR">Liberia</option><option value="LY">Libyan Arab Jamahiriya</option><option value="LI">Liechtenstein</option><option value="LT">Lithuania</option><option value="LU">Luxembourg</option><option value="MO">Macau</option><option value="MK">Macedonia</option><option value="MG">Madagascar</option><option value="MW">Malawi</option><option value="MY">Malaysia</option><option value="MV">Maldives</option><option value="ML">Mali</option><option value="MT">Malta</option><option value="MH">Marshall Islands</option><option value="MQ">Martinique</option><option value="MR">Mauritania</option><option value="MU">Mauritius</option><option value="YT">Mayotte</option><option value="MX">Mexico</option><option value="FM">Micronesia, Federated States of</option><option value="MD">Moldova, Republic of</option><option value="MC">Monaco</option><option value="MN">Mongolia</option><option value="MS">Montserrat</option><option value="MA">Morocco</option><option value="MZ">Mozambique</option><option value="MM">Myanmar</option><option value="NA">Namibia</option><option value="NR">Nauru</option><option value="NP">Nepal</option><option value="NL">Netherlands</option><option value="AN">Netherlands Antilles</option><option value="NC">New Caledonia</option><option value="NZ">New Zealand</option><option value="NI">Nicaragua</option><option value="NE">Niger</option><option value="NG">Nigeria</option><option value="NU">Niue</option><option value="NF">Norfolk Island</option><option value="MP">Northern Mariana Islands</option><option value="NO">Norway</option><option value="OM">Oman</option><option value="PK">Pakistan</option><option value="PW">Palau</option><option value="PA">Panama</option><option value="PG">Papua New Guinea</option><option value="PY">Paraguay</option><option value="PE">Peru</option><option value="PH">Philippines</option><option value="PN">Pitcairn</option><option value="PL">Poland</option><option value="PT">Portugal</option><option value="PR">Puerto Rico</option><option value="QA">Qatar</option><option value="RE">Reunion</option><option value="RO">Romania</option><option value="RU">Russian Federation</option><option value="RW">Rwanda</option><option value="KN">Saint Kitts and Nevis</option><option value="LC">Saint Lucia</option><option value="VC">Saint Vincent and the Grenadines</option><option value="WS">Samoa</option><option value="SM">San Marino</option><option value="ST">Sao Tome and Principe</option><option value="SA">Saudi Arabia</option><option value="SN">Senegal</option><option value="SC">Seychelles</option><option value="SL">Sierra Leone</option><option value="SG">Singapore</option><option value="SK">Slovakia (Slovak Republic)</option><option value="SI">Slovenia</option><option value="SB">Solomon Islands</option><option value="SO">Somalia</option><option value="ZA">South Africa</option><option value="GS">South Georgia</option><option value="ES">Spain</option><option value="LK">Sri Lanka</option><option value="SH">St. Helena</option><option value="PM">St. Pierre and Miquelon</option><option value="SD">Sudan</option><option value="SR">Suriname</option><option value="SJ">Svalbard and Jan Mayen Islands</option><option value="SZ">Swaziland</option><option value="SE">Sweden</option><option value="CH">Switzerland</option><option value="SY">Syrian Arab Republic</option><option value="TW">Taiwan</option><option value="TJ">Tajikistan</option><option value="TZ">Tanzania, United Republic of</option><option value="TH">Thailand</option><option value="TG">Togo</option><option value="TK">Tokelau</option><option value="TO">Tonga</option><option value="TT">Trinidad and Tobago</option><option value="TN">Tunisia</option><option value="TR">Turkey</option><option value="TM">Turkmenistan</option><option value="TC">Turks and Caicos Islands</option><option value="TV">Tuvalu</option><option value="UG">Uganda</option><option value="UA">Ukraine</option><option value="AE">United Arab Emirates</option><option value="GB">United Kingdom</option><option value="US">United States</option><option value="UM">United States Minor Outlying Islands</option><option value="UY">Uruguay</option><option value="UZ">Uzbekistan</option><option value="VU">Vanuatu</option><option value="VA">Vatican City State (Holy See)</option><option value="VE">Venezuela</option><option value="VN">Viet Nam</option><option value="VG">Virgin Islands (British)</option><option value="VI">Virgin Islands (U.S.)</option><option value="WF">Wallis and Futuna Islands</option><option value="EH">Western Sahara</option><option value="YE">Yemen</option><option value="YU">Yugoslavia</option><option value="ZR">Zaire</option><option value="ZM">Zambia</option><option value="ZW">Zimbabwe</option></select>
+
+
+                  <input name="cellphone" id="cellphone_signup" type="text" placeholder="Your cellphone number"  class="form-control -input" data-state="invalid">
+                  <span class="help-block"></span>
+                </div>
+                <div class=" form-group ">
+                  <label for="email" class="control-label">Your email</label>
+                  <input name="email_signup" id="email_signup" type="text" placeholder="Your email address" value="" class="form-control -input" data-state="invalid">
+                  <span class="help-block"></span>
+                </div>
+                <div class=" form-group ">
+                  <label for="password" class="control-label">Your password</label>
+                  <input name="password1" id="password1" type="password" placeholder="Your password" value="" class="form-control -input" data-state="invalid">
+                                    <span class="help-block"></span>
+                </div>
+                <div class="  form-group ">
+                  <label for="password" class="control-label">Password repeated</label>
+                  <input name="password2" id="password2" type="password" placeholder="Password repeated" value="" class="form-control -input" data-state="invalid">
+                                    <span class="help-block"></span>
+                </div>
+
+
+                <div >
+
+                  <div class=" ">
+
+                    <!--[if gt IE 8]>
+                    <button type="submit" class="btn btn-success btn-signup disabled" >Sign up</button>
+                    <![endif]-->
+                    <!--[if lt IE 9]>
+                    <button type="submit" class="btn btn-success btn-signup" >Sign up</button>
+                    <![endif]-->
+                    <!--[if !IE]> -->
+                    <button type="submit" class="tg-btn green disabled btn-signup ">Sign up</button>
+                    <!-- <![endif]-->
+                  </div>
+                                    <p class="sign-up-error" style="display: none;"></p>
+                  <div class="forgot-pin">
+                    <span class="login-form-button"> Already a member? Click <strong>here</strong> to log in.</span>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+
+            <div id="retrieve-password-modal"  class="hidden">
+              <h1>Forgot Password</h1>
+                <p class="lead desc">To reset your password, enter your email address in the field below.</p>
+                <form id="forgot-pin-form" name="retrieve-pin" >
+                  <div class="row label-row">
+                    <div >
+                      <span><?php echo $content['copy']['share-accommodation-you']; ?></span>
+                    </div>
+                  </div>
+                  <div class=" form-group" >
+
+                        <input class="form-control  tg-input" name="email" aria-label="Your Email" type="text" placeholder="Your Email Address" value="" autocomplete ="off" readonly  onfocus="this.removeAttribute('readonly');">
+                        <span class="help-block" style="margin-left: 10px;"></span>
+                    </div>
+
+
+                  <div class=" ">
+
+                    <!--[if gt IE 8]>
+                    <button type="submit" class="btn btn-success btn-signup disabled" >Reset password</button>
+                    <![endif]-->
+                    <!--[if lt IE 9]>
+                    <button type="submit" class="btn btn-success btn-signup" >Reset password</button>
+                    <![endif]-->
+                    <!--[if !IE]> -->
+                    <button type="submit" class="tg-btn green btn-reset-password disabled ">Reset password</button>
+                    <!-- <![endif]-->
+                  </div>
+                  <div class="forgot-pin">
+                    <span class="login-form-button"> Click <strong>here</strong> to log in.</span>
+                  </div>
+
+                </form>
+              </div>
+                </div>
+              </div>
+
+        </div>
+
+
+
+    </div>
+
+<div></div>
+
+  <div id="content" style="text-align:left;">
+    <div class="row">
+
+      <div class="about_tabs ">
+        <ul>
+            <img src="/img/team/team_tg.jpg">
+            <li class="">
+              <a href="/about" class="">Our Story</a>
+            </li>
+            <li class="">
+              <a href="/team" class="">Meet The Team</a>
+            </li>
+                          <li class="">
+                <a href="/careers" class="">Careers</a>
+              </li>
+                        <li class="">
+              <a href="/contact" class="">Contact TravelGround</a>
+            </li>
+        </ul>
+      </div>
+
+      <div class="about_container ">
+
+          <div id="terms">
+    <div style='font-size:13pt;margin-top:20px;'>
+      <a href='#users'>Terms of Use</a><br/>
+      <a href='#privacy'>Privacy Policy</a><br/>
+      <a href='#booking'>Booking Terms and Conditions - South African Establishments</a><br/>
+    </div>
+
+    <a name='users' id='users'></a>
+    <h2>Terms of use:</h2>
+    <br/>
+    
+    <h4>Company information:</h4>
+    <p>This user agreement sets out certain terms and conditions of use pertaining to the website available at http://www.travelground.com ("the TravelGround.com website" or "this website") owned and operated by TravelGround (Pty) Ltd. based in South Africa trading as TravelGround.com (registration number 2013/076256/07) (hereinafter referred to as "TravelGround.com") with members Jonathan Womersley, Justin Womersley, David McLennan and Marcel Van de Ghinste. Our user agreement is outlined below. Unless stated otherwise, all clauses in this user agreement apply to both registered and unregistered users of the TravelGround.com website.</p>
+    
+    <h4>Acceptance of User Agreement:</h4>
+    <p>This user agreement is valid, binding and enforceable against all persons who access this website or any part thereof. Please read this user agreement carefully as by using this website you will be taken to have agreed to be bound by it. If you do not agree to be bound by the provisions of this user agreement, you must leave the TravelGround.com website immediately as further use will automatically bind you to this user agreement, notwithstanding any disagreements by you to the terms of this policy.</p>
+
+    <h4>Allowed use of information on this website:</h4>
+    <ul>
+      <li>
+        You may only access and browse this website for legitimate personal and non-commercial purposes and may not use this website for:        <ul>
+          <li>i) harmful purposes; or</li>
+          <li>ii) illegal purposes; or</li>
+          <li>iii) disclosing, sharing or publishing material that may be offensive, defamatory, regulated, copyrighted, incorrect, untrue, prohibited, infringing or damaging to any person; or</li>
+          <li>iv) the creation, storage and sending of unsolicited commercial communications.</li>
+        </ul>
+      </li>
+      <li>Names, e-mail addresses, telephone numbers and fax numbers published on this website may not be incorporated into any database used for electronic marketing or similar purposes. No permission is given or should be implied that information on this website may be used to communicate unsolicited communications to TravelGround.com and all rights detailed in section 45 of the Electronic Communications and Transactions Act, No. 25 of 2002 ("ECT Act") are reserved.</li>
+      <li>If you use information from this website in breach of this user agreement, TravelGround.com reserves the right to claim damages and/or institute criminal proceedings against you.</li>
+    </ul>
+
+    <h4>Software and equipment:</h4>
+    <p>It is your responsibility to acquire and maintain, at your own expense, the necessary computer hardware, software, communication lines and Internet access accounts required to access the Internet and this website and/or to download content from this website.</p>
+
+    <h4>Login details and passwords:</h4>
+    <p>You hereby undertake to keep secure any and all passwords that are required for your access to, or use of, the TravelGround.com website. You will be legally bound by any action performed on this website by any person with access to your TravelGround.com account. You hereby indemnify TravelGround.com for any damage, loss or liability of whatsoever nature arising from unauthorized access to this website.</p>
+
+    <h4>Correctness of your information:</h4>
+    <p>You hereby undertake to ensure that all of the information that you supply to TravelGround.com is correct and continuously updated, including, but not limited to, your name and residential address. TravelGround.com shall not be liable for any damage, loss or liability of whatsoever nature arising from any misrepresentation by you. In the event that you fail to keep your information current and updated, we reserve the right to suspend or remove your TravelGround.com account.</p>
+
+    <h4>Intellectual property rights:</h4>
+    <ul>
+      <li>Except as otherwise indicated, this website, and all text, images, trademarks, trade names, logos and other content contained herein, including, without limitation, the TravelGround.com logo and all designs, text, graphics, pictures, downloads, information, data, software, sound, video and other files, domain names, web pages, patents, source code, meta tags, databases, hyperlinks, content and the selection and arrangement thereof are the proprietary property of TravelGround.com or its licensors or users and are protected from infringement by South African and international copyright laws and treaties and may not be reproduced or appropriated in any manner without the prior written permission of TravelGround.com (or the other respective owners, if applicable). This website and all its content and rights thereto is reserved under the name TravelGround.com &copy; 2009.</li>
+      <li>Unless specifically prohibited by a notice published on any page of this website, you may view, download and/or print such parts of this website as you may reasonably require for your own private and non-commercial use only, provided that any copy has attached to it any relevant proprietary notices and/or disclaimers and the content of this website is not reproduced, modified, adapted or processed in any manner whatsoever.</li>
+      <li>Except for the above, all other use of this website and its contents is prohibited and without limiting the generality of the aforegoing, no person shall be entitled to reproduce, transmit, publicly perform, distribute, adapt, translate, modify, bundle, merge, share, make available, use or exploit for commercial or non-private purposes or create derivative works of such content without TravelGround.com's prior written consent.</li>
+      <li>You are not allowed to amend, copy, use, decompile and/or reverse engineer the source code of this website.</li>
+      <li>You may not use logos, icons or trademarks from this website as hyperlinks or for any other purpose without TravelGround.com's prior written consent.</li>
+    </ul>
+
+    <h4>Accuracy of content on this website:</h4>
+    <ul>
+      <li>TravelGround.com undertakes to take reasonable care to ensure that the information provided by accommodation establishments on this website is accurate and up to date. The accommodation establishments listed on this website legally commit to providing us with accurate and up to date information. However, we do not perform site inspections of the accommodation establishments. Also, much of the information on the TravelGround.com website is generated by users in a "Wiki" manner, and therefore cannot be fully verified. We accordingly make no warranties concerning the accuracy or completeness of the information supplied by the accommodation establishments listed on this website or of information supplied by users of this website. You are encouraged to report untrue, inaccurate, defamatory, illegal, infringing and/or harmful content available on this website to TravelGround.com and we shall use our reasonable endeavours to correct and/or remove such content, or any part thereof, if you provide reasonable grounds to prove the alleged nature of such content.</li>
+      <li>While every effort is made to ensure that all information on the site is updated and correct, TravelGround.com shall not be liable for any loss, breach, damage (whether direct, consequential, general or special) or expense of any nature whatsoever which may be caused, directly or indirectly through the use of, supply or reliance upon any information or service provided by or to TravelGround.com through this website.</li>
+      <li>All rates published on this website are subject to change without notice. Furthermore, rates displayed anywhere on this website, other than the quotation from the accommodation establishment to you, are to serve as guidelines only. Only quotes offered directly to a user through the TravelGround.com website constitute legal offers.</li>
+    </ul>
+
+    <h4>Service Interruptions:</h4>
+    <p>We undertake to maintain our reservation service and the technology supporting it, but we make no representations or warranties, implied or otherwise, that, amongst others, the content and technology available from this website are free from errors or omissions or that the service will be uninterrupted and error free. TravelGround.com shall not be liable for any damage, loss or liability of whatsoever nature arising from any defects that may be found to exist, or may occur from time to time, in the TravelGround.com service. You are encouraged to report any possible malfunctions and errors to bookings@travelground.co.za. Furthermore, TravelGround.com shall not be liable for any direct or indirect loss or damage suffered whatsoever as a result of "hacking" of this website, planned or unplanned outages or the actions of service providers, including Telkom and all relevant hosting and equipment providers. You hereby indemnify and hold TravelGround.com harmless in respect of any claim arising from any "hacking" or other outage of service.</p>
+
+    <h4>Use of hyperlinks:</h4>
+    <ul>
+      <li>TravelGround.com is not responsible for the content, availability, products and/or services of any other website from which you have accessed this website or to which you may hyperlink from this website.</li>
+      <li>Where we provide a hyperlink to a third party's website, we do so because we believe in good faith that such a website contains or may contain material which is relevant to this website. Such a hyperlink does not signify that TravelGround.com has reviewed or approved of the third party's website or its contents, products or services, nor does it imply a recommendation, endorsement, support or association by TravelGround.com of the content, products and/or services of such websites.</li>
+      <li>You may not frame this website in any manner whatsoever, without the prior written permission of TravelGround.com.</li>
+    </ul>
+
+    <h4>Security:</h4>
+    <ul>
+      <li>TravelGround.com shall take all reasonable steps to secure the content of this website, as well as the information collected from you, from unauthorised access and/or disclosure. TravelGround.com does not, however, make any warranties or representations that the content of this website shall be entirely safe or secure.</li>
+      <li>We recommend that you install anti-virus software before downloading any material from this website and ensure that such software is compatible with your equipment and regularly updated.</li>
+      <li>TravelGround.com is under no legal duty to:        <ul>
+          <li>i) encrypt any content or communications from and to you; or</li>
+          <li>ii) provide digital authentication of any pages on this website.</li>
+        </ul>
+      </li>
+      <li>You may not deliver or attempt to deliver, whether on purpose or negligently, any damaging code, such as computer viruses, robots or spyware, to this website or the server and computer network supporting this website.</li>
+      <li>Notwithstanding criminal prosecution, if you deliver or attempt to deliver any damaging code to this website, whether on purpose or negligently, you indemnify and hold TravelGround.com harmless, without limitation, against any and all losses, liabilities and damages which TravelGround.com may suffer as a result of such delivery, attempt or damaging code.</li>
+      <li>You may not develop, distribute or use any device or programme designed to breach or overcome the security measures of any restricted pages, products and services on this website and TravelGround.com reserves the right to claim damages from any persons who are directly or indirectly involved in the development, use and distribution of such devices or programmes.</li>
+      <li>If you commit any of the offences set out in sections 85 to 88 of the ECT Act, you shall, notwithstanding any criminal prosecution, be liable for all losses, liabilities and damages that may be suffered by TravelGround.com due to or related to such offences.</li>
+    </ul>
+
+    <h4>Access to the Website:</h4>
+    <ul>
+      <li>TravelGround.com reserves the right to restrict, suspend or terminate your access to this website at any time if TravelGround.com is of the view that you have breached these conditions of use. Any such restriction, suspension or termination will be without prejudice to any rights which TravelGround.com may have against you in respect of such breach.</li>
+      <li>TravelGround.com has the right to remove this website as a whole, or any sections or features of this website, at any time without notice.</li>
+      <li>TravelGround.com does not provide any warranties or make any representations that this website shall be available at any specific time.</li>
+    </ul>
+
+    <h4>Indemnity:</h4>
+    <p>Save as otherwise provided herein, TravelGround.com shall not be liable to you for any direct or indirect loss or damage that you may suffer as a result of the use of this website by any party, whatsoever and howsoever arising.</p>
+
+    <h4>Limitation of liability:</h4>
+    <ul>
+      <li>In the event that, notwithstanding the remaining provisions of this user agreement, we are liable to you for any damages, such liability shall be limited to a maximum of the monies that you have paid to us.</li>
+      <li>This website is supplied on an "as is" basis, without any warranty of any kind, express or implied, as to the operation of this website, the accuracy of the information or the products or services referred to on this website and has not been compiled or supplied to meet your individual requirements. It is your sole responsibility to satisfy yourself prior to entering into this user agreement with TravelGround.com that the service available from and through this website will meet your individual requirements and be compatible with your hardware and/or software.</li>
+      <li>Neither TravelGround.com, nor any of its members, employees, officers, representatives, agents, consultants, suppliers, service providers or sub-contractors ("Indemnified Parties"), shall be liable for any direct, indirect, special or consequential losses or damages of whatsoever nature that may result from:        <ul>
+          <li>i) your access to or use of this website; or</li>
+          <li>ii) your purchasing and/or using any of the products and services available on this website; or</li>
+          <li>iii) the unavailability of any of the products or services provided on this website; or</li>
+          <li>iv) the inability to access this website or use the products and/or services available on this website; or</li>
+          <li>v) the use of hyperlinks on this website or the use of or reliance on any website from which you hyperlink to or from this website; or</li>
+          <li>vi) access to or the inability to access websites linked to this website; or</li>
+          <li>vii) access and/or use of this website by any person in a jurisdiction from which such activity is prohibited; or</li>
+          <li>viii) the submission or transmission of information or material on or through this website by you; or</li>
+          <li>ix) the violation of these conditions of use or any other laws, regulations and rules by you; or</li>
+          <li>x) information or material which you have submitted to TravelGround.com which is in violation of any law or in breach of any third party's rights (including, but not limited to, defamation, invasion of privacy, breach of confidence or infringement of copyright or any other intellectual property rights).</li>
+        </ul>
+      </li>
+      <li>You hereby indemnify and hold harmless the Indemnified Parties against any losses, damages, liability, claims or costs of whatsoever nature incurred by the Indemnified Parties arising from or in any way related to (i) to (x) above.</li>
+      <li>TravelGround.com reserves the right to defend and control any claims arising from the aforegoing and you agree to fully co-operate with TravelGround.com in any such defences.</li>
+      <li>This website contains material which is owned by or licensed to TravelGround.com. This material includes, but is not limited to, the design, layout, look, appearance and graphics, and may be subject to copyright and/or other design or intellectual property rights. You may not copy, replicate or use such information, other than as agreed to between us and/or the right holder, or to the extent that such use is incidental to your use of the website.</li>
+    </ul>
+
+
+    <h4>Changes in this user agreement:</h4>
+    <p>TravelGround.com reserves the right to vary this user agreement at any time. Any such changes will be posted on this page. You are encouraged to review this user agreement at the inception of each session, as you will be deemed to have accepted any such changes (which shall come into effect once posted on this website) if you continue to use this website after they have been posted.</p>
+
+    <h4>Law and jurisdiction:</h4>
+    <ul>
+      <li>This user agreement is governed by the Laws of the Republic of South Africa and without regard to the conflict of laws principle.</li>
+      <li>You agree that any cause of action that may arise under this user agreement shall be commenced and be heard in the appropriate court in South Africa.</li>
+      <li>You agree to submit to the personal and exclusive jurisdiction of the courts located within South Africa.</li>
+    </ul>
+
+    <h4>General:</h4>
+    <ul>
+      <li>To the extent that any part of this user agreement is found to be invalid, unlawful or unenforceable by any court of competent jurisdiction, such part shall to that extent be severable from the remaining terms, all of which shall remain enforceable and applicable, as permitted by law.</li>
+      <li>This user agreement, together with the privacy policy and the booking terms and conditions published on this website, constitute the entire agreement between you and TravelGround.com and supersede any and all prior promises, representations, agreements, policies and understandings of whatsoever nature.</li>
+      <li>Any failure by TravelGround.com to exercise or enforce any right or provision of this user agreement shall not constitute a waiver of such right or provision. TravelGround.com has the right to cede, assign or otherwise transfer its rights and obligations in terms of this user agreement to any third party.</li>
+    </ul>
+
+    <h4>Legal costs:</h4>
+    <p>TravelGround.com shall not be liable for any costs incurred by you to obtain professional advice regarding this user agreement.</p>
+
+    <h4>Support:</h4>
+    <ul>
+      <li>email: bookings@travelground.com</li>
+      <li>telephone: 086 002 2103</li>
+    </ul>
+
+    <br><hr></br>
+
+    <a name='privacy' id='privacy'></a>
+    <h2>Privacy Policy</h2>
+
+    <h4>Company information:</h4>
+    <p>This privacy policy sets out the data processing practices pertaining to the website available at http://www.travelground.com ("the TravelGround.com website" or "this website") carried out through the use of the Internet and the World Wide Web by TravelGround (Pty) Ltd. based in South Africa trading as TravelGround.com (registration number 2008/015898/23) (hereinafter referred to as "TravelGround.com") with members Jonathan Womersley, Justin Womersley, David McLennan and Marcel Van de Ghinste. TravelGround.com respects your privacy. Our privacy policy is outlined below. Unless stated otherwise, all clauses in this policy apply to both registered and unregistered users of the TravelGround.com website.</p>
+
+    <h4>Acceptance of Policy:</h4>
+    <p>This policy is valid, binding and enforceable against all persons who access this website or any part thereof. Please read this policy carefully as by using this website you will be taken to have agreed to be bound by it. If you do not agree to be bound by the provisions of this policy, you must leave the TravelGround.com website immediately as further use will automatically bind you to this policy, notwithstanding any disagreements by you to the terms of this policy.</p>
+
+    <h4>Types of information collected:</h4>
+    <p>When you register on the TravelGround.com website we need to collect certain information about you in order to provide you with the services you have requested. This information may include, but is not limited to:</p>
+    <ul>
+      <li>Full Name</li>
+      <li>Email Address</li>
+      <li>Business or Home Address</li>
+      <li>Employer/ Affiliated Organisation</li>
+      <li>Contact Telephone Numbers</li>
+      <li>Date of Birth</li>
+      <li>Reason for Accessing Site</li>
+      <li>Details of any Advertising/Affiliate Channel that may have referred your business</li>
+      <li>Intended Usage of Information Requested</li>
+      <li>Voluntary guest reviews of accommodation establishments</li>
+      <li>The personal information detailed above will be collected either electronically by using cookies (as more fully described below) or provided voluntarily by you.</li>
+    </ul>
+
+    <h4>Guest reviews of accommodation establishments</h4>
+    <p>TravelGround.com may ask customers to review accommodation establishments after their stay there. These reviews will always be voluntary. By uploading, submitting or otherwise making available or contributing any content in a customer review on the TravelGround.com website, you grant TravelGround.com an unrestricted, worldwide, non-exclusive, irrevocable, perpetual, royalty-free, fully paid up, license to use, make, have made, reproduce, display, perform, publish, upload, post, modify, create derivative works from, transmit, distribute, sell, offer for sale and sub license or otherwise transfer those materials or information or their modifications, and to authorize third parties to do any, some or all of the foregoing including, but not limited to, sub licensing others to do any some or all of the foregoing indefinitely. You represent and warrant that you have sufficient rights in those materials or information to grant these rights and licenses. In addition, you choose to surrender any attribution rights to the content you submit.</p>
+
+    <p>In addition, by uploading, submitting or otherwise making available or contributing any content in a customer review on the TravelGround.com website you grant TravelGround.com the right to display your full name and country of origin in close proximity to the whole, part or derivation of your submitted review content anywhere on the TravelGround.com website.</p>
+
+    <h4>E-mail Opt-Out:</h4>
+    <p>If at any time you wish to have your information removed from our active databases, please contact us. You will also be able to unsubscribe at any time by clicking on the unsubscribe link at the bottom of all our email communications which will automatically remove you from the list.</p><br>
+
+    <p>
+    You can contact us on 0860 022 103 or bookings@travelground.com.<br>
+    Alternatively you can mail us at:<br>
+    Minter House, 2 Otto Close<br>
+    Westlake<br>
+    Cape Town<br>
+    7945<br>
+    </p>
+
+    <h4>Dispersal of Information to third parties:</h4>
+    <ul>
+      <li>In addition to the policies and procedures we employ to safeguard your data, your personal data is protected by the Electronic Communications and Transactions Act, 25 of 2002.</li>
+      <li>Subject to the remaining provisions of this policy, TravelGround.com will not share personal information with any other third parties without your permission, unless required by law enforcement action, subpoena or applicable law or regulation.</li>
+      <li>TravelGround.com does not lease, sell, rent or disperse any information supplied by you to any third parties, except in the following circumstances:        <ul>
+          <li>If you make a reservation or booking enquiry at an establishment we will pass onto the establishment all information necessary for the reservation to be processed. This includes, but is not limited to:            <ul>
+              <li>Your first name and last name.</li>
+              <li>Your contact details, email address and/or phone number.</li>
+              <li>Your country of origin.</li>
+            </ul>
+          </li>
+          <li>Any content provided by you concerning descriptions of regions, tourist activities or tourist events in our "wiki" pages may, at our own discretion, become publicly viewable on our website (see "wiki agreement").</li>
+          <li>Any review you make on our website of an accommodation establishment, tourist activity, tourist event or geographical region may, at our own discretion, become publicly viewable on our website.</li>
+        </ul>
+      </li>
+      <li>Personal information given to TravelGround.com may be transferred across state and country borders for the purposes of data consolidation, storage and simplified customer information management. Some of the countries to which your personal information may be transmitted may not provide the same statutory protection for your data as South Africa.</li>
+      <li>TravelGround.com shall be entitled to disclose such information to its subsidiaries and affiliates and those suppliers engaged by TravelGround.com to process data on its behalf. TravelGround.com could, furthermore, merge with or be acquired by another business entity or organization. In that event TravelGround.com shall be entitled to share with the merging or acquiring entity some or all of your personal information (who shall not be allowed to use such personal information for any purposes other than as contemplated in this policy). TravelGround.com shall not be liable for any damage, loss or liability of whatsoever nature arising from any unintentional misuse of any information supplied to such merging or acquiring entity.</li>
+      <li>By browsing this website and communicating electronically with TravelGround.com you acknowledge and agree to our transferring and processing of personal data in this way and to the use of such information for the above-mentioned purposes.</li>
+    </ul>
+
+    <h4>Credit card privacy:</h4>
+    <ul>
+      <li>Save as otherwise provided for in this policy, the rules, processes and procedures of PayGate (Pty) Ltd and the relevant paying bank, clearing bank and card association shall apply to all payments and transactions concluded on this website and your rights and obligations in respect of payments due to or by you shall be governed accordingly. We take all possible measures to ensure that payment with a credit card on TravelGround.com is secure. The primary measures taken to ensure this security are as follows:        <ul>
+          <li>Credit card transactions will be acquired for TravelGround.com via PayGate (Pty) Ltd who are the approved payment gateway for Standard Bank of South Africa.</li>
+          <li>We do not store any credit card details on our system. We simply forward the credit card details onto PayGate (Pty) Ltd who authorize the transaction, without storing them in our system. For more detail on PayGate refer to www.paygate.co.za.</li>
+          <li>TravelGround.com and PayGate (Pty) Ltd use the strictest form of encryption, namely Secure Socket Layer 3 (SSL3). No credit card details will ever be sent via unsecure methods such as email. Please refer to www.paygate.co.za to view their security certificate and security policy.</li>
+        </ul>
+      </li>
+      <li>In the event that you suffer loss, damage or liability notwithstanding TravelGround.com adhering to the above primary measures, you hereby indemnify and hold TravelGround.com harmless for any loss, damage or liability of whatsoever nature arising from payments and transactions concluded on this website.</li>
+    </ul>
+
+    <h4>Customer Tracking:</h4>
+    <p>In order to provide a better service for our customers we do reserve the right to:</p>
+    <ul>
+      <li>Track your movements though this website, analyze your movements on this website through the use of 3rd party tools including but not limited to "Google Analytics", and collaborate with 3rd party tracking services including but not limited to "Google Adwords". Any collaboration with a 3rd party is done in good faith that your privacy will be adequately protected.</li>
+      <li>Employ the use of cookies: Cookies are small pieces of data that are stored on your local computer by your web-browser. When you visit TravelGround.com we will provide your computer with a cookie to store. This allows us to identify you on subsequent occasions when you arrive on this website. By doing so we can better tailor your browsing experience to your liking. As such, some features of the TravelGround.com website may not work correctly if you disable cookies. In some circumstances 3rd party services employed by the website, such as those provided by Google Adwords, may also use cookies to track you onto TravelGround.com in order to improve user experience and/or advertising performance.</li>
+      <li>Collect IP information: When you enter the TravelGround.com website, we collect your IP address. This address identifies your Internet Service Provider, but does not identify you as an individual. We may also collect your domain name address, the type of web-browsing software that you use, the type of operating system that you use and the URL of the webpage from which you came to visit this website. This information is used by TravelGround.com to improve or maintain the user's experience on this website, and for general statistical purposes. TravelGround.com owns and retains all rights to non-personal statistical information collected and compiled by TravelGround.com.</li>
+    </ul>
+
+    <h4>Applicability:</h4>
+    <p>This privacy policy applies to the TravelGround.com website only. The TravelGround.com website may contain hyperlinks to or from other websites ('linked sites') which are not under the control of TravelGround.com or governed by this privacy policy. It is your responsibility to review such linked sites' privacy policies and TravelGround.com shall not be liable for the breach of any such privacy policies by the owners of such linked sites. Furthermore, such hyperlinks do not imply an endorsement, agreement on or support of the content, products and/or services of such linked sites and TravelGround.com is in no way responsible for the content or the privacy and security policies employed by the linked sites.</p>
+
+    <h4>Data Access, Accuracy & Amendments:</h4>
+    <ul>
+      <li>TravelGround.com shall use reasonable endeavours to keep all your personal information accurate. You will always be provided access to this information, and have the opportunity to have inaccuracies corrected. We shall ensure that all inaccurate or incomplete information is corrected as soon as possible.</li>
+      <li>Reasonable steps will be taken to verify your identity before granting you access to your information. If you would like your personal information to be deleted from our records, we shall ensure, on notification by you, that this is done as soon as reasonably possible.</li>
+    </ul>
+
+    <h4>Security:</h4>
+    <p>TravelGround.com shall take reasonable steps to protect your personal information. In the unlikely event that the security of your personal information in our possession becomes compromised, we shall notify you thereof as soon as reasonably possible under the circumstances.</p>
+
+    <h4>Changes in this policy:</h4>
+    <p>TravelGround.com reserves the right to vary this policy at any time, without prior notice or justification. Any such changes will be posted on this page. You are encouraged to review this privacy policy at the inception of each session, as you will be deemed to have accepted any such changes (which shall come into effect once posted on this website) if you continue to use this website after they have been posted.</p>
+
+    <h4>Support:</h4>
+    <ul>
+      <li>Email: bookings@travelground.com</li>
+      <li>Telephone: 0860 022 103</li>
+    </ul>
+
+    <br><hr></br>
+  
+    <a name='booking' id='booking'></a>
+    <h2>Booking Terms and Conditions - South African Establishments</h2>
+    
+    <h4>Company information:</h4>
+    <p>This agreement sets out the booking terms and conditions pertaining to the website available at http://www.travelground.com ("the TravelGround.com website" or "this website") owned and operated by TravelGround (Pty) Ltd. based in South Africa trading as TravelGround.com (registration number 2013/076256/07) (hereinafter referred to as "TravelGround.com") with members Jonathan Womersley, Justin Womersley, David McLennan and Marcel Van de Ghinste.</p>
+
+    <h4>Acceptance of this agreement:</h4>
+    <p>This agreement is valid, binding and enforceable against all persons who access this website or any part thereof. Please read this agreement carefully as by using this website you will be taken to have agreed to be bound by it. If you do not agree to be bound by the provisions of this agreement, you must leave the TravelGround.com website immediately as further use will automatically bind you to this agreement notwithstanding any disagreements by you to the terms of this policy.</p>
+
+    <h4>Detailed description of goods and/or services:</h4>
+    <p>TravelGround.com is a business in the South African tourism industry that markets accommodation online.</p>
+
+    <h4>Delivery policy:</h4>
+    <p>Subject to receipt of payment, requests for accommodation will be processed within one hour of receipt thereof and confirmed by way of an email to you containing a booking ID.</p>
+
+    <h4>Cancellation and Refunds policy:</h4>
+    <ul>
+      <li>Each accommodation establishment on the TravelGround.com website has its own cancellation policy. This policy shall be viewable by you during the reservation process, and is legally binding.</li>
+      <li>On receipt of a written instruction from you to cancel a reservation, any amount owed to you by the accommodation establishment in question, in terms of its cancellation policy, will be paid to TravelGround.com, whereafter we shall on-pay the received refund to you within 3 working days after our receipt thereof. Late cancellations will be subject to the terms and conditions of the relevant accommodation establishment's cancellation policy and TravelGround.com shall not be obliged to make any payments to you in the event that you are not entitled to a refund in terms of the terms and conditions of the relevant accommodation establishment's cancellation policy.</li>
+    </ul>
+
+    <h4>Double Bookings:</h4>
+    <p>In the event that an accommodation establishment accepts more than one booking reservation for the same space of accommodation over the same period of time, and at least one of these reservations is booked through TravelGround.com, the accommodation establishment will be in breach of contract with TravelGround.com. In such an event, the accommodation establishment is required in terms of the contract between TravelGround.com and the accommodation establishment to offer suitable alternative accommodation to you. If the accommodation establishment fails to do so, then TravelGround.com will do so on its behalf, or refund you in full. The aforesaid contract between TravelGround.com and the accommodation establishment stipulates that the relevant accommodation establishment shall be liable for a severe penalty where it accepts more than one booking reservation for the same space of accommodation over the same period of time. These penalties are significant enough to ensure that such breach of contract by accommodation establishments does not occur regularly.</p>
+
+    <h4>Payment options accepted:</h4>
+    <p>Payment may be made via Visa or MasterCard credit cards.</p>
+
+    <h4>Credit card acquiring and security:</h4>
+    <p>Save as otherwise provided for in this agreement, the rules, processes and procedures of PayGate (Pty) Ltd and the relevant paying bank, clearing bank and card association shall apply to all payments and transactions concluded on this website and your rights and obligations in respect of payments due to or by you shall be governed accordingly. We take all possible measures to ensure that payment with a credit card on the TravelGround.com website is secure. The primary measures taken to ensure this security are as follows:</p>
+    <ul>
+      <li>Credit card transactions will be acquired for TravelGround.com via PayGate (Pty) Ltd who are the approved payment gateway for Standard Bank of South Africa.</li>
+      <li>We do not store any credit card details on our system. We simply forward the credit card details to PayGate (Pty) Ltd who authorize the transaction, without storing them in our system. For more detail on PayGate refer to www.paygate.co.za.</li>
+      <li>TravelGround.com and PayGate (Pty) Ltd use the strictest form of encryption, namely Secure Socket Layer 3 (SSL3). No credit card details will ever be sent via unsecure methods such as email. Please refer to www.paygate.co.za to view their security certificate and security policy.</li>
+      <li>In the event that you suffer loss, damage or liability notwithstanding TravelGround.com adhering to the above primary measures, you hereby indemnify and hold TravelGround.com harmless for any loss, damage or liability of whatsoever nature arising from payments and transactions concluded on this website.</li>
+    </ul>
+
+    <h4>Merchant Outlet country and transaction currency:</h4>
+    <p>The merchant outlet country at the time of presenting payment options to the cardholder is South Africa. Transaction Currency is South African Rand (ZAR).</p>
+
+    <h4>Country of domicile:</h4>
+    <p>This website is governed by the laws of South Africa and TravelGround.com chooses as its domicilium citandi et executandi for all purposes under this agreement, whether in respect of court process, notice, or other documents or communication of whatsoever nature, as Minter House, 2 Otto Close, 7945, Westlake, Cape Town, South Africa.</p>
+
+    <h4>Variation:</h4>
+    <p>TravelGround.com reserves the right, in its sole discretion, to vary this agreement or any part thereof at any time without prior notice or justification. Any such changes will be posted on this page. You are encouraged to review this agreement at the inception of each session, as you will be deemed to have accepted any such changes (which shall come into effect once posted on this website) if you continue to use this website after they have been posted.</p>
+
+    <div style='margin:20px auto;text-align:center;font-size:8pt;'>&copy; <a href='/' title='TravelGround'>TravelGround.com</a></div>
+  </div>
+
+      </div><!-- /about-container -->
+    </div><!-- /row -->
+
+    <div class="clearfooter"></div>
+  </div>
+
+    <div id="footer" class="footer 2017 clearfix  cropped not_ie tg">
+    <div class="newsletter-container tg clearfix">
+      <div class="subscribe-container">
+        <form class="form" method="post">
+          <div class="subscribe-label long">SUBSCRIBE TO OUR NEWSLETTER <br> <span>GET AWESOME ACCOMMODATION SPECIALS!</span></div>
+          <div class="signup-box hidden"></div>
+          <div class="submit-container">
+            <div class="field">
+              <input id="subscribe-email" name="subscribe-email" type="email" class="tg-input" placeholder="Your Email Address" value="" autocapitalize="off" autocorrect="off" data-field-type="email">
+              <div class="icon" tabIndex="-1"><div><i class="fa fa-envelope fa-lg"></i></div></div>
+              <div class="field-msg hidden"></div>
+            </div>
+            <div class="tg-btn green btn-submit" tabIndex="0"></span>Subscribe</div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="body-container clearfix">
+      <div class="footer-body">
+        <ul class="menu-container">
+          <li class="sub-menu">
+            <div class="tg-cat-heading">ABOUT</div>
+            <ul class="links">
+              <li>
+                <a class="tg-a-black" href="/contact">Contact Us</a>
+              </li>
+              <li>
+                <a class="tg-a-black" href="/about">Our Story</a>
+              </li>
+              <li>
+                <a class="tg-a-black" href="/blog">Our Blog</a>
+              </li>
+              <li>
+                <a class="tg-a-black" href="/careers">We're Hiring!</a>
+              </li>
+            </ul>
+          </li>
+          <li class="sub-menu">
+            <div class="tg-cat-heading"></span>SERVICE</div>
+            <ul class="links">
+              <li>
+                <a class="tg-a-black login_link" href="javascript:void(0);">Login</a>
+              </li>
+              <li>
+                <a class="tg-a-black" href="/favourites"></span>Favourites</a>
+              </li>
+              <li>
+                <a class="tg-a-black" href="/vouchers"></span>Gift Vouchers</a>
+              </li>
+              <li>
+                <a class="tg-a-black" href="/terms#booking"></span>Booking Terms</a>
+              </li>
+            </ul>
+          </li>
+          <li class="sub-menu">
+            <div class="tg-cat-heading social-header">FIND US ON</div>
+            <ul class="links social-media-icons">
+              <li>
+                <a class="tg-a-black" href="https://www.facebook.com/TravelGround" target="_blank" data-external="true">
+                  <span class="fa-stack fa-2x">
+                    <i class="fa fa-facebook fa-stack-1x"></i>
+                  </span>
+                  Facebook
+                </a>
+              </li>
+              <li>
+                <a class="tg-a-black" href="https://twitter.com/TravelGround" target="_blank" data-external="true">
+                  <span class="fa-stack fa-2x">
+                    <i class="fa fa-twitter fa-stack-1x"></i>
+                  </span>
+                  Twitter
+                </a>
+              </li>
+              <li>
+                <a class="tg-a-black" href="https://za.pinterest.com/travelground/" target="_blank" data-external="true">
+                  <span class="fa-stack fa-2x">
+                    <i class="fa fa-pinterest-p fa-stack-1x"></i>
+                  </span>
+                  Pinterest
+                </a>
+              </li>
+              <li>
+                <a class="tg-a-black" href="https://plus.google.com/+travelground" target="_blank" data-external="true">
+                  <span class="fa-stack fa-2x">
+                    <i class="fa fa- fa-google-plus fa-stack-1x"></i>
+                  </span>
+                  Google+
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="sub-menu add-establishment">
+            <div class="tg-cat-heading add-estab">List Your Accommodation</div>
+            <div class="desc-container">
+              <div class="field">
+                <p>Own or manage a quality accommodation establishment in South Africa? Apply to list with TravelGround.com and it's sister sites by clicking below.</p>
+              </div>
+            </div>
+            <ul class="links">
+              <li>
+                <a class="tg-btn green signup-est" href="/establishment/signup/">ADD YOUR ACCOMMODATION</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+
+    <div class="company-container clearfix">
+      <div class="company-row">
+        <ul class="payment-icons">
+          <li class="icon visa"><img src="/header/assets/img/monies/c_payment_visa.png"></li>
+          <li class="icon eft"><img src="/header/assets/img/monies/c_payment_eft.png"></li>
+          <li class="icon msc"><img src="/header/assets/img/monies/c_payment_mastercard.png"></li>
+          <li class="icon ssl"><img src="/header/assets/img/monies/c_payment_ssl.png"></li>
+        </ul>
+                <div class="trademark-container">
+          <span>
+            <div class="tg-logo-icon">
+              <a href="/"><img src="/header/assets/img/logos/tg_pin_blue_100x100.png"></a>
+            </div>
+          </span>
+          <span>
+          <li>
+            <a class="tg-a-grey" href="/">Home</a>
+          </li>
+          <li class="separator">|</li>
+          <li>
+            <a class="tg-a-grey" href="/sitemap">Site Map</a>
+          </li>
+          <li class="separator">|</li>
+                    <li>
+            <a class="tg-a-grey" href="/terms#privacy-policy">Privacy Policy</a>
+          </li><br>
+          <li>
+            <span class="trademark">&copy;<span class="year">&nbsp;2008 - 2018</span></span>
+            <span class="trademark-ext">TravelGround (Pty) Ltd.</span>
+          </li>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div id="snackbar" class="tg-snackbar"></div>
+
+</div>
+
+  
+<!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-5318665-1', 'auto');
+ga('require', 'linkid', 'linkid.js');
+ga('require', 'displayfeatures');
+ga('send', 'pageview', {'dimension1': 'Normal User'});
+
+</script>
+<!-- End Google Analytics -->
+
+<!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-N5J6"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-N5J6');</script>
+<!-- End Google Tag Manager -->
+<!-- Facebook Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','//connect.facebook.net/en_US/fbevents.js');
+// Insert Your Facebook Pixel ID below.
+fbq('init', '300268020349917');
+fbq('track', 'PageView');
+
+</script>
+<!-- Insert Your Custom Audience Pixel ID below. -->
+<noscript><img height='1' width='1' style='display:none'
+src='https://www.facebook.com/tr?id=300268020349917&ev=PageView&noscript=1'
+/></noscript>
+<!-- End Facebook Pixel Code -->
+
+<script type='text/javascript'>
+
+</script>
+
+
+
+      <!--[if lt IE 9]>
+                            <script type="text/javascript" src="/header/assets/js/plugins/jquery-1.12.4.min.js?v=d0beb16310"></script>
+                        <![endif]-->
+                        <!--[if gte IE 9 | !IE ]><!-->
+                            <script type="text/javascript" src="/homepage/assets/js/plugins/jquery-3.1.1.min.js?v=d0beb16310"></script>
+                        <![endif]-->
+                        <script type="text/javascript">var language_switch = "en"; </script>
+                        <script type="text/javascript">var lekkeslaap_switch_footer = ""; </script>
+                        <script type="text/javascript">var brand_switch = "tg"; </script>
+                        <script type="text/javascript">var is_app = "false"; </script>
+                        <script type="text/javascript">var app_version = 1; </script>
+                        <script type="text/javascript">var is_mobile = false; </script>
+                        <script type="text/javascript" src="/header/assets/js/blurry-img.js?v=d0beb16310"/></script>
+                        <script type="text/javascript" src="/homepage/assets/js/plugins/moment.js?v=d0beb16310"/></script>
+                        <script type="text/javascript" src="/homepage/assets/js/plugins/pikaday.js?v=d0beb16310"/></script>
+                        <script type="text/javascript" src="/forms/autocomplete/autocomplete.js?v=d0beb16310"></script>
+                        <script type="text/javascript" src="/forms/new_enquiry_form/assets/js/mailcheck.js?v=d0beb16310"></script>
+                        <script type="text/javascript" src="/header/assets/js/plugins/raven.min.js?v=d0beb16310"></script>
+                        <script type="text/javascript" src="/header/assets/js/header.js?v=d0beb16310"></script><script type="text/javascript" src="/homepage/assets/js/locale/travelground_english.js?v=d0beb16310"></script>
+                            <script type="text/javascript" src="/login/assets/js/login.js?v=d0beb16310"></script>
+                        <script type="text/javascript" src="/header/assets/js/favouriting.js?v=d0beb16310"></script>
+                        <!--[if lt IE 10]><!-->
+                                <script type="text/javascript" src="/header/assets/js/plugins/placeholders.jquery.min.js?v=d0beb16310"></script>
+                        <![endif]-->
+    <script src="/js/used/global_libraries.js?v=d0beb16310"></script>
+    <script src="/js/used/global_custom.js?v=d0beb16310"></script>
+  
+  <script type="text/javascript">
+    ;(function($){
+      // Show a hidden dialog
+      $('body').find('.showonclick').click(function(e) {e.preventDefault(); $($(this).attr('href')).show(); if ($(this).attr('data-close').length) { $(this).parent().hide(); }});
+
+      //  Smooth scroll
+      $('.smooth-scroll').on('click', function(e) {
+        e.preventDefault();
+        var link = $(this).attr('href');
+        $('html,body').animate({scrollTop: ($(link).offset().top - 20)}, 500);
+      });
+
+      // Toggle role description
+      $( "#full-stack-dev, #software-tester, #estab-support" ).click(function() {
+        $(this).next( ".role" ).slideToggle( "slow", function() {
+
+        });
+      });
+
+    })(jQuery);
+  </script>
+
+  
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"005050695c","applicationID":"6651556","transactionName":"NARaMkZUWhVXBRJeCg1ObRRdGlcJWwQTRBFMAlcLVkBHEhgWDkc=","queueTime":0,"applicationTime":38,"atts":"GENZRA5OSRs=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>

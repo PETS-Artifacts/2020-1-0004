@@ -1,0 +1,954 @@
+
+
+
+
+	Trimble - Transforming the Way the World Works
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    var sc_lang = "EN";
+    //alert(sc_lang);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    $(function () {
+        $('.mega-1').dcVerticalMegaMenu({
+            rowItems: '3',
+            speed: 'fast',
+            effect: 'show',
+            direction: 'right'
+        });
+        // $('.drop').masonry({ itemSelector: 'div.drop div.left' });      
+        $("#click").click(function () {
+            $('#click').css({ "background-color": "#f00", "color": "#fff", "cursor": "inherit" }).text("Open this window again and this message will still be here.");
+            return false;
+        });
+        setTimeout(setMinHeightForContainer, 1000);
+        if (typeof Sitecore == 'object') {
+            var fileref = document.createElement("link")
+            fileref.setAttribute("rel", "stylesheet");
+            fileref.setAttribute("type", "text/css");
+            fileref.setAttribute("href", "/html/styles/custom_sitecore.css");
+            document.getElementsByTagName("head")[0].appendChild(fileref);
+        }
+
+        if ($(".mainHeadContainer span").html() != null) {
+            if ($.trim($(".mainHeadContainer span").html()) == "")
+                $(".custLoginContainer").css("margin-top", "-15px");
+        } else if ($(".mainHeadContainer span").html() == null && !$(".mainHeadContainer div").hasClass("productfamily_title")) {
+            $(".custLoginContainer").css("margin-top", "-15px");
+        }
+    });
+    function checkSideBarLoaded() {
+        if ($('.sidebar-container').length == 0) {
+            console.log('not ready');
+            $jquery.error('not ready');
+        }
+    }
+    function setMinHeightForContainer() {
+        try {
+            checkSideBarLoaded();
+            console.log($('.sidebar-container').css("height"));
+            $('#container_body').css('min-height', $('.sidebar-container').css("height"));
+            console.log($('.sidebar-container').css("height"));
+            $(".container_footer").css('display', "block");
+        } catch (err) {
+            // debugger;
+            setTimeout(setMinHeightForContainer, 500);
+            $(".container_footer").css('display', "block");
+        }
+
+        $(".fsmAboutVideo").colorbox({ iframe: true, innerWidth: 750, innerHeight: 510 });
+    }
+  
+
+
+//<![CDATA[
+    function fnTrapKD(event, caller) {
+        if (event.keyCode == 13) {
+            event.returnValue = false;
+            event.cancel = true;
+            SliSearch(caller);
+            return false;
+        }
+        return true;
+    }
+    function SliSearchById(id) {
+        SliSearch(document.getElementById(id));
+    }
+    function SliSearch(caller) {
+        var lsQueryString;
+        if (caller.value != 'enter keywords') {
+            lsQueryString = "w=" + encodeURIComponent(caller.value);
+        }
+        if (caller.value != '') {
+            document.location.href = 'http://trimble.resultspage.com/search?' + lsQueryString;
+        }
+    }
+//]]>
+
+
+    $(document).ready(function () {
+        $(".colorboxImage").colorbox();
+        $(".colorboxVideo").colorbox({ iframe: true, innerWidth: 730, innerHeight: 430 });
+        $(".colorboxPDF").colorbox({ iframe: true, innerWidth: 800, innerHeight: 600 });
+        $(".colorboxDocushare").colorbox({ iframe: true, innerWidth: 750, innerHeight: 510 });
+    });
+
+
+
+
+
+
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NJQQSG');
+
+
+
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-12575170-1', 'auto');
+ga('send', 'pageview');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Partners
+Trimble Worldwide
+Service Provider Locator
+Dealer Locator
+
+
+
+
+
+
+
+    jQuery(function () {
+        $('.topsearch .search').focus(function () {
+            if (this.value == 'Search...') {
+                this.value = '';
+            }
+        });
+        $('.topsearch .search').blur(function () {
+            if (this.value == '') {
+                this.value = 'Search...';
+            }
+        });
+        $('.topsearch .search').on('keydown', function (e) {
+            if (e.which == 13)
+                startSearch();
+        });
+        $('.topsearch input[name="Submit"]').click(function () {
+            startSearch();
+        });
+        $('.menuTemplate1 .dropimg img').hover(swapImage, restoreImage);
+    });
+    function startSearch() {
+        window.location.href = 'http://trimble.resultspage.com/search?p=Q&ts=custom&Submit=Submit+Query&w=' + $('.topsearch .search').val();
+    }
+    function swapImage() {
+        $(this).attr('src', $(this).parent().data('hover-icon'));
+    }
+
+    function restoreImage() {
+        $(this).attr('src', $(this).parent().data('icon'));
+    }
+
+    $(document).ready(function () {
+
+        $(".searchIcon").click(function () {
+            $(".searchWrapper").toggle("slide", { direction: "right" });
+        });
+    });
+	
+
+
+
+    /******************Search Box*********************/
+    .topsearch {
+	    width:200px;
+	    margin-top:0;
+	    /*float: right;*/
+    }
+    .topsearch .form {
+	    background:url(/html/images/searchbg.jpg) center top no-repeat;
+	    width:200px;
+	    height:36px;
+	    line-height:36px;
+	    border:0;
+	    z-index:0;
+	    color:#999999;
+	    font-size:16px;
+	    font-family:'Titillium Web', Arial, Helvetica, sans-serif;
+	    margin-top:0;
+    }
+    .topsearch input {
+	    width:160px;
+	    z-index:99999;
+	    outline:none;
+	    border:0;
+	    color:#999999;
+	    font-size:16px;
+	    font-family:'Titillium Web', Arial, Helvetica, sans-serif;
+    }
+    .topsearch .button {
+	    text-indent:-5000px;
+	    background:url(/html/images/searchicon.png) right top no-repeat;
+	    width:30px;
+	    line-height:19px;
+	    border:0;
+	    margin-top:0px;
+	    z-index:9999;
+	    cursor:pointer;
+    }
+    
+    .searchIcon
+    {
+        float:right;
+        width:32px;
+        height:32px;
+        background:#fff url(/html/images/searchicon.png) center center no-repeat;
+        border:1px solid #fff;
+        margin-top:8px;
+        border-right:1px solid #eee;
+    }
+    .searchWrapper {
+        float:right;
+        width: 240px;
+        height: 36px;
+        display:none;
+        margin-top:6px;
+        
+    }
+    
+    
+    .slitopsearch .button {
+	    background-color:#005F9E;
+	    width:60px;
+	    height:36px;
+	    font-size:15px;
+	    font-weight:bold;
+	    color:#fff;
+	    z-index:9999;
+	    cursor:pointer;
+	    border: 0;
+    }
+    
+    .slitopsearch input {
+	    width:160px;
+	    height:24px;
+	    z-index:99999;	   
+	    padding:5px;
+	    border: 1px solid #cccccc;
+	    font-size:14px;
+	    font-family:'Titillium Web', Arial, Helvetica, sans-serif;
+    }
+    
+    
+    /****************** End of Search Box*********************/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Transforming the way the world works
+
+  Menu
+
+
+About
+Careers
+Support & Training
+Investors
+Products
+Industries
+
+
+
+
+
+Industries
+
+Agriculture
+
+Solutions
+Products
+Information Center
+
+
+Construction & Operations
+Geospatial
+
+Survey Solutions
+Mapping and GIS Solutions
+Technology And More Magazine
+Media
+Contact Us
+
+
+Natural Resources, Utilities & Government
+Transportation & Logistics
+All Industries & Applications
+
+3D Laser Scanning
+Alignment
+Buildings
+Construction Logistics
+Defense
+Energy
+Energy Solutions
+Environmental Solutions
+Forestry
+Field Service Management
+Geospatial Partners
+Geospatial
+GNSS Inertial
+Imaging
+Infrastructure
+Land Administration
+Loadrite
+Mapping and GIS
+Mobile Computing
+Monitoring Solutions
+Mining
+Oil and Gas
+Rail
+Real-Time Networks
+RFID
+Positioning Services
+Precom
+Survey
+Timing
+Quick Links
+
+
+
+
+Products
+
+Products by Industry
+Products by Applications
+
+
+Investors
+
+Investor Relations
+Financial Releases
+Events & Presentations
+Corporate Governance
+Stock Information
+Financial Information
+Contact Us
+
+
+Support & Training
+
+Global Support
+
+Technical Support
+Find a Dealer
+Protection Plans
+Maintenance & Repair Services
+Service Provider
+
+
+Trimble Protected
+
+Products
+Protection Plans
+Service and Support
+Training
+Trimble Protected Program
+
+
+Get Help
+
+Knowledge Center
+Learning Center
+Reference Information
+
+
+Global Training
+
+Find a Certified Trainer
+Learn.Trimble.com
+Tools-4-Schools
+
+
+Support A-Z
+Order Fulfillment
+Product Registration
+
+
+Careers
+
+Trimble Careers
+
+About Trimble
+Trimble Careers
+Search Jobs
+Partners' Jobs
+Info (FAQ)
+Students & Graduates
+
+
+Search Jobs
+Students & Graduates
+FAQ
+
+
+About
+
+Company Overview
+
+At a Glance
+Companies
+Company History
+Leadership
+Locations
+
+
+News Room
+
+News Room
+News Release
+
+
+Corporate Citizenship
+Compliance
+
+Conflict Minerals Resources
+UK Tax Strategy
+Environmental
+3rd Party Compliance
+Trade
+UK Slavery Statement
+
+
+Events
+Small Business
+Technology
+
+Positioning Technology
+GNSS Technology
+GPS Tutorial
+GPS Data Resources
+
+
+Contacts
+
+Certified Training
+Public Relations
+Web Request
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Transforming
+Worldwide Solutions
+                                
+Learn More
+
+
+
+
+
+
+
+Agriculture
+From the office to the field, transforming farming through total farm management solutions.
+                                
+Explore Agriculture Solutions
+
+
+
+
+
+
+
+Natural Resources, Utilities & Government
+Innovative technologies designed to improve efficiency, increase productivity and enable informed decision making.
+                                
+Learn More
+
+
+
+
+
+
+
+Transportation & Logistics
+Solutions for long haul trucking, field service management, rail and construction logistics.
+                                
+Explore Transportation & Logistic Solutions
+
+
+
+
+
+
+
+Geospatial
+Helping organizations incorporate spatial information into their operations for increased productivity, greater safety, and value.
+                                
+Explore Geospatial Solutions
+
+
+
+
+
+
+
+Construction & Operations
+Boost productivity with innovative technology for planning, design, construction and operation, from the office to the jobsite.
+                                
+Explore Construction Solutions
+
+
+
+
+
+
+
+All Industries and Applications
+Explore our innovative solutions for a wide variety of applications and technologies.
+                                
+Learn More
+
+
+
+
+ 
+ 
+
+
+
+
+
+
+
+
+
+            Trimble News 
+         
+
+View All
+
+
+
+
+
+        getNewsHomepage('en', '2', 'newsContainer');		
+
+
+
+
+
+
+
+Trimble worldwide 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Service Centers
+
+Trimble Worldwide
+
+Where to Buy
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    Trimble Dimensions
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+About Trimble
+
+
+
+
+
+
+Trimble at a Glance
+
+
+Executive Team
+
+
+History
+
+
+Trimble Companies
+
+
+Events
+
+
+
+
+
+
+
+
+
+Investors
+ 
+
+
+
+
+
+Investor Relations
+
+
+Financial Releases
+
+
+Annual Reports
+
+
+
+
+
+
+
+
+
+
+
+
+
+Support
+ 
+
+
+
+
+
+Support A-Z
+
+
+Get Help
+
+
+Trimble Protected
+
+
+Product Registration
+
+
+Terms of Sale
+
+
+
+
+
+
+
+
+
+News Room
+ 
+
+
+
+
+
+News Releases
+
+
+News Room
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Contact Us
+ 
+
+
+
+
+
+Technical Support
+
+
+Public Relations
+
+
+Investor Relations
+
+
+Product Training
+
+
+Trimble Locations
+
+
+Sales
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Statement
+Terms Of Use
+Contacts
+© Copyright 2018, Trimble Inc.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

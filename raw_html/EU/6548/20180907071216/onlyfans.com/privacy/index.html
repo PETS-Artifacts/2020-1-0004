@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>OnlyFans</title>
+<meta name=description content="OnlyFans">
+<meta name=keywords content="OnlyFans">
+<meta property=og:site_name content=OnlyFans>
+<meta property=og:url content="https://onlyfans.com/privacy">
+<meta property=og:title content="OnlyFans">
+<meta property=og:description content="OnlyFans">
+<meta property=og:image content="https://onlyfans.com/theme/onlyfans/images/fb_logo.png">
+					<script>
+			if (window != window.top) {
+				top.location.href = document.location.href;
+			}
+		</script>
+	
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-116416068-1"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag() {
+		dataLayer.push(arguments);
+	}
+	gtag('js', new Date());
+	gtag('config', 'UA-116416068-1');
+</script>
+
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?rev=4333">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?rev=4333">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?rev=4333">
+<link rel="manifest" href="/site.webmanifest?rev=4333">
+<link rel="mask-icon" href="/safari-pinned-tab.svg?rev=4333" color="#5bbad5">
+<link rel="shortcut icon" href="/favicon.ico?rev=4333">
+<meta name="msapplication-TileColor" content="#2d89ef">
+<meta name="theme-color" content="#ffffff">
+<link href=https://fonts.googleapis.com/icon?family=Material+Icons rel=stylesheet>
+<link href=https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,600i,700,800|Roboto:300,400,700 rel=stylesheet>
+<link href=https://use.fontawesome.com/47fce547b0.css rel=stylesheet>
+
+	<link rel="stylesheet" type="text/css" href="/theme/common/assets/jquery-file-upload/css/jquery.fileupload.css?rev=4333"/>
+	<link rel="stylesheet" type="text/css" href="/theme/common/assets/bootstrap-datepicker/css/bootstrap-datepicker3.min.css?rev=4333"/>
+	<link rel="stylesheet" type="text/css" href="/theme/common/assets/bootstrap-datetimepicker2/css/bootstrap-datetimepicker.min.css?rev=4333"/>
+	<link rel="stylesheet" type="text/css" href="/theme/common/assets/bootstrap-formhelpers/css/bootstrap-formhelpers-min.css?rev=4333"/>
+	<link rel="stylesheet" type="text/css" href="/theme/common/assets/bootstrap/css/bootstrap-side-notes.css?rev=4333"/>
+	<link rel="stylesheet" type="text/css" href="/theme/common/assets/gifplayer-master/css/gifplayer.css?rev=4333"/>
+	<link rel="stylesheet" type="text/css" href="/theme/common/assets/lightbox-master/css/ekko-lightbox.min.css?rev=4333"/>
+	<link rel="stylesheet" type="text/css" href="/theme/common/assets/jquery-ui-1.11.4.custom/jquery-ui.min.css?rev=4333"/>
+	<link rel="stylesheet" type="text/css" href="/theme/common/assets/magnific-popup/css/magnific-popup.css?rev=4333"/>
+	<link rel="stylesheet" type="text/css" href="/theme/common/assets/emoji/css/emoji.css?rev=4333"/>
+	<link rel="stylesheet" type="text/css" href="/theme/common/assets/swiper/css/swiper.min.css?rev=4333"/>
+	<link rel="stylesheet" type="text/css" href="/theme/common/assets/jquery-toast/css/jquery.toast.min.css?rev=4333"/>
+	<link rel="stylesheet" type="text/css" href="/theme/common/assets/mervick-emojionearea/css/emojionearea.min.css?rev=4333"/>
+	<link rel="stylesheet" type="text/css" href="/theme/common/assets/featherlight/featherlight.min.css?rev=4333"/>
+	<link rel="stylesheet" type="text/css" href="/theme/common/assets/video-js-7.2.2/video-js.min.css?rev=4333"/>
+	<link rel="stylesheet" type="text/css" href="/theme/onlyfans/css/chosen.css?rev=4333"/>
+	<link rel="stylesheet" type="text/css" href="/theme/onlyfans/css/bootstrap.css?rev=4333"/>
+	<link rel="stylesheet" type="text/css" href="/theme/onlyfans/css/style.css?rev=4333"/>
+	<link rel="stylesheet" type="text/css" href="/theme/onlyfans/css/temp.css?rev=4333"/>
+	<link rel="stylesheet" type="text/css" href="/theme/onlyfans/css/quatro.css?rev=4333"/>
+<script src="/theme/common/assets/jquery/js/jquery-1.11.3.min.js"></script>
+<script src="/theme/onlyfans/js/functions.js?rev=4333"></script>
+<script>
+	var USERID = 0,
+			SECTION = 'page',
+			SUBSECTION = '/privacy/',
+			SUBSUBSECTION = '',
+			USERNAME = '',
+			USERUNIQ = '',
+			POST_MEDIA_CONFIG = {"types":["gif","photo","video","stream","audio"],"ext":{"gif":"gif","photo":"jpe?g|gif|png","video":"mp4|moo?v|m4v|mpe?g|wmv|avi","stream":"stream","audio":"mp3"},"count":{"gif":1,"photo":20,"video":1,"stream":1,"audio":1},"params":{"stream":{"server":"stream.onlyfans.com"}},"prefix":"https:\/\/media.onlyfans.com"},
+			POSTS = [],
+			POSTS_REMAINING = [],
+			LOOKATUSER = 0,
+			CHATS_IN_PAGE = false,
+			RECAPTCHA_PUBLIC = '6LfVUxkUAAAAAFwy-qwWGqKNhT1vqmYF-9ULPAWz',
+			CAN_PAY_STRIPE = false,
+			CAN_PAY_SECURIONPAY = false,
+			CHAT_ACTIVE,
+			CHAT_LAST_TIME,
+			modal_add_data,
+			ONLINE = [],
+			SOCKETQUEUE = [],
+			CAN_PAY = CAN_PAY_STRIPE && CAN_PAY_SECURIONPAY,
+			UNSUBSCRIBE_REASONS = [{"id":"1","name":"Low posting frequency","active":"1"},{"id":"2","name":"Private messages not replied","active":"1"},{"id":"3","name":"No longer want to be subscribed","active":"1"},{"id":"4","name":"Subscription price too high","active":"1"},{"id":"5","name":"Will re-subscribe later","active":"1"}];
+</script>
+
+	</head>
+
+	<body id="page_page">
+		<header id="site_header" class="pages_site_header">
+
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-2 col-xs-6">
+				<a href="/" id="logo">
+					<img src="/theme/onlyfans/images/pages-logo.png">
+				</a>
+			</div>
+			<div class="col-sm-10 col-xs-6">
+				<button type="button" class="btn btn-default navbar-toggle collapsed visible-xs" data-toggle="collapse" data-target="#topmenu-collapse" aria-expanded="false">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<div class="collapse navbar-collapse visible-sm visible-md visible-lg" id="topmenu-collapse">
+					<nav class="top_nav pull-right">
+							<a href="https://onlyfansblog.com/" >Blog</a>
+	<a href="/how/" >How it works</a>
+	<a href="/faq/" >FAQs</a>
+	<a href="/referrals/" >Referrals</a>
+	<a href="/contacts/" >Contact</a>
+	<a href="/terms/" >Terms</a>
+	<a href="/privacy/" class="active">Privacy</a>
+											</nav>
+				</div>
+			</div>
+		</div>
+	</div>
+</header>		<main id="content">
+			<div class="container">
+	<h1 class="title">Privacy Policy</h1>
+	<p><br /><strong>Last Modified:  May 2018</strong></p>
+<p>Our services are not intended for anyone under 18. We have checks to ensure that we we do not knowingly collect personal information from anyone under 18.</p>
+<p> </p>
+<p> </p>
+<p><strong>Introduction</strong></p>
+<p>Only Fans is a social network which enables some users to share their content; other users to enjoy others’ content and for some to do both.</p>
+<p>Only Fans is the trading name of Fenix International Limited (company number 10354575).</p>
+<p>When people use these services they share some information with us. This policy sets out the information we collect, how we use it and who we share it with.</p>
+<p>We confirm that the lawful basis for processing your data is that by participating with our social network you have <a href="/terms">contracted with us</a> and the processing of data set out here is part of that contract. To the extent that we have to monitor and control use of our site the basis for that processing is to fulfil a legal obligation</p>
+<p>If you have any questions about anything in our Privacy Policy or wish to complain then please contact <a href="mailto:privacy@onlyfans.com">privacy@onlyfans.com</a>. We hope that we can resolve any query or concern you raise about our use of your information. If not, contact the Information Commissioner at<a href="https://ico.org.uk/concerns/"> https://ico.org.uk/concerns/</a> or telephone: 0303 123 1113 for further information about your rights and how to make a formal complaint.</p>
+<p> </p>
+<p>Below we set out our policy but please be aware that:</p>
+<p>1.     all content is monitored by third parties to ensure that the network is lawful and legal and not brought into disrepute;</p>
+<p>2.     you will not provide or give financial information to us but to our chosen partners. These  entities may or may not be located in the European Economic Area;</p>
+<p>3.     we will not transfer your person data outside the European Economic Area;</p>
+<p>4.     we will not profile or make automated decisions which affect you.</p>
+<p>Users are either <strong>“Creators”</strong> or <strong>“Fans”</strong>. A Creator posts content for Fans to access. Creators determine the monthly subscription fee which Fans pay to view the content. A Fan decides what content to view.</p>
+<p>In this policy User or you refers to any Creator or Fan. </p>
+<p> </p>
+<p><strong>Information we collect</strong></p>
+<p>Regardless of whether you are a Creator or Fan or both there are three categories of information we collect:</p>
+<ul><li><strong>Information you choose to give us.</strong></li>
+<li><strong>Information we get when you use our services.</strong></li>
+<li><strong>Information we get from third parties.</strong></li>
+</ul><p><br /><strong>Information you choose to give us</strong></p>
+<p>In order to open an account and use our services you will disclose to us:</p>
+<p>1.     Your name;</p>
+<p>2.     postal address;</p>
+<p>3.     an email address;</p>
+<p>4.     a username;</p>
+<p>5.     your date of birth;</p>
+<p>6.     a copy of your passport.</p>
+<p>7.     your banking credentials </p>
+<p> </p>
+<p>To make it easier for others to find you, we may also ask you to provide us with some additional information that will be publicly visible on our services, such as profile pictures, a profile name or other useful identifying information.</p>
+<p>Be careful when you provide us information about you and others you know (this is likely to be personal data) which will be uploaded onto your pages of our network. Other users maybe able to use that content for their own purposes.</p>
+<p>If you have any reason to contact us separately for example to discuss concerns with customer services then we’ll collect whatever information you volunteer.</p>
+<p> </p>
+<p><strong>Information we get when you use our services</strong></p>
+<p>When you use our services, we collect information about the content you have viewed or shared. For example:</p>
+<ul><li><strong>Usage information</strong>. We collect information about the content that Viewers have accessed. From that we may highlight to that user similar content;</li>
+<li><strong>Content information</strong>. We collect content you create on our services, such as custom stickers, photos, videos, text and information about the content you create or provide, such as if the recipient has viewed the content and the metadata that is provided with the content.</li>
+<li><strong>Device information</strong>. We collect IP addresses or other identification data from and about the devices you use. For example, we collect:<br />information about your hardware and software, such as the hardware model, operating system version, device memory, advertising identifiers, unique application identifiers, apps installed, unique device identifiers, browser type, language, battery level and time zone;</li>
+<li><strong>Location information</strong>. When you use our services, we may collect information about your location. With your consent, we may also collect information about your precise location using methods that include GPS, wireless networks, cell towers, Wi-Fi access points and other sensors such as gyroscopes, accelerometers and compasses.</li>
+<li><strong>Information collected by cookies and other technologies</strong>. Like most online services we use cookies. The cookies we use are the usual Google analytics and session cookies <br />(For your information: most web browsers are set to accept cookies by default. If you prefer, you can usually remove or reject browser cookies through the settings on your browser or device. Keep in mind, though, that removing or rejecting cookies could affect the availability and functionality of our services.)</li>
+<li><strong>Log information</strong>. We also collect log information when you use our website. That information includes, among other things:</li>
+</ul><ol><li>details about how you’ve used our services.</li>
+<li>device information, such as your web browser type and language.</li>
+<li>access times.</li>
+<li>pages viewed.</li>
+<li>IP address.</li>
+<li>identifiers associated with cookies or other technologies that may uniquely identify your device or browser</li>
+</ol><p> </p>
+<p><strong>How we use information</strong></p>
+<p>We use this information to ensure that the content can be enjoyed by everyone. Our objective is to strive to keep the content appropriate, tasteful and lawful.  Here are some of the ways we do that:</p>
+<ul><li>develop, operate, improve, deliver, maintain and protect our products and services.</li>
+<li>send you communications, including by email. For example, we may use email to respond to support enquiries or to share information about our site.</li>
+<li>monitor and analyse trends and usage.</li>
+<li>verify your identity and prevent fraud or other unauthorised or illegal activity.</li>
+<li>use information we’ve collected from cookies and other technology to enhance the services and your experience with them.</li>
+<li>enforce our Terms of Service and other usage policies.</li>
+</ul><p>We may also store or use information locally on your device.</p>
+<p> </p>
+<p><strong>How we share information</strong></p>
+<p>We may share information about you in the following ways:</p>
+<p><strong>With other Users</strong>. We may share the following information with other Users:</p>
+<ul><li>information you enter, such as your username, profile name, and profile bio.</li>
+<li>any additional information you have consented for us to share.</li>
+<li>content you post or send will be shared with your Fans and/or the Creators you subscribe to.</li>
+</ul><p><strong>With all Users</strong>. We may share the following information with all Users:</p>
+<ul><li>public information such as your profile name, username and profile pictures.</li>
+</ul><p><strong>With third parties</strong>. We may share your information with the following third parties:</p>
+<ul><li>With service providers. We may share information about you with service providers who perform services on our behalf.</li>
+<li>With third parties for legal reasons. We may share information about you if we reasonably believe that disclosing the information is needed to:</li>
+</ul><p>- comply with any valid legal process, governmental request, or applicable law, rule or regulation.investigate, remedy, or enforce potential Terms of Service violations.<br />- protect our, our users' or others' rights, property and safety.<br />- detect and resolve any fraud or security concerns.</p>
+<ul><li>With third parties as part of a merger or acquisition. If Fenix International gets involved in a merger, asset sale, financing, liquidation or bankruptcy, or acquisition of all or some portion of our business to another company, we may share your information with that company before and after the transaction closes.</li>
+</ul><p> </p>
+<p><strong>Third-party content and integrations</strong></p>
+<p>At present we do not offer these.</p>
+<p> </p>
+<p><strong>Analytics and advertising services</strong></p>
+<p>We do not let other companies collect information about how you use our services.</p>
+<p> </p>
+<p><strong>How long we keep your content</strong></p>
+<p>We want you to be in control of your information. You can delete any content when you want. If you close the account the personal data we hold about you will be deleted after six months. This paragraph satisfies the provisions of Article 13(2)(b&amp;c) GDPR.</p></div>
+		</main>
+		<div class="footer_wrapper">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-3 col-xs-12">
+						<div class="copyright">&copy;2018 Onlyfans</div>
+						<ul class="social_guest">
+	<li><a href="//twitter.com/OnlyFansApp" target="_blank"><i class="fa fa-twitter"></i></a></li>
+	<li><a href="//instagram.com/onlyfansofficial" target="_blank"><i class="fa fa-instagram"></i></a></li>
+</ul>
+						<div class="visible-xs">
+							<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#footer_menu_mobile" aria-expanded="false">
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+							<div class="footer_menu_mobile collapse" id="footer_menu_mobile">
+								<footer id="footer">
+	<menu class="footer_nav">
+					<li><a href="https://onlyfansblog.com/">Blog</a></li>
+					<li><a href="/how/">How it works</a></li>
+					<li><a href="/faq/">FAQs</a></li>
+					<li><a href="/referrals/">Referrals</a></li>
+					<li><a href="/contacts/">Contact</a></li>
+					<li><a href="/terms/">Terms</a></li>
+					<li><a href="/privacy/">Privacy</a></li>
+					<!--<li><a href='#contactModal' data-toggle='modal' class='hidden-lg'>Contact Us</a></li>-->
+	</menu>
+</footer>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-9 col-xs-12 hidden-xs">
+						<footer id="footer">
+	<menu class="footer_nav">
+					<li><a href="https://onlyfansblog.com/">Blog</a></li>
+					<li><a href="/how/">How it works</a></li>
+					<li><a href="/faq/">FAQs</a></li>
+					<li><a href="/referrals/">Referrals</a></li>
+					<li><a href="/contacts/">Contact</a></li>
+					<li><a href="/terms/">Terms</a></li>
+					<li><a href="/privacy/">Privacy</a></li>
+					<!--<li><a href='#contactModal' data-toggle='modal' class='hidden-lg'>Contact Us</a></li>-->
+	</menu>
+</footer>
+					</div>
+				</div>
+			</div>
+		</div>
+		<iframe id="iframe" name="iframe" style="display: none;"></iframe>
+
+<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="dialog" class="modal fade" style="display: none;">
+	<div class="modal-dialog modal-sm">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+				<h4 class="modal-title"></h4>
+			</div>
+			<div class="modal-body">
+				<div class="dialog_message"></div>
+				<div class="dialog_form"></div>
+			</div>
+			<div class="modal-footer"></div>
+		</div>
+	</div>
+</div>
+
+
+<div class="global_preloader"></div>
+<button class="btn_up"><i class="fa fa-angle-up"></i></button>
+	<script type="text/javascript" src="/theme/common/assets/video-js-7.2.2/video.min.js?rev=4333"></script>
+	<script type="text/javascript" src="/theme/common/assets/bootstrap/js/bootstrap.min.js?rev=4333"></script>
+	<script type="text/javascript" src="/theme/common/assets/simply-countable/jquery.simplyCountable.js?rev=4333"></script>
+	<script type="text/javascript" src="/theme/common/assets/rowgrid/jquery.row-grid.min.js?rev=4333"></script>
+	<script type="text/javascript" src="/theme/common/assets/jquery-file-upload/js/vendor/jquery.ui.widget.js?rev=4333"></script>
+	<script type="text/javascript" src="/theme/common/assets/jquery-file-upload/js/jquery.iframe-transport.js?rev=4333"></script>
+	<script type="text/javascript" src="/theme/common/assets/jquery-file-upload/js/jquery.fileupload.js?rev=4333"></script>
+	<script type="text/javascript" src="/theme/common/assets/bootstrap-datepicker/js/bootstrap-datepicker.min.js?rev=4333"></script>
+	<script type="text/javascript" src="/theme/common/assets/jquery-chosen/chosen.jquery.min.js?rev=4333"></script>
+	<script type="text/javascript" src="/theme/common/assets/lightbox-master/js/ekko-lightbox.min.js?rev=4333"></script>
+	<script type="text/javascript" src="/theme/common/assets/bootstrap-formhelpers/js/bootstrap-formhelpers-min.js?rev=4333"></script>
+	<script type="text/javascript" src="/theme/common/assets/bootstrap-validator/js/bootstrapValidator-min.js?rev=4333"></script>
+	<script type="text/javascript" src="/theme/common/assets/autosize/autosize.min.js?rev=4333"></script>
+	<script type="text/javascript" src="/theme/common/assets/gifplayer-master/js/jquery.gifplayer.js?rev=4333"></script>
+	<script type="text/javascript" src="/theme/common/assets/jquery.inview-master/js/jquery.inview.min.js?rev=4333"></script>
+	<script type="text/javascript" src="/theme/common/assets/jquery-ui-1.11.4.custom/jquery-ui.min.js?rev=4333"></script>
+	<script type="text/javascript" src="/theme/common/assets/magnific-popup/js/jquery.magnific-popup.min.js?rev=4333"></script>
+	<script type="text/javascript" src="/theme/common/assets/swiper/js/swiper.jquery.min.js?rev=4333"></script>
+	<script type="text/javascript" src="/theme/common/assets/countdown2/js/jquery.plugin.min.js?rev=4333"></script>
+	<script type="text/javascript" src="/theme/common/assets/countdown2/js/jquery.countdown.min.js?rev=4333"></script>
+	<script type="text/javascript" src="/theme/common/assets/moment/js/moment.min.js?rev=4333"></script>
+	<script type="text/javascript" src="/theme/common/assets/bootstrap-datetimepicker2/js/bootstrap-datetimepicker.min.js?rev=4333"></script>
+	<script type="text/javascript" src="/theme/common/assets/audiojs/audio.js?rev=4333"></script>
+	<script type="text/javascript" src="/theme/common/assets/jquery-cookie-master/js/jquery.cookie.js?rev=4333"></script>
+	<script type="text/javascript" src="/theme/common/assets/html2canvas/html2canvas.js?rev=4333"></script>
+	<script type="text/javascript" src="/theme/common/assets/jquery-toast/js/jquery.toast.min.js?rev=4333"></script>
+	<script type="text/javascript" src="/theme/common/assets/mervick-emojionearea/js/emojionearea.min.js?rev=4333"></script>
+	<script type="text/javascript" src="/theme/common/assets/featherlight/featherlight.min.js?rev=4333"></script>
+	<script type="text/javascript" src="/theme/common/assets/jquery.inview-master/js/jquery.inview.min.js?rev=4333"></script>
+	<script type="text/javascript" src="/theme/common/assets/jquery.ba-throttle-debounce/jquery.ba-throttle-debounce.min.js?rev=4333"></script>
+	<script type="text/javascript" src="/theme/onlyfans/js/scripts.js?rev=4333"></script>
+	<script type="text/javascript" src="/theme/onlyfans/js/quatro.js?rev=4333"></script>
+<script src=//cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js></script>
+<script src="/theme/common/assets/printfingerjs2/printfinger2.min.js"></script>	</body>
+</html>

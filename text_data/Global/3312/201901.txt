@@ -1,0 +1,948 @@
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy, disclaimer and copyright information - Work and Income
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	
+	ga('create', 'UA-2196406-3', 'auto');
+	//ga('create', 'UA-2196406-79', 'auto'); // UAT GA identifier
+	//ga('create', gaID, 'auto'); // UAT GA identifier
+	ga('require', 'displayfeatures');
+	ga('send', 'pageview');
+
+	// Global to hold curent link for GA.
+	var gaLink;
+	// Track if lnk has been processed just in case GA callback fails.
+	var linkNavigated = false;
+	// Callback function to navigate to a link after registering a GA event.
+	function gaCallback() {
+	    if (!linkNavigated) {
+		linkNavigated = true;
+		// alert("Go to URL: " + $(gaLink).attr('href'));
+	        if (typeof($(gaLink).attr('href')) !== 'undefined') {
+		    if (($(gaLink).attr("target") === '_blank') || ((typeof($(gaLink).attr('rel')) !== 'undefined') && ($(gaLink).attr("rel") === 'external')) ) {
+	                window.open($(gaLink).attr('href'));
+			setTimeout(resetLinkNavigated,1100);
+		    } else {
+	                document.location = $(gaLink).attr('href');
+		    }
+	        } 
+	    }
+	}
+	function resetLinkNavigated() {
+	    linkNavigated = false;
+	}
+
+$(function() {
+     	  
+    // GA code to capture megamenu, document links and outbound click events.
+    $('a').on('click',function(e){
+	// Is GA even defined?
+	if (typeof(ga) !== 'undefined') {
+		var href = $(this).attr('href');
+		var href_lower = href.toLowerCase(); 
+	
+		var docPattern = /\.(csv|doc|dot|pdf|xls|xlt|pages|vsd|vss|ppt|pps|pot|mpp|zip|obr|txt|rtf|xml|pptx|ppsx|pptm|xltx|xlsx|xlsm|docx|docm|dotm|dotx|epub|flv|mp3|mp4|m4v|ogv|ogg|webm)(\?.+)?$/;
+
+		var docDomain = document.domain.toLowerCase();
+		var hrefDomain = href_lower;
+		hrefDomain = hrefDomain.replace('http://','').replace('https://','').split(/[/?#]/)[0];
+
+		gaLink = this;
+
+		// Megamenu link events, exclude the Close link.
+		if (($(this).parents('#primarynav > ul > li').length) && (! $(this).hasClass('sub-nav-close'))) {
+		    var label = 'Page';
+		    if(href_lower.substr(0, 4) == "http") {
+			if (docDomain !== hrefDomain) {
+			    label = 'Outbound';
+			} else if(href_lower.match(docPattern)) {
+			    label = 'Downloads';
+			}
+		    } else if(href_lower.match(docPattern)) {
+			    label = 'Downloads';
+		    }
+		    // Stop standard event action to catch analytics.
+		    e.preventDefault();
+		    // Set timeout to navigate to link after 1 second. Fallback if GA callback fails.
+		    setTimeout(gaCallback, 1000);
+		    ga('send', 'event', {
+                	'eventCategory' : 'Megamenu',
+                	'eventAction' : href,
+                	'eventLabel' : label,
+                	'hitCallback': gaCallback
+            	    });
+		// Domain and URL pattern rules for GA events can be modified here.
+		} else if(href_lower.substr(0, 4) == "http") {
+		    if (docDomain !== hrefDomain) {
+		        // Stop standard event action to catch analytics.
+		        e.preventDefault();
+              	
+              	// this include the feedback button
+                var ec = 'External';
+                if ($(this).hasClass('sticky-feedback-button')) {
+                    ec = 'FeedBackButton';
+                }
+		        
+              	// Set timeout to navigate to link after 1 second. Fallback if GA callback fails.
+		        setTimeout(gaCallback, 1000);
+		    	ga('send', 'event', {
+                	    'eventCategory' : ec,
+                	    'eventAction' : href,
+                	    'eventLabel' : 'Outbound',
+                	    'hitCallback': gaCallback
+            	        });
+		    } else if(href_lower.match(docPattern)) {
+		        // Stop standard event action to catch analytics.
+		        e.preventDefault();
+		        // Set timeout to navigate to link after 1 second. Fallback if GA callback fails.
+		        setTimeout(gaCallback, 1000);
+		    	ga('send', 'event', {
+                	    'eventCategory' : 'Document',
+                	    'eventAction' : href,
+                	    'eventLabel' : 'Downloads',
+                	    'hitCallback': gaCallback
+            	        });
+		    }
+		} else if(href_lower.match(docPattern)) {
+		    // Stop standard event action to catch analytics.
+		    e.preventDefault();
+		    // Set timeout to navigate to link after 1 second. Fallback if GA callback fails.
+		    setTimeout(gaCallback, 1000);
+		    ga('send', 'event', {
+                        'eventCategory' : 'Document',
+                        'eventAction' : href,
+                        'eventLabel' : 'Downloads',
+                	'hitCallback': gaCallback
+            	    });
+        } else {
+		    // Just process as standard link, no events here move right along.
+	    }
+	} else {
+	    console.log("Google Analytics not enabled or your version is out of date.");
+	}
+	return;
+    });
+
+});
+
+
+
+
+Feedback
+
+
+
+
+ skip to navigation skip to main content
+
+
+
+ Work and income | Te Hiranga Tangata
+
+
+
+
+
+ Employers 
+ Providers 
+ MyMSD login 
+
+
+
+
+
+
+
+
+
+
+
+Navigation
+
+
+
+Home
+
+
+
+Benefits and payments
+
+
+Benefits and payments overview
+
+
+
+Not working
+Redundancy, health condition or disability or another reason you can’t work
+
+
+
+
+
+Living expenses
+Food, school costs, power, accommodation or other living expenses you need help with
+
+
+
+
+
+Relationship changes
+You’ve had a relationship break-up, family breakdown or violent relationship end
+
+
+
+
+
+Health and Disability
+Counselling, prescription and GP costs, medical alarms and other costs we can help with
+
+
+
+
+
+Seniors
+Travelling overseas, how to apply, payment rates and dates, overseas pensions, income and other info for Seniors
+
+
+
+
+
+Caring
+Caring for someone else’s child or someone with a health condition, injury or disability
+
+
+
+
+
+Urgent or unexpected costs
+Dental, glasses, car repairs, fridge, washing machine, funeral or other urgent costs you need help with
+
+
+
+
+
+Children
+Childcare, school uniforms, stationery, having a baby and other costs if you have children
+
+
+
+
+
+Payment issues 
+Fixing issues with Accommodation Supplement, Special Benefit and other payments we’ve made
+
+
+
+
+
+Emergencies
+Flood, drought, Civil Defence emergency or other events that have happened
+
+
+
+
+
+16-19 year olds 
+Education, training, work and benefit help for 16-19 year olds
+
+
+
+
+
+Benefits and forms 
+A-Z list of benefits, forms, benefit rates
+
+
+
+
+Close
+
+
+
+
+Work
+
+
+Work overview
+
+
+
+Job search
+Where to look for jobs, search in our job database, seasonal work, plan your job search and other tips and advice
+
+
+
+
+
+CVs and cover letters
+CV and cover letter templates and tips, job application tips and advice
+
+
+
+
+
+Training and studying
+Limited Service Volunteer, Mana in Mahi, motivational training, studying and more
+
+
+
+
+
+Work experience
+Work experience, voluntary work and more
+
+
+
+
+
+Help with work costs
+Help for travel, clothes, tools, relocation, study and other work costs
+
+
+
+
+
+Job interviews
+Tips and advice for job interviews and help with job interview costs
+
+
+
+
+
+Job support and advice
+One-on-one support, group support and other tips and advice
+
+
+
+
+
+Health and disability
+Help with job search, workplace costs, modifications, working while on Supported Living Payment and more
+
+
+
+
+
+Work for yourself
+Help with business plans, start-up costs, living costs while you’re getting started and more
+
+
+
+
+
+Job help for 16-19 year olds
+Help with job search, study or training and other support available for 16-19 year olds
+
+
+
+
+Close
+
+
+
+
+On a benefit
+
+
+On a benefit overview
+
+
+
+Something's changed
+Address, contact details, overseas travel, childcare, relationship or anything else that’s changed.
+
+
+
+
+
+Income
+Declare income, wages deduction tables
+
+
+
+
+
+Childcare
+Change in your childcare situation, continue childcare payments, cohort entry schools and other childcare information
+
+
+
+
+
+Re-apply
+Re-apply for Jobseeker Support, Sole Parent Support, Temporary Additional Support and more
+
+
+
+
+
+Payments
+Check or stop your payments, payment cards and other information
+
+
+
+
+
+Debt
+Check your debt, repayments and other debt information
+
+
+
+
+
+Rights and responsibilities 
+Our commitment to you,  obligations, complaints, benefit fraud and more
+
+
+
+
+Close
+
+
+
+
+
+
+
+
+
+
+
+
+Home
+
+
+
+
+Search
+
+
+
+
+MyMSD login
+
+
+
+
+Menu
+
+
+
+
+
+
+
+
+
+
+
+
+search text
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Menu
+Online Services
+
+Apply online
+Apply for NZ Super
+MyMSD
+Find a Job
+Fixing some payment errors
+Check what you might get
+Supplier registration
+List a job vacancy
+
+
+Benefits and payments
+
+Carers
+
+Caring for someone with a health condition, injury or disability 
+Caring for a child with a disability 
+Caring for someone else's child 
+
+
+Children
+
+Childcare
+Having a baby
+School costs
+Caring for someone else's child
+
+
+Emergencies
+
+Civil defence emergency
+Rural help
+
+
+Health and disability
+
+Vehicle modification
+Contraception
+Counselling
+Dental treatment
+Glasses
+House modification
+Medical alarms
+Prescriptions and health practitioner costs
+Residential care
+Travel costs
+
+
+Living expenses
+
+Housing
+Heating and power bills
+Managing your money
+
+
+You're not working
+
+Redundancy
+Health condition or disability
+Fired or left
+Deported to NZ
+Released from prison
+
+
+Relationships
+
+Break-up
+Family breakdown
+Violent relationships
+
+
+Seniors
+
+NZ Super
+Veterans Pension
+Payment dates
+Payment rates
+
+
+Urgent costs
+
+Bereavement
+Car repairs
+Fire or theft
+Food
+House maintenance
+Whiteware
+
+
+16-19 year olds
+
+
+Work
+
+Online job database
+Job search
+CVs and cover letters
+Training and work experience
+Help with work costs
+Job interviews
+Job support and advice
+Health and disability job support
+Work for yourself
+Job help for 16-19 year olds
+
+
+On a benefit
+
+Changes and income
+
+Income
+Change housing details
+Relationships
+Change bank account
+Child enters or leaves your care
+Change contact details
+Overseas travel
+
+
+Re-apply
+
+Re-apply for Jobseeker Support
+Re-apply for Sole Parent Support
+Re-apply for TAS
+
+
+Wages deduction tables
+Obligations
+
+Jobseeker Support obligations
+Supported Living Payment obligations 
+Sole Parent Support obligations
+When you don’t meet your obligations
+
+
+Payments
+
+Check your payments
+Money management for youth clients
+Stop your payments
+Stop your childcare payments
+Getting a Payment Card
+Using your Payment Card
+Balances and transactions on your Payment Card
+Problems with your Payment Card
+
+
+Debt
+
+Pay debt from overseas
+Pay debt from NZ
+Pay debt when not on benefit
+Pay debt while on a benefit
+
+
+Childcare
+
+Change in circumstances
+Continuing pre-school childcare
+Continuing childcare when your child's at school
+Stop childcare
+Childcare absences
+Move to OSCAR
+Extending childcare
+Teacher only days
+
+
+Having another child
+Arrest warrants
+Your rights and responsibilities
+
+Have someone help you
+Avoid benefit fraud
+Our commitment to you
+Annual review
+
+
+
+
+Benefits, rates and forms
+
+A-Z benefits
+Benefit rates
+Forms
+Income and cash asset limits
+
+
+Pensions
+
+Get benefits overseas
+Get NZ Super overseas
+Moving to NZ
+Social security agreements
+Seniors Services
+
+
+Providers
+
+Activity in the Community projects
+Projects in the Community
+Large scale emergency
+Childcare assistance
+
+What's new
+Registering your childcare service
+Become an approved OSCAR provider
+How we can help you
+Tell us when things change
+Payment schedules
+Contacting us if you're a childcare or OSCAR provider
+
+
+Youth Service provider resources
+Advocates
+Health and disability practitioners
+
+Guides and forms
+Roles
+Assisting people into work
+Medical certificates
+Health and disability related benefits
+Designated health practitioners second opinions
+Health and disability programmes
+Medical appeals
+
+
+Forms
+
+
+About Work and Income
+
+Contact us
+
+Our locations
+Senior Services International
+Overseas pension agencies contact details  
+Veterans
+Report a suspected fraud
+Other languages
+
+
+Feedback
+
+Review of decision
+Medical appeals board
+Review of a medical decision
+
+
+Our services
+
+Appointments
+Cheap as data
+Appointment of an agent
+Become a contracted provider
+Our case management approach
+Information for trespassed clients
+
+
+Careers at Work and Income
+News
+
+
+About this site
+
+Access keys
+Privacy, disclaimer and copyright information
+Online security
+Words we use
+Site map
+Change font size
+
+
+Employers
+
+Recruitment
+
+List a vacancy
+Hire someone from overseas
+Hire an LSV graduate
+Hire disabled people or people with health conditions
+Shortlisting
+Work experience
+Pre-employment drug testing
+Make an employment offer
+
+
+Extra support and training
+
+Flexi-wage 
+Skills for Industry
+Support once your employee starts work
+Modification Grant
+Employer Advice Line
+
+
+Industry partnerships
+Redundancy support
+Emergencies and adverse events
+Employee debt
+
+
+
+
+
+
+
+
+
+Home /
+
+ 
+     About this site /
+
+ Privacy, disclaimer and copyright information 
+
+
+
+
+
+
+Access keys
+Privacy, disclaimer and copyright information
+Online security
+Words we use
+Site map
+Change font size
+
+
+
+
+
+Privacy, disclaimer and copyright information
+The information contained on this website is intended to provide general information to the public. We make every attempt to keep your information private and keep this website up-to-date.
+
+
+
+Privacy
+Our privacy notice outlines what we do with your personal information. This includes personal information collected by:
+
+Work and Income
+StudyLink
+Senior Services
+MSD Housing Assessment
+Youth Service
+Community Partnerships and Programmes.
+
+The notice shares information about:
+
+why we collect your personal information
+how we use your personal information
+when we share your personal information
+how we keep your personal information safe
+how you can access and change your personal information.
+
+It also tells you how to make a privacy complaint and who to contact if you have a privacy question.
+Read our privacy notice
+
+
+Disclaimer
+The information provided on this Ministry of Social Development website is intended to provide general information to the public and all reasonable measures have been taken to ensure that the information set out in this website is accurate. However, visitors to this website are advised that:
+
+The information provided does not replace or alter the laws of New Zealand or any other official guidelines or requirements.
+The contents of this website should not be construed as legal advice. Before relying on any information in this website users should independently verify its relevance for their purposes.
+The Ministry may change, delete, add to, or otherwise amend information contained on this website without notice.
+The Ministry is not responsible for the contents or reliability of any linked websites and does not necessarily endorse the views expressed within them. Listing is for convenience only and should not be taken as endorsement of any kind. The Ministry cannot guarantee that these links will work all of the time and has no control over availability of the linked pages.
+
+The Ministry does not implicitly or impliedly endorse any website, organisation, or people who have off-site links to the Ministry’s website.
+
+Copyright Statement
+Crown copyright ©. Copyright material on this website is protected by copyright owned by the Ministry of Social Development on behalf of the Crown. Unless indicated otherwise for specific items or collections of content (either below or within specific items or collections), this copyright material is licensed for re-use under Creative Commons Attribution (CC-BY) 4.0 International Licence.
+In essence, you are free to copy, distribute and adapt the material, as long as you attribute it to the Ministry of Social Development and abide by the other licence terms. Please note that this licence does not apply to any logos, emblems, trademarks, photography or imagery on the website or to the website’s design elements. Those specific items may not be re-used without express permission.
+
+
+
+
+
+
+
+
+
+  
+New Zealand Government    
+
+
+
+
+
+
+Privacy, disclaimer & copyright
+|
+
+
+Security
+|
+
+
+About this site
+|
+
+
+Access keys
+|
+
+
+Site map
+|
+
+
+About Work and Income
+
+
+Crown copyright © Ministry of Social Development
+Contact us
+
+
+
+
+    //Allows responsive styles to be seen only if javascript enabled.
+    if (!$('html').hasClass('ie7')) {
+        $('body').addClass('js-on');
+        $('.container').addClass('js-on');
+    }
+
+
+
+
+

@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<!--[if IE]><![endif]-->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o||n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({1:[function(e,n,t){function r(){}function o(e,n,t){return function(){return i(e,[c.now()].concat(u(arguments)),n?null:this,t),n?void 0:this}}var i=e("handle"),a=e(3),u=e(4),f=e("ee").get("tracer"),c=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,n){s[n]=o(d+n,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,o="function"==typeof n;return i(l+"tracer",[c.now(),e,t],r),function(){if(f.emit((o?"":"no-")+"fn-start",[c.now(),r,o],t),o)try{return n.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],t),e}finally{f.emit("fn-end",[c.now()],t)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=o(l+n)}),newrelic.noticeError=function(e,n){"string"==typeof e&&(e=new Error(e)),i("err",[e,c.now(),!1,n])}},{}],2:[function(e,n,t){function r(e,n){if(!o)return!1;if(e!==o)return!1;if(!n)return!0;if(!i)return!1;for(var t=i.split("."),r=n.split("."),a=0;a<r.length;a++)if(r[a]!==t[a])return!1;return!0}var o=null,i=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var u=navigator.userAgent,f=u.match(a);f&&u.indexOf("Chrome")===-1&&u.indexOf("Chromium")===-1&&(o="Safari",i=f[1])}n.exports={agent:o,version:i,match:r}},{}],3:[function(e,n,t){function r(e,n){var t=[],r="",i=0;for(r in e)o.call(e,r)&&(t[i]=n(r,e[r]),i+=1);return t}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],4:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(o<0?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=r},{}],5:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function o(e){function n(e){return e&&e instanceof r?e:e?f(e,u,i):i()}function t(t,r,o,i){if(!d.aborted||i){e&&e(t,r,o);for(var a=n(o),u=v(t),f=u.length,c=0;c<f;c++)u[c].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function l(e,n){h[e]=v(e).concat(n)}function m(e,n){var t=h[e];if(t)for(var r=0;r<t.length;r++)t[r]===n&&t.splice(r,1)}function v(e){return h[e]||[]}function g(e){return p[e]=p[e]||o(t)}function w(e,n){c(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var h={},y={},b={on:l,addEventListener:l,removeEventListener:m,emit:t,get:g,listeners:v,context:n,buffer:w,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",f=e("gos"),c=e(3),s={},p={},d=n.exports=o();d.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(o.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){o.buffer([e],r),o.emit(e,n,t)}var o=e("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!E++){var e=x.info=NREUM.info,n=l.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();c(y,function(n,t){e[n]||(e[n]=t)}),f("mark",["onload",a()+x.offset],null,"api");var t=l.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function o(){"complete"===l.readyState&&i()}function i(){f("mark",["domContent",a()+x.offset],null,"api")}function a(){return O.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-x.offset}var u=(new Date).getTime(),f=e("handle"),c=e(3),s=e("ee"),p=e(2),d=window,l=d.document,m="addEventListener",v="attachEvent",g=d.XMLHttpRequest,w=g&&g.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:g,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var h=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1118.min.js"},b=g&&w&&w[m]&&!/CriOS/.test(navigator.userAgent),x=n.exports={offset:u,now:a,origin:h,features:{},xhrWrappable:b,userAgent:p};e(1),l[m]?(l[m]("DOMContentLoaded",i,!1),d[m]("load",r,!1)):(l[v]("onreadystatechange",o),d[v]("onload",r)),f("mark",["firstbyte",u],null,"api");var E=0,O=e(5)},{}]},{},["loader"]);</script>
+<link rel="shortcut icon" href="https://www.chaacreek.com/sites/default/files/favicon_0.ico" type="image/vnd.microsoft.icon" />
+<meta content="5EE709407033DD33554A2B9725D7F2BA" name="msvalidate.01" />
+<meta content="NOODP" name="robots" />
+<meta name="description" content="Our Total Commitment To Privacy Your privacy is very important to us. To better protect your privacy we provide this notice explaining our online information practices." />
+<meta name="keywords" content="Privacy Policy for chaa creek" />
+<meta name="generator" content="Drupal 7 (http://drupal.org)" />
+<link rel="canonical" href="https://www.chaacreek.com/privacy-policy" />
+<link rel="shortlink" href="https://www.chaacreek.com/node/269" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<title>Privacy Policy | Chaa Creek</title>
+<link type="text/css" rel="stylesheet" href="/sites/default/files/advagg_css/css__BJ6Ou6QsBRtnFTmxaakamOIS8n4QswDP2XnnZ1sxtaM__NBuvkP6eInGIkb1aJvUHx5PX79XApuxBDkk_77W5tYk__JQZyIXOVFst058DKHR0dSkUltN-sGwTZRBbIRgJFeBc.css" media="all" />
+<link type="text/css" rel="stylesheet" href="/sites/default/files/advagg_css/css__Ul3NiWTpgJpp4fLiT0RUBe_KcUCEDM74S26mTGj7DVI__Y4zdRjtLAy1S7JnwwPcZi9FcAEhaudZoGzAn_-lpoLQ__JQZyIXOVFst058DKHR0dSkUltN-sGwTZRBbIRgJFeBc.css" media="all" />
+<link type="text/css" rel="stylesheet" href="/sites/default/files/advagg_css/css__j96xgFVQY85Nyw727jDans4l8FzeXIlPOA-iqrTB1Lc__Us7taKYEFQrsvN_5vYz-1wztxZ9wTOMOjSYZ2v_XnUg__JQZyIXOVFst058DKHR0dSkUltN-sGwTZRBbIRgJFeBc.css" media="all" />
+<link type="text/css" rel="stylesheet" href="/sites/default/files/advagg_css/css__ZRLR1Sg60jtPoz1ecEe4n86uS9EpDEGhHIwv6Uzo1zA__84vsDV7ACa8nkYfclzbTFD2CXnbirJA5jEtGXL3iBew__JQZyIXOVFst058DKHR0dSkUltN-sGwTZRBbIRgJFeBc.css" media="all" />
+<link type="text/css" rel="stylesheet" href="/sites/default/files/advagg_css/css__1gTLhvyABd6f4zPN3E5biPCqVTCI2zPYQKZWG6WDXCs__uC8VjGt0CzYsAjeHBx0VCBaJjRhKKVKeL6kEBjUDHUk__JQZyIXOVFst058DKHR0dSkUltN-sGwTZRBbIRgJFeBc.css" media="print" />
+<!--[if lte IE 7]>
+<link type="text/css" rel="stylesheet" href="/sites/all/themes/chaacreek/css/ie.css" media="all" />
+<![endif]-->
+<!--[if IE 6]>
+<link type="text/css" rel="stylesheet" href="/sites/all/themes/chaacreek/css/ie6.css" media="all" />
+<![endif]-->
+
+<script type="text/javascript">
+window.__lc = window.__lc || {};
+window.__lc.license = 9707010;
+(function() {
+  var lc = document.createElement('script'); lc.type = 'text/javascript'; lc.async = true;
+  lc.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'cdn.livechatinc.com/tracking.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(lc, s);
+})();
+</script>
+
+
+<script>
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+          n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+        n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+          document,'script','https://connect.facebook.net/en_US/fbevents.js');
+
+      fbq('init', '1556636321301169');
+      fbq('track', "PageView");</script>
+
+
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NGXF2CW');</script>
+
+<script>
+	var is_ios = /(iPad|iPhone|iPod)/g.test( navigator.userAgent );
+	if(is_ios)
+	{
+    mywindow.document.write('<link rel="stylesheet" type="text/css" href="/sites/all/themes/chaacreek/css/ipad.css" />');
+	};
+	</script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-797132800"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'AW-797132800');</script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=DC-9133166"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'DC-9133166');
+  gtag('config', 'AW-769143940');
+  gtag('config', 'AW-769130031');
+</script>
+
+
+<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
+<script>
+window.addEventListener("load", function(){
+window.cookieconsent.initialise({
+  "palette": {
+    "popup": {
+      "background": "#ffffff"
+    },
+    "button": {
+      "background": "#4c1a03"
+    }
+  },
+  "position": "bottom-left",
+  "content": {
+    "dismiss": "I AGREE",
+    "href": "/privacy-policy"
+  }
+})});
+</script>
+</head>
+<body class="html not-front not-logged-in no-sidebars page-node page-node- page-node-269 node-type-page">
+<noscript>
+		<img height="1" width="1" style="display: none" alt="facebook" src="https://www.facebook.com/tr?id=1556636321301169&ev=PageView&noscript=1" />
+	</noscript>
+
+<noscript>
+		<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NGXF2CW" height="0" width="0" style="display: none; visibility: hidden"></iframe>
+	</noscript>
+
+
+<script>
+	  gtag('event', 'conversion', {
+	    'allow_custom_scripts': true,
+	    'u9': '[Page URL]',
+	    'send_to': 'DC-9133166/websi697/chaac123+unique'
+	  });
+	</script>
+<noscript>
+	<img src="https://ad.doubleclick.net/ddm/activity/src=9133166;type=websi697;cat=chaac123;u9=[Page URL];dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;tfua=;npa=;ord=1;num=1?" width="1" height="1" alt=""/>
+	</noscript>
+
+<div id="skip-link">
+<a href="#main-content" class="element-invisible element-focusable">Skip to main content</a>
+</div>
+<div class="section brown-strip"></div>
+<div class="row-offcanvas row-offcanvas-left">
+<div class="section">
+<div class="container sticky_menu_desktop">
+<div id="header" class="visible-1025">
+<a href="/"><img id="logo" src="https://www.chaacreek.com/sites/default/files/logo.png" alt="logo" /></a>
+<div class="region region-header">
+<div id="block-search-form" class="block block-search">
+<div class="content">
+<form action="/privacy-policy" method="post" id="search-block-form" accept-charset="UTF-8"><div><div class="container-inline">
+<div class="element-invisible">Search form</div>
+<div class="form-item form-type-textfield form-item-search-block-form">
+<label class="element-invisible" for="edit-search-block-form--2">Search </label>
+<input title="Enter the terms you wish to search for." type="text" id="edit-search-block-form--2" name="search_block_form" value="" size="15" maxlength="128" class="form-text" />
+</div>
+<div class="form-actions form-wrapper" id="edit-actions"><input type="submit" id="edit-submit" name="op" value="Search" class="form-submit" /></div><input type="hidden" name="form_build_id" value="form-2O1gNr5LGu-QpukU7WdzrmpbiIIDegyGbbb6MLauYaI" />
+<input type="hidden" name="form_id" value="search_block_form" />
+</div>
+</div></form> </div>
+</div>
+<div id="block-menu-menu-header-links" class="block block-menu">
+<div class="content">
+<ul class="menu clearfix"><li class="first leaf"><a href="/" title="">Home</a></li>
+<li class="leaf"><a href="/rates" title="">Rates</a></li>
+<li class="leaf"><a href="/specials" title="Take advantage of these Belize Travel Specials!">Specials</a></li>
+<li class="leaf"><a href="/belize-faqs" title=""> FAQ’s </a></li>
+<li class="last leaf"><a href="/contact" title="">Contact</a></li>
+</ul> </div>
+</div>
+<div id="block-block-4" class="block block-block">
+<div class="content">
+<p><a class="phone-no" href="tel:+18777098708" onclick="ga('send', 'event', { eventCategory: 'Contact', eventAction: 'Click', eventLabel: 'Phoneheader ', eventValue: 0});" rel="follow" title="+1-877-709-8708">US: +1-877-709-8708</a></p>
+</div>
+</div>
+<div id="block-system-main-menu" class="block block-system block-menu">
+<div class="element-invisible">Main menu</div>
+<div class="content">
+<ul class="nav navbar-nav main-menu"><li class="first expanded"><a href="/accommodations" title="Our 23 palm thatched cottage rooms ensure a good night’s sleep and delightful mornings!">Accommodations</a><ul class="nav navbar-nav main-menu"><li class="first leaf"><a href="/accommodations/ixchel-belize-villas" title="">Ix Chel Villas</a></li>
+<li class="leaf"><a href="/accomodations/belize-spa-villa" title="">Spa Villa</a></li>
+<li class="leaf"><a href="/accommodations/belize-treetop-villas" title="">Tree Top Villas</a></li>
+<li class="leaf"><a href="/accommodations/macal-river-view-suite" title="">Macal River View Suite</a></li>
+<li class="leaf"><a href="/accommodations/garden-jacuzzi-suite">Complete Garden Jacuzzi Suite</a></li>
+<li class="leaf"><a href="/accommodations/orchard-villa" title="">Orchard Villa</a></li>
+<li class="leaf"><a href="/accommodations/cottages" title="">The Cottage Collection</a></li>
+<li class="last leaf"><a href="/accommodations/belize-on-a-budget-casitas" title="">Camp Casitas </a></li>
+</ul></li>
+<li class="expanded"><a href="/amenities" title="At Chaa Creek, our hotel amenities and services make all the difference!">Amenities</a><ul class="nav navbar-nav main-menu"><li class="first leaf"><a href="/amenities/belize-spa" title="Select from a range of treatments to create a personalised Spa experience.">Spa</a></li>
+<li class="leaf"><a href="/amenities/mariposa-restaurant-in-belize">Mariposa Restaurant</a></li>
+<li class="leaf"><a href="/amenities/infinity-swimming-pool" title="The pool’s Green credential is facilitated by the IntelliChlor Electronic Chlorine Generator.">Infinity Swimming Pool</a></li>
+<li class="leaf"><a href="/amenities/blue-morpho-butterfly-farm">Blue Morpho Butterfly Exhibit</a></li>
+<li class="leaf"><a href="/amenities/natural-history-center" title="A comprehensive introduction to the history and geography of Belize">Natural History Center</a></li>
+<li class="leaf"><a href="/amenities/belize-conference-center" title="We offer a beautiful location with elegant and well-appointed meeting facilities in Belize.">Conference Center</a></li>
+<li class="leaf"><a href="/amenities/belize-nature-reserve">Nature Reserve</a></li>
+<li class="leaf"><a href="/amenities/maya-organic-farm">Maya Organic Farm</a></li>
+<li class="leaf"><a href="/amenities/belize-horseback-riding">Horse Stables</a></li>
+<li class="last leaf"><a href="/amenities/woodworking-shop-belize">Woodworking Shop</a></li>
+</ul></li>
+<li class="expanded"><a href="/belize-vacation-packages" title="A collection of Chaa Creek Belize Vacation Packages &amp; Beach &amp; Jungle Combination Packages">Belize Vacation Packages</a><ul class="nav navbar-nav main-menu"><li class="first collapsed"><a href="/belize-all-inclusive-vacation-packages/chaa-creek" title="Memorable Chaa Creek Belize Inland Vacation Packages">Chaa Creek Packages</a></li>
+<li class="last collapsed"><a href="/belize-vacation-packages/jungle-and-beach" title="Belize Jungle &amp; Beach Combination Packages">Jungle and Beach Packages</a></li>
+</ul></li>
+<li class="expanded"><a href="/belize-tours" title="The best of Belize Tours offered via Chaa Creek">Belize Tours</a><ul class="nav navbar-nav main-menu"><li class="first leaf"><a href="/belize-tours/chaa-creek-site-activities" title="Tours &amp; Activities to do on our property at Chaa Creek">Chaa Creek On-Site Activities</a></li>
+<li class="leaf"><a href="/belize-tours/cave-tours" title="Delve into Xibalba, the Mayan underworld.">Belize Cave Tours</a></li>
+<li class="leaf"><a href="/belize-tours/belize-nature-tours">Belize Nature Tours</a></li>
+<li class="leaf"><a href="/belize-tours/mayan-ruins" title="Explore ancient Mayan ruins in Belize!">Belize Mayan Ruins Tours</a></li>
+<li class="leaf"><a href="/belize-tours/belize-helicopter-tours">Belize Helicopter Tours</a></li>
+<li class="leaf"><a href="/belize-tours/snorkeling">Belize Snorkeling and Scuba Diving Tours</a></li>
+<li class="leaf"><a href="/belize-tours/transfers">Belize Transfers</a></li>
+<li class="leaf"><a href="/belize-tours/ziplining">Calico Jacks Ziplining</a></li>
+<li class="leaf"><a href="/belize-tours/cave-tubing-ziplining">Cave Tubing &amp; Ziplining</a></li>
+<li class="leaf"><a href="/belize-tours/san-ignacio-market-tour">San Ignacio Market Tour</a></li>
+<li class="last leaf"><a href="/belize-tours/tours-activities-rates">Tours &amp; Activities Rates</a></li>
+</ul></li>
+<li class="expanded"><a href="/about" title="Learn what makes Chaa Creek one of the most unique lodges you will ever visit.">About Chaa Creek</a><ul class="nav navbar-nav main-menu"><li class="first leaf"><a href="/about-chaa-creek/our-story" title="Learn about Chaa Creek&#039;s success stories 33 years and counting!">Our Story</a></li>
+<li class="leaf"><a href="/about-chaa-creek/our-outlook-ethics" title="What we believe in">Our Outlook &amp; Ethics</a></li>
+<li class="leaf"><a href="/about-chaa-creek/pack-a-pound-program" title="Donate school supplies to kids in Belize">Pack-a-Pound Program</a></li>
+<li class="leaf"><a href="/about-chaa-creek/belize-eco-kids-summer-camp" title="A one week all-inclusive Summer Camp for Belizean kids between ages 8-13.">Eco Kids Summer Camp</a></li>
+<li class="leaf"><a href="/about-chaa-creek/conservation" title="How we promote good stewardship of the environment">Conservation</a></li>
+<li class="leaf"><a href="/about-chaa-creek/our-staff">Our Staff</a></li>
+<li class="leaf"><a href="/about-chaa-creek/awards" title="List of Awards Chaa Creek has earned">Awards</a></li>
+<li class="last leaf"><a href="/about/chaa-creek-belize-expeditions-tour-company" title="Chaa Creek&#039;s Tour Operator Company">Chaa Creek Belize Expeditions Tour Company</a></li>
+</ul></li>
+<li class="last leaf"><a href="https://reservations.travelclick.com/102411?languageid=1" title="Book your Belize Vacation Today!">Book Now</a></li>
+</ul> </div>
+</div>
+</div>
+
+<audio id="mybgplayer" controls="controls">
+</audio>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/smoothscroll/1.4.6/SmoothScroll.min.js"></script>
+
+
+<div class="row visible-sm visible-xs mobile-sticky">
+<nav class="navbar navbar-default">
+<div class="navbar-header">
+<a href="/"><img id="logo_mobile" src="/sites/all/themes/chaacreek/images/logo.png" alt="logo" /></a>
+<button type="button" id="ChangeToggle" class="navbar-toggle collapsed pull-left" data-toggle="offcanvas" data-target=".sidebar-nav" aria-expanded="false" aria-controls="navbar">
+<div id="navbar-hamburger">
+<span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</div>
+<div id="navbar-close" class="hidden">
+<span class="glyphicon glyphicon-remove"></span>
+</div>
+</button>
+
+<a href="https://reservations.chaacreek.com/102411?languageid=1"><div class="ico-search-toggle pull-right mob_booking"> <span class="book_now" style="font-family: 'Numans', sans-serif;">BOOK</span> <span class="book_cal"> <i class="fa fa-calendar"></i> </span> </div></a>
+</div>
+<div class="collapse col-md-12" id="search-toggle">
+<form action="/privacy-policy" method="post" id="search-block-form--2" accept-charset="UTF-8"><div><div class="container-inline">
+<div class="element-invisible">Search form</div>
+<div class="form-item form-type-textfield form-item-search-block-form">
+<label class="element-invisible" for="edit-search-block-form--4">Search </label>
+<input title="Enter the terms you wish to search for." type="text" id="edit-search-block-form--4" name="search_block_form" value="" size="15" maxlength="128" class="form-text" />
+</div>
+<div class="form-actions form-wrapper" id="edit-actions--2"><input type="submit" id="edit-submit--2" name="op" value="Search" class="form-submit" /></div><input type="hidden" name="form_build_id" value="form-dhBEqqhs4vUw4XQksS1noyi14HASwqBqB7qNgKcCW7A" />
+<input type="hidden" name="form_id" value="search_block_form" />
+</div>
+</div></form> </div>
+<div class="sidebar-offcanvas" id="sidebar-mobile">
+<ul class="menu clearfix"><li class="first expanded dropdown"><a href="/accommodations" title="Our 23 palm thatched cottage rooms ensure a good night’s sleep and delightful mornings!" data-target="#" class="dropdown-toggle" data-toggle="dropdown">Accommodations</a><ul class="dropdown-menu"><li class="first leaf"><a href="/accommodations/ixchel-belize-villas" title="">Ix Chel Villas</a></li>
+<li class="leaf"><a href="/accomodations/belize-spa-villa" title="">Spa Villa</a></li>
+<li class="leaf"><a href="/accommodations/belize-treetop-villas" title="">Tree Top Villas</a></li>
+<li class="leaf"><a href="/accommodations/macal-river-view-suite" title="">Macal River View Suite</a></li>
+<li class="leaf"><a href="/accommodations/garden-jacuzzi-suite">Complete Garden Jacuzzi Suite</a></li>
+<li class="leaf"><a href="/accommodations/orchard-villa" title="">Orchard Villa</a></li>
+<li class="leaf"><a href="/accommodations/cottages" title="">The Cottage Collection</a></li>
+<li class="last leaf"><a href="/accommodations/belize-on-a-budget-casitas" title="">Camp Casitas </a></li>
+</ul></li>
+<li class="expanded dropdown"><a href="/amenities" title="At Chaa Creek, our hotel amenities and services make all the difference!" data-target="#" class="dropdown-toggle" data-toggle="dropdown">Amenities</a><ul class="dropdown-menu"><li class="first leaf"><a href="/amenities/belize-spa" title="Select from a range of treatments to create a personalised Spa experience.">Spa</a></li>
+<li class="leaf"><a href="/amenities/mariposa-restaurant-in-belize">Mariposa Restaurant</a></li>
+<li class="leaf"><a href="/amenities/infinity-swimming-pool" title="The pool’s Green credential is facilitated by the IntelliChlor Electronic Chlorine Generator.">Infinity Swimming Pool</a></li>
+<li class="leaf"><a href="/amenities/blue-morpho-butterfly-farm">Blue Morpho Butterfly Exhibit</a></li>
+<li class="leaf"><a href="/amenities/natural-history-center" title="A comprehensive introduction to the history and geography of Belize">Natural History Center</a></li>
+<li class="leaf"><a href="/amenities/belize-conference-center" title="We offer a beautiful location with elegant and well-appointed meeting facilities in Belize.">Conference Center</a></li>
+<li class="leaf"><a href="/amenities/belize-nature-reserve">Nature Reserve</a></li>
+<li class="leaf"><a href="/amenities/maya-organic-farm">Maya Organic Farm</a></li>
+<li class="leaf"><a href="/amenities/belize-horseback-riding">Horse Stables</a></li>
+<li class="last leaf"><a href="/amenities/woodworking-shop-belize">Woodworking Shop</a></li>
+</ul></li>
+<li class="expanded dropdown"><a href="/belize-vacation-packages" title="A collection of Chaa Creek Belize Vacation Packages &amp; Beach &amp; Jungle Combination Packages" data-target="#" class="dropdown-toggle" data-toggle="dropdown">Belize Vacation Packages</a><ul class="dropdown-menu"><li class="first collapsed"><a href="/belize-all-inclusive-vacation-packages/chaa-creek" title="Memorable Chaa Creek Belize Inland Vacation Packages">Chaa Creek Packages</a></li>
+<li class="last collapsed"><a href="/belize-vacation-packages/jungle-and-beach" title="Belize Jungle &amp; Beach Combination Packages">Jungle and Beach Packages</a></li>
+</ul></li>
+<li class="expanded dropdown"><a href="/belize-tours" title="The best of Belize Tours offered via Chaa Creek" data-target="#" class="dropdown-toggle" data-toggle="dropdown">Belize Tours</a><ul class="dropdown-menu"><li class="first leaf"><a href="/belize-tours/chaa-creek-site-activities" title="Tours &amp; Activities to do on our property at Chaa Creek">Chaa Creek On-Site Activities</a></li>
+<li class="leaf"><a href="/belize-tours/cave-tours" title="Delve into Xibalba, the Mayan underworld.">Belize Cave Tours</a></li>
+<li class="leaf"><a href="/belize-tours/belize-nature-tours">Belize Nature Tours</a></li>
+<li class="leaf"><a href="/belize-tours/mayan-ruins" title="Explore ancient Mayan ruins in Belize!">Belize Mayan Ruins Tours</a></li>
+<li class="leaf"><a href="/belize-tours/belize-helicopter-tours">Belize Helicopter Tours</a></li>
+<li class="leaf"><a href="/belize-tours/snorkeling">Belize Snorkeling and Scuba Diving Tours</a></li>
+<li class="leaf"><a href="/belize-tours/transfers">Belize Transfers</a></li>
+<li class="leaf"><a href="/belize-tours/ziplining">Calico Jacks Ziplining</a></li>
+<li class="leaf"><a href="/belize-tours/cave-tubing-ziplining">Cave Tubing &amp; Ziplining</a></li>
+<li class="leaf"><a href="/belize-tours/san-ignacio-market-tour">San Ignacio Market Tour</a></li>
+<li class="last leaf"><a href="/belize-tours/tours-activities-rates">Tours &amp; Activities Rates</a></li>
+</ul></li>
+<li class="expanded dropdown"><a href="/about" title="Learn what makes Chaa Creek one of the most unique lodges you will ever visit." data-target="#" class="dropdown-toggle" data-toggle="dropdown">About Chaa Creek</a><ul class="dropdown-menu"><li class="first leaf"><a href="/about-chaa-creek/our-story" title="Learn about Chaa Creek&#039;s success stories 33 years and counting!">Our Story</a></li>
+<li class="leaf"><a href="/about-chaa-creek/our-outlook-ethics" title="What we believe in">Our Outlook &amp; Ethics</a></li>
+<li class="leaf"><a href="/about-chaa-creek/pack-a-pound-program" title="Donate school supplies to kids in Belize">Pack-a-Pound Program</a></li>
+<li class="leaf"><a href="/about-chaa-creek/belize-eco-kids-summer-camp" title="A one week all-inclusive Summer Camp for Belizean kids between ages 8-13.">Eco Kids Summer Camp</a></li>
+<li class="leaf"><a href="/about-chaa-creek/conservation" title="How we promote good stewardship of the environment">Conservation</a></li>
+<li class="leaf"><a href="/about-chaa-creek/our-staff">Our Staff</a></li>
+<li class="leaf"><a href="/about-chaa-creek/awards" title="List of Awards Chaa Creek has earned">Awards</a></li>
+<li class="last leaf"><a href="/about/chaa-creek-belize-expeditions-tour-company" title="Chaa Creek&#039;s Tour Operator Company">Chaa Creek Belize Expeditions Tour Company</a></li>
+</ul></li>
+<li class="last leaf"><a href="https://reservations.travelclick.com/102411?languageid=1" title="Book your Belize Vacation Today!">Book Now</a></li>
+</ul> <div class="mobile-secondary-links">
+<ul class="links"><li class="menu-387 first"><a href="/" title="">Home</a></li>
+<li class="menu-383"><a href="/rates" title="">Rates</a></li>
+<li class="menu-384"><a href="/specials" title="Take advantage of these Belize Travel Specials!">Specials</a></li>
+<li class="menu-385"><a href="/belize-faqs" title=""> FAQ’s </a></li>
+<li class="menu-386 last"><a href="/contact" title="">Contact</a></li>
+</ul> </div>
+</div>
+</nav>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div class="col-md-12">
+<div class="breadcrumb"><div class="element-invisible">You are here</div><span class="crumbs"><a href="/">Home</a></span><span class="crumbs-current"><span class="crumbs-arrow"><img src="/sites/all/themes/chaacreek/images/icon_bc_separator.png" alt="Next icon"></span>Privacy Policy</span></div> <div class="tabs">
+</div>
+<h1 class="title" id="page-title">
+Privacy Policy </h1>
+<div class="addthis_sharing_toolbox"></div>
+<div class="region region-content">
+<div id="block-system-main" class="block block-system">
+<div class="content">
+<div id="node-269" class="node node-page node-full clearfix" about="/privacy-policy" typeof="foaf:Document">
+<span property="dc:title" content="Privacy Policy" class="rdf-meta element-hidden"></span>
+<div class="content clearfix">
+<div class="row content-wrapper">
+<div class="col-md-12">
+<div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"><p>Last Updated: May 25th, 2018</p>
+<h2><span style="font-size:22px;"><span style="color:#d98000;">Your Privacy Is Important To us</span></span></h2>
+<p>The Lodge at Chaa Creek (“Chaa Creek”) respects and values your rights to privacy and makes every effort to ensure that your privacy is safeguarded. The following information applies to all information collected or submitted on the Chaa Creek website and is intended to describe the policies followed by Chaa Creek to protect your privacy.</p>
+<hr /><h3><strong><span style="color:#4c1a03;"><span style="font-size:20px;">Collection of Personal Data</span></span></strong></h3>
+<p>Personal Data is any data that could identify you as an individual or help to identify an individual.</p>
+<p>Throughout your user guest journey with us, we collect Personal Data that includes: name, gender, address, email address, phone number, fax number, postal address, social media profile data, and credit card information.</p>
+<p>We may also ask for information related to your travel preferences so that we can provide a personalized service and make your vacation a more memorable one.</p>
+<p>If your reservation is made as part of or in connection with a group, meeting, or event, we will provide your name and dates of stay to the group, meeting or event planner, or group leader.</p>
+<hr /><h3><strong><span style="color:#4c1a03;"><span style="font-size:20px;">How We Collect Personal Data</span></span></strong></h3>
+<p>Online Services: We gather personal information when you make a reservation, speak with us, or connect with us or post on social media pages, agree to accept email marketing, or take an interest in a survey, contest or travel offer.</p>
+<p>When making reservations: If you choose to get notices from Chaa Creek amid the reservation process, the data on the reservation form (excluding your Credit card data) will be recorded in the database. You will have access to the database at any time to update this information.</p>
+<p>Opt-in Subscriber: If you choose to subscribe to Chaa Creek marketing communication outside of the reservation process, just your name, email address and country of birth are required. Once in a while, Chaa Creek may send you messages with respect to discounts, specials, or extra benefits that you might be qualified for on the off chance that you belong to our list of email subscribers. Since your security is important to us, you may demand to be removed from our list of email subscribers at any time by utilizing the instructions to unsubscribe.</p>
+<p>Third Parties. We may gather information about you from third parties, including individual, statistic and aggregate data. For example, in the event that you make a booking through a travel agent, we will obtain your travel information from that agent. We may likewise get data about you from our marketing partners, advertisers and other third parties.</p>
+<hr /><h3><strong><span style="color:#4c1a03;"><span style="font-size:20px;">Collection of Other Data</span></span></strong></h3>
+<p>“Other Data” are data that generally do not reveal your specific identity or do not directly relate to an individual. To the extent Other Data reveal your specific identity or relate to an individual, we will treat Other Data as Personal Data. Other Data include: browser and device data; data collected through cookies and other technologies; demographic data and other data provided by you; aggregated data</p>
+<p>Use of Cookies: A "cookie" is a string of electronic information that your web browser uses to store information as you click from page to page on a website. Cookies do not contain your name, address, telephone number, email address, credit card number, or any other information which personally identifies you. The use of cookies is an industry standard, and cookies are used by most major commercial websites. We use cookies to keep track of the effectiveness of our Internet site and links to our Internet site and of our advertising and marketing programs. You may adjust your browser to deny the acceptance of cookies; however, you may not be able to use some of the features of the website.</p>
+<hr /><h3><strong><span style="color:#4c1a03;"><span style="font-size:20px;">How We Collect Other Data</span></span></strong></h3>
+<p>Your browser or device. We collect certain data through your browser or automatically through your device, such as computer type (PC or Mac), screen resolution, operating system name and version, device manufacturer and model, language, internet browser type and version.</p>
+<p>Cookies. We collect certain data from cookies, which are pieces of data stored directly on the computer or mobile device you are using. Cookies allow us to collect data such as browser type, time spent on our webpages, pages visited, referring URL, language preferences, and other aggregated traffic data. We use the data for security, to evaluate navigation, to display content more effectively, to collect analytics, to personalize your experience while using our websites. We also gather statistical data about use of our websites to continually improve design and functionality, understand how they are used, and assist us with resolving issues. Cookies also allow us to assess which advertisements or special offers are most likely to appeal to you and display them while you are online or to send marketing emails. We also use cookies to track responses to online advertisements and marketing emails. If you do not wish to have data collected by cookies, you can learn more about adjusting cookie settings at <a href="http://www.allaboutcookies.org" target="_blank">http://www.allaboutcookies.org</a>.</p>
+<p>Pixel Tags and other similar technologies. We may also collect data from pixel tags, also known as web beacons and clear GIFs, which are used by some websites to, among other things, track the actions of users of these websites, including email recipients, measure our marketing campaigns and compile statistics about usage of our websites.</p>
+<p>Analytics. We also collect data through Google Analytics, which use cookies and other technologies to collect and analyze data about use of our websites. These services collect data regarding the use of other online resources.</p>
+<p>You can learn about Google’s practices by going to <a href="https://www.google.com/policies/privacy/partners" target="_blank">www.google.com/policies/privacy/partners</a>.</p>
+<p>Your IP Address. We collect your IP address, a number that is automatically assigned to the computer by your Internet Service Provider (ISP). An IP address is identified and logged automatically in our server log files when a user accesses our websites, along with the time of the visit and the pages that were visited. We use IP addresses to calculate usage levels, diagnose server problems and administer our websites. We also may derive your approximate location from your IP address.</p>
+<p>Aggregated Data. We may also aggregate data that we collected. This aggregated data will not personally identify you or another user.</p>
+<hr /><h3><strong><span style="color:#4c1a03;"><span style="font-size:20px;">Use of Personal Data and Other Data</span></span></strong></h3>
+<p>Any Personal Data sent to us might be utilized by Chaa Creek for the reasons showed in this Privacy Policy. On the off chance that we mean to utilize your Personal Data for a reason other from these reasons or on the off chance that we plan to share it with any outsider not previously recognized, we will inform you and offer you the chance to opt-out such uses.</p>
+<hr /><h3><strong><span style="color:#4c1a03;"><span style="font-size:20px;">Protection of Your Personal Data</span></span></strong></h3>
+<p>Chaa Creek takes additional care to guarantee that your client information isn't utilized as a part of any way for which you have not given us approval. Chaa Creek does not offer, rent, exchange, or give your email address or other individual data to any outsiders for their immediate marketing purposes.</p>
+<p>Chaa Creek utilizes CampaignMonitor to deal with its email newsletter and advertising programs. CampaignMonitor has its own particular Privacy Policy (accessible for review at <a href="http://Online Services: We gather individual information when you reserve a spot, speak with us, or interface with us or post via web-based networking media pages, agree to accept email advertising, or take an interest in a study, challenge or limited time special.   When reserving a spot: If you choose to get notices from Chaa Creek amid the reservation procedure, the data on the reservation shape (barring your Mastercard data) will be recorded in the database. You will approach the database whenever to refresh this data.   Select in Subscriber: If you choose to buy in to Chaa Creek showcasing correspondence outside of the reservation procedure, just your name, email address and nation of birthplace are required. Once in a while, Chaa Creek may send you messages with respect to rebates, specials, or extra benefits that you might be qualified for on the off chance that you have a place with our rundown of email supporters. Since your security is vital to us, you may demand to be expelled from our rundown of email endorsers whenever by using the guidelines to withdraw.   Outsiders. We may gather information about you from outsiders, including individual, statistic and total data. For instance, in the event that you make a booking through a movement operator, we will get your movement data from that specialist. We may likewise get data about you from our showcasing accomplices, publicists and other outsiders." target="_blank">https://www.campaignmonitor.com/approaches/#privacy-strategy</a>) which shields the individual information it gets from Chaa Creek and other clients.</p>
+<p>Aside from data given to CampaignMonitor and to travel providers or sellers whose services or products you have bought, Chaa Creek won't give any of the individual data that you have given to us to different organizations without your authorization. </p>
+<p>In order to eliminate unauthorized use, your credit card data is sent securely from your browser to our reservations office. Credit card numbers are used just for payment processing and are not kept for marketing purposes. No credit card data is stored on our servers.</p>
+<p>We ask that you don't send us any delicate data through email. Credit card data should just be given to us by means of the online reservation booking engine or form, which encrypts your Credit card data to guarantee your security, or by reaching our reservations office.</p>
+<hr /><h3><strong><span style="color:#4c1a03;"><span style="font-size:20px;">Access, Change, or Remove Your Personal Data</span></span></strong></h3>
+<p>If you would like to access, change, or remove your Personal Data that you have previously provided to us, or are looking to exercise your rights under the General Data Protection Regulation, you can contact us at <a href="/cdn-cgi/l/email-protection#b5d8d4c7ded0c1dcdbd2f5d6ddd4d4d6c7d0d0de9bd6dad8"><span class="__cf_email__" data-cfemail="036e62716866776a6d6443606b626260716666682d606c6e">[email&#160;protected]</span></a>, or by mail:</p>
+<p>Chaa Creek<br />
+#77 Burns Avenue<br />
+San Ignacio, Cayo, Belize</p>
+<hr /><h3><strong><span style="color:#4c1a03;"><span style="font-size:20px;">Retention of Data</span></span></strong></h3>
+<p>We will hold your Personal Data for whatever length of time that it is important to satisfy the purposes outlined in this Privacy Policy unless a longer retention period is required or allowed by law.</p>
+<p>The criteria used to decide this period include: The time allotment we have an ongoing association with you and deliver our services to you; regardless of whether there is a lawful commitment to which we should stand; and additionally whether it is fitting thinking about our lawful position.</p>
+<hr /><h3><strong><span style="color:#4c1a03;"><span style="font-size:20px;">Terms of Use</span></span></strong></h3>
+<p>When you get to the Chaa Creek's site, you recognize that you have perused, comprehend, and consent to the Chaa Creek Privacy Policy and that the laws of Belize should be appropriate in regards to any question. You are additionally mindful that electronic transmissions are thought to be open as opposed to private media and that any data you give is thought to be the property of Chaa Creek. </p>
+<p>You concur that Chaa Creek won't be held subject for any misfortune, damage, or other harm that emerges from the utilization of this site, including the dissemination of data that is provided by other third parties contributing to this site. Chaa Creek additionally maintains authority needed to change, whenever, any of the terms and conditions and to adjust, include, or expel segments of this Privacy Policy. </p>
+<p>In the event that you don't concur with the terms and conditions of this Privacy Policy, we ask that you avoid utilizing this site and we will provide other means to you to book your reservations as well as obtain information on our vacation experiences.</p>
+<hr /><h3><strong><span style="color:#4c1a03;"><span style="font-size:18px;">Changes in our Privacy Policy</span></span></strong></h3>
+<p>We may change or update our Privacy Policy. If the Privacy Policy is changed, this page will be updated. You may not be provided with any other notice of such changes. You will need to check this page to see if there have been any changes to our Privacy Policy.</p>
+<hr /><p>Should you have other questions or concerns about these privacy policies,<em> please <a href="https://www.chaacreek.com/contact">contact us here</a>.</em></p>
+</div></div></div> </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section footer-main">
+<div class="container">
+<div class="row">
+<div class="col-lg-5 col-md-5">
+<form class="campaignmonitor-subscribe-form campaignmonitor-subscribe-form-website-subscribers" action="/privacy-policy" method="post" id="campaignmonitor-subscribe-form" accept-charset="UTF-8"><div><div class="form-item form-type-textfield form-item-email">
+<label for="edit-email">Email <span class="form-required" title="This field is required.">*</span></label>
+<input placeholder="Email Address" type="text" id="edit-email" name="email" value="" size="60" maxlength="200" class="form-text required" />
+</div>
+<span class="signup_title">Sign up for specials</span><input type="hidden" name="list_id" value="88a3cbd2eabc9acf492d93a0f184812a" />
+<input type="submit" id="edit-submit--4" name="op" value="Subscribe" class="form-submit" /><input type="hidden" name="form_build_id" value="form-QJbpKVR5iXPiJdJvWn3oDTTBf1OzqKVLZrT-gkBqzWM" />
+<input type="hidden" name="form_id" value="campaignmonitor_subscribe_form" />
+</div></form> </div>
+</div>
+<div class="row visible-md visible-lg">
+<div class="col-md-2">
+<div class="region region-footer-top-col-one">
+<div id="block-menu-menu-footer-first-column-links" class="block block-menu">
+<div class="block-title">Chaa Creek</div>
+<div class="content">
+<ul class="menu clearfix"><li class="first leaf"><a href="/amenities/belize-spa" title="">Spa</a></li>
+<li class="leaf"><a href="/gallery" title="">Gallery</a></li>
+<li class="leaf"><a href="/accommodation-contact-us-form" title="">Reserve Accommodations</a></li>
+<li class="leaf"><a href="/contact" title="">Inquiries &amp; Contact</a></li>
+<li class="leaf"><a href="/location-getting-here" title="">Location &amp; Getting Here</a></li>
+<li class="last leaf"><a href="/deposit-and-cancellation-policy" title="">Deposit &amp; Cancellations</a></li>
+</ul> </div>
+</div>
+</div>
+</div>
+<div class="col-md-2">
+<div class="region region-footer-top-col-two">
+<div id="block-menu-menu-footer-second-column-links" class="block block-menu">
+<div class="block-title">Belize </div>
+<div class="content">
+<ul class="menu clearfix"><li class="first leaf"><a href="/facts/traveling-to-belize" title="">Traveling To Belize</a></li>
+<li class="leaf"><a href="/planning-weddings-belize" title="">Planning Weddings In Belize</a></li>
+<li class="leaf"><a href="/districts-belize-points-interest" title="">Districts &amp; Points of Interest</a></li>
+<li class="leaf"><a href="/maya-culture-history" title="">Mayan Culture</a></li>
+<li class="leaf"><a href="/belize-recipes" title="">Recipes from Belize</a></li>
+<li class="last leaf"><a href="/school-retreats-belize" title="">School Retreats</a></li>
+</ul> </div>
+</div>
+</div>
+</div>
+<div class="col-md-3">
+<div class="region region-footer-top-col-three">
+<div id="block-aggregator-feed-1" class="block block-aggregator">
+<div class="block-title">Belize Travel Blog</div>
+<div class="content">
+<div class="item-list"><ul><li class="first"><div class="title-post"><a target="_blank" href="https://belize-travel-blog.chaacreek.com/2019/03/spring-here-for-whale-sharks/">Spring Is Here And The Time Is Right For…Whale Sharks</a></div>
+<div class="date-post">03/15/2019</div></li>
+<li><div class="title-post"><a target="_blank" href="https://belize-travel-blog.chaacreek.com/2019/02/belize-cultures-cuisine-together-chaa-creek-open-hearth/">Belize’s Cultures and Cuisine Come Together At Chaa Creek’s Open Hearth</a></div>
+<div class="date-post">02/28/2019</div></li>
+<li><div class="title-post"><a target="_blank" href="https://belize-travel-blog.chaacreek.com/2019/02/true-jungle-experience-exciting-comfortable-affordable/">A True Jungle Experience That’s Both Exciting And Comfortable…And Surprisingly Affordable</a></div>
+<div class="date-post">02/25/2019</div></li>
+<li class="last"><div class="title-post"><a target="_blank" href="https://belize-travel-blog.chaacreek.com/2019/02/belize-chaa-creek-starting-2019-whole-lotta-love/">Belize And Chaa Creek Are Starting 2019 With A Whole Lotta Love</a></div>
+<div class="date-post">02/14/2019</div></li>
+</ul></div><div class="more-link"><a href="/aggregator/sources/1" title="View this feed&#039;s recent news.">More</a></div> </div>
+</div>
+</div>
+</div>
+<div class="col-md-5 footer-featured-special">
+<a href="/specials"><img src="https://www.chaacreek.com/sites/default/files/messages/chaa-creek-belize-vacation-deals-specials-thumb-optimized.png" alt="chaa creek belize vacation deals specials" /></a> <div class="text-wrapper"><p><span style="color:#d98000;"><strong><span style="font-family:helvetica;"><span style="font-size:14px">BELIZE VACATION OFFERS</span></span></strong></span></p>
+<p>Take advantage of our&nbsp;exclusive <strong>BOOK DIRECT</strong> offers. <a href="https://www.chaacreek.com/specials" target="_blank"><em>Click here to learn more!</em></a></p>
+</div>
+</div>
+</div>
+<div class="row visible-sm visible-xs">
+<div class="row">
+<div class="col-md-12">
+<div class="col-sm-3">
+<div class="element-invisible">Chaa Creek</div>
+<div class="region region-footer-top-col-one">
+<div id="block-menu-menu-footer-first-column-links--2" class="block block-menu">
+<div class="block-title">Chaa Creek</div>
+<div class="content">
+<ul class="menu clearfix"><li class="first leaf"><a href="/amenities/belize-spa" title="">Spa</a></li>
+<li class="leaf"><a href="/gallery" title="">Gallery</a></li>
+<li class="leaf"><a href="/accommodation-contact-us-form" title="">Reserve Accommodations</a></li>
+<li class="leaf"><a href="/contact" title="">Inquiries &amp; Contact</a></li>
+<li class="leaf"><a href="/location-getting-here" title="">Location &amp; Getting Here</a></li>
+<li class="last leaf"><a href="/deposit-and-cancellation-policy" title="">Deposit &amp; Cancellations</a></li>
+</ul> </div>
+</div>
+</div>
+</div>
+<div class="col-sm-3">
+<div class="region region-footer-top-col-two">
+<div id="block-menu-menu-footer-second-column-links--2" class="block block-menu">
+<div class="block-title">Belize </div>
+<div class="content">
+<ul class="menu clearfix"><li class="first leaf"><a href="/facts/traveling-to-belize" title="">Traveling To Belize</a></li>
+<li class="leaf"><a href="/planning-weddings-belize" title="">Planning Weddings In Belize</a></li>
+<li class="leaf"><a href="/districts-belize-points-interest" title="">Districts &amp; Points of Interest</a></li>
+<li class="leaf"><a href="/maya-culture-history" title="">Mayan Culture</a></li>
+<li class="leaf"><a href="/belize-recipes" title="">Recipes from Belize</a></li>
+<li class="last leaf"><a href="/school-retreats-belize" title="">School Retreats</a></li>
+</ul> </div>
+</div>
+</div>
+</div>
+<div class="col-sm-3">
+<div class="row hidden-xs">
+<div class="col-sm-12">
+<div class="region region-footer-top-col-three">
+<div id="block-aggregator-feed-1--2" class="block block-aggregator">
+<div class="block-title">Belize Travel Blog</div>
+<div class="content">
+<div class="item-list"><ul><li class="first"><div class="title-post"><a target="_blank" href="https://belize-travel-blog.chaacreek.com/2019/03/spring-here-for-whale-sharks/">Spring Is Here And The Time Is Right For…Whale Sharks</a></div>
+<div class="date-post">03/15/2019</div></li>
+<li><div class="title-post"><a target="_blank" href="https://belize-travel-blog.chaacreek.com/2019/02/belize-cultures-cuisine-together-chaa-creek-open-hearth/">Belize’s Cultures and Cuisine Come Together At Chaa Creek’s Open Hearth</a></div>
+<div class="date-post">02/28/2019</div></li>
+<li><div class="title-post"><a target="_blank" href="https://belize-travel-blog.chaacreek.com/2019/02/true-jungle-experience-exciting-comfortable-affordable/">A True Jungle Experience That’s Both Exciting And Comfortable…And Surprisingly Affordable</a></div>
+<div class="date-post">02/25/2019</div></li>
+<li class="last"><div class="title-post"><a target="_blank" href="https://belize-travel-blog.chaacreek.com/2019/02/belize-chaa-creek-starting-2019-whole-lotta-love/">Belize And Chaa Creek Are Starting 2019 With A Whole Lotta Love</a></div>
+<div class="date-post">02/14/2019</div></li>
+</ul></div><div class="more-link"><a href="/aggregator/sources/1" title="View this feed&#039;s recent news.">More</a></div> </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-sm-3">
+<a class="visible-xs blog-link" href="https://belize-travel-blog.chaacreek.com/">Belize Travel Blog</a>
+<div class="footer-featured-special">
+<a href="/specials"><img src="https://www.chaacreek.com/sites/default/files/messages/chaa-creek-belize-vacation-deals-specials-thumb-optimized.png" alt="chaa creek belize vacation deals specials" /></a> <div class="text-wrapper"><p><span style="color:#d98000;"><strong><span style="font-family:helvetica;"><span style="font-size:14px">BELIZE VACATION OFFERS</span></span></strong></span></p>
+<p>Take advantage of our&nbsp;exclusive <strong>BOOK DIRECT</strong> offers. <a href="https://www.chaacreek.com/specials" target="_blank"><em>Click here to learn more!</em></a></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section footer-logos">
+<div class="container">
+<div class="region region-footer-logos">
+<div id="block-block-3" class="block block-block">
+<div class="content">
+<ul><li><a href="http://www.uniquehotelsofbelize.com/" target="_blank"><img alt="Unique Hotels of Belize founding member Chaa Creek" src="/sites/default/files/unique_hotels_belize_founding_member_seal_chaa_creek_big.png" style="width: 128px; height: 85px;" /></a></li>
+<li><a href="https://www.nationalgeographic.com/worldlegacyawards/winners.html" target="_blank"><img alt="Chaa Creek National Geographic 2017 Award Winner" src="/sites/default/files/chaa_creek_belize_luxury_resort_nat_geo_award_2017_optimized.png" style="width: 107px; height: 70px;" /></a></li>
+<li><a href="https://www.tripadvisor.com/Hotel_Review-g291971-d300705-Reviews-The_Lodge_at_Chaa_Creek-San_Ignacio_Cayo.html" target="_blank"><img alt="Chaa Creek TripAdvisor Travelers Choice 2017" src="/sites/default/files/chaa_creek_tripadvisor_award_2017_optimized.png" style="width: 70px; height: 67px;" /></a></li>
+<li><a href="https://greenglobe.com/latest-news/the-lodge-at-chaa-creek-belize-recertified-green-globe/" target="_blank"><img alt="Chaa Creek Green Globe Certification Logo" src="/sites/default/files/chaa_creek_green_globe_gold_logo_optimized_1.png" style="width: 71px; height: 72px;" /></a></li>
+<li><a href="https://www.chaacreek.com/about-chaa-creek/conservation" target="_blank"><img alt="Chaa Creek Cares Logo" src="/sites/default/files/chaa-creek-cares-program-logo-home.png" style="width: 80px; height: 80px;" /></a></li>
+<li><img alt="Chaa Creek Belize Hotel Of The Year 2018" src="/sites/default/files/chaa-creek-belize-hotel-of-the-year-2018-home-logo.png" style="width: 93px; height: 80px;" /></li>
+</ul> </div>
+</div>
+</div>
+</div>
+</div>
+<div class="section footer-branding">
+<div class="container">
+<div class="row">
+<div class="col-lg-7 col-md-8">
+<div class="region region-footer-branding-col-one">
+<div id="block-block-1" class="block block-block">
+<div class="content">
+<p><a href="https://www.facebook.com/chaacreek" target="_blank"><img alt="Chaa Creek Belize Luxury Resort on Facebook" src="/sites/default/files/iconmonstr-facebook-3-24_optimized.png" style="width: 24px; height: 24px;" /></a> <a href="https://www.twitter.com/chaacreek" target="_blank"><img alt="Chaa Creek Lodge Belize Luxury Resort on Twitter" src="/sites/default/files/iconmonstr-twitter-3-24_optimized.png" style="width: 24px; height: 24px;" /></a> <a href="https://plus.google.com/+chaacreek/posts" target="_blank"><img alt="Chaa Creek Belize Luxury Resort on Google+ Plus" src="/sites/default/files/iconmonstr-google-plus-3-24_optimized.png" style="width: 24px; height: 24px;" /></a> <a href="https://www.instagram.com/chaacreekbelize" target="_blank"><img alt="Chaa Creek Belize Luxury Resort on Instagram" src="/sites/default/files/iconmonstr-instagram-13-24_optimized.png" style="width: 24px; height: 24px;" /></a></p>
+</div>
+</div>
+<div id="block-menu-menu-footer-links" class="block block-menu">
+<div class="content">
+<ul class="menu clearfix"><li class="first leaf"><a href="/weblinks" title="">Weblinks</a></li>
+<li class="leaf active-trail"><a href="/privacy-policy" title="" class="active-trail active">Privacy Policy</a></li>
+<li class="leaf"><a href="/sitemap" title=""> Sitemap</a></li>
+<li class="last leaf"><a href="/press-releases" title="">Press</a></li>
+</ul> </div>
+</div>
+</div>
+</div>
+<div class="col-lg-5 col-md-4">
+<div class="region region-footer-branding-col-two">
+<div id="block-block-2" class="block block-block">
+<div class="content">
+<p>© Copyright Chaa Creek 2019</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<style>
+   .breadcrumb {
+    background-color: #fdead3;
+    padding: 0 8px 0 0;
+    margin: 219px 0 25px !important;
+}
+.col-md-9 {
+    padding-top: 10px !important;
+}
+</style>
+<div class="scroll-to-top visible-xs">
+<a id="to-top" href="#"></a>
+</div>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="text/javascript" src="/sites/default/files/advagg_js/js__nBqmjfnmFfknzXjo37NH58CiS9lfbbhkXtUQYxl8_2s__jyJNVAp7jVu4eGh-XYySY4XWsA2lkwF_hVKBfxT6a9w__JQZyIXOVFst058DKHR0dSkUltN-sGwTZRBbIRgJFeBc.js"></script>
+<script type="text/javascript" src="/sites/default/files/advagg_js/js__KaZp60twaRFpB7IdN57N22C_sjMQDY1aEnvERtknlIg__bBnWb4UgQBN1WC-cD8kM0-A9qPUViInZ1wvVNisYzEQ__JQZyIXOVFst058DKHR0dSkUltN-sGwTZRBbIRgJFeBc.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","//www.google-analytics.com/analytics.js","ga");ga("create", "UA-86949-13", {"cookieDomain":"auto"});ga("set", "anonymizeIp", true);ga("send", "pageview");
+//--><!]]>
+</script>
+<script type="text/javascript" src="https://s7.addthis.com/js/300/addthis_widget.js#pubid=chaacreek"></script>
+<script type="text/javascript" src="/sites/default/files/advagg_js/js__eKjCQHBR7K9K7giJKk7QFem9xLhoMYkcmFihVKy63ZQ__FPCb5VZP0ESU5d8AMOtU36LGiSyopEfO5g7BIftMg5U__JQZyIXOVFst058DKHR0dSkUltN-sGwTZRBbIRgJFeBc.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"chaacreek","theme_token":"buZ7eUcQ6uiEgeoPaGJN2CAluL6zbrLYjeo7o_go_6Y","css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"modules\/aggregator\/aggregator.css":1,"modules\/book\/book.css":1,"sites\/all\/modules\/contrib\/date\/date_api\/date.css":1,"sites\/all\/modules\/contrib\/date\/date_popup\/themes\/datepicker.1.7.css":1,"modules\/field\/theme\/field.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/contrib\/views\/css\/views.css":1,"sites\/all\/modules\/contrib\/ckeditor\/css\/ckeditor.css":1,"sites\/all\/modules\/contrib\/ctools\/css\/ctools.css":1,"sites\/all\/modules\/contrib\/campaignmonitor\/css\/campaignmonitor.theme.css":1,"sites\/all\/themes\/chaacreek\/less\/style.css.less":1,"sites\/all\/themes\/chaacreek\/css\/print.css":1,"sites\/all\/themes\/chaacreek\/css\/ie.css":1,"sites\/all\/themes\/chaacreek\/css\/ie6.css":1},"js":{"sites\/all\/modules\/contrib\/jquery_update\/replace\/jquery\/1.7\/jquery.min.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/modules\/contrib\/google_analytics\/googleanalytics.js":1,"https:\/\/s7.addthis.com\/js\/300\/addthis_widget.js#pubid=chaacreek":1,"sites\/all\/themes\/chaacreek\/js\/global.js":1,"sites\/all\/themes\/chaacreek\/js\/bgaudioplayer.js":1,"sites\/all\/themes\/chaacreek\/js\/jquery.cookie.js":1,"sites\/all\/themes\/chaacreek\/js\/vacation_packages.js":1,"sites\/all\/themes\/chaacreek\/js\/recipes.js":1,"sites\/all\/themes\/chaacreek\/js\/jquery.magnific-popup.min.js":1,"sites\/all\/themes\/chaacreek\/js\/video.js":1,"sites\/all\/themes\/chaacreek\/bootstrap\/js\/collapse.js":1,"sites\/all\/themes\/chaacreek\/bootstrap\/js\/carousel.js":1,"sites\/all\/themes\/chaacreek\/bootstrap\/js\/tooltip.js":1,"sites\/all\/themes\/chaacreek\/js\/jquery.timelinr.js":1}},"googleanalytics":{"trackOutbound":1,"trackMailto":1,"trackDownload":1,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc(x|m)?|dot(x|m)?|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt(x|m)?|pot(x|m)?|pps(x|m)?|ppam|sld(x|m)?|thmx|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls(x|m|b)?|xlt(x|m)|xlam|xml|z|zip"},"urlIsAjaxTrusted":{"\/privacy-policy":true}});
+//--><!]]>
+</script>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"ff0e3a2d1b","applicationID":"41163605","transactionName":"NgNTZERZWEVUBkcNCw9JcFNCUVlYGgtcAAE+FlBXU2dAX1AS","queueTime":0,"applicationTime":488,"atts":"GkRQEgxDS0s=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>

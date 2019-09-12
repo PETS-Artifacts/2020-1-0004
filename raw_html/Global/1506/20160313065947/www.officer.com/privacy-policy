@@ -1,0 +1,848 @@
+  <!doctype html>
+
+<html lang="en" class="no-js" xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml">
+
+<head>
+
+	<!-- Meta tag includes -->
+	<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge;chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta property="fb:app_id" content="201850419839100">
+
+
+	<title>Privacy Policy - Officer.com</title>
+	<link href="http://r3.officer.com/files/media/www.officer.com/beta/favicon.ico" rel="shortcut icon" />
+
+	<link rel="apple-touch-icon-precomposed" href="http://r3.officer.com/files/media/www.officer.com/beta/icon.png" />
+	<meta name=viewport content="width=device-width, initial-scale=1, user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+	
+
+	<!-- Begin included scripts -->
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript" src="http://cygnus-ofcr.baseplatform.io/components/platform.min.js">
+
+{}
+
+</script>
+<script type="text/javascript" src="http://ox-d.officer.com/w/1.0/jstag"></script>
+<script type="text/javascript" src="https://www.google.com/recaptcha/api.js"></script>
+<script type="text/javascript" src="http://www.officer.com/app/merrick/files/www.officer.com/js/d026e9e403e8416280248792da4f6f49.js"></script>
+
+	
+<script type="text/javascript">
+//<![CDATA[
+
+	   var default_fb_image = 'http://r1.officer.com/files/media/www.officer.com/beta/site_logo_fb.png';
+	
+
+
+var
+   librarySrc = 'http://olytics.cygnus.com/olytics.js?v=2',
+   initParams = [
+      ['_setEndPoint', '/cygnus/ofcr'],
+      ['_setTrackerDomain', 'http://olytics.cygnus.com'],
+      ['_setDomainName', 'officer.com'],
+   ];
+
+   Analytics.setTracker('_olytics', librarySrc, initParams);
+
+
+
+
+   var 
+      librarySrc = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js',
+      token = $.cookie('token'),
+      initParams = [
+        ['_setAccount', 'UA-21023777-1'],
+        ['_setDomainName', 'officer.com'],
+        ['_trackPageLoadTime'],
+      ];
+
+   if (token) 
+   {
+      initParams.push(['_setCustomVar', 5, 'User', token, 1]);
+   }
+   else
+   {
+      initParams.push(['_setCustomVar', 5, 'User', 'Anonymous', 1]);
+   }
+
+   Analytics.setTracker('_gaq', librarySrc, initParams);
+
+
+//]]>
+</script>
+
+	<!-- End included scripts -->
+
+	<!-- Begin included CSS -->
+	<link rel="stylesheet" type="text/css" href="http://www.officer.com/app/merrick/files/www.officer.com/css/05a7a7eee1ed7b675a954cd556cb2806.css" />
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Arvo:400,700" />
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700" />
+
+	<!-- End included CSS -->
+
+	
+<script type="text/javascript">
+//<![CDATA[
+$(document).ready(function(){
+    PlatformComponents.on('ready', function() {
+
+        // Redraw masonry when comments change.
+        PlatformComponents.on('Comments.render', function() {
+            Page.reloadGrid();
+            Content.setSidebarHeight();
+        })
+
+        // Show download buttons when a customer is logged in.
+        PlatformComponents.on('CustomerManager.customer.loaded', function(e) {
+
+            if (null !== PlatformComponents.getCustomer().id && undefined !== window.oTable) {
+                $('<strong>EXPORT RESULTS AS</strong>').appendTo($('#spec_search .export'));
+                window.oTable.buttons().container().appendTo( $('#spec_search .export'));
+            }
+        })
+
+        var hideModal = function() {
+            Navigation.closeMenus();
+            Page.hideOverlay();
+        }
+
+        PlatformComponents.on('SignIn.login', function() {
+            hideModal();
+        });
+        PlatformComponents.on('SignIn.logout', function() {
+            hideModal();
+        });
+        PlatformComponents.on('SignIn.register', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            window.location.pathname = '/reg/register/display';
+        });
+
+        // Force merrick logout on component logout.
+        PlatformComponents.on('CustomerManager.logout.success', function() {
+            $.cookie('auth', null, { domain: '.officer.com' });
+            $.cookie('ukey', null, { domain: '.officer.com' });
+            Navigation.closeMenus();
+        });
+
+        // Force merrick logout on component logout.
+        PlatformComponents.on('CustomerManager.login.success', function(e, response, payload) {
+            if (payload.hasOwnProperty('_username') && payload.hasOwnProperty('_password')) {
+                var data = 'email='+payload._username+'&pwd='+payload._password;
+                PlatformComponents.ajaxSend('/reg/login/submit', 'POST', data).then(function(response) {
+                    Navigation.closeMenus();
+                }, function(err) {
+                    Navigation.closeMenus();
+                });
+            }
+        });
+
+        // Send cookies with component checkAuth
+        PlatformComponents.registerCallback('checkAuth', function() {
+            // Send merrick auth cookies to check auth.
+            var headers = {
+            };
+            if ($.cookie('token') && $.cookie('ukey') && $.cookie('auth')) {
+                headers = {
+                    'X-Merrick-Token': $.cookie('token'),
+                    'X-Merrick-Auth': $.cookie('auth'),
+                    'X-Merrick-Ukey': $.cookie('token'),
+                };
+            }
+            headers['X-Merrick-User'] = true;
+            return headers;
+        });
+    });
+    PlatformComponents.init();
+
+
+
+	// set social provides as specified in config.php on a per site basis
+	Cygnus.social.providers = 'facebook,twitter,google,linkedin';
+
+	// set how often sponsorship positions should rotate back in with ROS
+	Cygnus.advertisement.frequencies.sponsor = 3;
+
+	Cygnus.advertisement.meta = {
+		aliases: {"498342":"BS","498346":"MR","498343":"HP","498347":"ML","498344":"LB","498349":"SL","498348":"PP","498351":"WP","498350":"TO","498352":"WA","498345":"MS"},
+		data: {"BS":{"width":970,"height":250,"excludeLayout":["1col","2col"]},"MR":{"width":300,"height":250},"HP":{"width":300,"height":600},"ML":{"width":320,"height":50,"excludeLayout":["2col","3col"]},"LB":{"width":728,"height":90,"excludeLayout":["1col","3col"]},"SL":{"width":970,"height":90,"excludeLayout":["1col","2col"]},"PP":{"width":500,"height":500,"excludeLayout":["1col"]},"WP":{"width":1658,"height":1058,"excludeLayout":["1col","2col"]},"WA":{"width":550,"height":480,"excludeLayout":["1col"]},"TO":{"width":1,"height":1,"excludeLayout":["1col"]},"MS":{"width":300,"height":50}},
+        adUnits: {"BS":498342,"MR":498346,"HP":498343,"ML":498347,"LB":498344,"SL":498349,"PP":498348,"WP":498351,"TO":498350,"WA":498352,"MS":498345}
+	};
+
+	Cygnus.advertisement.skips.sponsor = 3;
+
+    
+    Cygnus.advertisement.useAdUnitGroups = true;
+    Cygnus.advertisement.adUnitGroups.COL1.adUnitGroupId = 537064936;
+    Cygnus.advertisement.adUnitGroups.COL2.adUnitGroupId = 537064937;
+    Cygnus.advertisement.adUnitGroups.COL3.adUnitGroupId = 537064938;
+    
+
+});
+//]]>
+</script>
+
+	
+
+</head>
+
+<body>
+
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+	
+	
+
+    
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Custom Ads -->
+<!-- Wallpaper Ad container -->
+<div id="ad_hug">
+	<div id="ad_hug_left"></div>
+	<div id="ad_hug_right"></div>
+</div>
+<!-- End Wallpaper Ad container -->
+
+<!-- TEST TAGS -->
+<!-- END TEST TAGS -->
+
+<div class="ad custom-ad ad-1658x1058 wallpaper-ad" data-ad-unit-trigger="onload" data-instance-id="default" data-ad-unit-id="498351" data-ad-skip-fallback="true" id="openx_adunit_id__498351__59521338"></div>
+<!-- Welcome Ad container -->
+<!-- End Welcome Ad container -->
+
+<!-- TEST TAGS -->
+<!-- END TEST TAGS -->
+
+<div class="ad custom-ad ad-550x480 welcome-ad" data-ad-unit-trigger="onload" data-instance-id="default" data-ad-unit-id="498352" data-ad-skip-fallback="true" id="openx_adunit_id__498352__508832391"></div>
+<!-- Page Peel Ad container -->
+<!-- End Page Peel Ad container -->
+
+<!-- TEST TAGS -->
+<!-- END TEST TAGS -->
+
+<div class="ad custom-ad ad-500x500 page-peel-ad" data-ad-unit-trigger="onload" data-instance-id="default" data-ad-unit-id="498348" data-ad-skip-fallback="true" id="openx_adunit_id__498348__344175460"></div>
+<!-- Page Peel Ad container -->
+<!-- End Page Peel Ad container -->
+
+<!-- TEST TAGS -->
+<!-- END TEST TAGS -->
+
+<div class="ad custom-ad ad-1x1 take-over-ad" data-ad-unit-trigger="onload" data-instance-id="default" data-ad-unit-id="498350" data-ad-skip-fallback="true" id="openx_adunit_id__498350__2011628761"></div>
+<!-- End Custom Ads -->
+
+<div class="overlay page-overlay ghost"></div>
+<div class="loading loading-large page-loading ghost"></div>
+
+<header class="header fixed fixed-top">
+<div class="inner header-inner">
+<aside class="row full container alert-container header-top"></aside>
+
+
+	<div class="navigation-item brand-logo-container">
+																<a class="brand-logo" href="/" title="Officer.com Homepage">
+			<img src="http://r2.officer.com/files/media/www.officer.com/beta/site_logo.png" alt="" height="50" width="150">
+		</a>
+	</div>
+
+		<ul class="navigation navigation-primary">
+
+		<li class="navigation-item open-icon text-left">
+			<i class="icon icon-reorder"></i>
+			<span class="uppercase navigation-active">				
+				Channels			
+			</span>
+			<i class="icon icon-caret-down"></i>
+		</li>
+
+		
+	    
+<li class="navigation-item section-10364" data-alias="/firearms">
+	<!-- <div class="color-effect"> -->
+	<!--a href="/firearms" class="navigation-link uppercase">Firearms</a-->
+	<a href="/firearms" class="navigation-link uppercase no-wrap">Firearms</a>
+	<!-- </div> -->
+</li>
+
+	    
+<li class="navigation-item section-10365" data-alias="/tactical">
+	<!-- <div class="color-effect"> -->
+	<!--a href="/tactical" class="navigation-link uppercase">Tactical</a-->
+	<a href="/tactical" class="navigation-link uppercase no-wrap">Tactical</a>
+	<!-- </div> -->
+</li>
+
+	    
+<li class="navigation-item section-10366" data-alias="/training-careers">
+	<!-- <div class="color-effect"> -->
+	<!--a href="/training-careers" class="navigation-link uppercase">Training & Careers</a-->
+	<a href="/training-careers" class="navigation-link uppercase no-wrap">Training & Careers</a>
+	<!-- </div> -->
+</li>
+
+	    
+<li class="navigation-item section-10367" data-alias="/on-the-street">
+	<!-- <div class="color-effect"> -->
+	<!--a href="/on-the-street" class="navigation-link uppercase">On The Street</a-->
+	<a href="/on-the-street" class="navigation-link uppercase no-wrap">On The Street</a>
+	<!-- </div> -->
+</li>
+
+	    
+<li class="navigation-item section-10368" data-alias="/technology">
+	<!-- <div class="color-effect"> -->
+	<!--a href="/technology" class="navigation-link uppercase">Technology</a-->
+	<a href="/technology" class="navigation-link uppercase no-wrap">Technology</a>
+	<!-- </div> -->
+</li>
+
+	    
+<li class="navigation-item section-10369" data-alias="/investigations">
+	<!-- <div class="color-effect"> -->
+	<!--a href="/investigations" class="navigation-link uppercase">Investigations</a-->
+	<a href="/investigations" class="navigation-link uppercase no-wrap">Investigations</a>
+	<!-- </div> -->
+</li>
+
+	    
+<li class="navigation-item section-10370" data-alias="/command-hq">
+	<!-- <div class="color-effect"> -->
+	<!--a href="/command-hq" class="navigation-link uppercase">Command/HQ</a-->
+	<a href="/command-hq" class="navigation-link uppercase no-wrap">Command/HQ</a>
+	<!-- </div> -->
+</li>
+
+	    
+<li class="navigation-item section-3996" data-alias="/directory">
+	<!-- <div class="color-effect"> -->
+	<!--a href="/directory" class="navigation-link uppercase">Product Guide</a-->
+	<a href="/directory" class="navigation-link uppercase no-wrap">Product Guide</a>
+	<!-- </div> -->
+</li>
+
+	    
+<li class="navigation-item section-4002" data-alias="/http://forums.officer.com">
+	<!-- <div class="color-effect"> -->
+	<!--a href="/http://forums.officer.com" class="navigation-link uppercase">Forums</a-->
+	<a href="http://forums.officer.com" class="navigation-link uppercase no-wrap">Forums</a>
+	<!-- </div> -->
+</li>
+
+
+	</ul>
+	
+	<div class="tooltip-container extras">
+		<ul id="tooltip-menu" class="tooltip-menu navigation-secondary">
+			
+			<li class="tooltip-item search">
+				<a class="tooltip-trigger search" href="#" title="Search Officer.com"><i class="icon-search"></i></a>
+				<ul class="tooltip-submenu pos-1">
+					<li class="nav-pointer pos-1"></li>
+					<li class="tooltip-item search">
+						<form action="/search" method="GET">
+							<input name="q" placeholder="Search" type="search" class="search">
+							<button class="button button-primary search-submit">Go</button>
+						</form>
+					</li>
+				</ul>
+			</li>
+
+			<li class="tooltip-item">
+				<a class="tooltip-trigger menu" href="#" title="Officer.com Menu">
+					<i class="icon-reorder"></i>
+					<span class="small bold uppercase">Menu</span>
+				</a>
+				<ul class="tooltip-submenu pos-2">
+					<li class="nav-pointer pos-2"></li>
+
+					<li class="navigation-header channels">Channels</li>
+
+					
+	    
+<li class="navigation-item section-10364" data-alias="/firearms">
+	<!-- <div class="color-effect"> -->
+	<!--a href="/firearms" class="navigation-link uppercase">Firearms</a-->
+	<a href="/firearms" class="navigation-link uppercase no-wrap">Firearms</a>
+	<!-- </div> -->
+</li>
+
+	    
+<li class="navigation-item section-10365" data-alias="/tactical">
+	<!-- <div class="color-effect"> -->
+	<!--a href="/tactical" class="navigation-link uppercase">Tactical</a-->
+	<a href="/tactical" class="navigation-link uppercase no-wrap">Tactical</a>
+	<!-- </div> -->
+</li>
+
+	    
+<li class="navigation-item section-10366" data-alias="/training-careers">
+	<!-- <div class="color-effect"> -->
+	<!--a href="/training-careers" class="navigation-link uppercase">Training & Careers</a-->
+	<a href="/training-careers" class="navigation-link uppercase no-wrap">Training & Careers</a>
+	<!-- </div> -->
+</li>
+
+	    
+<li class="navigation-item section-10367" data-alias="/on-the-street">
+	<!-- <div class="color-effect"> -->
+	<!--a href="/on-the-street" class="navigation-link uppercase">On The Street</a-->
+	<a href="/on-the-street" class="navigation-link uppercase no-wrap">On The Street</a>
+	<!-- </div> -->
+</li>
+
+	    
+<li class="navigation-item section-10368" data-alias="/technology">
+	<!-- <div class="color-effect"> -->
+	<!--a href="/technology" class="navigation-link uppercase">Technology</a-->
+	<a href="/technology" class="navigation-link uppercase no-wrap">Technology</a>
+	<!-- </div> -->
+</li>
+
+	    
+<li class="navigation-item section-10369" data-alias="/investigations">
+	<!-- <div class="color-effect"> -->
+	<!--a href="/investigations" class="navigation-link uppercase">Investigations</a-->
+	<a href="/investigations" class="navigation-link uppercase no-wrap">Investigations</a>
+	<!-- </div> -->
+</li>
+
+	    
+<li class="navigation-item section-10370" data-alias="/command-hq">
+	<!-- <div class="color-effect"> -->
+	<!--a href="/command-hq" class="navigation-link uppercase">Command/HQ</a-->
+	<a href="/command-hq" class="navigation-link uppercase no-wrap">Command/HQ</a>
+	<!-- </div> -->
+</li>
+
+	    
+<li class="navigation-item section-3996" data-alias="/directory">
+	<!-- <div class="color-effect"> -->
+	<!--a href="/directory" class="navigation-link uppercase">Product Guide</a-->
+	<a href="/directory" class="navigation-link uppercase no-wrap">Product Guide</a>
+	<!-- </div> -->
+</li>
+
+	    
+<li class="navigation-item section-4002" data-alias="/http://forums.officer.com">
+	<!-- <div class="color-effect"> -->
+	<!--a href="/http://forums.officer.com" class="navigation-link uppercase">Forums</a-->
+	<a href="http://forums.officer.com" class="navigation-link uppercase no-wrap">Forums</a>
+	<!-- </div> -->
+</li>
+
+
+					<li class="navigation-header alt-color-3">Additional Resources</li>
+
+					<li class="navigation-item extras section-4023" data-alias="/features/honoring-the-fallen">
+	<!-- <div class="color-effect"> -->
+		<a href="/features/honoring-the-fallen"  class="tooltip-item uppercase">Honoring the Fallen</a>
+	<!-- </div> -->
+</li>
+<li class="navigation-item extras section-11583" data-alias="/the-oceanside-chronicles">
+	<!-- <div class="color-effect"> -->
+		<a href="/the-oceanside-chronicles"  class="tooltip-item uppercase">The Oceanside Chronicles</a>
+	<!-- </div> -->
+</li>
+<li class="navigation-item extras section-4021" data-alias="/features/by-contributor">
+	<!-- <div class="color-effect"> -->
+		<a href="/features/by-contributor"  class="tooltip-item uppercase">By Contributor</a>
+	<!-- </div> -->
+</li>
+<li class="navigation-item extras section-8800" data-alias="/blogs/industry-insights">
+	<!-- <div class="color-effect"> -->
+		<a href="/blogs/industry-insights"  class="tooltip-item uppercase">Industry Insights</a>
+	<!-- </div> -->
+</li>
+<li class="navigation-item extras section-3999" data-alias="/magazine">
+	<!-- <div class="color-effect"> -->
+		<a href="/magazine"  class="tooltip-item uppercase">Magazines</a>
+	<!-- </div> -->
+</li>
+<li class="navigation-item extras section-10795" data-alias="/whitepaper">
+	<!-- <div class="color-effect"> -->
+		<a href="/whitepaper"  class="tooltip-item uppercase">Whitepapers</a>
+	<!-- </div> -->
+</li>
+<li class="navigation-item extras section-10794" data-alias="/webinar">
+	<!-- <div class="color-effect"> -->
+		<a href="/webinar"  class="tooltip-item uppercase">Webinars</a>
+	<!-- </div> -->
+</li>
+<li class="navigation-item extras section-4000" data-alias="/events">
+	<!-- <div class="color-effect"> -->
+		<a href="/events"  class="tooltip-item uppercase">Events</a>
+	<!-- </div> -->
+</li>
+<li class="navigation-item extras section-4001" data-alias="/careers">
+	<!-- <div class="color-effect"> -->
+		<a href="/careers"  class="tooltip-item uppercase">Careers</a>
+	<!-- </div> -->
+</li>
+
+
+					<li class="navigation-header alt-color-1">User</li>
+
+					    <li class="platform-logout navigation-item extras"><a href="/reg/logout/submit" class="tooltip-item">Log Out</a></li>
+    <li class="platform-register navigation-item one-half extras"><a href="/reg/register/display" class="tooltip-item">Register</a></li>
+    <li class="platform-login navigation-item one-half extras"><a href="/reg/login/display" class="tooltip-item">Log In</a></li>
+
+	<li class="navigation-item one-half extras"><a href="/privacy-policy" class="tooltip-item">Privacy Policy</a></li>
+	<li class="navigation-item one-half extras"><a href="/terms-conditions" class="tooltip-item">Terms of Use</a></li>
+
+
+
+					<li class="navigation-header alt-color-2">Site Tools</li>
+					
+					<li class="navigation-item one-half extras"><a href="/reg/contact_us/display" class="tooltip-item">Contact Us</a></li>
+					<li class="navigation-item one-half extras"><a href="/advertise" class="tooltip-item">Advertise</a></li>
+					<!-- <li class="navigation-item extras"><a href="/sitemap" class="tooltip-item">Sitemap</a></li> -->
+
+				</ul>
+			</li>
+			
+		</ul>		
+	</div>
+
+
+<aside class="row full container alert-container header-bottom"></aside>
+</div>
+</header>
+
+<aside class="advertisement leaderboard variable-ad block body">
+
+	<div class="ad-container leaderboard-ad-container variable">
+
+		<div class="ad leaderboard-ad ad-320x50" data-ad-sponsor-skip="" data-ad-unit-refresh="" data-ad-unit-trigger="inview" data-instance-id="default" data-ad-unit-id="498347" id="openx_adunit_id__498347__982647232"></div>
+
+		<div class="ad leaderboard-ad ad-728x90" data-ad-sponsor-skip="" data-ad-unit-refresh="" data-ad-unit-trigger="inview" data-instance-id="default" data-ad-unit-id="498344" id="openx_adunit_id__498344__1827472347"></div>
+
+		<div class="ad leaderboard-ad ad-970x90" data-ad-sponsor-skip="" data-ad-unit-refresh="" data-ad-unit-trigger="inview" data-instance-id="default" data-ad-unit-id="498342" id="openx_adunit_id__498342__1880291913"></div>
+
+	</div>
+	
+</aside>
+
+<div class="page-context grid-block" data-id="default">
+<script type="text/javascript">
+//<![CDATA[
+   // Context Data
+               var pageContextData = {};
+   Page.setContextData("", pageContextData);
+//]]>
+</script>
+</div>
+
+
+
+<section class="grid-wrapper">
+
+	<div class="headlines block grid-block w-6 masonry-brick">
+		<h1 class="uppercase dark-gray bold list-title no-margin">Cygnus Business Media Website Privacy Policy</h1>
+		<p>
+			Cygnus Business Media, Inc. recognizes the importance of protecting the privacy of information provided to us by those who use our products and services. This policy describes how personally identifiable and anonymous information about our publication subscribers, online media product users and event registrants may be collected and shared.
+		</p>
+		<p>
+			Please be sure to read this Privacy Policy before using any Cygnus Business Media Web Site or submitting information through a Site.  By using any of our Web Sites, you consent to our use of your information as outlined in this Privacy Policy and accept the terms and conditions herein.
+		</p>
+		<p>
+			This Privacy Policy is current as of March 4, 2011. If we change our privacy practices, we will also update this Privacy Policy.  Users should review this policy periodically to monitor any changes.  Your continued use of our sites and services constitutes your acceptance of this entire Privacy Policy, as updated from time to time.  Cygnus Business Media reserves the right to access and disclose personally identifiable information to comply with applicable laws, lawful government requests and any orders of the court.
+		</p>
+		<p><strong>How does Cygnus Business Media collect your information?</strong></p>
+		<p>
+			Cygnus Business Media uses cookies and other internet technologies in the management of our Web Site and email programs in an effort to enrich your online experience.  We may also use IP addresses to gather broad geographic information for aggregate use.  Our cookies do not contain any information that is personally identifiable.   Like many Web Sites, Cygnus Business Media may use pixel tags, also known as web beacons, clear gifs, or web bugs.  Pixel tags help us improve our understanding of our web traffic and visitor behavior, as well as gauge the response to our promotional efforts.  If you wish, you may disable pixel tags by setting your browser to omit images and disable JavaScript.
+		</p>
+		<p>
+			We use industry-standard, third party advertising service companies to serve advertisements when you visit our sites or open our emails.  These companies may use cookies, pixel tags, and other methods to collect information about your visit to our Web Site, and others, in order to provide you with relevant advertisements about products, services, and events. These collection methods do not typically include your name, address, or telephone number. These elements also provide us with aggregate pictures of traffic patterns, which help us to improve your site experience and monitor advertising effort
+		</p>
+		<p><strong>
+			When is personally identifiable information collected? How is your information used?
+		</strong></p>
+		<p>
+			Cygnus Business Media collects personally identifiable information that you choose to provide us when you subscribe to our magazines, sign up for e-newsletters, enter a contest, participate in surveys, login into our Web Sites using a third party login system (including, but not limited to, Facebook Connect, Twitter, etc.), register for a Web Site, webcast, or trade show, or otherwise communicate with us. When you provide this information to us, you are no longer anonymous.  Cygnus Business Media does not take any steps to protect the privacy of information you volunteer about yourself in forums or other publicly accessible sections of our Web Sites.
+		</p>
+		<p>
+			We may use your contact information to send notices for subscription renewal or provide you with information about products or services you have ordered with us. We may also use your contact information to send you e-newsletters or other promotional e-mails that contain targeted, relevant content that may be useful to your business.  All promotional e-mails you receive from us will include an option to opt out of similar e-mail communications in the future.
+		</p>
+
+		<p><strong>With whom does Cygnus Business Media share your information?</strong></p>
+
+		<p>
+			Cygnus Business Media may share information with our affiliates and business partners whom we believe share our commitment to privacy and information security.  We may share identifiable information or anonymized aggregate information with advertisers and other third parties.  In some cases you may receive relevant, carefully-screened offers from reputable third party business organizations with which we have shared your information.  Many of our customers appreciate receiving these offers because they are relevant and useful to their business or occupation.  Each such communication will provide you with an opportunity to opt out of similar future communications.
+		</p>
+		<p>
+			From time to time, you may receive information from or on behalf of advertisers who wish to contact you as a result of your viewing habits, such as where you have clicked on a link in a Cygnus Business Media e-newsletter, interacted with particular content, or  indicated an interest in certain products, services or events. Each such form of contact will provide you with an opportunity to opt out of sharing your information with our advertisers.  We may also use your information to send you e-mail and other communications on behalf of third parties.  Each such communication will provide you with an opportunity to opt out of similar future communications.
+		</p>
+		<p>
+			In compliance with privacy laws, we provide our opt-out lists to third parties so that any communications sent on Cygnus Business Media's behalf are not sent to those who have opted out of receiving such communications.
+		</p>
+
+		<p><strong>How does Cygnus Business Media protect your information?</strong></p>
+
+		<p>
+			We use reasonable precautions, including appropriate technical, administrative, and physical procedures, to try to protect collected personal information from loss, misuse, or alteration.
+		</p>
+		<p>
+			Many of our Web Sites contain links to Web Sites owned and operated by unaffiliated third parties.  These links are provided as a service to you, and do not constitute Cygnus Business Media's endorsement or support of those third parties or their Web Sites.  Each third party Web Site has its own information collection and use practices, and we advise you to review their policies.
+		</p>
+		<p>
+			Cygnus Business Media is not responsible or liable for third party privacy practices or the content of third party sites.  We are not responsible or liable for any breach of security or for the actions of these parties.
+		</p>
+		<p>
+			Due to the design of the Internet and other factors outside our control, we cannot guarantee that communications between you and our servers will be free from unauthorized access by third parties.  Any information you provide may be stored and maintained in a Cygnus Business Media database, either housed at Cygnus Business Media or with a third party vendor.  In the case of a sale, change of ownership or merger involving Cygnus Business Media or any parent, subsidiary or affiliated company, your information may be transferred to a third party.
+		</p>
+		<p><strong>
+			What are your options for how Cygnus Business Media uses or shares your information?
+		</strong></p>
+		<p>
+			If you wish to opt out of receiving postal, email, fax or phone calls from Cygnus Business Media please send an email to:
+			<a href="mailto:PrivacyManager@Cygnusb2b.com">PrivacyManager@Cygnusb2b.com</a>
+			. You may also call 800-547-7377 and ask for the Privacy Manager, or mail your request to the attention of the Privacy Manager at 1233 Janesville Ave, Fort Atkinson, WI 53538.  Specifically who this privacy manager is and how contacting them will work is subject to change. We will attempt to process any such requests within 10 business days or as soon as reasonably possible thereafter.
+		</p>
+	</div>
+
+</section>
+
+<div class="footer-nav block full">
+	<div class="block w-6 footer-elements">
+		<div class="block logos">
+			<div class="logo">
+				<a class="brand-logo" href="/">
+					<img src="http://r1.officer.com/files/media/www.officer.com/beta/site_logo_gray.png" class="grayscale" border="0" alt=" Logo" height="50" width="150"/>
+				</a>
+			</div>
+			
+			
+											<div class="logo">
+					<a class="brand-logo" href="/magazine/let">
+						<img src="http://r1.officer.com/files/media/www.officer.com/beta/let_gray.png" class="grayscale" border="0" alt="let Logo" height="50" width="150"/>
+					</a>
+				</div>
+																			<div class="logo">
+					<a class="brand-logo" href="/magazine/lepn">
+						<img src="http://r1.officer.com/files/media/www.officer.com/beta/lepn_gray.png" class="grayscale" border="0" alt="lepn Logo" height="50" width="150"/>
+					</a>
+				</div>
+													</div>
+		<div class="block grid-block">
+			<ul class="secondary-navigation list relative clear">
+				
+	    
+<li class="navigation-item section-10364" data-alias="/firearms">
+	<!-- <div class="color-effect"> -->
+	<!--a href="/firearms" class="navigation-link uppercase">Firearms</a-->
+	<a href="/firearms" class="navigation-link uppercase no-wrap">Firearms</a>
+	<!-- </div> -->
+</li>
+
+	    
+<li class="navigation-item section-10365" data-alias="/tactical">
+	<!-- <div class="color-effect"> -->
+	<!--a href="/tactical" class="navigation-link uppercase">Tactical</a-->
+	<a href="/tactical" class="navigation-link uppercase no-wrap">Tactical</a>
+	<!-- </div> -->
+</li>
+
+	    
+<li class="navigation-item section-10366" data-alias="/training-careers">
+	<!-- <div class="color-effect"> -->
+	<!--a href="/training-careers" class="navigation-link uppercase">Training & Careers</a-->
+	<a href="/training-careers" class="navigation-link uppercase no-wrap">Training & Careers</a>
+	<!-- </div> -->
+</li>
+
+	    
+<li class="navigation-item section-10367" data-alias="/on-the-street">
+	<!-- <div class="color-effect"> -->
+	<!--a href="/on-the-street" class="navigation-link uppercase">On The Street</a-->
+	<a href="/on-the-street" class="navigation-link uppercase no-wrap">On The Street</a>
+	<!-- </div> -->
+</li>
+
+	    
+<li class="navigation-item section-10368" data-alias="/technology">
+	<!-- <div class="color-effect"> -->
+	<!--a href="/technology" class="navigation-link uppercase">Technology</a-->
+	<a href="/technology" class="navigation-link uppercase no-wrap">Technology</a>
+	<!-- </div> -->
+</li>
+
+	    
+<li class="navigation-item section-10369" data-alias="/investigations">
+	<!-- <div class="color-effect"> -->
+	<!--a href="/investigations" class="navigation-link uppercase">Investigations</a-->
+	<a href="/investigations" class="navigation-link uppercase no-wrap">Investigations</a>
+	<!-- </div> -->
+</li>
+
+	    
+<li class="navigation-item section-10370" data-alias="/command-hq">
+	<!-- <div class="color-effect"> -->
+	<!--a href="/command-hq" class="navigation-link uppercase">Command/HQ</a-->
+	<a href="/command-hq" class="navigation-link uppercase no-wrap">Command/HQ</a>
+	<!-- </div> -->
+</li>
+
+	    
+<li class="navigation-item section-3996" data-alias="/directory">
+	<!-- <div class="color-effect"> -->
+	<!--a href="/directory" class="navigation-link uppercase">Product Guide</a-->
+	<a href="/directory" class="navigation-link uppercase no-wrap">Product Guide</a>
+	<!-- </div> -->
+</li>
+
+	    
+<li class="navigation-item section-4002" data-alias="/http://forums.officer.com">
+	<!-- <div class="color-effect"> -->
+	<!--a href="/http://forums.officer.com" class="navigation-link uppercase">Forums</a-->
+	<a href="http://forums.officer.com" class="navigation-link uppercase no-wrap">Forums</a>
+	<!-- </div> -->
+</li>
+
+				<li class="clear"></li>
+				    <li class="platform-logout navigation-item extras"><a href="/reg/logout/submit" class="tooltip-item">Log Out</a></li>
+    <li class="platform-register navigation-item one-half extras"><a href="/reg/register/display" class="tooltip-item">Register</a></li>
+    <li class="platform-login navigation-item one-half extras"><a href="/reg/login/display" class="tooltip-item">Log In</a></li>
+
+	<li class="navigation-item one-half extras"><a href="/privacy-policy" class="tooltip-item">Privacy Policy</a></li>
+	<li class="navigation-item one-half extras"><a href="/terms-conditions" class="tooltip-item">Terms of Use</a></li>
+
+				<li class="navigation-item one-half extras"><a href="/reg/contact_us/display" class="tooltip-item">Contact Us</a></li>
+				<li class="navigation-item one-half extras"><a href="/advertise" class="tooltip-item">Advertise</a></li>
+				<li class="navigation-item extras"><a href="/sitemap" class="tooltip-item">Sitemap</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+<div class="clearfix">&nbsp;</div>
+
+<footer class="footer page-footer fixed">
+
+<aside class="row full container alert-container footer-top"></aside>
+
+
+<aside class="advertisement leaderboard variable-ad ">
+
+	<div class="ad-container leaderboard-ad-container variable">
+
+		<div class="ad leaderboard-ad ad-320x50" data-ad-sponsor-skip="3" data-ad-unit-refresh="true" data-ad-unit-trigger="inview" data-instance-id="default" data-ad-unit-id="498347" id="openx_adunit_id__498347__943465510"></div>
+
+		<div class="ad leaderboard-ad ad-728x90" data-ad-sponsor-skip="3" data-ad-unit-refresh="true" data-ad-unit-trigger="inview" data-instance-id="default" data-ad-unit-id="498344" id="openx_adunit_id__498344__82698951"></div>
+
+		<div class="ad leaderboard-ad ad-970x90" data-ad-sponsor-skip="3" data-ad-unit-refresh="true" data-ad-unit-trigger="inview" data-instance-id="default" data-ad-unit-id="498349" id="openx_adunit_id__498349__376932270"></div>
+
+	</div>
+	
+</aside>
+
+
+<aside class="row full container alert-container footer-bottom"></aside>
+
+
+
+    <iframe src="https://5326342.fls.doubleclick.net/activityi;src=5326342;type=south0;cat=offic0;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;ord=1?" width="1" height="1" frameborder="0" style="display:none"></iframe>
+
+
+</footer>
+
+
+
+
+
+
+
+	<script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://q1mediahydraplatform.com/ads/video/controller.php?qid=55d4f2cc9f8901a429c21d6d&qz=1"></script>
+<script type="text/javascript" src="http://www.officer.com/app/merrick/files/www.officer.com/js/f5f488921506a271f0fd98853dd4ac25.js"></script>
+
+	
+
+			<script type="text/javascript">
+adroll_adv_id = "3Y4QECRNBBH7NAVPATYFZS";
+adroll_pix_id = "6SEQUWSBEJA4PPA7MLJVVJ";
+(function () {
+var oldonload = window.onload;
+window.onload = function(){
+   __adroll_loaded=true;
+   var scr = document.createElement("script");
+   var host = (("https:" == document.location.protocol) ? "https://s.adroll.com" : "http://a.adroll.com");
+   scr.setAttribute('async', 'true');
+   scr.type = "text/javascript";
+   scr.src = host + "/j/roundtrip.js";
+   ((document.getElementsByTagName('head') || [null])[0] ||
+    document.getElementsByTagName('script')[0].parentNode).appendChild(scr);
+   if(oldonload){oldonload()}};
+}());
+</script>
+	</body>
+
+</html>

@@ -1,0 +1,2147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content=" 
+	 The Namibia Tourism Board website Privacy Policy
+
+
+	 What information do we collect?
+	 We collect information from you when you register on our site, su ">
+<meta name="author" content="Intouch Media">
+<title> Privacy Policy - Namibia Tourism Board </title>
+
+
+<link rel="shortcut icon" href="/favicon/favicon.ico" type="image/x-icon">
+<link rel="icon" href="/favicon/favicon.ico" type="image/x-icon">
+
+<link rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/favicon/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/favicon/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/favicon/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/favicon/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/favicon/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/favicon/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/favicon/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="/favicon/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+<link rel="manifest" href="/favicon/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/favicon/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+
+
+
+
+
+
+
+<link href="/plugins/namibiatourism/css/bootstrap.css" rel="stylesheet">
+<link href="/plugins/namibiatourism/css/style.css" rel="stylesheet">
+<link rel="stylesheet" href="/plugins/namibiatourism/css/jquery.bxslider.css" type="text/css" media="screen" charset="utf-8">
+<link href="/plugins/namibiatourism/css/responsive.css" rel="stylesheet">
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond./plugins/namibiatourism/js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+<!-- Custom styles for this template -->
+<link href="/plugins/namibiatourism/css/font-awesome.css" rel="stylesheet">
+<link rel="Stylesheet" type="text/css" href="/plugins/namibiatourism/css/wSelect.css" />
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic,700,700italic' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow:700,400' rel='stylesheet' type='text/css'>
+<style type="text/css">
+.InfoBoxHeader{ font-size:15px; text-align:left; background:url(/img/gradient.jpg); color:#FFF; padding:5px 0; margin-bottom:10px}
+.InfoBoxHeader strong{margin-left:10px}
+.InfoBoxPicture{ margin:10px; float:left}
+.InfoBoxDescription{}
+.openMicrosite{text-decoration:none; color:#000; margin:10px; float:right}
+
+.nav li a {
+  font: 400 17px 'PT Sans Narrow', sans-serif;
+  color: #fff !important;
+  padding: 10px 15px;
+  text-transform: uppercase;
+}
+
+.nav li a:hover { color:#333 !important }
+
+.dropdown-menu{background:#333 !important}
+</style>
+<!-- JavaScript--> 
+<script src="/plugins/namibiatourism/js/jquery-1.11.1.min.js"></script> 
+<script src="/plugins/namibiatourism/js/bootstrap.js"></script> 
+<script data-cfasync='false' type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+<script data-cfasync='false' type="text/javascript" src="/js/markerclusterer.js"></script>
+<script type="text/javascript">
+
+var map;
+  
+var marker, i;
+var markersArray = [];
+var markerCluster = [];
+var infowindow;
+
+var companyheading ;
+var picture;
+var companydesc;
+var micrositeheading;
+var bounds = new google.maps.LatLngBounds();
+
+function initialize() {
+	var myOptions = {
+		zoom: 6, //{MapZoomLevel}
+		center: new google.maps.LatLng(-22.423591, 17.011371),//{MapLatitude} {MapLongitude}
+		mapTypeId: google.maps.MapTypeId.ROADMAP,
+		styles: [{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#444444"}]},{"featureType":"administrative.locality","elementType":"geometry","stylers":[{"visibility":"simplified"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2f2f2"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45}]},{"featureType":"road","elementType":"geometry","stylers":[{"visibility":"simplified"}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#eedfcb"},{"visibility":"on"}]}]
+
+	};
+	map = new google.maps.Map(document.getElementById('map_canvas'), myOptions);
+	
+	infowindow = new google.maps.InfoWindow();
+	
+	var mcOptions = {gridSize: 50};
+	markerCluster = new MarkerClusterer(map, markersArray, mcOptions);
+}
+</script>
+<style type="text/css">
+
+
+	.businessEntry{
+		width:30%;
+		float:left;
+		height:210px;
+		display:block;
+		overflow:hidden;
+		background-size:100px;
+		margin-right:3% !important;
+		position:relative;
+		margin-bottom:10px
+	}
+	
+	@media (max-width:800px) { .businessEntry{ width:100%; background-size:100% !important}}
+	
+	.firstNewsParagraph{ color:#FFF; text-shadow: 2px 2px #999; margin:10px}
+	.secondNewsParagraph{ background:#FFF; opacity:0.7; color:#000; position:absolute; bottom:0; left:0; padding:10px; font-size:9px}
+	
+	.backToTopBar {
+		width: 100%;
+		height: 20px;
+		display: block;
+		float: left;
+		font-size: 15px;
+		font-family: "Trebuchet MS",Arial,Helvetica,sans-serif;
+		color: #cc3300;
+		margin: 10px 0 0 0;
+		border-bottom: 2px solid #333;
+		z-index: 10;
+		margin-bottom:20px
+	}
+	
+	.backTopMem {
+	  font-size: 11px;
+	  color: #FFF;
+	  background: #333;
+	  text-decoration: none;
+	  padding: 0 10px 5px 5px;
+	  height: 18px;
+	  line-height: 18px;
+	  float: right;
+	  margin-bottom: 10px;
+	  -moz-border-radius-topleft: 5px;
+	  -webkit-border-top-left-radius: 5px;
+	  -moz-border-radius-topright: 5px;
+	  -webkit-border-top-right-radius: 5px;
+	  border-radius: 5px 5px 0px 0px;
+	  display: block;
+	  cursor: pointer;
+	}
+	
+	.readMoreNews {
+	  width: auto;
+	  height: 30px;
+	  padding: 0 5px;
+	  float: right;
+	  margin-left: 5px;
+	  text-align: center;
+	  background-color: #333;
+	  color: #FFFFFF;
+	  text-decoration: none;
+	  -moz-border-radius: 2px;
+	  -webkit-border-radius: 2px;
+	  border-radius: 2px 2px 2px 2px;
+	  line-height:30px;
+	  margin-top:10px
+	}
+	
+	
+	.find-member h1{ background:#333; text-align:center; color:#FFF; font-size:20px; padding:5px 0;	  -moz-border-radius: 2px;
+	  -webkit-border-radius: 2px;
+	  border-radius: 2px 2px 2px 2px;
+	  margin-top:5px;
+	}
+	
+	.find-member input{ width:100%; margin-top:10px; padding:3px 10px}
+	
+	.find-member li{ margin-top:10px; height:32px}
+	
+	.find-member select{width:100%; height:30px; line-height:30px}
+	
+	.noResults{width:100%; margin:20px 0; font-size:18px; text-align:center;}
+</style>
+<style type="text/css">
+	
+	#loadingResults{ width:100%; height:200px; background:url(/img/hexloading.gif) center no-repeat #FFF; opacity:0.7; display:none}
+	
+	.navbar-nav li:hover{background:#e7e7e7 !important}
+	
+	#digitalMarketing{width:310px; height:150px; background:#c11e21; position:fixed; right:10px; bottom:10px; text-transform: uppercase; color:#FFF; text-align:center; font-size:25px;}
+	#digitalMarketing p{ padding-top:15px}
+</style>
+<!--<script type="text/javascript" src="/plugins/namibiatourism/js/wSelect.min.js"></script>-->
+      <script type="text/javascript">
+        /*$('select').wSelect();
+        $('#demo, #demo-multi').change(function() {
+          console.log($(this).val());
+        });
+        $('#demo').val('AU').change(); // should see in console
+        $('#demo').val('PL').wSelect('change'); // should see the selected option change to three
+        $('#demo').append('<option value="US" data-icon=".//plugins/namibiatourism/img/US.png">United States of America</option>').wSelect('reset');
+        $('#demo').val('CA').change();
+        
+        $('#demo-multi').val(['soccer', 'archery']).change();
+
+        // Testing append from one select to another.
+        $('#demo option:last').appendTo('#demo-multi');
+        $('#demo, #demo-multi').wSelect('reset');
+		*/
+      </script>
+<script src="/plugins/namibiatourism/js/jquery.bxslider.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	$('#searchMainWebsite').keyup(function(e){
+		if (e.which == 13) {
+			//alert('enger')
+			window.location = '/search/'+$('#searchMainWebsite').val();
+			//$("#searchClick").click();
+			
+		}
+		$('#searchClick').attr('href', '/search/'+$('#searchMainWebsite').val());	
+	});
+	
+	$('.slider4').bxSlider({
+		auto: true,
+		slideWidth: 320,
+		minSlides: 1,
+		maxSlides: 3,
+		moveSlides: 1,
+		slideMargin: 20
+	});
+	
+	$('.slider10').bxSlider({
+		auto: true,
+		slideWidth: 'auto',
+		minSlides: 1,
+		maxSlides: 3,
+		moveSlides: 1,
+		slideMargin: 20
+	});
+  
+	$('#searchLocation').on('change', function() {
+		
+		var category = $( "#getSubCategories option:selected" ).val();
+		var subCategory = $( "#searchSubCategories option:selected" ).val();
+		var location = $( "#searchLocation option:selected" ).val();
+		//alert($("#searchSubCategories").val());
+		//return;
+		if(category == '')
+		{
+			category = 'all';
+		}	
+		if(subCategory == '')
+		{
+			subCategory = 'all';
+		}	
+		if(location == '')
+		{
+			location = 'all';
+		}	
+		
+		
+		$('#searchString').val('');	
+		$('html, body').animate({scrollTop:0}, '2000');
+		
+		if(xhr)
+		{
+			xhr.abort();
+		}
+		$('.hide-this-for-search').hide();
+		$('#loadingResults').show();
+		$('.website-idea').hide();
+		$('.newsContainer').hide();
+		var existingString = $("#searchLocation").val();
+		if(existingString == '')
+		{
+			existingString = 'all';
+		}	
+		
+		xhr = $.get('/ajaxbusiness/location/'+existingString, function(data) {
+			var bounds = new google.maps.LatLngBounds();
+			deleteOverlays();
+			window.history.pushState("object or string", "Namibia Tourism Board", '/business/all/all/'+existingString);			
+			$('.newsContainer').html('');
+			
+			/*
+			if(data.length > 0)
+			{
+				$('.newsContainer').append('<p>There is no results</p>');	
+			}
+			*/
+			
+			for (var key in data)
+			{
+				//alert(key);
+			
+				//alert(data[key].BUSINESS_NAME);
+				
+				
+				var businessListings =  '<div class="businessEntry" style="background:url('+data[key].BUSINESS_COVER_PHOTO+') center no-repeat">'+                    
+                       	'<img height="30px" src="'+data[key].BUSINESS_LOGO_IMAGE_NAME+'" />'+
+                        '<p class="firstNewsParagraph">'+data[key].BUSINESS_NAME+'<a class="readMoreNews" href="'+data[key].MICROSITE_LINK+'">read more</a><em></em><strong></strong></p>'+
+                        '<p class="secondNewsParagraph">'+data[key].BUSINESS_DESCRIPTION_CLEAN+'</p>'+
+                    '</div>';
+				//alert(businessListings);
+				$('.newsContainer').append(businessListings);
+				
+				//theIcon = eval('ico_small_'+data[key].CATEGORY_ID);
+				var position = new google.maps.LatLng(data[key].BUSINESS_MAP_LATITUDE, data[key].BUSINESS_MAP_LONGITUDE);
+				bounds.extend(position);
+				//alert(theIcon);
+				marker = new google.maps.Marker({
+					
+					//icon: theIcon,
+					//shadow: ico_background_services,
+					position: position,
+					map: map,
+					icon: '/img/icons/search-icon.png'
+				});
+				
+				google.maps.event.addListener(marker, 'click', (function(marker, key) {
+					return function() {
+						micrositeLink = data[key].MICROSITE_LINK;
+						//infowindow.setContent(companyheading+picture+companydesc+micrositeheading);
+						infowindow.setContent('<ul class="nav nav-tabs"><li><a class="openMicrosite" target="_blank" href="'+data[key].MICROSITE_LINK+'" >Open Microsite</a></li></ul><div class="InfoBoxHeader"><strong>'+data[key].BUSINESS_NAME+'</strong></div><div class="InfoBoxPicture"><img width="200px" align="middle" src="'+data[key].BUSINESS_LOGO_IMAGE_NAME+'"/></div><div class="InfoBoxDescription">'+data[key].BUSINESS_DESCRIPTION_CLEAN+'<strong> Open Microsite to read more.</strong></div>');
+						infowindow.open(map, marker);
+					}
+				})(marker, key));
+				
+				map.fitBounds(bounds);
+				markersArray.push(marker);
+								
+			}
+			
+			//$('.checkboxLoader').fadeOut();
+			var mcOptions = {gridSize: 50};
+			markerCluster = new MarkerClusterer(map, markersArray, mcOptions);
+			
+			//alert(businessListings);
+			$('#loadingResults').hide();
+			$('.newsContainer').show();
+			
+			//$('#results').show();
+		});	
+		$('#getSubCategories').prop('selectedIndex',0);
+		$('#searchSubCategories').prop('selectedIndex',0);
+		
+		xhr = $.get('/ajaxbusinesscount/searchcategory/'+category+'/'+subCategory+'/'+location, function(data) {
+			$('.pagination').html('');
+			var pages = data / 50;
+			pages = Math.ceil(pages)
+			//alert(pages);
+			for(x = 0;x < pages; x++)
+			{
+				 var pagiNation = '<li ><a href="/business/'+category+'/'+subCategory+'/'+location+'/'+ (x * 50) +'">'+(x+1)+'</a></li>';
+				 //alert(pagiNation);
+				 $('.pagination').append(pagiNation);
+			}
+		});
+	});
+	
+	$('#searchSubCategories').on('change', function() {
+		$('#searchString').val('');	
+		$('html, body').animate({scrollTop:0}, '2000');
+		
+		if(xhr)
+		{
+			xhr.abort();
+		}
+		$('.hide-this-for-search').hide();
+		$('#loadingResults').show();
+		$('.website-idea').hide();
+		$('.newsContainer').hide();
+		//$('.hide-this-for-search').hide();
+		//$('#loadingResults').show();
+		//$('.website-idea').hide();
+		//$('.newsContainer').hide();
+		var category = $( "#getSubCategories option:selected" ).val();
+		var subCategory = $( "#searchSubCategories option:selected" ).val();
+		var location = $( "#searchLocation option:selected" ).val();
+		//alert($("#searchSubCategories").val());
+		//return;
+		if(category == '')
+		{
+			category = 'all';
+		}	
+		if(subCategory == '')
+		{
+			subCategory = 'all';
+		}	
+		if(location == '')
+		{
+			location = 'all';
+		}	
+		
+		xhr = $.get('/ajaxbusinesscount/searchcategory/'+category+'/'+subCategory+'/'+location, function(data) {
+			$('.pagination').html('');
+			var pages = data / 50;
+			pages = Math.ceil(pages)
+			//alert(pages);
+			for(x = 0;x < pages; x++)
+			{
+				 var pagiNation = '<li ><a href="/business/'+category+'/'+subCategory+'/'+location+'/'+ (x * 50) +'">'+(x+1)+'</a></li>';
+				 //alert(pagiNation);
+				 $('.pagination').append(pagiNation);
+			}
+		});
+		
+		xhr = $.get('/ajaxbusiness/searchcategory/'+category+'/'+subCategory+'/'+location, function(data) {
+			var bounds = new google.maps.LatLngBounds();
+			deleteOverlays();
+			window.history.pushState("object or string", "Namibia Tourism Board", '/business/'+category+'/'+subCategory+'/'+location);		
+			$('.newsContainer').html('');
+			
+			for (var key in data)
+			{
+				//alert(key);
+			
+				//alert(data[key].BUSINESS_NAME);
+				
+				
+				var businessListings =  '<div class="businessEntry" style="background:url('+data[key].BUSINESS_COVER_PHOTO+') center no-repeat">'+                    
+                       	'<img height="30px" src="'+data[key].BUSINESS_LOGO_IMAGE_NAME+'" />'+
+                        '<p class="firstNewsParagraph">'+data[key].BUSINESS_NAME+'<a class="readMoreNews" href="'+data[key].MICROSITE_LINK+'">read more</a><em></em><strong></strong></p>'+
+                        '<p class="secondNewsParagraph">'+data[key].BUSINESS_DESCRIPTION_CLEAN+'</p>'+
+                    '</div>';
+				//alert(businessListings);
+				$('.newsContainer').append(businessListings);
+				
+				//theIcon = eval('ico_small_'+data[key].CATEGORY_ID);
+				var position = new google.maps.LatLng(data[key].BUSINESS_MAP_LATITUDE, data[key].BUSINESS_MAP_LONGITUDE);
+				bounds.extend(position);
+				//alert(theIcon);
+				marker = new google.maps.Marker({
+					
+					//icon: theIcon,
+					//shadow: ico_background_services,
+					position: position,
+					map: map,
+					icon: '/img/icons/search-icon.png'
+				});
+				
+				google.maps.event.addListener(marker, 'click', (function(marker, key) {
+					return function() {
+						micrositeLink = data[key].MICROSITE_LINK;
+						//infowindow.setContent(companyheading+picture+companydesc+micrositeheading);
+						infowindow.setContent('<ul class="nav nav-tabs"><li><a class="openMicrosite" target="_blank" href="'+data[key].MICROSITE_LINK+'" >Open Microsite</a></li></ul><div class="InfoBoxHeader"><strong>'+data[key].BUSINESS_NAME+'</strong></div><div class="InfoBoxPicture"><img width="200px" align="middle" src="'+data[key].BUSINESS_LOGO_IMAGE_NAME+'"/></div><div class="InfoBoxDescription">'+data[key].BUSINESS_DESCRIPTION_CLEAN+'<strong> Open Microsite to read more.</strong></div>');
+						infowindow.open(map, marker);
+					}
+				})(marker, key));
+				
+				
+				markersArray.push(marker);
+								
+			}
+			map.fitBounds(bounds);
+			//$('.checkboxLoader').fadeOut();
+			var mcOptions = {gridSize: 50};
+			markerCluster = new MarkerClusterer(map, markersArray, mcOptions);
+			var boundsListener = google.maps.event.addListener((map_canvas), 'bounds_changed', function(event) {
+				//this.setZoom(6);
+				google.maps.event.removeListener(boundsListener);
+			});
+			$('#loadingResults').hide();
+			$('.newsContainer').show();
+		});	
+		//$('#searchLocation').prop('selectedIndex',0);
+		
+		
+	});
+	
+	$('#getSubCategories').on('change', function() {
+		//alert('test');\
+		
+		var category = $( "#getSubCategories option:selected" ).val();
+		var subCategory = $( "#searchSubCategories option:selected" ).val();
+		var location = $( "#searchLocation option:selected" ).val();
+		//alert($("#searchSubCategories").val());
+		//return;
+		if(category == '')
+		{
+			category = 'all';
+		}	
+		if(subCategory == '')
+		{
+			subCategory = 'all';
+		}	
+		if(location == '')
+		{
+			location = 'all';
+		}	
+		
+		xhr3 = $.get('/ajaxbusinesscount/searchcategory/'+category+'/'+subCategory+'/'+location, function(data) {
+			$('.pagination').html('');
+			var pages = data / 50;
+			pages = Math.ceil(pages)
+			//alert(pages);
+			for(x = 0;x < pages; x++)
+			{
+				 var pagiNation = '<li ><a href="/business/'+category+'/'+subCategory+'/'+location+'/'+ (x * 50) +'">'+(x+1)+'</a></li>';
+				 //alert(pagiNation);
+				 $('.pagination').append(pagiNation);
+			}
+		});
+		
+		
+		$('#searchSubCategories').html('<option selected="selected" value=""> - Select sub category -</option>');
+		//$('#searchString').val('');	
+		$('html, body').animate({scrollTop:0}, '2000');
+		$('.hide-this-for-search').hide();
+		$('#loadingResults').show();
+		$('.website-idea').hide();
+		$('.newsContainer').hide();
+		
+		if(xhr)
+		{
+			xhr.abort();
+		}
+		//$('.hide-this-for-search').hide();
+		//$('#loadingResults').show();
+		//$('.website-idea').hide();
+		//$('.newsContainer').hide();
+		var location = $( "#searchLocation option:selected" ).val();
+		var existingString = $( "#getSubCategories option:selected" ).val();
+		//alert($("#searchSubCategories").val());
+		//return;
+		if(existingString == '')
+		{
+			existingString = 'all';
+		}
+		if(location == '')
+		{
+			location = 'all';
+		}		
+		
+		xhr = $.get('/ajaxbusiness/getsubcategory/'+existingString, function(data) {
+			//$('.newsContainer').html(data);
+			//$</h4>('#loadingResults').hide();
+			//$('.newsContainer').show();
+			
+			var categorySub = data;
+			
+			for (var key in categorySub)
+			{
+				 $('#searchSubCategories').append($("<option />").val(categorySub[key].ID).text(categorySub[key].CATEGORY_NAME));
+				//alert(categorySub[key].CATEGORY_NAME);
+			}
+			//$('#results').show();
+		});
+		
+		xhr = $.get('/ajaxbusiness/searchcategory/'+existingString+'/all/'+location, function(data) {
+			
+			var bounds = new google.maps.LatLngBounds();
+			deleteOverlays();
+			$('.newsContainer').html('');
+			window.history.pushState("object or string", "Namibia Tourism Board", '/business/'+existingString+'/all/'+location);		
+			
+			for (var key in data)
+			{
+				//alert(key);
+			
+				//alert(data[key].BUSINESS_NAME);
+				
+				
+				var businessListings =  '<div class="businessEntry" style="background:url('+data[key].BUSINESS_COVER_PHOTO+') center no-repeat">'+                    
+                       	'<img height="30px" src="'+data[key].BUSINESS_LOGO_IMAGE_NAME+'" />'+
+                        '<p class="firstNewsParagraph">'+data[key].BUSINESS_NAME+'<a class="readMoreNews" href="'+data[key].MICROSITE_LINK+'">read more</a><em></em><strong></strong></p>'+
+                        '<p class="secondNewsParagraph">'+data[key].BUSINESS_DESCRIPTION_CLEAN+'</p>'+
+                    '</div>';
+				//alert(businessListings);
+				$('.newsContainer').append(businessListings);
+				
+				//theIcon = eval('ico_small_'+data[key].CATEGORY_ID);
+				var position = new google.maps.LatLng(data[key].BUSINESS_MAP_LATITUDE, data[key].BUSINESS_MAP_LONGITUDE);
+				bounds.extend(position);
+				//alert(theIcon);
+				marker = new google.maps.Marker({
+					
+					//icon: theIcon,
+					//shadow: ico_background_services,
+					position: position,
+					map: map,
+					icon: '/img/icons/search-icon.png'
+				});
+				
+				google.maps.event.addListener(marker, 'click', (function(marker, key) {
+					return function() {
+						micrositeLink = data[key].MICROSITE_LINK;
+						//infowindow.setContent(companyheading+picture+companydesc+micrositeheading);
+						infowindow.setContent('<ul class="nav nav-tabs"><li><a class="openMicrosite" target="_blank" href="'+data[key].MICROSITE_LINK+'" >Open Microsite</a></li></ul><div class="InfoBoxHeader"><strong>'+data[key].BUSINESS_NAME+'</strong></div><div class="InfoBoxPicture"><img width="200px" align="middle" src="'+data[key].BUSINESS_LOGO_IMAGE_NAME+'"/></div><div class="InfoBoxDescription">'+data[key].BUSINESS_DESCRIPTION_CLEAN+'<strong> Open Microsite to read more.</strong></div>');
+						infowindow.open(map, marker);
+					}
+				})(marker, key));
+				
+				
+				markersArray.push(marker);
+								
+			}
+			map.fitBounds(bounds);
+			//$('.checkboxLoader').fadeOut();
+			var mcOptions = {gridSize: 50};
+			markerCluster = new MarkerClusterer(map, markersArray, mcOptions);
+			var boundsListener = google.maps.event.addListener((map_canvas), 'bounds_changed', function(event) {
+				//this.setZoom(6);
+				google.maps.event.removeListener(boundsListener);
+			});
+			$('#loadingResults').hide();
+			$('.newsContainer').show();
+		});	
+		
+		
+		//$('#searchLocation').prop('selectedIndex',0);
+	});
+  
+  
+	$(document).on('click', '.backTopMem', function(){
+		$('html, body').animate({scrollTop:0}, '2000');
+	});	
+	
+	$('#searchString').keyup(function(e) {
+		clearTimeout($.data(this, 'timer'));
+		if (e.keyCode == 13)
+			search(true);
+		else
+			$(this).data('timer', setTimeout(search, 500));
+	});
+	var xhr = false;
+	
+	function search(force) {
+		$('html, body').animate({scrollTop:0}, '2000');
+		if(xhr)
+		{
+			xhr.abort();
+		}
+		$('.hide-this-for-search').hide();
+		$('#loadingResults').show();
+		$('.website-idea').hide();
+		$('.newsContainer').hide();
+		var existingString = $("#searchString").val();
+		if(existingString == '')
+		{
+			existingString = 'all';
+		}
+		if (!force && existingString.length < 0) return; //wasn't enter, not > 2 char
+		xhr = $.get('/ajaxbusiness/'+existingString, function(data) {
+			var bounds = new google.maps.LatLngBounds();
+			deleteOverlays();
+			$('.newsContainer').html('');
+			for (var key in data)
+			{
+				//alert(key);
+			
+				//alert(data[key].BUSINESS_NAME);
+				
+				
+				var businessListings =  '<div class="businessEntry" style="background:url('+data[key].BUSINESS_COVER_PHOTO+') center no-repeat">'+                    
+                       	'<img height="30px" src="'+data[key].BUSINESS_LOGO_IMAGE_NAME+'" />'+
+                        '<p class="firstNewsParagraph">'+data[key].BUSINESS_NAME+'<a class="readMoreNews" href="'+data[key].MICROSITE_LINK+'">read more</a><em></em><strong></strong></p>'+
+                        '<p class="secondNewsParagraph">'+data[key].BUSINESS_DESCRIPTION_CLEAN+'</p>'+
+                    '</div>';
+				//alert(businessListings);
+				$('.newsContainer').append(businessListings);
+				
+				//theIcon = eval('ico_small_'+data[key].CATEGORY_ID);
+				var position = new google.maps.LatLng(data[key].BUSINESS_MAP_LATITUDE, data[key].BUSINESS_MAP_LONGITUDE);
+				bounds.extend(position);
+				//alert(theIcon);
+				marker = new google.maps.Marker({
+					
+					//icon: theIcon,
+					//shadow: ico_background_services,
+					position: position,
+					map: map,
+					icon: '/img/icons/search-icon.png'
+				});
+				
+				google.maps.event.addListener(marker, 'click', (function(marker, key) {
+					return function() {
+						micrositeLink = data[key].MICROSITE_LINK;
+						//infowindow.setContent(companyheading+picture+companydesc+micrositeheading);
+						infowindow.setContent('<ul class="nav nav-tabs"><li><a class="openMicrosite" target="_blank" href="'+data[key].MICROSITE_LINK+'" >Open Microsite</a></li></ul><div class="InfoBoxHeader"><strong>'+data[key].BUSINESS_NAME+'</strong></div><div class="InfoBoxPicture"><img width="200px" align="middle" src="'+data[key].BUSINESS_LOGO_IMAGE_NAME+'"/></div><div class="InfoBoxDescription">'+data[key].BUSINESS_DESCRIPTION_CLEAN+'<strong> Open Microsite to read more.</strong></div>');
+						infowindow.open(map, marker);
+					}
+				})(marker, key));
+				
+				
+				markersArray.push(marker);
+								
+			}
+			map.fitBounds(bounds);
+			//$('.checkboxLoader').fadeOut();
+			var mcOptions = {gridSize: 50};
+			markerCluster = new MarkerClusterer(map, markersArray, mcOptions);
+			var boundsListener = google.maps.event.addListener((map_canvas), 'bounds_changed', function(event) {
+				//this.setZoom(6);
+				google.maps.event.removeListener(boundsListener);
+			});
+			$('#loadingResults').hide();
+			$('.newsContainer').show();
+			
+			//$('#results').show();
+		});
+		$('#getSubCategories').prop('selectedIndex',0);
+		$('#searchSubCategories').prop('selectedIndex',0);
+		$('#searchLocation').prop('selectedIndex',0);
+		
+	}
+	
+	
+});
+
+// Deletes all markers in the array by removing references to them
+function deleteOverlays() {
+ 
+  deleteOverlaysCluster();
+  if (markersArray) {
+    for (i in markersArray) {
+      markersArray[i].setMap(null);
+    }
+    markersArray.length = 0;
+  }
+}
+
+function deleteOverlaysCluster() {
+ 	markerCluster.clearMarkers();
+}
+
+$(function() {
+    
+    var $formLogin = $('#login-form');
+    var $formLost = $('#lost-form');
+    var $formRegister = $('#register-form');
+    var $divForms = $('#div-forms');
+    var $modalAnimateTime = 300;
+    var $msgAnimateTime = 150;
+    var $msgShowTime = 2000;
+
+    
+    $('#login_register_btn').click( function () { modalAnimate($formLogin, $formRegister) });
+    $('#register_login_btn').click( function () { modalAnimate($formRegister, $formLogin); });
+    $('#login_lost_btn').click( function () { modalAnimate($formLogin, $formLost); });
+    $('#lost_login_btn').click( function () { modalAnimate($formLost, $formLogin); });
+    $('#lost_register_btn').click( function () { modalAnimate($formLost, $formRegister); });
+    $('#register_lost_btn').click( function () { modalAnimate($formRegister, $formLost); });
+    
+    function modalAnimate ($oldForm, $newForm) {
+        var $oldH = $oldForm.height();
+        var $newH = $newForm.height();
+        $divForms.css("height",$oldH);
+        $oldForm.fadeToggle($modalAnimateTime, function(){
+            $divForms.animate({height: $newH}, $modalAnimateTime, function(){
+                $newForm.fadeToggle($modalAnimateTime);
+            });
+        });
+    }
+    
+   
+   
+   
+   
+   
+   
+   
+      
+   
+   
+   
+   
+   xhr = $.get('/ajaxbusiness/searchcategory///', function(data) {
+			var bounds = new google.maps.LatLngBounds();
+			deleteOverlays();
+			//window.history.pushState("object or string", "Namibia Tourism Board", '/business/'+category+'/'+subCategory+'/'+location);		
+			//$('.newsContainer').html('');
+			
+			for (var key in data)
+			{
+				//alert(key);
+			
+				//alert(data[key].BUSINESS_NAME);
+				
+				/*
+				var businessListings =  '<div class="businessEntry" style="background:url('+data[key].BUSINESS_COVER_PHOTO+') center no-repeat">'+                    
+                       	'<img height="30px" src="'+data[key].BUSINESS_LOGO_IMAGE_NAME+'" />'+
+                        '<p class="firstNewsParagraph">'+data[key].BUSINESS_NAME+'<a class="readMoreNews" href="'+data[key].MICROSITE_LINK+'">read more</a><em></em><strong></strong></p>'+
+                        '<p class="secondNewsParagraph">'+data[key].BUSINESS_DESCRIPTION_CLEAN+'</p>'+
+                    '</div>';
+				//alert(businessListings);
+				$('.newsContainer').append(businessListings);
+				*/
+				
+				//theIcon = eval('ico_small_'+data[key].CATEGORY_ID);
+				var position = new google.maps.LatLng(data[key].BUSINESS_MAP_LATITUDE, data[key].BUSINESS_MAP_LONGITUDE);
+				bounds.extend(position);
+				//alert(theIcon);
+				marker = new google.maps.Marker({
+					
+					//icon: theIcon,
+					//shadow: ico_background_services,
+					position: position,
+					map: map,
+					icon: '/img/icons/search-icon.png'
+				});
+				
+				google.maps.event.addListener(marker, 'click', (function(marker, key) {
+					return function() {
+						micrositeLink = data[key].MICROSITE_LINK;
+						//infowindow.setContent(companyheading+picture+companydesc+micrositeheading);
+						infowindow.setContent('<ul class="nav nav-tabs"><li><a class="openMicrosite" target="_blank" href="'+data[key].MICROSITE_LINK+'" >Open Microsite</a></li></ul><div class="InfoBoxHeader"><strong>'+data[key].BUSINESS_NAME+'</strong></div><div class="InfoBoxPicture"><img width="200px" align="middle" src="'+data[key].BUSINESS_LOGO_IMAGE_NAME+'"/></div><div class="InfoBoxDescription">'+data[key].BUSINESS_DESCRIPTION_CLEAN+'<strong> Open Microsite to read more.</strong></div>');
+						infowindow.open(map, marker);
+					}
+				})(marker, key));
+				
+				
+				markersArray.push(marker);
+								
+			}
+			map.fitBounds(bounds);
+			//$('.checkboxLoader').fadeOut();
+			var mcOptions = {gridSize: 50};
+			markerCluster = new MarkerClusterer(map, markersArray, mcOptions);
+			var boundsListener = google.maps.event.addListener((map_canvas), 'bounds_changed', function(event) {
+				//this.setZoom(6);
+				google.maps.event.removeListener(boundsListener);
+			});
+			$('#loadingResults').hide();
+			$('.newsContainer').show();
+		});
+   
+});
+
+</script>
+<!-- SmartMenus jQuery Bootstrap Addon CSS -->
+<script type="text/javascript" src="http://vadikom.github.io/smartmenus/src/jquery.smartmenus.js"></script>
+<script src="http://vadikom.github.io/smartmenus/src/addons/bootstrap/jquery.smartmenus.bootstrap.js"></script>
+<link href="http://vadikom.github.io/smartmenus/src/addons/bootstrap/jquery.smartmenus.bootstrap.css" rel="stylesheet">
+
+<style type="text/css">
+
+	#login-modal .modal-dialog {
+		width: 350px;
+	}
+	
+	#login-modal input[type=text], input[type=password] {
+		margin-top: 10px;
+	}
+	
+	#div-login-msg,
+	#div-lost-msg,
+	#div-register-msg {
+		border: 1px solid #dadfe1;
+		height: 30px;
+		line-height: 28px;
+		transition: all ease-in-out 500ms;
+	}
+	
+	#div-login-msg.success,
+	#div-lost-msg.success,
+	#div-register-msg.success {
+		border: 1px solid #68c3a3;
+		background-color: #c8f7c5;
+	}
+	
+	#div-login-msg.error,
+	#div-lost-msg.error,
+	#div-register-msg.error {
+		border: 1px solid #eb575b;
+		background-color: #ffcad1;
+	}
+	
+	#icon-login-msg,
+	#icon-lost-msg,
+	#icon-register-msg {
+		width: 30px;
+		float: left;
+		line-height: 28px;
+		text-align: center;
+		background-color: #dadfe1;
+		margin-right: 5px;
+		transition: all ease-in-out 500ms;
+	}
+	
+	#icon-login-msg.success,
+	#icon-lost-msg.success,
+	#icon-register-msg.success {
+		background-color: #68c3a3 !important;
+	}
+	
+	#icon-login-msg.error,
+	#icon-lost-msg.error,
+	#icon-register-msg.error {
+		background-color: #eb575b !important;
+	}
+	
+	#img_logo {
+		max-height: 100px;
+		max-width: 100px;
+	}
+	
+	/* #########################################
+	   #    override the bootstrap configs     #
+	   ######################################### */
+	
+	.modal-backdrop.in {
+		filter: alpha(opacity=50);
+		opacity: .8;
+	}
+	
+	.modal-content {
+		background-color: #ececec;
+		border: 1px solid #bdc3c7;
+		border-radius: 0px;
+		outline: 0;
+	}
+	
+	.modal-header {
+		min-height: 16.43px;
+		padding: 15px 15px 15px 15px;
+		border-bottom: 0px;
+	}
+	
+	.modal-body {
+		position: relative;
+		padding: 5px 15px 5px 15px;
+	}
+	
+	.modal-footer {
+		padding: 15px 15px 15px 15px;
+		text-align: left;
+		border-top: 0px;
+	}
+	
+	.checkbox {
+		margin-bottom: 0px;
+	}
+	
+	.btn {
+		border-radius: 0px;
+	}
+	
+	.btn:focus,
+	.btn:active:focus,
+	.btn.active:focus,
+	.btn.focus,
+	.btn:active.focus,
+	.btn.active.focus {
+		outline: none;
+	}
+	
+	.btn-lg, .btn-group-lg>.btn {
+		border-radius: 0px;
+	}
+	
+	.btn-link {
+		padding: 5px 10px 0px 0px;
+		color: #95a5a6;
+	}
+	
+	.btn-link:hover, .btn-link:focus {
+		color: #2c3e50;
+		text-decoration: none;
+	}
+	
+	.glyphicon {
+		top: 0px;
+	}
+	
+	.form-control {
+	  border-radius: 0px;
+	}
+
+</style>
+
+</head>
+<body>
+<!--
+<div style="background:#333; color:#FFF">
+    <div class="container">
+        <div class="col-sm-12">
+            <div class="pre-header-left left"></div>
+    
+            <div style="text-align:right">
+            	<strong><a style="color:#FFF; display:block; width:100px; height:25px; text-align:center; border:1px solid #CCC; line-height:25px; float:right" href="#" role="button" data-toggle="modal" data-target="#login-modal">Sign in</a></strong>
+            </div> 
+        </div>
+    </div>
+</div>
+-->
+<!--Header-->
+<header>  
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="logo"><a href="/"><img src="/plugins/namibiatourism/img/logo.png" class="img-responsive" alt=""/></a></div>
+          <div class="search-box">
+          	<input id="searchMainWebsite" type="search" placeholder="Search"><a id="searchClick" href="#"><i class="fa fa-search"></i></a>
+          </div>
+          <ul class="top-social">
+           <li><a target="_blank" href="https://www.flickr.com/photos/namibia_endless_horizon/"><i class="fa fa-flickr"></i></a></li>
+           <li><a target="_blank" href="https://www.pinterest.com/Onlyinnamibia/"><i class="fa fa-pinterest"></i></a></li>
+           <li><a target="_blank" href="https://twitter.com/NamibiaHorizons"><i class="fa fa-twitter"></i></a></li>
+           <li><a target="_blank" href="https://www.youtube.com/user/NamibiaHorizons"><i class="fa fa-youtube"></i></a></li>
+           <li><a target="_blank" href="https://www.facebook.com/NamibiaEndlessHorizons"><i class="fa fa-facebook-square"></i></a></li>
+          </ul>          
+          <!--<ul class="top-links">-->
+         <!--
+          <ul class="nav navbar-nav top-links">
+           <li><a href="/page/about-ntb">About</a></li>
+           <li><a href="#">Partner Sites</a>
+           		<ul class="dropdown-menu sm-nowrap" id="sm-14376691069763523-16" role="group" aria-hidden="true" aria-labelledby="sm-14376691069763523-15" aria-expanded="false" style="width: auto; display: none; top: auto; left: 0px; margin-left: 0px; margin-top: 0px; min-width: 10em; max-width: 20em;">
+                        
+					
+					<li class="">
+						<a href="/page/media">Media/Press</a>
+					</li>
+					
+					
+					<li class="">
+						<a href="/page/international-trade">International Trade</a>
+					</li>
+					
+           		</ul>
+           
+           </li>
+          </ul>
+          -->
+          <ul class="login-buttons">
+           <li><a target="_blank" href="https://www.my.na/ntb/landing/">NTB Member Login</a></li>
+           
+                      <li><a data-toggle="modal" data-target="#login-modal">Sign in</a></li>
+                      <!--<li><a href="#">Join</a></li>-->
+          </ul>
+          <div class="language-drop">         
+            <div id="google_translate_element"></div><script type="text/javascript">
+			function googleTranslateElementInit() {
+			  new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+			}
+			</script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+					
+          </div>                 
+        </div>
+      </div>
+    </div>   
+</header>
+<!--navigation-->
+<section class="nav-part">
+ <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <nav class="navbar navbar-default" role="navigation">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+           </div>
+          <div id="navbar" class="navbar-collapse collapse">
+          	<ul class="nav navbar-nav">
+        
+					<li>
+                      <a href="/page/about-namibia">
+					  		About Namibia
+					  </a>
+                      <ul class="dropdown-menu">
+                        
+					
+					<li class="">
+						<a href="/page/history">History</a>
+					</li>
+					
+					
+					<li class="">
+						<a href="/page/conservation">Conservation</a>
+					</li>
+					
+					<li>
+                      <a href="/page/culture">
+					  		Culture
+					  </a>
+                      <ul class="dropdown-menu">
+                        
+					
+					<li class="">
+						<a href="/page/kavango">Kavango</a>
+					</li>
+					
+					
+					<li class="">
+						<a href="/page/caprivians">Caprivians</a>
+					</li>
+					
+					
+					<li class="">
+						<a href="/page/tswanas">Tswanas</a>
+					</li>
+					
+					
+					<li class="">
+						<a href="/page/san">San</a>
+					</li>
+					
+					
+					<li class="">
+						<a href="/page/coloured">Coloured</a>
+					</li>
+					
+					
+					<li class="">
+						<a href="/page/basters">Basters</a>
+					</li>
+					
+					
+					<li class="">
+						<a href="/page/damara">Damara</a>
+					</li>
+					
+					
+					<li class="">
+						<a href="/page/herero">Herero</a>
+					</li>
+					
+					
+					<li class="">
+						<a href="/page/nama">Nama</a>
+					</li>
+					
+					
+					<li class="">
+						<a href="/page/himba">Himba</a>
+					</li>
+					
+					
+					<li class="">
+						<a href="/page/owambo">Owambo</a>
+					</li>
+					
+					
+					<li class="">
+						<a href="/page/whites">Whites</a>
+					</li>
+					
+                      </ul>
+                    </li>
+					
+					<li>
+                      <a href="/page/geography">
+					  		Geography
+					  </a>
+                      <ul class="dropdown-menu">
+                        
+					
+					<li class="">
+						<a href="/page/east">East</a>
+					</li>
+					
+					
+					<li class="">
+						<a href="/page/south">South</a>
+					</li>
+					
+					
+					<li class="">
+						<a href="/page/kavango">Kavango</a>
+					</li>
+					
+					
+					<li class="">
+						<a href="/page/central">Central</a>
+					</li>
+					
+					
+					<li class="">
+						<a href="/page/namib-coastal">Namib Coastal</a>
+					</li>
+					
+					
+					<li class="">
+						<a href="/page/central-north">Central North</a>
+					</li>
+					
+					
+					<li class="">
+						<a href="/page/north-west">North West</a>
+					</li>
+					
+					
+					<li class="">
+						<a href="/page/caprivi">Caprivi</a>
+					</li>
+					
+                      </ul>
+                    </li>
+					
+					
+					<li class="">
+						<a href="/page/climate">Climate</a>
+					</li>
+					
+					<li>
+                      <a href="/page/share-my-namibia">
+					  		Share My Namibia
+					  </a>
+                      <ul class="dropdown-menu">
+                        
+					
+					<li class="">
+						<a href="/page/share-my-l-deritz">Share My Lüderitz</a>
+					</li>
+					
+					
+					<li class="">
+						<a href="/page/share-my-fish-river-canyon">Share My Fish River Canyon</a>
+					</li>
+					
+					
+					<li class="">
+						<a href="/page/share-my-caprivi">Share My Caprivi</a>
+					</li>
+					
+					
+					<li class="">
+						<a href="/page/share-my-central-namibia">Share My Central Namibia</a>
+					</li>
+					
+					
+					<li class="">
+						<a href="/page/share-my-coast">Share My Coast</a>
+					</li>
+					
+					
+					<li class="">
+						<a href="/page/share-my-kalahari">Share My Kalahari</a>
+					</li>
+					
+					
+					<li class="">
+						<a href="/page/share-my-northwest-namibia">Share My Northwest Namibia</a>
+					</li>
+					
+					
+					<li class="">
+						<a href="/page/share-my-owambo">Share My Owambo</a>
+					</li>
+					
+					
+					<li class="">
+						<a href="/page/share-my-sossusvlei">Share My Sossusvlei</a>
+					</li>
+					
+					
+					<li class="">
+						<a href="/page/share-my-damaraland">Share My Damaraland</a>
+					</li>
+					
+					
+					<li class="">
+						<a href="/page/share-my-etosha">Share My Etosha</a>
+					</li>
+					
+					
+					<li class="">
+						<a href="/page/share-my-windhoek">Share My Windhoek</a>
+					</li>
+					
+                      </ul>
+                    </li>
+					
+					<li>
+                      <a href="/page/wildlife">
+					  		Wildlife
+					  </a>
+                      <ul class="dropdown-menu">
+                        
+					
+					<li class="">
+						<a href="/page/plants">Plants</a>
+					</li>
+					
+					
+					<li class="">
+						<a href="/page/animals">Animals</a>
+					</li>
+					
+					
+					<li class="">
+						<a href="/page/birds">Birds</a>
+					</li>
+					
+                      </ul>
+                    </li>
+					
+					
+					<li class="">
+						<a href="/page/fast-facts">Fast Facts</a>
+					</li>
+					
+                      </ul>
+                    </li>
+					
+					<li>
+                      <a href="/page/what-to-do">
+					  		What to do
+					  </a>
+                      <ul class="dropdown-menu">
+                        
+					<li>
+                      <a href="/page/adventure-activities">
+					  		Adventure & Activities
+					  </a>
+                      <ul class="dropdown-menu">
+                        
+					<li>
+                      <a href="/page/land">
+					  		Land
+					  </a>
+                      <ul class="dropdown-menu">
+                        
+					
+					<li class="">
+						<a href="/page/4x4">4x4</a>
+					</li>
+					
+					
+					<li class="">
+						<a href="/page/birding">Birding</a>
+					</li>
+					
+					
+					<li class="">
+						<a href="/page/caving">Caving</a>
+					</li>
+					
+					
+					<li class="">
+						<a href="/page/endurance">Endurance</a>
+					</li>
+					
+					
+					<li class="">
+						<a href="/page/geology">Geology</a>
+					</li>
+					
+					
+					<li class="">
+						<a href="/page/hiking">Hiking</a>
+					</li>
+					
+					
+					<li class="">
+						<a href="/page/horseback-riding">Horseback Riding</a>
+					</li>
+					
+					
+					<li class="">
+						<a href="/page/climbing">Climbing</a>
+					</li>
+					
+					
+					<li class="">
+						<a href="/page/photography">Photography</a>
+					</li>
+					
+					
+					<li class="">
+						<a href="/page/camping">Camping</a>
+					</li>
+					
+                      </ul>
+                    </li>
+					
+					<li>
+                      <a href="/page/sand">
+					  		Sand
+					  </a>
+                      <ul class="dropdown-menu">
+                        
+					
+					<li class="">
+						<a href="/page/quadbiking">Quadbiking</a>
+					</li>
+					
+					
+					<li class="">
+						<a href="/page/dune-sandboarding">Dune & Sandboarding</a>
+					</li>
+					
+                      </ul>
+                    </li>
+					
+					<li>
+                      <a href="/page/sky">
+					  		Sky
+					  </a>
+                      <ul class="dropdown-menu">
+                        
+					
+					<li class="">
+						<a href="/page/flying-gliding">Flying & Gliding</a>
+					</li>
+					
+					
+					<li class="">
+						<a href="/page/skydiving">Skydiving</a>
+					</li>
+					
+					
+					<li class="">
+						<a href="/page/ballooning">Ballooning</a>
+					</li>
+					
+					
+					<li class="">
+						<a href="/page/paragliding">Paragliding</a>
+					</li>
+					
+                      </ul>
+                    </li>
+					
+					<li>
+                      <a href="/page/water">
+					  		Water
+					  </a>
+                      <ul class="dropdown-menu">
+                        
+					
+					<li class="">
+						<a href="/page/catamaran">Catamaran</a>
+					</li>
+					
+					
+					<li class="">
+						<a href="/page/dolphin-cruises">Dolphin Cruises</a>
+					</li>
+					
+					
+					<li class="">
+						<a href="/page/canoeing-kayaking-rafting">Canoeing, Kayaking & Rafting</a>
+					</li>
+					
+					
+					<li class="">
+						<a href="/page/diving">Diving</a>
+					</li>
+					
+					
+					<li class="">
+						<a href="/page/windsurfing">Windsurfing</a>
+					</li>
+					
+					
+					<li class="">
+						<a href="/page/kitesurfing">Kitesurfing</a>
+					</li>
+					
+                      </ul>
+                    </li>
+					
+                      </ul>
+                    </li>
+					
+					
+					<li class="">
+						<a href="/page/safari-tours">Safari & Tours</a>
+					</li>
+					
+					
+					<li class="">
+						<a href="/page/wellness">Wellness</a>
+					</li>
+					
+					
+					<li class="">
+						<a href="/page/community-based-tourism">Community Based Tourism</a>
+					</li>
+					
+					
+					<li class="">
+						<a href="/page/volunteer-opportunities">Volunteer Opportunities</a>
+					</li>
+					
+					
+					<li class="">
+						<a href="/business">Business</a>
+					</li>
+					
+					<li>
+                      <a href="/page/city-guide">
+					  		City Guide
+					  </a>
+                      <ul class="dropdown-menu">
+                        
+					
+					<li class="">
+						<a href="/page/windhoek">Windhoek</a>
+					</li>
+					
+					
+					<li class="">
+						<a href="/page/swakopmund">Swakopmund</a>
+					</li>
+					
+					
+					<li class="">
+						<a href="/page/cities-towns">Cities & Towns</a>
+					</li>
+					
+                      </ul>
+                    </li>
+					
+					
+					<li class="">
+						<a href="/page/hunting">Hunting</a>
+					</li>
+					
+					
+					<li class="">
+						<a href="/page/namibia-tourism-brochures">Namibia Tourism Brochures</a>
+					</li>
+					
+                      </ul>
+                    </li>
+					
+					<li>
+                      <a href="/page/destinations">
+					  		Destinations
+					  </a>
+                      <ul class="dropdown-menu">
+                        
+					
+					<li class="">
+						<a href="/page/top-destinations">Top Destinations</a>
+					</li>
+					
+					<li>
+                      <a href="/page/cities-towns">
+					  		Cities & Towns
+					  </a>
+                      <ul class="dropdown-menu">
+                        
+					
+					<li class="">
+						<a href="/page/aranos">Aranos</a>
+					</li>
+					
+					
+					<li class="">
+						<a href="/page/keetmanshoop">Keetmanshoop</a>
+					</li>
+					
+                      </ul>
+                    </li>
+					
+					
+					<li class="">
+						<a href="/page/regions">Regions</a>
+					</li>
+					
+					
+					<li class="">
+						<a href="/page/national-parks">National Parks</a>
+					</li>
+					
+                      </ul>
+                    </li>
+					
+					<li>
+                      <a href="/page/plan-your-trip">
+					  		Plan your trip
+					  </a>
+                      <ul class="dropdown-menu">
+                        
+					
+					<li class="">
+						<a href="/business">Find Useful Services</a>
+					</li>
+					
+					<li>
+                      <a href="/page/getting-here-around">
+					  		Getting Here & Around
+					  </a>
+                      <ul class="dropdown-menu">
+                        
+					
+					<li class="">
+						<a href="/page/currency">Currency</a>
+					</li>
+					
+					
+					<li class="">
+						<a href="/page/flights">Flights</a>
+					</li>
+					
+					
+					<li class="">
+						<a href="/page/visas">Visas</a>
+					</li>
+					
+					
+					<li class="">
+						<a href="/page/what-to-pack">What to Pack</a>
+					</li>
+					
+					
+					<li class="">
+						<a href="/page/health">Health</a>
+					</li>
+					
+					
+					<li class="">
+						<a href="/page/transportation">Transportation</a>
+					</li>
+					
+                      </ul>
+                    </li>
+					
+					
+					<li class="">
+						<a href="/page/download-travel-planning-guides">Download Travel Planning Guides</a>
+					</li>
+					
+					
+					<li class="">
+						<a href="/business/5/all/all">Find Popular Attractions</a>
+					</li>
+					
+					
+					<li class="">
+						<a href="/page/community-based-tourism-2">Community Based Tourism</a>
+					</li>
+					
+					
+					<li class="">
+						<a href="/business/4/431/all">Find Safari & Tour Guides</a>
+					</li>
+					
+					
+					<li class="">
+						<a href="/business/4/all/all">Find Adventure Activities</a>
+					</li>
+					
+					
+					<li class="">
+						<a href="/map">Interactive Map</a>
+					</li>
+					
+					
+					<li class="">
+						<a href="/business/3/all/all">Find Accommodation</a>
+					</li>
+					
+					
+					<li class="">
+						<a href="/business/5/all/all">Find Popular Attractions</a>
+					</li>
+					
+                      </ul>
+                    </li>
+					
+					<li>
+                      <a href="/page/multimedia">
+					  		Multimedia
+					  </a>
+                      <ul class="dropdown-menu">
+                        
+					
+					<li class="">
+						<a href="/gallery">Media Gallery</a>
+					</li>
+					
+					
+					<li class="">
+						<a href="/page/videos">Videos</a>
+					</li>
+					
+					
+					<li class="">
+						<a href="/page/geo-stories">Geo Stories</a>
+					</li>
+					
+					
+					<li class="">
+						<a href="/page/downloads">Downloads</a>
+					</li>
+					
+                      </ul>
+                    </li>
+					
+					
+					<li class="">
+						<a href="/blog">Blog</a>
+					</li>
+					
+					
+					<li class="">
+						<a href="/tourismroute">Routes</a>
+					</li>
+					
+					<li>
+                      <a href="/page/about-us">
+					  		About us
+					  </a>
+                      <ul class="dropdown-menu">
+                        
+					
+					<li class="">
+						<a href="/page/research-center">Research Center</a>
+					</li>
+					
+					
+					<li class="">
+						<a href="/page/tenders-vacancies">Tenders & Vacancies</a>
+					</li>
+					
+					
+					<li class="">
+						<a href="/page/trade-road-shows">Trade & Road shows</a>
+					</li>
+					
+					
+					<li class="">
+						<a href="/page/application-forms">Application forms</a>
+					</li>
+					
+					<li>
+                      <a href="/page/international-trade">
+					  		International Trade
+					  </a>
+                      <ul class="dropdown-menu">
+                        
+					
+					<li class="">
+						<a href="/page/sales-promotional-tools">Sales & Promotional Tools</a>
+					</li>
+					
+					
+					<li class="">
+						<a href="/signupnewsletter">Sign up for NTB Campfire Newsletter</a>
+					</li>
+					
+					
+					<li class="">
+						<a href="/page/fam-educational-trips">FAM & Educational Trips</a>
+					</li>
+					
+					
+					<li class="">
+						<a href="/page/get-listed-on-our-website">Get listed on our website</a>
+					</li>
+					
+                      </ul>
+                    </li>
+					
+					
+					<li class="active">
+						<a href="/page/privacy-policy">Privacy Policy</a>
+					</li>
+					
+					
+					<li class="">
+						<a href="/page/disclaimer">Disclaimer</a>
+					</li>
+					
+                      </ul>
+                    </li>
+					
+					<li>
+                      <a href="/page/partner-sites">
+					  		Partner Sites
+					  </a>
+                      <ul class="dropdown-menu">
+                        
+					<li>
+                      <a href="/page/media">
+					  		Media
+					  </a>
+                      <ul class="dropdown-menu">
+                        
+					
+					<li class="">
+						<a href="/page/digital-marketing">Digital Marketing</a>
+					</li>
+					
+                      </ul>
+                    </li>
+					
+                      </ul>
+                    </li>
+					
+					
+					<li class="">
+						<a href="/contact_us">Contact us</a>
+					</li>
+					
+    </ul> 
+          
+          	<!--
+            <ul class="nav navbar-nav  menu">                                                        
+              <li><a href="#">About Namibia</a></li>
+              <li><a href="#">What to do</a></li>
+              <li><a href="#">Destinations</a></li>
+              <li><a href="#">Plan your trip</a></li>
+              <li><a href="#">About us</a></li>
+              <li><a href="#">Multimedia</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Routes</a></li>
+            </ul>
+            -->
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<style type="text/css">
+	.thePageContent{ line-height:30px; margin-bottom:40px}
+	.pageHeading{margin:40px 0}
+	
+	
+	td, th{ border:1px solid #E9E9E9; padding:5px}
+</style>
+
+
+<div class="clear"></div>
+<div class="container">
+    <div class="col-md-12">
+        <ul class="breadcrumb">
+            <li><a href="/">Home</a></li>
+            <li class="active">Privacy Policy</li>
+        </ul>
+	</div>
+</div>
+
+<!--content form news part-->
+<section class="website-content-part">
+    <div class="container">
+        
+          <div class="row">
+                <h1 class="pageHeading">Privacy Policy</h1>
+                <div class="thePageContent">
+                	<p>
+	 <strong>The Namibia Tourism Board website Privacy Policy</strong>
+</p>
+<p>
+	 <strong>What information do we collect?</strong><br>
+	 We collect information from you when you register on our site, subscribe to our newsletter, respond to a survey or fill out a form.
+</p>
+<p>
+	When registering on our site, as appropriate, you may be asked to enter your: name, e-mail address, mailing address or phone number. You may, however, visit our site anonymously.
+</p>
+<p>
+	<strong>What do we use your information for?</strong><br>
+	 Any of the information we collect from you may be used in one of the following ways:
+</p>
+<p>
+	To personalize your experience<br>
+	 (your information helps us to better respond to your individual needs)
+</p>
+<p>
+	To improve our website<br>
+	 (we continually strive to improve our website offerings based on the information and feedback we receive from you)
+</p>
+<p>
+	To improve customer service<br>
+	 (your information helps us to more effectively respond to your customer service requests and support needs)
+</p>
+<p>
+	To administer a contest, promotion, survey or other site feature
+</p>
+<p>
+	To send periodic emails
+</p>
+<p>
+	The email address you provide may be used to send you information, respond to inquiries, and/or other requests or questions.
+</p>
+<p>
+	<strong>How do we protect your information?</strong><br>
+	 We implement a variety of security measures to maintain the safety of your personal information when you enter, submit, or access your personal information.
+</p>
+<p>
+	<strong>Do we use cookies?</strong><br>
+	 Yes (Cookies are small files that a site or its service provider transfers to your computerâ€™s hard drive through your Web browser (if you allow) that enables the sites or service providers systems to recognize your browser and capture and remember certain information
+</p>
+<p>
+	We use cookies to understand and save your preferences for future visits and compile aggregate data about site traffic and site interaction so that we can offer better site experiences and tools in the future.
+</p>
+<p>
+	<strong>Do we disclose any information to outside parties?</strong><br>
+	 We do not sell, trade, or otherwise transfer to outside parties your personally identifiable information. This does not include trusted third parties who assist us in operating our website, conducting our business, or servicing you, so long as those parties agree to keep this information confidential. We may also release your information when we believe release is appropriate to comply with the law, enforce our site policies, or protect ours or others rights, property, or safety. However, non-personally identifiable visitor information may be provided to other parties for marketing, advertising, or other uses.
+</p>
+<p>
+	<strong>Third party links</strong><br>
+	 Occasionally, at our discretion, we may include or offer third party products or services on our website. These third party sites have separate and independent privacy policies. We therefore have no responsibility or liability for the content and activities of these linked sites. Nonetheless, we seek to protect the integrity of our site and welcome any feedback about these sites.
+</p>
+<p>
+	<strong>Online Privacy Policy Only</strong><br>
+	 This online privacy policy applies only to information collected through our website and not to information collected offline.
+</p>
+<p>
+	<strong>Your Consent</strong><br>
+	 By using our site, you consent to ouronline privacy policy.
+</p>
+<p>
+	<strong>Changes to our Privacy Policy</strong><br>
+	 If we decide to change our privacy policy, we will post those changes on this page.
+</p>
+<p>
+	This policy was last modified on 30 November 2011
+</p>
+<p>
+	<strong>Contacting Us</strong><br>
+	 If there are any questions regarding this privacy policy you may contact us using the information below.
+</p>
+<p>
+	<a href="http://www.namibiatourism.com.na">www.namibiatourism.com.na</a><br>
+	 Private Bag 13244 <br>
+	 Windhoek<br>
+	 Namibia<br>
+	 info@namibiatourism.com.na
+</p>
+                </div>
+          </div>
+	</div>
+</section>
+<!--explore the world part-->
+<section class="explore-world-part">
+    <div class="container">
+        <div class="row">
+                   
+        </div>
+    </div>
+</section>
+<!--
+<section class="namibia-gallery-part">
+    <div class="container">    
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="gallery-slider">
+                    <div class="slider10">          
+                    	<div class="gallery-slide">
+                            <a href="http://app.namibiatourism.com.na/" target="_blank"><img src="/plugins/namibiatourism/img/partner-one.png" class="img-responsive" alt=""/></a>          	  
+                        </div>         
+                    	<div class="gallery-slide">
+                            <a href="http://www.nwr.com.na/" target="_blank"><img src="/plugins/namibiatourism/img/partner-two.png" class="img-responsive" alt=""/></a>
+                        </div>                 
+                    	<div class="gallery-slide">
+                            <a href="http://my.na" target="_blank"><img src="/plugins/namibiatourism/img/partner-three.png" class="img-responsive" alt=""/></a>
+                        </div>                 
+                    	<div class="gallery-slide">
+                            <a href="http://www.fenata.org/" target="_blank"><img src="/plugins/namibiatourism/img/partner-four.png" class="img-responsive" alt=""/></a>
+                        </div>                 
+                    	<div class="gallery-slide">
+                            <a href="http://www.airnamibia.com/" target="_blank"><img src="/plugins/namibiatourism/img/partner-five.png" class="img-responsive" alt=""/></a>
+                        </div>                            
+                    	<div class="gallery-slide">
+                            <a href="http://www.nfc.na/" target="_blank"><img src="/plugins/namibiatourism/img/partner-six.png" class="img-responsive" alt=""/></a>
+                        </div>                            
+                        
+                    </div>
+                </div>            
+            </div>                       
+        </div>
+    </div>
+</section>
+-->
+<!--partner logo part-->
+<section class="partner-part">
+  <div class="container">    
+    <div class="row">
+      <div class="col-sm-12">         
+          <ul class="partner-logo">
+           <li><a href="http://app.namibiatourism.com.na/" target="_blank"><img src="/plugins/namibiatourism/img/partner-one.png" class="img-responsive" alt=""/></a></li>
+           <li><a href="http://www.nwr.com.na/" target="_blank"><img src="/plugins/namibiatourism/img/partner-two.png" class="img-responsive" alt=""/></a></li>
+           <!--<li><a href="http://my.na" target="_blank"><img src="/plugins/namibiatourism/img/partner-three.png" class="img-responsive" alt=""/></a></li>-->
+           <li><a href="http://www.fenata.org/" target="_blank"><img src="/plugins/namibiatourism/img/partner-four.png" class="img-responsive" alt=""/></a></li>
+           <li><a href="http://www.airnamibia.com/" target="_blank"><img src="/plugins/namibiatourism/img/partner-five.png" class="img-responsive" alt=""/></a></li>
+           <li><a href="http://www.nfc.na/" target="_blank"><img src="/plugins/namibiatourism/img/partner-six.png" class="img-responsive" alt=""/></a></li>
+          </ul>
+      </div>                       
+    </div>
+  </div>
+</section>
+<!--Footer-->
+<footer>
+  <div class="container">
+    <div class="row">      
+      <div class="col-sm-12">
+        <div class="foot-link">          
+          <ul>                  
+            <li><a href="/contact_us">Contact Us</a></li>
+            <li><a href="/page/media">Media</a></li>
+            <li><a href="/sitemap">Site Map </a></li>
+            <li><a href="/page/privacy-policy">Privacy Policy</a></li>
+            <li><a href="/page/disclaimer">Disclaimer</a></li>
+          </ul>
+          <p>Powered by Namibia Tourism Board</p>
+          <p>Proudly Developed by <a style="color:#F90" target="_blank" href="http://intouch.com.na/">Intouch Media</a></p>
+        </div>
+        <div class="travel-share"><img src="/plugins/namibiatourism/img/travel-share.png" alt=""/></div>
+        <div class="footer-social">
+          <ul>
+           <li><a target="_blank" href="https://www.flickr.com/photos/namibia_endless_horizon/"><i class="fa fa-flickr"></i></a></li>
+           <li><a target="_blank" href="https://www.pinterest.com/Onlyinnamibia/"><i class="fa fa-pinterest"></i></a></li>
+           <li><a target="_blank" href="https://twitter.com/NamibiaHorizons"><i class="fa fa-twitter"></i></a></li>
+           <li><a target="_blank" href="https://www.youtube.com/user/NamibiaHorizons"><i class="fa fa-youtube"></i></a></li>
+           <li><a target="_blank" href="https://www.facebook.com/NamibiaEndlessHorizons"><i class="fa fa-facebook-square"></i></a></li>
+          </ul>
+        </div>
+      </div>      
+    </div>
+  </div>
+</footer>
+<!--
+<a href="/page/digital-marketing-for-tourism-2015">
+<div id="digitalMarketing">
+	<p>Digital Marketing Summit 2015</p>
+	<p style="color:#efe112">Event registration</p>
+</div>
+</a>
+-->
+
+
+
+<!-- BEGIN # MODAL LOGIN -->
+<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header" align="center">
+                <img class="img-rounded" id="img_logo" src="/img/ntblogo.png">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                </button>
+            </div>
+            
+            <!-- Begin # DIV Form -->
+            <div id="div-forms">
+            
+                <!-- Begin # Login Form -->
+                <form method="post" action="/sessions" id="login-form">
+                    <div class="modal-body">
+                        <div id="div-login-msg">
+                            <div id="icon-login-msg" class="glyphicon glyphicon-chevron-right"></div>
+                            <span id="text-login-msg">Type your username and password.</span>
+                        </div>
+                        <input name="email" id="login_username" class="form-control" type="text" placeholder="Email Address" required>
+                        <input name="password" id="login_password" class="form-control" type="password" placeholder="Password" required>
+                        
+                        <!--
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox"> Remember me
+                            </label>
+                        </div>
+                        -->
+                    </div>
+                    <div class="modal-footer">
+                        <div>
+                            <button type="submit" class="btn btn-primary btn-lg btn-block">Login</button>
+                        </div>
+                        <div>
+                            <button id="login_lost_btn" type="button" class="btn btn-link">Lost Password?</button>
+                            <button id="login_register_btn" type="button" class="btn btn-link">Register</button>
+                        </div>
+                    </div>
+                </form>
+                <!-- End # Login Form -->
+                
+                <!-- Begin | Lost Password Form -->
+                <form method="post" action="/lostpassword/requestlostpassword" id="lost-form" style="display:none;">
+                    <div class="modal-body">
+                        <div id="div-lost-msg">
+                            <div id="icon-lost-msg" class="glyphicon glyphicon-chevron-right"></div>
+                            <span id="text-lost-msg">Type your e-mail.</span>
+                        </div>
+                        <input name="email" id="lost_email" class="form-control" type="text" placeholder="E-Mail" required>
+                    </div>
+                    <div class="modal-footer">
+                        <div>
+                            <button type="submit" class="btn btn-primary btn-lg btn-block">Send</button>
+                        </div>
+                        <div>
+                            <button id="lost_login_btn" type="button" class="btn btn-link">Log In</button>
+                            <button id="lost_register_btn" type="button" class="btn btn-link">Register</button>
+                        </div>
+                    </div>
+                </form>
+                <!-- End | Lost Password Form -->
+                
+                <!-- Begin | Register Form -->
+                <form method="post" action="/register/requestregister" id="register-form" style="display:none;">
+                    <div class="modal-body">
+                        <div id="div-register-msg">
+                            <div id="icon-register-msg" class="glyphicon glyphicon-chevron-right"></div>
+                            <span id="text-register-msg">Register an account.</span>
+                        </div>
+                        <input name="name" required id="register_username" class="form-control" type="text" placeholder="Name" required>
+                        <input name="surname" required id="register_username" class="form-control" type="text" placeholder="Surname" required>
+                        <input name="email" required id="register_email" class="form-control" type="text" placeholder="E-Mail" required>
+                        <input name="telephone" id="register_email" class="form-control" type="text" placeholder="Telephone" required>
+                    </div>
+                    <div class="modal-footer">
+                        <div>
+                            <button type="submit" class="btn btn-primary btn-lg btn-block">Register</button>
+                        </div>
+                        <div>
+                            <button id="register_login_btn" type="button" class="btn btn-link">Log In</button>
+                            <button id="register_lost_btn" type="button" class="btn btn-link">Lost Password?</button>
+                        </div>
+                    </div>
+                </form>
+                <!-- End | Register Form -->
+                
+            </div>
+            <!-- End # DIV Form -->
+            
+        </div>
+    </div>
+</div>
+<!-- END # MODAL LOGIN -->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-19349795-1']);
+  _gaq.push(['_setLocalRemoteServerMode']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+	var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</body>
+</html>

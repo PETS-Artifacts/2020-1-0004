@@ -1,0 +1,1529 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+<head>
+	<meta charset="UTF-8"><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var o=t[n]={exports:{}};e[n][0].call(o.exports,function(t){var o=e[n][1][t];return r(o||t)},o,o.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(e,t,n){function r(){}function o(e,t,n){return function(){return i(e,[f.now()].concat(u(arguments)),t?null:this,n),t?void 0:this}}var i=e("handle"),a=e(2),u=e(3),c=e("ee").get("tracer"),f=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,t){s[t]=o(d+t,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,o="function"==typeof t;return i(l+"tracer",[f.now(),e,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],n),o)try{return t.apply(this,arguments)}catch(e){throw c.emit("fn-err",[arguments,this,e],n),e}finally{c.emit("fn-end",[f.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=o(l+t)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,f.now()])}},{}],2:[function(e,t,n){function r(e,t){var n=[],r="",i=0;for(r in e)o.call(e,r)&&(n[i]=t(r,e[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],3:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,o=n-t||0,i=Array(o<0?0:o);++r<o;)i[r]=e[t+r];return i}t.exports=r},{}],4:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function o(e){function t(e){return e&&e instanceof r?e:e?c(e,u,i):i()}function n(n,r,o,i){if(!d.aborted||i){e&&e(n,r,o);for(var a=t(o),u=m(n),c=u.length,f=0;f<c;f++)u[f].apply(a,r);var p=s[y[n]];return p&&p.push([b,n,r,a]),a}}function l(e,t){v[e]=m(e).concat(t)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(n)}function g(e,t){f(e,function(e,n){t=t||"feature",y[n]=t,t in s||(s[t]=[])})}var v={},y={},b={on:l,emit:n,get:w,listeners:m,context:t,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",c=e("gos"),f=e(2),s={},p={},d=t.exports=o();d.backlog=s},{}],gos:[function(e,t,n){function r(e,t,n){if(o.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[t]=r,r}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){o.buffer([e],r),o.emit(e,t,n)}var o=e("ee").get("handle");t.exports=r,r.ee=o},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=h.info=NREUM.info,t=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return s.abort();f(y,function(t,n){e[t]||(e[t]=n)}),c("mark",["onload",a()+h.offset],null,"api");var n=d.createElement("script");n.src="https://"+e.agent,t.parentNode.insertBefore(n,t)}}function o(){"complete"===d.readyState&&i()}function i(){c("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),c=e("handle"),f=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1071.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=t.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),c("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script>
+	<title>Privacy Policy | Hotel Museo Casa Santo Domingo</title>
+	<meta name="description" content="Please read our privacy policy for the Hotel Museo Casa Santo Domingo in Guatemala." />
+	<meta name="dcterms.rightsHolder" content="" />
+	<meta name="publisher" content="" />
+	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, width=device-width" />
+	<meta name="google-site-verification" content="lpsXD-jET_PL6NsellfemsqXUdFE_NrhWOu7XhnSseY" />
+
+	<meta http-equiv="Content-Style-Type" content="text/css" />
+	<meta http-equiv="Content-Script-Type" content="text/javascript" />
+    
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,700italic,300" rel="stylesheet" type="text/css" />
+    <link href="http://fonts.googleapis.com/css?family=Raleway:400,700,600,500" rel="stylesheet" type="text/css" />
+    <link href="http://fonts.googleapis.com/css?family=Muli" rel="stylesheet" type="text/css" />
+	
+    <!-- Facebook SMO tags -->
+	<meta property="og:video:type" content="application/x-shockwave-flash" />
+	<meta property="og:video:width" content="487" />
+	<meta property="og:video:height" content="435" />
+	<meta property="og:site_name" content="Hotel Museo Casa Santo Domingo" />
+	<meta property="og:url" content="http://www.casasantodomingo.com.gt/" />
+	<meta property="og:title" content="Best Hotel in Antigua | Hotel Museo Casa Santo Domingo | GT" />
+	<meta property="og:description" content="Our Hotel Museo Casa Santo Domingo is the breathtaking paradise you have been waiting for. We are a full service hotel offering elegant, yet affordable guestrooms suites." />
+	<meta property="og:image" content="https://files.videopolis.com/D/64398ac8-91c2-4d7b-a289-eaca1735b47b/8589.11613.antigua-guatemala.hotel-museo-casa-santo-domingo.premium-overview-8295-853x480.jpeg" />
+	<meta property="og:video" content="http://facebook.videopolis.com/facebook-v1.swf?affiliateId=casasantodomingo.com.gt&metadatas=object_id:11613&autoplay=true&lang=eng" />
+	<meta property="og:video:secure_url" content="https://facebook.videopolis.com/facebook-v1.swf?affiliateId=casasantodomingo.com.gt&metadatas=object_id:11613&autoplay=true&lang=eng" />
+	<meta property="fb:app_id" content="966242223397117" />
+
+	<!-- Twitter SMO tags -->
+	<meta name="twitter:card" content="player" >
+	<meta name="twitter:site" content="@santodomingogt" >
+	<meta name="twitter:creator" content="@tvtrip" >
+	<meta name="twitter:player:width" content="640" >
+	<meta name="twitter:player:height" content="360" >
+	<meta name="twitter:player" content="https://media.videopolis.com/1.0/api/getByMetadata/en/object_id/11613.html?key=1a917ba295a7fb07&account=www.casasantodomingo.com.gt" >
+
+
+
+	
+	
+	<link rel="alternate" href="http://www.casasantodomingo.com.gt/privacy-en.html" hreflang="en" />
+	<link rel="alternate" href="http://www.casasantodomingo.com.gt/es/privacidad.html" hreflang="es" />
+
+
+
+
+
+
+
+	<script type="text/javascript">if(window.top.location!=document.location)window.top.location.href=document.location.href;</script>
+
+	<!-- STYLES FOR SCREEN -->
+	<script>var oldIE;</script>
+	<!-- BEGIN: ADDED HEADER CONTENT -->
+	<script type="text/javascript" src="http://www.casasantodomingo.com.gt/condor/js/essentials.js"></script>
+			<script type="text/javascript">
+			//<![CDATA[
+				condor.siteBaseHREF     = 'http://www.casasantodomingo.com.gt/';
+				condor.templateBaseHREF = 'http://www.casasantodomingo.com.gt/templates/main/';
+				condor.condorBaseHREF   = 'http://www.casasantodomingo.com.gt/condor/';
+				condor.currentLanguage  = 'en';
+				condor.dataSection      = 'casasantodomingoresponsive';
+			//]]>
+			</script>
+<link type="text/css" rel="stylesheet" href="http://www.casasantodomingo.com.gt/d/casasantodomingoresponsive/merged/global_f7_2018-01-19-11-31_2484068946.css" />
+<link type="text/css" rel="stylesheet" href="http://www.casasantodomingo.com.gt/d/casasantodomingoresponsive/merged/subpage_f1_2017-12-27-00-54_1432332277.css" />
+<link type="text/css" rel="stylesheet" href="http://www.casasantodomingo.com.gt/d/casasantodomingoresponsive/merged/fancybox_f1_2017-11-26-21-56_3289409660.css" />
+<link type="text/css" rel="stylesheet" href="http://www.casasantodomingo.com.gt/d/casasantodomingoresponsive/merged/widget_styles_f5_2018-01-03-07-31_3748530048.css" />
+<link type="text/css" rel="stylesheet" href="http://www.casasantodomingo.com.gt/d/casasantodomingoresponsive/merged/privacy_f1_2017-10-06-05-14_1892382508.css" />
+
+
+
+
+
+
+
+<script type="text/javascript" src="http://www.casasantodomingo.com.gt/d/casasantodomingoresponsive/merged/global_f12_2017-11-21-02-35_243512269.js"></script>
+<script type="text/javascript" src="http://www.casasantodomingo.com.gt/d/casasantodomingoresponsive/merged/fancybox_f1_2017-11-26-21-56_3988693932.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" src="http://www.casasantodomingo.com.gt/templates/main/libs/jquery/jquery-datepicker/lang/jquery.ui.datepicker-en-GB.js"></script>
+
+
+<script type="text/javascript" src="http://www.casasantodomingo.com.gt/condor/modules/imageSwitch/javascript.imageSwitch.js"></script>
+<link rel="stylesheet" type="text/css" href="http://www.casasantodomingo.com.gt/condor/modules/imageSwitch/style.imageSwitch.css "/>
+<script type="text/javascript" src="http://www.casasantodomingo.com.gt/condor/modules/googleAnalytics/javascript.googleAnalytics.js"></script>
+
+	<script type="text/javascript">
+	//<![CDATA[
+
+		function addGaTrackingLinksAndForms()
+		{
+			if( typeof gaTracking === 'function'){
+				gaTracking.tagHyperlinks('default', 'ihotelier.com');
+				gaTracking.tagForms('default', 'ihotelier.com','1');
+			}
+		}
+	//]]>
+	</script>
+
+
+
+
+
+		<script type="text/javascript">
+		// <![CDATA[
+			function leadingZero(n) {
+				return (n>9) ? n : '0'+n;
+			}
+			
+			function digitalClockFormat(oDate, format, sep, sec, hz) {
+				var hour = oDate.getUTCHours();
+				var minutes = sep + leadingZero(oDate.getUTCMinutes());
+				var seconds = sec ? sep+leadingZero(oDate.getUTCSeconds()) : '';
+				switch (format)
+				{
+					case 'long':
+						var str = oDate.toUTCString();
+						return str.substring(0, str.length - 4);
+						break;
+					case '12':
+						var ampm = "&nbsp;" + (hour<12 ? "am" : "pm");
+						hour = 1 + (hour+11)%12;
+						return (hz ? leadingZero(hour) : hour) + minutes + seconds + ampm;
+						break;
+					default:
+						return (hz ? leadingZero(hour) : hour) + minutes + seconds;
+						break;
+				}
+			}
+			
+			function digitalClockSet(wdco) {
+				setTimeout(function(){digitalClockSet(wdco)}, wdco.sec ? 1000 : 60000);
+				var oDate = new Date();
+				var afterLoadMS = oDate.getTime() - wdco.initLocalTime;
+				oDate.setTime(wdco.initOffsetTime + afterLoadMS);
+				wdco.elem.innerHTML = digitalClockFormat(oDate, wdco.format, wdco.sep, wdco.sec, wdco.hz);
+			}
+			
+			function digitalClockInit(wdco) {
+				HTTP.getText(prepSocketCall('templateHelpers', 'timestamp', {
+					tz: wdco.tz
+				}), function(timestamp){
+						var oDate = new Date();
+						wdco.initOffsetTime = timestamp*1000;
+						wdco.initLocalTime = oDate.getTime();
+						setTimeout(function(){digitalClockSet(wdco)}, 0);
+			
+				});
+			}
+		// ]]>
+		</script><link rel="stylesheet" type="text/css" href="http://www.casasantodomingo.com.gt/condor/modules/socialToolbar/css/style.socialToolbar-common.css "/>
+<link rel="stylesheet" type="text/css" href="http://www.casasantodomingo.com.gt/condor/modules/socialToolbar/css/style.socialToolbar-vertical.css "/>
+<link rel="stylesheet" type="text/css" href="http://www.casasantodomingo.com.gt/condor/modules/socialToolbar/css/style.socialToolbar1.css "/>
+<script type="text/javascript" src="http://www.casasantodomingo.com.gt/condor/modules/socialToolbar/javascript/json2.min.js"></script>
+<script type="text/javascript" src="http://www.casasantodomingo.com.gt/condor/modules/socialToolbar/javascript/javascript.socialToolbar.js"></script>
+<script type="text/javascript">
+
+var isMobile = 0;
+var isTablet = 0;
+
+   //if jquery is not present, insert
+if(!window.jQuery)
+{
+   var script = document.createElement('script');
+   script.type = "text/javascript";
+   script.src = "http://www.casasantodomingo.com.gt/condor/modules/socialToolbar/javascript/jquery-1.7.1.min.js";
+   document.getElementsByTagName('head')[0].appendChild(script);
+}
+
+//Social toolbar Options
+var socialToolbarSettings= {'closeButton'            : '',
+                            'shareLabelHorizontal'   : '',
+                            'shareLabelVertical'     : '',
+                            'minimzedLabelHorizontal': '',
+                            'minimzedLabelVertical'  : '',
+                            'labelLeftContent'       : '',
+                            'labelRightContent'      : ''
+                            };
+</script>		
+
+<!--[if lt IE 10]>
+<script type="text/javascript" src="http://www.casasantodomingo.com.gt/condor/modules/socialToolbar/javascript/pie.js"></script>
+<![endif]-->
+ 
+
+    <script type="text/javascript" src="http://www.casasantodomingo.com.gt/condor/modules/socialToolbar/javascript/jquery.cookie.js"></script>
+
+
+	<!-- END: ADDED HEADER CONTENT -->
+	
+	<script type="text/javascript">
+//<![CDATA[
+	jQuery(document).ready(function(){
+		
+		// BEGIN: onLoadScript
+		//Add google parameters to links and forms
+			if (typeof addGaTrackingLinksAndForms === "function") { 
+				addGaTrackingLinksAndForms();
+			}
+
+		digitalClockInit({
+			tz : 'America/Tegucigalpa',
+			elem : document.getElementById('digital-clock'),
+			format : '12',
+			sep : ':',
+			sec : false,
+			hz : false
+		});
+		
+
+/* SOCIAL TOOLBAR INIT -------------------*/
+
+//Social Toolbar Init
+socialtoolbar.toolbar_init('{"toolbar_enabled":"1","layout":"2","color":"1","recommend_email":"0","dataSection":"casasantodomingoresponsive","module_path":"http:\/\/www.casasantodomingo.com.gt\/condor\/modules\/socialToolbar","only_icons":"","minimized":"","icon_preset":"2","fb_type":"","extend":"","rounded":"","toolbar_label":"","toolbarSize":"","share_tooltip":""}','{"recommend_0":"1","recommend_1":"1","recommend_2":"","recommend_3":"1","n_buttons":4}','{"Facebook":{"enabled":"1","url":"https:\/\/www.facebook.com\/hotelcasasantodomingoguatemala"},"Twitter":{"enabled":"1","username":"santodomingogt","keyword":""},"YouTube":{"enabled":"","url":""},"GooglePlus":{"enabled":"1","googleid":"103003319529140313099","googleapikey":"103003319529140313099","url":"https:\/\/plus.google.com\/103003319529140313099\/about"},"Instagram":{"enabled":"","userid":"","accesstoken":"","clientid":"","url":""},"Tumblr":{"enabled":"","tumblracct":"","tumblrapikey":"","url":""},"Tripadvisor":{"enabled":"1","url":"http:\/\/www.tripadvisor.com.ar\/Hotel_Review-g295366-d300278-Reviews-Casa_Santo_Domingo-Antigua_Sacatepequez_Department.html"}}','http://www.casasantodomingo.com.gt/condor/modules/socialToolbar');
+
+//Twitter API
+window.twttr = (function (d,s,id) {
+						  var t, js, fjs = d.getElementsByTagName(s)[0];
+						  if (d.getElementById(id)) return; js=d.createElement(s); js.id=id;
+						  js.src="https://platform.twitter.com/widgets.js"; js.type = 'text/javascript'; fjs.parentNode.insertBefore(js, fjs);
+						  return window.twttr || (t = { _e: [], ready: function(f){ t._e.push(f) } });
+						}(document, "script", "twitter-wjs"));
+
+//Facebook API
+(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  js.type = 'text/javascript';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+
+//Google Plus
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/platform.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+  
+//SocialToolbar Analytics
+(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "http://www.casasantodomingo.com.gt/condor/modules/socialToolbar/javascript/javascript.socialAnalytics.js";
+  js.type = 'text/javascript';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'socialToolbar-analytics'));
+
+/* END SOCIAL TOOLBAR INIT -------------------*/
+		// END: onLoadScript
+		
+		// fancybox PNG file location fix - Please Do NOT remove the below line.
+		fancyboxIEPngLocationFix.fix("http://www.casasantodomingo.com.gt/templates/main/libs/jquery/fancybox/");
+
+
+/* 		$(window).bind('resize', function() {
+		    var top = ($(window).height() / 2) - ($(".fancybox-wrap").outerHeight() / 2);
+		    var left = ($(window).width() / 2) - ($(".fancybox-wrap").outerWidth() / 2);
+		    $(".fancybox-wrap").css({ top: top, left: left});
+		}).trigger('resize'); */
+			if(jQuery().fancybox){
+			// video popup
+/* 			var videoRatio=56.25;
+			var innerwidth     = jQuery('.subPageMain').innerWidth()*80/100;
+			var videoheight    = (innerwidth*videoRatio/100).toFixed(0);	
+
+			$(window).resize(function(){
+				innerwidth     = jQuery('.subPageMain').innerWidth()*80/100;
+				videoheight    = (innerwidth*videoRatio/100).toFixed(0);
+			    
+			}); */
+
+/* 			var fancyBoxTVSVideo = {
+	                'padding': 0,
+	                'autoScale': true,
+	                'autoDimensions': true,
+	                'autoCenter': true,
+	                'scrolling' : 'auto',
+	                'type': 'iframe',
+	                'padding'		: 0,
+					'width'			: 1000,
+					'height'		: 563
+					}; */
+					
+			var fancyBoxTVSVideo = {
+				width  : "70%",
+				height : "auto",
+				padding: 0,
+				type: 'iframe',
+				iframe :{
+					'scrolling': 'no'
+				},
+				afterLoad: function() {
+					$(".fancybox-inner").addClass('tvs-video');
+				},
+				helpers: {
+					overlay: {
+					  locked: false
+					}
+				}
+			};
+			jQuery('.tvs-fancybox').click(function(){
+				jQuery(this).fancybox(fancyBoxTVSVideo);
+			});		
+		}
+		//For Open and Close secondory menu
+		$("#menuIcon").click(function(){
+			if($("#bookNowLink").css("display")=="none"){
+				$("#bookNowClose").trigger("click");
+			}
+			if($("#menuIcon").hasClass("menuIcon")){
+				$(".siteSecondMenu").animate({ top: '60px'}, 400).css("display", "block");
+				$("#menuIcon").addClass("menuIconClose");
+				$("#menuIcon").removeClass("menuIcon");
+				jQuery('.bookingMaskMain').addClass("hideBookingMask");
+			}else{
+				$(".siteSecondMenu").animate({ top: '-350px'}, 400);
+				$("#menuIcon").removeClass("menuIconClose");
+				$("#menuIcon").addClass("menuIcon");
+				jQuery('.bookingMaskMain').removeClass("hideBookingMask");
+			}
+			
+		});
+
+		
+		//Resize function.
+		$(window).ready(resizeWindow);
+		$(window).resize(resizeWindow);
+		
+		function resizeWindow (){
+			var windowWidth = $(window).width();
+			if($("#layout").css("float")=="right"){
+				$("body").removeClass("desktop_layout tablet_layout").addClass("mobile_layout");
+			}if($("#layout").css("float")=="left"){
+				$("body").removeClass("mobile_layout desktop_layout").addClass("tablet_layout");
+			}if($("#layout").css("float")=="none"){
+				$("body").removeClass("mobile_layout tablet_layout").addClass("desktop_layout");
+			}
+		};
+	  
+	  //Create image responsive with the all device 
+	  $("img.source-image").each(function(i, elem) {
+		  var img = $(elem);
+		  var div = $("<div class='img'/>").css({
+		    background: "url(" + img.attr("src") + ") no-repeat",
+		    backgroundPosition:"center center",
+		    backgroundSize:"cover"
+		  });
+		  img.replaceWith(div);
+		});
+	
+	var monthText = ["jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+	//For Open and Close Booking Mask.
+	$("#bookNowLink,.checkInDate .dateWrapperLeft, .checkOutDate .dateWrapperRight").click(function(){		
+		if($("#menuIcon").hasClass("menuIconClose")){
+			$("#menuIcon").trigger("click");
+		}	
+		if( $( window ).width() <= 1023 ){
+			$(".bookingMaskMain").animate({top: '150px'}, 400);
+		}else{
+			$(".bookingMaskMain").animate({top: '60px'}, 400);
+		}
+		$("#bookNowLink").hide();
+		$(".bookingMaskMain").addClass("open");
+		$("#bookNowClose").show().addClass("open");
+		$(".siteSecondMenu").slideUp();
+		$(".bookNow").addClass("up");
+		$(".bestRates").removeClass("topShadow");
+		$(".bookDates").addClass("hideDates");
+	});
+		$(window).on("orientationchange", function(){
+			if( jQuery( ".bookingMaskMain" ).hasClass( "open" ) ){
+				setTimeout(function () {
+					if( $( window ).width() < 1023 ){
+						$(".bookingMaskMain").animate({top: '150px'}, 400);
+					}else{
+						$(".bookingMaskMain").animate({top: '60px'}, 400);
+					}
+				}, 500);
+			}
+		});
+	$("#bookNowClose").click(function(){
+		var dateIn = $("#date-in").val();
+		var dateInArry = dateIn.split("/");
+		var dateOut = $("#date-out").val();
+		var dateOutArry = dateOut.split("/");
+		
+		$(".CheckInMonthText").text(monthText[dateInArry[0].replace(/^0+/, '') - 1]);
+		$(".CheckInDateText").text(dateInArry[1]);
+		$(".CheckInYearText").text(dateInArry[2]);
+				
+		$(".CheckOutMonthText").text(monthText[dateOutArry[0].replace(/^0+/, '') - 1]);
+		$(".CheckOutDateText").text(dateOutArry[1]);
+		$(".CheckOutYearText").text(dateOutArry[2]);
+		
+		$(".bookingMaskMain").animate({top: '-275px'},  400);
+		$("#bookNowLink").show();
+		$("#bookNowClose").hide();
+		$(".bookingMaskMain").removeClass("open");
+		$(".bookNow").removeClass("up");
+		$(".bestRates").addClass("topShadow");
+		$(".bookDates").removeClass("hideDates");
+	});
+	
+	//For Open and Close Mobile Menu.
+	$(".mobileMenuWrapper .shortcuts li:odd").css( "border-left", "1px dotted #bcbcab" );
+	$("#menuIconMobile").click(function(){
+		if($("#menuIconMobile").hasClass("menuIconMobile")){
+			$(".mobileMenu").slideDown();
+			$("#menuIconMobile").addClass("menuIconMobileClose");
+			$("#menuIconMobile").removeClass("menuIconMobile");	
+			$(".menuMobileOpen").show();
+			$(window).scrollTop($('.siteWrapper, .subPageMain').offset().top);
+				
+		}else{
+			$(".mobileMenu").slideUp();
+			$("#menuIconMobile").removeClass("menuIconMobileClose");
+			$("#menuIconMobile").addClass("menuIconMobile");
+			$(".menuMobileOpen").hide();
+		}	
+	});
+	
+	$(".ui-datepicker-calendar td a").live('click', function(){
+		 $(".ui-state-active").addClass("highlight");
+	});
+
+	//For Gallery
+	// Had to take this out since it was causing problems.. 
+	/*
+	galleryMainHeight();
+	function galleryMainHeight(){
+		var galleryMainHeight = $(window).height();
+		
+		$("#galleryMain").css("height", galleryMainHeight);
+		$(window).trigger('resize');
+		
+	}
+	*/
+
+
+	jQuery(".videos_wrap.thumb-image").each(function(){
+			jQuery(this).bind("click",function(event){				
+				var videoSrc = jQuery(this).data('src');
+				var videoTitle = jQuery(this).data('title');	
+				$("iframe[id='tvsplayerIframe']").attr('src',videoSrc);
+				$("#tvsplayer .imageTitle span.imageDescription").empty("");
+				$("#tvsplayer .imageTitle span.imageDescription").append(videoTitle);		
+			});
+
+		});
+	
+	//For ERFP Page
+	$(".erfpMain #ff_submit1").click(function(e){
+		e.preventDefault();
+
+
+var testEmail = /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i;
+
+                
+                if($('#ff_email1').val()=='' || !testEmail.test($('#ff_email1').val())){
+                   $('#ff_email1').css('border','1px solid red');
+                    return false; 
+                }else {
+		$('#WeddingErfpMeetingMain').show();
+		$('#MeetingErfpMeetingMain').show();
+		$('#WeddingErfpContactMain').hide();
+		$('#MeetingErfpContactMain').hide();
+		$('.erfpControlerRight').removeClass('disable');
+		$('.erfpControlerLeft').addClass('disable');
+                }
+	});
+	
+	//For ERFP Reset Page Page
+	$(".erfpMain #ff_reste1, .erfpMain #ff_reste11, .resetButtonMain #ff_reste1").click(function(e) {
+		e.preventDefault();
+    	$(this).closest('form').find("input[type=text], textarea, option").val("");
+		$('#ff_salutation1').prop('selectedIndex',0)
+	});
+	
+	//For Return to Contact From
+	$("#ClickBackFormTitle").click(function(){
+		$('#WeddingErfpContactMain').show();
+		$('#MeetingErfpContactMain').show();
+		$('#WeddingErfpMeetingMain').hide();
+		$('#MeetingErfpMeetingMain').hide();
+		$('.erfpControlerLeft').removeClass('disable');
+		$('.erfpControlerRight').addClass('disable');
+	});
+
+	var windowWidth = $(window).width();
+		
+		 	if(windowWidth <= 1280){
+				$('.hotelSpa .items-list').addClass('tabletSlider');
+				$(window).ready(tabletSlider);
+				$(window).resize(tabletSlider);
+				$(window).on("orientationchange",function(){ tabletSlider();});
+				$("#hotelSpa").addClass("IpadSection");
+				
+			}
+		
+	if(windowWidth >= 1281){
+		$('.hotelSpa .tabletSlider').cycle('destroy'); 
+	}	
+	
+		
+	function tabletSlider(){
+			jQuery('.hotelSpa .tabletSlider').cycle({
+			slides: '> div',
+			fx:     'fade',
+			speed:  300,
+			timeout: 7000,
+			pager: '#mainSliderControlsSpa',
+			
+			prev: '#prevSpa',
+			next: '#nextSpa',
+			slideResize:0,
+			easeIn:  'swing',
+			easeOut: 'swing',
+			swipe: true,
+		});	
+	}
+	
+	
+	$(".flexInputDate").datepicker({ dateFormat: 'dd/mm/yy', minDate:0, dayNamesMin: ['S','M','T','W','T','F','S'], firstDay: 1});
+	$(".flexInputDate").attr("placeholder", "dd/mm/yyyy");
+	
+	//For Adding Placeholders to tesfilde
+	$("#ff_companyName1").attr("placeholder", "Company / Org");
+	$("#ff_firstName1").attr("placeholder", "First Name");
+	$("#ff_lastName1").attr("placeholder", "Last Name");
+	$("#ff_lastName1").attr("placeholder", "Last Name");
+	$("#ff_bridetName1").attr("placeholder", "Bride's Name");
+	$("#ff_groomstName1").attr("placeholder", "Groom's Name");
+	$("#ff_email1").attr("placeholder", "Email Address*");
+	$("#ff_telephone1").attr("placeholder", "Phone");
+	$("#ff_address11").attr("placeholder", "Address 1");
+	$("#ff_address21").attr("placeholder", "Address 2");
+	$("#ff_city1").attr("placeholder", "City");
+	$("#ff_province1").attr("placeholder", "State/Providence");
+	$("#ff_postalCode1").attr("placeholder", "Zip/Postal Code");
+	$("#ff_noOfPersons1").attr("placeholder", "# of Attendees");
+	$("#ff_noOfGuestRooms1").attr("placeholder", "# Guest Rooms Needed");
+	$("#ff_meetingType1").children("option:first").val(1);
+	
+	$('input[value="email"]').attr('checked','checked');
+	$('input[value="no"]').attr('checked','checked');
+	
+	//For Spanish
+	if($("html").attr("lang")=="es"){
+		$("#ff_companyName1").attr("placeholder", "Compañía");
+		$("#ff_firstName1").attr("placeholder", "Nombre");
+		$("#ff_lastName1").attr("placeholder", "Apellido");
+		$("#ff_bridetName1").attr("placeholder", "Nombre de la novia");
+		$("#ff_groomstName1").attr("placeholder", "Nombre del novio");
+		$("#ff_email1").attr("placeholder", "Correo electrónico*");
+		$("#ff_telephone1").attr("placeholder", "Teléfono");
+		$("#ff_address11").attr("placeholder", "Dirección 1");
+		$("#ff_address21").attr("placeholder", "Dirección 2");
+		$("#ff_city1").attr("placeholder", "Ciudad");
+		$("#ff_province1").attr("placeholder", "Estado/Provincia");
+		$("#ff_postalCode1").attr("placeholder", "Código postal");
+		$("#ff_noOfPersons1").attr("placeholder", "Número de asistentes");
+		$("#ff_noOfGuestRooms1").attr("placeholder", "Número de habitaciones requeridas");
+	}
+
+	//Select Dropdown
+	$("#ff_salutation1, #ff_meetingType1").wrap("<div class='drodownMain'></div>")
+	$('.WeddingErfptop select[name="salutation"], .MeetingTypeMain select[name="meetingType"], .contacttop select[name="salutation"]').change(function() {
+		$(this).parents('.flexFormFieldHTML').siblings('.flexFormBlockLabel').text($(this).children("option:selected").text());
+	});
+	
+	//Small Select Dropdown
+	$("#ff_country1").wrap("<div class='drodownSmallMain'></div>")
+	$('.drodownSmallMain select[name="country"]').change(function() {
+		$(this).parents('.flexFormFieldHTML').siblings('.flexFormBlockLabel').text($(this).children("option:selected").text());
+	});
+	
+	//Small Radio button
+	
+	//For ERFP Page
+   $(".fromCheckBox").children(".flexFormInputBlock").children("label").siblings('.flexFormFieldHTML').children("div").addClass("checkBox");
+
+   //For ERFP Page Top Illustration
+   
+   if($("html").attr("lang")=="es"){
+	var erfoControler = "<div class='erfpControlerMain'><div class='erfpControlerWrapper'><div class='erfpControlerLeft'>INFORMACIÓN DE CONTACTO</div><div class='erfpControlerRight disable'>INFORMACIÓN DEL EVENTO</div></div><div class='clearfloats'></div></div>";
+    }else{
+   var erfoControler = "<div class='erfpControlerMain'><div class='erfpControlerWrapper'><div class='erfpControlerLeft'>Contact Information</div><div class='erfpControlerRight disable'>Meeting Information</div></div><div class='clearfloats'></div></div>";
+	}
+   
+   
+   
+   
+   
+   $(".erfpMain").children("#mod_flexibleForms.showForm").children(".moduleBody").prepend(erfoControler);
+   
+
+	var erfpError = $(".erfpMain #mod_flexibleForms .flexibleFormContainer").children("p").length;
+
+	if(erfpError >= 1){
+		$(".erfpControlerMain").addClass("erfpControlersubmit");
+	}else{
+		$(".erfpControlerMain").removeClass("erfpControlersubmit");
+	}
+	    
+	// For Calender Style
+	$(".flexInputDate.hasDatepicker").click(function(){
+		if($("div#ui-datepicker-div.ui-datepicker").css("display") == "block"){
+			$("#ovelay").show();	
+			$("#header").css("position","absolute");
+		}
+	});
+	
+
+
+		
+	$("#ovelay").on("click" ,function(){
+		$("#ovelay").hide();
+		$("#header").css("position","fixed");
+	});
+	
+	$("#ui-datepicker-div table.ui-datepicker-calendar tbody td a").live("click" ,function(){
+		$("#ovelay").hide();
+	});
+ 
+   // For Hotel Policy
+	$(".hotelPolicyMain").click(function(){		
+		$("#hotelPolicyContent").animate({ height:'toggle'}, function() { 
+		  $("#hotelPolicyLink").toggleClass("hotelPolicyClose");
+		});		
+		
+	});	
+   
+   //For Scroll top
+	$("#scrollTop").click(function(){
+		$("html,body").velocity("scroll",1000);
+	});
+
+	$(window).scroll(function(){
+		if($(window).scrollTop()>800){
+			$("#scrollTop").fadeIn("slow", "linear");	
+		}else{
+			$("#scrollTop").fadeOut("slow", "linear");	
+		}
+	});
+	
+	
+		
+	 //Main Document ready function over here	
+});
+
+//Read More and Read less for Subpage Modules 
+  $(window).ready(function () {subPageShowMore();});
+		function subPageShowMore(){
+				var adjustheight = 138;
+				var moreText = "Read More+ ";
+				var lessText = "Read Less+ ";
+				$(".subShowmore .submobIntro").each(function(){
+				if ($(this).height() > adjustheight){
+					$(this).css('height', adjustheight).css('overflow', 'hidden');
+					$(this).parent(".jw-listItems-description").parent('.subShowmore').find('.readMore').text(moreText);
+					$('#expandSubContent').addClass("readMore").removeClass("readLess");
+					$(this).parent(".jw-listItems-description").parent('.subShowmore').find('.readMore').toggle(function() {
+					$(this).parents('div:first').find('.submobIntro').css({
+						"height":'auto',
+      					"overflow":"visible"
+					});
+					$(this).parent(".jw-listItems-description").parents('div:first').find('p.continued').css('display', 'none');
+					$(this).text(lessText);
+					$('#expandSubContent').addClass("readLess").removeClass("readMore");
+				}, function() {
+					$(this).parents('div:first').find('.submobIntro').css({
+						"height":adjustheight,
+      					"overflow":"hidden"
+					});
+					var scrolltopmain = $(this).siblings(".jw-listItems-description").children(".submobIntro");
+					$('html, body').animate({scrollTop: $(scrolltopmain).offset().top -200 }, 'slow');
+					$(this).parent(".jw-listItems-description").parents('div:first').find('p.continued').css('display', 'block');
+					$(this).text(moreText);
+					$('#expandSubContent').addClass("readMore").removeClass("readLess");
+				});
+			}
+		});
+  }
+
+//Read More and Read less for Sustainability Page
+function blockCollectionshowMore(){
+		var adjustheight = 159;
+		var moreText = "Read More+ ";
+		var lessText = "Read Less+ ";
+		$(".contentBlock.type_twoColumn").wrap("<div class='CollectionshowMore'></div>");
+		$(".CollectionshowMore").append("<span class='readMoreText toggleCollection' id='expandCollectionContent'></span><span class='readLessText toggleCollection' id='expandCollectionLess'></span>");
+		$(".CollectionshowMore").each(function(){
+			if($(this).children(".contentBlock.type_twoColumn").height() > adjustheight){
+				$(this).children(".contentBlock.type_twoColumn").css('height', adjustheight).css('overflow', 'hidden');
+				$(this).children("#expandCollectionContent").text(moreText);
+				$(this).children("#expandCollectionLess").text(lessText);
+				$("#expandCollectionLess").hide();
+				if($(this).children("#expandCollectionContent").hasClass("readMoreText")){
+					$(this).children(".readMoreText").click(function(){
+						$(this).siblings(".contentBlock.type_twoColumn").css({"height":'auto', "overflow":"visible"});
+						$(this).hide();
+						$(this).siblings(".readLessText").show().css("display", "block");
+					});	
+				}
+				$(".readLessText").click(function(){
+					$(this).siblings(".contentBlock.type_twoColumn").css({"height":adjustheight, "overflow":"hidden"});
+					var scrolltopmain = $(this).parents(".CollectionshowMore");
+					$('html, body').animate({scrollTop: $(scrolltopmain).offset().top -200 }, 'slow');
+					$(this).hide();
+					$(this).siblings(".readMoreText").show();
+				});
+			}
+		});
+}	
+
+$(document).ready(function(){
+	$(".jw-listItems-4col-lg .desktopIntro .desktopIntroText").each(function(){
+		var textLength = $(this).children().text().length;
+		if(textLength >= 300){
+			$(this).addClass("towCol");
+		}
+	});
+});
+//]]>
+</script><!-- Google Analytics Classic -->
+	<script type="text/javascript">
+		//<![CDATA[
+		var _gaq = _gaq || [];
+		_gaq.push(['default._setAccount', 'UA-11776730-1']
+	, ['default._setDomainName', 'casasantodomingo.com.gt']
+	, ['default._setAllowLinker', true]
+	, ['default._setCustomVar', 5, 'tc', 'ih_76944-Toolbox 175', 3]
+	, ['default._trackPageview', '/privacy-en.html']
+	);
+		
+		if(!window._masterAnalytics){
+					_gaq.push(
+				['master._setAccount', 'UA-32962968-1'],
+				['master._setDomainName', 'casasantodomingo.com.gt'],
+				['master._setAllowLinker', true],
+				['master._setCustomVar', 5, 'tc', 'ih_76944-Toolbox 175', 3],
+				['master._trackPageview']
+			);
+					window._masterAnalytics = true;
+		}
+
+		(function() {
+			if (!window._gaScriptLoaded) {
+				var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+							ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+							var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+				window._gaScriptLoaded = true;
+			}
+		})();
+		//]]>
+	</script>
+	<!-- End Google Analytics Classic -->
+	
+
+</head>
+<body id="page_privacy">
+<div id="condorAddBody">
+<div id="addBodyPopUps"></div>
+<div id="addBodyContent"><script type="text/javascript">
+	/* <![CDATA[ */
+		var axel = Math.random() + "", a = axel * 10000000000000;
+		document.write('<iframe src="https://4442125.fls.doubleclick.net/activityi;src=4442125;type=websi624;cat=hotel173;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;ord=1;num=' + a + '?" width="1" height="1" frameborder="0" style="position: absolute;"></iframe>');
+	/* ]]> */
+</script>
+<noscript>
+	<iframe src="https://4442125.fls.doubleclick.net/activityi;src=4442125;type=websi624;cat=hotel173;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;ord=1;num=1?" width="1" height="1" frameborder="0" style="position: absolute;"></iframe>
+</noscript></div>
+</div>
+<div id="header">
+  <div class="logo"> <a href="http://www.casasantodomingo.com.gt/default-en.html" title="THE HOTELCASA SANTO DOMINGO" alt="THE HOTELCASA SANTO DOMINGO"></a> </div>
+  <div class="logoMobileSubpage"> <a href="http://www.casasantodomingo.com.gt/default-en.html" title="THE HOTELCASA SANTO DOMINGO" alt="THE HOTELCASA SANTO DOMINGO"></a> </div>
+  <div class="headerRight">
+    <div class="menuIcon" id="menuIcon"><span class="moreText">MORE</span></div>
+    <div class="mainMenu">
+      <ul class="shortcuts"
+			><li class="shortcut1 item1 itemr5 level1 accommodations"
+				><a href="http://www.casasantodomingo.com.gt/accommodations-en.html">ACCOMMODATIONS</a
+			></li
+			><li class="shortcut2 item2 itemr4 level1 photo"
+				><a href="http://www.casasantodomingo.com.gt/photo-en.html">PHOTOS &amp; VIDEOS</a
+			></li
+			><li class="shortcut3 item3 itemr3 level1 spa"
+				><a href="http://www.casasantodomingo.com.gt/spa-en.html">SPA</a
+			></li
+			><li class="shortcut4 item4 itemr2 level1 museums"
+				><a href="http://www.casasantodomingo.com.gt/museums-en.html">MUSEUMS</a
+			></li
+			><li class="shortcut5 item5 itemr1 level1 santodomingodelcerro last"
+				><a href="http://www.casasantodomingo.com.gt/santodomingodelcerro-en.html">SANTO DOMINGO DEL CERRO</a
+			></li
+		></ul>
+		<script type="text/javascript">
+		//<![CDATA[
+			condor.updatePageMenus = condor.updatePageMenus || function() {
+				var pageMenus = getElementsByClass('shortcuts', null, 'ul');
+				for (var j=0; j<pageMenus.length; ++j) {
+					var nojsList = getElementsByClass('active-nojs', pageMenus[j]);
+					for (var i=0; i<nojsList.length; ++i) {
+						removeClass(nojsList[i], 'active-nojs');
+					}
+				}
+			}
+			condor.updatePageMenus();
+		//]]>
+		</script>    </div>
+    <div class="clearfloats"></div>
+    
+    
+    <!--Menu For Mobile-->
+    <div class="menuIconMobile" id="menuIconMobile"><span class="moreText">MORE</span></div>
+    <div class="bestRateMobile"> <div class="jw-widget jw-widget-1col jw-best-prices-1col-sm">
+	<h3>
+		<span class="roomsText">Rooms</span>
+		<span class="fromText">From</span>
+	</h3>
+
+	<p class="rate">
+		<a href="https://booking.ihotelier.com/istay/istay.jsp?hotelid=76944&amp;languageid=1&amp;roomTypeId=283972&amp;DateIn=02/06/2018&amp;ratePlanId=1223142&amp;Length=1&amp;Adults=1" target="_blank">
+					<span class="currency left">$</span>
+					<span class="amount">
+				<span class="units">184</span>
+				<span class="cents">.00</span>
+			</span>
+				</a>
+	</p>	
+
+	<a class="booking-link" href="https://booking.ihotelier.com/istay/istay.jsp?hotelid=76944&amp;languageid=1&amp;roomTypeId=283972&amp;DateIn=02/06/2018&amp;ratePlanId=1223142&amp;Length=1&amp;Adults=1" target="_blank"><span class="booking-link-text">Check Rates</span></a>
+	<small></small>
+</div><!-- jw-widget --> </div>
+    <div class="clearfloats"></div>
+    <!--Menu For Mobile End--> 
+    <!--Book Now For Mobile-->
+    <div class="mobBookNow"><a href="https://booking.ihotelier.com/istay/istay.jsp?hotelid=76944&amp;languageid=1" target="_self"> Book Now <span class="arrowIcon"></span> </a></div>
+  </div>
+  <div class="siteSecondMenu">
+    <div class="siteSecondWrapper">
+      <div class="SecondMenu">
+        <ul class="shortcuts"
+			><li class="shortcut1 item1 itemr9 level1 services"
+				><a href="http://www.casasantodomingo.com.gt/services-en.html">Services &amp; Amenities</a
+			></li
+			><li class="shortcut2 item2 itemr8 level1 sustainability"
+				><a href="http://www.casasantodomingo.com.gt/sustainability-en.html">Sustainability</a
+			></li
+			><li class="shortcut3 item3 itemr7 level1 dining"
+				><a href="http://www.casasantodomingo.com.gt/dining-en.html">Dining</a
+			></li
+			><li class="shortcut4 item4 itemr6 level1 packages"
+				><a href="http://www.casasantodomingo.com.gt/packages-en.html">specials</a
+			></li
+			><li class="shortcut5 item5 itemr5 level1 destination"
+				><a href="http://www.casasantodomingo.com.gt/destination-en.html">DESTINATION</a
+			></li
+			><li class="shortcut6 item6 itemr4 level1 weddings has-submenu"
+				><a href="http://www.casasantodomingo.com.gt/weddings/default-en.html">Weddings</a
+				><ul class="menuLevel2"
+					><li class="shortcut6-1 item1 itemr1 level2 erfp last"
+						><a href="http://www.casasantodomingo.com.gt/weddings/erfp-en.html"></a
+					></li
+					></ul
+			></li
+			><li class="shortcut7 item7 itemr3 level1 contact"
+				><a href="http://www.casasantodomingo.com.gt/contact-en.html">contact us</a
+			></li
+			><li class="shortcut8 item8 itemr2 level1 meetings"
+				><a href="http://www.casasantodomingo.com.gt/meetings-en.html">Meetings &amp; Events</a
+			></li
+			><li class="shortcut9 item9 itemr1 level1 booking last"
+				><a href="https://booking.ihotelier.com/istay/istay.jsp?hotelid=76944&amp;languageid=1" target="Array">Reservations</a
+			></li
+		></ul>
+		<script type="text/javascript">
+		//<![CDATA[
+			condor.updatePageMenus = condor.updatePageMenus || function() {
+				var pageMenus = getElementsByClass('shortcuts', null, 'ul');
+				for (var j=0; j<pageMenus.length; ++j) {
+					var nojsList = getElementsByClass('active-nojs', pageMenus[j]);
+					for (var i=0; i<nojsList.length; ++i) {
+						removeClass(nojsList[i], 'active-nojs');
+					}
+				}
+			}
+			condor.updatePageMenus();
+		//]]>
+		</script>      </div>
+      <div class="lanBar">
+        <div class="lanBarWrapper"> <div class="jw-widget jw-widget-1col jw-languages-1col-sm jw_languages-name-words jw-languages3 align-center words flase">
+<label class="langTitleText">Language</label>
+	<ul class="jw-languages-list">
+	<li class='lng_es'><a href='http://www.casasantodomingo.com.gt/es/privacidad.html' title='español'> español</a></li><li class='lng_en selected last'><a href='http://www.casasantodomingo.com.gt/privacy-en.html' title='English'> English</a></li>	</ul>
+</div><!-- jw-widget -->
+ </div>
+      </div>
+      <div class="subNavBottom">
+
+        <div class="onlinepayment-wrapper">
+          <a href="http://bit.ly/VISADOLARESHCSD" target="_blank" class="onlinepayment">
+            <i class="dollerIcon"></i>
+          </a>
+          <a href="http://bit.ly/VISAQUETZALESHCSD" target="_blank" class="onlinepayment">
+            <i class="quetzals"></i>
+          </a>
+          <label>Online Payments</label>
+        </div>
+		<div class="siteSocial">
+			<!-- Begin Social Media Icons -->
+
+<ul>
+
+	<li class="googleplus">
+		<a target="_blank" href="https://plus.google.com/111991662228781146505/about" title="GOOGLE+"></a>
+	</li>	<li class="tripadvisor">
+		<a target="_blank" href="http://www.tripadvisor.com.ar/Hotel_Review-g295366-d300278-Reviews-Casa_Santo_Domingo-Antigua_Sacatepequez_Department.html" title="TRIPADVISOR"></a>
+	</li>	<li class="twitter">
+		<a target="_blank" href="https://twitter.com/santodomingogt" title="TWITTER"></a>
+	</li>	<li class="facebook">
+		<a target="_blank" href="https://www.facebook.com/hotelcasasantodomingoguatemala" title="FACEBOOK"></a>
+	</li>
+</ul>
+<!-- End Social Media Icons -->
+
+		</div>	
+      </div>
+    </div>
+  </div>
+  
+  <div class="bookingMaskMain">
+      <div class="bookinMaskWrapper" id="bookinMaskWrapper">
+        <div class="bookinMaskmain">
+<div class="jw-widget jw-widget-1col jw-booking-mask-1col-lg">
+  <form action="https://booking.ihotelier.com/istay/istay.jsp" method="get" target="_blank" class="jw-booking-mask-fields4  hideRooms showChildren modifyBooking showNights">
+    <fieldset>
+      <h3 class="selectCheckIn">Choose check in date</h3>
+      <h3 class="selectCheckOut">Choose check out date</h3>
+      <input type="hidden" name="hotelid" value="76944" />
+      <input type="hidden" name="languageid" value="1" />
+            <div class="bookingLeft">
+        <div class="jw-booking-mask-date date-in">
+          <label for="jw-booking-mask-date-in5">
+          	
+          </label>
+          <div id="jw-booking-mask-date-in" class="jw-booking-mask-datepicker"> 
+          </div>
+          <label class="date-format-helper" for="jw-booking-mask-datesendin5">
+          </label>
+          <input type="hidden" name="datein" id="date-in" data-checkin="" value="02/05/2018"/>
+          <input type="hidden" name="dateout" id="date-out" data-checkout="" value="02/06/2018"/>
+        </div>
+      </div>
+      <div class="bookingRight">
+        <div class="jw-booking-mask-nights">
+			<div class="bookDates">
+				<div class="checkInDate">
+					<span class="checkInDateText">check in</span>
+					<div class="dateWrapperLeft">
+						<span class="CheckInMonthText">Feb</span>
+						<span class="CheckInDateText">05</span>
+						<span class="CheckInYearText">2018</span>
+					</div>
+				</div>
+				<span class="checkToText">TO</span>
+				<div class="checkOutDate">
+					<span class="checkOutDateText">Check out</span>
+					<div class="dateWrapperRight">
+						<span class="CheckOutMonthText">Feb</span>
+						<span class="CheckOutDateText">06</span>
+						<span class="CheckOutYearText">2018</span>
+					</div>
+				</div>
+			</div>
+        </div>
+
+        <div class="jw-booking-mask-adults">
+          <label>Adults</label>
+          <div class="clearfloats"></div>
+          <div class="minus-adults"></div>
+          <div class="plusWrap">
+            <input type="text" class="adults-input" name="adults" value="1">
+          </div>
+          <div class="plus-adults"></div>
+        </div>
+
+        <div class="jw-booking-mask-children">
+          <label>Children</label>
+          <div class="clearfloats"></div>
+          <div class="minus-children"></div>
+          <div class="plusWrap">
+            <input type="text" class="children-input" name="children" value="0">
+          </div>
+          <div class="plus-children"></div>
+        </div>
+        <button type="submit" class="jw-booking-mask-button" value="" title="Check Rates">Check Rates</button>
+      </div>
+    </fieldset>
+  </form>
+  <script type="text/javascript">
+/* <![CDATA[ */
+$(document).ready(function(){
+	if( jQuery( ".ui-datepicker-calendar td" ).hasClass( "Highlighted" ) ){
+		jQuery( ".ui-datepicker-calendar td" ).removeClass( "Highlighted" );
+	}
+	if( jQuery( ".ui-datepicker-calendar td" ).hasClass( "dp-highlight" ) ){
+		jQuery( ".ui-datepicker-calendar td" ).removeClass( "dp-highlight" );
+	}	
+	if (jQuery().datepicker) { // validation error
+		jQuery(".date-helper").remove();
+		jQuery('.dateInpicker').attr('data-altfield', '#date-in');
+		jQuery('.dateOutpicker').attr('data-altfield', '#date-out');
+	}
+
+	function setDate(val){
+		if(val){
+			var date = jQuery.datepicker.parseDate("mm/dd/yy",val);
+			var day = date.getDate();
+			var month = date.getMonth()+1;
+			var year = date.getFullYear();
+			var usDate = month+'/'+day+'/'+year;
+
+			date = jQuery.datepicker.parseDate("mm/dd/yy",usDate);
+			return date;
+		}
+		return false;
+	}
+	
+	var monthText = ["jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+	var dp1=0,
+		dp2=0,
+		bookingMask = function (ac) {
+		$ac = jQuery(ac);
+		$ac.datepicker({
+			firstDay: 1,
+			dateFormat: 'mm/dd/yy',
+			minDate: new Date(),
+			dayNamesMin: ['S','M','T','W','T','F','S'],
+			beforeShowDay: function(date) {
+				var date1 = setDate(jQuery("#date-in").val());
+				var date2 = setDate(jQuery("#date-out").val());
+				var dateSelect1 = setDate(jQuery("#date-in").data("checkin"));
+				var dateSelect2 = setDate(jQuery("#date-out").data("checkout"));
+				
+				var dateClasses = "";
+				if( ( dateSelect1 || dateSelect2 ) ){
+					if(( dateSelect1 && date.getTime() == dateSelect1.getTime() ) || (dateSelect2 && date.getTime() == dateSelect2.getTime()))
+						dateClasses = "Highlighted"
+					else if(date > dateSelect1 && date < dateSelect2)
+						dateClasses = "dp-highlight"
+				}
+				return [true, dateClasses];
+			},
+			onSelect: function(dateText, inst) {
+				var date1 = setDate(jQuery("#date-in").val());
+				var date2 = setDate(jQuery("#date-out").val());
+
+				var date = jQuery.datepicker.parseDate("mm/dd/yy",dateText);
+				var day = ( "0" + date.getDate() ).slice(-2);
+				var month = ( "0" + ( date.getMonth() + 1 ) ).slice(-2);
+				var year = date.getFullYear();
+				var usDate = month+'/'+day+'/'+year;
+
+				if (dp1==0) {
+					//jQuery("#date-out").val("");
+					jQuery("#date-in").val(dateText).parent().removeClass('active');
+					jQuery("#date-in").val(usDate);
+					jQuery("#date-in").data('checkin', usDate);
+					jQuery("#date-out").data('checkout', "");
+
+					var minDate = date.getTime() + 24*60*60*1000;
+					minDate = new Date(minDate);
+					var dayOut = ( "0" + minDate.getDate() ).slice(-2);
+					var monthOut = ( "0" + ( minDate.getMonth()+1 ) ).slice(-2);
+					var yearOut = minDate.getFullYear();
+					var usDateOut = monthOut+'/'+dayOut+'/'+yearOut;
+					
+					jQuery(this).datepicker("option", "minDate", minDate);
+					jQuery(".datein label").hide();
+					
+					var dateIn = jQuery("#date-in").val();
+					var dateInArry = dateIn.split("/");
+					
+					jQuery(".CheckInMonthText").text(monthText[dateInArry[0].replace(/^0+/, '') - 1]);
+					jQuery(".CheckInDateText").text(dateInArry[1]);
+					jQuery(".CheckInYearText").text(dateInArry[2]);
+					
+					jQuery(".CheckOutMonthText").text(monthText[monthOut - 1]);
+					jQuery(".CheckOutDateText").text(dayOut);
+					jQuery(".CheckOutYearText").text(yearOut);
+					jQuery(".selectCheckIn").hide();
+					jQuery(".selectCheckOut").show();
+					jQuery("#date-out").val(usDateOut);
+					setTimeout(function() {
+						dp1 = 1;
+						dp2 = 0;
+					}, 100);
+				}else if (dp1 == 1 && dp2 == 0 ) {
+					jQuery("#date-out").val(dateText).addClass("active");
+					jQuery("#date-out").data("checkout", dateText);
+					jQuery("#date-in").parent().removeClass("active");
+					jQuery("#jw-booking-mask-datesendout").val(usDate);
+					jQuery(this).datepicker("option", "minDate", "today");
+					date2 = jQuery("#date-out").val(dateText);
+					jQuery(".dateout label").hide();
+					
+					var dateOut = $("#date-out").val();
+					var dateOutArry = dateOut.split("/");
+					
+					jQuery(".CheckOutMonthText").text(monthText[dateOutArry[0].replace(/^0+/, '') - 1]);
+					jQuery(".CheckOutDateText").text(dateOutArry[1]);
+					jQuery(".CheckOutYearText").text(dateOutArry[2]);
+					
+					jQuery(".selectCheckOut").hide();
+					jQuery(".selectCheckIn").show();
+					
+					setTimeout(function() {
+						dp1 = 0;
+						dp2 = 1;
+					}, 100);
+				}
+				jQuery("#date-out").parent().removeClass("active");
+			},
+			numberOfMonths: 2
+		});
+	}('#jw-booking-mask-date-in');
+	
+	adultsValue();
+	childernValue();
+	
+
+	//For Nights
+	function nightsValue(){
+		$(".plus-nights").click(function(){	
+			var oldNights = $(".nights-input").val();
+			var newNights = (parseInt($(".nights-input").val(),20) +1);
+			if(newNights < 20){
+			   var newNights = parseFloat(oldNights) +1;
+			}else{
+				newNights = 20;
+			}
+			$(".nights-input").val(newNights);
+		});
+		
+		$(".minus-nights").click(function(){
+			var oldNights = $(".nights-input").val();
+			var newNights = (parseInt($(".nights-input").val(), 20) -1);
+			if(oldNights > 1){
+			   var newNights = parseFloat(oldNights) -1;
+			}else{
+				newNights = 1;
+			}
+			$(".nights-input").val(newNights);
+		});
+	}
+	
+	//For Adults
+	function adultsValue(){
+		$(".plus-adults").click(function(){
+			var oldAdults = $(".adults-input").val();
+			var newAdults = (parseInt($(".adults-input").val(), 10) +1);
+			
+			if(newAdults < 10){
+			  var newAdults = parseFloat(oldAdults) +1;
+			}else{
+			  newAdults = 10;
+			}
+			$(".adults-input").val(newAdults);
+		});
+		$(".minus-adults").click(function(){
+			var oldAdults = $(".adults-input").val();
+			var newAdults = (parseInt($(".adults-input").val(), 10) -1);
+			if(oldAdults > 1){
+				var newAdults = parseFloat(oldAdults) -1;
+			}else{
+				newAdults = 1;
+			} 
+			$(".adults-input").val(newAdults);
+		});
+	}
+	
+	//For Childern
+	function childernValue(){
+		$(".plus-children").click(function(){
+			var oldChildren = $(".children-input").val();
+			var newChildren = (parseInt($('.children-input').val(),10) +1);
+			if(newChildren < 10){
+				var newChildren = parseFloat(oldChildren) +1;
+			}else{
+				newChildren = 10;
+			}
+			$(".children-input").val(newChildren);
+		});
+		
+		$(".minus-children").click(function(){
+			var oldChildren = $(".children-input").val();
+			var newChildren = (parseInt($('.children-input').val(),10) -1);
+			if(newChildren > 0){
+				var newChildren = parseFloat(oldChildren) -1;
+			}else{
+				newChildren = 0;
+			}
+			$(".children-input").val(newChildren);
+		});
+	}
+	
+});
+/* ]]> */	
+</script> 
+</div>
+<!-- jw-widget --></div>
+      </div>
+      <div class="bestRates topShadow">
+        <div class="siteBestRate">
+          <div class="siteBestRateMain"><div class="jw-widget jw-widget-1col jw-best-prices-1col-sm">
+	<h3>
+		<span class="roomsText">Rooms</span>
+		<span class="fromText">From</span>
+	</h3>
+
+	<p class="rate">
+		<a href="https://booking.ihotelier.com/istay/istay.jsp?hotelid=76944&amp;languageid=1&amp;roomTypeId=283972&amp;DateIn=02/06/2018&amp;ratePlanId=1223142&amp;Length=1&amp;Adults=1" target="_blank">
+					<span class="currency left">$</span>
+					<span class="amount">
+				<span class="units">184</span>
+				<span class="cents">.00</span>
+			</span>
+				</a>
+	</p>	
+
+	<a class="booking-link" href="https://booking.ihotelier.com/istay/istay.jsp?hotelid=76944&amp;languageid=1&amp;roomTypeId=283972&amp;DateIn=02/06/2018&amp;ratePlanId=1223142&amp;Length=1&amp;Adults=1" target="_blank"><span class="booking-link-text">Check Rates</span></a>
+	<small></small>
+</div><!-- jw-widget --></div>
+        </div>
+		<div class="bookDates">
+					<div class="checkInDate">
+				<div class="dateWrapperLeft">
+					<span class="checkInDateText">check in</span>
+					<span class="CheckInMonthText">Feb</span>
+					<span class="CheckInDateText">05</span>
+					<span class="CheckInYearText">2018</span>
+				</div>
+			</div>
+			<div class="checkOutDate">
+				<div class="dateWrapperRight">
+					<span class="checkOutDateText">Check out</span>
+					<span class="CheckOutMonthText">Feb</span>
+					<span class="CheckOutDateText">06</span>
+					<span class="CheckOutYearText">2018</span>
+				</div>
+			</div>
+		</div>
+        <div class="bookNow">
+          <div class="bookNowLink" id="bookNowLink">Book Now <span class="downArrow"></span></div>
+          <div class="bookNowClose" id="bookNowClose"><span class="downArrow"></span>Close</div>
+        </div>
+      </div>
+    </div>
+  <div class="clearfloats"></div>
+</div>
+<div class="mobileMenu">
+  <div class="mobileMenuWrapper">
+    <ul class="shortcuts"
+			><li class="shortcut1 item1 itemr15 level1 home"
+				><a href="http://www.casasantodomingo.com.gt/default-en.html">Home</a
+			></li
+			><li class="shortcut2 item2 itemr14 level1 dining"
+				><a href="http://www.casasantodomingo.com.gt/dining-en.html">Dining</a
+			></li
+			><li class="shortcut3 item3 itemr13 level1 accommodations"
+				><a href="http://www.casasantodomingo.com.gt/accommodations-en.html">ACCOMMODATIONS</a
+			></li
+			><li class="shortcut4 item4 itemr12 level1 weddings"
+				><a href="http://www.casasantodomingo.com.gt/weddings/default-en.html">Weddings</a
+			></li
+			><li class="shortcut5 item5 itemr11 level1 photo"
+				><a href="http://www.casasantodomingo.com.gt/photo-en.html">PHOTOS &amp; VIDEOS</a
+			></li
+			><li class="shortcut6 item6 itemr10 level1 meetings"
+				><a href="http://www.casasantodomingo.com.gt/meetings-en.html">Meetings &amp; Events</a
+			></li
+			><li class="shortcut7 item7 itemr9 level1 spa"
+				><a href="http://www.casasantodomingo.com.gt/spa-en.html">SPA</a
+			></li
+			><li class="shortcut8 item8 itemr8 level1 destination"
+				><a href="http://www.casasantodomingo.com.gt/destination-en.html">DESTINATION</a
+			></li
+			><li class="shortcut9 item9 itemr7 level1 sustainability "
+				><a href="http://www.casasantodomingo.com.gt/sustainability-en.html">Sustainability</a
+			></li
+			><li class="shortcut10 item10 itemr6 level1 museums "
+				><a href="http://www.casasantodomingo.com.gt/museums-en.html">MUSEUMS</a
+			></li
+			><li class="shortcut11 item11 itemr5 level1 packages "
+				><a href="http://www.casasantodomingo.com.gt/packages-en.html">specials</a
+			></li
+			><li class="shortcut12 item12 itemr4 level1 santodomingodelcerro "
+				><a href="http://www.casasantodomingo.com.gt/santodomingodelcerro-en.html">SANTO DOMINGO DEL CERRO</a
+			></li
+			><li class="shortcut13 item13 itemr3 level1 contact "
+				><a href="http://www.casasantodomingo.com.gt/contact-en.html">contact us</a
+			></li
+			><li class="shortcut14 item14 itemr2 level1 services "
+				><a href="http://www.casasantodomingo.com.gt/services-en.html">Services &amp; Amenities</a
+			></li
+			><li class="shortcut15 item15 itemr1 level1 booking last"
+				><a href="https://booking.ihotelier.com/istay/istay.jsp?hotelid=76944" target="Array">Reservations</a
+			></li
+		></ul>
+		<script type="text/javascript">
+		//<![CDATA[
+			condor.updatePageMenus = condor.updatePageMenus || function() {
+				var pageMenus = getElementsByClass('shortcuts', null, 'ul');
+				for (var j=0; j<pageMenus.length; ++j) {
+					var nojsList = getElementsByClass('active-nojs', pageMenus[j]);
+					for (var i=0; i<nojsList.length; ++i) {
+						removeClass(nojsList[i], 'active-nojs');
+					}
+				}
+			}
+			condor.updatePageMenus();
+		//]]>
+		</script>  </div>
+  <div class="lanBarMobile">
+    <div class="lanBarMobileWrapper"><div class="jw-widget jw-widget-1col jw-languages-1col-sm jw_languages-name-words jw-languages7 align-center words flase">
+<label class="langTitleText">Language</label>
+	<ul class="jw-languages-list">
+	<li class='lng_es'><a href='http://www.casasantodomingo.com.gt/es/privacidad.html' title='español'> español</a></li><li class='lng_en selected last'><a href='http://www.casasantodomingo.com.gt/privacy-en.html' title='English'> English</a></li>	</ul>
+</div><!-- jw-widget -->
+ </div>
+  </div>
+  <div class="subNavBottom"> 
+    <label class="onlinepaymentMbLable">Online Payments</label>
+    <div class="onlinepayment-wrapper">
+      <a href="http://bit.ly/VISADOLARESHCSD" target="_blank" class="onlinepayment">
+        <i class="dollerIcon"></i>
+      </a>
+      <a href="http://bit.ly/VISAQUETZALESHCSD" target="_blank" class="onlinepayment">
+        <i class="quetzals"></i>
+      </a>
+    </div>
+	<div class="siteSocial">
+		<!-- Begin Social Media Icons -->
+
+<ul>
+
+	<li class="googleplus">
+		<a target="_blank" href="https://plus.google.com/111991662228781146505/about" title="GOOGLE+"></a>
+	</li>	<li class="tripadvisor">
+		<a target="_blank" href="http://www.tripadvisor.com.ar/Hotel_Review-g295366-d300278-Reviews-Casa_Santo_Domingo-Antigua_Sacatepequez_Department.html" title="TRIPADVISOR"></a>
+	</li>	<li class="twitter">
+		<a target="_blank" href="https://twitter.com/santodomingogt" title="TWITTER"></a>
+	</li>	<li class="facebook">
+		<a target="_blank" href="https://www.facebook.com/hotelcasasantodomingoguatemala" title="FACEBOOK"></a>
+	</li>
+</ul>
+<!-- End Social Media Icons -->
+
+	</div>
+  </div>
+</div>
+<div class="subPageMain" tabindex="-1">
+<div class="subPageMainBg">
+	
+    <div class="subPageWrapper"> <span class="subPageIllust"></span>
+	  
+      <h1>Privacy Policy</h1>
+      <h2 class="metaTitle"></h2>
+
+            
+
+      <div class="showmoremain">
+        <div class="submaindesktopIntro subpageMainContent"><p>At Casa Santo Domingo, we sincerely value your privacy. We want you to be confident in using this website to make online reservations and explore our gorgeous and historical hotel.</p>
+<p>We are very aware of your concerns about the privacy of your information and have no desire or intent to infringe on your privacy. We will not provide your personal information to anyone else.</p>
+<p>When you provide your personal information such as name, address, email address and telephone number, we will not give or sell this information to any outside company for any use. This information will be kept confidential, and will be used only to support your customer relationship with us. We have appropriate security measures in place to protect against the loss, misuse or alteration of information we have collected from you through our site.</p></div>
+        <div class="submainmobIntro subpageMainContent"><p>At Casa Santo Domingo, we sincerely value your privacy. We want you to be confident in using this website to make online reservations and explore our gorgeous and historical hotel.</p>
+<p>We are very aware of your concerns about the privacy of your information and have no desire or intent to infringe on your privacy. We will not provide your personal information to anyone else.</p>
+<p>When you provide your personal information such as name, address, email address and telephone number, we will not give or sell this information to any outside company for any use. This information will be kept confidential, and will be used only to support your customer relationship with us. We have appropriate security measures in place to protect against the loss, misuse or alteration of information we have collected from you through our site.</p></div>
+        <span class="read-more toggleContent" id="expandSubmainContent"></span> 
+        </div>
+    </div>
+
+
+            <div class="blockCollection" id="blockCollection">
+    <div id="myCollection" class="blockCollection empty myClass3 myClass4">
+	
+</div>
+      </div>
+    
+              </div>
+</div>
+<script type="text/javascript">
+$(window).ready(function () {showMore();});
+	function showMore(){
+				var adjustheight = 157;
+				var moreText = "Read More+ ";
+				var lessText = "Read Less+ ";
+				$(".showmoremain .submainmobIntro").each(function(){
+				if ($(this).height() > adjustheight){
+					$(this).css('height', adjustheight).css('overflow', 'hidden');
+					$(this).parent('.showmoremain').find('.read-more').text(moreText);
+					$('#expandSubmainContent').addClass("read-more").removeClass("read-less");
+					$(this).parent('.showmoremain').find('.read-more').toggle(function() {
+					$(this).parents('div:first').find('.submainmobIntro').css({"height":'auto', "overflow":"visible"});
+					$(this).parents('div:first').find('p.continued').css('display', 'none');
+					$(this).text(lessText);
+					$('#expandSubmainContent').addClass("read-less").removeClass("read-more");
+				},function(){
+					$(this).parents('div:first').find('.submainmobIntro.subpageMainContent').css({"height":adjustheight, "overflow":"hidden"});
+					//var scrolltopmain = $(this).siblings(".subpageMainContent");
+					//$('html, body').animate({scrollTop: $(scrolltopmain).offset().top -800 }, 'slow');
+					$("html, body").animate({scrollTop:(10)}, 'swing');
+					$(this).parents('div:first').find('p.continued').css('display', 'block');
+					$(this).text(moreText);
+					$('#expandSubmainContent').addClass("read-more").removeClass("read-less");
+				});
+			}
+		});
+	}
+</script>
+	<div class="footer" id="footer">
+		<div class="footerWrapper">
+			<div class="footerTop">
+				<div class="footerTopLeft">
+					<ul class="footerNav">
+						<li><a href="/privacy-en.html" title="" alt="" class="privacyText">privacy policy</a></li>
+						<li><a href="/sitemap-en.html" title="" alt="" class="sitemapText">Sitemap</a></li>
+					</ul>
+				</div>
+				<div class="footerTopRight">			
+					<div class="timeWidget"> 
+						<div class="jw-widget jw-widget-1col jw-clock-1col-sm jw-widgedName9">
+	<div class="jw-clock">
+		<span class="jw-clock-label">Time</span><span id="digital-clock">--:--:--</span>
+	</div>
+</div>
+ 
+					</div>
+					<div class="siteSocial">
+					<!-- Begin Social Media Icons -->
+
+<ul>
+
+	<li class="googleplus">
+		<a target="_blank" href="https://plus.google.com/111991662228781146505/about" title="GOOGLE+"></a>
+	</li>	<li class="tripadvisor">
+		<a target="_blank" href="http://www.tripadvisor.com.ar/Hotel_Review-g295366-d300278-Reviews-Casa_Santo_Domingo-Antigua_Sacatepequez_Department.html" title="TRIPADVISOR"></a>
+	</li>	<li class="twitter">
+		<a target="_blank" href="https://twitter.com/santodomingogt" title="TWITTER"></a>
+	</li>	<li class="facebook">
+		<a target="_blank" href="https://www.facebook.com/hotelcasasantodomingoguatemala" title="FACEBOOK"></a>
+	</li>
+</ul>
+<!-- End Social Media Icons -->
+
+					</div>					
+				</div>
+			</div>
+			<div class="footerMiddel">
+				<div class="footerMiddelLeft">
+					<div class="travelLeisureMain"><a href="http://www.travelandleisure.com/travel-guide/antigua-guatemala/hotels/hotel-casa-santo-domingo-antigua-guatemala" class="travelLeisureLogo" target="_blank"></a></div>
+					<div class="grateGreenDealMain"><a href="http://www.great-green-deal.com/" class="grateGreenDealLogo" target="_blank"></a> </div>
+					<div class="travelerGoldMain"><a href="http://www.cntraveler.com/hotels/guatemala/antigua-guatemala/casa-santo-domingo--antigua" class="travelerGoldLogo" target="_blank"></a></div>
+					<div class="certificateofExcellenceMain">
+						<div id="TA_tchotel316" class="TA_tchotel"> 
+							<ul id="EDqgPhAAAlH" class="TA_links IkF4q4ezYico"> 
+								<li id="QhZz9RRRdZpg" class="bj9LqT9S"> 
+								<a target="_blank" href="https://www.tripadvisor.com.mx/Hotel_Review-g295366-d300278-Reviews-Hotel_Museo_Spa_Casa_Santo_Domingo-Antigua_Sacatepequez_Department.html">
+								<img src="https://www.tripadvisor.com.mx/img/cdsi/img2/awards/tchotel_2017_LL_TM-11655-2.jpg" alt="TripAdvisor"/> </a> 
+								</li> 
+							</ul> 
+						</div> 
+						<script src="https://www.jscache.com/wejs?wtype=tchotel&uniq=316&locationId=300278&lang=es_MX&year=2017&display_version=2"></script> 
+					</div>
+					<div class="mobilefooter">
+						<a href="http://www.cntraveler.com/hotels/guatemala/antigua-guatemala/casa-santo-domingo--antigua" class="travelerGoldLogo" target="_blank"></a>
+						<div class="certificateofExcellenceLogo">
+															<div id="TA_tchotel135" class="TA_tchotel">
+									<ul id="8DOLcjwffGbS" class="TA_links JldwuU9wXPZ">
+										<li id="vsfLFIUBmic" class="ne1BuasBbW">
+											<a target="_blank" href="http://www.tripadvisor.com/Hotel_Review-g295366-d300278-Reviews-Casa_Santo_Domingo-Antigua_Sacatepequez_Department.html"><img src="http://www.tripadvisor.com/img/cdsi/img2/awards/tchotel_2016_L_R-11655-2.jpg" alt="TripAdvisor"/></a>
+										</li>
+									</ul>
+								</div>
+								<script src="http://www.jscache.com/wejs?wtype=tchotel&amp;uniq=135&amp;locationId=300278&amp;lang=en_US&amp;year=2016&amp;display_version=2"></script>
+													</div>
+					</div>
+				</div>
+				<div class="footerMiddelRight">
+					<p>© 2018 Hotel Casa Santo Domingo</p>
+					<p>3a Calle Oriente No. 28 A, La Antigua Guatemala</p>
+					<div class="phoneTextMain"><pre class="faxNo">Fax: +5027820-1221</pre>
+						<label>.</label>
+						<span class="phoneText">Tel:+5027820-1220</span> 
+						<p class="mobilePhoneText">Tel: <a href="tel:+5027820-1220">+5027820-1220</a></p>
+					</div>
+					<p><a href="mailto:reservas@casasantodomingo.com.gt">reservas@casasantodomingo.com.gt</a></p>
+				</div>
+			</div>
+			<p class="designByText"> <span class="label">Design by</span> <a href="http://www.travelclick.com" target="_blank">TravelClick</a> </p>
+		</div>
+	</div>
+	<span id="layout"></span>
+	<div id="ovelay" class="ovelay" style="display:none"></div>
+	<div class="menuMobileOpen" id="menuMobileOpen"></div>
+	<a class="scrollTop" id="scrollTop"></a>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"e35b7bb30f","applicationID":"14380846","transactionName":"MldUY0FQDxZQARFaCQsddUJARQ4IHhIXWhAEUU8=","queueTime":0,"applicationTime":112,"atts":"HhBDFQlKHEkTA0cJHRhP","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+    
+   </html><!-- Served from Cache -->
+<!--30 Queries - 0.10480904579163 seconds -->

@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o||e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(t,e,n){function r(t){try{s.console&&console.log(t)}catch(e){}}var o,i=t("ee"),a=t(14),s={};try{o=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(s.console=!0,-1!==o.indexOf("dev")&&(s.dev=!0),-1!==o.indexOf("nr_dev")&&(s.nrDev=!0))}catch(c){}s.nrDev&&i.on("internal-error",function(t){r(t.stack)}),s.dev&&i.on("fn-err",function(t,e,n){r(n.stack)}),s.dev&&(r("NR AGENT IN DEVELOPMENT MODE"),r("flags: "+a(s,function(t,e){return t}).join(", ")))},{}],2:[function(t,e,n){function r(t,e,n,r,o){try{d?d-=1:i("err",[o||new UncaughtException(t,e,n)])}catch(s){try{i("ierr",[s,(new Date).getTime(),!0])}catch(c){}}return"function"==typeof f?f.apply(this,a(arguments)):!1}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function o(t){i("err",[t,(new Date).getTime()])}var i=t("handle"),a=t(15),s=t("ee"),c=t("loader"),f=window.onerror,u=!1,d=0;c.features.err=!0,t(1),window.onerror=r;try{throw new Error}catch(l){"stack"in l&&(t(8),t(7),"addEventListener"in window&&t(5),c.xhrWrappable&&t(9),u=!0)}s.on("fn-start",function(t,e,n){u&&(d+=1)}),s.on("fn-err",function(t,e,n){u&&(this.thrown=!0,o(n))}),s.on("fn-end",function(){u&&!this.thrown&&d>0&&(d-=1)}),s.on("internal-error",function(t){i("ierr",[t,(new Date).getTime(),!0])})},{}],3:[function(t,e,n){t("loader").features.ins=!0},{}],4:[function(t,e,n){function r(t){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var o=t("ee"),i=t("handle"),a=t(8),s=t(7);t("loader").features.stn=!0,t(6);var c=NREUM.o.EV;o.on("fn-start",function(t,e){var n=t[0];n instanceof c&&(this.bstStart=Date.now())}),o.on("fn-end",function(t,e){var n=t[0];n instanceof c&&i("bst",[n,e,this.bstStart,Date.now()])}),a.on("fn-start",function(t,e,n){this.bstStart=Date.now(),this.bstType=n}),a.on("fn-end",function(t,e){i("bstTimer",[e,this.bstStart,Date.now(),this.bstType])}),s.on("fn-start",function(){this.bstStart=Date.now()}),s.on("fn-end",function(t,e){i("bstTimer",[e,this.bstStart,Date.now(),"requestAnimationFrame"])}),o.on("pushState-start",function(t){this.time=Date.now(),this.startPath=location.pathname+location.hash}),o.on("pushState-end",function(t){i("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),"addEventListener"in window.performance&&(window.performance.clearResourceTimings?window.performance.addEventListener("resourcetimingbufferfull",function(t){i("bstResource",[window.performance.getEntriesByType("resource")]),window.performance.clearResourceTimings()},!1):window.performance.addEventListener("webkitresourcetimingbufferfull",function(t){i("bstResource",[window.performance.getEntriesByType("resource")]),window.performance.webkitClearResourceTimings()},!1)),document.addEventListener("scroll",r,!1),document.addEventListener("keypress",r,!1),document.addEventListener("click",r,!1)}},{}],5:[function(t,e,n){function r(t){for(var e=t;e&&!e.hasOwnProperty(u);)e=Object.getPrototypeOf(e);e&&o(e)}function o(t){s.inPlace(t,[u,d],"-",i)}function i(t,e){return t[1]}var a=t("ee").get("events"),s=t(16)(a),c=t("gos"),f=XMLHttpRequest,u="addEventListener",d="removeEventListener";e.exports=a,"getPrototypeOf"in Object?(r(document),r(window),r(f.prototype)):f.prototype.hasOwnProperty(u)&&(o(window),o(f.prototype)),a.on(u+"-start",function(t,e){if(t[1]){var n=t[1];if("function"==typeof n){var r=c(n,"nr@wrapped",function(){return s(n,"fn-",null,n.name||"anonymous")});this.wrapped=t[1]=r}else"function"==typeof n.handleEvent&&s.inPlace(n,["handleEvent"],"fn-")}}),a.on(d+"-start",function(t){var e=this.wrapped;e&&(t[1]=e)})},{}],6:[function(t,e,n){var r=t("ee").get("history"),o=t(16)(r);e.exports=r,o.inPlace(window.history,["pushState","replaceState"],"-")},{}],7:[function(t,e,n){var r=t("ee").get("raf"),o=t(16)(r);e.exports=r,o.inPlace(window,["requestAnimationFrame","mozRequestAnimationFrame","webkitRequestAnimationFrame","msRequestAnimationFrame"],"raf-"),r.on("raf-start",function(t){t[0]=o(t[0],"fn-")})},{}],8:[function(t,e,n){function r(t,e,n){t[0]=a(t[0],"fn-",null,n)}function o(t,e,n){this.method=n,this.timerDuration="number"==typeof t[1]?t[1]:0,t[0]=a(t[0],"fn-",this,n)}var i=t("ee").get("timer"),a=t(16)(i);e.exports=i,a.inPlace(window,["setTimeout","setImmediate"],"setTimer-"),a.inPlace(window,["setInterval"],"setInterval-"),a.inPlace(window,["clearTimeout","clearImmediate"],"clearTimeout-"),i.on("setInterval-start",r),i.on("setTimer-start",o)},{}],9:[function(t,e,n){function r(t,e){d.inPlace(e,["onreadystatechange"],"fn-",s)}function o(){var t=this,e=u.context(t);t.readyState>3&&!e.resolved&&(e.resolved=!0,u.emit("xhr-resolved",[],t)),d.inPlace(t,v,"fn-",s)}function i(t){w.push(t),h&&(g=-g,b.data=g)}function a(){for(var t=0;t<w.length;t++)r([],w[t]);w.length&&(w=[])}function s(t,e){return e}function c(t,e){for(var n in t)e[n]=t[n];return e}t(5);var f=t("ee"),u=f.get("xhr"),d=t(16)(u),l=NREUM.o,p=l.XHR,h=l.MO,m="readystatechange",v=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],w=[];e.exports=u;var y=window.XMLHttpRequest=function(t){var e=new p(t);try{u.emit("new-xhr",[e],e),e.addEventListener(m,o,!1)}catch(n){try{u.emit("internal-error",[n])}catch(r){}}return e};if(c(p,y),y.prototype=p.prototype,d.inPlace(y.prototype,["open","send"],"-xhr-",s),u.on("send-xhr-start",function(t,e){r(t,e),i(e)}),u.on("open-xhr-start",r),h){var g=1,b=document.createTextNode(g);new h(a).observe(b,{characterData:!0})}else f.on("fn-end",function(t){t[0]&&t[0].type===m||a()})},{}],10:[function(t,e,n){function r(t){var e=this.params,n=this.metrics;if(!this.ended){this.ended=!0;for(var r=0;l>r;r++)t.removeEventListener(d[r],this.listener,!1);if(!e.aborted){if(n.duration=(new Date).getTime()-this.startTime,4===t.readyState){e.status=t.status;var i=o(t,this.lastSize);if(i&&(n.rxSize=i),this.sameOrigin){var a=t.getResponseHeader("X-NewRelic-App-Data");a&&(e.cat=a.split(", ").pop())}}else e.status=0;n.cbTime=this.cbTime,u.emit("xhr-done",[t],t),c("xhr",[e,n,this.startTime])}}}function o(t,e){var n=t.responseType;if("json"===n&&null!==e)return e;var r="arraybuffer"===n||"blob"===n||"json"===n?t.response:t.responseText;return i(r)}function i(t){if("string"==typeof t&&t.length)return t.length;if("object"==typeof t){if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if(!("undefined"!=typeof FormData&&t instanceof FormData))try{return JSON.stringify(t).length}catch(e){return}}}function a(t,e){var n=f(e),r=t.params;r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.sameOrigin=n.sameOrigin}var s=t("loader");if(s.xhrWrappable){var c=t("handle"),f=t(11),u=t("ee"),d=["load","error","abort","timeout"],l=d.length,p=t("id"),h=t(13),m=window.XMLHttpRequest;s.features.xhr=!0,t(9),u.on("new-xhr",function(t){var e=this;e.totalCbs=0,e.called=0,e.cbTime=0,e.end=r,e.ended=!1,e.xhrGuids={},e.lastSize=null,h&&(h>34||10>h)||window.opera||t.addEventListener("progress",function(t){e.lastSize=t.loaded},!1)}),u.on("open-xhr-start",function(t){this.params={method:t[0]},a(this,t[1]),this.metrics={}}),u.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),u.on("send-xhr-start",function(t,e){var n=this.metrics,r=t[0],o=this;if(n&&r){var a=i(r);a&&(n.txSize=a)}this.startTime=(new Date).getTime(),this.listener=function(t){try{"abort"===t.type&&(o.params.aborted=!0),("load"!==t.type||o.called===o.totalCbs&&(o.onloadCalled||"function"!=typeof e.onload))&&o.end(e)}catch(n){try{u.emit("internal-error",[n])}catch(r){}}};for(var s=0;l>s;s++)e.addEventListener(d[s],this.listener,!1)}),u.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),u.on("xhr-load-added",function(t,e){var n=""+p(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),u.on("xhr-load-removed",function(t,e){var n=""+p(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),u.on("addEventListener-end",function(t,e){e instanceof m&&"load"===t[0]&&u.emit("xhr-load-added",[t[1],t[2]],e)}),u.on("removeEventListener-end",function(t,e){e instanceof m&&"load"===t[0]&&u.emit("xhr-load-removed",[t[1],t[2]],e)}),u.on("fn-start",function(t,e,n){e instanceof m&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=(new Date).getTime()))}),u.on("fn-end",function(t,e){this.xhrCbStart&&u.emit("xhr-cb-time",[(new Date).getTime()-this.xhrCbStart,this.onload,e],e)})}},{}],11:[function(t,e,n){e.exports=function(t){var e=document.createElement("a"),n=window.location,r={};e.href=t,r.port=e.port;var o=e.href.split("://");!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=e.hostname||n.hostname,r.pathname=e.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname);var i=!e.protocol||":"===e.protocol||e.protocol===n.protocol,a=e.hostname===document.domain&&e.port===n.port;return r.sameOrigin=i&&(!e.hostname||a),r}},{}],12:[function(t,e,n){function r(t,e){return function(){o(t,[(new Date).getTime()].concat(a(arguments)),null,e)}}var o=t("handle"),i=t(14),a=t(15);"undefined"==typeof window.newrelic&&(newrelic=NREUM);var s=["setPageViewName","addPageAction","setCustomAttribute","finished","addToTrace","inlineHit"],c=["addPageAction"],f="api-";i(s,function(t,e){newrelic[e]=r(f+e,"api")}),i(c,function(t,e){newrelic[e]=r(f+e)}),e.exports=newrelic,newrelic.noticeError=function(t){"string"==typeof t&&(t=new Error(t)),o("err",[t,(new Date).getTime()])}},{}],13:[function(t,e,n){var r=0,o=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);o&&(r=+o[1]),e.exports=r},{}],14:[function(t,e,n){function r(t,e){var n=[],r="",i=0;for(r in t)o.call(t,r)&&(n[i]=e(r,t[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],15:[function(t,e,n){function r(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(0>o?0:o);++r<o;)i[r]=t[e+r];return i}e.exports=r},{}],16:[function(t,e,n){function r(t){return!(t&&"function"==typeof t&&t.apply&&!t[a])}var o=t("ee"),i=t(15),a="nr@original",s=Object.prototype.hasOwnProperty,c=!1;e.exports=function(t){function e(t,e,n,o){function nrWrapper(){var r,a,s,c;try{a=this,r=i(arguments),s="function"==typeof n?n(r,a):n||{}}catch(u){d([u,"",[r,a,o],s])}f(e+"start",[r,a,o],s);try{return c=t.apply(a,r)}catch(l){throw f(e+"err",[r,a,l],s),l}finally{f(e+"end",[r,a,c],s)}}return r(t)?t:(e||(e=""),nrWrapper[a]=t,u(t,nrWrapper),nrWrapper)}function n(t,n,o,i){o||(o="");var a,s,c,f="-"===o.charAt(0);for(c=0;c<n.length;c++)s=n[c],a=t[s],r(a)||(t[s]=e(a,f?s+o:o,i,s))}function f(e,n,r){if(!c){c=!0;try{t.emit(e,n,r)}catch(o){d([o,e,n,r])}c=!1}}function u(t,e){if(Object.defineProperty&&Object.keys)try{var n=Object.keys(t);return n.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(r){d([r])}for(var o in t)s.call(t,o)&&(e[o]=t[o]);return e}function d(e){try{t.emit("internal-error",e)}catch(n){}}return t||(t=o),e.inPlace=n,e.flag=a,e}},{}],ee:[function(t,e,n){function r(){}function o(t){function e(t){return t&&t instanceof r?t:t?s(t,a,i):i()}function n(n,r,o){t&&t(n,r,o);for(var i=e(o),a=l(n),s=a.length,c=0;s>c;c++)a[c].apply(i,r);var u=f[v[n]];return u&&u.push([w,n,r,i]),i}function d(t,e){m[t]=l(t).concat(e)}function l(t){return m[t]||[]}function p(t){return u[t]=u[t]||o(n)}function h(t,e){c(t,function(t,n){e=e||"feature",v[n]=e,e in f||(f[e]=[])})}var m={},v={},w={on:d,emit:n,get:p,listeners:l,context:e,buffer:h};return w}function i(){return new r}var a="nr@context",s=t("gos"),c=t(14),f={},u={},d=e.exports=o();d.backlog=f},{}],gos:[function(t,e,n){function r(t,e,n){if(o.call(t,e))return t[e];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return t[e]=r,r}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],handle:[function(t,e,n){function r(t,e,n,r){o.buffer([t],r),o.emit(t,e,n)}var o=t("ee").get("handle");e.exports=r,r.ee=o},{}],id:[function(t,e,n){function r(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:a(t,i,function(){return o++})}var o=1,i="nr@id",a=t("gos");e.exports=r},{}],loader:[function(t,e,n){function r(){if(!m++){var t=h.info=NREUM.info,e=u.getElementsByTagName("script")[0];if(t&&t.licenseKey&&t.applicationID&&e){c(l,function(e,n){t[e]||(t[e]=n)});var n="https"===d.split(":")[0]||t.sslForHttp;h.proto=n?"https://":"http://",s("mark",["onload",a()],null,"api");var r=u.createElement("script");r.src=h.proto+t.agent,e.parentNode.insertBefore(r,e)}}}function o(){"complete"===u.readyState&&i()}function i(){s("mark",["domContent",a()],null,"api")}function a(){return(new Date).getTime()}var s=t("handle"),c=t(14),f=window,u=f.document;NREUM.o={ST:setTimeout,CT:clearTimeout,XHR:f.XMLHttpRequest,REQ:f.Request,EV:f.Event,PR:f.Promise,MO:f.MutationObserver},t(12);var d=""+location,l={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-918.min.js"},p=window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&!/CriOS/.test(navigator.userAgent),h=e.exports={offset:a(),origin:d,features:{},xhrWrappable:p};u.addEventListener?(u.addEventListener("DOMContentLoaded",i,!1),f.addEventListener("load",r,!1)):(u.attachEvent("onreadystatechange",o),f.attachEvent("onload",r)),s("mark",["firstbyte",a()],null,"api");var m=0},{}]},{},["loader",2,10,4,3]);;NREUM.info={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",licenseKey:"acfaadd3b2",applicationID:"8719584",sa:1,agent:"js-agent.newrelic.com/nr-918.min.js"}</script><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"XQMCUFNSGwEBVlRSBwEO"};window.NREUM||(NREUM={}),__nr_require=function(t,n,e){function r(e){if(!n[e]){var o=n[e]={exports:{}};t[e][0].call(o.exports,function(n){var o=t[e][1][n];return r(o||n)},o,o.exports)}return n[e].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<e.length;o++)r(e[o]);return r}({1:[function(t,n,e){function r(t){try{s.console&&console.log(t)}catch(n){}}var o,i=t("ee"),a=t(15),s={};try{o=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(s.console=!0,o.indexOf("dev")!==-1&&(s.dev=!0),o.indexOf("nr_dev")!==-1&&(s.nrDev=!0))}catch(c){}s.nrDev&&i.on("internal-error",function(t){r(t.stack)}),s.dev&&i.on("fn-err",function(t,n,e){r(e.stack)}),s.dev&&(r("NR AGENT IN DEVELOPMENT MODE"),r("flags: "+a(s,function(t,n){return t}).join(", ")))},{}],2:[function(t,n,e){function r(t,n,e,r,o){try{d?d-=1:i("err",[o||new UncaughtException(t,n,e)])}catch(s){try{i("ierr",[s,c.now(),!0])}catch(u){}}return"function"==typeof f&&f.apply(this,a(arguments))}function UncaughtException(t,n,e){this.message=t||"Uncaught error with no additional information",this.sourceURL=n,this.line=e}function o(t){i("err",[t,c.now()])}var i=t("handle"),a=t(16),s=t("ee"),c=t("loader"),f=window.onerror,u=!1,d=0;c.features.err=!0,t(1),window.onerror=r;try{throw new Error}catch(l){"stack"in l&&(t(8),t(7),"addEventListener"in window&&t(5),c.xhrWrappable&&t(9),u=!0)}s.on("fn-start",function(t,n,e){u&&(d+=1)}),s.on("fn-err",function(t,n,e){u&&(this.thrown=!0,o(e))}),s.on("fn-end",function(){u&&!this.thrown&&d>0&&(d-=1)}),s.on("internal-error",function(t){i("ierr",[t,c.now(),!0])})},{}],3:[function(t,n,e){t("loader").features.ins=!0},{}],4:[function(t,n,e){function r(t){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var o=t("ee"),i=t("handle"),a=t(8),s=t(7),c="learResourceTimings",f="addEventListener",u="resourcetimingbufferfull",d="bstResource",l="resource",p="-start",h="-end",m="fn"+p,w="fn"+h,v="bstTimer",y="pushState",g=t("loader");g.features.stn=!0,t(6);var b=NREUM.o.EV;o.on(m,function(t,n){var e=t[0];e instanceof b&&(this.bstStart=g.now())}),o.on(w,function(t,n){var e=t[0];e instanceof b&&i("bst",[e,n,this.bstStart,g.now()])}),a.on(m,function(t,n,e){this.bstStart=g.now(),this.bstType=e}),a.on(w,function(t,n){i(v,[n,this.bstStart,g.now(),this.bstType])}),s.on(m,function(){this.bstStart=g.now()}),s.on(w,function(t,n){i(v,[n,this.bstStart,g.now(),"requestAnimationFrame"])}),o.on(y+p,function(t){this.time=g.now(),this.startPath=location.pathname+location.hash}),o.on(y+h,function(t){i("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),f in window.performance&&(window.performance["c"+c]?window.performance[f](u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["c"+c]()},!1):window.performance[f]("webkit"+u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["webkitC"+c]()},!1)),document[f]("scroll",r,{passive:!0}),document[f]("keypress",r,!1),document[f]("click",r,!1)}},{}],5:[function(t,n,e){function r(t){for(var n=t;n&&!n.hasOwnProperty(u);)n=Object.getPrototypeOf(n);n&&o(n)}function o(t){s.inPlace(t,[u,d],"-",i)}function i(t,n){return t[1]}var a=t("ee").get("events"),s=t(18)(a,!0),c=t("gos"),f=XMLHttpRequest,u="addEventListener",d="removeEventListener";n.exports=a,"getPrototypeOf"in Object?(r(document),r(window),r(f.prototype)):f.prototype.hasOwnProperty(u)&&(o(window),o(f.prototype)),a.on(u+"-start",function(t,n){var e=t[1],r=c(e,"nr@wrapped",function(){function t(){if("function"==typeof e.handleEvent)return e.handleEvent.apply(e,arguments)}var n={object:t,"function":e}[typeof e];return n?s(n,"fn-",null,n.name||"anonymous"):e});this.wrapped=t[1]=r}),a.on(d+"-start",function(t){t[1]=this.wrapped||t[1]})},{}],6:[function(t,n,e){var r=t("ee").get("history"),o=t(18)(r);n.exports=r,o.inPlace(window.history,["pushState","replaceState"],"-")},{}],7:[function(t,n,e){var r=t("ee").get("raf"),o=t(18)(r),i="equestAnimationFrame";n.exports=r,o.inPlace(window,["r"+i,"mozR"+i,"webkitR"+i,"msR"+i],"raf-"),r.on("raf-start",function(t){t[0]=o(t[0],"fn-")})},{}],8:[function(t,n,e){function r(t,n,e){t[0]=a(t[0],"fn-",null,e)}function o(t,n,e){this.method=e,this.timerDuration="number"==typeof t[1]?t[1]:0,t[0]=a(t[0],"fn-",this,e)}var i=t("ee").get("timer"),a=t(18)(i),s="setTimeout",c="setInterval",f="clearTimeout",u="-start",d="-";n.exports=i,a.inPlace(window,[s,"setImmediate"],s+d),a.inPlace(window,[c],c+d),a.inPlace(window,[f,"clearImmediate"],f+d),i.on(c+u,r),i.on(s+u,o)},{}],9:[function(t,n,e){function r(t,n){d.inPlace(n,["onreadystatechange"],"fn-",s)}function o(){var t=this,n=u.context(t);t.readyState>3&&!n.resolved&&(n.resolved=!0,u.emit("xhr-resolved",[],t)),d.inPlace(t,w,"fn-",s)}function i(t){v.push(t),h&&(g=-g,b.data=g)}function a(){for(var t=0;t<v.length;t++)r([],v[t]);v.length&&(v=[])}function s(t,n){return n}function c(t,n){for(var e in t)n[e]=t[e];return n}t(5);var f=t("ee"),u=f.get("xhr"),d=t(18)(u),l=NREUM.o,p=l.XHR,h=l.MO,m="readystatechange",w=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],v=[];n.exports=u;var y=window.XMLHttpRequest=function(t){var n=new p(t);try{u.emit("new-xhr",[n],n),n.addEventListener(m,o,!1)}catch(e){try{u.emit("internal-error",[e])}catch(r){}}return n};if(c(p,y),y.prototype=p.prototype,d.inPlace(y.prototype,["open","send"],"-xhr-",s),u.on("send-xhr-start",function(t,n){r(t,n),i(n)}),u.on("open-xhr-start",r),h){var g=1,b=document.createTextNode(g);new h(a).observe(b,{characterData:!0})}else f.on("fn-end",function(t){t[0]&&t[0].type===m||a()})},{}],10:[function(t,n,e){function r(t){var n=this.params,e=this.metrics;if(!this.ended){this.ended=!0;for(var r=0;r<d;r++)t.removeEventListener(u[r],this.listener,!1);if(!n.aborted){if(e.duration=a.now()-this.startTime,4===t.readyState){n.status=t.status;var i=o(t,this.lastSize);if(i&&(e.rxSize=i),this.sameOrigin){var c=t.getResponseHeader("X-NewRelic-App-Data");c&&(n.cat=c.split(", ").pop())}}else n.status=0;e.cbTime=this.cbTime,f.emit("xhr-done",[t],t),s("xhr",[n,e,this.startTime])}}}function o(t,n){var e=t.responseType;if("json"===e&&null!==n)return n;var r="arraybuffer"===e||"blob"===e||"json"===e?t.response:t.responseText;return h(r)}function i(t,n){var e=c(n),r=t.params;r.host=e.hostname+":"+e.port,r.pathname=e.pathname,t.sameOrigin=e.sameOrigin}var a=t("loader");if(a.xhrWrappable){var s=t("handle"),c=t(11),f=t("ee"),u=["load","error","abort","timeout"],d=u.length,l=t("id"),p=t(14),h=t(13),m=window.XMLHttpRequest;a.features.xhr=!0,t(9),f.on("new-xhr",function(t){var n=this;n.totalCbs=0,n.called=0,n.cbTime=0,n.end=r,n.ended=!1,n.xhrGuids={},n.lastSize=null,p&&(p>34||p<10)||window.opera||t.addEventListener("progress",function(t){n.lastSize=t.loaded},!1)}),f.on("open-xhr-start",function(t){this.params={method:t[0]},i(this,t[1]),this.metrics={}}),f.on("open-xhr-end",function(t,n){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&n.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),f.on("send-xhr-start",function(t,n){var e=this.metrics,r=t[0],o=this;if(e&&r){var i=h(r);i&&(e.txSize=i)}this.startTime=a.now(),this.listener=function(t){try{"abort"===t.type&&(o.params.aborted=!0),("load"!==t.type||o.called===o.totalCbs&&(o.onloadCalled||"function"!=typeof n.onload))&&o.end(n)}catch(e){try{f.emit("internal-error",[e])}catch(r){}}};for(var s=0;s<d;s++)n.addEventListener(u[s],this.listener,!1)}),f.on("xhr-cb-time",function(t,n,e){this.cbTime+=t,n?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof e.onload||this.end(e)}),f.on("xhr-load-added",function(t,n){var e=""+l(t)+!!n;this.xhrGuids&&!this.xhrGuids[e]&&(this.xhrGuids[e]=!0,this.totalCbs+=1)}),f.on("xhr-load-removed",function(t,n){var e=""+l(t)+!!n;this.xhrGuids&&this.xhrGuids[e]&&(delete this.xhrGuids[e],this.totalCbs-=1)}),f.on("addEventListener-end",function(t,n){n instanceof m&&"load"===t[0]&&f.emit("xhr-load-added",[t[1],t[2]],n)}),f.on("removeEventListener-end",function(t,n){n instanceof m&&"load"===t[0]&&f.emit("xhr-load-removed",[t[1],t[2]],n)}),f.on("fn-start",function(t,n,e){n instanceof m&&("onload"===e&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=a.now()))}),f.on("fn-end",function(t,n){this.xhrCbStart&&f.emit("xhr-cb-time",[a.now()-this.xhrCbStart,this.onload,n],n)})}},{}],11:[function(t,n,e){n.exports=function(t){var n=document.createElement("a"),e=window.location,r={};n.href=t,r.port=n.port;var o=n.href.split("://");!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=n.hostname||e.hostname,r.pathname=n.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname);var i=!n.protocol||":"===n.protocol||n.protocol===e.protocol,a=n.hostname===document.domain&&n.port===e.port;return r.sameOrigin=i&&(!n.hostname||a),r}},{}],12:[function(t,n,e){function r(){}function o(t,n,e){return function(){return i(t,[f.now()].concat(s(arguments)),n?null:this,e),n?void 0:this}}var i=t("handle"),a=t(15),s=t(16),c=t("ee").get("tracer"),f=t("loader"),u=NREUM;"undefined"==typeof window.newrelic&&(newrelic=u);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],l="api-",p=l+"ixn-";a(d,function(t,n){u[n]=o(l+n,!0,"api")}),u.addPageAction=o(l+"addPageAction",!0),u.setCurrentRouteName=o(l+"routeName",!0),n.exports=newrelic,u.interaction=function(){return(new r).get()};var h=r.prototype={createTracer:function(t,n){var e={},r=this,o="function"==typeof n;return i(p+"tracer",[f.now(),t,e],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],e),o)try{return n.apply(this,arguments)}finally{c.emit("fn-end",[f.now()],e)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,n){h[n]=o(p+n)}),newrelic.noticeError=function(t){"string"==typeof t&&(t=new Error(t)),i("err",[t,f.now()])}},{}],13:[function(t,n,e){n.exports=function(t){if("string"==typeof t&&t.length)return t.length;if("object"==typeof t){if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if(!("undefined"!=typeof FormData&&t instanceof FormData))try{return JSON.stringify(t).length}catch(n){return}}}},{}],14:[function(t,n,e){var r=0,o=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);o&&(r=+o[1]),n.exports=r},{}],15:[function(t,n,e){function r(t,n){var e=[],r="",i=0;for(r in t)o.call(t,r)&&(e[i]=n(r,t[r]),i+=1);return e}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],16:[function(t,n,e){function r(t,n,e){n||(n=0),"undefined"==typeof e&&(e=t?t.length:0);for(var r=-1,o=e-n||0,i=Array(o<0?0:o);++r<o;)i[r]=t[n+r];return i}n.exports=r},{}],17:[function(t,n,e){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],18:[function(t,n,e){function r(t){return!(t&&t instanceof Function&&t.apply&&!t[a])}var o=t("ee"),i=t(16),a="nr@original",s=Object.prototype.hasOwnProperty,c=!1;n.exports=function(t,n){function e(t,n,e,o){function nrWrapper(){var r,a,s,c;try{a=this,r=i(arguments),s="function"==typeof e?e(r,a):e||{}}catch(f){l([f,"",[r,a,o],s])}u(n+"start",[r,a,o],s);try{return c=t.apply(a,r)}catch(d){throw u(n+"err",[r,a,d],s),d}finally{u(n+"end",[r,a,c],s)}}return r(t)?t:(n||(n=""),nrWrapper[a]=t,d(t,nrWrapper),nrWrapper)}function f(t,n,o,i){o||(o="");var a,s,c,f="-"===o.charAt(0);for(c=0;c<n.length;c++)s=n[c],a=t[s],r(a)||(t[s]=e(a,f?s+o:o,i,s))}function u(e,r,o){if(!c||n){var i=c;c=!0;try{t.emit(e,r,o,n)}catch(a){l([a,e,r,o])}c=i}}function d(t,n){if(Object.defineProperty&&Object.keys)try{var e=Object.keys(t);return e.forEach(function(e){Object.defineProperty(n,e,{get:function(){return t[e]},set:function(n){return t[e]=n,n}})}),n}catch(r){l([r])}for(var o in t)s.call(t,o)&&(n[o]=t[o]);return n}function l(n){try{t.emit("internal-error",n)}catch(e){}}return t||(t=o),e.inPlace=f,e.flag=a,e}},{}],ee:[function(t,n,e){function r(){}function o(t){function n(t){return t&&t instanceof r?t:t?c(t,s,i):i()}function e(e,r,o,i){if(!l.aborted||i){t&&t(e,r,o);for(var a=n(o),s=h(e),c=s.length,f=0;f<c;f++)s[f].apply(a,r);var d=u[y[e]];return d&&d.push([g,e,r,a]),a}}function p(t,n){v[t]=h(t).concat(n)}function h(t){return v[t]||[]}function m(t){return d[t]=d[t]||o(e)}function w(t,n){f(t,function(t,e){n=n||"feature",y[e]=n,n in u||(u[n]=[])})}var v={},y={},g={on:p,emit:e,get:m,listeners:h,context:n,buffer:w,abort:a,aborted:!1};return g}function i(){return new r}function a(){(u.api||u.feature)&&(l.aborted=!0,u=l.backlog={})}var s="nr@context",c=t("gos"),f=t(15),u={},d={},l=n.exports=o();l.backlog=u},{}],gos:[function(t,n,e){function r(t,n,e){if(o.call(t,n))return t[n];var r=e();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return t[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(t,n,e){function r(t,n,e,r){o.buffer([t],r),o.emit(t,n,e)}var o=t("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(t,n,e){function r(t){var n=typeof t;return!t||"object"!==n&&"function"!==n?-1:t===window?0:a(t,i,function(){return o++})}var o=1,i="nr@id",a=t("gos");n.exports=r},{}],loader:[function(t,n,e){function r(){if(!x++){var t=b.info=NREUM.info,n=l.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(t&&t.licenseKey&&t.applicationID&&n))return u.abort();f(y,function(n,e){t[n]||(t[n]=e)}),c("mark",["onload",a()+b.offset],null,"api");var e=l.createElement("script");e.src="https://"+t.agent,n.parentNode.insertBefore(e,n)}}function o(){"complete"===l.readyState&&i()}function i(){c("mark",["domContent",a()+b.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(s=Math.max((new Date).getTime(),s))-b.offset}var s=(new Date).getTime(),c=t("handle"),f=t(15),u=t("ee"),d=window,l=d.document,p="addEventListener",h="attachEvent",m=d.XMLHttpRequest,w=m&&m.prototype;NREUM.o={ST:setTimeout,CT:clearTimeout,XHR:m,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1026.min.js"},g=m&&w&&w[p]&&!/CriOS/.test(navigator.userAgent),b=n.exports={offset:s,now:a,origin:v,features:{},xhrWrappable:g};t(12),l[p]?(l[p]("DOMContentLoaded",i,!1),d[p]("load",r,!1)):(l[h]("onreadystatechange",o),d[h]("onload",r)),c("mark",["firstbyte",s],null,"api");var x=0,E=t(17)},{}]},{},["loader",2,10,4,3]);</script>
+<title>Alison - Homepage</title>
+<meta name='keywords' content='alison, free online courses, free online training, learning, education, homepage'/>
+<meta name='description' content='Join 9 million learners and explore 750+ free online courses from top publishers. ALISON is the leading provider of free online classes &amp; online learning.'/>
+ 
+ 
+<meta property="og:title" content="Alison - Homepage"/>
+<meta property="og:type" content="website"/>
+<meta property="og:image" content=""/>
+<meta property="og:url" content="https://alison.com/about/terms-of-use"/>
+<meta property="og:description" content="Join 9 million learners and explore 750+ free online courses from top publishers. ALISON is the leading provider of free online classes &amp; online learning."/>
+ 
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@AlisonCourses">
+<meta name="twitter:creator" content="@AlisonCourses">
+<meta name="twitter:url" content="https://alison.com/about/terms-of-use">
+<meta name="twitter:title" content="Alison - Homepage">
+<meta name="twitter:description" content="Join 9 million learners and explore 750+ free online courses from top publishers. ALISON is the leading provider of free online classes &amp; online learning.">
+<meta name="twitter:image" content="">
+ 
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="csrf-token" content="J7Ni0OiALfQz16NjJXMSP9SMYgbP5akmfg3AdZbW">
+<link rel="canonical" href="https://alison.com/about/terms-of-use"/>
+ 
+<link rel="icon" type="image/png" href="/html/vendor/img/favicon/favicon-32x32.png.pagespeed.ce.1cDna-mnQx.png" sizes="32x32"/>
+<link rel="icon" type="image/png" href="/html/vendor/img/favicon/favicon-16x16.png.pagespeed.ce.qAVK3bfsHa.png" sizes="16x16"/>
+ 
+<link rel="stylesheet" href="/html/site/css/A.main.css.pagespeed.cf.cC3a_AkoA-.css">
+<!--[if lte IE11]>
+    <script src="/html/vendor/js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+    <link rel="stylesheet" href="/html/site/css/ie11.css">
+    <![endif]-->
+ 
+<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({google_ad_client:"ca-pub-4877892089121284",enable_page_level_ads:true});</script>
+</head>
+<body>
+<div class="loading">
+<img src="/html/site/img/loader.gif.pagespeed.ce.P6eaS40kFq.gif" alt="Loading">
+</div>
+ 
+<header class="not-loggedin">
+<div class="alternative-search">
+<form method="GET" action="https://alison.com/courses" accept-charset="UTF-8">
+<input maxlength="200" placeholder="Search for ..." name="q" type="text">
+<button type="submit" class="btn btn-warning btn-fla"><span class="icon-search"></span></button>
+</form>
+</div>
+<div class="wrapper">
+<a href="/login" class="link">
+<span class="icon-user-log"></span>
+<span class="text">Register/Login</span>
+</a>
+<a href="/" class="logo"><img src="/html/vendor/img/logo.svg" alt="Alison Logo"></a>
+<a href="/" class="logo-short"><img src="/html/vendor/img/logo-short.svg" alt="Alison Logo"></a>
+<div class="link float-right">
+<div class="menu-trigger">
+<div class="trigger nav-burger">
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+</div>
+<ul class="dropdown-nav">
+<li><a href="https://alison.com" class="icon-home"><span>home</span></a></li>
+<li><a href="https://alison.com/courses" class="icon-courses"><span>Courses</span></a></li>
+<li><a href="https://alison.com/learning-paths" class="icon-paths"><span>Learning Paths</span></a></li>
+<li><a href="https://alison.com/shop/cart" class="icon-bag"><span>Shop</span></a></li>
+<li><a href="https://alison.com/faqs" class="icon-faq-line"><span>faqs</span></a></li>
+<li><a href="https://alison.com/publishers" class="icon-book2"><span>Publishers</span></a></li>
+<li><a href="https://alison.com/users/graduates" class="icon-hat"><span>Learner graduates</span></a></li>
+</ul>
+</div>
+<div class="search link">
+<a href="#" class="search-trigger"><span class="icon-search"></span></a>
+</div>
+</div>
+</div>
+<div class="header-angle"></div>
+</header>
+<div class="wrapper nav-wrapper">
+ 
+<nav class="navigation">
+<ul>
+<li></li>
+</ul>
+</nav>
+</div>
+ 
+<div class="messages-q">
+</div>
+<div id="main-holder">
+<div class="banner-container ">
+<div class="banner">
+<figure class="bg-image">
+<img src="/html/site/img/terms-of-use-header.jpg" alt="ALISON Our Team">
+</figure>
+<div class="banner-align align-parent">
+<div class="align-center">
+<div class="wrapper">
+<div class="about-banner">
+<h1>General Terms and Conditions</h1>
+</div>
+</div>
+</div>
+</div>
+<div class="banner-angle"></div>
+</div>
+</div>
+<div class="wrapper">
+<div class="row department-tabs terms-of-use tab-header-inline">
+<div data-name="introduction" class="col-xl-2 tab-title introduction active">
+<a href="#">Introduction</a>
+</div>
+<div data-name="liability" class="col-xl-2 tab-title liability ">
+<a href="#">Liability</a>
+</div>
+<div data-name="privacy" class="col-xl-2 tab-title privacy ">
+<a href="#">Privacy</a>
+</div>
+<div data-name="abuse" class="col-xl-2 tab-title abuse ">
+<a href="#">Abuse</a>
+</div>
+<div data-name="limits-of-use" class="col-xl-2 tab-title limits-of-use ">
+<a href="#">Limits Of Use</a>
+</div>
+<div data-name="termination" class="col-xl-2 tab-title termination ">
+<a href="#">Termination</a>
+</div>
+<div data-name="use-of-data" class="col-xl-2 tab-title use-of-data ">
+<a href="#">Use Of Data</a>
+</div>
+<div data-name="social-media" class="col-xl-2 tab-title social-media ">
+<a href="#">Social Media</a>
+</div>
+<div data-name="indemnity" class="col-xl-2 tab-title indemnity ">
+<a href="#">Indemnity</a>
+</div>
+<div data-name="product-terms-and-conditions" class="col-xl-2 tab-title product-terms-and-conditions ">
+<a href="#">Product Terms and Conditions</a>
+</div>
+</div>
+<div class="row tab-content">
+<div class="row tab-content">
+<div id="introduction" class="tab active">
+<div class="col-sm-12 terms-of-use">
+<div class="information">
+<div class="row">
+<h4>1. Introduction</h4>
+<div class="col-sm-12">
+<p>
+<strong>1.1.</strong> These are the terms and conditions governing the use of <a href="https://alison.com">https://alison.com</a>, (the Website) and the agreement that operates between us and you (the Terms). The Website is owned and operated by Alison (us/our/we) and these Terms set out the rights and obligations of all users (you/your) in relation to your use of the Website. Please read carefully these Terms and our Privacy Statement. By using the Website you are consenting to be bound by the then current Terms and our Privacy Statement. We may revise the Terms and information contained on the Website at any time and without notice. If you do not agree to these Terms or the Privacy Statement, please refrain from using the Website.
+</p>
+<p>
+<strong>1.2.</strong> If you have any questions about the Terms or the Privacy Statement, please contact us at Alison, Level One Building, Galway Technology Park, Parkmore, Galway, Ireland.
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="liability" class="tab ">
+<div class="col-sm-12 terms-of-use">
+<div class="information">
+<div class="row">
+<h4>2. Liability</h4>
+<div class="col-sm-12">
+<p>
+<strong>2.1.</strong> The material contained within the courses on the Website is provided without any guarantees, conditions or warranties as to its accuracy. Alison does not represent that information contained on or available via the Website is accurate or complete and accordingly it should not be relied on as such. You should not rely on any such information. Any arrangements made between you and any other person, using or named on the Website are entirely at your sole risk and responsibility.
+</p>
+<p>
+<strong>2.2.</strong> To the extent permitted by law, we, and third parties connected to us hereby expressly exclude:
+</p>
+<ul class="indent-left">
+<li>
+<strong>2.2.1.</strong> all conditions, warranties and other terms which might otherwise be implied by statute, common law or the law of equity;
+</li>
+<li>
+<strong>2.2.2.</strong> any liability for loss or damage incurred by any user in connection with the use, inability to use, or results of the use of the Website, any websites linked to it and any material posted on it;
+</li>
+<li>
+<strong>2.2.3.</strong> any liability for any bugs or faults in our systems or tools; and
+</li>
+<li>
+<strong>2.2.4.</strong> any liability for any direct, special, indirect or consequential loss or damage incurred by any user in connection with the Website or in connection with the use, inability to use, or results of the use of the Website, any websites linked to it and any materials posted on it, including, without limitation any liability for:
+</li>
+<ol class="list-lower-roman indent-left">
+<li>loss of income or revenue;</li>
+<li>loss of business;</li>
+<li>loss of profits or contracts;</li>
+<li>loss of anticipated savings;</li>
+<li>loss of data;</li>
+<li>loss of goodwill;</li>
+<li>wasted management or office time; and</li>
+<li>for any other loss or damage of any kind, however arising and whether caused by tort (including negligence), breach of contract or otherwise, even if foreseeable.</li>
+</ol>
+</ul>
+<p>
+<strong>2.3.</strong> Nothing in this section affects our liability for death or personal injury arising from our negligence, nor our liability for fraudulent misrepresentation or misrepresentation as to a fundamental matter, nor any other liability which cannot be excluded or limited under applicable law.
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="privacy" class="tab ">
+<div class="col-sm-12 terms-of-use">
+<div class="information">
+<div class="row">
+<h4>3. Privacy</h4>
+<div class="col-sm-12">
+<p>
+<strong>3.1.</strong> In order to obtain access to certain services provided via the Website you will be required to register on the Website. To do this you will have to provide personally identifiable information such as your name, postal address, e-mail address and telephone number. You can choose not to provide this information, however, you might not be able to gain access to our services or purchase products from our Website. If you contact us for any reason, we may keep a record of that correspondence.
+</p>
+<p>
+<strong>3.2.</strong> Any communication or material that you transmit to, or post on, any public area of the Website including any personal information, questions, comments, suggestions, or the like, is, and will be treated as, non-confidential and non-proprietary information. Such personal information is not covered by these Terms and Conditions.
+</p>
+<p>
+<strong>3.3.</strong> We will retain your personal information for as long as needed to provide you services and to maintain a record of your transactions for financial reporting purposes [or until such time as you deactivate your account]. We will also retain your personal information as necessary to comply with our legal obligations, resolve disputes, and enforce our agreements.
+</p>
+<p>
+<strong>3.4.</strong> The security and confidentiality of your information is extremely important to us. As no data transmission over the Internet can be guaranteed as 100% secure, we cannot ensure or warrant the security of any information that you transmit to us and you transfer the data at your own risk. We endeavour to use the appropriate technical and organizational measures in order to secure the confidentiality of your personal data, to prevent unauthorised or unlawful processing of such personal data, and to protect against accidental or unlawful destruction, accidental loss, alteration or unauthorised disclosure or access and to otherwise protect the security of such personal data.
+</p>
+<p>
+<strong>3.5.</strong> We shall not face any liability in the event of our system being hacked and personal information being stolen.
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="abuse" class="tab ">
+<div class="col-sm-12 terms-of-use">
+<div class="information">
+<div class="row">
+<h4>4. Abuse</h4>
+<div class="col-sm-12">
+<p>
+<strong>4.1.</strong> Users have a requirement to treat other learners with respect.
+</p>
+<p>
+<strong>4.2.</strong> Users must not make any comments towards other users or Alison staff/administrators that:
+</p>
+<ul class="indent-left">
+<li>
+<strong>4.2.1.</strong> Contain any material which is defamatory of any other person;
+</li>
+<li>
+<strong>4.2.2.</strong> Breach the data protection or privacy rights of any person;
+</li>
+<li>
+<strong>4.2.3.</strong> Contain any material which is obscene, offensive, hateful or inflammatory;
+</li>
+<li>
+<strong>4.2.4.</strong> Promote sexually explicit material;
+</li>
+<li>
+<strong>4.2.5.</strong> Promote violence;
+</li>
+<li>
+<strong>4.2.6.</strong> Promote discrimination based on race, sex, religion, nationality, disability, sexual orientation or age;
+</li>
+<li>
+<strong>4.2.7.</strong> Infringe any patent, copyright, database right, trademark or other intellectual property right of any other person;
+</li>
+<li>
+<strong>4.2.8.</strong> Is likely to deceive any other person;
+</li>
+<li>
+<strong>4.2.9.</strong> Is made in breach of any legal duty owed to a third party, such as contractual duty or a duty of confidence;
+</li>
+<li>
+<strong>4.2.10.</strong> Promote any illegal activity;
+</li>
+<li>
+<strong>4.2.11.</strong> Is threatening, abuse or invade another’s privacy, or cause annoyance, inconvenience or needless anxiety;
+</li>
+<li>
+<strong>4.2.12.</strong> Is likely to harass, upset, embarrass, alarm or annoy any other person;
+</li>
+<li>
+<strong>4.2.13.</strong> Is used to impersonate any person, or to misrepresent your identity or affiliation with any person;
+</li>
+<li>
+<strong>4.2.14.</strong> Gives the impression that they emanate from us, if this is not the case; or
+</li>
+<li>
+<strong>4.2.15.</strong> Advocates, promotes or assists any unlawful act such as (by way of example only) copyright infringement or computer misuse.
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="limits-of-use" class="tab ">
+<div class="col-sm-12 terms-of-use">
+<div class="information">
+<div class="row">
+<h4>5. Limits of Use</h4>
+<div class="col-sm-12">
+<p>
+<strong>5.1.</strong> You may use our Website only for lawful purposes. You may not use our Website:
+</p>
+<ul class="indent-left">
+<li>
+<strong>5.1.1.</strong> In any way that breaches any applicable local, national or international law or regulation;
+</li>
+<li>
+<strong>5.1.2.</strong> In any way that is unlawful or fraudulent, or has any unlawful or fraudulent purpose or effect;
+</li>
+<li>
+<strong>5.1.3.</strong> To send, knowingly receive, upload, download, use or re-use any material which does not comply with our [content standards];
+</li>
+<li>
+<strong>5.1.4.</strong> To download any content from courses;
+</li>
+<li>
+<strong>5.1.5.</strong> To transmit any data, send or upload any material that contains viruses, trojan horses, worms, time-bombs, keystroke loggers, spyware, adware or any other harmful programs or similar computer code designed to adversely affect the operation of any computer software or hardware.
+</li>
+</ul>
+<p>
+<strong>5.2.</strong> You also agree:
+</p>
+<ul class="indent-left">
+<li>
+<strong>5.2.1.</strong> Not to reproduce, duplicate, copy or re-sell any part of our website in contravention of the provisions of these Terms;
+</li>
+<li>
+<strong>5.2.2.</strong> Not to use ad-blocking software;
+</li>
+<li>
+<strong>5.2.3.</strong> Not to charge others for the use of Alison unless in specific written agreement with Alison;
+</li>
+<li>
+<strong>5.2.4.</strong> Not to reuse text or graphics from the Website or parts thereof.
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="termination" class="tab ">
+<div class="col-sm-12 terms-of-use">
+<div class="information">
+<div class="row">
+<h4>6. Termination</h4>
+<div class="col-sm-12">
+<p>
+We retain discretion to deactivate your account and access to the Website services at any time for any reason whatsoever at our absolute discretion.
+</p>
+<p>
+You can deactivate your account at any time, but Alison shall maintain course tracking history in our database.
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="use-of-data" class="tab ">
+<div class="col-sm-12 terms-of-use">
+<div class="information">
+<div class="row">
+<h4>7. Use of Data</h4>
+<div class="col-sm-12">
+<p>
+<strong>7.1.</strong> We use information held about you in the following ways:
+</p>
+<ul class="indent-left">
+<li>
+<strong>7.1.1.</strong> To ensure that content from our site is presented in the most effective manner for you and for your computer;
+</li>
+<li>
+<strong>7.1.2.</strong> To use it in data analytics and transfer to our operated systems for this purposes;
+</li>
+<li>
+<strong>7.1.3.</strong> To provide you with information that you request from us or which we feel may interest you, where you have consented to be contacted for such purposes;
+</li>
+<li>
+<strong>7.1.4.</strong> To conduct marketing analysis;
+</li>
+<li>
+<strong>7.1.5.</strong> In the event that you are selected as "Learner of the Day" or "Learner of the Month", you agree to your details and responses being used in Alison marketing on Alison community pages; and
+</li>
+<li>
+<strong>7.1.6.</strong> When a learner submits a testimonial or comment, they give permission for Alison to use that on the Alison website, community and in marketing material.
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="social-media" class="tab ">
+<div class="col-sm-12 terms-of-use">
+<div class="information">
+<div class="row">
+<h4>8. Social Media</h4>
+<div class="col-sm-12">
+<p>
+<strong>8.1.</strong> Alison reserves the right and has absolute discretion to screen, review, filter, edit, refuse or remove without notice any content posted on any Alison social media including:
+</p>
+<ul class="indent-left">
+<li>
+<strong>8.1.1.</strong> Comments which include offensive, inappropriate or obscene language or content (including images, videos or links);
+</li>
+<li>
+<strong>8.1.2.</strong> Threatening, abusive or insulting statements likely to stir up hatred;
+</li>
+<li>
+<strong>8.1.3.</strong> Material infringing copyright or intellectual property rights;
+</li>
+<li>
+<strong>8.1.4.</strong> Material in breach of privacy or confidentiality obligation; and
+</li>
+<li>
+<strong>8.1.5.</strong> Spam messages.
+</li>
+</ul>
+</p>
+<strong>8.2</strong> Users must be 16 years or older to sign up to and post on Alison social media accounts.
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="indemnity" class="tab ">
+<div class="col-sm-12 terms-of-use">
+<div class="information">
+<div class="row">
+<h4>9. Indemnity</h4>
+<div class="col-sm-12">
+<p>
+<strong>9.1.</strong> You will defend, indemnify and hold harmless us, our affiliates and our officers, directors, employees and agents from and against any and all claims, liabilities, damages, losses or expenses, including reasonable legal costs, arising out of or in any way connected with any breach by you of these General Terms and Conditions.
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="product-terms-and-conditions" class="tab ">
+<div class="col-sm-12 terms-of-use">
+<div class="information">
+<div class="row">
+<h4>Product Terms and Conditions</h4>
+<div class="col-sm-12">
+<p>
+<strong>
+Study Groups Terms &amp; Conditions (Study Groups is a free LMS to manage groups of learners, with some paid add on services) The following are the Terms and Conditions associated with the use of Study Groups:
+</strong>
+</p>
+<ol>
+<li>Free services may be changed to paid services at the discretion of Alison. In such event service will remain free for user until end of current annual renewal and no longer.</li>
+<li>There will be no refund on early termination of paid add on services. It is at the discretion of Alison as to whether a discount may be given on changed add on service.</li>
+<li>ALISION will have no liability for lost data, tracking or unavailable site or services.</li>
+<li>Messaging as part of the study group service shall not be used to intimidate, abuse, insult learners.</li>
+<li>Users will be liable to indemnify Alison from liability for any intimidation or experienced from Study Group admin or other learners.</li>
+<li>Alison may suspend without refund any user/group admin without exception who is found to be intimidating any other user of on Alison, any user sending profanities.</li>
+<li>Learners may not be charged for taking learning as part of a Study Group, either directly or indirectly.</li>
+<li>Fair usage of Alison Study Groups is assumed, and where a user is causing a disproportionate draw on Alison systems a Study Group may be suspended or withdrawn.</li>
+<li>Users may not use profanity in Study Group naming.</li>
+<li>Once a user is added to a Study Group that is a single user license used up, removal of the user does not create a new user license.</li>
+<li>Once a training course is added to a Study Group that is a single course license used up, removal of the course does not create a new course license.</li>
+<li>A learner registering on Alison as part of an Alison Study Group is separately a member of the Alison Free Learning Community. The instigator of the registration has no rights to the learner with regards to the usage of the site or otherwise.</li>
+<li>All General Terms and Conditions (above) are also agreed to.</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-12">
+<div class="ad">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+ 
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4877892089121284" data-ad-slot="4619464806" data-ad-format="auto"></ins>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+</div>
+</div>
+</div>
+</div>
+ 
+<footer class="main">
+<div class="main-bg">
+<div class="wrapper">
+<ul class="tab-content">
+<li id="about" class="tab  active ">
+<div class="tab-holder">
+<div class="col-3">
+<h4 class="tab-sub-title">Our Story</h4>
+<div class="half">
+<img src="/html/site/img/xour-story.jpg.pagespeed.ic.unM4iRg_ht.jpg" alt="Alison Story">
+</div>
+<div>
+<p>With more than 10 million learners globally, Alison is changing how the world learns.</p>
+<a href="https://alison.com/about/our-story" class="btn btn-blue">Read more</a>
+</div>
+</div>
+<div class="col-3">
+<h4 class="tab-sub-title">Our Team</h4>
+<div class="half">
+<img src="/html/site/img/xfooter-team-image.jpg.pagespeed.ic.YchdUFMeSV.jpg" alt="Alison Team">
+</div>
+<div>
+<p>We believe that education, more than anything, empowers people to change their lives.</p>
+<a href="https://alison.com/about/our-team" class="btn btn-blue">Read more</a>
+</div>
+</div>
+<div class="col-3">
+<h4 class="tab-sub-title">Register</h4>
+<div class="half">
+<img src="/html/site/img/xsign-up.jpg.pagespeed.ic.cuiue3ZXgL.jpg" alt="Register">
+</div>
+<div>
+<p>With over 800 free-to-access courses to choose from, why not start now?</p>
+<a href="https://alison.com/register" class="btn btn-blue">Register</a>
+</div>
+</div>
+</div>
+</li>
+<li id="news" class="tab ">
+<div class="tab-holder">
+<div class="col-3">
+<h4 class="tab-sub-title">FAQ</h4>
+<div class="half">
+<img src="/html/site/img/xfaq.jpg.pagespeed.ic._8wj37B-1P.jpg" alt="Alison Logo">
+</div>
+<div>
+<p>Get the answers to commonly asked questions about learning on Alison.</p>
+<a href="https://alison.com/faqs" class="btn btn-blue">Read more</a>
+</div>
+</div>
+<div class="col-3">
+<h4 class="tab-sub-title">Contact us</h4>
+<div class="half">
+<img src="/html/site/img/xcontact.jpg.pagespeed.ic.94k4fiZSCd.jpg" alt="Alison Logo">
+</div>
+<div>
+<p>Need to get in touch? Find out how.</p>
+<a href="https://alison.com/contact-us" class="btn btn-blue">Read more</a>
+</div>
+</div>
+<div class="col-3">
+<h4 class="tab-sub-title">Register</h4>
+<div class="half">
+<img src="/html/site/img/xsign-up.jpg.pagespeed.ic.cuiue3ZXgL.jpg" alt="Alison Logo">
+</div>
+<div>
+<p>With over 800 free-to-access courses to choose from, why not start now?</p>
+<a href="https://alison.com/register" class="btn btn-blue">Register</a>
+</div>
+</div>
+</div>
+</li>
+<li id="shop" class="tab">
+<div class="tab-holder">
+<div class="col-3">
+<h4 class="tab-sub-title">Certificate</h4>
+<div class="half">
+<img src="/html/site/img/xcertificate.jpg.pagespeed.ic.IM-raNOG4c.jpg" alt="Alison Logo">
+</div>
+<div>
+<p>You’ve completed your Certificate course, now visit our shop to make your success formal!</p>
+<a href="https://alison.com/shop/cart" class="btn btn-blue">Read more</a>
+</div>
+</div>
+<div class="col-3">
+<h4 class="tab-sub-title">Diploma</h4>
+<div class="half">
+<img src="/html/site/img/xdiploma.jpg.pagespeed.ic.5wfWg3HExC.jpg" alt="Alison Logo">
+</div>
+<div>
+<p>You’ve completed your Diploma course, now visit our shop to make your success formal!</p>
+<a href="https://alison.com/shop/cart" class="btn btn-blue">Read more</a>
+</div>
+</div>
+<div class="col-3">
+<h4 class="tab-sub-title">Register</h4>
+<div class="half">
+<img src="/html/site/img/xsign-up.jpg.pagespeed.ic.cuiue3ZXgL.jpg" alt="Alison Logo">
+</div>
+<div>
+<p>With over 800 free-to-access courses to choose from, why not start now?</p>
+<a href="https://alison.com/register" class="btn btn-blue">Register</a>
+</div>
+</div>
+</div>
+</li>
+<li id="programs" class="tab">
+<div class="tab-holder">
+<div class="col-3">
+<h4 class="tab-sub-title">In The News</h4>
+<div class="half">
+<img src="/html/site/img/xnews.jpg.pagespeed.ic.mRQ194HhMv.jpg" alt="Alison Logo">
+</div>
+<div>
+<p>See what the international media is saying about Alison.</p>
+<a href="https://blog.alison.com/news" target="_blank" class="btn btn-blue">Read more</a>
+</div>
+</div>
+<div class="col-3">
+<h4 class="tab-sub-title">Press Releases</h4>
+<div class="half">
+<img src="/html/site/img/xpress.jpg.pagespeed.ic.48X1x5MwLZ.jpg" alt="Alison Logo">
+</div>
+<div>
+<p>Keep up to date with our learning initiatives worldwide.</p>
+<a href="https://blog.alison.com/press" target="_blank" class="btn btn-blue">Read more</a>
+</div>
+</div>
+<div class="col-3">
+<h4 class="tab-sub-title">Media Kit</h4>
+<div class="half">
+<img src="/html/site/img/xmedia-kit.jpg.pagespeed.ic.jNGxHEL-ee.jpg" alt="Alison Logo">
+</div>
+<div>
+<p>The details you need to understand our business better.</p>
+<a href="https://blog.alison.com/" target="_blank" class="btn btn-blue">Read more</a>
+</div>
+</div>
+</div>
+</li>
+<li id="community" class="tab">
+<div class="tab-holder">
+<div class="col-3">
+<h4 class="tab-sub-title">Latest Posts</h4>
+<div class="half">
+<img src="/html/site/img/xlatest-post.jpg.pagespeed.ic.jvxPwX6OWl.jpg" alt="Alison Logo">
+</div>
+<div>
+<p>Keep up-to-date with all the news from Alison HQ.</p>
+<a href="https://blog.alison.com/" target="_blank" class="btn btn-blue">Read more</a>
+</div>
+</div>
+<div class="col-3">
+<h4 class="tab-sub-title">Learner Stories</h4>
+<div class="half">
+<img src="/html/site/img/xlearner-stories.jpg.pagespeed.ic.uOrdDeG_TF.jpg" alt="Alison Logo">
+</div>
+<div>
+<p>Read first-hand how learners used Alison to enhance their personal and professional life.</p>
+<a href="https://blog.alison.com/" target="_blank" class="btn btn-blue">Read more</a>
+</div>
+</div>
+<div class="col-3">
+<h4 class="tab-sub-title">Register</h4>
+<div class="half">
+<img src="/html/site/img/xsign-up.jpg.pagespeed.ic.cuiue3ZXgL.jpg" alt="Alison Logo">
+</div>
+<div>
+<p>With over 800 free-to-access courses to choose from, why not start now?</p>
+<a href="https://alison.com/register" class="btn btn-blue">Register</a>
+</div>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="wrap-bottom top">
+<div class="half-bottom">
+<ul class="tab-navbar">
+<li data-name="about" class="tab-title  active "><a href="#" class="icon-about"><span class="text">About Alison</span></a></li>
+<li data-name="news" class="tab-title "><a href="#" class="icon-faq"><span class="text">Need Help</span></a></li>
+<li data-name="shop" class="tab-title"><a href="#" class="icon-alisonShop"><span class="text">Shop</span></a></li>
+<li data-name="programs" class="tab-title"><a href="#" class="icon-news"><span class="text">Press Room</span></a></li>
+<li data-name="community" class="tab-title"><a href="#" class="icon-globe"><span class="text">Blog</span></a></li>
+</ul>
+</div>
+</div>
+<div class="wrap-bottom">
+<div class="main-bottom">
+<img src="/html/vendor/img/logo.svg" alt="Alison Logo" class="logo"/>
+<ul>
+<li class="icon-rights"><span>&copy; ALISON 2017</span></li>
+<li class="icon-rights"><a href="https://alison.com/sitemap">Sitemap</a></li>
+<li class="icon-rights"><a href="https://alison.com/about/company-details">Company details</a></li>
+<li class="icon-rights"><a href="https://alison.com/about/terms-of-use">Terms of use</a></li>
+<li class="icon-rights"><a href="https://alison.com/about/careers">Careers</a></li>
+<li class="icon-rights"><a href="https://alison.com/about/pricing">Pricing</a></li>
+<li class="icon-rights"><a href="https://alison.com/about/certification">Certification</a></li>
+</ul>
+<div class="icon-group">
+<a href="https://www.facebook.com/AlisonCourses/" target="_blank">
+<i class="icon-facebook"></i>
+</a>
+<a href="https://twitter.com/AlisonCourses" target="_blank">
+<i class="icon-twitter"></i>
+</a>
+<a href="https://www.linkedin.com/company/alison" target="_blank">
+<i class="icon-linkedin"></i>
+</a>
+</div> </div>
+</div>
+</footer>
+ 
+<div id="support">
+<a href="#" class="toggle-button"></a>
+<div class="container">
+</div>
+</div>
+ 
+ 
+<!--[if lt IE 11]>
+<div id="outdated">
+    <h6> <span class="icon-time-lapse"></span>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update my browser now!</a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<![endif]-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!--[if lt IE 11]>
+<script src="/html/vendor/js/outdatedBrowser.min.js"></script>
+<script>
+    $(document).ready(function () {
+        outdatedBrowser({
+            bgColor: '#187e9b',
+            color: '#ffffff',
+            lowerThan: 'boxShadow'
+        })
+    })
+</script>
+<![endif]-->
+ 
+<script src="/html/vendor/js/jquery.mCustomScrollbar.min.js.pagespeed.jm.beIBu8K1Qc.js"></script>
+<script src="/html/site/js/main.js.pagespeed.jm.8NpbOLuoPF.js"></script>
+<script src="/html/site/js/lang.js.pagespeed.jm.lW6L3kZXwO.js"></script>
+ 
+<script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;ga('create','UA-493356-4','auto');ga('send','pageview');</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+ 
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"acfaadd3b2","applicationID":"21250009","transactionName":"b1VVZRFXV0QAWkUIWFYfdlIXX1ZZTkpYFVIWUVVeFkIXQwRLXBJoV1ZoRBBT","queueTime":0,"applicationTime":1153,"atts":"QxJWE1lNREo=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>

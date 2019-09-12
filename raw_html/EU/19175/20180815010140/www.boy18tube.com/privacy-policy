@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8"><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var o=t[n]={exports:{}};e[n][0].call(o.exports,function(t){var o=e[n][1][t];return r(o||t)},o,o.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(e,t,n){function r(){}function o(e,t,n){return function(){return i(e,[f.now()].concat(u(arguments)),t?null:this,n),t?void 0:this}}var i=e("handle"),a=e(2),u=e(3),c=e("ee").get("tracer"),f=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,t){s[t]=o(d+t,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,o="function"==typeof t;return i(l+"tracer",[f.now(),e,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],n),o)try{return t.apply(this,arguments)}catch(e){throw c.emit("fn-err",[arguments,this,e],n),e}finally{c.emit("fn-end",[f.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=o(l+t)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,f.now()])}},{}],2:[function(e,t,n){function r(e,t){var n=[],r="",i=0;for(r in e)o.call(e,r)&&(n[i]=t(r,e[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],3:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,o=n-t||0,i=Array(o<0?0:o);++r<o;)i[r]=e[t+r];return i}t.exports=r},{}],4:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function o(e){function t(e){return e&&e instanceof r?e:e?c(e,u,i):i()}function n(n,r,o,i){if(!d.aborted||i){e&&e(n,r,o);for(var a=t(o),u=m(n),c=u.length,f=0;f<c;f++)u[f].apply(a,r);var p=s[y[n]];return p&&p.push([b,n,r,a]),a}}function l(e,t){v[e]=m(e).concat(t)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(n)}function g(e,t){f(e,function(e,n){t=t||"feature",y[n]=t,t in s||(s[t]=[])})}var v={},y={},b={on:l,emit:n,get:w,listeners:m,context:t,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",c=e("gos"),f=e(2),s={},p={},d=t.exports=o();d.backlog=s},{}],gos:[function(e,t,n){function r(e,t,n){if(o.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[t]=r,r}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){o.buffer([e],r),o.emit(e,t,n)}var o=e("ee").get("handle");t.exports=r,r.ee=o},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=h.info=NREUM.info,t=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return s.abort();f(y,function(t,n){e[t]||(e[t]=n)}),c("mark",["onload",a()+h.offset],null,"api");var n=d.createElement("script");n.src="https://"+e.agent,t.parentNode.insertBefore(n,t)}}function o(){"complete"===d.readyState&&i()}function i(){c("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),c=e("handle"),f=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1071.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=t.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),c("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<title>Privacy Policy for boy18tube.com</title>
+	<meta name="description" content="">
+	<meta name="keywords" content="gay porn, free gay porn, gay tube, gay sex, gay videos, free gay videos, gay porn tube, gay chat, gay boys, free gay movies">
+	<link rel="apple-touch-icon"		sizes="57x57" 		href="/bundles/gaytubeboy18tube/images/favicon/apple-icon-57x57-a13576ab46.png">
+	<link rel="apple-touch-icon" 		sizes="60x60" 		href="/bundles/gaytubeboy18tube/images/favicon/apple-icon-60x60-9946d08df3.png">
+	<link rel="apple-touch-icon" 		sizes="72x72" 		href="/bundles/gaytubeboy18tube/images/favicon/apple-icon-72x72-36bf3be475.png">
+	<link rel="apple-touch-icon" 		sizes="76x76" 		href="/bundles/gaytubeboy18tube/images/favicon/apple-icon-76x76-062d5ccfbe.png">
+	<link rel="apple-touch-icon" 		sizes="114x114" 	href="/bundles/gaytubeboy18tube/images/favicon/apple-icon-114x114-d2c833eef3.png">
+	<link rel="apple-touch-icon" 		sizes="120x120" 	href="/bundles/gaytubeboy18tube/images/favicon/apple-icon-120x120-025c478d86.png">
+	<link rel="apple-touch-icon" 		sizes="144x144" 	href="/bundles/gaytubeboy18tube/images/favicon/apple-icon-144x144-0fc6708a29.png">
+	<link rel="apple-touch-icon" 		sizes="152x152" 	href="/bundles/gaytubeboy18tube/images/favicon/apple-icon-152x152-c558a01349.png">
+	<link rel="apple-touch-icon" 		sizes="180x180" 	href="/bundles/gaytubeboy18tube/images/favicon/apple-icon-180x180-81be0794f5.png">
+	<link rel="icon" type="image/png"	sizes="192x192" 	href="/bundles/gaytubeboy18tube/images/favicon/android-icon-192x192-1f6161c6ac.png">
+	<link rel="icon" type="image/png"	sizes="32x32" 		href="/bundles/gaytubeboy18tube/images/favicon/favicon-32x32-352b5e68b7.png">
+	<link rel="icon" type="image/png"	sizes="96x96" 		href="/bundles/gaytubeboy18tube/images/favicon/favicon-96x96-165ca4d554.png">
+	<link rel="icon" type="image/png"	sizes="16x16" 		href="/bundles/gaytubeboy18tube/images/favicon/favicon-16x16-86b0ebfa77.png">
+	<link rel="manifest" href="/bundles/gaytubeboy18tube/images/favicon/manifest-b58fcfa762.json">
+	<!-- <link rel='subresource' href='/bundles/gaytubeboy18tube/gallery-f499b6beed.js'> -->
+	<link rel='prefetch' href='/bundles/gaytubeboy18tube/gallery-f499b6beed.js'>
+		<meta name="msapplication-TileColor" content=#690000>
+	<meta name="msapplication-TileImage" content="/bundles/gaytubeboy18tube/images/favicon/ms-icon-144x144-0fc6708a29.png">
+	<meta name="msapplication-config" content="/bundles/gaytubeboy18tube/images/favicon/browserconfig-653d077300.xml">
+	<meta name="theme-color" content=#690000>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,600,700,800,300' rel='stylesheet' type='text/css'>
+	<!--[if lt IE 9]>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.1.0/respond.min.js"></script>
+	<![endif]-->
+	<link rel="stylesheet" href="/bundles/gaytubeboy18tube/style-1f061a3396.css">
+					<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-113061021-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+		</head>
+<body>
+	<div class="content-wrap">
+			<div class="b-cookie" id="ticker">
+				<div class="b-cookie__body clearfix">
+					<div class="b-cookie-mess f-left">
+						Cookies help us deliver our services. By using our services, you agree to our use of cookies.
+						<a href="/cookie-policy" target="_blank">Learn more</a>
+					</div>
+					<a href="#" class="b-cookie__close f-right">
+						<i class="icon-cancel"></i>
+					</a>
+				</div>
+			</div>
+		<header>
+						<div class="header clearfix">
+				<a href="/" title="Gay Boy 18 Tube. Teen gays porno. Free videos, long xxx movies." class="logo" id="logo">
+					<img src="/bundles/gaytubeboy18tube/images/logo-c4f9abaac8.png" alt="Gay Boy 18 Tube. Teen gays porno. Free videos, long xxx movies.">
+				</a>
+				<div class="mobile-nav f-right">
+					<i class="icon-menu" id="open-nav"></i>
+					<i class="icon-search" id="open-search"></i>
+				</div>
+				<nav class="opened" id="nav" style="">
+										<ul class="clearfix sf-menu" id="sf-menu">
+						<li class="not">
+							<a href="/">
+								<i class="icon-eye"></i>
+								Popular
+							</a>
+						</li>
+						<li class="not">
+							<a href="/newest">
+								<i class="icon-back-in-time"></i>
+								Newest
+							</a>
+						</li>
+						<li class="not">
+							<a href="/hottest">
+								<i class="icon-fire-station"></i>
+								Hottest
+							</a>
+						</li>
+						<li class="not">
+							<a href="/categories">
+								<i class="icon-list"></i>
+								Categories
+							</a>
+						</li>
+						<li class="not">
+							<a href="/pornstars">
+								<i class="icon-star-circled"></i>
+								Pornstars
+							</a>
+						</li>
+						<li class="js-random-link-item active">
+	<a href="https://hd100546b.com/goto.php?spotID=102" target="_blank" rel="nofollow" class="menu-random js-menu-random active" data-spot="MI2" data-banner-id="" data-device="phone">
+		<i class="icon-live-cams"></i>
+		Live Chat
+	</a>
+</li>
+
+<li class="js-random-link-item ">
+	<a href="https://hd100546b.com/goto.php?spotID=103&bID=791" target="_blank" rel="nofollow" class="menu-random js-menu-random " data-spot="MI3" data-banner-id="" data-device="phone">
+		<i class="icon-dating"></i>
+		HD Porn
+	</a>
+</li>
+
+						<li class="menu-dropdown">
+							<a class="dropdown-button">
+								<i class="icon-wrench"></i>
+								Other
+							</a>
+							<ul class="dropdown-content">
+								<li><a href="/upload" target="_blank">Upload</a></li>
+								<li><a href="/dmca" target="_blank" rel="nofollow">DMCA / Copyright </a></li>
+								<li><a href="/privacy-policy" target="_blank" rel="nofollow">Privacy policy </a></li>
+								<li><a href="/contact-us" target="_blank" rel="nofollow">Contact us</a></li>
+								<li><a href="/content-removal" target="_blank" rel="nofollow">Content Removal</a></li>
+							</ul>
+						</li>
+					</ul>
+				</nav>
+				<form id="search" class="search js-search f-right" name="search_form" method="get" action="/search/-query-">
+					<input
+						type="text"
+						value=""
+						name="query"
+						placeholder="Search videos..."
+						autocomplete="off"
+						data-url-search="/search-suggestions/-query-"
+						class="js-search-input"
+					>
+					<button id="search-button" class="search-button">
+						<i class="icon-search"></i>
+					</button>
+					<div class="b-search-suggestions js-search-suggestions is-hidden" id="search-dropdown" data-loader-text="Loading"></div>
+				</form>
+				<div class="socs f-right">
+					<a href="https://www.facebook.com/sharer/sharer.php?u=http://www.boy18tube.com/" rel="nofollow" target="_blank"><i class="icon-facebook-squared"></i></a>
+					<a href="https://twitter.com/home?status=http://www.boy18tube.com/" rel="nofollow" target="_blank"><i class="icon-twitter"></i></a>
+					<a href="https://plus.google.com/share?url=http://www.boy18tube.com/" rel="nofollow" target="_blank"><i class="icon-googleplus-rect"></i></a>
+				</div>
+			</div>
+		</header>
+		<section class="wrapper">
+			<div class="b-mobile-random-links">
+				<ul class="js-random-links-mobile-spot"></ul>
+			</div>
+						<div class="main-content-wrapper  ">
+														<aside class=" main-page-aside">
+								<h3 class="sub-title from-az"><i class="icon-list"></i> Categories</h3>
+	<ul>
+			<li>
+			<a href="/category/anime"  title="Anime">Anime</a>
+		</li>
+			<li>
+			<a href="/category/asian"  title="Asian">Asian</a>
+		</li>
+			<li>
+			<a href="/category/barebacking"  title="Barebacking">Barebacking</a>
+		</li>
+			<li>
+			<a href="/category/bbc"  title="BBC">BBC</a>
+		</li>
+			<li>
+			<a href="/category/beach"  title="Beach">Beach</a>
+		</li>
+			<li>
+			<a href="/category/bear"  title="Bear">Bear</a>
+		</li>
+			<li>
+			<a href="/category/bedroom"  title="Bedroom">Bedroom</a>
+		</li>
+			<li>
+			<a href="/category/big-ass"  title="Big Ass">Big Ass</a>
+		</li>
+			<li>
+			<a href="/category/big-cock"  title="Big cock">Big cock</a>
+		</li>
+			<li>
+			<a href="/category/bitch"  title="Bitch">Bitch</a>
+		</li>
+			<li>
+			<a href="/category/bondage"  title="Bondage">Bondage</a>
+		</li>
+			<li>
+			<a href="/category/boyfriend"  title="Boyfriend">Boyfriend</a>
+		</li>
+			<li>
+			<a href="/category/bukkake"  title="Bukkake">Bukkake</a>
+		</li>
+			<li>
+			<a href="/category/cash"  title="Cash">Cash</a>
+		</li>
+			<li>
+			<a href="/category/compilation"  title="Compilation">Compilation</a>
+		</li>
+			<li>
+			<a href="/category/couple"  title="Couple">Couple</a>
+		</li>
+			<li>
+			<a href="/category/creampie"  title="Creampie">Creampie</a>
+		</li>
+			<li>
+			<a href="/category/cum"  title="Cum">Cum</a>
+		</li>
+			<li>
+			<a href="/category/cute"  title="Cute">Cute</a>
+		</li>
+			<li>
+			<a href="/category/daddy"  title="Daddy">Daddy</a>
+		</li>
+			<li>
+			<a href="/category/doggystyle"  title="Doggystyle">Doggystyle</a>
+		</li>
+			<li>
+			<a href="/category/double-penetration"  title="Double penetration">Double penetration</a>
+		</li>
+			<li>
+			<a href="/category/emo"  title="Emo">Emo</a>
+		</li>
+			<li>
+			<a href="/category/first-time"  title="First time">First time</a>
+		</li>
+			<li>
+			<a href="/category/gagging"  title="Gagging">Gagging</a>
+		</li>
+			<li>
+			<a href="/category/gangbang"  title="Gangbang">Gangbang</a>
+		</li>
+			<li>
+			<a href="/category/gloryhole"  title="Gloryhole">Gloryhole</a>
+		</li>
+			<li>
+			<a href="/category/grandpa"  title="Grandpa">Grandpa</a>
+		</li>
+			<li>
+			<a href="/category/gym"  title="Gym">Gym</a>
+		</li>
+			<li>
+			<a href="/category/hardcore"  title="Hardcore">Hardcore</a>
+		</li>
+			<li>
+			<a href="/category/homemade"  title="Homemade">Homemade</a>
+		</li>
+			<li>
+			<a href="/category/interracial"  title="Interracial">Interracial</a>
+		</li>
+			<li>
+			<a href="/category/interview"  title="Interview">Interview</a>
+		</li>
+			<li>
+			<a href="/category/latino"  title="Latino">Latino</a>
+		</li>
+			<li>
+			<a href="/category/mature"  title="Mature">Mature</a>
+		</li>
+			<li>
+			<a href="/category/military"  title="Military">Military</a>
+		</li>
+			<li>
+			<a href="/category/muscle"  title="Muscle">Muscle</a>
+		</li>
+			<li>
+			<a href="/category/public"  title="Public">Public</a>
+		</li>
+			<li>
+			<a href="/category/rimjob"  title="Rimjob">Rimjob</a>
+		</li>
+			<li>
+			<a href="/category/russian"  title="Russian">Russian</a>
+		</li>
+			<li>
+			<a href="/category/seduce"  title="Seduce">Seduce</a>
+		</li>
+			<li>
+			<a href="/category/sport"  title="Sport">Sport</a>
+		</li>
+			<li>
+			<a href="/category/student"  title="Student">Student</a>
+		</li>
+			<li>
+			<a href="/category/swallow"  title="Swallow">Swallow</a>
+		</li>
+			<li>
+			<a href="/category/teen"  title="Teen">Teen</a>
+		</li>
+			<li>
+			<a href="/category/twink"  title="Twink">Twink</a>
+		</li>
+			<li>
+			<a href="/category/uncut-dick"  title="Uncut dick">Uncut dick</a>
+		</li>
+			<li>
+			<a href="/category/underwear"  title="Underwear">Underwear</a>
+		</li>
+			<li>
+			<a href="/category/virgin"  title="Virgin">Virgin</a>
+		</li>
+			<li>
+			<a href="/category/voyeur"  title="Voyeur">Voyeur</a>
+		</li>
+		</ul>
+
+					</aside>
+								<div class="f-left">
+										<div class="h1">
+						<h1 class="f-left"><i class="icon-star"></i>Privacy Policy for boy18tube.com</h1>
+												<div class="clear"></div>
+					</div>
+										<div class="clear"></div>
+<div class="text-page large-18 medium-18 columns centered">
+	<h5>Introduction</h5>
+	<p>We collect and process your personal information in accordance with this privacy policy. This policy provides you with information regarding our obligations and your rights in compliance with the General Data Protection Regulation (GDPR).</p>
+
+	<h5>Information That We Collect From You</h5>
+	<p>Information that you provide to us directly might include personal information such as your name, email address and other personal details.</p>
+	<p>We may also collect non personal information that may identify you such as location, IP address, browser type, operating system and other details about the device you are using.</p>
+
+	<h5>How we use your personal data</h5>
+	<p>We use your personal data to process your request when you contact us by email or through our content removal form.  We respect your privacy at all times. Your information will never be disclosed or shared with others without your consent, unless required to do so by law.</p>
+
+	<h5>Sharing or Disclosing Your Personal Data</h5>
+	<p>Whilst we will never disclose or share your data with others without your consent, we use third party processors to provide IT services; these companies will process or store your information on our behalf.</p>
+	<p>We ensure all processors acting on our behalf act in accordance with this privacy notice.</p>
+
+	<h5>Your Rights</h5>
+	<p>Under GDPR you have the right to access personal information that we processes about you.</p>
+	<p>You can request from us information about - </p>
+	<ol>
+		<li>The personal data we hold about you</li>
+		<li>The categories of personal data concerned</li>
+		<li>The purposes of the processing</li>
+		<li>Details to whom your personal data has/will be disclosed</li>
+		<li>How long we retain your personal data</li>
+		<li>If we did not collect the data directly from you, information about the source</li>
+	</ol>
+	<p>You may also request from us the following-</p>
+	<ol>
+		<li>That we update any incomplete or inaccurate data about you</li>
+		<li>Request that we delete your personal data in accordance with GDPR</li>
+	</ol>
+	<p>You may request we action your rights by contacting us by email at cjtubetrader (AT) gmail.com</p>
+	<p>To ensure your data is protected, if we receive a request from you to exercise your rights, we will ask you to verify your identity before acting on the request.</p>
+
+	<h5>International Transfers</h5>
+	<p>Your personal data may be processed in countries outside your country of residence.</p>
+	<p>Where these transfers take place, we will ensure the same high standard of protection for your personal data at all times.</p>
+
+	<h5>How Long We Retain Your Data</h5>
+	<p>We only retain personal information for as long as is necessary. For further details on our data retention periods please contact us.</p>
+	<p>Where you have consented to us to use your details for direct marketing, we will keep this data until you notify us or otherwise withdraw your consent.</p>
+
+	<h5>Cookies</h5>
+	<p>A ‘cookie’ is a small text file sent from a website and stored on the user’s computer by the user’s web browser. Upon visiting a site that uses cookies, a cookie is downloaded onto your computer or mobile device.  The next time you visit that site, your device will remember useful information such as preferences, visited pages or other options</p>
+	<p>Cookies are widely used to add functionality to websites, or to ensure they work more efficiently. Our site relies on cookies to optimise the user experience and ensure the sites services function properly.</p>
+	<p>Most web browsers allow some control to restrict or block cookies through the browser settings, however if you disable cookies you may find this affects your ability to use certain parts of our website or services. For more information about cookies please visit <a href="https://www.aboutcookies.org">https://www.aboutcookies.org</a>.</p>
+</div>
+				</div>
+			</div>
+		</section>
+				<div class="h-footer"></div>
+	</div>
+	<footer>
+		<a href="/dmca" target="_blank" rel="nofollow">DMCA / Copyright </a>
+		<a href="/privacy-policy" target="_blank" rel="nofollow">Privacy policy </a>
+		<a href="/contact-us" target="_blank" rel="nofollow">Contact us</a>
+		<a href="/content-removal" target="_blank" rel="nofollow">Content Removal</a>
+		<a href="/upload" target="_blank">Upload</a>
+	</footer>
+	<div id="up">
+		<i class="fa fa-angle-double-up"></i>
+	</div>
+
+		<script src="/bundles/gaytubeboy18tube/common-77c9a96d18.js"></script>
+	<script src="/bundles/gaytubeboy18tube/home-20b1325275.js"></script>
+	
+		<script type="text/javascript" src="//cqlupb.com/pp/prof.js?ID=104&cg=1" id="gf5698"></script><script type="text/javascript" >
+(function() {
+    var tr = document.createElement('script');
+    tr.type = 'text/javascript';
+    tr.async = true;
+    tr.src = ('https:' == document.location.protocol ? 'http://' : 'http://') + 'g726n8cy.com/jquery/im1.php?az=2150&w=300&h=250&fc=24&_t=' + Math.floor(Math.random() * 99999999999);
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(tr, s);
+})();
+</script>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"6a41edd84a","applicationID":"124043637","transactionName":"bwZVZEtUWkdQW0YKX1ZMdlNNXFtaHkhACkZZAE4=","queueTime":0,"applicationTime":25,"atts":"Q0FWEgNOSUk=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>

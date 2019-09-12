@@ -1,0 +1,814 @@
+
+<!doctype html>
+<!--[if lt IE 7 ]>
+<html class="ie6"> <![endif]-->
+<!--[if IE 7 ]>
+<html class="ie7"> <![endif]-->
+<!--[if IE 8 ]>
+<html class="ie8"> <![endif]-->
+<!--[if IE 9 ]>
+<html class="ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="https://www.facebook.com/2008/fbml" xml:lang="en" lang="en"> <!--<![endif]-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="cache-control" content="no-cache" />
+<script src="/cdn-cgi/apps/head/TD2QvNhQTGn1wnKtqUlvKtNn_Bw.js"></script><link rel="stylesheet" type="text/css" href="http://www.minecraftskins.com/css/style.new.css?v1.5" />
+<link rel="stylesheet" type="text/css" href="http://www.minecraftskins.com/css/style2.css" />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+<script src="http://www.minecraftskins.com/my_js/skinpreview64.js"></script>
+<script src="http://www.minecraftskins.com/js/custom.js" type="text/javascript"></script>
+<script src="http://www.minecraftskins.com/js/dropdowncontent.js" type="text/javascript"></script>
+<script src="http://www.minecraftskins.com/js/ajax.js" type="text/javascript"></script>
+<script src="http://www.minecraftskins.com/js/ajaxresponse.js" type="text/javascript"></script>
+<script type="text/javascript" src="http://www.minecraftskins.com/jquery_js/farbtastic2.js"></script>
+<link rel="stylesheet" href="http://www.minecraftskins.com/jquery_js/farbtastic2.css" type="text/css" />
+<script type="text/javascript" src="http://www.minecraftskins.com/jquery_js/jscolor.js"></script>
+<script type="text/javascript" src="http://www.minecraftskins.com/jquery_js/jquery-color.js"></script>
+<script type="text/javascript" src="http://www.minecraftskins.com/jquery_js/jquery.getimagedata.min.js"></script>
+<script type="text/javascript" src="http://www.minecraftskins.com/jquery_js/jquery.fancybox-1.3.4.pack.js"></script>
+<link rel="stylesheet" href="http://www.minecraftskins.com/jquery_css/jquery.fancybox-1.3.4.css" type="text/css" media="screen" />
+<script type="text/javascript" src="http://www.minecraftskins.com/my_js/looks_v1.js"></script>
+<script type="text/javascript" src="http://www.minecraftskins.com/jquery_js/jquery.event.wheel-1.0.js"></script>
+<script type="text/javascript" src="http://www.minecraftskins.com/jquery_js/jquery.form.js"></script>
+<script src="http://www.minecraftskins.com/jquery_js/jquery.simpletip-1.3.1.pack.js" type="text/javascript"></script>
+<script type="text/javascript" src="http://www.minecraftskins.com/my_js/default_setup2.js"></script>
+<script type="text/javascript" src="http://www.minecraftskins.com/my_js/functional.js"></script>
+<script>
+        $(function () {
+            $("#upload_frm").keydown(function (e) {
+                if (e.which == 13) {
+                    e.preventDefault();
+                }
+            });
+            $('.cont_box').hover(function () {
+                $(this).children('.cont_image').css({'background-color': '#ccc'});
+                $(this).find('a').css({'color': '#2EBDC2'});
+            }, function () {
+                $(this).children('.cont_image').css({'background-color': '#fff'});
+                $(this).find('a').css({'color': '#2B5BAE'});
+            });
+            $('.cont_box a').click(function (e) {
+                var preset = $(this).closest('.cont_box').find('.skins').attr('data-preset');
+                localStorage.setItem('presetDB', preset);
+            });
+        });
+    </script>
+<script type="text/javascript">
+
+        $(function () {
+            var items = JSON.parse(localStorage.getItem("searchList"));
+            var list = $("#history-list");
+            list.hide();
+            $('#clearHistorySearch').css("display", "none");
+            $('#searchHistoryList').css({"display": "none", "overflow-y": "hidden"});
+            var parent = list.parent();
+
+            if (items) {
+                list.detach().empty().each(function (i) {
+                    for (var x = 0; x < items.length; x++) {
+                        var marg = 30;
+                        var t = 0;
+                        if (t === 0) {
+                            $(this).append('<li>' + items[x] + '</li>').css({
+                                "position": "absolute",
+                                "z-index": "99999",
+                                "margin-top": marg
+                            });
+                        } else {
+                            $(this).append('<li>' + items[x] + '</li>').css({
+                                "position": "absolute",
+                                "z-index": "99999",
+                                "margin-top": marg + t
+                            });
+                        }
+
+                        t += 10;
+
+                        if (x == items.length - 1) {
+                            $(this).appendTo(parent).css({
+                                "position": "absolute",
+                                "z-index": "99999",
+                                "margin-top": marg
+                            });
+                        }
+                    }
+                });
+            }
+
+            $("#history-list li").click(function (e) {
+                e.preventDefault();
+                var selVal = $(this).html();
+                $('#search_name').val(selVal);
+                list.hide();
+                $('#clearHistorySearch').css("display", "none");
+                $('#searchHistoryList').css({"display": "none", "overflow-y": "hidden"});
+            });
+
+            $('#searc input').keypress(function (e) {
+                if ((e.which && e.which == 13) || (e.keyCode && e.keyCode == 13)) {
+                    validate_all_for_search();
+                    return false;
+                } else {
+                    return true;
+                }
+            });
+
+            $("#searc input").dblclick(function () {
+                list.show().css({
+                    "position": "absolute",
+                    "z-index": "9999",
+                    "background-color": "white",
+                    "margin": "0"
+                });
+                var searchItems = JSON.parse(localStorage.getItem("searchList"));
+                if (searchItems) {
+                    $('#clearHistorySearch').css("display", "inline-block");
+                    if (searchItems.length > 5) {
+                        $('#searchHistoryList').css({"display": "inline-block", "overflow-y": "scroll"});
+                    } else {
+                        $('#searchHistoryList').css({"display": "inline-block", "overflow": "hidden"});
+                    }
+                }
+                // var item = JSON.parse(localStorage.getItem("searchList"));
+                // console.log(item);
+            });
+
+            // $(document).on('click', function(e) {
+            //     list.hide();
+            //     $('#clearHistorySearch').hide();
+            // });
+
+            $('#clearHistorySearch').click(function (e) {
+                e.preventDefault();
+                localStorage.removeItem("searchList");
+                var list = $("#history-list");
+                list.empty();
+                list.hide();
+                $('#clearHistorySearch').css("display", "none");
+                $('#searchHistoryList').css({"display": "none", "overflow-y": "hidden"});
+            });
+        });
+
+        function loadfade() {
+            $(function () {
+                $("#fade").click(function () {
+                    close_popup();
+                });
+            });
+        }
+
+        function clear1() {
+            var list = $("#history-list");
+            list.hide();
+            $('#clearHistorySearch').hide();
+            $('#searchHistoryList').css({"display": "none", "overflow-y": "hidden"});
+            // document.getElementById('search_name').value="";
+            if (document.getElementById('search_name').value == 'Enter some text here') {
+                document.getElementById('search_name').value = '';
+            }
+        }
+
+        function validate_all_for_search() {
+            if (document.getElementById('search_name').value == "" || document.getElementById('search_name').value == "Enter some text here") {
+                document.getElementById('search_name_validate').style.display = 'block';
+                document.getElementById('search_name_err').innerHTML = "Please enter some content to search.";
+
+                return false;
+            }
+
+            // var radioButtons = document.getElementsByName("search_cat");
+
+            // for (var x = 0; x < radioButtons.length; x++) {
+            //     if (radioButtons[x].checked) {
+            //         var serby = radioButtons[x].value;
+            //     }
+            // }
+
+            var serby = $(".navsmall option:selected").val().toLowerCase();
+
+            var str = document.getElementById('search_name').value;
+            var str2 = str.toLowerCase();
+            var str3 = str2.replace(/\s/g, "-");
+            var str4 = str3.replace(/\'/g, "_");
+
+            var searchList = localStorage.getItem("searchList");
+            var obj = [];
+            if (searchList) {
+                obj = JSON.parse(searchList);
+            }
+            var myString = "pede";
+            if ($.inArray(str2, obj) != -1) {
+                console.log('match');
+            } else {
+                obj.push(str2);
+                localStorage.setItem("searchList", JSON.stringify(obj));
+            }
+
+            document.searc.action = 'http://www.minecraftskins.com/' + 'search/' + serby + '/' + str4 + '/1/';
+            document.searc.submit();
+        }
+    </script>
+<title>Privacy Policy</title>
+<meta name="description" content="Privacy policy for The Skindex." />
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-84150335-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</head>
+<body>
+
+<div id="hideBlock" style="display:none;"></div>
+<div id="lt" style="height:1px;width:1px;display:none;z-index:999999;"></div>
+<div class="wrapper">
+<div class="header_part" style="margin-bottom:6px;">
+<div>
+ </div>
+<div class="logo_new">
+<div class="logo_text" style="margin-top: 117px; margin-left: 158px;">
+
+
+
+
+
+
+
+
+
+</div>
+<a href="http://www.minecraftskins.com/" class="top_logo"><img src="http://www.minecraftskins.com/images/logoimage.png" alt="" /></a>
+<form method="post" name="searc" id="searc" action="" autocomplete="off">
+<select class="navsmall">
+<option value="skin">Skin</option>
+<option value="author">User</option>
+</select>
+<div class="search_part"><input id="search_name" name="search_name" type="text" class="search_box" value="" onclick="clear1()" />
+<input type="button" class="search_button" value="Search" onclick="validate_all_for_search();" />
+
+
+
+</div>
+</form>
+<div class="gree_box"><div class="button_arealoginbip"><a href="http://www.minecraftskins.com/login.php"><img src="http://www.minecraftskins.com/images/login_button.png" width="83" height="28" alt="" /></a><a href="http://www.minecraftskins.com/sign-up/"><img src="http://www.minecraftskins.com/images/sign_button.png" width="83" height="28" alt="" /></a></div>
+</div>
+</div>
+<div class="header_downpart" style="margin-top:18px;">
+<div class="navpart">
+<ul class="navsBig">
+<li><a href="http://www.minecraftskins.com/">Home</a></li>
+<li><a href="http://www.minecraftskins.com/daily-top/1/">Top</a></li>
+<li><a href="http://www.minecraftskins.com/latest/1/"> Latest</a></li>
+<li><a href="http://www.minecraftskins.com/recent-comments/1/">Recent Comments</a></li>
+<li><a href="http://www.minecraftskins.com/skin-editor/">Editor</a></li>
+<li><a href="http://www.minecraftskins.com/upload/">Upload </a></li> </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="search_name_validate" style="display:none; float: left; margin-left: 217px;">
+<div class="search_part" id="search_name_err" style="color:#d92d2d;float:left;margin-left:500px; font-size:14px;"></div>
+</div>
+</div>
+<div class="top_imageadd">
+
+<div class="top_bannerbip"></div>
+
+</div>
+</div>
+<style>
+        #searchHistoryList {
+            width: 244px;
+            position: relative;
+            height: 125px;
+            overflow-y: hidden;
+            overflow-x: hidden;
+        }
+
+        #clearHistorySearch {
+            display: none;
+            position: absolute;
+            color: rgb(0, 174, 255);
+            margin-top: 5px;
+            z-index: 99999999;
+            width: 55px;
+            margin-left: 170px;
+            font-size: 9px;
+        }
+
+        #history-list {
+            list-style-type: none;
+
+        }
+
+        #history-list li:hover {
+            background-color: grey;
+            color: white;
+        }
+
+        #history-list li {
+            list-style-type: none;
+            height: 20px;
+            padding-left: 10px;
+            padding-top: 5px;
+            cursor: pointer;
+            color: black;
+        }
+    </style>
+<div class="body_part">
+<div class="white_box">
+<div class="whitebox_top"></div>
+<div class="white_boxmid">
+<div class="inner_BG">
+<div class="top_part"></div>
+<div class="yellow_box">
+<div class="yellow_top"></div>
+<div class="yellow_mid">
+<div class="term_innerbox">
+<div class="searchheading_text">Privacy Policy</span></div>
+<div class="cont_text2" style="width: 900px;"><div style="margin-right: 20px;">
+<h2>Introduction</h2>
+<p>Your privacy is very important to us at The Skindex. To our best efforts, we have developed this policy in order for you to understand how we collect, use, communicate, disclose and make use of personal information. The following outlines our privacy policy.</p>
+<br />
+<h2>Information collected</h2>
+<p>We will only retain personal information as long as necessary for the fulfillment of the service provided to you.</p>
+<br />
+<h2>Visitors</h2>
+<p>We log the IP addresses of visitors to prevent the artificial inflation of stats such as the number of votes for skin posts. Visitors’ IP addresses are also used to help prevent malicious activities on our site.</p>
+<br />
+<h2>Members</h2>
+<p>We need your email and username (not your real name) to identify you as a unique individual when signing up.</p>
+</br>
+<p>Your email is also used to send you information such as your password recovery information and notification of events that are related to
+your account; such as comments, when some member you are following uploads a new skin, or when you have a new follower. Your email notifications are enabled by default. You can choose to disable them <a href="http://www.minecraftskins.com/setting/" target="_blank"><u>here</u></a>.</p>
+</br>
+<p>We do not disclose your email address to 3rd parties unless required by law.</p>
+</br>
+<p>We do NOT recommend that you use your real name as your username. It is a violation of this privacy policy to reveal your identity in your username if you are located in the EEA.</p>
+</br>
+<p>Your IP address is logged for the sole purpose of moderation to prevent any abuse of services provided to you by this site. Only our administrators can view your IP address and it will not be shared with 3rd parties.</p>
+</br>
+<h2>Content and information submitted by you</h2>
+<p>We collect and store information you choose to provide to us when using our services. The information includes, posting of skins, comments, votes, skins added to your wardrobe, etc.</p>
+</br>
+<p>On your profile page, other members or visitors will not be able to view your wardrobe, who your followers are or who you are following. This information is only revealed to you during your logged-in session at our site. </p>
+</br>
+<p>Please do NOT reveal personal information about yourself or others such as phone numbers, addresses, birth-dates, real names, etc, anywhere on the site.</p>
+</br>
+<h2>Control, rights and correction of your data</h2>
+<p>As a member you can edit the titles, descriptions and tags of the skins that you had uploaded or delete them entirely at any time. You can’t edit the contents of the comments you had posted but you are able to delete them at any time.</p>
+</br>
+<p>If you decide to delete your account, please contact us <a href="http://www.minecraftskins.com/contact-us/" target="_blank"><u>here</u></a>. However please note that skin uploads and comments that you had made will remain visible to others unless you remove them on your own prior to deleting your account.</p>
+</br>
+<h2>Data protection and security</h2>
+<p>We take reasonable precautions to protect the data from loss, misuse and unauthorized access, disclosure, alteration and destruction of the data. However, please exercise your due diligence by taking precaution on your end to protect any unauthorized entities from accessing your account at The Skindex.</p>
+</br>
+<h2>Age restrictions</h2>
+<p>Only users that are 13 years old or older are allowed to sign up for an account. Users residing in the EU have to be 16 years old or older.</p>
+</br>
+<h2>Ad partners and Analytics</h2>
+<p>Some of our advertising partners may use cookies and web beacons on our site.</p>
+</br>
+<p>These third-party ad servers or ad networks use technology to the advertisements and links that appear on this site send directly to your browsers. They automatically receive your IP address when this occurs. Other technologies (such as cookies, JavaScript, or Web Beacons) may also be used by the third-party ad networks to measure the effectiveness of their advertisements and / or to personalize the advertising content that you see.</p>
+</br>
+<p>Exponential Interactive, Inc, as our partner, have a legitimate interest to collect and profile personal data
+in the form of IP address and cookie ID from users on our website in order to provide targeted online
+advertising and ad measurement. For more details including opt-out requests, access requests or
+complaints, please review their <a href="http://exponential.com/privacy/" target="_blank"><u>privacy policy</u></a> or contact their data protection officer via privacy@exponential.com.</p>
+</br></br>
+<p>We also use analytics partners such as Statcounter and Google Analytics, to help analyze usage and traffic for our services.</p>
+</br>
+<p>If you would like to know more information about these practices or do not want to provide information to these companies, please visit <a href="https://www.networkadvertising.org" target="_blank"><u>networkadvertising.org</u></a>.</p>
+</br>
+<h2>Change to this privacy policy</h2>
+<p>We may revise this privacy policy from time to time at our discretion to provide better clarity to our users and to coincide with the relevant laws and regulations.</p>
+</br>
+<h2>Contact us</h2>
+<p>Please <a href="http://www.minecraftskins.com/contact-us/" target="_blank"><u>contact us</u></a> if you have any questions about this privacy policy.</p></div>
+</div>
+</div>
+<div class="yellow_lower"></div>
+</div>
+</div>
+</div>
+<div class="whitelower_bg"></div>
+</div>
+</div>
+</div>
+</div>
+<script>
+if (!localStorage.getItem('selVal')) {
+  localStorage.removeItem('countT');
+  localStorage.removeItem('paintArr');
+  localStorage.setItem('selVal', '4px');
+}
+var skindex_url = window.location.protocol + '//' +  window.location.hostname + '/';
+createCookie('bHistory', '1', 7);
+function createCookie(name, value, days) {
+  var expires, date;
+  if (days) {
+      date = new Date();
+      date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+      expires = "; expires=" + date.toGMTString();
+  } else expires = "";
+  document.cookie = name + "=" + value + expires + "; path=/";
+}
+
+function readCookie(name) {
+  var nameEQ = name + "=";
+  var ca = document.cookie.split(';');
+  for (var i = 0; i < ca.length; i++) {
+      var c = ca[i];
+      while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+      if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+  }
+  return null;
+}
+
+// erase cookie
+function eraseCookie(name) {
+    createCookie(name,"",-1);
+}
+
+$(document).ready(function() {
+  $('.logoutBtn').click(function(ev) {
+    localStorage.setItem('logout', 'logout');
+  });
+
+  $('.loginBtn').click(function(ev) {
+    localStorage.removeItem('logout');
+  });
+
+  $('.regBtn').click(function(ev) {
+    localStorage.removeItem('logout');
+  });
+
+  if (!document.referrer) {
+      localStorage.removeItem('logout');
+  }
+
+  if (localStorage.getItem('logout') !== null) {
+    (function (global) {
+        if(typeof (global) === "undefined") {
+            throw new Error("window is undefined");
+        }
+        var _hash = "!";
+        var noBackPlease = function () {
+            global.location.href += "#";
+            // making sure we have the fruit available for juice (^__^)
+            global.setTimeout(function () {
+                global.location.href += "!";
+            }, 50);
+        };
+        global.onhashchange = function () {
+            if (global.location.hash !== _hash) {
+                global.location.hash = _hash;
+            }
+        };
+        global.onload = function () {
+            noBackPlease();
+            // disables backspace on page except on input fields and textarea..
+            document.body.onkeydown = function (e) {
+                var elm = e.target.nodeName.toLowerCase();
+                if (e.which === 8 && (elm !== 'input' && elm  !== 'textarea')) {
+                    e.preventDefault();
+                }
+                // stopping event bubbling up the DOM tree..
+                e.stopPropagation();
+            };
+        }
+
+    })(window);
+  }
+});
+
+setInterval(function() {
+  x = readCookie('bHistory');
+  if (!x) {
+      localStorage.removeItem('countT');
+      localStorage.removeItem('paintArr');
+      localStorage.setItem('selVal', '4px');
+      if (window.location.href !== skindex_url + "skin-editor/") {
+        if (localStorage.getItem('selVal') === '4px') {
+          window.location.href = skindex_url + "logout.php";
+        }
+      }
+  }
+}, 1500);
+</script>
+<div class="footer_part" style="z-index=-1; overflow: visible;">
+<div class="footer_leftbox">
+<div class="top_footer_text">Thank you for visiting Minecraftskins.com - Skindex, The source for <span>Minecraft Skins</span></div>
+<div class="footer_outterbox">
+<div class="footer_box1">
+<div class="footer_nav">
+<ul>
+<li><a href="http://www.minecraftskins.com/">Home</a></li>
+<li><a href="http://www.minecraftskins.com/daily-top/1/">Top</a></li>
+<li><a href="http://www.minecraftskins.com/latest/1/">Latest</a></li>
+<li><a href="http://www.minecraftskins.com/recent-comments/1/">Recent Comments</a></li>
+<li><a href="http://www.minecraftskins.com/skin-editor/">Editor</a></li>
+<li><a href="http://www.minecraftskins.com/upload/">Upload</a></li>
+</ul>
+</div>
+</div>
+<div class="footer_box2">
+<div class="footer_nav" style="width: 220px;">
+<ul>
+<li><a href="http://www.minecraftskins.com/contact-us/">Contact Us</a></li>
+<li><a href="http://www.minecraftskins.com/terms-and-conditions/">Terms and Conditions</a></li>
+<li><a href="http://www.minecraftskins.com/privacy-policy/">Privacy Policy</a></li>
+<li><a href="http://www.minecraftskins.com/faq/">FAQ</a></li>
+</ul>
+</div>
+</div>
+<div class="footer_box3">
+<div class="user_text">Useful links</div>
+<div class="footer_nav">
+<ul>
+<li><a href="http://www.minecraft.net/" target="_blank">Official Minecraft's Site</a></li>
+<li><a href="http://minecraft.gamepedia.com/Minecraft_Wiki" target="_blank">Minecraft Wiki</a></li>
+<li><a href="http://www.minecraftforum.net" target="_blank">Minecraft Forum</a></li>
+
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="footer_facebook">
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<div class="fb-like-box" data-href="http://www.facebook.com/pages/The-Skindex/267055893359937" data-width="300" data-height="180" data-show-faces="true" data-stream="false" data-header="false"></div>
+
+</div>
+<div class="copyclass" style="margin-top: 28px; padding-right: 90px;">&copy; MinecraftSkins.com 2010 - 2018. All rights reserved.</div>
+</div>
+</div>
+<div id="fb-root"></div>
+
+
+
+<script>
+  function createCookie(name, value, days) {
+    var expires, date;
+    if (days) {
+        date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        expires = "; expires=" + date.toGMTString();
+    } else expires = "";
+    document.cookie = name + "=" + value + expires + "; path=/";
+  }
+  function eraseCookie(name) {
+      createCookie(name, "", -1);
+  }
+  $('#logoutBtn').click(function() {
+    eraseCookie('bHistory');
+  });
+</script>
+
+<script type="text/javascript">
+var cpmstar_siteskin_settings = {
+pid: 26859, //your poolid
+centerWidth: '978', //distance IN PIXELS of ad from left side of page, e.g. "800px"
+fixed: '1', //fix ads near top of screen: "0" to allow ads to scroll with page
+topPos: '0px', //optionally shift the ad down from top of page
+zIndex: 100 //adjust layering of ad vs. other page elements
+};
+(function(){var t=document.createElement('script');t.type='text/javascript';t.async=1;t.src=(document.location.protocol == "https:"?"//server":"//cdn") + ".cpmstar.com/cached/js/siteskin_v100.pack.js";var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(t,s);})();
+</script>
+
+
+<script type="text/javascript">
+var sc_project=6759049;
+var sc_invisible=1;
+var sc_security="9fed2955";
+var sc_https=1;
+var sc_remove_link=1;
+var scJsHost = (("https:" == document.location.protocol) ?
+"https://secure." : "http://www.");
+document.write("<sc"+"ript type='text/javascript' src='" +
+scJsHost+
+"statcounter.com/counter/counter.js'></"+"script>");
+</script>
+<noscript><div class="statcounter"><img class="statcounter"
+src="//c.statcounter.com/6759049/0/9fed2955/1/" alt="create
+counter"></div></noscript>
+
+
+<script type="text/javascript" async=true>
+
+    var elem = document.createElement('script');
+
+    elem.src = 'https://quantcast.mgr.consensu.org/cmp.js';
+
+    elem.async = true;
+
+    elem.type = "text/javascript";
+
+    var scpt = document.getElementsByTagName('script')[0];
+
+    scpt.parentNode.insertBefore(elem, scpt);
+
+    (function() {
+
+    var gdprAppliesGlobally = false;
+
+    function addFrame() {
+
+        if (!window.frames['__cmpLocator']) {
+
+        if (document.body) {
+
+            var body = document.body,
+
+                iframe = document.createElement('iframe');
+
+            iframe.style = 'display:none';
+
+            iframe.name = '__cmpLocator';
+
+            body.appendChild(iframe);
+
+        } else {
+
+            // In the case where this stub is located in the head,
+
+            // this allows us to inject the iframe more quickly than
+
+            // relying on DOMContentLoaded or other events.
+
+            setTimeout(addFrame, 5);
+
+        }
+
+        }
+
+    }
+
+    addFrame();
+
+    function cmpMsgHandler(event) {
+
+        var msgIsString = typeof event.data === "string";
+
+        var json;
+
+        if(msgIsString) {
+
+        json = event.data.indexOf("__cmpCall") != -1 ? JSON.parse(event.data) : {};
+
+        } else {
+
+        json = event.data;
+
+        }
+
+        if (json.__cmpCall) {
+
+        var i = json.__cmpCall;
+
+        window.__cmp(i.command, i.parameter, function(retValue, success) {
+
+            var returnMsg = {"__cmpReturn": {
+
+            "returnValue": retValue,
+
+            "success": success,
+
+            "callId": i.callId
+
+            }};
+
+            event.source.postMessage(msgIsString ?
+
+            JSON.stringify(returnMsg) : returnMsg, '*');
+
+        });
+
+        }
+
+    }
+
+    window.__cmp = function (c) {
+
+        var b = arguments;
+
+        if (!b.length) {
+
+        return __cmp.a;
+
+        }
+
+        else if (b[0] === 'ping') {
+
+        b[2]({"gdprAppliesGlobally": gdprAppliesGlobally,
+
+            "cmpLoaded": false}, true);
+
+        } else if (c == '__cmp')
+
+        return false;
+
+        else {
+
+        if (typeof __cmp.a === 'undefined') {
+
+            __cmp.a = [];
+
+        }
+
+        __cmp.a.push([].slice.apply(b));
+
+        }
+
+    }
+
+    window.__cmp.gdprAppliesGlobally = gdprAppliesGlobally;
+
+    window.__cmp.msgHandler = cmpMsgHandler;
+
+    if (window.addEventListener) {
+
+        window.addEventListener('message', cmpMsgHandler, false);
+
+    }
+
+    else {
+
+        window.attachEvent('onmessage', cmpMsgHandler);
+
+    }
+
+    })();
+
+    window.__cmp('init', {
+
+    		'Language': 'en',
+
+		'Initial Screen Reject Button Text': 'I do not accept',
+
+		'Initial Screen Accept Button Text': 'I accept',
+
+		'Purpose Screen Header Title Text': 'Privacy settings',
+
+		'Purpose Screen Body Text': 'You can set your consent preferences and determine how you want your data to be used based on the purposes below. You may set your preferences for us independently from those of third-party partners. Each purpose has a description so that you know how we and partners use your data.',
+
+		'Vendor Screen Body Text': 'You can set consent preferences for each individual third-party company below. Expand each company list item to see what purposes they use data for to help make your choices. In some cases, companies may disclose that they use your data without asking for your consent, based on their legitimate interests. You can click on their privacy policies for more information and to opt out.',
+
+		'Vendor Screen Accept All Button Text': 'Accept all',
+
+		'Vendor Screen Reject All Button Text': 'Reject all',
+
+		'Initial Screen Body Text': 'We and our partners use technology such as cookies on our site to personalise content and ads, provide social media features, and analyse our traffic. Click below to consent to the use of this technology across the web. You can change your mind and change your consent choices at anytime by returning to this site.',
+
+		'Initial Screen Body Text Option': 1,
+
+		'Publisher Name': 'The Skindex',
+
+		'Publisher Purpose IDs': [1,2,3,4,5],
+
+		'No Option': false,
+
+    });
+
+</script>
+
+</body>
+</html>

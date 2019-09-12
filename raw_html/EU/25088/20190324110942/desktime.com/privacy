@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"VQAPVVJRDxAEU1NbBQgDVw=="};window.NREUM||(NREUM={}),__nr_require=function(t,n,e){function r(e){if(!n[e]){var o=n[e]={exports:{}};t[e][0].call(o.exports,function(n){var o=t[e][1][n];return r(o||n)},o,o.exports)}return n[e].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<e.length;o++)r(e[o]);return r}({1:[function(t,n,e){function r(t){try{s.console&&console.log(t)}catch(n){}}var o,i=t("ee"),a=t(16),s={};try{o=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(s.console=!0,o.indexOf("dev")!==-1&&(s.dev=!0),o.indexOf("nr_dev")!==-1&&(s.nrDev=!0))}catch(c){}s.nrDev&&i.on("internal-error",function(t){r(t.stack)}),s.dev&&i.on("fn-err",function(t,n,e){r(e.stack)}),s.dev&&(r("NR AGENT IN DEVELOPMENT MODE"),r("flags: "+a(s,function(t,n){return t}).join(", ")))},{}],2:[function(t,n,e){function r(t,n,e,r,s){try{p?p-=1:o(s||new UncaughtException(t,n,e),!0)}catch(f){try{i("ierr",[f,c.now(),!0])}catch(d){}}return"function"==typeof u&&u.apply(this,a(arguments))}function UncaughtException(t,n,e){this.message=t||"Uncaught error with no additional information",this.sourceURL=n,this.line=e}function o(t,n){var e=n?null:c.now();i("err",[t,e])}var i=t("handle"),a=t(17),s=t("ee"),c=t("loader"),f=t("gos"),u=window.onerror,d=!1,l="nr@seenError",p=0;c.features.err=!0,t(1),window.onerror=r;try{throw new Error}catch(h){"stack"in h&&(t(8),t(7),"addEventListener"in window&&t(5),c.xhrWrappable&&t(9),d=!0)}s.on("fn-start",function(t,n,e){d&&(p+=1)}),s.on("fn-err",function(t,n,e){d&&!e[l]&&(f(e,l,function(){return!0}),this.thrown=!0,o(e))}),s.on("fn-end",function(){d&&!this.thrown&&p>0&&(p-=1)}),s.on("internal-error",function(t){i("ierr",[t,c.now(),!0])})},{}],3:[function(t,n,e){t("loader").features.ins=!0},{}],4:[function(t,n,e){function r(t){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var o=t("ee"),i=t("handle"),a=t(8),s=t(7),c="learResourceTimings",f="addEventListener",u="resourcetimingbufferfull",d="bstResource",l="resource",p="-start",h="-end",m="fn"+p,v="fn"+h,w="bstTimer",y="pushState",g=t("loader");g.features.stn=!0,t(6);var b=NREUM.o.EV;o.on(m,function(t,n){var e=t[0];e instanceof b&&(this.bstStart=g.now())}),o.on(v,function(t,n){var e=t[0];e instanceof b&&i("bst",[e,n,this.bstStart,g.now()])}),a.on(m,function(t,n,e){this.bstStart=g.now(),this.bstType=e}),a.on(v,function(t,n){i(w,[n,this.bstStart,g.now(),this.bstType])}),s.on(m,function(){this.bstStart=g.now()}),s.on(v,function(t,n){i(w,[n,this.bstStart,g.now(),"requestAnimationFrame"])}),o.on(y+p,function(t){this.time=g.now(),this.startPath=location.pathname+location.hash}),o.on(y+h,function(t){i("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),f in window.performance&&(window.performance["c"+c]?window.performance[f](u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["c"+c]()},!1):window.performance[f]("webkit"+u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["webkitC"+c]()},!1)),document[f]("scroll",r,{passive:!0}),document[f]("keypress",r,!1),document[f]("click",r,!1)}},{}],5:[function(t,n,e){function r(t){for(var n=t;n&&!n.hasOwnProperty(u);)n=Object.getPrototypeOf(n);n&&o(n)}function o(t){s.inPlace(t,[u,d],"-",i)}function i(t,n){return t[1]}var a=t("ee").get("events"),s=t(19)(a,!0),c=t("gos"),f=XMLHttpRequest,u="addEventListener",d="removeEventListener";n.exports=a,"getPrototypeOf"in Object?(r(document),r(window),r(f.prototype)):f.prototype.hasOwnProperty(u)&&(o(window),o(f.prototype)),a.on(u+"-start",function(t,n){var e=t[1],r=c(e,"nr@wrapped",function(){function t(){if("function"==typeof e.handleEvent)return e.handleEvent.apply(e,arguments)}var n={object:t,"function":e}[typeof e];return n?s(n,"fn-",null,n.name||"anonymous"):e});this.wrapped=t[1]=r}),a.on(d+"-start",function(t){t[1]=this.wrapped||t[1]})},{}],6:[function(t,n,e){var r=t("ee").get("history"),o=t(19)(r);n.exports=r,o.inPlace(window.history,["pushState","replaceState"],"-")},{}],7:[function(t,n,e){var r=t("ee").get("raf"),o=t(19)(r),i="equestAnimationFrame";n.exports=r,o.inPlace(window,["r"+i,"mozR"+i,"webkitR"+i,"msR"+i],"raf-"),r.on("raf-start",function(t){t[0]=o(t[0],"fn-")})},{}],8:[function(t,n,e){function r(t,n,e){t[0]=a(t[0],"fn-",null,e)}function o(t,n,e){this.method=e,this.timerDuration=isNaN(t[1])?0:+t[1],t[0]=a(t[0],"fn-",this,e)}var i=t("ee").get("timer"),a=t(19)(i),s="setTimeout",c="setInterval",f="clearTimeout",u="-start",d="-";n.exports=i,a.inPlace(window,[s,"setImmediate"],s+d),a.inPlace(window,[c],c+d),a.inPlace(window,[f,"clearImmediate"],f+d),i.on(c+u,r),i.on(s+u,o)},{}],9:[function(t,n,e){function r(t,n){d.inPlace(n,["onreadystatechange"],"fn-",s)}function o(){var t=this,n=u.context(t);t.readyState>3&&!n.resolved&&(n.resolved=!0,u.emit("xhr-resolved",[],t)),d.inPlace(t,y,"fn-",s)}function i(t){g.push(t),h&&(x?x.then(a):v?v(a):(E=-E,O.data=E))}function a(){for(var t=0;t<g.length;t++)r([],g[t]);g.length&&(g=[])}function s(t,n){return n}function c(t,n){for(var e in t)n[e]=t[e];return n}t(5);var f=t("ee"),u=f.get("xhr"),d=t(19)(u),l=NREUM.o,p=l.XHR,h=l.MO,m=l.PR,v=l.SI,w="readystatechange",y=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],g=[];n.exports=u;var b=window.XMLHttpRequest=function(t){var n=new p(t);try{u.emit("new-xhr",[n],n),n.addEventListener(w,o,!1)}catch(e){try{u.emit("internal-error",[e])}catch(r){}}return n};if(c(p,b),b.prototype=p.prototype,d.inPlace(b.prototype,["open","send"],"-xhr-",s),u.on("send-xhr-start",function(t,n){r(t,n),i(n)}),u.on("open-xhr-start",r),h){var x=m&&m.resolve();if(!v&&!m){var E=1,O=document.createTextNode(E);new h(a).observe(O,{characterData:!0})}}else f.on("fn-end",function(t){t[0]&&t[0].type===w||a()})},{}],10:[function(t,n,e){function r(t){var n=this.params,e=this.metrics;if(!this.ended){this.ended=!0;for(var r=0;r<d;r++)t.removeEventListener(u[r],this.listener,!1);if(!n.aborted){if(e.duration=a.now()-this.startTime,4===t.readyState){n.status=t.status;var i=o(t,this.lastSize);if(i&&(e.rxSize=i),this.sameOrigin){var c=t.getResponseHeader("X-NewRelic-App-Data");c&&(n.cat=c.split(", ").pop())}}else n.status=0;e.cbTime=this.cbTime,f.emit("xhr-done",[t],t),s("xhr",[n,e,this.startTime])}}}function o(t,n){var e=t.responseType;if("json"===e&&null!==n)return n;var r="arraybuffer"===e||"blob"===e||"json"===e?t.response:t.responseText;return h(r)}function i(t,n){var e=c(n),r=t.params;r.host=e.hostname+":"+e.port,r.pathname=e.pathname,t.sameOrigin=e.sameOrigin}var a=t("loader");if(a.xhrWrappable){var s=t("handle"),c=t(11),f=t("ee"),u=["load","error","abort","timeout"],d=u.length,l=t("id"),p=t(14),h=t(13),m=window.XMLHttpRequest;a.features.xhr=!0,t(9),f.on("new-xhr",function(t){var n=this;n.totalCbs=0,n.called=0,n.cbTime=0,n.end=r,n.ended=!1,n.xhrGuids={},n.lastSize=null,p&&(p>34||p<10)||window.opera||t.addEventListener("progress",function(t){n.lastSize=t.loaded},!1)}),f.on("open-xhr-start",function(t){this.params={method:t[0]},i(this,t[1]),this.metrics={}}),f.on("open-xhr-end",function(t,n){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&n.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),f.on("send-xhr-start",function(t,n){var e=this.metrics,r=t[0],o=this;if(e&&r){var i=h(r);i&&(e.txSize=i)}this.startTime=a.now(),this.listener=function(t){try{"abort"===t.type&&(o.params.aborted=!0),("load"!==t.type||o.called===o.totalCbs&&(o.onloadCalled||"function"!=typeof n.onload))&&o.end(n)}catch(e){try{f.emit("internal-error",[e])}catch(r){}}};for(var s=0;s<d;s++)n.addEventListener(u[s],this.listener,!1)}),f.on("xhr-cb-time",function(t,n,e){this.cbTime+=t,n?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof e.onload||this.end(e)}),f.on("xhr-load-added",function(t,n){var e=""+l(t)+!!n;this.xhrGuids&&!this.xhrGuids[e]&&(this.xhrGuids[e]=!0,this.totalCbs+=1)}),f.on("xhr-load-removed",function(t,n){var e=""+l(t)+!!n;this.xhrGuids&&this.xhrGuids[e]&&(delete this.xhrGuids[e],this.totalCbs-=1)}),f.on("addEventListener-end",function(t,n){n instanceof m&&"load"===t[0]&&f.emit("xhr-load-added",[t[1],t[2]],n)}),f.on("removeEventListener-end",function(t,n){n instanceof m&&"load"===t[0]&&f.emit("xhr-load-removed",[t[1],t[2]],n)}),f.on("fn-start",function(t,n,e){n instanceof m&&("onload"===e&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=a.now()))}),f.on("fn-end",function(t,n){this.xhrCbStart&&f.emit("xhr-cb-time",[a.now()-this.xhrCbStart,this.onload,n],n)})}},{}],11:[function(t,n,e){n.exports=function(t){var n=document.createElement("a"),e=window.location,r={};n.href=t,r.port=n.port;var o=n.href.split("://");!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=n.hostname||e.hostname,r.pathname=n.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname);var i=!n.protocol||":"===n.protocol||n.protocol===e.protocol,a=n.hostname===document.domain&&n.port===e.port;return r.sameOrigin=i&&(!n.hostname||a),r}},{}],12:[function(t,n,e){function r(){}function o(t,n,e){return function(){return i(t,[f.now()].concat(s(arguments)),n?null:this,e),n?void 0:this}}var i=t("handle"),a=t(16),s=t(17),c=t("ee").get("tracer"),f=t("loader"),u=NREUM;"undefined"==typeof window.newrelic&&(newrelic=u);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],l="api-",p=l+"ixn-";a(d,function(t,n){u[n]=o(l+n,!0,"api")}),u.addPageAction=o(l+"addPageAction",!0),u.setCurrentRouteName=o(l+"routeName",!0),n.exports=newrelic,u.interaction=function(){return(new r).get()};var h=r.prototype={createTracer:function(t,n){var e={},r=this,o="function"==typeof n;return i(p+"tracer",[f.now(),t,e],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],e),o)try{return n.apply(this,arguments)}catch(t){throw c.emit("fn-err",[arguments,this,t],e),t}finally{c.emit("fn-end",[f.now()],e)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,n){h[n]=o(p+n)}),newrelic.noticeError=function(t,n){"string"==typeof t&&(t=new Error(t)),i("err",[t,f.now(),!1,n])}},{}],13:[function(t,n,e){n.exports=function(t){if("string"==typeof t&&t.length)return t.length;if("object"==typeof t){if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if(!("undefined"!=typeof FormData&&t instanceof FormData))try{return JSON.stringify(t).length}catch(n){return}}}},{}],14:[function(t,n,e){var r=0,o=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);o&&(r=+o[1]),n.exports=r},{}],15:[function(t,n,e){function r(t,n){if(!o)return!1;if(t!==o)return!1;if(!n)return!0;if(!i)return!1;for(var e=i.split("."),r=n.split("."),a=0;a<r.length;a++)if(r[a]!==e[a])return!1;return!0}var o=null,i=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var s=navigator.userAgent,c=s.match(a);c&&s.indexOf("Chrome")===-1&&s.indexOf("Chromium")===-1&&(o="Safari",i=c[1])}n.exports={agent:o,version:i,match:r}},{}],16:[function(t,n,e){function r(t,n){var e=[],r="",i=0;for(r in t)o.call(t,r)&&(e[i]=n(r,t[r]),i+=1);return e}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],17:[function(t,n,e){function r(t,n,e){n||(n=0),"undefined"==typeof e&&(e=t?t.length:0);for(var r=-1,o=e-n||0,i=Array(o<0?0:o);++r<o;)i[r]=t[n+r];return i}n.exports=r},{}],18:[function(t,n,e){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],19:[function(t,n,e){function r(t){return!(t&&t instanceof Function&&t.apply&&!t[a])}var o=t("ee"),i=t(17),a="nr@original",s=Object.prototype.hasOwnProperty,c=!1;n.exports=function(t,n){function e(t,n,e,o){function nrWrapper(){var r,a,s,c;try{a=this,r=i(arguments),s="function"==typeof e?e(r,a):e||{}}catch(f){l([f,"",[r,a,o],s])}u(n+"start",[r,a,o],s);try{return c=t.apply(a,r)}catch(d){throw u(n+"err",[r,a,d],s),d}finally{u(n+"end",[r,a,c],s)}}return r(t)?t:(n||(n=""),nrWrapper[a]=t,d(t,nrWrapper),nrWrapper)}function f(t,n,o,i){o||(o="");var a,s,c,f="-"===o.charAt(0);for(c=0;c<n.length;c++)s=n[c],a=t[s],r(a)||(t[s]=e(a,f?s+o:o,i,s))}function u(e,r,o){if(!c||n){var i=c;c=!0;try{t.emit(e,r,o,n)}catch(a){l([a,e,r,o])}c=i}}function d(t,n){if(Object.defineProperty&&Object.keys)try{var e=Object.keys(t);return e.forEach(function(e){Object.defineProperty(n,e,{get:function(){return t[e]},set:function(n){return t[e]=n,n}})}),n}catch(r){l([r])}for(var o in t)s.call(t,o)&&(n[o]=t[o]);return n}function l(n){try{t.emit("internal-error",n)}catch(e){}}return t||(t=o),e.inPlace=f,e.flag=a,e}},{}],ee:[function(t,n,e){function r(){}function o(t){function n(t){return t&&t instanceof r?t:t?c(t,s,i):i()}function e(e,r,o,i){if(!l.aborted||i){t&&t(e,r,o);for(var a=n(o),s=m(e),c=s.length,f=0;f<c;f++)s[f].apply(a,r);var d=u[g[e]];return d&&d.push([b,e,r,a]),a}}function p(t,n){y[t]=m(t).concat(n)}function h(t,n){var e=y[t];if(e)for(var r=0;r<e.length;r++)e[r]===n&&e.splice(r,1)}function m(t){return y[t]||[]}function v(t){return d[t]=d[t]||o(e)}function w(t,n){f(t,function(t,e){n=n||"feature",g[e]=n,n in u||(u[n]=[])})}var y={},g={},b={on:p,addEventListener:p,removeEventListener:h,emit:e,get:v,listeners:m,context:n,buffer:w,abort:a,aborted:!1};return b}function i(){return new r}function a(){(u.api||u.feature)&&(l.aborted=!0,u=l.backlog={})}var s="nr@context",c=t("gos"),f=t(16),u={},d={},l=n.exports=o();l.backlog=u},{}],gos:[function(t,n,e){function r(t,n,e){if(o.call(t,n))return t[n];var r=e();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return t[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(t,n,e){function r(t,n,e,r){o.buffer([t],r),o.emit(t,n,e)}var o=t("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(t,n,e){function r(t){var n=typeof t;return!t||"object"!==n&&"function"!==n?-1:t===window?0:a(t,i,function(){return o++})}var o=1,i="nr@id",a=t("gos");n.exports=r},{}],loader:[function(t,n,e){function r(){if(!E++){var t=x.info=NREUM.info,n=p.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(t&&t.licenseKey&&t.applicationID&&n))return u.abort();f(g,function(n,e){t[n]||(t[n]=e)}),c("mark",["onload",a()+x.offset],null,"api");var e=p.createElement("script");e.src="https://"+t.agent,n.parentNode.insertBefore(e,n)}}function o(){"complete"===p.readyState&&i()}function i(){c("mark",["domContent",a()+x.offset],null,"api")}function a(){return O.exists&&performance.now?Math.round(performance.now()):(s=Math.max((new Date).getTime(),s))-x.offset}var s=(new Date).getTime(),c=t("handle"),f=t(16),u=t("ee"),d=t(15),l=window,p=l.document,h="addEventListener",m="attachEvent",v=l.XMLHttpRequest,w=v&&v.prototype;NREUM.o={ST:setTimeout,SI:l.setImmediate,CT:clearTimeout,XHR:v,REQ:l.Request,EV:l.Event,PR:l.Promise,MO:l.MutationObserver};var y=""+location,g={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1118.min.js"},b=v&&w&&w[h]&&!/CriOS/.test(navigator.userAgent),x=n.exports={offset:s,now:a,origin:y,features:{},xhrWrappable:b,userAgent:d};t(12),p[h]?(p[h]("DOMContentLoaded",i,!1),l[h]("load",r,!1)):(p[m]("onreadystatechange",o),l[m]("onload",r)),c("mark",["firstbyte",s],null,"api");var E=0,O=t(18)},{}]},{},["loader",2,10,4,3]);</script>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=yes">
+    <title>Privacy | DeskTime</title>
+    
+    <meta name="description" content="">
+
+    <meta property="og:title" content="DeskTime | Privacy">
+    <meta property="og:image" content="https://desktime.com/assets/img/index/application@2x.png">
+
+    <meta name="msvalidate.01" content="7E7149BB0536D28D683B219D73FAAF68" />
+    <meta name="yandex-verification" content="3b65641c9c2b206e" />
+
+    <link rel="canonical" href="https://desktime.com/privacy" />
+
+    <link rel="chrome-webstore-item" href="https://chrome.google.com/webstore/detail/kphjfdjkmhnoamhfacepmnlfmmmdedoj">
+    <link rel="mask-icon" href="/desktime.svg" color="#6CB123">
+    <link href="https://plus.google.com/110645351171441570048" rel="publisher">
+    <link href="https://plus.google.com/110645351171441570048?rel=author" rel="author">
+    <link type="text/plain" rel="author" href="/humans.txt">
+    <link href="/assets/css/main.css?id=add5a3f007f5e113afd9" rel="stylesheet" media="all">
+    <link href="/assets/css/frontend.css?id=468d7e169e3c8d294a11" rel="stylesheet" media="all">
+</head>
+<body class="page-privacy">
+    <div id="top">
+        <nav class="navbar navbar-default upper-slide-bars">
+    <div class="container">
+        <div class="navbar-top">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brandX logo" href="/"></a>
+            </div>
+
+            <div id="navbar" class="collapse navbar-right navbar-collapse">
+                <ul class="nav navbar-nav">
+
+                    <li><a href="https://desktime.com/features">Features</a></li>
+                    <li><a href="https://desktime.com/pricing">Pricing</a></li>
+                    <li><a href="https://desktime.com/about">About us</a></li>
+                    <li><a href="https://desktime.com/faq">FAQ</a></li>
+                    <li><a href="https://desktime.com/blog/" target="_blank">Blog</a></li>
+                                        <li><a href="https://desktime.com/login">Login</a></li>
+                    <li><a href="https://desktime.com/register" class="button">Sign up</a></li>
+                                    </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+    </div>
+
+    <div id="content">
+            <div class="w-box intro">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2 text-center">
+                    <h2>Privacy Policy</h2>
+                </div>
+
+                <div class="col-md-10 col-md-offset-1 text-center">
+                    <p>DeskTime respects the privacy of its users and is fully committed to protecting their personal data. This Privacy Policy explains how DeskTime (<strong>“DeskTime”</strong>, <strong>“we”</strong>, <strong>“us”</strong>, <strong>“our”</strong>) and our affiliates process information about individuals, including personal data, in relation to the use of the DeskTime.com website and the real-time time tracking service that analyzes productivity (<strong>“Service”</strong>). Below you may find detailed information about what type of information we collect about individuals and why, what we do with it, and how we handle such information.</p>
+                    <p>By accessing or using this website or any of our Services, you agree to the terms set out in this Privacy Policy, Cookie Policy, Terms of Service, and other terms and policies posted on our website. If you do not agree to this Privacy Policy, you must leave this website and discontinue all use of any of our Services.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="w-box">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="text-center" style="margin: 0 0 16px 0;">TABLE OF CONTENTS</h3>
+
+                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="c1h">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#c1c" aria-expanded="false" aria-controls="c1c">
+                                        1. INTRODUCTION
+                                    </a>
+                                </h4>
+                            </div>
+
+                            <div id="c1c" class="panel-collapse collapse" role="tabpanel" aria-labelledby="c1h">
+                                <div class="panel-body">
+                                    <p><span class="chapter">1.1</span>This Privacy Policy governs the processing of Personal Data of independent individual users (the <strong>“User”</strong> or <strong>“you”</strong>) of the DeskTime Service, visitors of the DeskTime website (<strong>“you”</strong>) as well as the processing of Personal Data by DeskTime on behalf of companies, organizations, institutions, groups of people, etc., that track time of their employees or other individuals within their DeskTime account group (<strong>“Client”</strong>) within the Service.</p>
+                                    <p><span class="chapter">1.2</span>DeskTime shall process Personal Data in accordance with applicable data protection laws and in respect of Data Subjects within the European Economic Area (<strong>“EEA”</strong>) DeskTime shall comply with requirements of European Regulation (EU) 2016/679 of the European Parliament and of the Council of 27 April 2016 on the protection of natural persons with regards to the processing of personal data and on the free movement of such data, and repealing Directive 95/46/EC (<strong>“GDPR”</strong>).</p>
+                                    <p><span class="chapter">1.3</span>In this Privacy Policy the term <strong>“DeskTime”</strong> refers to Fast Brands LLC, a company registered in the Delaware, USA, address: 19749 Dearborn St, Chatsworth, California 91311, USA and its affiliate SIA DeskTime, a company registered in Republic of Latvia, registration number: 40203168348, address: Riga, Ojara Vaciesa iela 6B, LV-1004.</p>
+                                    <p><span class="chapter">1.4</span>The terms “Personal Data”, “Data Subject”, “Processing”, “Controller”, “Processor” and “Supervisory Authority” as used in this Privacy Policy shall have the same meanings as given in the GDPR.</p>
+                                    <p><span class="chapter">1.5</span>DeskTime acts as a Data Controller and sets the purpose and means for processing the following data:</p>
+
+                                    <ul>
+                                        <li><p>Personal Data of the Users who are themselves the clients of DeskTime and who transmit their Personal Data directly to DeskTime, such as freelancers and other individuals who register for DeskTime independently (create DeskTime account for their own use);</p></li>
+                                        <li><p>Personal Data of individuals who subscribe for receiving commercial communication and other news and updates from DeskTime, but who are not registered users of DeskTime Service.</p></li>
+                                    </ul>
+
+                                    <p><span class="chapter">1.6</span>When DeskTime processes Personal Data that has been transferred to DeskTime by the Clients, DeskTime acts as the Data Processor.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="c2h">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#c2c" aria-expanded="false" aria-controls="c2c">
+                                        2. PROCESSING OF DATA ON BEHALF OF CLIENTS BY DESKTIME AS DATA PROCESSOR
+                                    </a>
+                                </h4>
+                            </div>
+
+                            <div id="c2c" class="panel-collapse collapse" role="tabpanel" aria-labelledby="c2h">
+                                <div class="panel-body">
+                                    <p><span class="chapter">2.1</span>This section concerns DeskTime Clients that transfer Personal Data of end-users of the Service, such as personal data of Client’s employees, to DeskTime. In respect of such data, the Client sets the purpose and means of processing Personal Data, therefore the Client is the Data Controller.</p>
+                                    <p><span class="chapter">2.2</span>DeskTime processes end-users’ Personal Data on behalf of the Client, and DeskTime only accesses the data for the purpose of rendering the Service, therefore DeskTime is the Data Processor.</p>
+                                    <p><span class="chapter">2.3</span>If you as a Data Subject are the end-user of DeskTime Service and your profile was created by your employer, the privacy policy of the Client (e.g. your employer or other organization that created your account), on whose behalf we process the data, will apply. This means that any enquiry, request, objection or complaint that you as a Data Subject may have in connection with the processing of Personal Data that forms part of your DeskTime account should be addressed to and resolved by the Client as the Data Controller.</p>
+
+                                    <p><strong>Details of processing</strong></p>
+                                    <p><span class="chapter">2.4</span>When the Client creates accounts for end-users in its group the Client transfers the Personal Data of such end-users to DeskTime. In that way the Client instructs DeskTime to process Personal Data in order to provide Service to the Client pursuant to the agreement concluded between the Client and DeskTime.</p>
+                                    <p><span class="chapter">2.5</span>For the avoidance of doubt, this Privacy Policy contains complete and final instructions of the Client to DeskTime in relation to processing of Personal Data of end-users, and this Privacy Policy constitutes a binding data processing agreement.</p>
+                                    <p><span class="chapter">2.6</span>DeskTime will always process all Personal Data on behalf of the Client following the Client’s instructions and in compliance with the applicable data protection laws and regulations including requirements of GDPR where applicable.</p>
+
+                                    <p><strong>Type of personal data and categories of data subjects</strong></p>
+                                    <p><span class="chapter">2.7</span>Categories of data subjects whose Personal Data will be processed on behalf of the Client include the Client’s employees, representatives and other end-users that will be registered under the Client’s group account. The information about these individuals that may contain Personal Data are indicated in Paragraph 4.</p>
+                                    <p><span class="chapter">2.8</span>Client represents that it has acquired all necessary consents and/or relies on other appropriate legal basis for the processing of Personal Data of end-users. Client confirms that end-users have been informed about the fact that their Personal Data is transferred to DeskTime as a Processor and other third parties used by DeskTime for the provision of Service.</p>
+
+                                    <p><strong>Duration of the processing</strong></p>
+                                    <p><span class="chapter">2.9</span>DeskTime will process the aforementioned data for as long as DeskTime provides the Service to the Client and the Client has an active DeskTime account.</p>
+                                    <p><span class="chapter">2.10</span>When an end-user’s account is deleted by the Client, DeskTime will process data of deleted accounts in the Client’s group for statistical and analytical interests of the Client. However, such data can be deleted at any time upon Client’s request.</p>
+                                    <p><span class="chapter">2.11</span>After terminating contractual relationship between DeskTime and the Client, we may continue to store some Personal Data, but limited to the minimum amount required, as might be necessary for us to comply with legal obligations, to ensure reliable back-up systems, to resolve disputes between the Client and DeskTime, if any, to prevent fraud and abuse, to enforce DeskTime agreements, and/or to pursue legitimate interests of DeskTime or third parties.</p>
+
+                                    <p><strong>Sub-processors</strong></p>
+                                    <p><span class="chapter">2.12</span>The Client consents that DeskTime, for the purpose of providing Service to the Clients, uses sub-processors that provide DeskTime the services indicated in Paragraph 7. DeskTime ensures that it only uses sub-processors that comply with the same data protection obligations as set out in this Privacy Policy, in particular provides sufficient guarantees and has implemented appropriate technical and organizational measures and otherwise comply with the requirements of GDPR where applicable. If such sub-processor fails to fulfil its data protection obligations, DeskTime shall remain liable to the Client.</p>
+
+                                    <p><strong>Assistance to the controller</strong></p>
+                                    <p><span class="chapter">2.13</span>Taking into account the nature of the processing, DeskTime as a Data Processor will assist the Client with provision of technical or organizational measures, insofar as possible, for the fulfilment of the Client’s obligations as a Data Controller in relation to:</p>
+
+                                    <ul>
+                                        <li><p>Any requests from the Client’s end-users in respect of access to or the rectification, erasure, restriction, portability, blocking or deletion of their Personal Data that DeskTime processes on behalf of the Client. In the event that a Data Subject sends such a request directly to DeskTime, DeskTime will promptly forward such request to the Client; and</p></li>
+                                        <li><p>The investigation of Personal Data breaches and the notification to the Supervisory Authority and Client's end-users regarding such Personal Data breaches; and</p></li>
+                                        <li><p>Where appropriate, the preparation of data protection impact assessments and, where necessary, carrying out consultations with any Supervisory Authority.</p></li>
+                                    </ul>
+
+                                    <p><strong>Return and deletion of data</strong></p>
+                                    <p><span class="chapter">2.14</span>Unless otherwise required by applicable law, DeskTime has no obligation to store the Client’s data after termination of the agreement with the Client and deletion of the Client’s account and all accounts associated with it.</p>
+                                    <p><span class="chapter">2.15</span>At the choice of the Client, DeskTime will delete or return all the Personal Data to the Client after the end of the provision of Service relating to processing and shall delete existing copies, unless applicable law requires DeskTime to store such Personal Data.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="c3h">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#c3c" aria-expanded="false" aria-controls="c3c">
+                                        3. PURPOSES AND GROUNDS FOR PROCESSING
+                                    </a>
+                                </h4>
+                            </div>
+
+                            <div id="c3c" class="panel-collapse collapse" role="tabpanel" aria-labelledby="c3h">
+                                <div class="panel-body">
+                                    <p><span class="chapter">3.1</span>DeskTime as a Controller shall process your Personal Data in order to provide you with the Service, to improve our Service, to solve any Service related issues you may have and to ensure that you receive the best customer experience possible.</p>
+                                    <p><span class="chapter">3.2</span>DeskTime collects and processes your Personal Data including, but not limited for the following purposes:</p>
+
+                                    <ul>
+                                        <li><p>Registering you for the use of the Service by creating your DeskTime account;</p></li>
+                                        <li><p>Sending you invoices and processing payments for the Service;</p></li>
+                                        <li><p>Personalizing your use of the Service when you set up your account settings;</p></li>
+                                        <li><p>Analyzing your performance as a feature within our Service;</p></li>
+                                        <li><p>Communicating with you to inform you about DeskTime Service and provide you any Service related support, answer your questions and process your requests;</p></li>
+                                        <li><p>To improve Service or to develop new features within the Service;</p></li>
+                                        <li><p>Analytics and measurement to understand how our Services are used. For example, we analyze data about your usage of the Service to optimize product design, to generate reports and create statistics about use of DeskTime Service;</p></li>
+                                        <li><p>Delivering personalized ads, promotions and offers to you;</p></li>
+                                        <li><p>Protecting legal interests of DeskTime, its Clients, Users and other third persons and for legal reasons such as, e.g. enforcing our Terms & Conditions or Privacy Policy, complying with any applicable law and assisting law enforcement authorities.</p></li>
+                                    </ul>
+
+                                    <p>We’ll ask for your consent before using your information for a purpose that isn’t covered in this Privacy Policy.</p>
+                                    <p><span class="chapter">3.3</span>DeskTime only collects and processes your Personal Data where we have lawful basis. Legal grounds for the processing of your Personal Data vary depending on the specific group of data and the purposes for processing it. Note that we may be processing the same Personal Data for several purposes simultaneously and, respectively, on more than one legal ground.</p>
+
+                                    <p><strong>Contract.</strong> Most of the time the legal basis for processing your Personal Data is the contractual relationship between you as the User of Service and DeskTime since we need certain information to conclude the contract and to fulfil our obligations arising out of this contract.</p>
+                                    <p><strong>Legal obligation.</strong> In some cases, DeskTime processes Personal Data on basis of legal obligations imposed on us by applicable law, such as financial and tax reporting obligations or if we have to respond to legal process.</p>
+                                    <p><strong>Legitimate interests.</strong> Processing of your Personal Data is necessary for pursuing legitimate interests of DeskTime or for the legitimate interests of third parties, always provided that such processing shall not outweigh your rights and freedoms. For example, we may process your data for marketing purposes based on our legitimate interest of growing and improving our business. Other legitimate interests include maintaining Service to meet the needs of our Users and Clients, advertising to make our Service freely available for users, detecting and preventing fraud, abuse, security and technical issues with the Service, fulfilling obligations to our partners, enforcing legal claims, etc.</p>
+                                    <p><strong>Consent.</strong> Some Personal Data we process based on your consent. This is the information that we do not need for performance of the contract, but you voluntarily may provide us with such information. By taking such clear affirmative action as uploading your photo to DeskTime account, entering notes, entering your e-mail address in blog subscription field and clicking “subscribe” you signify your consent to the processing of your respective Personal Data. By using the absence calendar and adding “away time” you take affirmative action and manifestly make this information available at your DeskTime account. Note that you have the right at any time to delete this information and withdraw your consent.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="c4h">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#c4c" aria-expanded="false" aria-controls="c4c">
+                                        4. INFORMATION WE COLLECT FROM DESKTIME USERS
+                                    </a>
+                                </h4>
+                            </div>
+
+                            <div id="c4c" class="panel-collapse collapse" role="tabpanel" aria-labelledby="c4h">
+                                <div class="panel-body">
+                                    <p><span class="chapter">4.1</span>DeskTime collects, generates and receives information in a variety of ways when you use the Service. Some of this information constitutes Personal Data.</p>
+
+                                    <p><strong>Information you provide upon creating your account</strong></p>
+                                    <p><span class="chapter">4.2</span>As a User of DeskTime Services you provide us with information containing your Personal Data. Upon registration and creating your profile you provide us with the following information:</p>
+
+                                    <ul>
+                                        <li><p class="margin-less">Full name</p></li>
+                                        <li><p class="margin-less">E-mail address</p></li>
+                                        <li><p class="margin-less">Password</p></li>
+                                        <li><p class="margin-less">Payment information</p></li>
+                                        <li><p class="margin-less">Phone number</p></li>
+                                        <li><p class="margin-less">Social media account information (if you register by linking your social media account to your DeskTime account)</p></li>
+                                        <li><p class="margin-less">Photo (voluntary)</p></li>
+                                    </ul>
+
+                                    <p><span class="chapter">4.3</span>Please note that some options within the Service allow our Users to voluntarily disclose their Personal Data such as your photo, or any data that you enter into notes, as well as some special category data, e.g. data concerning health, when using the absence calendar function. DeskTime does not oblige Users to submit such data since it is not essential for provision of the Service, and Users are able to use the Service without providing us with the aforementioned data.</p>
+
+                                    <p><strong>Third-party integrations</strong></p>
+                                    <p><span class="chapter">4.4</span>You can choose to integrate third-party services in relation to certain aspects of DeskTime Service. A third-party service is software that integrates with the Service and you can enable or disable such integration for your DeskTime account.</p>
+                                    <p><span class="chapter">4.5</span>Once enabled, the relevant third-party service provider may share certain information with us. For example, if you choose to use a third-party service (such as Facebbok, Twitter, LinkedIn) to sign up for the Service, then the provider of such a service may send us your name, user ID, email address. Or if some other third-party application (e.g., project management service, Google or Outlook calendar) is enabled to permit data to be imported into Service, we may receive such information as you have elected to let the application make available to us. You should check the privacy settings of these third-party services to understand what data may be disclosed to us.</p>
+
+                                    <p><strong>Information you provide by configuring your account</strong></p>
+                                    <p><span class="chapter">4.6</span>Upon configuring settings of your DeskTime account, including performance tracking preferences, you provide us with the following information, which in connection with other information may contain Personal Data:</p>
+                                    <p>Location, time zone, start and end time of your workday, work duration, start and stop time of work tracking, working days, tracking days, hourly rate, offline time input options, private time input options, application names to be collected, options to hide owners, absence calendar, information about colleagues, option to use calculation tool of project costs.</p>
+
+                                    <p><strong>Information generated when using the Service</strong></p>
+                                    <p><span class="chapter">4.7</span>Some of the information processed by DeskTime is created by you using the Service, and this information may also contain Personal Data. DeskTime records the following information when you use the Service:</p>
+                                    <p>IP address where you logged in, browser type and browser software version, names of applications used, names of tasks to be worked on, websites visited, DeskTime client version, path to the application, start and end time of use, time spent on breaks, screenshots of your computer screen. DeskTime may record the number of keystrokes or mouse movements, but we do not record what you type or where you click.</p>
+                                    <p><span class="chapter">4.8</span>When you are just the end-user and not the Client of the Service, the above-mentioned information is provided to DeskTime by the Client (e.g. your employer).</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="c5h">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#c5c" aria-expanded="false" aria-controls="c5c">
+                                        5. INFORMATION WE COLLECT FROM DESKTIME WEBSITE VISITORS
+                                    </a>
+                                </h4>
+                            </div>
+
+                            <div id="c5c" class="panel-collapse collapse" role="tabpanel" aria-labelledby="c5h">
+                                <div class="panel-body">
+                                    <p><span class="chapter">5.1</span>Upon visiting our website we may collect and process the following information that may contain your Personal Data:</p>
+
+                                    <ul>
+                                        <li><p class="margin-less">Your device and browser</p></li>
+                                        <li><p class="margin-less">Your IP address</p></li>
+                                        <li><p class="margin-less">Other information that is collected from cookies and similar technology we use.</p></li>
+                                    </ul>
+
+                                    <p>Learn more about how we use cookies on our website by reading our <a href="https://desktime.com/cookies" title="Cookie Policy"><strong>Cookie Policy</strong></a>.</p>
+                                    <p><span class="chapter">5.2</span>When you subscribe to DeskTime blog, leave comments on blog entries, or submit a question to us, you are providing DeskTime with the following information that contains your Personal Data:</p>
+
+                                    <ul>
+                                        <li><p class="margin-less">Your name</p></li>
+                                        <li><p class="margin-less">Your e-mail address</p></li>
+                                    </ul>
+
+                                    <p><span class="chapter">5.3</span>When you subscribe to our blog or newsletter we will process your e-mail address to send you informative materials, such as newsletters, advertisements and others. At any point in time you can unsubscribe from receiving the above-mentioned information in your e-mail footers.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="c6h">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#c6c" aria-expanded="false" aria-controls="c6c">
+                                        6. RETENTION PERIOD
+                                    </a>
+                                </h4>
+                            </div>
+
+                            <div id="c6c" class="panel-collapse collapse" role="tabpanel" aria-labelledby="c6h">
+                                <div class="panel-body">
+                                    <p><span class="chapter">6.1</span>DeskTime retains Personal Data of User account for as long as you maintain your DeskTime account or as otherwise necessary for DeskTime to provide you the Service.</p>
+                                    <p><span class="chapter">6.2</span>Data created by you when using the Service (paragraph 4.7) is kept by DeskTime for 13 months. After 13 months only general information like “arrival time”, “left time”, “desktime time”, and “time at work” are kept for statistical purposes.</p>
+                                    <p><span class="chapter">6.3</span>After you as a User terminate your relationship with us by deleting your DeskTime account or otherwise terminating the contract for DeskTime Service, we may continue to store certain information as reasonably necessary to comply with our legal obligations, to resolve disputes, if any, to prevent fraud and abuse, to enforce our agreement, and/or to protect our legitimate interests.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="c7h">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#c7c" aria-expanded="false" aria-controls="c7c">
+                                        7. SHARING YOUR PERSONAL DATA WITH THIRD PARTIES
+                                    </a>
+                                </h4>
+                            </div>
+
+                            <div id="c7c" class="panel-collapse collapse" role="tabpanel" aria-labelledby="c7h">
+                                <div class="panel-body">
+                                    <p><span class="chapter">7.1</span>For DeskTime to be able to provide you with our Service, we work with third parties that provide us with different services we need in ordinary course of our business. Therefore, we share your Personal Data with such third-party service providers. They process your personal data on behalf of DeskTime.</p>
+                                    <p><span class="chapter">7.2</span>The categories of recipients of your Personal Data include, hosting and server co-location service providers, communication and content delivery networks, data and cyber security service providers, billing and payment processing service providers, fraud detection and prevention service providers, web analytics, email distribution and monitoring service providers, session recording service, marketing service providers, legal and financial advisors, among others (<strong>“Third-Party Service Providers”</strong>).</p>
+                                    <p><span class="chapter">7.3</span>Third-Party Service Providers only receive strict minimum amount of Personal Data as necessary for them to provide us with requested service. DeskTime shares Personal Data only with such Third-Party Service Providers that are able to demonstrate that they have implemented appropriate measures to ensure that Personal Data is processed in compliance with GDPR and other applicable laws and regulations.</p>
+                                    <p><span class="chapter">7.4</span>In certain situations we might have a legal obligations to share your information with third parties. Such situation may arise when sharing your Personal Data with third party is required by law or when information is requested by public authorities.</p>
+                                    <p><span class="chapter">7.5</span>DeskTime may share your Personal Data if DeskTime organizes the operation of Services within a different framework, or through another legal structure or entity, or if DeskTime is acquired by, or merged into or with another entity, or if DeskTime enter bankruptcy, provided however, that those entities agree to be bound by the provision of this Privacy Policy, with respective changes taken into consideration.</p>
+                                    <p><span class="chapter">7.6</span>Personal Data processed by DeskTime may be transferred to Third-Party Service Providers that are located outside of EEA. If DeskTime transfers Personal Data to a Third-Party Service Provider located outside of EEA, DeskTime will only send Personal Data to such recipients that have taken adequate data processing and protection requirements and that are able to ensure an adequate level of protection or have provided adequate guarantees.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="c8h">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#c8c" aria-expanded="false" aria-controls="c8c">
+                                        8. DATA SUBJECT’S RIGHTS
+                                    </a>
+                                </h4>
+                            </div>
+
+                            <div id="c8c" class="panel-collapse collapse" role="tabpanel" aria-labelledby="c8h">
+                                <div class="panel-body">
+                                    <p><span class="chapter">8.1</span>Individuals located in certain countries, including the European Economic Area, have certain statutory rights in relation to their Personal Data. Subject to any exemptions provided by law, you may have the right to request access to your Personal Data to seek to update, delete or correct this data, to restrict or object to processing of your data, as well as right to portability of your Personal Data.</p>
+                                    <p><span class="chapter">8.2</span>You can use these rights by logging into your DeskTime account or by getting in touch with DeskTime using the contact information provided below in Paragraph 12.</p>
+                                    <p><span class="chapter">8.3</span>Furthermore, if you believe that DeskTime has unlawfully processed your Personal Data, you have the right to submit a complaint to DeskTime by using the contact information provided below, or you may submit complaint to a respective data protection supervisory authority in your country.</p>
+                                    <p><span class="chapter">8.4</span>If you are an individual whose Personal Data has been provided to DeskTime by the Client (e.g. employee of the Client), please contact the Client to exercise your rights as a Data Subject stated above.</p>
+                                    <p><span class="chapter">8.5</span>In case DeskTime receives complaint or request from individual, whose Personal Data has been provided to DeskTime by the Client, exercising his/her rights as a Data Subject, DeskTime will not respond to such complaint or request without prior written authorization by the Client.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="c9h">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#c9c" aria-expanded="false" aria-controls="c9c">
+                                        9. PERSONAL DATA SECURITY
+                                    </a>
+                                </h4>
+                            </div>
+
+                            <div id="c9c" class="panel-collapse collapse" role="tabpanel" aria-labelledby="c9h">
+                                <div class="panel-body">
+                                    <p><span class="chapter">9.1</span>DeskTime uses reasonable organizational, technical, and administrative measures to protect the confidentiality, integrity, and availability of Personal Data. We encourage Users, Clients and their end-users to take care of their own Personal Data as well as Personal Data in their possession and set strong passwords for DeskTime account, limit access to computer and browser by signing out after end of session, and as possible avoid providing DeskTime with any sensitive information, disclosure of which could cause substantial harm to Data Subject.</p>
+                                    <p><span class="chapter">9.2</span>All of DeskTime’s authorized personnel involved in the processing of Personal Data provided to us have committed themselves to confidentiality obligations and shall not access or otherwise process Personal Data without authorization and if it's not necessary for the purposes such data was obtained in the first place.</p>
+                                    <p><span class="chapter">9.3</span>In the event a Personal Data breach occurs, we will notify you in compliance with the obligations set out in applicable laws and will provide reasonable assistance regarding the investigation of Personal Data breaches and the notification to the supervisory authorities and data subjects regarding such personal data breaches.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="c10h">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#c10c" aria-expanded="false" aria-controls="c10c">
+                                        10. DATA PROTECTION AUDIT
+                                    </a>
+                                </h4>
+                            </div>
+
+                            <div id="c10c" class="panel-collapse collapse" role="tabpanel" aria-labelledby="c10h">
+                                <div class="panel-body">
+                                    <p><span class="chapter">10.1</span>Upon Client’s written request, DeskTime agrees to provide the Client with sufficient information to demonstrate compliance with obligations laid down in this Privacy Policy and applicable laws and regulations. This information should be provided to the extent that such information is within DeskTime’s control and DeskTime is not precluded from disclosing it by applicable law, a duty of confidentiality, or any other obligation owed to a third party.</p>
+                                    <p><span class="chapter">10.2</span>If information provided to the Client does not provide sufficient information to confirm DeskTime’s compliance with this Privacy Policy, then DeskTime agrees to allow for and contribute to data processing audits.</p>
+                                    <p><span class="chapter">10.3</span>Such audits are allowed to be carried out by independent third party with good market reputation, provided that it has sufficient experience and competence to carry out data processing audits, and election of such auditor must be mutually agreed by both the Client and DeskTime.</p>
+                                    <p><span class="chapter">10.4</span>The timing and other practicalities related to any such audit or inspection are determined by us and any such information and assistance are provided at exclusively the cost and expense of the Client, and we reserve the right to charge the Client for any additional work or other costs incurred by us in connection with the Client using such rights. The Client has rights to request the audit once every 2 years.</p>
+                                    <p><span class="chapter">10.5</span>The auditor will have to sign confidentiality agreement which includes obligation not to disclose business information in its audit report, and the final report will also have to be provided to DeskTime.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="c11h">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#c11c" aria-expanded="false" aria-controls="c11c">
+                                        11. PRIVACY POLICY CHANGES
+                                    </a>
+                                </h4>
+                            </div>
+
+                            <div id="c11c" class="panel-collapse collapse" role="tabpanel" aria-labelledby="c11h">
+                                <div class="panel-body">
+                                    <p><span class="chapter">11.1</span>DeskTime may occasionally amend this Privacy Policy for example in cases when we introduce new services or new features. The amendments to this Privacy Policy enter into force and are applied from the moment they have been uploaded to this page.</p>
+                                    <p><span class="chapter">11.2</span>Therefore, we encourage you to check this page from time to time. By continuing to use our Services or otherwise providing Personal Data to us, after the amendments to this policy have been implemented, you agree to the updated terms of Privacy Policy.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="c13h">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#c13c" aria-expanded="false" aria-controls="c13c">
+                                        12. CONTACT INFORMATION
+                                    </a>
+                                </h4>
+                            </div>
+
+                            <div id="c13c" class="panel-collapse collapse" role="tabpanel" aria-labelledby="c13h">
+                                <div class="panel-body">
+                                    <p>In case you have any questions about this Privacy Policy or our data processing practices, or if you would like to exercise any of your rights as a Data Subject regarding your Personal Data, please contact us by email <a href="mailto:support@desktime.com">support@desktime.com</a>, or by using the contact details below:</p>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <p>
+                                                <strong>Fast Brands, LLC</strong><br />
+                                                Attn: Data Protection Officer<br />
+                                                Address: 19749 Dearborn St,<br />
+                                                Chatsworth, California 91311,<br />
+                                                USA
+                                            </p>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <p>
+                                                <strong>SIA DeskTime</strong><br />
+                                                Attn: Data Protection Officer<br />
+                                                Address: Ojara Vaciesa iela 6B,<br />
+                                                LV-1004,<br />
+                                                Riga, Latvia
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p>This Privacy Policy is effective from 19 March 2019</p>
+                    <a href="/storage/policies/DeskTime_Privacy_Policy_March_2019.pdf" class="btn btn-primary" target="_blank">Download PDF</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+    .chapter{color:#404751;font-size:16px;font-weight:600;margin-right:10px;}
+    .panel-title a{display:block;}
+    </style>
+
+    <div class="readyForFreeTrial">
+    <div class="container">
+        <div class="readyForFreeTrial__getStarted">
+            <div class="info text-center">
+                <div class="desc1">
+                    <h3>
+                        <span>Ready for your <span>free</span> trial?</span>
+                        <a href="https://desktime.com/register" class="btn btn-default">Get started</a>
+                    </h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    </div>
+
+    <div id="bottom">
+        <div class="w-box bottom">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-6">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6 col-xs-6">
+                        <ul class="nav nav-stacked">
+                            <li class="nav-header"><a href="https://desktime.com"><span class="logo-gray"></span></a></li>
+                            <li><a href="https://desktime.com/support">Contact Us</a></li>
+                            <li><a href="https://desktime.com/terms">Terms</a></li>
+                            <li><a href="https://desktime.com/privacy">Privacy</a></li>
+                            <li><a href="https://desktime.com/cookies">Cookie Policy</a></li>
+                            <li><a href="https://desktime.com/download">Download</a></li>
+                            <li>&nbsp;</li>
+                            <li>
+                                <a class="iphone" style="display: inline-block;" href="https://itunes.apple.com/us/app/desktime-for-iphone/id452994124?mt=8">
+                                    <span class="sb"></span>
+                                </a>
+                                <a class="android" style="display: inline-block;" href="https://play.google.com/store/apps/details?id=desktime.main">
+                                    <span class="sb"></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="col-md-6 col-sm-6 col-xs-6">
+                        <ul class="nav nav-stacked">
+                            <li class="nav-header"><a>Learn more</a></li>
+                            <li><a href="https://desktime.com/employee-time-tracking-guide">Employee time tracking</a></li>
+                            <li><a href="https://desktime.com/best-employee-time-tracking-software">Best time tracking apps</a></li>
+                            <li><a href="https://desktime.com/employee-time-tracking-software-for-companies">DeskTime for Companies</a></li>
+                            <li><a href="https://desktime.com/time-tracking-for-freelancers">DeskTime for Freelancers</a></li>
+                            <li><a href="https://desktime.com/faq">FAQ</a></li>
+                            <li><a href="/case-studies">Case Studies<span class="label label-danger" style="font-size:8px;margin-left:5px;vertical-align:middle;">NEW</span></a></li>
+                            <!--
+                            <li><a href="https://desktime.com/webinars">Webinars</a></li>
+                            <li><a href="https://desktime.com/feature-requests">Feature Requests</a></li>
+                            -->
+                            <li><a href="https://desktime.com/affiliate">Affiliate</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-sm-6">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6 col-xs-6">
+                        <ul class="nav nav-stacked">
+                            <li class="nav-header"><a>Contacts</a></li>
+                            <li>
+                                <a href="http://meetme.so/DeskTime" title="Schedule a call" target="_blank">
+                                    <i class="glyphicon glyphicon-earphone" style="color:#5fb92a;top:3px;"></i>
+                                    Schedule a call
+                                </a>
+                            </li>
+                            <li>
+                                <a href="mailto:support@desktime.com" title="Get in touch with us">
+                                    <i class="glyphicon glyphicon-envelope" style="color:#5fb92a;top:3px;"></i>
+                                    support@desktime.com
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);" onclick="olark('api.box.expand')" title="Chat with us">
+                                    <i class="glyphicon glyphicon-comment" style="color:#5fb92a;top:3px;"></i>
+                                    Open Chat
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="col-md-6 col-sm-6 col-xs-6">
+                        <ul class="nav nav-stacked">
+                            <li class="nav-header"><a>Where to find us</a></li>
+                            <li class="social">
+                                <a href="https://www.facebook.com/desktime/" target="_blank"><span class="sb sb-facebook"></span></a>
+                                <a href="https://twitter.com/desktimecom" target="_blank"><span class="sb sb-twitter"></span></a>
+                                <a href="https://www.linkedin.com/company/desktime-com" target="_blank"><span class="sb sb-linkedin"></span></a>
+                            </li>
+                            <li class="address">
+                                Fast Brands, LLC, 2011 - 2019.<br />
+                                19749 Dearborn St, Chatsworth,<br>California 91311, USA
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div style="background-color:#f3f4f5;padding:25px 0;">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 text-center">
+                <a href="http://draugiemgroup.com" target="_blank">
+                    <img src="/assets/img/draugiem-group.svg" />
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+    </div>
+    <script src="/assets/js/manifest.js?id=de6a7ca8bbfd0beefe4e"></script>
+    <script src="/assets/js/vendor.js?id=721f4673d96b5716573f"></script>
+    <script src="/assets/js/app.js?id=9799d9c5015c1a14fab4"></script>
+
+    
+    <script src="/assets/js/main.js?id=5dca620150aa1523b202"></script>
+    <script src="/assets/js/frontend.js?id=a088128670d34616a598"></script>
+
+    <script>
+        $(window).bind("load", function () {
+                    });
+    </script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-86355240-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-86355240-1');
+    gtag('config', 'AW-853629508');
+
+    
+    </script>
+
+
+
+<!-- Google Code for Remarketing Tag -->
+
+<!-- Facebook Pixel Code -->
+<script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+        n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+            document,'script','https://connect.facebook.net/en_US/fbevents.js');
+
+    fbq('init', '101400650310514');
+    fbq('track', "PageView");
+
+    
+    </script>
+<noscript><img height="1" width="1" style="display:none"
+               src="https://www.facebook.com/tr?id=101400650310514&ev=PageView&noscript=1"
+    /></noscript>
+<!-- End Facebook Pixel Code -->
+
+
+<!-- Adroll Pixel Code -->
+<script type="text/javascript">
+    adroll_adv_id = "3DUTQMCHZBCJNDZVTW7IP6";
+    adroll_pix_id = "QUO3HGHMAFDLDA7I3L73PN";
+    /* OPTIONAL: provide email to improve user identification */
+        (function () {
+        var _onload = function(){
+            if (document.readyState && !/loaded|complete/.test(document.readyState)){setTimeout(_onload, 10);return}
+            if (!window.__adroll_loaded){__adroll_loaded=true;setTimeout(_onload, 50);return}
+            var scr = document.createElement("script");
+            var host = (("https:" == document.location.protocol) ? "https://s.adroll.com" : "http://a.adroll.com");
+            scr.setAttribute('async', 'true');
+            scr.type = "text/javascript";
+            scr.src = host + "/j/roundtrip.js";
+            ((document.getElementsByTagName('head') || [null])[0] ||
+            document.getElementsByTagName('script')[0].parentNode).appendChild(scr);
+        };
+        if (window.addEventListener) {window.addEventListener('load', _onload, false);}
+        else {window.attachEvent('onload', _onload)}
+    }());
+</script>
+<!-- End Adroll Pixel Code -->
+
+
+<!-- Begin Analytics Events Embed Code -->
+<!-- End Analytics Events Embed Code -->
+
+<!-- Quora Pixel Code (JS Helper) -->
+<script>
+    !function(q,e,v,n,t,s){if(q.qp) return; n=q.qp=function(){n.qp?n.qp.apply(n,arguments):n.queue.push(arguments);}; n.queue=[];t=document.createElement(e);t.async=!0;t.src=v; s=document.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t,s);}(window, 'script', 'https://a.quora.com/qevents.js');
+    qp('init', '0734d9e2b4f946208e275b073a4c5d23');
+    qp('track', 'ViewContent');
+
+    </script>
+<noscript><img height="1" width="1" style="display:none" src="https://q.quora.com/_/ad/0734d9e2b4f946208e275b073a4c5d23/pixel?tag=ViewContent&noscript=1"/></noscript>
+<!-- End of Quora Pixel Code -->
+
+<script type="text/javascript">
+    _linkedin_partner_id = "655730";
+    window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+    window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+</script>
+<script type="text/javascript">
+    (function(){
+        var s = document.getElementsByTagName("script")[0];
+        var b = document.createElement("script");
+        b.type = "text/javascript";b.async = true;
+        b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+        s.parentNode.insertBefore(b, s);
+    })();
+</script>
+<noscript><img height="1" width="1" style="display:none;" alt="" src="https://dc.ads.linkedin.com/collect/?pid=655730&fmt=gif" /></noscript>
+
+<!-- Begin Inspectlet JS Code -->
+<script type="text/javascript" id="inspectletjs">
+    (function() {
+        window.__insp = window.__insp || [];
+        __insp.push(['wid', 1170276246]);
+                var ldinsp = function(){
+            if(typeof window.__inspld != "undefined") return; window.__inspld = 1; var insp = document.createElement('script'); insp.type = 'text/javascript'; insp.async = true; insp.id = "inspsync"; insp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://cdn.inspectlet.com/inspectlet.js?wid=1170276246&r=' + Math.floor(new Date().getTime()/3600000); var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(insp, x); };
+        setTimeout(ldinsp, 0);
+    })();
+</script>
+<!-- End Inspectlet JS Code -->
+
+
+<!-- begin olark code -->
+<script type="text/javascript">
+    function initOlark() {
+        setTimeout(loadOlark, 2000);
+    }
+    function loadOlark() {
+        console.log('loadOlark');
+        /*<![CDATA[*/window.olark||(function(o,l,a,r,k,y){if(o.olark)return;
+            r="script";y=l.createElement(r);r=l.getElementsByTagName(r)[0];
+            y.async=1;y.src="//"+a;r.parentNode.insertBefore(y,r);
+            y=o.olark=function(){k.s.push(arguments);k.t.push(+new Date)};
+            y.extend=function(i,j){y("extend",i,j)};
+            y.identify=function(i){y("identify",k.i=i)};
+            y.configure=function(i,j){y("configure",i,j);k.c[i]=j};
+            k=y._={s:[],t:[+new Date],c:{},l:a};
+        })(window,document,"static.olark.com/jsclient/loader.js");
+        /* custom configuration goes here (www.olark.com/documentation) */
+        olark.identify('5404-657-10-7469');
+                /*]]>*/    }
+/*
+    if (window.addEventListener) {
+        window.addEventListener("load", initOlark, false);
+    } else if (window.attachEvent) {
+        window.attachEvent("onload", initOlark);
+    } else {
+        window.onload = initOlark;
+    }
+*/
+
+    $(window).bind("load", function () {
+        initOlark();
+    });
+
+</script>
+<!-- end olark code -->
+
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"87a2541869","applicationID":"47292941","transactionName":"bgMGbBZUWxFRVRdcCVdJJVsQXFoMH0YRXBBYBR0=","queueTime":0,"applicationTime":28,"atts":"QkQFGl5OSB8=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>

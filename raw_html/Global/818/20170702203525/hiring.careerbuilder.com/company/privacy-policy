@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<script>
+  // Use an IIFE to keep our code from polluting the global scope
+  (function(window) {
+    addEvent(window, 'message', function(message) {
+      // The namespace of the Data Layer is window.dataLayer by default,
+      // but this CAN be changed; ensure that this is not customized
+      // in the context this code will execute in
+      var dataLayer = window.dataLayer = window.dataLayer || []; // Safely instantiate dataLayer locally
+      // The message.data value is arbitrary and can be customized
+      if (message.data === 'formSubmit') { // Check this is a whitelisted message
+        dataLayer.push({
+          // The key 'event' is required for GTM; the value is arbitrary and can be customized
+          'event': 'formSubmit' // Notify GTM via pushing this event
+        });
+        window.track.dynamicYieldEvent('Product_Demo_Completed'); // Notify Dynamic Yield
+      } else if (message.data === 'adrollSubmit') {
+        try{
+           __adroll.record_user({"adroll_segments": "0ce55ae5"})
+        } catch(err) {}
+      }
+    });
+    // Cross-browser event listener
+    function addEvent(el, evt, fn) {
+      if (el.addEventListener) {
+        return el.addEventListener(evt, fn);
+      }
+      if (el.attachEvent) {
+        return el.attachEvent('on' + evt, function(evt) {
+          // Call the event to ensure uniform 'this' handling, pass it event
+          fn.call(el, evt);
+        });
+      }
+      if (typeof el['on' + evt] === 'undefined' || el['on' + evt] === null) {
+        return el['on' + evt] = function(evt) {
+          // Call the event to ensure uniform 'this' handling, pass it event
+          fn.call(el, evt);
+        };
+      }
+    }
+  })(window);
+</script>
+
+<script>
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer', "GTM-PPCSWP");
+</script>
+
+<script>
+  // <![CDATA[
+  window.DY = window.DY || {};
+  DY.recommendationContext = {
+    type: 'OTHER',
+    data: ['']
+  };
+  // ]]
+</script>
+<script src='//cdn.dynamicyield.com/api/8767499/api_dynamic.js' type='text/javascript'></script>
+<script src='//cdn.dynamicyield.com/api/8767499/api_static.js' type='text/javascript'></script>
+<meta content='IE=edge' http-equiv='X-UA-Compatible'>
+<meta charset='utf-8'>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","errorBeacon":"bam.nr-data.net","licenseKey":"43fcf3cdaf","applicationID":"8277762","transactionName":"IgtXRRBcXVVdQhtUVxMPXEULXVYWSlVVXV8PAw==","queueTime":0,"applicationTime":32,"agent":""}</script>
+<script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o||n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({1:[function(e,n,t){function r(){}function o(e,n,t){return function(){return i(e,[c.now()].concat(u(arguments)),n?null:this,t),n?void 0:this}}var i=e("handle"),a=e(2),u=e(3),f=e("ee").get("tracer"),c=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,n){s[n]=o(d+n,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,o="function"==typeof n;return i(l+"tracer",[c.now(),e,t],r),function(){if(f.emit((o?"":"no-")+"fn-start",[c.now(),r,o],t),o)try{return n.apply(this,arguments)}finally{f.emit("fn-end",[c.now()],t)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=o(l+n)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,c.now()])}},{}],2:[function(e,n,t){function r(e,n){var t=[],r="",i=0;for(r in e)o.call(e,r)&&(t[i]=n(r,e[r]),i+=1);return t}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],3:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(o<0?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=r},{}],4:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function o(e){function n(e){return e&&e instanceof r?e:e?f(e,u,i):i()}function t(t,r,o,i){if(!d.aborted||i){e&&e(t,r,o);for(var a=n(o),u=m(t),f=u.length,c=0;c<f;c++)u[c].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function l(e,n){v[e]=m(e).concat(n)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(t)}function g(e,n){c(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var v={},y={},b={on:l,emit:t,get:w,listeners:m,context:n,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",f=e("gos"),c=e(2),s={},p={},d=n.exports=o();d.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(o.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){o.buffer([e],r),o.emit(e,n,t)}var o=e("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!x++){var e=h.info=NREUM.info,n=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();c(y,function(n,t){e[n]||(e[n]=t)}),f("mark",["onload",a()+h.offset],null,"api");var t=d.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function o(){"complete"===d.readyState&&i()}function i(){f("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),f=e("handle"),c=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1039.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=n.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),f("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script>
+<!-- Responsive/Mobile Content Controls -->
+<meta content='width=device-width, height=device-height, initial-scale=1.0, user-scalable=0' name='viewport'>
+<meta content='Find out how to make your recruiting easier, more effective and more cost effective with recruitment tools from CareerBuilder. Privacy Policy | CareerBuilder for Employers.' name='description'>
+<meta content='Privacy Policy | CareerBuilder for Employers' name='title'>
+<meta content='' name='keywords'>
+<!-- Social media meta tags -->
+<meta content='https://hiring.careerbuilder.com/company/privacy-policy' property='og:url'>
+<meta content='website' property='og:type'>
+<meta content='Privacy Policy | CareerBuilder for Employers' property='og:title'>
+<meta content='Find out how to make your recruiting easier, more effective and more cost effective with recruitment tools from CareerBuilder.' property='og:description'>
+<meta content='CareerBuilder for Employers' property='og:site_name'>
+<meta content='https://hiring-assets.careerbuilder.com/assets/logo--cb--color-stacked-0a628e36472706dbfb8b0af4693de3b9a81f90f06409f3333bb2e3f9ce679d2c.png' property='og:image'>
+<meta content='600' property='og:image:width'>
+<meta content='315' property='og:image:height'>
+<meta content='summary' name='twitter:card'>
+<meta content='@cbforemployers' name='twitter:site'>
+<meta content='https://hiring-assets.careerbuilder.com/assets/logo--cb--color-mark-00e905d435c9ef5825bb43f0997ea0b41ee8e97062c988779894ddbc259be578.png' name='twitter:image'>
+<meta content='CareerBuilder logomark' name='twitter:image:alt'>
+<meta content='4VVGz5NZohp3_6vBXlv5_Z2lQTMz6XdevQ_NVEV5Ke8' name='google-site-verification'>
+<title>Privacy Policy | CareerBuilder for Employers</title>
+<script type="application/ld+json">
+  {
+    "@type": "Company",
+    "name": "CareerBuilder Hiring Solutions",
+    "alternateName": "CareerBuilder for Employers",
+    "url": "https://www.hiring.careerbuilder.com",
+    "logo": "https://hiring-assets.careerbuilder.com/media/attachments/careerbuilder-original-2696.png?1476226773",
+    "contactPoint": [{
+      "@type": "ContactPoint",
+      "telephone": "1.877.345.5256",
+      "contactType": "sales",
+      "areaServed": "US"
+    },{
+      "@type": "ContactPoint",
+      "telephone": "1.800.891.8880",
+      "contactType": "customer service",
+      "areaServed": "US"
+    }],
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://hiring.careerbuilder.com/search?q=Privacy Policy",
+      "query-input": "required name=privacy_policy"
+    }
+    "sameAs" : [
+      "https://www.facebook.com/cbforemployers",
+      "https://www.twitter.com/cbforemployers",
+      "https://www.linkedin.com/company/careerbuilder-for-employers"
+    ]
+  }
+</script>
+
+<link href='https://hiring.careerbuilder.com/company/privacy-policy' rel='canonical'>
+<link rel="shortcut icon" type="image/x-icon" href="https://hiring-assets.careerbuilder.com/assets/icons/favicon-11a54e483811b662a28fdd298546c2c1b9c4048663fe08565d795c2a44d51a2d.ico" />
+<link rel="stylesheet" media="screen" href="https://hiring-assets.careerbuilder.com/assets/application-5347f2b3926269c40bcece1657d3567b4279c7156a7aa956016fb741d9bd460b.css" />
+<!--[if IE 9]>
+<link rel="stylesheet" media="screen" href="https://hiring-assets.careerbuilder.com/assets/ie9-a64cecb2bc0ecd9ed928d6a07783b7d51bea800d0162bbb0ac78299b8410ae6c.css" />
+<![endif]-->
+<!--[if lte IE 8]>
+<link rel="stylesheet" media="screen" href="https://hiring-assets.careerbuilder.com/assets/ie8-ca7c508db399fa3cbd20776c4265893e33dffde180d58d7c4ab5ca3737949ec7.css" />
+<![endif]-->
+</head>
+<body class='body--employer employer-scope marketing privacy-policy reading'>
+<noscript>
+<iframe height='0' src='https://www.googletagmanager.com/ns.html?id=GTM-PPCSWP' style='display:none;visibility:hidden' width='0'></iframe>
+</noscript>
+
+<!-- / TODO: do we still use this? -->
+<div class='modal__background hidden' id='modal-background'></div>
+<header class='top-bar' data-turbolinks-permanent='' id='top-bar'>
+<nav class='top-bar__account-nav'>
+<div class='container'>
+<div class='top-bar__account-nav__wrapper'>
+<!-- / mobile menu open button -->
+<div class='top-bar__mobile-icon top-bar__mobile-icon--menu' id='mobile-menu-btn'>
+<i class='fa fa-bars'></i>
+</div>
+<div class='top-bar__logo'>
+<a data-turbolinks="false" href="/"><img class="top-bar__logo--desktop" alt="CareerBuilder logo" height="20px" width="192px" src="https://hiring-assets.careerbuilder.com/assets/logo--cb--white-1867fff86fb5c741d9d40f89c05e854cad0c028c2e2f6563b4e5c107ecd5ffa0.svg" />
+<img class="top-bar__logo--mobile" alt="CareerBuilder logo" height="20px" width="192px" src="https://hiring-assets.careerbuilder.com/assets/logo--cb--color-dc79063caa9e5e9dec0779552cb5fd48b1cf3a09f9aa59fdc1e2b130cdce70fa.svg" />
+</a></div>
+<ul class='top-bar__account-info'>
+<li class='top-bar__signin top-bar__is-signed-out'>
+<a class="top-bar__top-level-link" href="http://employer.careerbuilder.com/jobposter/mycb.aspx"><span class='login-state--text'>
+Sign In
+</span>
+</a><div class='inline-popups__no-bg top-bar__coach-mark'>
+<a class='hidden animated-popup top-bar__coach-mark__link' data-effect='mfp-zoom-in' href='#coach-mark'></a>
+<div class='mfp-with-anim mfp-hide top-bar__coach-mark__popup' id='coach-mark'>
+<span class='coach-mark__text'>
+Already Purchased?
+</span>
+<br>
+<a class='button button--primary' href='http://employer.careerbuilder.com/jobposter/mycb.aspx'>
+Sign In to Your Account!
+</a>
+</div>
+</div>
+
+</li>
+
+<li class='top-bar__cart'>
+<a class="top-bar__top-level-link" href="https://employer.careerbuilder.com/ecommerce/global/shoppingcart.aspx"><span class='top-bar__cart-total' id='top-bar__cart-total'>$0.00</span>
+<i class='top-bar__mobile-icon top-bar__mobile-icon--shop fa fa-shopping-cart fa-lg'></i>
+</a></li>
+</ul>
+</div>
+</div>
+</nav>
+
+<nav class='top-bar__menu is-hidden--top-bar__menu' id='collapsable-menu'>
+<div class='top-bar--mobile-heading'>
+<div class='top-bar--mobile-greeting' id='top-bar--mobile-greeting'>
+<p class='text--headline-1'>Hello.</p>
+<p class='text--headline-2'>Sign in to find your next hire.</p>
+</div>
+<div class='top-bar--mobile-buttons'>
+<a class="login-state top-bar__button--signin button button--medium top-bar__link-reset" href="http://employer.careerbuilder.com/jobposter/mycb.aspx"><span class='login-state--text'>
+Sign In
+</span>
+</a><div id='login__wrapper'>
+<span class='top-bar--mobile-buttons__text'>or</span>
+<a class="top-bar__button--signup button button--medium top-bar__link-reset" href="http://employer.careerbuilder.com/share/register.aspx?usertype=UTEMPR&amp;sc_cmp1=JP_LoginASPX_RegNow&amp;_ga=1.129884556.164608459.1446484984">Sign Up
+</a></div>
+</div>
+<div class='top-bar__home text--subnav'>
+<ul>
+<li>
+<a data-turbolinks="false" href="/">Home</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='top-bar__site-nav'>
+<div class='container container--top-bar__site-nav'>
+<div class='top-bar__site-nav__wrapper'>
+<div class='top-bar--primary'>
+<ul>
+<li>
+<a class="top-bar__top-level-link top-bar--primary__top-level-link" href="/recruiting-solutions/job-postings">Post Jobs</a>
+</li>
+<li>
+<a class="top-bar__top-level-link top-bar--primary__top-level-link" href="/recruiting-solutions/resume-database">Search Resumes</a>
+</li>
+<li class='flyout top-bar--products'>
+<a class="top-bar__top-level-link top-bar--primary__top-level-link" href="#">Products and Resources
+</a><ul>
+<li>
+<a href="/recruiting-solutions/job-postings"><span class='top-bar__link'>
+Post Jobs
+</span>
+</a></li>
+<li>
+<a href="/recruiting-solutions/resume-database"><span class='top-bar__link'>
+Search Resumes
+</span>
+</a></li>
+<li>
+<a href="/all-products-sitemap"><span class='top-bar__link'>
+Browse Products
+</span>
+</a></li>
+<li>
+<a href="http://resources.careerbuilder.com/"><span class='top-bar__link'>
+Resource Center
+</span>
+</a></li>
+</ul>
+</li>
+<li class='flyout'>
+<a class="top-bar__top-level-link top-bar--primary__top-level-link" href="#">Browse Products
+</a><ul>
+<li>
+<a href="/talentstream/recruitment-software/aurico"><span class='top-bar__link'>
+Aurico WebACE&#8482;
+</span>
+<br>
+<span class='top-bar__subtitle'>
+Drug & Background Screening
+</span>
+</a></li>
+<li>
+<a href="/recruiting-solutions/resume-database"><span class='top-bar__link'>
+CareerBuilder Search
+</span>
+<br>
+<span class='top-bar__subtitle'>
+Advanced resume search
+</span>
+</a></li>
+<li>
+<a href="/recruiting-solutions/talent-network"><span class='top-bar__link'>
+Talentstream Engage
+</span>
+<br>
+<span class='top-bar__subtitle'>
+Career site and talent network
+</span>
+</a></li>
+<li>
+<a href="/recruiting-solutions/applicant-tracking"><span class='top-bar__link'>
+Talentstream Recruit
+</span>
+<br>
+<span class='top-bar__subtitle'>
+Applicant Tracking System
+</span>
+</a></li>
+<li>
+<a href="/human-capital-management"><span class='top-bar__link'>
+Workterra
+</span>
+<br>
+<span class='top-bar__subtitle'>
+Human Capital Management
+</span>
+</a></li>
+<li>
+<a href="/all-products-sitemap"><span class='top-bar__link'>
+View All Products
+</span>
+</a></li>
+</ul>
+
+</li>
+<li class='flyout'>
+<a class="top-bar__top-level-link top-bar--primary__top-level-link" href="#">About
+</a><ul>
+<li>
+<a href="/company/overview"><span class='top-bar__link'>
+About CareerBuilder
+</span>
+</a></li>
+<li>
+<a href="http://press.careerbuilder.com/"><span class='top-bar__link'>
+Press Room
+</span>
+</a></li>
+</ul>
+</li>
+<li>
+<a class="top-bar__top-level-link top-bar--primary__top-level-link" href="http://resources.careerbuilder.com">Resource Center</a>
+</li>
+</ul>
+</div>
+<div class='top-bar__site-nav--right'>
+<div class='top-bar__demo inline-popups'>
+<a class='top-bar__demo__button button button--secondary track-gtm-main-navCTA animated-popup' data-effect='mfp-zoom-in' href='#top-bar__demo'>
+Request Demo
+</a>
+<div class='popup__wrapper--iframe mfp-with-anim mfp-hide' id='top-bar__demo'>
+<iframe allowTransparency='true' frameborder='0' src='https://go.pardot.com/l/27812/2016-07-06/gwsk9' style='border: 0' type='text/html'></iframe>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class='top-bar--secondary text--subnav'>
+<ul class='top-bar--secondary__links'>
+<li class='top-bar__signin top-bar__is-signed-out'>
+<a href="http://employer.careerbuilder.com/jobposter/mycb.aspx"><span class='login-state--text'>
+Sign In
+</span>
+</a></li>
+<li class='top-bar__cart'>
+<a href="https://employer.careerbuilder.com/ecommerce/global/shoppingcart.aspx"><i class='fa fa-shopping-cart fa-lg'></i>
+<span id='top-bar__cart-total'>$0.00</span>
+Cart
+</a></li>
+<li class='top-bar__sales'>
+<a href="tel:+1-877-345-5256">Sales: 1.877.345.5256
+</a></li>
+</ul>
+</div>
+
+<div class='top-bar--spacer'></div>
+<div class='top-bar--job-seeker text--subnav'>
+<ul>
+<li>
+<span>
+Looking for Jobs?
+</span>
+<a href="http://www.careerbuilder.com">Find the Right Job. Right Now.</a>
+</li>
+</ul>
+</div>
+</nav>
+</header>
+
+
+<div class='main-content'>
+<div id='return-to-top'>
+<i class='fa fa-angle-up'></i>
+</div>
+<div class='top-bar__background hidden' id='top-bar__background'></div>
+<!-- reading-header -->
+
+<!-- header_medium -->
+<header class='header header--medium '>
+<div class='header__wrapper'>
+<div class='container'>
+<snippet id="reading--header"><p><span><!-- header-medium --> </span><span><!-- header__headline --> </span></p>
+
+<h1 class="header__headline text--headline text--white header--reading__headline"><span>CareerBuilder Privacy Policy</span></h1>
+
+<h3 class="header__headline text--headline text--white header--reading__headline"><span>&nbsp;Protect Your Privacy and Safety</span></h3>
+</snippet></div>
+</div>
+</header>
+
+<div class='container reading-wrapper'>
+<div class='reading-content-box'>
+<snippet id="reading--body"><p>Effective Date: February 3, 2017</p>
+
+<h2>Overview</h2>
+
+<p>CareerBuilder, LLC and its subsidiaries and divisions (collectively, &ldquo;CareerBuilder&rdquo;, &ldquo;We&rdquo; or &ldquo;Our&rdquo;) provides this Privacy Policy to explain our data and security practices and policies on CareerBuilder websites and software applications (collectively, the &ldquo;Sites&rdquo;). &nbsp; This Privacy Policy describes the types of Personal Information we collect, how we use the information, with whom we share it, and the choices you can make about our collection, use and disclosure of your Personal Information. &nbsp;The phrase &ldquo;Personal Information&rdquo; refers to information that personally identifies you, such as your name, address, telephone number, email address, credit card number or other billing information. &nbsp;We also describe the measures we take to protect the security of your Personal Information and how you can contact us about our privacy practices. &nbsp;This Privacy Policy incorporates by reference the <a href="http://www.careerbuilder.com/JobSeeker/Info/HHTerms.aspx" target="_blank">Terms and Conditions</a> for the Sites, which apply to this Privacy Policy. &nbsp;When you visit the Sites or provide us with information, you consent to our use and disclosure of the information we collect or receive as described in this Privacy Policy. &nbsp;</p>
+
+<p>Please review this Privacy Policy periodically as we may update it from time to time without prior notice to reflect changes in our data practices. &nbsp;We will post a prominent notice on our Sites to notify you of any significant changes to our Privacy Policy and indicate at the bottom of the notice when it was most recently updated. &nbsp;If we make material changes to the policy that will affect previously collected Personal Information, you will be notified and provided an opportunity to consent to the updated Privacy Policy. &nbsp;</p>
+
+<p>Click on one of the links below to jump directly to the listed section:</p>
+
+<p><a name="top"> </a></p>
+
+<ul>
+	<li><a href="#collect">Information We Collect</a></li>
+	<li><a href="#how">How We Use the Information We Collect</a></li>
+	<li><a href="#info-share">Information We Share</a></li>
+	<li><a href="#analytics">Analytics</a></li>
+	<li><a href="#privacy-options">Privacy Options for Resume Database</a></li>
+	<li><a href="#review">Review, Update or Delete Your Account Information or Profile&nbsp;</a></li>
+	<li><a href="#cookies">About Cookies, Tracking Choices and Third-Party Advertisers</a></li>
+	<li><a href="#links">Links to Other Websites</a></li>
+	<li><a href="#international">International Data Transfers</a></li>
+	<li><a href="#protect">How We Protect Personal Information</a></li>
+	<li><a href="#recruiters">Some Important Tips To Use When Dealing With Recruiters</a></li>
+	<li><a href="#california">California Residents</a></li>
+	<li><a href="#children">Children&rsquo;s Privacy</a></li>
+	<li><a href="#contact">How to Contact Us</a><br />
+	&nbsp;</li>
+</ul>
+
+<h2 id="collect">Information We Collect</h2>
+
+<p>The types of information we may obtain include:</p>
+
+<ul>
+	<li>Personal Information provided by you (such as via a resume uploaded to our Site or a job application sent using our Site) or collected from third party sources as described below. &nbsp;</li>
+	<li>Publically available data about you from third party sites and sources, including profiles created by you on other websites, or other information you have publicly shared for the purpose of advertising or informing others about your background. &nbsp;</li>
+	<li>Username and password for the account you may establish on our Sites.</li>
+	<li>Payment details (including payment card number, security code, expiration date, cardholder name and billing address) if you buy products on our Sites.</li>
+	<li>Your demographic information (such as zip or postal code, occupation, education and experience, and if you choose to provide it, age, gender and race or ethnicity). &nbsp;We collect this information either through the registration process, from your resume or in the manner described below. &nbsp;</li>
+	<li>Job search behavior and preferences, and a record of the searches that you make on our Sites. &nbsp; &nbsp;</li>
+	<li>Other details that you may submit to us or that may be included in the information provided to us by third parties.</li>
+	<li>Technical information about your use of our sites or apps, as described below.<br />
+	&nbsp;</li>
+</ul>
+
+<p>We may obtain information about you from various sources, including directly from you via our Sites, when you call or email us or communicate with us through social media, or when you participate in events, contests or other promotions. &nbsp;We also may obtain information about you from our parent, affiliate or subsidiary companies, business partners and other third parties, as well as from publicly available information.&nbsp;<br />
+<br />
+Many people invest significant time and energy to promote their professional reputation through public forums on the Internet. &nbsp;We gather information relevant to your career history and work experience from these widely dispersed publicly available sources, including social media sites you may be part of, forming a &ldquo;Profile.&rdquo; &nbsp;We make this Profile available to independent and company-specific recruiters for recruitment leads in a database known as &ldquo;Recruitment Edge.&rdquo; &nbsp;Although we may generate a Profile about you based on publicly available information even if you do not have a CareerBuilder account, we also will include the information that you provide to us via your CareerBuilder account. &nbsp;Use of these Profiles are limited to recruitment lead generation and may not be used for determinations about employment or other eligibility. &nbsp;You can learn more about our Recruitment Edge product at our <a href="http://edge.careerbuilder.com/faq" target="_blank">Edge FAQ Page</a>. &nbsp;If you would prefer that we not compile and make this information available to recruiters, you can <a href="http://edge.careerbuilder.com/optout" target="_blank">opt-out of this service here</a>.<br />
+&nbsp;<br />
+CareerBuilder provides software applications (&ldquo;Apps&rdquo;) available to the public. &nbsp;If you decide to download one of our Apps, and if you authorize us to do so, we will collect your social media profile information, including your social network site user ID, work email address, name, city, state, social network site profile image URL, and employment history, including job titles and company names. &nbsp;You may be asked to enter this information directly, or we can automatically collect it by syncing to your social media profiles. &nbsp;We request this information so that we may automate completion of registration forms or job applications with information stored in your social media profile. &nbsp;In addition, when you visit our Sites or use our Apps, we may collect certain information by automated means, such as cookies and web beacons or as provided to the app by your device&rsquo;s operating system, as described in more detail below. &nbsp;The information we may collect by automated means includes:</p>
+
+<ul>
+	<li>Information about the devices our visitors use to access the Internet (such as the IP address and the device, browser and operating system type and other operating system support information).</li>
+	<li>Pages and URLs that refer visitors to our Sites, also pages and URLs that visitors exit to once they leave our Sites.</li>
+	<li>Dates and times of visits to our Sites.</li>
+	<li>Information on actions taken on our Sites (such as page views, site navigation patterns and job view or application activity).</li>
+	<li>A general geographic location (such as country and city) from which a visitor accesses our Sites.</li>
+	<li>Search terms that visitors use to reach our Sites.<br />
+	&nbsp;</li>
+</ul>
+
+<p><a href="#top">Return to Top</a></p>
+
+<h2 id="how">How We Use the Information We Collect</h2>
+
+<p>We may use the information we obtain about you to:</p>
+
+<ul>
+	<li>Register, manage and maintain your account on the Sites.</li>
+	<li>Provide products or services you request.</li>
+	<li>Maintain your resume and/or Profile and make it available to recruiters through our products and services as described below in &ldquo;Information We Share.&rdquo;&nbsp;</li>
+	<li>Supplement your Profile with publicly available information.</li>
+	<li>Process, validate and deliver your purchases (including by processing payment card transactions and contacting you about your orders, including by telephone).</li>
+	<li>Maintain a record of the jobs you view or apply to on our Sites. &nbsp;</li>
+	<li>Inform you of relevant job postings that may be of interest to you based on your interests as expressed previously through your job search behavior and preferences. &nbsp;</li>
+	<li>Provide administrative notices or communications applicable to your use of the Sites.</li>
+	<li>Respond to your questions and comments and provide customer support.</li>
+	<li>Contact you and deliver information to you that, in some cases, is targeted to your interests (such as relevant services, educational or other career development opportunities); enable you to communicate with us through our blogs, social networks and other interactive media; and solicit your feedback and input. &nbsp;These communications will contain links for preference management and, where appropriate, unsubscribe links should you decide you do not want to receive further communications.</li>
+	<li>Manage your participation in our events and other promotions, where you have signed up for such events and promotions.</li>
+	<li>Operate, evaluate and improve our business and the products and services we offer.</li>
+	<li>Analyze and enhance our marketing communications and strategies (including by identifying when emails we have sent to you have been received and read).</li>
+	<li>Analyze trends and statistics regarding visitors&rsquo; use of our Sites, mobile applications and social media assets, and the jobs viewed or applied to on our Sites.&nbsp;</li>
+	<li>Analyze trends and statistics about the job market and career mobility in local economies and nationally, and provide these analytics to customers of certain CareerBuilder products and services.</li>
+	<li>Optimize our site search engine results and permit search engine access to public Profile information.</li>
+	<li>Protect against and prevent fraud, unauthorized transactions, claims and other liabilities, and manage risk exposure, including by identifying potential hackers and other unauthorized users.</li>
+	<li>Enforce our Sites&rsquo; Terms and Conditions.</li>
+	<li>Comply with applicable legal requirements, court orders, legal proceedings, document requests, and industry standards and our policies.</li>
+</ul>
+
+<p><br />
+We also use non-personally identifiable information and certain technical information about your computer and your access of the Sites (including your internet protocol address) in order to operate, maintain and manage the Sites. &nbsp;We collect this information by automated means, such as cookies and web beacons, as described in more detail below. &nbsp;<br />
+<br />
+If we seek to use the information we obtain about you in other ways, we will provide specific notice and request your consent at the time of collection.</p>
+
+<p><a href="#top">Return to Top</a></p>
+
+<h2 id="info-share">Information We Share</h2>
+
+<p>We share the information that we collect from you or from third party sources with recruiters, educators and service providers. &nbsp;<br />
+Recruiters may use your information to contact you directly. &nbsp;Additionally, when you apply for a job with a company through the Sites, the information supplied by you or shared through CareerBuilder products and services may become part of such company&rsquo;s database. &nbsp;Similarly, if your CareerBuilder resume or your Profile is downloaded by a recruiter, your information may become a part of their database. &nbsp;In these instances, the use of such information by the recruiter will be subject to the privacy policy of that company, and we are not responsible for that company&rsquo;s use of your information. &nbsp;<br />
+<br />
+&nbsp;Where you have provided Personal Information on a Site that is &ldquo;hosted&rdquo; or &ldquo;co-branded&rdquo; by another company then that information will be made available to both CareerBuilder and the hosting/co-branding company. &nbsp;CareerBuilder is not responsible for what the hosting/co-branding company, or any third party with whom you may share your Personal Information, subsequently does with your information. &nbsp;You should review the privacy policy of the hosting/co-branding company to ensure that you are comfortable with how it intends to use and disclose your information. &nbsp;<br />
+All users should be aware that when they choose to display or distribute Personal Information (such as their email address or other contact information on a public resume) via the Sites or any other distribution method, that information can be collected and used by others. This may result in unsolicited messages from third parties. &nbsp;<br />
+<br />
+We also may share Personal Information with our service providers who help us in the delivery of our own products and services to you. These service providers may only use or disclose the information as necessary to perform services on our behalf or as otherwise required by law.<br />
+CareerBuilder also may disclose specific user information when we determine, in good faith, that such disclosure is necessary to comply with the law, to cooperate with or seek assistance from law enforcement, to prevent a crime or protect national security, or to protect the interests or safety of CareerBuilder or other users of the Sites.&nbsp;<br />
+<br />
+In addition, Personal Information we have collected may be passed on to a third party in the event of a transfer of ownership or assets or a bankruptcy or other corporate reorganization of CareerBuilder. &nbsp;</p>
+
+<p><a href="#top">Return to Top</a></p>
+
+<h2 id="analytics">Analytics</h2>
+
+<p>We may combine certain non-personally identifiable Aggregate Data, or otherwise anonymized or de-identified data about our users and use such data to prepare reports for our users (typically recruiters or educators). &nbsp;&ldquo;Aggregate Data&rdquo; is the demographic information (such as zip code, age, gender, race or ethnicity) and employment information (such as occupation, education and experience) of many individuals that is combined together. &nbsp;Aggregate Data is used to analyze the characteristics of various populations and does not identify any specific individuals. &nbsp;We may also use and share anonymized or de-identified data to track trends in the labor market as well as use of our products and services. &nbsp;Some Aggregate Data analytics reports can be used to better understand individual Profiles. &nbsp;For example, our Recruitment Edge product provides aggregate data trends on the longevity of specific career positions to allow recruiters to identify Profiles of individuals who may be more likely to be interested in making a career move. &nbsp;<br />
+<br />
+We also use third party analytics services to help better understand the use of our sites, which is further described in the Cookies section below.</p>
+
+<p><a href="#top">Return to Top</a></p>
+
+<h2 id="privacy-options">Privacy Options for Resume Database</h2>
+
+<p>Posting your resume on the Sites puts you in front of thousands of recruiters with open positions each day. &nbsp;When you post your resume, we automatically create a registration for you using the email address and password that you supply. &nbsp;When you return to the Sites in the future you will use that same email address and password to access and edit your existing resume.<br />
+<br />
+We know that our job seekers have varying levels of comfort when it comes to publicly posting their resume on the Internet. &nbsp;To accommodate the needs of all users, CareerBuilder has 2 levels of resume privacy from which you can choose. &nbsp;Please note that these privacy settings only apply to whether or not your resume is publicly available to third parties. &nbsp;CareerBuilder will still collect, use or disclose Personal Information, as well as anonymous, aggregated information about you and your visits to our website in the manner described in this Privacy Policy.</p>
+
+<ol>
+	<li><strong>Standard Posting on the Searchable Database</strong><br />
+	This option gives you the most visibility to the broadest recruiter audience possible by making your resume searchable in our resume database. &nbsp;If you select this option, any registered company (or individual recruiter) user who purchases access to the database can view your resume and contact details (to the extent you include them in your resume). &nbsp;<br />
+	&nbsp;</li>
+	<li><strong>Non-Public Posting&nbsp;</strong><br />
+	Non-public posting prevents your resume from being searchable by recruiters in the CareerBuilder resume database. &nbsp;The benefit of uploading a non-public resume is that you can quickly and easily apply for specific jobs with the resume that you have on file without retyping your information. &nbsp;<br />
+	&nbsp;</li>
+</ol>
+
+<p>We attempt to limit access to our searchable databases to legitimate users, but cannot guarantee that other parties will not gain access to these searchable databases. &nbsp;While we limit access and use of information from our products and services in our Terms and Conditions,<strong> we cannot control the use of information by third parties once they obtain that information from our products and services or other publicly available sources. &nbsp;</strong>Accordingly, you should not put information you would not want made public in your resume or to a public website.<br />
+<br />
+<a href="#top">Return to Top</a></p>
+
+<h2 id="review">Review, Update or Delete Your Account Information or Profile&nbsp;</h2>
+
+<p>You may access, update and amend Personal Information included in your online CareerBuilder account or remove your resume from our resume database at any time by logging into your account and making the necessary changes. &nbsp;You may also delete your account, including your Personal Information and any resumes, from our resume database at any time by logging in to your account and making an account deletion request. &nbsp;Deleting your CareerBuilder account will remove your Personal Information and resumes from our resume database. &nbsp;However, it will not delete your Recruitment Edge Profile. &nbsp;You must specifically request the deletion of your Recruitment Edge Profile by<a href="http://edge.careerbuilder.com/optout" target="_blank"> opting out here</a>. &nbsp;&nbsp;<br />
+<br />
+You may also request a copy of your Recruitment Edge Profile to review, edit or update by contacting us at 1.800.891.8880 or emailing <a href="mailto:clientsupport@careerbuilder.com">clientsupport@careerbuilder.com</a>. &nbsp;Please note that when you request the deletion of your Profile, we will use the email address you provide in the opt-out process to match you to your Profile. &nbsp;Therefore, you will need to submit your request using the email address listed on your Profile or we will not be able to complete your request. &nbsp;<br />
+<br />
+Please be advised that, even in the event of a successful account or Profile deletion, recruiters and others who have paid for access to our databases, as well as parties who have otherwise gained access to our databases may have retained a copy of your resume or Profile information in their own files or databases. &nbsp;Additionally, if you have applied to a job at a particular company in the past, that company will still have access to your resume. &nbsp;We cannot control the retention, use or privacy of resumes or Profiles that have been downloaded by third parties, and, you will not be able to delete data held by third parties that already have accessed and downloaded your Profile information or resume. &nbsp;In addition, we will retain anonymous Aggregate Data for uses described in this privacy policy. &nbsp;<br />
+<br />
+Please allow up to thirty days to process your account or Profile deletion request.&nbsp;<br />
+<br />
+<a href="#top">Return to Top</a></p>
+
+<h2 id="cookies">About Cookies, Tracking Choices, and Third Party Advertisers</h2>
+
+<p>A &ldquo;cookie&rdquo; is a text file that websites send to a visitor&lsquo;s computer or other Internet-connected device to uniquely identify the visitor&rsquo;s browser or to store information or settings in the browser. &nbsp;A &ldquo;web beacon,&rdquo; is also called a Web bug or a pixel tag or a clear GIF. Used in combination with cookies, a Web beacon is an often-transparent graphic image, usually no larger than 1 pixel x 1 pixel, that is placed on a Web site or in an e-mail that is used to monitor the behavior of the user visiting the Web site or sending the e-mail.<br />
+<br />
+CareerBuilder uses cookies and other similar technologies for the convenience of our users. &nbsp;Cookies enable us to serve secure pages to our users without asking them to sign in repeatedly. &nbsp;CareerBuilder also uses cookies to store non-personally identifying information about you such as past jobs viewed and job searches conducted by your computer in a cookie that it places on your computer. &nbsp;We do this in order to present you with job recommendations based on your interests as expressed previously through your searches. &nbsp;Lastly, CareerBuilder uses cookies to ensure the proper functioning and efficiency of our Sites. &nbsp;Most Internet browsers enable you to erase cookies from your computer hard drive, block all cookies, or receive a warning before a cookie is stored. &nbsp;Please be aware, however, that some CareerBuilder features or services may not function properly without cookies.<br />
+<br />
+CareerBuilder permits third party cookies on its Sites. &nbsp;For example, third party tools located on the Sites, including those that allow for social media sharing, may use cookies to remember user preference settings. &nbsp;CareerBuilder also uses web analytics services provided by third parties, which use cookies to collect non-personal information about details of our users&rsquo; visits to the Sites (including IP addresses) and the resources they access on the Sites. &nbsp;These third party web analytics services provide us with reports based on this information in order to help us understand how visitors engage with the Sites. &nbsp; &nbsp;<br />
+<br />
+We use third-party advertising companies who may place or access cookies on your computer hard drive to distinguish your web browser uniquely and to keep track of information relating to serving ads on your web browser, such as the type of ads shown and the webs pages on which the ads appeared.<br />
+<br />
+These companies may use information about your visits to these Sites and to other sites in order to provide advertisements about goods and services of interest to you on our Sites or on other, third party, sites. &nbsp;We also may give third party advertisers the ability to tailor their advertisements on our Sites using demographic and preference information we provide to them in aggregate form. &nbsp;This information does not identify you individually. &nbsp;<br />
+These companies operate under their own privacy policies and CareerBuilder encourages you to be aware of the privacy policies of such companies.<br />
+<br />
+CareerBuilder does not have control over or access to any information contained in the cookies that are set on your computer by third party advertisers. &nbsp;<br />
+<br />
+Our Site does not respond to web browser &ldquo;do not track&rdquo; signals. &nbsp;However, to help prevent and limit the automatic collection of information by any participating third party advertisers, including the collection of personally identifiable information about an individual&rsquo;s online activities over time and across third-party Web sites or online services, you may opt-out of such collection by clicking the Ad Choices icon located within the ad, by accessing the <a href="http://www.aboutads.info/choices" target="_blank">&ldquo;about ads&rdquo; opt-out site</a>, or by accessing the<a href="http://www.networkadvertising.org/managing/opt_out.asp" target="_blank"> NAI opt-out site</a>. &nbsp;Please note that this opt-out is cookie-based. &nbsp;If you buy a new computer, change web browsers or delete this cookie, you will need to perform the opt-out task again. &nbsp;To obtain instructions regarding deleting or disabling cookies from third party advertising companies that are not members of the About Ads or NAI self-regulatory behavioral ad opt-out groups, <a href="http://www.careerbuilder.com/Jobseeker/Page.aspx?pagever=remove-cookies" target="_blank">please click here</a>.</p>
+
+<p>In addition, some of the recruiters that use our Sites may place cookies on your computer through their job postings and may use such cookies to distinguish your web browser uniquely. &nbsp;Often, recruiters use such information to track the effectiveness of their job postings by measuring how many users who view their postings later became job applicants. <a href="http://www.careerbuilder.com/Jobseeker/Page.aspx?pagever=remove-cookies" target="_blank">To obtain guidance regarding deleting or disabling cookies, please click here</a>.<br />
+<br />
+<a href="#top">Return to Top</a></p>
+
+<h2 id="links">Links to Other Websites</h2>
+
+<p>Our Sites may contain links to other sites for your convenience and information. &nbsp;These sites may be operated by companies not owned by CareerBuilder. &nbsp;These other sites or linked third-party sites may have their own privacy notices, which you should review if you visit those sites. &nbsp;We are not responsible for the content of any sites not owned by CareerBuilder, any use of those sites, or those sites&rsquo; privacy practices.<br />
+<br />
+<a href="#top">Return to Top</a></p>
+
+<h2 id="international">International Data Transfers</h2>
+
+<p>When we obtain Personal Information about you, we may process and store the information outside of the country in which you are located, including in the United States. &nbsp;The countries in which we process the information may not have the same data protection laws as the country in which you are located. Further, users who access your information also may be located in a different country than you and different laws may apply to their use of your information.<br />
+<br />
+<a href="#top">Return to Top</a></p>
+
+<h2 id="protect">How We Protect Personal Information</h2>
+
+<p><br />
+CareerBuilder maintains administrative, technical and physical safeguards designed to assist us in protecting the Personal Information we collect against accidental, unlawful or unauthorized destruction, loss, alteration, access, disclosure or use.<br />
+<br />
+Please note that no electronic transmission, storage or processing of information can be entirely secure. We cannot guarantee that the security measures we have in place to safeguard Personal Information will never be defeated or fail, or that those measures will always be sufficient or effective. Therefore, although we are committed to protecting your privacy, we do not promise, and you should not expect, that your Personal Information will always remain private or secure. As a user of the Sites, you understand and agree that you assume all responsibility and risk for your use of the Sites, the internet generally, and the documents you post or access and for your conduct on and off the Sites.<br />
+<br />
+To further protect yourself, you should safeguard your CareerBuilder account user name and password and not share that information with anyone. You should also sign off your account and close your browser window when you have finished your visit to our Sites. &nbsp;Please note that we will never ask for your CareerBuilder account user name or password via email.<br />
+<br />
+<a href="#top">Return to Top</a></p>
+
+<h2 id="recruiters">Some Important Tips To Use When Dealing With Recruiters&nbsp;</h2>
+
+<ul>
+	<li>You should use your own careful judgment about whether and what information to provide to recruiters.</li>
+	<li>DO NOT PUT SENSITIVE INFORMATION, SUCH AS YOUR SOCIAL SECURITY NUMBER, ON YOUR RESUME. &nbsp;</li>
+	<li>If restricted or prohibited by the local laws in the jurisdiction where you reside, do not provide CareerBuilder, or otherwise include in your resumes or Profiles other sensitive information that reveals racial or ethnic origin, political opinions, religious or philosophical beliefs, trade-union membership, health or sex life, genetic or biometric data, the commission of criminal offences or proceedings or unlawful or objectionable conduct and associated penalties or fines.</li>
+	<li>CareerBuilder&rsquo;s Sites are open to the public, and we cannot guarantee that all users of our services have a legitimate need to the information they seek. &nbsp;</li>
+	<li>Do not provide your social security number, national identification number or any state, provincial or other local identification number to any third party via online application. &nbsp;Identity thieves may attempt to trick you into providing sensitive information. &nbsp;Do not provide any non-work related personal information (i.e., your social security number or any other state or national identification number, eye color, marital status, etc.) over the phone or online.</li>
+	<li>Job seekers should never provide credit card or bank numbers or engage in a monetary transaction of any sort.&nbsp;</li>
+	<li>Be cautious when dealing with contacts outside of your own country.&nbsp;</li>
+</ul>
+
+<p><br />
+For additional details regarding How to Spot Fraud Online,<a href="http://www.careerbuilder.com/fraud" target="_blank"> please click here</a>.</p>
+
+<p>We use secure socket layer (or &ldquo;SSL&rdquo;) technology to protect credit card transactions. &nbsp;The SSL technology encrypts credit card numbers while in transit so that they are not intercepted by unintended third parties. &nbsp;We use BluePay Processing LLC to process credit card purchases and their privacy policy may be viewed here. &nbsp;<br />
+<br />
+<a href="#top">Return to Top</a></p>
+
+<h2 id="california">California, USA Residents</h2>
+
+<p>California law permits its residents to request and receive information about a business&rsquo; disclosure of certain categories of Personal Information to other companies for their use in direct marketing. &nbsp;If you are a California resident and a user of any of the Sites, you can request a copy of this information from CareerBuilder by sending an email to <a href="mailto:customer.service@careerbuilder.com">customer.service@careerbuilder.com</a> or a letter to CareerBuilder at 5550-A Peachtree Parkway, Norcross, Georgia 30092, Attention: Customer Service. Please include your name and email address in email requests, and your name and postal address in mail requests.<br />
+<br />
+<a href="#top">Return to Top</a></p>
+
+<h2 id="children">Children&rsquo;s Privacy</h2>
+
+<p>We do not knowingly collect or solicit information from anyone under the age of 13. &nbsp;If you are under 13, please do not use the Sites. &nbsp;In the event that we learn that we have collected personal information from a child under the age of 13, we will delete that information as quickly as possible.<br />
+<br />
+<a href="#top">Return to Top</a></p>
+
+<h2 id="contact">How to Contact Us</h2>
+
+<p>You can direct questions regarding this Privacy Policy to CareerBuilder by emailing us at <a href="mailto:customer.service@careerbuilder.com">customer.service@careerbuilder.com</a> or by letter to CareerBuilder at 5550-A Peachtree Parkway, Norcross, Georgia 30092, Attention: Customer Service. &nbsp;Please include your name and email address in email requests, and your name and postal address in mail requests.<br />
+<br />
+<a href="#top">Return to Top</a></p>
+
+<p>&nbsp;</p>
+</snippet></div>
+</div>
+
+<!-- global footer -->
+<footer class='footer'>
+<div class='footer__row footer__row--email-subscribe'>
+<section class='email-subscribe container'>
+<p class='email-subscribe-message--success hidden' id='email-subscribe_success'>Thank you for subscribing to our newsletter. More great content headed your way!</p>
+<p class='email-subscribe-message--error hidden' id='email-subscribe_error'>Sorry, there was a problem with your email address. Please try again.</p>
+<form action='https://go.pardot.com/l/27812/2016-02-02/6r9pz' id='email-subscribe_form' method='post'>
+<h2 class='form-header'>
+Sign Up for the Latest Recruitment News, Tips and Advice
+</h2>
+<div class='fieldset--large'>
+<label class='sr-only required' for='27812_3235pi_27812_3235'>Email</label>
+<input class='fieldset--large__input' id='27812_3235pi_27812_3235' name='27812_3235pi_27812_3235' placeholder='Your Email Address' required type='email'>
+<!-- Pardot honeypot field -->
+<div style='position:absolute; left:-9999px; top: -9999px;'>
+<label for='pardot_extra_field'>Comments</label>
+<input id='pardot_extra_field' name='pardot_extra_field' tabindex='-1' type='text'>
+</div>
+<!-- forces IE5-8 to correctly submit UTF8 content -->
+<input name='_utf8' type='hidden' value='☃'>
+<button accesskey='s' class='button button--secondary button--medium fieldset--large__button' type='submit'>Subscribe</button>
+</div>
+</form>
+</section>
+
+</div>
+<div class='footer__row footer__row--content container'>
+<nav class='footer__text--links'>
+<ul id='main_footer_links'>
+<li>
+<a href="/company/contact-us">Contact Us</a>
+</li>
+<li>
+<a id="about_us" href="#">About Us</a>
+</li>
+<li>
+<a href="/company/terms-and-conditions">Terms &amp; Conditions</a>
+</li>
+<li>
+<a href="/company/security-and-privacy">Security &amp; Privacy</a>
+</li>
+<li>
+<a href="/recruitment-advertising/display-advertising">Advertise With Us</a>
+</li>
+<li>
+<a href="/company/partners-and-affiliates">Partners &amp; Affiliates</a>
+</li>
+</ul>
+<ul id='about_us_footer_links'>
+<li>
+<a href='#' id='about_us_back'>&lt; Back</a>
+</li>
+<li>
+About Us:
+</li>
+<li>
+<a class='footer__sub--links' href='/company/overview'>Overview</a>
+</li>
+<li>
+<a class='footer__sub--links' href='https://www.careerbuildercareers.com/' rel='noopener' target='_blank'>Careers</a>
+</li>
+<li>
+<a class='footer__sub--links' href='/company/history'>History</a>
+</li>
+<li>
+<a class='footer__sub--links' href='/company/leadership'>Leadership</a>
+</li>
+<li>
+<a class='footer__sub--links' href='/company/locations'>Locations</a>
+</li>
+<li>
+<a class='footer__sub--links' href='/company/arc'>Research Collaboration</a>
+</li>
+<li>
+<a class='footer__sub--links' href='http://www.rightskill.com' rel='noopener' target='_blank'>RightSkill</a>
+</li>
+</ul>
+
+</nav>
+<div class='footer__share-links'>
+<ul>
+<li>
+<a href='https://www.facebook.com/CBforEmployers'>
+<i class='fa fa-facebook fa-2x'></i>
+</a>
+</li>
+<li>
+<a href='https://www.linkedin.com/company/careerbuilder-for-employers'>
+<i class='fa fa-linkedin fa-2x'></i>
+</a>
+</li>
+<li>
+<a href='https://twitter.com/cbforemployers'>
+<i class='fa fa-twitter fa-2x'></i>
+</a>
+</li>
+</ul>
+</div>
+<div class='footer__branding'>
+<img alt="CareerBuilder logo" class="footer__logo" src="https://hiring-assets.careerbuilder.com/assets/logo--cb--white-1867fff86fb5c741d9d40f89c05e854cad0c028c2e2f6563b4e5c107ecd5ffa0.svg" />
+<p class='footer__copyright'>
+©2017
+CareerBuilder, LLC. All rights reserved.
+<br>
+200 N. LaSalle Street, Chicago, IL
+</p>
+</div>
+</div>
+</footer>
+
+</div>
+<a class='modal-open--first-time-user' href='' style='display: none;'>Clicky!</a>
+<script src="https://hiring-assets.careerbuilder.com/assets/ie8-a3bf45560c9608923cde3bd51fcbdd5957eb09b7fe8494d529ca857335c3a879.js"></script>
+<script>
+//<![CDATA[
+window.gon={};gon.env="production";gon.first_time_popup=false;gon.careerbuilder={"environment_url_prefix":"","auth":{"client_id":"C14816ab4","authenticated":null,"initial_login":null,"user_email":null}};
+//]]>
+</script>
+<script src="//fast.wistia.com/embed/medias/mqvbqj7pw3.jsonp" async></script><script src="//fast.wistia.com/assets/external/E-v1.js" async></script>
+
+<script>
+  // Adroll
+  adroll_adv_id = '3IYDMPEVIZGNXGLH6FT3NR';
+  adroll_pix_id = '62IT67FDYZFHBBD54CPXHU';
+  /* OPTIONAL: provide email to improve user identification */
+  /* adroll_email = "username@example.com"; */
+  var _onload = function(){
+    if (document.readyState && !/loaded|complete/.test(document.readyState)){setTimeout(_onload, 10);return}
+    if (!window.__adroll_loaded){__adroll_loaded=true;setTimeout(_onload, 50);return}
+    var scr = document.createElement("script");
+    var host = (("https:" == document.location.protocol) ? "https://s.adroll.com" : "http://a.adroll.com");
+    scr.setAttribute('async', 'true');
+    scr.type = "text/javascript";
+    scr.src = host + "/j/roundtrip.js";
+    ((document.getElementsByTagName('head') || [null])[0] ||
+    document.getElementsByTagName('script')[0].parentNode).appendChild(scr);
+  };
+  if (window.addEventListener) {window.addEventListener('load', _onload, false);}
+  else {window.attachEvent('onload', _onload)}
+</script>
+
+
+
+<script>
+  if(typeof fbq === 'undefined') {
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  
+    fbq('init', '575283812576156');
+    fbq('track', 'PageView');
+  }
+  else {
+    fbq('track', '{{fBPixelType}}');
+  }
+</script>
+<noscript>
+<img height='1' src='https://www.facebook.com/tr?id=575283812576156&amp;ev=PageView&amp;noscript=1' style='display:none' width='1'>
+</noscript>
+
+<script>
+  var _vis_opt_lib = 'https://d5phz18u4wuww.cloudfront.net/va_iframe_support.js';
+  var _vwo_code = (function() {
+    var account_id = "70739",
+      settings_tolerance = 2000,
+      library_tolerance = 2500,
+      use_existing_jquery = false,
+      // DO NOT EDIT BELOW THIS LINE
+      f = false,
+      d = document;
+    return {
+      use_existing_jquery: function() {
+        return use_existing_jquery;
+      },
+      library_tolerance: function() {
+        return library_tolerance;
+      },
+      finish: function() {
+        if (!f) {
+          f = true;
+          var a = d.getElementById('_vis_opt_path_hides');
+          if (a) a.parentNode.removeChild(a);
+        }
+      },
+      finished: function() {
+        return f;
+      },
+      load: function(a) {
+        var b = d.createElement('script');
+        b.src = a;
+        b.type = 'text/javascript';
+        b.innerText;
+        b.onerror = function() {
+          _vwo_code.finish();
+        };
+        d.getElementsByTagName('head')[0].appendChild(b);
+      },
+      init: function() {
+        settings_timer = setTimeout('_vwo_code.finish()', settings_tolerance);
+        this.load('//dev.visualwebsiteoptimizer.com/j.php?a=' + account_id + '&u=' + encodeURIComponent(d.URL) + '&r=' + Math.random());
+        var a = d.createElement('style'),
+          b = 'body{opacity:0 !important;filter:alpha(opacity=0) !important;background:none !important;}',
+          h = d.getElementsByTagName('head')[0];
+        a.setAttribute('id', '_vis_opt_path_hides');
+        a.setAttribute('type', 'text/css');
+        if (a.styleSheet) a.styleSheet.cssText = b;
+        else a.appendChild(d.createTextNode(b));
+        h.appendChild(a);
+        return settings_timer;
+      }
+    };
+  }());
+  _vwo_settings_timer = _vwo_code.init();
+</script>
+
+<script>
+  piAId = '28812';
+  piCId = '1949';
+  
+  (function() {
+    function async_load(){
+      var s = document.createElement('script'); s.type = 'text/javascript';
+      s.src = ('https:' == document.location.protocol ? 'https://pi' : 'http://cdn') + '.pardot.com/pd.js';
+      var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
+    }
+    if(window.attachEvent) { window.attachEvent('onload', async_load); }
+    else { window.addEventListener('load', async_load, false); }
+  })();
+</script>
+
+<script src='https://c.la3-c2-chi.salesforceliveagent.com/content/g/js/35.0/deployment.js' type='text/javascript'></script>
+<script>
+  liveagent.init('https://d.la3-c2-chi.salesforceliveagent.com/chat', '57230000000CaTr', '00D30000001GGg7');
+  if (!window._laq) { window._laq = []; }
+    window._laq.push(function(){liveagent.showWhenOnline('57330000000KylM', document.getElementById('liveagent_button_online_57330000000KylM'));
+    liveagent.showWhenOffline('57330000000KylM', document.getElementById('liveagent_button_offline_57330000000KylM'));
+  });
+</script>
+<script src="https://hiring-assets.careerbuilder.com/assets/application-15b1cef2e9457bd35b3d9e2f552169a9086625868c980780ed975f1acd525678.js" data-turbolinks-eval="false"></script>
+</body>
+</html>

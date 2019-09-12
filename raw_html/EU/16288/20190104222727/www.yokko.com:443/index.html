@@ -1,0 +1,181 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o||n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({1:[function(e,n,t){function r(){}function o(e,n,t){return function(){return i(e,[c.now()].concat(u(arguments)),n?null:this,t),n?void 0:this}}var i=e("handle"),a=e(3),u=e(4),f=e("ee").get("tracer"),c=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,n){s[n]=o(d+n,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,o="function"==typeof n;return i(l+"tracer",[c.now(),e,t],r),function(){if(f.emit((o?"":"no-")+"fn-start",[c.now(),r,o],t),o)try{return n.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],t),e}finally{f.emit("fn-end",[c.now()],t)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=o(l+n)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,c.now()])}},{}],2:[function(e,n,t){function r(e,n){if(!o)return!1;if(e!==o)return!1;if(!n)return!0;if(!i)return!1;for(var t=i.split("."),r=n.split("."),a=0;a<r.length;a++)if(r[a]!==t[a])return!1;return!0}var o=null,i=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var u=navigator.userAgent,f=u.match(a);f&&u.indexOf("Chrome")===-1&&u.indexOf("Chromium")===-1&&(o="Safari",i=f[1])}n.exports={agent:o,version:i,match:r}},{}],3:[function(e,n,t){function r(e,n){var t=[],r="",i=0;for(r in e)o.call(e,r)&&(t[i]=n(r,e[r]),i+=1);return t}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],4:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(o<0?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=r},{}],5:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function o(e){function n(e){return e&&e instanceof r?e:e?f(e,u,i):i()}function t(t,r,o,i){if(!d.aborted||i){e&&e(t,r,o);for(var a=n(o),u=v(t),f=u.length,c=0;c<f;c++)u[c].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function l(e,n){h[e]=v(e).concat(n)}function m(e,n){var t=h[e];if(t)for(var r=0;r<t.length;r++)t[r]===n&&t.splice(r,1)}function v(e){return h[e]||[]}function g(e){return p[e]=p[e]||o(t)}function w(e,n){c(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var h={},y={},b={on:l,addEventListener:l,removeEventListener:m,emit:t,get:g,listeners:v,context:n,buffer:w,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",f=e("gos"),c=e(3),s={},p={},d=n.exports=o();d.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(o.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){o.buffer([e],r),o.emit(e,n,t)}var o=e("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!E++){var e=x.info=NREUM.info,n=l.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();c(y,function(n,t){e[n]||(e[n]=t)}),f("mark",["onload",a()+x.offset],null,"api");var t=l.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function o(){"complete"===l.readyState&&i()}function i(){f("mark",["domContent",a()+x.offset],null,"api")}function a(){return O.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-x.offset}var u=(new Date).getTime(),f=e("handle"),c=e(3),s=e("ee"),p=e(2),d=window,l=d.document,m="addEventListener",v="attachEvent",g=d.XMLHttpRequest,w=g&&g.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:g,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var h=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1099.min.js"},b=g&&w&&w[m]&&!/CriOS/.test(navigator.userAgent),x=n.exports={offset:u,now:a,origin:h,features:{},xhrWrappable:b,userAgent:p};e(1),l[m]?(l[m]("DOMContentLoaded",i,!1),d[m]("load",r,!1)):(l[v]("onreadystatechange",o),d[v]("onload",r)),f("mark",["firstbyte",u],null,"api");var E=0,O=e(5)},{}]},{},["loader"]);</script>
+
+<meta name='apple-mobile-web-app-status-bar-style' content='black' />
+<meta name='apple-mobile-web-app-capable' content='yes' />
+<meta name='format-detection' content='telephone=no' />
+<meta name='viewport' content='width=1200, user-scalable=yes' />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="YOKKO" />
+<meta property="og:title" content="Style & fashion you will love | YOKKO" />
+<meta property="og:url" content="https://www.yokko.com/" /> 
+
+	<meta property="og:description" content="YOKKO is a women fashion brand, that combines evening outfits with office and casual styles, for a modern and chique look." />
+
+<link rel="apple-touch-icon" href="https://www.yokko.com/apple-icon.jpg" />
+
+
+   <link rel="canonical" href="https://www.yokko.com/"/>
+
+<link rel="alternate" media="only screen and (max-width: 640px)" href="https://m.yokko.com/" />
+
+			<link href="https://www.yokko.ro/" hreflang="ro" rel="alternate" />
+		<link href="https://www.yokko.com/" hreflang="en" rel="alternate" />
+	
+<meta name="revisit-after" content="3 days" />
+		    <meta name="robots" content=", " />
+	
+<title>Style & fashion you will love | YOKKO</title>
+<meta name="keywords" content="YOKKO ONLINE STORE" />
+	<meta name="description" content="YOKKO is a women fashion brand, that combines evening outfits with office and casual styles, for a modern and chique look." />
+
+<meta name="language" content="english" />
+
+<link href="/pages/tpl/front/minifycss/styles.min.css?v=20180724v5" rel="stylesheet" type="text/css" />
+
+
+<script type="text/javascript" src="/pages/js/front/0_minify_js.min.js?v=20180724v5"></script>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<link rel="shortcut icon" href="/pages/tpl/front/images/y.jpg" type="image/x-icon" />
+
+
+
+
+</head>
+
+<body>
+
+	
+
+
+
+<!--[if lte IE 7]><div class="HBrowserInfoCnt"><div class="HBrowserInfo"><div>For the best experience in our online shop, please update your browser.</div><div><div class="BrowserCnt"><a href="http://support.apple.com/kb/DL1531" target="_blank"><img src="https://www.yokko.com/pages/tpl/front/images/browser-safari-64.png" width="32" height="32" /></a><a href="http://support.apple.com/kb/DL1531" target="_blank" class="browlk">Safari</a><div class="clear"></div></div><div class="BrowserCnt"><a href="https://www.google.com/intl/en/chrome/browser/" target="_blank"><img src="https://www.yokko.com/pages/tpl/front/images/browser-chome-64.png" width="32" height="3" /></a><a href="https://www.google.com/intl/en/chrome/browser/" target="_blank" class="browlk">Google Chrome</a><div class="clear"></div></div><div class="BrowserCnt"><a href="http://windows.microsoft.com/en-US/internet-explorer/download-ie" target="_blank"><img src="https://www.yokko.com/pages/tpl/front/images/browser-internet-explorer-64.png" width="32" height="32" /></a><a href="http://windows.microsoft.com/en-US/internet-explorer/download-ie" target="_blank" class="browlk">Internet Explorer</a><div class="clear"></div></div><div class="BrowserCnt"><a href="http://www.mozilla.org/en-US/firefox/new/" target="_blank"><img src="https://www.yokko.com/pages/tpl/front/images/browser-firefox-64.png" width="32" height="32" /></a><a href="http://www.mozilla.org/en-US/firefox/new/" target="_blank" class="browlk">Mozilla Firefox</a><div class="clear"></div></div><div class="BrowserCnt"><a href="http://www.opera.com/" target="_blank"><img src="https://www.yokko.com/pages/tpl/front/images/browser-opera-64.png" width="32" height="32" /></a><a href="http://www.opera.com/" target="_blank" class="browlk">Opera</a><div class="clear"></div></div></div></div></div><![endif]--><div></div><div></div><div id="header-buttons"><div><div style="line-height:36px;padding: 0px 12px;float:left" class="">Shipping to</div><a href="#location-box" class="LocationBtn " id="ship-country"><img src="/pages/tpl/front/images/flags/ico-uk.jpg" width="20" height="14" id="icolang" alt="language" />UNITED KINGDOM</a><a class="HLink-message left" style="text-transform:uppercase" title="" href="/guide/delivery-options/">FREE DELIVERY OVER 150 &pound;</a><a href="https://www.yokko.com/cart/" class="HLink right" title="Shopping cart">BAG</a><a href="https://www.yokko.com/my-account/whishlist/" class="HLink right" title="See your favorit products list">WISHLIST</a><a href="https://www.yokko.com/new-account/" class="HLink right" title="Sign up for a new account | Login into your account">SIGN IN</a><div class="clear"></div></div></div><div id="header"><!--[if lte IE 7]><div class="HBrowserSpacer"></div><![endif]--><a title="YOKKO - Fashion for career women - Luxury clothing and outfits made in Bucharest." href="/" id="logo" class="sprite"></a><div id="hinfo"><div></div><div id="cartinfo"><a href="https://www.yokko.com/cart/" title="Shopping cart"></a><br /><a href="https://www.yokko.com/cart/" title="Shopping cart"></a></div></div></div><div id="menu" class="clear"><div><ul class="sf-menu"><li><a href="https://www.yokko.com/collection/" class="menu-text blue " style="width:240px;">COLLECTION</a><ul class="drop-menu sf-menu " style="width:239px;"><li class="header_menu"><a href="https://www.yokko.com/collection/fall-winter-2018-2019/">Winter 2018-2019</a></li><li class="arrowmenu"><a href="/dresses/">Dresses</a><ul><li><a href="/casual-day-dresses/">Day dresses</a></li><li><a href="/office-dresses/">Office dresses</a></li><li><a href="/special-occasion-dresses/">Special occasion dresses</a></li><li><a href="/velvet-dresses/">Velvet dresses</a></li><li><a href="/evening-dresses/">Evening dresses</a></li></ul></li><li ><a href="/jumpsuits/">Jumpsuits</a></li><li class="arrowmenu"><a href="/jackets/">Jackets</a><ul><li><a href="/office-jackets/">Office jackets</a></li><li><a href="/special-occasion-jackets/">Special occasion jackets</a></li></ul></li><li ><a href="/coats/">Coats</a></li><li class="arrowmenu"><a href="/skirts/">Skirts</a><ul><li><a href="/office-skirts/">Office skirts</a></li><li><a href="/casual-skirts/">Casual skirts</a></li><li><a href="/specia-occasion-skirts/">Special occasion skirts</a></li></ul></li><li class="arrowmenu"><a href="/trousers/">Trousers</a><ul><li><a href="/office-trousers/">Office trousers</a></li><li><a href="/casual-trousers/">Casual trousers</a></li></ul></li><li ><a href="/blouses/">Blouses</a></li><li ><a href="/accessories/">Accessories</a></li><li class="header_menu"><a href="https://www.yokko.com/collection/outlet/">Sales</a></li><li class="header_menu"><a href="https://www.yokko.com/collection/shops/">Shops</a></li><li ><a href="/time-to-shine/">Time to shine</a></li><li ><a href="/golden-collection/">Golden collection</a></li><li class="arrowmenu"><a href="/navy-style/">Navy style</a><ul><li><a href="/navy-style/pag-1/dresses/0/0/0/">Dresses</a></li><li><a href="/navy-style/pag-1/jackets/0/0/0/">Jackets</a></li><li><a href="/navy-style/pag-1/trousers/0/0/0/">Trousers</a></li><li><a href="/navy-style/pag-1/skirts/0/0/0/">Skirts</a></li><li><a href="/navy-style/pag-1/blouses/0/0/0/">Blouses</a></li></ul></li><li ><a href="/lace-collection/">Lace collection</a></li><li class="arrowmenu"><a href="/gift-ideas/">Gift ideas</a><ul><li><a href="/gift-ideas/pag-1/gift-cards/0/0/0/">Gift cards</a></li><li><a href="/gift-ideas/pag-1/dresses/0/0/0/">Dresses</a></li><li><a href="/gift-ideas/pag-1/blouses/0/0/0/">Blouses</a></li><li><a href="/gift-ideas/pag-1/t-shirts/0/0/0/">T-shirts</a></li><li><a href="/gift-ideas/pag-1/scarves/0/0/0/">Scarves</a></li></ul></li><li ><a href="/womens-outfits/">Outfits</a></li><li ><a href="/velvet-collection/">Velvet collection</a></li><li class="arrowmenu"><a href="/navy-blue-collection/">Navy blue collection</a><ul><li><a href="/navy-blue-collection/pag-1/dresses/0/0/0/">Dresses</a></li><li><a href="/navy-blue-collection/pag-1/jackets/0/0/0/">Jackets</a></li><li><a href="/navy-blue-collection/pag-1/skirts/0/0/0/">Skirts</a></li><li><a href="/navy-blue-collection/pag-1/trousers/0/0/0/">Trousers</a></li><li><a href="/navy-blue-collection/pag-1/blouses/0/0/0/">Blouses</a></li><li><a href="/navy-blue-collection/pag-1/accessories/0/0/0/">ACCESSORIES</a></li></ul></li></ul></li><li><a href="/just-in/" class="menu-text" style="width:150px;">NEW IN</a></li><!--<li><a href="https://www.yokko.com/guide" class="menu-text" style="width:126px; ">GUIDE</a></li>--><!--<li><a href="/time-to-shine/pag-all" class="menu-text" style="width:150px;line-height: 20px; padding-top: 4px; height:46px; font-size: 17px; background-color: rgba(180, 139, 85, 1);">TIME TO<br/>SHINE</a></li>--><li><span style="width:150px">&nbsp;</span></li><li><a href="https://www.yokko.com/contact/" class="menu-text" style="width:168px">HELP</a></li><li><div style="width:248px"><div class="form-field" style="width:240px;float:right"><div id="src_err" class="hidden"></div><div id="src_ok" class="hidden"></div><form id="frm_search" name="frm_search" method="post" action="#"><input type="text" class="header-search left" id="src_keywords" value="Product name or code" style="width:185px;margin-top:9px;margin-left:-5px" onfocus="if(this.value=='Product name or code') this.value=''" onblur="if(this.value=='') this.value='Product name or code'" /><input type="button" id="src_submit" class="search-dark left" style="margin-top:13px;margin-left:5px;cursor: pointer;text-indent:-9999px;" value="s" /></form></div></div></li><!--<li><a href="https://www.yokko.com/my-account/#returning_customer" class="menu-text" style="width:150px;">MY ACCOUNT</a></li><li><a href="https://www.yokko.com/cart" class="menu-text checkout" style="width:135px;">&nbsp;</a></li>--></ul></div><div class="clear"></div></div><div id="content">
+	<div class="slider-wrapper theme-default" id="slidercnt">
+        <div id="slider" class="nivoSlider" style="background: url('https://www.yokko.com/uploads/home-banners/50--yokko-sales-00352-en-.jpg') no-repeat 0 0;">
+        	            	                	<a href="/sales-womens-jackets/"><img data-src="https://www.yokko.com/uploads/home-banners/50--yokko-sales-00352-en-.jpg" src="https://www.yokko.com/uploads/home-banners/50--yokko-sales-00352-en--420x315.jpg" data-thumb="https://www.yokko.com/uploads/home-banners/50--yokko-sales-00352-en--420x315.jpg" alt="50% YOKKO sales" title="50% YOKKO sales" width="1200" height="900" /></a>
+                                        	                	<a href="/product/rochie-cu-maneci-lungi-imprimata-cu-motive-florale-rk1-3tq/"><img data-src="https://www.yokko.com/uploads/home-banners/it-s-the-season-to-wear-red-00351-en-.jpg" src="https://www.yokko.com/uploads/home-banners/it-s-the-season-to-wear-red-00351-en--420x315.jpg" data-thumb="https://www.yokko.com/uploads/home-banners/it-s-the-season-to-wear-red-00351-en--420x315.jpg" alt="It's the season to wear red" title="It's the season to wear red" width="1200" height="900" /></a>
+                                        	                	<a href="/time-to-shine/pag-all/"><img data-src="https://www.yokko.com/uploads/home-banners/winter-parties-00349-en-.jpg" src="https://www.yokko.com/uploads/home-banners/winter-parties-00349-en--420x315.jpg" data-thumb="https://www.yokko.com/uploads/home-banners/winter-parties-00349-en--420x315.jpg" alt="Winter Parties" title="Winter Parties" width="1200" height="900" /></a>
+                                        	                	<a href="/product/bolero-din-catifea-elastica-brodata-cu-fir-auriu-srb-wp9/"><img data-src="https://www.yokko.com/uploads/home-banners/time-to-shine-00350-en-.jpg" src="https://www.yokko.com/uploads/home-banners/time-to-shine-00350-en--420x315.jpg" data-thumb="https://www.yokko.com/uploads/home-banners/time-to-shine-00350-en--420x315.jpg" alt="Time to Shine" title="Time to Shine" width="1200" height="900" /></a>
+                                    </div>
+        <div class="SlideNavCnt">
+            <div id="htmlcaption" class="nivo-html-caption"></div>
+        </div>
+    </div>
+	    <div class="index-wrapper">
+                                    <a href="/products/just-in/" title="Just in styles in the YOKKO Collection"><img src="https://www.yokko.com/uploads/home-promo/just-in-styles-in-the-yokko-collection-len-2018-08-27-12-34-55.png" width="400" height="400" class="left" alt="Just in styles in the YOKKO Collection" /></a>
+                    
+                                    <a href="/evening-dresses/" title="Evening dresses"><img src="https://www.yokko.com/uploads/home-promo/evening-dresses-men-2018-11-01-12-35-10.png" width="400" height="400" class="left" alt="Evening dresses" /></a>
+                    
+                                    <a href="/products/the-gift-card" title="YOKKO Gifting ideas"><img src="https://www.yokko.com/uploads/home-promo/yokko-gifting-ideas-ren-2016-08-03-16-16-57.jpg" width="400" height="400" class="left" alt="YOKKO Gifting ideas" /></a>
+                            <div class="clear"></div>
+    </div>
+    </div><!-- FOOTER 2 START --><div class="clear"></div><div id="joinus"><div class="joinustitle left">GET OUR LATEST</div><div class="joinusdescription left">Sign up to our newsletter<br />for weekly updates</div><div class="joinusemail left"><div class="form-field"><div id="news_ok"></div><form id="frm_news" name="frm_news" method="post"><!-- <input type="radio" value="1" name="abonare" id="abonare-1" class="left" checked="checked" style="display:none;"><label for="abonare-1" class="left" style="display:none;">subscribe</label><input type="radio" value="0" name="abonare" id="abonare-2" class="left" style="margin-right: 5px; margin-left:15px;display:none;" ><label for="abonare-2" class="left" style="display:none;">unsubscribe</label><div class="clear"></div> --><input type="hidden" value="1" name="abonare" id="abonare" /><input type="text" name="newsletter_mail" id="newsletter_mail" class="newsinp dark" value="Enter your email" onfocus="if(this.value=='Enter your email') this.value=''" onblur="if(this.value=='') this.value='Enter your email'" style="width: 155px; margin-right: 5px;" /><input type="submit" id="news_submit" name="news_submit" class="cmd-sec" value="GO" /><img id="black_spin" src="/pages/tpl/front/images/loader-black.gif" style="margin:10px 0 0 10px; display:none;" width="16" height="16" alt="loading" /><div class="clear"></div></form></div><div id="news_err" class="news_errfooter" style="display:none;">Check the e-mail address</div></div><a id="googleplus" href="https://plus.google.com/105417822341785123050" target="_blank" class="right sprite" rel="publisher"></a><a id="pinterest" href="http://www.pinterest.com/YokkoRomania" target="_blank" class="right sprite"></a><a id="youtube" href="https://www.youtube.com/user/YokkoTheFashionStore" target="_blank" class="right sprite"></a><a id="blogyokko" href="http://www.yokko.ro/blog" target="_blank" class="right sprite"></a><a id="instagram" href="http://www.instagram.com/YokkoRomania" target="_blank" class="right sprite"></a><a id="facebook" href="http://www.facebook.com/YokkoTheFashionStore" target="_blank" class="right sprite"></a><div class="joinusdescription right"><div style="line-height:30px;">Join us</div></div></div><div class="clear"></div><div id="footer" style=""><div><div class="footer-item left"><div class="footertitle">ASSISTANCE</div><a href="https://www.yokko.com/contact/" class="footerlink">CONTACT US</a><br /><a href="https://www.yokko.com/guide/faq/" class="footerlink">FAQ</a><br /><a href="https://www.yokko.com/guide/secure-payemnt/" class="footerlink">SECURE PAYMENT</a><br /><a href="https://www.yokko.com/guide/product-quality/" class="footerlink">PRODUCT QUALITY</a><br /><a href="https://www.yokko.com/guide/size-chart/" class="footerlink">SIZE GUIDE</a><br /></div><div class="footer-item left"><div class="footertitle">EASY SHOPPING</div><a href="https://www.yokko.com/guide/delivery-options/" class="footerlink">DELIVERY</a><br /><a href="https://www.yokko.com/guide/returns-and-exchanges/" class="footerlink">RETURNS AND EXCHANGES</a><br /><a href="https://www.yokko.com/guide/refunds/" class="footerlink">REFUNDS</a><br /><a href="https://www.yokko.com/guide/" class="footerlink">MORE...</a><br /></div><div class="footer-item left"><div class="footertitle">MYOKKO</div><a href="https://www.yokko.com/my-account/" class="footerlink">LOGIN</a><br /><a href="https://www.yokko.com/my-account/" class="footerlink">MY ORDERS</a><br /><a href="https://www.yokko.com/my-account/" class="footerlink">MY DETAILS</a><br /><a href="https://www.yokko.com/my-account/wishlist/" class="footerlink">WISHLIST</a><br /></div><div class="footer-item right"><div class="footertitle">ABOUT US</div><a href="https://www.yokko.com/about-us/" class="footerlink">THE BRAND</a><br /><a href="https://www.yokko.com/stores/" class="footerlink">STORES</a><br /><a href="https://www.yokko.com/careers/" class="footerlink">CAREERS</a><br /><a href="corporate-services/" class="footerlink">CORPORATE SERVICES</a><br /></div><div class="clear"></div></div><div id="paymentinfo" class=""><div id="social_icons_footer"><div id="sif1" class="sprite"></div><div id="sif2" class="sprite"></div><div id="sif3" class="sprite"></div><div id="sif4" class="sprite"></div><div id="sif5" class="sprite"></div></div><div class="clear"></div></div><div id="footerlinks">&copy; 2004-2019 YOKKO &nbsp; &nbsp; | &nbsp; &nbsp; <a href="https://www.yokko.com/terms-and-conditions/" class="footerlink">TERMS</a> &nbsp; &nbsp;<!-- <a href="https://www.yokko.com/privacy-cookies/" class="footerlink">PRIVACY</a> &nbsp; &nbsp; --><a href="https://www.yokko.com/sitemap/" class="footerlink">SITE MAP</a> &nbsp; &nbsp; <a href="https://www.yokko.com/contact/" class="footerlink">CONTACT</a> &nbsp; &nbsp; <a href="http://www.anpc.gov.ro/" class="footerlink" target="_blank">ANPC</a>&nbsp; &nbsp; <a href="http://ec.europa.eu/consumers/odr/" target="_blank" class="footerlink">DISPUTE RESOLUTION</a>&nbsp; &nbsp; <a href="https://www.yokko.com/terms-and-privacy/reset" class="footerlink">COOKIES POLICY</a><div style="display:inline-block;float:right;height:24px"><a href="http://www.webfuture.ro/" target="_blank" class="right footerlink">Web Future Solutions</a><span class="right">&nbsp;and Development by&nbsp;</span><a href="http://www.webfuture.ro/web-design" target="_blank" class="right footerlink">Web Design</a></div><div class="clear"></div></div><div class="clear"></div></div><!-- FOOTER 2 END --><div class="v-spacer-20"></div><div class="clear"></div><input type="hidden" id="ui_zona_curr" value="1" />
+<div id="location-box" class="location-popup">
+	<a class="BtnClose"></a>
+    <div class="clear"></div>
+	<h4 class="PopupTitle">INTERNATIONAL DELIVERY</h4>
+    <form method="post"  enctype="multipart/form-data" name="frm_country" id="frm_country">
+    	<div id="set_err"></div>
+    	<div>
+    		Select your preferred region<br />
+            <select name="set_region" id="set_region">
+                <option value="0" >Select region</option>
+                                                                                            <option value="1"  selected="selected" >Europe</option>
+                                                                            <option value="2" >USA</option>
+                                                                            <option value="3" >Rest of the world</option>
+                                                </select>
+        </div>
+        <div>
+        </div>
+
+        <div id="change_country" ></div>
+
+        <div id="tx_country"></div>
+
+        <a id="change_location" class="cmd-main">PROCEED</a>
+        <div class="tal" >
+            <a id="ro" onclick="$('#set_lang').val('lg1'); $('#ro').attr('class', 'LkLangOn'); $('#en').attr('class', 'LkLangOff'); $('#change_location').text('CONTINUA');" class="LkLangOff">ROMANA</a>
+            &nbsp; &nbsp;
+            <a id="en" onclick="$('#set_lang').val('lg2'); $('#en').attr('class', 'LkLangOn'); $('#ro').attr('class', 'LkLangOff'); $('#change_location').text('PROCEED');" class="LkLangOn" >ENGLISH</a>
+        </div>
+        
+
+		<input type="hidden" name="set_lang" 		id="set_lang" 			value="lg2" />
+        <input type="hidden" name="change_settings" id="change_settings" 	value="1" />
+        <input type="hidden" name="ch_region" 		id="ch_region" 			value="1" />
+        <input type="hidden" name="ch_country" 		id="ch_country" 		value="227" />
+        <input type="hidden" name="ch_currency" 	id="ch_currency" 		value="" />
+    </form>
+</div>
+<script type="text/javascript" src="/pages/js/front/jquery.selectbox-0.2.min.js"></script>
+<script type="text/javascript">
+
+
+
+	$(function () {
+		$("#set_region").selectbox({
+			 classHolder:'sbHolder3',
+			 classHolderDisabled:'sbHolderDisabled3',
+			 classSelector:'sbSelector3',
+			 classOptions:'sbOptions3',
+			 classDisabled:'sbDisabled3',
+			 classFocus:'sbFocus3',
+			 classToggleOpen:'sbToggleOpen3',
+			 classToggle:'sbToggle3'
+		});
+	});
+
+</script>
+ 
+<input type="hidden" name="curr_lang" id="curr_lang" value="lg2" />
+<script type="text/javascript" src="/pages/js/front/1_scriptjs.js?v=1.4"></script>
+<script type="text/javascript">
+
+    $(document).ready(function() {
+        $('ul.sf-menu').superfish({delay: 0});
+    });
+
+</script>
+
+		
+					<input type="hidden" value="9500" id="newsletter_popup_delay" />
+			<div id="mask3">&nbsp;</div>
+<div id="popup_abonare" class="newsletter-popup" >
+	<a class="BtnClose"></a>
+    <div class="clear"></div>	
+	<div style="margin-top:40px; width:200px; background-color: #FFF; background-color: rgba(255,255,255,0.75);">
+		<div id="news_popup_tac" class="text-content left" style="padding:50px 20px 10px 20px; min-width:150px; color:#000; background-color: #FFF; background-color: rgba(255,255,255,0.75);">
+            <h4 class="nppTitle">FOLLOW US</h4>
+            <p>Sign up for our newsletter and you will receive weekly updates on our newest styles, campaigns and offers!</p>
+            <div class="form-field left" style="margin:10px 0 10px 0;">
+                                <input type="text" maxlength="50" style="text-align:center;width:220px" name="pemail" id="pemail" value="Email address" onfocus="if(this.value=='Email address') this.value='';" onblur="if(this.value=='') this.value='Email address'" />
+                <div id="pe_error" class="tac" style="color:#F00; padding:10px 10px 0px 10px; visibility:hidden;">Please enter a valid e-mail</div>
+            </div>  
+            <div class="v-spacer" style="clear:left; height:1px;"></div>
+            <div class="tac">
+                <a class="cmd-main" id="trigger_abonare">SUBSCRIBE</a>
+                <img src="https://www.yokko.com/pages/tpl/front/images/loading.gif" alt="loading" width="16" height="16" id="peloader" />
+            </div>
+            <div style="font-size:12px; line-height:14px;"><p>We do not share your data with third parties. You can easily unsubscribe at any time.</p></div>
+		
+		</div>	
+		<div id="nws_popup_confirmation_message_with_confirm" style="display:none;"><h4 style="margin-bottom:15px">CONFIRM SUBSCRIPTION</h4>
+<p>We sent a message to your email address.</p>
+<p style="padding-bottom:30px;width:250px">Confirm your subscription to the YOKKO Newsletter, by accessing the link we sent you.</p></div>
+		<div id="nws_popup_confirmation_message_without_confirm" style="display:none;"><h4 style="margin-bottom:15px">SIGN UP SUCCESSFULL</h4>
+<p style="padding-bottom:30px;width:250px">You have successfully signed up for our newsletter.</p></div>
+		<div id="nws_popup_confirmation_message_already_subscribed" style="display:none;"><h4 style="margin-bottom:15px">YOU'RE SIGNED UP</h4>
+<p>Thank you for beying a YOKKO newsletter subscriber.</p>
+<p style="padding-bottom:30px;width:250px">We will continue to send you info on our newest styles, campaigns and offers!</p></div>
+	</div>
+</div>
+
+
+			
+
+
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"665c823693","applicationID":"7043860","transactionName":"NFUAYEcECxUEAk0LXw0fN0ZcSgwIAQRBTEALQA==","queueTime":0,"applicationTime":16,"atts":"GBIDFg8eGBs=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>

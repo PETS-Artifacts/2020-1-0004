@@ -1,0 +1,579 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8" /><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"Vw8EWV5VGwAIXFZaAQg="};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o||e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(t,e,n){function r(t){try{s.console&&console.log(t)}catch(e){}}var o,i=t("ee"),a=t(15),s={};try{o=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(s.console=!0,o.indexOf("dev")!==-1&&(s.dev=!0),o.indexOf("nr_dev")!==-1&&(s.nrDev=!0))}catch(c){}s.nrDev&&i.on("internal-error",function(t){r(t.stack)}),s.dev&&i.on("fn-err",function(t,e,n){r(n.stack)}),s.dev&&(r("NR AGENT IN DEVELOPMENT MODE"),r("flags: "+a(s,function(t,e){return t}).join(", ")))},{}],2:[function(t,e,n){function r(t,e,n,r,o){try{d?d-=1:i("err",[o||new UncaughtException(t,e,n)])}catch(s){try{i("ierr",[s,(new Date).getTime(),!0])}catch(c){}}return"function"==typeof f&&f.apply(this,a(arguments))}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function o(t){i("err",[t,(new Date).getTime()])}var i=t("handle"),a=t(16),s=t("ee"),c=t("loader"),f=window.onerror,u=!1,d=0;c.features.err=!0,t(1),window.onerror=r;try{throw new Error}catch(l){"stack"in l&&(t(8),t(7),"addEventListener"in window&&t(5),c.xhrWrappable&&t(9),u=!0)}s.on("fn-start",function(t,e,n){u&&(d+=1)}),s.on("fn-err",function(t,e,n){u&&(this.thrown=!0,o(n))}),s.on("fn-end",function(){u&&!this.thrown&&d>0&&(d-=1)}),s.on("internal-error",function(t){i("ierr",[t,(new Date).getTime(),!0])})},{}],3:[function(t,e,n){t("loader").features.ins=!0},{}],4:[function(t,e,n){function r(t){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var o=t("ee"),i=t("handle"),a=t(8),s=t(7),c="learResourceTimings",f="addEventListener",u="resourcetimingbufferfull",d="bstResource",l="resource",p="-start",h="-end",m="fn"+p,w="fn"+h,v="bstTimer",y="pushState";t("loader").features.stn=!0,t(6);var g=NREUM.o.EV;o.on(m,function(t,e){var n=t[0];n instanceof g&&(this.bstStart=Date.now())}),o.on(w,function(t,e){var n=t[0];n instanceof g&&i("bst",[n,e,this.bstStart,Date.now()])}),a.on(m,function(t,e,n){this.bstStart=Date.now(),this.bstType=n}),a.on(w,function(t,e){i(v,[e,this.bstStart,Date.now(),this.bstType])}),s.on(m,function(){this.bstStart=Date.now()}),s.on(w,function(t,e){i(v,[e,this.bstStart,Date.now(),"requestAnimationFrame"])}),o.on(y+p,function(t){this.time=Date.now(),this.startPath=location.pathname+location.hash}),o.on(y+h,function(t){i("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),f in window.performance&&(window.performance["c"+c]?window.performance[f](u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["c"+c]()},!1):window.performance[f]("webkit"+u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["webkitC"+c]()},!1)),document[f]("scroll",r,!1),document[f]("keypress",r,!1),document[f]("click",r,!1)}},{}],5:[function(t,e,n){function r(t){for(var e=t;e&&!e.hasOwnProperty(u);)e=Object.getPrototypeOf(e);e&&o(e)}function o(t){s.inPlace(t,[u,d],"-",i)}function i(t,e){return t[1]}var a=t("ee").get("events"),s=t(17)(a),c=t("gos"),f=XMLHttpRequest,u="addEventListener",d="removeEventListener";e.exports=a,"getPrototypeOf"in Object?(r(document),r(window),r(f.prototype)):f.prototype.hasOwnProperty(u)&&(o(window),o(f.prototype)),a.on(u+"-start",function(t,e){if(t[1]){var n=t[1];if("function"==typeof n){var r=c(n,"nr@wrapped",function(){return s(n,"fn-",null,n.name||"anonymous")});this.wrapped=t[1]=r}else"function"==typeof n.handleEvent&&s.inPlace(n,["handleEvent"],"fn-")}}),a.on(d+"-start",function(t){var e=this.wrapped;e&&(t[1]=e)})},{}],6:[function(t,e,n){var r=t("ee").get("history"),o=t(17)(r);e.exports=r,o.inPlace(window.history,["pushState","replaceState"],"-")},{}],7:[function(t,e,n){var r=t("ee").get("raf"),o=t(17)(r),i="equestAnimationFrame";e.exports=r,o.inPlace(window,["r"+i,"mozR"+i,"webkitR"+i,"msR"+i],"raf-"),r.on("raf-start",function(t){t[0]=o(t[0],"fn-")})},{}],8:[function(t,e,n){function r(t,e,n){t[0]=a(t[0],"fn-",null,n)}function o(t,e,n){this.method=n,this.timerDuration="number"==typeof t[1]?t[1]:0,t[0]=a(t[0],"fn-",this,n)}var i=t("ee").get("timer"),a=t(17)(i),s="setTimeout",c="setInterval",f="clearTimeout",u="-start",d="-";e.exports=i,a.inPlace(window,[s,"setImmediate"],s+d),a.inPlace(window,[c],c+d),a.inPlace(window,[f,"clearImmediate"],f+d),i.on(c+u,r),i.on(s+u,o)},{}],9:[function(t,e,n){function r(t,e){d.inPlace(e,["onreadystatechange"],"fn-",s)}function o(){var t=this,e=u.context(t);t.readyState>3&&!e.resolved&&(e.resolved=!0,u.emit("xhr-resolved",[],t)),d.inPlace(t,w,"fn-",s)}function i(t){v.push(t),h&&(g=-g,b.data=g)}function a(){for(var t=0;t<v.length;t++)r([],v[t]);v.length&&(v=[])}function s(t,e){return e}function c(t,e){for(var n in t)e[n]=t[n];return e}t(5);var f=t("ee"),u=f.get("xhr"),d=t(17)(u),l=NREUM.o,p=l.XHR,h=l.MO,m="readystatechange",w=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],v=[];e.exports=u;var y=window.XMLHttpRequest=function(t){var e=new p(t);try{u.emit("new-xhr",[e],e),e.addEventListener(m,o,!1)}catch(n){try{u.emit("internal-error",[n])}catch(r){}}return e};if(c(p,y),y.prototype=p.prototype,d.inPlace(y.prototype,["open","send"],"-xhr-",s),u.on("send-xhr-start",function(t,e){r(t,e),i(e)}),u.on("open-xhr-start",r),h){var g=1,b=document.createTextNode(g);new h(a).observe(b,{characterData:!0})}else f.on("fn-end",function(t){t[0]&&t[0].type===m||a()})},{}],10:[function(t,e,n){function r(t){var e=this.params,n=this.metrics;if(!this.ended){this.ended=!0;for(var r=0;r<d;r++)t.removeEventListener(u[r],this.listener,!1);if(!e.aborted){if(n.duration=(new Date).getTime()-this.startTime,4===t.readyState){e.status=t.status;var i=o(t,this.lastSize);if(i&&(n.rxSize=i),this.sameOrigin){var a=t.getResponseHeader("X-NewRelic-App-Data");a&&(e.cat=a.split(", ").pop())}}else e.status=0;n.cbTime=this.cbTime,f.emit("xhr-done",[t],t),s("xhr",[e,n,this.startTime])}}}function o(t,e){var n=t.responseType;if("json"===n&&null!==e)return e;var r="arraybuffer"===n||"blob"===n||"json"===n?t.response:t.responseText;return h(r)}function i(t,e){var n=c(e),r=t.params;r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.sameOrigin=n.sameOrigin}var a=t("loader");if(a.xhrWrappable){var s=t("handle"),c=t(11),f=t("ee"),u=["load","error","abort","timeout"],d=u.length,l=t("id"),p=t(14),h=t(13),m=window.XMLHttpRequest;a.features.xhr=!0,t(9),f.on("new-xhr",function(t){var e=this;e.totalCbs=0,e.called=0,e.cbTime=0,e.end=r,e.ended=!1,e.xhrGuids={},e.lastSize=null,p&&(p>34||p<10)||window.opera||t.addEventListener("progress",function(t){e.lastSize=t.loaded},!1)}),f.on("open-xhr-start",function(t){this.params={method:t[0]},i(this,t[1]),this.metrics={}}),f.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),f.on("send-xhr-start",function(t,e){var n=this.metrics,r=t[0],o=this;if(n&&r){var i=h(r);i&&(n.txSize=i)}this.startTime=(new Date).getTime(),this.listener=function(t){try{"abort"===t.type&&(o.params.aborted=!0),("load"!==t.type||o.called===o.totalCbs&&(o.onloadCalled||"function"!=typeof e.onload))&&o.end(e)}catch(n){try{f.emit("internal-error",[n])}catch(r){}}};for(var a=0;a<d;a++)e.addEventListener(u[a],this.listener,!1)}),f.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),f.on("xhr-load-added",function(t,e){var n=""+l(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),f.on("xhr-load-removed",function(t,e){var n=""+l(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),f.on("addEventListener-end",function(t,e){e instanceof m&&"load"===t[0]&&f.emit("xhr-load-added",[t[1],t[2]],e)}),f.on("removeEventListener-end",function(t,e){e instanceof m&&"load"===t[0]&&f.emit("xhr-load-removed",[t[1],t[2]],e)}),f.on("fn-start",function(t,e,n){e instanceof m&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=(new Date).getTime()))}),f.on("fn-end",function(t,e){this.xhrCbStart&&f.emit("xhr-cb-time",[(new Date).getTime()-this.xhrCbStart,this.onload,e],e)})}},{}],11:[function(t,e,n){e.exports=function(t){var e=document.createElement("a"),n=window.location,r={};e.href=t,r.port=e.port;var o=e.href.split("://");!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=e.hostname||n.hostname,r.pathname=e.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname);var i=!e.protocol||":"===e.protocol||e.protocol===n.protocol,a=e.hostname===document.domain&&e.port===n.port;return r.sameOrigin=i&&(!e.hostname||a),r}},{}],12:[function(t,e,n){function r(){}function o(t,e,n){return function(){return i(t,[(new Date).getTime()].concat(s(arguments)),e?null:this,n),e?void 0:this}}var i=t("handle"),a=t(15),s=t(16),c=t("ee").get("tracer"),f=NREUM;"undefined"==typeof window.newrelic&&(newrelic=f);var u=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit"],d="api-",l=d+"ixn-";a(u,function(t,e){f[e]=o(d+e,!0,"api")}),f.addPageAction=o(d+"addPageAction",!0),e.exports=newrelic,f.interaction=function(){return(new r).get()};var p=r.prototype={createTracer:function(t,e){var n={},r=this,o="function"==typeof e;return i(l+"tracer",[Date.now(),t,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[Date.now(),r,o],n),o)try{return e.apply(this,arguments)}finally{c.emit("fn-end",[Date.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,e){p[e]=o(l+e)}),newrelic.noticeError=function(t){"string"==typeof t&&(t=new Error(t)),i("err",[t,(new Date).getTime()])}},{}],13:[function(t,e,n){e.exports=function(t){if("string"==typeof t&&t.length)return t.length;if("object"==typeof t){if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if(!("undefined"!=typeof FormData&&t instanceof FormData))try{return JSON.stringify(t).length}catch(e){return}}}},{}],14:[function(t,e,n){var r=0,o=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);o&&(r=+o[1]),e.exports=r},{}],15:[function(t,e,n){function r(t,e){var n=[],r="",i=0;for(r in t)o.call(t,r)&&(n[i]=e(r,t[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],16:[function(t,e,n){function r(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(o<0?0:o);++r<o;)i[r]=t[e+r];return i}e.exports=r},{}],17:[function(t,e,n){function r(t){return!(t&&"function"==typeof t&&t.apply&&!t[a])}var o=t("ee"),i=t(16),a="nr@original",s=Object.prototype.hasOwnProperty,c=!1;e.exports=function(t){function e(t,e,n,o){function nrWrapper(){var r,a,s,c;try{a=this,r=i(arguments),s="function"==typeof n?n(r,a):n||{}}catch(u){d([u,"",[r,a,o],s])}f(e+"start",[r,a,o],s);try{return c=t.apply(a,r)}catch(l){throw f(e+"err",[r,a,l],s),l}finally{f(e+"end",[r,a,c],s)}}return r(t)?t:(e||(e=""),nrWrapper[a]=t,u(t,nrWrapper),nrWrapper)}function n(t,n,o,i){o||(o="");var a,s,c,f="-"===o.charAt(0);for(c=0;c<n.length;c++)s=n[c],a=t[s],r(a)||(t[s]=e(a,f?s+o:o,i,s))}function f(e,n,r){if(!c){c=!0;try{t.emit(e,n,r)}catch(o){d([o,e,n,r])}c=!1}}function u(t,e){if(Object.defineProperty&&Object.keys)try{var n=Object.keys(t);return n.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(r){d([r])}for(var o in t)s.call(t,o)&&(e[o]=t[o]);return e}function d(e){try{t.emit("internal-error",e)}catch(n){}}return t||(t=o),e.inPlace=n,e.flag=a,e}},{}],ee:[function(t,e,n){function r(){}function o(t){function e(t){return t&&t instanceof r?t:t?s(t,a,i):i()}function n(n,r,o){t&&t(n,r,o);for(var i=e(o),a=l(n),s=a.length,c=0;c<s;c++)a[c].apply(i,r);var u=f[w[n]];return u&&u.push([v,n,r,i]),i}function d(t,e){m[t]=l(t).concat(e)}function l(t){return m[t]||[]}function p(t){return u[t]=u[t]||o(n)}function h(t,e){c(t,function(t,n){e=e||"feature",w[n]=e,e in f||(f[e]=[])})}var m={},w={},v={on:d,emit:n,get:p,listeners:l,context:e,buffer:h};return v}function i(){return new r}var a="nr@context",s=t("gos"),c=t(15),f={},u={},d=e.exports=o();d.backlog=f},{}],gos:[function(t,e,n){function r(t,e,n){if(o.call(t,e))return t[e];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return t[e]=r,r}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],handle:[function(t,e,n){function r(t,e,n,r){o.buffer([t],r),o.emit(t,e,n)}var o=t("ee").get("handle");e.exports=r,r.ee=o},{}],id:[function(t,e,n){function r(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:a(t,i,function(){return o++})}var o=1,i="nr@id",a=t("gos");e.exports=r},{}],loader:[function(t,e,n){function r(){if(!g++){var t=y.info=NREUM.info,e=u.getElementsByTagName("script")[0];if(t&&t.licenseKey&&t.applicationID&&e){c(w,function(e,n){t[e]||(t[e]=n)});var n="https"===m.split(":")[0]||t.sslForHttp;y.proto=n?"https://":"http://",s("mark",["onload",a()],null,"api");var r=u.createElement("script");r.src=y.proto+t.agent,e.parentNode.insertBefore(r,e)}}}function o(){"complete"===u.readyState&&i()}function i(){s("mark",["domContent",a()],null,"api")}function a(){return(new Date).getTime()}var s=t("handle"),c=t(15),f=window,u=f.document,d="addEventListener",l="attachEvent",p=f.XMLHttpRequest,h=p&&p.prototype;NREUM.o={ST:setTimeout,CT:clearTimeout,XHR:p,REQ:f.Request,EV:f.Event,PR:f.Promise,MO:f.MutationObserver},t(12);var m=""+location,w={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-974.min.js"},v=p&&h&&h[d]&&!/CriOS/.test(navigator.userAgent),y=e.exports={offset:a(),origin:m,features:{},xhrWrappable:v};u[d]?(u[d]("DOMContentLoaded",i,!1),f[d]("load",r,!1)):(u[l]("onreadystatechange",o),f[l]("onload",r)),s("mark",["firstbyte",a()],null,"api");var g=0},{}]},{},["loader",2,10,4,3]);</script>
+        <title>Fullscreen Direct</title>
+        <meta name="copyright" content="Copyright &copy;2016 Fullscreen Direct, all rights reserved." />
+        <meta name="description" content="Fullscreen Direct &ndash; A simpler, smarter digital presence" />
+        <meta name="keywords" content="Fullscreen Direct, stagebloc, blog, ecommerce, audio, video, events, stageblock, stageblok, stage bloc, stage block, stage blok" />
+
+        <meta property="og:title" content="Fullscreen Direct" />
+        <meta property="og:description" content="A simpler, smarter digital presence" />
+        <meta property="og:url" content="https://www.fullscreendirect.com/legal/privacy" />
+        <meta property="og:site_name" content="Fullscreen Direct" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://sc-1.cdn-fullscreendirect.com/images/og.png" />
+
+        <link rel="icon" type="image/png" href="https://sc-1.cdn-fullscreendirect.com/favicon.ico?fsd">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link type="text/css" rel="stylesheet" href="//fast.fonts.net/cssapi/c9ce767c-1ec3-482f-9b52-3d9560d4ed97.css" />
+        <link type="text/css" rel="stylesheet" href="https://sc-1.cdn-fullscreendirect.com/assets/css/site.css?v=6982" />
+        <script src="https://sc-1.cdn-fullscreendirect.com/assets/scripts/build/site.js?v=6982"></script>
+        <script>
+                            var key = "6cec93794e1d289cd3fe1069596b1fde",
+                    sessionId = "mricqv47uoaf1fnus9u7dg7ae5",
+                    csrfToken = null;
+                        require.config({"enforceDefine":true,"baseUrl":"https://sc-1.cdn-fullscreendirect.com/assets/scripts/build/","urlArgs":"v=6982","waitSeconds":9,"paths":{"jquery":["//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min","https://sc-1.cdn-fullscreendirect.com/assets/js/jquery.min.js?v=6982"],"jquery-ui":["//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min","https://sc-1.cdn-fullscreendirect.com/assets/js/jquery-ui.min.js?v=6982"],"jquery-fileupload":"https://sc-1.cdn-fullscreendirect.com/assets/js/jqueryfileupload/js/jquery.fileupload.js?v=6982"}});
+requirejs.legacyPath=function(u,v){return 'https://sc-1.cdn-fullscreendirect.com/assets/js/'+u+(!v?'':'?v=6982')};
+            require(['site']);
+        </script>
+    </head>
+    <body id="page-legal">
+        <nav class="navbar" role="navigation">
+        <a class="navbar-brand" href="/"><svg xmlns="http://www.w3.org/2000/svg" width="200" height="64" viewBox="0 0 965.98 309.82"><title>Fullscreen Direct</title><path d="M0,142.29V5.8H65.41V26.21h-42V61.38H54.82V81.79H23.44v60.49H0Z" fill="#8c8c8c"/><path d="M76.37,5.8H99.81v103c0,10,4,14.93,12.47,14.93s12.48-4.91,12.48-14.93V5.8H148.2V107.88c0,23.44-13.61,36.3-35.92,36.3s-35.92-12.85-35.92-36.3V5.8Z" fill="#8c8c8c"/><path d="M162.18,142.29V5.8h23.44V121.87h36.86v20.42h-60.3Z" fill="#8c8c8c"/><path d="M231.93,142.29V5.8h23.44V121.87h36.86v20.42h-60.3Z" fill="#8c8c8c"/><path d="M345.54,39.45c-0.94-11.72-7.18-15.12-12.47-15.12-7.56,0-11.72,4.91-11.72,13.42C321.34,61,369,72.15,369,109.21c0,22.5-15.12,35-37.05,35-21.74,0-34.22-17.39-35.16-37.81l22.31-3.22c0.95,13.8,6.43,20.61,14,20.61,8.13,0,13.61-4.35,13.61-12.47,0-27-47.64-34.22-47.64-73.35,0-21.74,13.23-34,36.3-34,19.09,0,30.44,13.8,32.52,33.08Z" fill="#8c8c8c"/><path d="M426.44,51.36V40.77c0-11.53-5.29-16.44-11.34-16.44-9.45,0-12.47,4.91-12.47,15.12v69.19c0,10.21,3,15.12,12.47,15.12,8.51,0,11.34-4.91,11.34-13.8V93.51h23.44v15.69c0,19.28-11.34,35-34.79,35-24.57,0-35.92-15.69-35.92-35V38.88c0-19.28,11.34-35,35.92-35,23.44,0,34.79,17,34.79,37.43v10H426.44Z" fill="#8c8c8c"/><path d="M485.8,142.29H462.36V5.8h32.89c26.28,0,39.7,11.15,39.7,40.27,0,21.93-8.51,30.82-16.45,34.41l19.85,61.82H514.53L497.9,85.76a112.63,112.63,0,0,1-12.1.57v56Zm0-75.24h8.32c12.66,0,17.39-4.72,17.39-21s-4.73-21-17.39-21H485.8V67Z" fill="#8c8c8c"/><path d="M545.53,142.29V5.8h62.76V26.21H569V61.38h30.25V81.79H569v40.08h42v20.42H545.53Z" fill="#8c8c8c"/><path d="M621.89,142.29V5.8h62.76V26.21H645.33V61.38h30.25V81.79H645.33v40.08h42v20.42H621.89Z" fill="#8c8c8c"/><path d="M698.26,142.29V5.8H720l28.55,78.08h0.38V5.8h21.17V142.29H749.67L719.81,57h-0.38v85.26H698.26Z" fill="#8c8c8c"/><path d="M337,171.44h34.79c24.2,0,37.05,13.23,37.05,41.21v54.07c0,28-12.85,41.21-37.05,41.21H337V171.44Zm23.44,117.21h8.13c12.48,0,16.83-4.72,16.83-19.09V209.82c0-14.37-4.35-19.09-16.83-19.09h-8.13v97.92Z" fill="#8c8c8c"/><path d="M423.42,307.93V171.44h23.44V307.93H423.42Z" fill="#8c8c8c"/><path d="M488.63,307.93H465.19V171.44h32.89c26.28,0,39.7,11.15,39.7,40.27,0,21.93-8.51,30.82-16.45,34.41l19.85,61.82H517.36l-16.63-56.53a112.63,112.63,0,0,1-12.1.57v56Zm0-75.24h8.32c12.66,0,17.39-4.72,17.39-21s-4.73-21-17.39-21h-8.32v42Z" fill="#8c8c8c"/><path d="M552.14,307.93V171.44h62.76v20.42H575.59V227h30.25v20.42H575.59v40.08h42v20.42H552.14Z" fill="#8c8c8c"/><path d="M675.77,217V206.41c0-11.53-5.29-16.45-11.34-16.45C655,190,652,194.88,652,205.09v69.19c0,10.21,3,15.12,12.47,15.12,8.51,0,11.34-4.91,11.34-13.8V259.16h23.44v15.69c0,19.28-11.34,35-34.79,35-24.57,0-35.92-15.69-35.92-35V204.52c0-19.28,11.34-35,35.92-35,23.44,0,34.79,17,34.79,37.43v10H675.77Z" fill="#8c8c8c"/><path d="M729.07,191.86H706.39V171.44H775.2v20.42H752.51V307.93H729.07V191.86Z" fill="#8c8c8c"/><polygon points="828.54 305.81 965.98 154.72 828.54 0 828.54 305.81" fill="#ed1a37"/></svg>
+</a>
+
+        <button class="navbar-collapse js-navbar-collapse"><span class="navbar-collapse-icon"></span></button>
+
+        <ul class="navbar-links js-navbar-collapse-box">
+            <li class="navbar-links-item navbar-links-mobile"><a href="/">Home</a></li>
+            <li class="navbar-links-item"><a href="/blog">Blog</a></li>
+            <li class="navbar-links-item"><a href="/help">Help</a></li>
+            <li class="navbar-links-item"><a href="/developers">Developers</a></li>
+                            <li class="navbar-links-item"><a href="/login" data-modal="login">Login</a></li>
+                    </ul>
+    </nav>
+
+    <main class="site-main">
+        <section class="main-help-section">
+    <div class="help-section">
+        <nav class="developer-navigation">
+            <button type="button" class="developer-navigation-mobile-active">
+                <span class="icon-chevron-left icon-l-middle"></span>
+                <span class="btn-text">Privacy</span>
+            </button>
+            <div id="panel">
+                <ol>
+                                            <li>
+                            <a href="/legal/terms" data-help-section="terms">
+                                Terms                            </a>
+                        </li>
+                                            <li>
+                            <a href="/legal/privacy" class="active" data-help-section="privacy">
+                                Privacy                            </a>
+                        </li>
+                                            <li>
+                            <a href="/legal/DMCA" data-help-section="DMCA">
+                                DMCA                            </a>
+                        </li>
+                                    </ol>
+            </div>
+        </nav>
+        <section class="help-content">
+                            <div class="help-list" data-help-section="terms">
+                                            <div class="help-list-item">
+                            <h2 class="help-list-item-title">Legal</h2>
+<p>Confused by all this &ldquo;legal mumbo-jumbo?&rdquo; <a href="/contact" class="btn-grey-lg">Contact Us</a> and we&rsquo;ll do our best to answer all your questions.</p>
+<hr class="home-separator" />
+<h2 class="help-list-item-title">Terms of Use</h2>
+<p><em>last updated May 23, 2016</em></p>
+<hr class="home-separator" />
+<h4>1. Introduction to Fullscreen Direct; Applicability; Eligibility</h4>
+<p>
+    These terms of use (&ldquo;TOU&rdquo;), along with the Privacy Policy and the other policies posted on the Service (collectively, the &ldquo;Agreement&rdquo;), are a binding agreement between the users (&ldquo;you&rdquo; or &ldquo;your&rdquo;) of the Fullscreen Direct service, and StageBloc, Inc. (a Fullscreen, Inc. company) (&ldquo;Company&rdquo;, &ldquo;we,&rdquo; &ldquo;us&rdquo;).
+</p>
+<p>
+    This Agreement applies to your use of (a) the Fullscreen Direct service, the website www.fullscreendirect.com and such other websites, domains, software, mobile applications and services that the Company owns, operates, or makes available (&ldquo;FS Direct Product&rdquo;), and (b) the content, features or other materials (&ldquo;Content&rdquo;) appearing on or available through the FS Direct Product.
+</p>
+<p>
+    This Agreement also applies to your use of any site created or powered by the FS Direct Product (a &ldquo;User Site&rdquo;), and any Content on such User Site.  In addition to this Agreement, creators or administrators of a User Site (&ldquo;User Site Creator&rdquo; or &ldquo;Administrator&rdquo;) will require you to follow terms and conditions that are applicable specifically to the use of their respective User Sites. Please carefully check for these provisions before using any User Site.  To the extent that there is a conflict between the provisions of this Agreement and the User Site&rsquo;s terms and conditions, if any, then the provisions of this Agreement shall apply with respect to your use of the FS Direct Product and the User Site&rsquo;s terms of use shall apply with respect to your use of the User Site (including any Content on the User Site).
+</p>
+<p>
+    The FS Direct Product and the User Sites shall be the &ldquo;Service&rdquo; in this Agreement.
+</p>
+<p>
+    <strong>You must be at least (a) eighteen (18) years or older, or (b) thirteen (13) years or older with verifiable permission from your parent or guardian to use the Service. If you do not meet these eligibility requirements, you are prohibited from using the Service.</strong>
+</p>
+<h4>2. Acceptance of Terms</h4>
+<p>
+    <strong>Your access to and use of the Service are subject to your acceptance in its entirety, without modification, of this Agreement.If you do not agree to this Agreement in its entirety, you are not authorized to use the Service in any manner or form whatsoever.</strong> Your use of a particular portion of the Service may also be subject to your agreement to additional terms as set forth in such section (&ldquo;Additional Terms&rdquo;). In the event that any of the terms, conditions, and notices contained herein conflict with the Additional Terms or other terms and guidelines contained within any particular section of the Service or with any terms included with any product or service purchased through the Service, then the Additional Terms shall control.
+</p>
+<p>
+    For the avoidance of doubt, your use of the Service constitutes your agreement to this Agreement, whether you: (a) access or use the Service without registering as a member; or (b) register as a member of the Service by submitting your email address and creating a password (&ldquo;Member&rdquo;), which enables you to utilize additional products and services made available to such Members.
+</p>
+<h4>3. License to You</h4>
+<p>
+    The Company grants you a limited, revocable and non-transferable license to access and make personal use of the Service and to access and interact with the Content solely as permitted by this Agreement.
+</p>
+<p>
+    <strong>By using the Service, you expressly agree that you shall respect the intellectual property rights of all third parties, the Company, and any others who may provide materials and/or other Content to the Service.You agree to abide by all copyright notices, trademark rules, information, and restrictions contained in any Content accessed through the Service. Except as permitted by this Agreement, you may not copy, distribute, or otherwise disseminate any Content from the Service unless you are the owner of such Content or have express written permission from the owner of such Content.  Except as explicitly described herein, this Agreement does not grant you or any other party any right, title or interest in the Service or the Content.</strong>
+</p>
+<h4>4. User Site Creator and Administrator Terms</h4>
+<ol style="list-style-type: lower-latin">
+    <li>As a User Site Creator or Administrator of a User Site, you shall be eligible to gain access to certain features and functionalities of the Service that you can use on your User Site, including without limitation (a) website creation and hosting, (b) digital goods and physical merchandise sales, and (c) fan club membership sales (collectively, &ldquo;User Site Features&rdquo;).</li>
+    <li>Your access to the User Site Features may be subject to your payment of fees.  You may agree to such fees within your User Site dashboard or in a separate written agreement with us.  Unless otherwise agreed to by the parties, your fees will be billed on a monthly basis unless you cancel your account with at least thirty (30) days prior written notice to us.  We may change the fees for your account by giving you advance notice. You are responsible for ensuring that your billing and contact information is accurate and up-to-date.</li>
+    <li>With respect to User Site Features that offer you the opportunity to sell goods and services on your User Site, you acknowledge and agree that (a) we are merely providing the platform to complete such transactions, (b) payments will be processed through our third party payment service provider, (c) these payment services are governed solely by the third party provider&rsquo;s terms of service and privacy policy, and (d) we are not responsible for the actions of these third party service providers.</li>
+    <li>If your User Site is created on or after May 23, 2016, you grant Company a limited, non-exclusive, worldwide license to (a) promote your User Site on other User Sites, as well as other User Sites on your User Site, (b) subject to your separate written agreement, sell and provide advertising and custom content (&ldquo;Advertising&rdquo;) on and for your User Site, (c) publicly display and/or embed your User Site with other User Sites on Company owned and operated websites and properties (&ldquo;Company Properties&rdquo;), (d) provide Advertising on Company Properties that contain your User Site, and (e) bundle fan club memberships available on your User Site with fan club memberships for other User Sites (&ldquo;Bundles&rdquo;) and offer such Bundles to users of the Service or Company Properties.</li>
+    <li>As a User Site Creator or Administrator of a User Site, you are solely responsible for drafting the terms and conditions and privacy policy for your User Site.</li>
+</ol>
+<h4>5. Rights You Grant To Us</h4>
+<p>
+    If you submit or post any materials, your original content, or other communications or interactions (including likes, comments, shares or other actions) (collectively, &ldquo;Submission&rdquo;) to the Service or to Company, you grant Company an irrevocable, perpetual, non-exclusive, worldwide license to use your Submission in connection with the operation of the Service or Company Properties, including without limitation, the right to: copy, distribute, transmit, publicly display, publicly perform, reproduce, edit, translate and reformat your Submission, combine with other Submissions, and publish your name in connection with your Submission. No compensation will be paid with respect to the use of your Submission, as provided herein. Company is under no obligation to post or use any Submission that you provide and Company may remove any Submission at any time in its sole discretion.
+</p>
+<p>
+    The foregoing right also allows other users of the Service or Company Properties, as well as the applicable User Site Creator, to access your Submission, and to use, modify, reproduce, distribute, and perform such Submission as permitted under this Agreement.
+</p>
+<p>
+    You acknowledge that any feedback or suggestions you provide to us in connection with the Service may be freely used or incorporated by us without restriction, accreditation, or payment to you.
+</p>
+<h4>6. No Unlawful or Prohibited Use</h4>
+<p>
+    As an express condition of your use of the Service, you agree, represent, and warrant that you will not use the Service for any purpose that is unlawful or prohibited by this Agreement, which includes without limitation the following:
+</p>
+<ul>
+    <li>Using the Service in any manner which could damage, disable, or impair the Service;</li>
+    <li>Using automated means including spiders, robots, crawlers, or similar technologies on the Service;</li>
+    <li>Framing or utilizing framing techniques to enclose any materials located on the Service without first obtaining express written permission from the Company;</li>
+    <li>Obtaining, or attempting to obtain, unauthorized access to the Service or other accounts, networks or sites connected to the Service, as well as any Content, materials or information thereon;</li>
+    <li>Decompiling, dissembling, reverse engineering, copying, creating derivative works or displaying any of the Service or any software code related thereto;</li>
+    <li>Using any Company logo or other proprietary graphic or trademark as part of the link without first obtaining express written permission from the Company;</li>
+    <li>Modifying, copying, distributing, transmitting, displaying, performing, reproducing, publishing, licensing, creating derivative works from, transferring, or selling any part of the Service; and</li>
+    <li>Using the Service for any illegal purpose or otherwise in a way no permitted under this Agreement.</li>
+</ul>
+<p>
+    Company reserves the right, in its sole and exclusive discretion, to immediately suspend or terminate (without refund of any fees) the account(s) of and/or any and all access to the Service for any user of the Service who violates any of the above restrictions.
+</p>
+<h4>7. Modification of the Agreement</h4>
+<p>
+    Company reserves the right to make changes to the Agreement and you are responsible for regularly reviewing this Agreement. Your continued use of the Service constitutes your continued agreement to the updated Agreement.  We will provide you advance notice of any material changes to the Agreement and if you do not agree to the changes, you must cancel your account and cease using the Service.
+</p>
+<h4>8. Termination of Access</h4>
+<p>
+    This Agreement shall remain in full force and effect while you use the Service. You may terminate your use of the Service at any time. Company (or the Administrator for a User Site that you use) may terminate or suspend your access to the Service at any time, for any reason, and without warning. Upon termination of your account, your right to use the Service will immediately cease. All provisions of this Agreement that, by their nature, should survive termination, shall survive termination, including, without limitation, ownership provisions, warranty disclaimers, and limitations of liability.
+</p>
+<h4>9.  Account Security</h4>
+<p>
+    You are entirely responsible for maintaining the confidentiality of your password and account. Furthermore, you are solely responsible for any and all activities that occur under your account. You agree to immediately notify Company of any unauthorized use of your account or any other breach of security.  Company will not be liable for any loss that you may incur as a result of someone else using your account or password, either with or without your knowledge. However, you may be held liable for losses incurred by Company or a third party due to someone else using your account or password. You may not use any account that is registered to another person at any time without the permission of the account holder and Company.
+</p>
+<h4>10. Third Party Services</h4>
+<p>
+    The Service may incorporate or contain links to third party websites or services, including without limitation the User Sites (&ldquo;Third Party Services&rdquo;), which are not owned or controlled by Company. When you access Third Party Services, you do so at your own risk. Any use of Third Party Services is governed solely by the terms and conditions of such Third Party Services (and you shall comply with all such terms and conditions), in addition to your obligations under this Agreement. Company has no control over, and assumes no responsibility for: (i) the content, services, accuracy, privacy policies, or practices of or opinions expressed in any Third Party Services, or (ii) any contract entered into by you with any such third party. Company may modify or discontinue your use of, or access to, the Third Party Services, or any content or services available thereunder, at any time in its sole absolute discretion with or without notice to you.
+</p>
+<p>
+    Any contact that you have with third parties (including advertisers) or Administrators through the User Sites, including the delivery of and payment for goods and services, and any other terms, conditions, warranties, or representations associated with such dealings are solely between you and that third party. Company shall not be responsible or liable for any part of any such dealings.
+</p>
+<h4>11. Digital Millennium Copyright Act (DMCA) Compliance</h4>
+<p>
+    If you are a copyright owner and believe that any of the Content appearing on the Service infringes on your copyright, please click the following <a href="/legal?tab=dmca">link</a> for information on how to submit a claim of copyright infringement.
+</p>
+<h4>12. Disclaimer of Warranties and Limitation of Liability</h4>
+<p>
+    COMPANY DOES NOT MAKE ANY REPRESENTATIONS ABOUT THE SUITABILITY, RELIABILITY, AVAILABILITY, TIMELINESS, LACK OF VIRUSES OR OTHER HARMFUL COMPONENTS, OR ACCURACY OF THE CONTENT, SOFTWARE, PRODUCTS, AND RELATED GRAPHICS CONTAINED WITHIN THE SERVICE FOR ANY PURPOSE. ALL SUCH CONTENT, INFORMATION, SOFTWARE, PRODUCTS, AND RELATED GRAPHICS ARE PROVIDED &ldquo;AS IS&rdquo; WITHOUT WARRANTY OF ANY KIND. THE COMPANY HEREBY DISCLAIMS ALL WARRANTIES AND CONDITIONS WITH REGARD TO THIS CONTENT, INFORMATION, SOFTWARE, PRODUCTS, AND RELATED GRAPHICS, INCLUDING ALL IMPLIED WARRANTIES AND CONDITIONS OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, WORKMANLIKE EFFORT, TITLE, AND NON-INFRINGEMENT.
+</p>
+<p>
+    IN NO EVENT SHALL COMPANY BE LIABLE FOR ANY DIRECT, INDIRECT, PUNITIVE, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR ANY DAMAGES WHATSOEVER INCLUDING, WITHOUT LIMITATION, DAMAGES FOR LOSS OF USE, DATA OR PROFITS, ARISING OUT OF OR IN ANY WAY CONNECTED WITH THE USE OR PERFORMANCE OF THE SERVICE, WITH THE DELAY OR INABILITY TO USE THE SERVICE OR RELATED SERVICES, WITH THE PROVISION OF OR FAILURE TO PROVIDE THE SERVICE OR RELATED SERVICES, OR FOR ANY CONTENT, INFORMATION, SOFTWARE, PRODUCTS, AND RELATED GRAPHICS OBTAINED THROUGH THE SERVICE, OR OTHERWISE ARISING OUT OF THE USE OF THE SERVICE, WHETHER BASED IN CONTRACT, TORT, NEGLIGENCE, STRICT LIABILITY, OR OTHERWISE, EVEN IF COMPANY HAS BEEN ADVISED OF THE POSSIBILITY OF DAMAGES. BECAUSE SOME STATES AND/OR JURISDICTIONS DO NOT ALLOW THE EXCLUSION OR LIMITATION OF LIABILITY FOR DIRECT, CONSEQUENTIAL, OR INCIDENTAL DAMAGES, THE ABOVE LIMITATION MAY NOT APPLY TO YOU. IN THIS EVENT, COMPANY&rsquo;S LIABILITY TO YOU WILL NOT EXCEED THE AMOUNT EQUAL TO THE GREATER OF: (A) $100, OR (B) THE AMOUNT PAID BY YOU TO COMPANY TO ACCESS THE SERVICE IN THE TWELVE (12) MONTHS PRIOR TO THE ACCRUAL OF A CLAIM BY YOU AGAINST COMPANY.
+</p>
+<h4>13. Indemnification</h4>
+<p>
+    You agree to defend, indemnify and hold Company and its respective officers, directors, employees, agents, successors, and assigns harmless from any claim, demand, or damage, including reasonable attorneys' fees, asserted by any third party due to, or arising out of, (a) your use of or access to the Service, any Content thereon and/or any other information, software, or products obtained on or through the Service, (b) your violation of this Agreement, or (c) the infringement by you or any third party using your account of any intellectual property or other right of any person or entity.
+</p>
+<h4>14. Arbitration and Governing Law</h4>
+<p>
+    <strong>Any contractual dispute or claim relating to your use of the Service will be resolved by binding arbitration, rather than in court.</strong> There is no judge or jury in arbitration, and court review of an arbitration award is limited. If you have a claim related to the Service, you must bring such claim to arbitration pursuant to this Section within one (1) year after the date on which the claim arose.  Any dispute arising from or relating to the subject matter of this Agreement shall be settled by arbitration in Cook County, Illinois, using the English language in accordance with the Streamlined Arbitration Rules and Procedures of Judicial Arbitration and Mediation Services, Inc. (&ldquo;JAMS&rdquo;) then in effect, by one commercial arbitrator with substantial experience in resolving intellectual property and commercial contract disputes, who shall be selected from the appropriate list of JAMS arbitrators in accordance with the Streamlined Arbitration Rules and Procedures of JAMS. Judgment upon the award so rendered may be entered in a court having jurisdiction, or application may be made to such court for judicial acceptance of any award and an order of enforcement, as the case may be. For all purposes of this Agreement, the parties consent to exclusive jurisdiction and venue in the United States Federal Courts located in the Northern District of Illinois. We will not seek attorneys' fees and costs in arbitration unless the arbitrator determines the claims are frivolous.
+</p>
+<p>
+    <strong>We each agree that any dispute resolution proceedings will be conducted only on an individual basis and not in a class, consolidated or representative action.</strong> If for any reason a claim proceeds in court rather than in arbitration <strong>we each waive any right to a jury trial</strong>. We also both agree that you or we may bring suit in court to enjoin infringement or other misuse of intellectual property rights.
+</p>
+<h4>15. Miscellaneous</h4>
+<p>
+    The failure of either party to exercise, in any respect, any right provided for herein shall not be deemed a waiver of any further rights hereunder. Company shall not be liable for any failure to perform its obligations hereunder where such failure results from any cause beyond Company&rsquo;s reasonable control. If any provision of this Agreement is found to be unenforceable or invalid, that provision shall be limited or eliminated to the minimum extent necessary so that this Agreement shall otherwise remain in full force and effect and enforceable. This Agreement is not assignable, transferable or sublicensable by you except with Company&rsquo;s prior written consent. Company may transfer, assign or delegate this Agreement and its rights and obligations without consent. Both parties agree that this Agreement is the complete and exclusive statement of the mutual understanding of the parties and supersedes and cancels all previous written and oral agreements, communications and other understandings relating to the subject matter of this Agreement (provided that if a separate written agreement with respect to Company products or services exists between you and Company, the terms and conditions of that written agreement shall take precedence over this Agreement in the event of any conflict). No agency, partnership, joint venture, or employment is created as a result of this Agreement and you do not have any authority of any kind to bind Company in any respect whatsoever. Headings for each section have been included above for your convenience, but such headings do not have any legal meaning, and may not accurately reflect the content of the provisions they precede.
+</p>
+<h4>16. Customer Service</h4>
+<p>
+    If you have any questions, comments, or concerns, please contact Company's <a href="/contact">customer service department</a>.
+</p>
+                        </div>
+                                    </div>
+                            <div class="help-list help-list-s-active" data-help-section="privacy">
+                                            <div class="help-list-item">
+                            <h2 class="help-list-item-title">Privacy Policy</h2>
+<p>
+    <em>last updated May 23, 2016</em>
+</p>
+<hr class="home-separator" />
+
+<h4>SUMMARY</h4>
+<p>
+    <em>Welcome to Fullscreen!  We collect personal information you choose to share with us and our partners so we can better provide a customized entertainment offering for you, and to manage your account. Your information is kept secure through industry norms, but security can be breached, especially if you are not careful with protecting your username and password. You can modify your information through your account settings, but we may retain your information on an aggregate, non personally-identifiable basis for bona fide business purposes even if you are no longer a registered user or customer.</em>
+</p>
+
+<h4>1. Introduction to Fullscreen and this Privacy Policy</h4>
+<p>
+    We at Fullscreen, Inc. (&rdquo;Company,&rdquo; &rdquo;We,&rdquo; &rdquo;Us,&rdquo; &rdquo;Our&rdquo;) know that our users (&ldquo;you,&rdquo; &ldquo;your&rdquo;) care about how your personally identifiable information (&ldquo;Information&rdquo;) is used and shared, and we take your privacy seriously. Please read the following to learn more about our Privacy Policy (the &ldquo;Policy&rdquo;) as it relates to your use of any of the services, sites, applications, offerings, or products that we offer (collectively, the &ldquo;Service&rdquo;). By visiting or using the Service in any manner, you acknowledge that you accept the practices and policies outlined in this Policy and our <a href="/legal?tab=terms">Terms of Service</a>.
+</p>
+<p>
+    We do not knowingly collect or solicit Information from anyone under the age of 13 or knowingly allow such persons to register for the Service.
+</p>
+
+<h4>2. What Information We Collect</h4>
+<p>
+    <u>Information You Provide to Us</u><br />
+    When you sign up for the Service, we collect a variety of information from you that you provide, including registration information such as your name, birth date or age range, gender, email address and physical address, and, if you are paying for the Service, payment information (credit or debit card number, CVC and billing zip code). If you choose to log-in through third-party account credentials (for example, your Facebook login), some of your Information may be shared with us or the respective third-party platform, as disclosed to you at the time of log-in.
+</p>
+<p>
+    <u>Information Collected Automatically By Us</u><br />
+    Whenever you interact with our Service, we automatically receive and record technical information such as your device, IP address, &ldquo;cookie&rdquo; information (as described in our <a href="http://fullscreenmedia.co/legal/cookies-policy">Cookie Policy</a>), the version of your operating system (&ldquo;OS&rdquo;), and the page you requested. When you use the Service on a mobile platform, we may also collect and record your unique device ID (persistent / non-persistent), hardware type, media access control (&ldquo;MAC&rdquo;) address, international mobile equipment identity (&ldquo;IMEI&rdquo;), your device name, and your location (based on your IP address). We may also collect information regarding your activity on the Service (both individually and on an aggregate basis) and your interactions with other users of the Service.  </p>
+<p>
+    <u>Information from Third Parties</u><br />
+    We work with third party service providers who assist us in managing or providing the Service (e.g., payment processors) and who collect some of the information described above. We may also collect contextual or demographic data about our users from third parties, in order to more effectively deliver the Service or content in which we think you would be interested. Unless you have been notified otherwise, all information collected through our authorized third party service providers remains governed by security and confidentiality obligations consistent with this Policy and applicable law.
+</p>
+<p>
+    <u>Third Party Advertisements</u><br />
+    We may feature third party advertising within the Service and/or on a third party website or application created using the Service (&ldquo;User Site&rdquo;).  Such advertisers may collect and use Information about you in order to provide advertisements of interest to you.  This Privacy Policy shall apply with respect to advertising appearing within the Service, and the User Site&rsquo;s privacy policy shall apply with respect to advertising appearing on the applicable User Site.
+</p>
+<p>
+    <strong>Cookies and Similar Technologies</strong>
+</p>
+<p>
+    Read our <a href="http://fullscreenmedia.co/legal/cookies-policy">Cookie Policy</a> to learn more about how we use cookies and similar technologies.
+</p>
+
+<h4>3. Why We Collect Information</h4>
+<p>
+    The primary reason we collect Information is to manage your account and subscription to our Service, and to provide more customized Service to our audience, including content, programming, or other entertainment experiences that we think you will enjoy.
+</p>
+<p>
+    Other important reasons we collect Information are as follows:
+</p>
+<ul>
+    <li>To communicate with you regarding the Service, content offerings, and for marketing and promotional purposes (we may contact you by means of any of the Information you provide to us, subject to your consent where required by law);</li>
+    <li>To ensure technical functionality and delivery of the Service; and</li>
+    <li>To provide ad-supported content offerings which are provided by marketers interested in reaching our general demographic audience.</li>
+</ul>
+
+<h4>4. How Your Information is Shared</h4>
+<p>
+    <strong>4.1 Sharing by you</strong>
+</p>
+<p>
+    The Service is social by their very nature, so your participation in the Service will allow others to see your name and/or username, profile picture, and social profile.
+</p>
+<p>
+    Certain user-profile information, including without limitation a user&rsquo;s name, location, and any video or image content that such user has uploaded to the Service, may be displayed to other users to facilitate user interaction within the Service or address your request for Company&rsquo;s services. Your account privacy settings allow you to limit the other users who can see the Personal Information in your user profile and/or what information in your user profile is visible to others. Any content you upload to your public user profile, along with any Personal Information or content that you voluntarily disclose online in a manner other users can view (on discussion boards, in messages and chat areas, etc.) becomes publicly available, and can be collected and used by others.  Your user name may also be displayed to other users if and when you send messages or comments or upload images or videos through the Service and other users can contact you through messages and comments. Additionally, if you sign into the Service through a third party social networking site or service, your list of &ldquo;friends&rdquo; from that site or service may be automatically imported to the Service, and such &ldquo;friends,&rdquo; if they are also registered users of the Service, may be able to access certain non-public information you have entered in your Service user-profile. Again, we do not control the policies and practices of any other third party site or service.
+</p>
+<p>
+    Some parts of our Service will enable you to share your interactions with our Service, such as content viewed, user generated content posted, and other social interactions. If you connect to our Service through a third party application (e.g., Facebook), then you further understand that we may automatically share your interactions with our Service with that third party application.
+</p>
+<p>
+    <strong>4.2 Sharing by us</strong>
+</p>
+<p>
+    We share your Information with third parties as listed below and as otherwise described elsewhere in this Policy:
+</p>
+<p>
+    <u>Service Providers</u><br />
+    We employ third parties to perform tasks on our behalf, such as payment processing, data management and analytics, marketing, communication and IT services, and we need to share your Information with them in order for them to provide such products and services. Unless we tell you differently or you consent otherwise, these third parties do not have any right to use your Information beyond what is necessary to assist us in providing such products and services. Any uses of your Information by these third parties will remain governed by security and confidentiality obligations consistent with this Policy and applicable law.
+</p>
+<p>
+    <u>Fullscreen Affiliates</u><br />
+    Subject to applicable laws, we may share your Information with companies with whom Fullscreen is affiliated or related to (e.g., parent company or subsidiaries), and will require such affiliated or related companies to use the Information solely in accordance with this Policy.
+</p>
+<p>
+    <u>Business Transfers</u><br />
+    We may choose to buy or sell assets. In these types of transactions, customer Information is typically one of the business assets that would be transferred. Also, if we (or our assets) are acquired or merged, or if we go out of business, enter bankruptcy, or go through some other change of control, Information would be one of the assets transferred to or acquired by a third party.
+</p>
+<p>
+    <u>Protection of Company and Others</u><br />
+    We reserve the right to access, read, preserve, and disclose any Information that we reasonably believe is necessary to comply with law or court order; enforce or apply our conditions of use and other agreements; or protect the rights, property, interests, or safety of our Company, our employees, our users, or others. This includes exchanging information with other companies and organizations for fraud protection and credit risk reduction.
+</p>
+<p>
+    <u>With Your Consent</u><br />
+    Subject to your consent, we may share your Information with third party businesses or sites that we do not control. In those instances, your Information will be subject to their separate privacy policies and you should review those policies in advance before providing consent.
+</p>
+<p>
+    <u>User Sites</u><br />
+    We may share your Information collected using the Service on the User Site with the creators and/or administrators of such User Site.  Such User Site will be subject to a separate privacy policy governing the User Site&rsquo;s collection and use of your information, so please carefully review such separate privacy policy before using the User Site.  To the extent that there is a conflict between the provisions of this Privacy Policy and the provisions of the User Site&rsquo;s privacy policy, if any, then the provisions of this Privacy Policy shall apply with respect to our use of Information and the User Site&rsquo;s privacy policy shall apply with respect to the User Site&rsquo;s use of Information.
+</p>
+
+<h4>5. The Security of Your Information</h4>
+<p>
+    Your account is protected by a password for your privacy and security. You must prevent unauthorized access to your account and Information by selecting and protecting your password and/or other sign-on mechanism appropriately. To help protect your Information, you should not share your account information or password, reuse your password on other sites, or use a password you have used on other sites.
+</p>
+<p>
+    We endeavor to protect the privacy of your account and other Information we hold in our records, but we cannot guarantee complete security. Unauthorized entry or use, hardware or software failure, and other factors, may compromise the security of user information at any time.
+</p>
+
+<h4>6. Where Your Information Will Be Held</h4>
+<p>
+    In order to provide the Service, the Information that we collect from you may be transferred to and stored at a destination outside of your country and the European Economic Area (&ldquo;EEA&rdquo;), and, in particular, the United States.  It may also be processed by any service providers appointed by us who operate outside of the EEA and their staff.  By submitting your data, you agree to this transfer, storing or processing outside of the EEA or your country and acknowledge that not all countries guarantee the same level of protection for your Information as the one in which you reside.  Data transferred will be treated in accordance with this Policy.
+</p>
+
+<h4>7. What Information You Can Access</h4>
+<p>
+    Through your account settings for the Service, you may access, edit, or delete Information you&rsquo;ve provided and your record of interactions with the Service. Such Information and interactions, and your ability to update them, will vary based on the Service.
+</p>
+
+<h4>8. What Choices You Have</h4>
+<p>
+    You can always opt not to disclose Information or to disable certain tools on your browser or device. However, this may limit your ability to fully utilize the Service.
+</p>
+<p>
+    You may be able to add, update, or delete Information as explained in the &ldquo;What Information You Can Access&rdquo; section above. When you update Information, however, we may maintain a copy of the unrevised Information in our records. Please note that some Information may remain in our records for legitimate business reasons even after your deletion of such Information, such as our analyzing aggregated data regarding past usage of the Service (but not in a manner that would identify you personally).
+</p>
+<p>
+    You can opt in to receive mobile push notifications from Fullscreen. If you change your mind later and no longer want to receive these notifications, you can use your device&rsquo;s settings functionality to turn them off.
+</p>
+<p>
+    If you don&rsquo;t want to receive e-mail or other communications from us, you can adjust your email preferences from your account, or opt-out by clicking on the link provided in the emails.
+</p>
+<p>
+    To learn more about choices regarding cookies set through the Service, see our <a href="http://fullscreenmedia.co/legal/cookies-policy">Cookie Policy</a>.
+</p>
+
+<h4>9. Changes to This Privacy Policy</h4>
+<p>
+    We may amend this Policy from time to time. Use of Information we collect now is subject to the Policy in effect at the time such Information is used. If we make material changes to this Policy, we will notify you by posting an announcement through the applicable Service or by otherwise notifying you through contact means you have provided prior to the change becoming effective.  We encourage you to regularly review this page any updates to our Policy.  You are bound by any changes to the Policy when you use any of our Service after such changes have been first posted.
+</p>
+
+<h4>10. Questions or Concerns</h4>
+<p>
+    If you have any questions or concerns regarding our Policy, please send us a detailed message at the address below, and we will try to resolve your concerns.
+</p>
+<p>
+    Fullscreen, Inc.<br />
+    12180 Millennium Dr.<br />
+    Los Angeles, CA 90094<br />
+    <a href="&#x6d;&#x61;&#x69;&#108;&#116;&#x6f;&#x3a;&#104;&#101;&#108;&#112;&#64;&#102;&#x75;&#108;&#x6c;&#x73;&#99;&#x72;&#101;&#101;&#110;&#x2e;&#x63;&#111;&#109;">&#104;&#101;&#108;&#112;&#x40;&#102;&#117;&#x6c;&#x6c;&#115;&#99;&#114;&#101;&#101;&#110;&#x2e;&#x63;&#x6f;&#109;</a><br />
+    Attn: Privacy
+</p>
+
+<h4>11. Your California Privacy Rights</h4>
+<p>
+    Under California Civil Code Sections 1798.83-1798.84, California residents are entitled to ask us for a notice identifying the categories of personal Information that we share with our affiliates and/or third parties for marketing purposes, and providing contact information for such affiliates and/or third parties. If you are a California resident and would like a copy of this notice, please submit a written request to the following address: Fullscreen, Inc., 12180 Millennium Dr., Los Angeles, CA 90094. We will respond to one request per California customer each year, and we do not respond to requests made by means other than as set forth above.
+</p>
+<p>
+    <em>California Do Not Track Disclosure:</em> Do Not Track is a privacy preference that users can set in their web browsers.  When a user turns on the Do Not Track signal, the browser sends a message to websites requesting them not to track the user.  At this time, we do not respond to Web browser &ldquo;do not track&rdquo; settings or signals.  As described in our Cookies section, we deploy cookies and other technologies on our Service to collect information about you and your browsing activity, even if you have turned on the Do Not Track signal.
+</p>
+                        </div>
+                                    </div>
+                            <div class="help-list" data-help-section="DMCA">
+                                            <div class="help-list-item">
+                            <h2 class="help-list-item-title">Copyright Claims Policy</h2>
+<p><em>last updated May 23, 2016</em></p>
+<hr class="home-separator" />
+
+<h4>DMCA / Copyright Claims Policy</h4>
+<p>
+    StageBloc, Inc. (a Fullscreen, Inc. company) (&ldquo;StageBloc&rdquo;) respects others' intellectual property rights and adheres to the provisions of the Digital Millennium Copyright Act (&ldquo;DMCA&rdquo;). It is StageBloc&rsquo;s policy to (1) block access to or remove material that it believes in good faith to be copyrighted material that has been illegally copied and distributed by any of our users, members, advertisers, affiliates, content providers; and (2) remove and discontinue service to repeat offenders.  This policy applies to the website www.fullscreendirect.com and such other mobile applications and websites as may be owned and/or operated by StageBloc (collectively, the &ldquo;Sites&rdquo;), however accessed and/or used, whether via personal computers, mobile devices or otherwise. If you believe that material(s) on the Sites violate your intellectual property rights, please follow the guidelines and procedures below to provide StageBloc with appropriate notice. StageBloc responds to written notices alleging infringement that comply with the DMCA and other applicable laws. StageBloc will remove allegedly infringing material from the Sites upon receipt of a valid DMCA notice as required by the DMCA and will provide the allegedly infringing party with a copy of the DMCA notice alleging infringement. If the party who posted the allegedly infringing information files a valid counter notification, the materials will be reposted unless you file a claim for relief as further set forth in the DMCA.
+</p>
+<p>
+    All notices must be provided to StageBloc's DMCA Agent in hard copy (e.g., U.S. mail or e-mail). StageBloc does not accept notices or counter-notifications under the DMCA submitted by telephone or electronically via the Sites. You may wish to consult with legal counsel to assist you with assessing your claim(s) and understanding your rights and liabilities, including, without limitation, your potential liability for filing a false claim.
+</p>
+
+<h4>Drafting Your Notice of Allegedly Infringing Material (&ldquo;DMCA Notice&rdquo;)</h4>
+<p>
+    If you believe that material appearing on the Sites violates your intellectual property rights, you must file a DMCA Notice. In order to file a DMCA Notice, you must provide written notice to the DMCA agent (via U.S. mail or e-mail to the StageBloc contact listed below) that substantially complies with the DMCA and contains the following:
+</p>
+<p>
+    1. Identification of the copyrighted work claimed to have been infringed or, if multiple copyrighted works are covered by a single notification, a representative list of such works;
+</p>
+<p>
+    2. Identification of the material you claimed to be infringing, or the material that will be the subject of infringing activity, that you believe should be removed (or access to such material disabled), and information that is reasonably sufficient to allow StageBloc to locate such material;
+</p>
+<p>
+    3. Information reasonably sufficient to permit StageBloc to contact you, such as mailing address, telephone number, and/or an e-mail address;
+</p>
+<p>
+    4. A statement that you have a good faith belief that StageBloc's alleged use of the material at issue is not authorized by the copyright owner, its agent, or an applicable law;
+</p>
+<p>
+    5. A statement that the information contained in your DMCA Notice is accurate and, under penalty of perjury, that you are authorized to act on behalf of the owner of the exclusive right that has allegedly been infringed; and
+</p>
+<p>
+    6. Your physical or electronic signature (e.g., &ldquo;/s/ [print name]&rdquo;), or the physical or electronic signature of a person authorized to act on behalf of the owner of the exclusive right that has allegedly been infringed.
+</p>
+<p>
+    Sending Your DMCA Notice:
+</p>
+<p>
+    If by U.S. mail, send your DMCA Notice to:
+</p>
+<p>
+    StageBloc DMCA Agent<br />
+    Fullscreen, Inc.<br />
+    Attn: Copyright Agent<br />
+    12180 Millennium Drive<br />
+    Los Angeles, CA 90094
+</p>
+<p>
+    If by e-mail, send your DMCA Notice to:
+</p>
+<p>
+    <a href="&#x6d;&#97;&#x69;&#x6c;&#x74;&#111;&#58;&#x63;&#111;&#x70;&#x79;&#114;&#x69;&#103;&#x68;&#116;&#x40;&#x66;&#117;&#108;&#108;&#115;&#99;&#114;&#x65;&#x65;&#x6e;&#46;&#99;&#111;&#109;">&#x63;&#111;&#112;&#x79;&#x72;&#x69;&#x67;&#x68;&#x74;&#64;&#x66;&#117;&#108;&#108;&#x73;&#99;&#x72;&#101;&#x65;&#110;&#x2e;&#x63;&#x6f;&#109;</a></p>
+<h4>Counter-Notification</h4>
+<p>
+    If you have posted material on the Sites that has been removed as a result of the DMCA Notice that you sent to the StageBloc DMCA Agent, you may file a counter-notification by providing an additional written notice to the StageBloc DMCA Agent in the exact same manner as required by the DMCA Notice. In order to file your counter-notification, you must provide additional written notice to the DMCA agent (via U.S. mail or e-mail to the StageBloc contact listed above) that substantially complies with the DMCA and contains the following:
+</p>
+<p>
+    1. Identification of the material that has been removed (or access to such material disabled) and the location on the Sites where the material appeared prior to your DMCA Notice;
+</p>
+<p>
+    2. Your statement under penalty of perjury that you have a good faith belief that the material was removed (or access disabled) as a result of your mistake or misidentification of the material that was removed (or access disabled);
+</p>
+<p>
+    3. Your name, mailing address, telephone number, and a written statement acknowledging your consent to the jurisdiction of Federal District Court for the judicial district in which you reside, or if you reside outside of the United States to the Northern District of Illinois, Eastern Division, and that you will accept service of process from the person (whether individually or on behalf of a rights holder) who provided the DMCA Notice of allegedly infringing material to which your counter-notification responds; and
+</p>
+<p>
+    4. Your physical or electronic signature.
+</p>
+<p>
+    <strong>Please note that under Section 512(f) of the DMCA, any person who knowingly materially misrepresents that material or activity is infringing may be subject to liability.</strong>
+</p>
+<p>
+    For the full text of the DMCA, <a href="http://www.copyright.gov/legislation/pl105-304.pdf">click here</a>. Should you have any questions or concerns about the use of trademarks or allegations of infringement of your rights, please contact the StageBloc DMCA Agent at <a href="&#x6d;&#97;&#x69;&#x6c;&#x74;&#111;&#x3a;&#99;&#111;&#112;&#121;&#114;&#x69;&#103;&#104;&#116;&#x40;&#102;&#x75;&#x6c;&#108;&#115;&#99;&#114;&#x65;&#x65;&#x6e;&#x2e;&#x63;&#111;&#x6d;">&#99;&#x6f;&#x70;&#x79;&#114;&#x69;&#x67;&#x68;&#x74;&#x40;&#x66;&#117;&#108;&#x6c;&#x73;&#x63;&#114;&#x65;&#101;&#110;&#x2e;&#x63;&#111;&#109;</a>.
+</p>
+                        </div>
+                                    </div>
+                    </section>
+    </div>
+</section>
+    </main>
+
+    <footer class="footer">
+        <p class="footer-main">&copy; Fullscreen Direct</p>
+
+        <nav class="footer-links">
+            <a href="/contact">Contact</a>
+            <a href="/legal">Legal</a>
+        </nav>
+    </footer>
+
+    <section class="modal" data-modal-name="login">
+        <div class="modal-body">
+            <form class="form js-modal-form js-login-modal-form" action="https://www.fullscreendirect.com/login" method="POST">
+    <div class="modal-header">
+        <h2 class="modal-header-heading">Login</h2>
+        <button type="button" data-modal="forgot-password" data-modal-href="https://www.fullscreendirect.com/forgot-password" data-modal-flip="right" class="btn btn-t-link modal-header-action-l-left">Forgot<span class="forgot-password"> Password</span></button>
+            </div>
+
+    
+    <div class="notice notice-t-modal-alert notice-s-hidden">
+        <span class="js-form-error">Invalid username / password</span>
+    </div>
+
+    <div class="modal-content">
+        <div class="form-group form-group-m-compact form-group-t-plain">
+            <div class="form-group-item">
+                <div class="form-text">
+                    <input type="text" name="email" placeholder="Email or Username" class="js-login-email" data-modal-autofocus maxlength="100" tabindex="20"  />
+                </div>
+            </div>
+            <div class="form-group-item">
+                <div class="form-password">
+                    <input type="password" name="password" placeholder="Password" tabindex="21" />
+                </div>
+            </div>
+        </div>
+
+            </div>
+
+    <div class="modal-footer">
+        <button class="btn btn-t-primary btn-l-right js-submit">Login</button>
+
+        <button type="button" class="modal-footer-btn-close" data-modal-close>
+            <span class="icon"></span>
+            <span class="btn-text">cancel</span>
+        </button>
+
+        <div class="remember-me">
+            <input type="checkbox" id="rememberMeLogin" name="rememberMe" />
+            <span class="remember-me-text">Remember me <span class="icon"></span></span>
+            <label for="rememberMeLogin"></label>
+        </div>
+    </div>
+
+    <div class="modal-footer-extra facebook-login-footer">
+        <span class="facebook-login-footer-dip"></span>
+        <span class="facebook-login-footer-copy">or</span>
+
+        <a class="btn facebook-login-btn js-facebook-login" href="https://www.fullscreendirect.com/hook/facebook/redirect?type=login&amp;sessionId=mricqv47uoaf1fnus9u7dg7ae5">
+            <span class="icon icon-t-xxxlarge icon-facebook-bubble"></span>
+            <span class="btn-text">Log in with Facebook</span>
+        </a>
+    </div>
+</form>
+        </div>
+    </section>
+
+    <section class="modal" data-modal-name="signup">
+        <div class="modal-body">
+                <div class="modal-header">
+        <h2 class="modal-header-heading">Sign Up</h2>
+        <button type="button" data-modal="login" data-modal-href="https://www.fullscreendirect.com/login" data-modal-flip="right" class="btn btn-t-link modal-header-action-l-left">Login</button>
+    </div>
+
+    <div class="modal-details">
+        <p class="heading heading-l-center heading-t-medium">Sign up is currently disabled</p>
+        <p class="heading heading-l-center heading-l-bottom heading-t-copy">Schedule a demo to gain early access to Fullscreen Direct</p>
+    </div>
+
+    <div class="modal-footer">
+        <a href="/contact/demo" class="btn btn-l-right btn-t-primary">Schedule a Demo</a>
+
+        <button type="button" class="modal-footer-btn-close" data-modal-close>
+            <span class="icon"></span>
+            <span class="btn-text">cancel</span>
+        </button>
+    </div>
+        </div>
+    </section>
+
+    <section class="modal" data-modal-name="forgot-password">
+        <div class="modal-body">
+            <form class="form js-modal-form" action="https://www.fullscreendirect.com/forgot-password" method="POST" autocomplete="off">
+    <div class="modal-header">
+        <h2 class="modal-header-heading">Forgot<span class="forgot-password"> Password</span></h2>
+        <button type="button" data-modal="login" data-modal-href="https://www.fullscreendirect.com/login" data-modal-flip="left" class="btn btn-t-link modal-header-action-l-right">Login</button>
+    </div>
+
+    <div class="notice notice-t-modal-alert notice-s-hidden">
+        <span class="js-form-error"></span>
+    </div>
+
+    <div class="modal-content">
+        <div class="form-group form-group-m-compact form-group-t-plain">
+            <div class="form-group-item">
+                <div class="form-text">
+                    <input type="email" name="email" placeholder="Email" class="js-forgot-email" data-modal-autofocus required maxlength="100"  />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button class="btn btn-t-primary btn-l-right js-submit">Request Reset</button>
+
+        <button type="button" class="modal-footer-btn-close" data-modal-close>
+            <span class="icon"></span>
+            <span class="btn-text">cancel</span>
+        </button>
+    </div>
+</form>
+
+        </div>
+    </section>
+
+    
+        <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-5991608-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+        <script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"9db0b962c8","applicationID":"3887869","transactionName":"YAZaMkYDVhVQAk1aXllMexNHFlcLHg1cVFBbPEsDVxZRCV8+SVZDWgJUD1oJ","queueTime":0,"applicationTime":21,"atts":"TEFZRA4ZRRs=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>

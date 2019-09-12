@@ -1,0 +1,1295 @@
+
+
+<!DOCTYPE html>
+<html class="no-js" lang="en-AU">
+  <head>
+        <script type="text/javascript">
+          /*! pace 1.0.2 */
+          (function(){var a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X=[].slice,Y={}.hasOwnProperty,Z=function(a,b){function c(){this.constructor=a}for(var d in b)Y.call(b,d)&&(a[d]=b[d]);return c.prototype=b.prototype,a.prototype=new c,a.__super__=b.prototype,a},$=[].indexOf||function(a){for(var b=0,c=this.length;c>b;b++)if(b in this&&this[b]===a)return b;return-1};for(u={catchupTime:100,initialRate:.03,minTime:250,ghostTime:100,maxProgressPerFrame:20,easeFactor:1.25,startOnPageLoad:!0,restartOnPushState:!0,restartOnRequestAfter:500,target:"body",elements:{checkInterval:100,selectors:["body"]},eventLag:{minSamples:10,sampleCount:3,lagThreshold:3},ajax:{trackMethods:["GET"],trackWebSockets:!0,ignoreURLs:[]}},C=function(){var a;return null!=(a="undefined"!=typeof performance&&null!==performance&&"function"==typeof performance.now?performance.now():void 0)?a:+new Date},E=window.requestAnimationFrame||window.mozRequestAnimationFrame||window.webkitRequestAnimationFrame||window.msRequestAnimationFrame,t=window.cancelAnimationFrame||window.mozCancelAnimationFrame,null==E&&(E=function(a){return setTimeout(a,50)},t=function(a){return clearTimeout(a)}),G=function(a){var b,c;return b=C(),(c=function(){var d;return d=C()-b,d>=33?(b=C(),a(d,function(){return E(c)})):setTimeout(c,33-d)})()},F=function(){var a,b,c;return c=arguments[0],b=arguments[1],a=3<=arguments.length?X.call(arguments,2):[],"function"==typeof c[b]?c[b].apply(c,a):c[b]},v=function(){var a,b,c,d,e,f,g;for(b=arguments[0],d=2<=arguments.length?X.call(arguments,1):[],f=0,g=d.length;g>f;f++)if(c=d[f])for(a in c)Y.call(c,a)&&(e=c[a],null!=b[a]&&"object"==typeof b[a]&&null!=e&&"object"==typeof e?v(b[a],e):b[a]=e);return b},q=function(a){var b,c,d,e,f;for(c=b=0,e=0,f=a.length;f>e;e++)d=a[e],c+=Math.abs(d),b++;return c/b},x=function(a,b){var c,d,e;if(null==a&&(a="options"),null==b&&(b=!0),e=document.querySelector("[data-pace-"+a+"]")){if(c=e.getAttribute("data-pace-"+a),!b)return c;try{return JSON.parse(c)}catch(f){return d=f,"undefined"!=typeof console&&null!==console?console.error("Error parsing inline pace options",d):void 0}}},g=function(){function a(){}return a.prototype.on=function(a,b,c,d){var e;return null==d&&(d=!1),null==this.bindings&&(this.bindings={}),null==(e=this.bindings)[a]&&(e[a]=[]),this.bindings[a].push({handler:b,ctx:c,once:d})},a.prototype.once=function(a,b,c){return this.on(a,b,c,!0)},a.prototype.off=function(a,b){var c,d,e;if(null!=(null!=(d=this.bindings)?d[a]:void 0)){if(null==b)return delete this.bindings[a];for(c=0,e=[];c<this.bindings[a].length;)e.push(this.bindings[a][c].handler===b?this.bindings[a].splice(c,1):c++);return e}},a.prototype.trigger=function(){var a,b,c,d,e,f,g,h,i;if(c=arguments[0],a=2<=arguments.length?X.call(arguments,1):[],null!=(g=this.bindings)?g[c]:void 0){for(e=0,i=[];e<this.bindings[c].length;)h=this.bindings[c][e],d=h.handler,b=h.ctx,f=h.once,d.apply(null!=b?b:this,a),i.push(f?this.bindings[c].splice(e,1):e++);return i}},a}(),j=window.Pace||{},window.Pace=j,v(j,g.prototype),D=j.options=v({},u,window.paceOptions,x()),U=["ajax","document","eventLag","elements"],Q=0,S=U.length;S>Q;Q++)K=U[Q],D[K]===!0&&(D[K]=u[K]);i=function(a){function b(){return V=b.__super__.constructor.apply(this,arguments)}return Z(b,a),b}(Error),b=function(){function a(){this.progress=0}return a.prototype.getElement=function(){var a;if(null==this.el){if(a=document.querySelector(D.target),!a)throw new i;this.el=document.createElement("div"),this.el.className="pace pace-active",document.body.className=document.body.className.replace(/pace-done/g,""),document.body.className+=" pace-running",this.el.innerHTML='<div class="pace-progress">\n  <div class="pace-progress-inner"></div>\n</div>\n<div class="pace-activity"></div>',null!=a.firstChild?a.insertBefore(this.el,a.firstChild):a.appendChild(this.el)}return this.el},a.prototype.finish=function(){var a;return a=this.getElement(),a.className=a.className.replace("pace-active",""),a.className+=" pace-inactive",document.body.className=document.body.className.replace("pace-running",""),document.body.className+=" pace-done"},a.prototype.update=function(a){return this.progress=a,this.render()},a.prototype.destroy=function(){try{this.getElement().parentNode.removeChild(this.getElement())}catch(a){i=a}return this.el=void 0},a.prototype.render=function(){var a,b,c,d,e,f,g;if(null==document.querySelector(D.target))return!1;for(a=this.getElement(),d="translate3d("+this.progress+"%, 0, 0)",g=["webkitTransform","msTransform","transform"],e=0,f=g.length;f>e;e++)b=g[e],a.children[0].style[b]=d;return(!this.lastRenderedProgress||this.lastRenderedProgress|0!==this.progress|0)&&(a.children[0].setAttribute("data-progress-text",""+(0|this.progress)+"%"),this.progress>=100?c="99":(c=this.progress<10?"0":"",c+=0|this.progress),a.children[0].setAttribute("data-progress",""+c)),this.lastRenderedProgress=this.progress},a.prototype.done=function(){return this.progress>=100},a}(),h=function(){function a(){this.bindings={}}return a.prototype.trigger=function(a,b){var c,d,e,f,g;if(null!=this.bindings[a]){for(f=this.bindings[a],g=[],d=0,e=f.length;e>d;d++)c=f[d],g.push(c.call(this,b));return g}},a.prototype.on=function(a,b){var c;return null==(c=this.bindings)[a]&&(c[a]=[]),this.bindings[a].push(b)},a}(),P=window.XMLHttpRequest,O=window.XDomainRequest,N=window.WebSocket,w=function(a,b){var c,d,e;e=[];for(d in b.prototype)try{e.push(null==a[d]&&"function"!=typeof b[d]?"function"==typeof Object.defineProperty?Object.defineProperty(a,d,{get:function(){return b.prototype[d]},configurable:!0,enumerable:!0}):a[d]=b.prototype[d]:void 0)}catch(f){c=f}return e},A=[],j.ignore=function(){var a,b,c;return b=arguments[0],a=2<=arguments.length?X.call(arguments,1):[],A.unshift("ignore"),c=b.apply(null,a),A.shift(),c},j.track=function(){var a,b,c;return b=arguments[0],a=2<=arguments.length?X.call(arguments,1):[],A.unshift("track"),c=b.apply(null,a),A.shift(),c},J=function(a){var b;if(null==a&&(a="GET"),"track"===A[0])return"force";if(!A.length&&D.ajax){if("socket"===a&&D.ajax.trackWebSockets)return!0;if(b=a.toUpperCase(),$.call(D.ajax.trackMethods,b)>=0)return!0}return!1},k=function(a){function b(){var a,c=this;b.__super__.constructor.apply(this,arguments),a=function(a){var b;return b=a.open,a.open=function(d,e){return J(d)&&c.trigger("request",{type:d,url:e,request:a}),b.apply(a,arguments)}},window.XMLHttpRequest=function(b){var c;return c=new P(b),a(c),c};try{w(window.XMLHttpRequest,P)}catch(d){}if(null!=O){window.XDomainRequest=function(){var b;return b=new O,a(b),b};try{w(window.XDomainRequest,O)}catch(d){}}if(null!=N&&D.ajax.trackWebSockets){window.WebSocket=function(a,b){var d;return d=null!=b?new N(a,b):new N(a),J("socket")&&c.trigger("request",{type:"socket",url:a,protocols:b,request:d}),d};try{w(window.WebSocket,N)}catch(d){}}}return Z(b,a),b}(h),R=null,y=function(){return null==R&&(R=new k),R},I=function(a){var b,c,d,e;for(e=D.ajax.ignoreURLs,c=0,d=e.length;d>c;c++)if(b=e[c],"string"==typeof b){if(-1!==a.indexOf(b))return!0}else if(b.test(a))return!0;return!1},y().on("request",function(b){var c,d,e,f,g;return f=b.type,e=b.request,g=b.url,I(g)?void 0:j.running||D.restartOnRequestAfter===!1&&"force"!==J(f)?void 0:(d=arguments,c=D.restartOnRequestAfter||0,"boolean"==typeof c&&(c=0),setTimeout(function(){var b,c,g,h,i,k;if(b="socket"===f?e.readyState<2:0<(h=e.readyState)&&4>h){for(j.restart(),i=j.sources,k=[],c=0,g=i.length;g>c;c++){if(K=i[c],K instanceof a){K.watch.apply(K,d);break}k.push(void 0)}return k}},c))}),a=function(){function a(){var a=this;this.elements=[],y().on("request",function(){return a.watch.apply(a,arguments)})}return a.prototype.watch=function(a){var b,c,d,e;return d=a.type,b=a.request,e=a.url,I(e)?void 0:(c="socket"===d?new n(b):new o(b),this.elements.push(c))},a}(),o=function(){function a(a){var b,c,d,e,f,g,h=this;if(this.progress=0,null!=window.ProgressEvent)for(c=null,a.addEventListener("progress",function(a){return h.progress=a.lengthComputable?100*a.loaded/a.total:h.progress+(100-h.progress)/2},!1),g=["load","abort","timeout","error"],d=0,e=g.length;e>d;d++)b=g[d],a.addEventListener(b,function(){return h.progress=100},!1);else f=a.onreadystatechange,a.onreadystatechange=function(){var b;return 0===(b=a.readyState)||4===b?h.progress=100:3===a.readyState&&(h.progress=50),"function"==typeof f?f.apply(null,arguments):void 0}}return a}(),n=function(){function a(a){var b,c,d,e,f=this;for(this.progress=0,e=["error","open"],c=0,d=e.length;d>c;c++)b=e[c],a.addEventListener(b,function(){return f.progress=100},!1)}return a}(),d=function(){function a(a){var b,c,d,f;for(null==a&&(a={}),this.elements=[],null==a.selectors&&(a.selectors=[]),f=a.selectors,c=0,d=f.length;d>c;c++)b=f[c],this.elements.push(new e(b))}return a}(),e=function(){function a(a){this.selector=a,this.progress=0,this.check()}return a.prototype.check=function(){var a=this;return document.querySelector(this.selector)?this.done():setTimeout(function(){return a.check()},D.elements.checkInterval)},a.prototype.done=function(){return this.progress=100},a}(),c=function(){function a(){var a,b,c=this;this.progress=null!=(b=this.states[document.readyState])?b:100,a=document.onreadystatechange,document.onreadystatechange=function(){return null!=c.states[document.readyState]&&(c.progress=c.states[document.readyState]),"function"==typeof a?a.apply(null,arguments):void 0}}return a.prototype.states={loading:0,interactive:50,complete:100},a}(),f=function(){function a(){var a,b,c,d,e,f=this;this.progress=0,a=0,e=[],d=0,c=C(),b=setInterval(function(){var g;return g=C()-c-50,c=C(),e.push(g),e.length>D.eventLag.sampleCount&&e.shift(),a=q(e),++d>=D.eventLag.minSamples&&a<D.eventLag.lagThreshold?(f.progress=100,clearInterval(b)):f.progress=100*(3/(a+3))},50)}return a}(),m=function(){function a(a){this.source=a,this.last=this.sinceLastUpdate=0,this.rate=D.initialRate,this.catchup=0,this.progress=this.lastProgress=0,null!=this.source&&(this.progress=F(this.source,"progress"))}return a.prototype.tick=function(a,b){var c;return null==b&&(b=F(this.source,"progress")),b>=100&&(this.done=!0),b===this.last?this.sinceLastUpdate+=a:(this.sinceLastUpdate&&(this.rate=(b-this.last)/this.sinceLastUpdate),this.catchup=(b-this.progress)/D.catchupTime,this.sinceLastUpdate=0,this.last=b),b>this.progress&&(this.progress+=this.catchup*a),c=1-Math.pow(this.progress/100,D.easeFactor),this.progress+=c*this.rate*a,this.progress=Math.min(this.lastProgress+D.maxProgressPerFrame,this.progress),this.progress=Math.max(0,this.progress),this.progress=Math.min(100,this.progress),this.lastProgress=this.progress,this.progress},a}(),L=null,H=null,r=null,M=null,p=null,s=null,j.running=!1,z=function(){return D.restartOnPushState?j.restart():void 0},null!=window.history.pushState&&(T=window.history.pushState,window.history.pushState=function(){return z(),T.apply(window.history,arguments)}),null!=window.history.replaceState&&(W=window.history.replaceState,window.history.replaceState=function(){return z(),W.apply(window.history,arguments)}),l={ajax:a,elements:d,document:c,eventLag:f},(B=function(){var a,c,d,e,f,g,h,i;for(j.sources=L=[],g=["ajax","elements","document","eventLag"],c=0,e=g.length;e>c;c++)a=g[c],D[a]!==!1&&L.push(new l[a](D[a]));for(i=null!=(h=D.extraSources)?h:[],d=0,f=i.length;f>d;d++)K=i[d],L.push(new K(D));return j.bar=r=new b,H=[],M=new m})(),j.stop=function(){return j.trigger("stop"),j.running=!1,r.destroy(),s=!0,null!=p&&("function"==typeof t&&t(p),p=null),B()},j.restart=function(){return j.trigger("restart"),j.stop(),j.start()},j.go=function(){var a;return j.running=!0,r.render(),a=C(),s=!1,p=G(function(b,c){var d,e,f,g,h,i,k,l,n,o,p,q,t,u,v,w;for(l=100-r.progress,e=p=0,f=!0,i=q=0,u=L.length;u>q;i=++q)for(K=L[i],o=null!=H[i]?H[i]:H[i]=[],h=null!=(w=K.elements)?w:[K],k=t=0,v=h.length;v>t;k=++t)g=h[k],n=null!=o[k]?o[k]:o[k]=new m(g),f&=n.done,n.done||(e++,p+=n.tick(b));return d=p/e,r.update(M.tick(b,d)),r.done()||f||s?(r.update(100),j.trigger("done"),setTimeout(function(){return r.finish(),j.running=!1,j.trigger("hide")},Math.max(D.ghostTime,Math.max(D.minTime-(C()-a),0)))):c()})},j.start=function(a){v(D,a),j.running=!0;try{r.render()}catch(b){i=b}return document.querySelector(".pace")?(j.trigger("start"),j.go()):setTimeout(j.start,50)},"function"==typeof define&&define.amd?define(["pace"],function(){return j}):"object"==typeof exports?module.exports=j:D.startOnPageLoad&&j.start()}).call(this);
+
+// http://spin.js.org/#v2.3.2
+!function(a,b){"object"==typeof module&&module.exports?module.exports=b():"function"==typeof define&&define.amd?define(b):a.Spinner=b()}(this,function(){"use strict";function a(a,b){var c,d=document.createElement(a||"div");for(c in b)d[c]=b[c];return d}function b(a){for(var b=1,c=arguments.length;c>b;b++)a.appendChild(arguments[b]);return a}function c(a,b,c,d){var e=["opacity",b,~~(100*a),c,d].join("-"),f=.01+c/d*100,g=Math.max(1-(1-a)/b*(100-f),a),h=j.substring(0,j.indexOf("Animation")).toLowerCase(),i=h&&"-"+h+"-"||"";return m[e]||(k.insertRule("@"+i+"keyframes "+e+"{0%{opacity:"+g+"}"+f+"%{opacity:"+a+"}"+(f+.01)+"%{opacity:1}"+(f+b)%100+"%{opacity:"+a+"}100%{opacity:"+g+"}}",k.cssRules.length),m[e]=1),e}function d(a,b){var c,d,e=a.style;if(b=b.charAt(0).toUpperCase()+b.slice(1),void 0!==e[b])return b;for(d=0;d<l.length;d++)if(c=l[d]+b,void 0!==e[c])return c}function e(a,b){for(var c in b)a.style[d(a,c)||c]=b[c];return a}function f(a){for(var b=1;b<arguments.length;b++){var c=arguments[b];for(var d in c)void 0===a[d]&&(a[d]=c[d])}return a}function g(a,b){return"string"==typeof a?a:a[b%a.length]}function h(a){this.opts=f(a||{},h.defaults,n)}function i(){function c(b,c){return a("<"+b+' xmlns="urn:schemas-microsoft.com:vml" class="spin-vml">',c)}k.addRule(".spin-vml","behavior:url(#default#VML)"),h.prototype.lines=function(a,d){function f(){return e(c("group",{coordsize:k+" "+k,coordorigin:-j+" "+-j}),{width:k,height:k})}function h(a,h,i){b(m,b(e(f(),{rotation:360/d.lines*a+"deg",left:~~h}),b(e(c("roundrect",{arcsize:d.corners}),{width:j,height:d.scale*d.width,left:d.scale*d.radius,top:-d.scale*d.width>>1,filter:i}),c("fill",{color:g(d.color,a),opacity:d.opacity}),c("stroke",{opacity:0}))))}var i,j=d.scale*(d.length+d.width),k=2*d.scale*j,l=-(d.width+d.length)*d.scale*2+"px",m=e(f(),{position:"absolute",top:l,left:l});if(d.shadow)for(i=1;i<=d.lines;i++)h(i,-2,"progid:DXImageTransform.Microsoft.Blur(pixelradius=2,makeshadow=1,shadowopacity=.3)");for(i=1;i<=d.lines;i++)h(i);return b(a,m)},h.prototype.opacity=function(a,b,c,d){var e=a.firstChild;d=d.shadow&&d.lines||0,e&&b+d<e.childNodes.length&&(e=e.childNodes[b+d],e=e&&e.firstChild,e=e&&e.firstChild,e&&(e.opacity=c))}}var j,k,l=["webkit","Moz","ms","O"],m={},n={lines:12,length:7,width:5,radius:10,scale:1,corners:1,color:"#000",opacity:.25,rotate:0,direction:1,speed:1,trail:100,fps:20,zIndex:2e9,className:"spinner",top:"50%",left:"50%",shadow:!1,hwaccel:!1,position:"absolute"};if(h.defaults={},f(h.prototype,{spin:function(b){this.stop();var c=this,d=c.opts,f=c.el=a(null,{className:d.className});if(e(f,{position:d.position,width:0,zIndex:d.zIndex,left:d.left,top:d.top}),b&&b.insertBefore(f,b.firstChild||null),f.setAttribute("role","progressbar"),c.lines(f,c.opts),!j){var g,h=0,i=(d.lines-1)*(1-d.direction)/2,k=d.fps,l=k/d.speed,m=(1-d.opacity)/(l*d.trail/100),n=l/d.lines;!function o(){h++;for(var a=0;a<d.lines;a++)g=Math.max(1-(h+(d.lines-a)*n)%l*m,d.opacity),c.opacity(f,a*d.direction+i,g,d);c.timeout=c.el&&setTimeout(o,~~(1e3/k))}()}return c},stop:function(){var a=this.el;return a&&(clearTimeout(this.timeout),a.parentNode&&a.parentNode.removeChild(a),this.el=void 0),this},lines:function(d,f){function h(b,c){return e(a(),{position:"absolute",width:f.scale*(f.length+f.width)+"px",height:f.scale*f.width+"px",background:b,boxShadow:c,transformOrigin:"left",transform:"rotate("+~~(360/f.lines*k+f.rotate)+"deg) translate("+f.scale*f.radius+"px,0)",borderRadius:(f.corners*f.scale*f.width>>1)+"px"})}for(var i,k=0,l=(f.lines-1)*(1-f.direction)/2;k<f.lines;k++)i=e(a(),{position:"absolute",top:1+~(f.scale*f.width/2)+"px",transform:f.hwaccel?"translate3d(0,0,0)":"",opacity:f.opacity,animation:j&&c(f.opacity,f.trail,l+k*f.direction,f.lines)+" "+1/f.speed+"s linear infinite"}),f.shadow&&b(i,e(h("#000","0 0 4px #000"),{top:"2px"})),b(d,b(i,h(g(f.color,k),"0 0 1px rgba(0,0,0,.1)")));return d},opacity:function(a,b,c){b<a.childNodes.length&&(a.childNodes[b].style.opacity=c)}}),"undefined"!=typeof document){k=function(){var c=a("style",{type:"text/css"});return b(document.getElementsByTagName("head")[0],c),c.sheet||c.styleSheet}();var o=e(a("group"),{behavior:"url(#default#VML)"});!d(o,"transform")&&o.adj?i():j=d(o,"animation")}return h});
+    </script>
+        <style>
+          
+          
+          @media only screen and (min-width: 768px) {
+            .pace {
+              -webkit-pointer-events: none;
+              pointer-events: none;
+              -webkit-user-select: none;
+              -moz-user-select: none;
+              user-select: none;
+              z-index: 11000;
+              position: fixed;
+              #margin: auto;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              height: 4px;
+              width: 100%;
+              overflow: hidden;
+            }
+
+            .pace .pace-progress {
+              -webkit-box-sizing: border-box;
+              -moz-box-sizing: border-box;
+              -ms-box-sizing: border-box;
+              -o-box-sizing: border-box;
+              box-sizing: border-box;
+              -webkit-transform: translate3d(0, 0, 0);
+              -moz-transform: translate3d(0, 0, 0);
+              -ms-transform: translate3d(0, 0, 0);
+              -o-transform: translate3d(0, 0, 0);
+              transform: translate3d(0, 0, 0);
+              max-width: 100%;
+              position: fixed;
+              z-index: 12000;
+              display: block;
+              position: absolute;
+              top: 0;
+              right: 100%;
+              height: 100%;
+              width: 100%;
+              background: #0099da;
+              float:left;
+            }
+            .pace-inactive {display: none;}
+            .pace-activity {
+              width:100%;
+              float:left;
+              background-color: #1d1f20;
+              opacity: 0.3;
+              filter: alpha(opacity=30); /* For IE8 and earlier */
+              height: 100%;
+              width: 100%;
+            }
+          }
+          /* NGW-1715: diable page loader progress bar for iPad */
+          @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation:portrait) {
+            .pace { display: none; }
+          }
+          @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation:landscape) {
+            .pace { display: none; }
+          }
+
+          .spin-overlay {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            /* display: none; */
+          }
+        </style>
+    <script>
+    /*! NGW-1112: Prepare spinner container  */
+function insertAfter(newNode, referenceNode) {
+  referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
+}
+function stopSpinner(Spinner, i) {
+  setTimeout(function() {
+    Spinner.stop();
+    // remove spinner container after end of animation
+    try{
+    	document.getElementById("overlay-id-" + i).remove();
+    }
+    catch (e){
+    }
+  }, 500);
+}
+function startSpinner() {
+  var opts = {
+    lines: 8, // The number of lines to draw
+    length: 1, // The length of each line
+    width: 10, // The line thickness
+    radius: 15, // The radius of the inner circle
+    scale: 1.2, // The scale
+    corners: 0.8, // The corners
+    opacity: 0.2, // Opacity
+    rotate: 0,
+    color: "#0099da", // #rbg or #rrggbb
+    speed: 1, // Rounds per second
+    trail: 66, // Afterglow percentage
+    shadow: false // Whether to render a shadow
+  };
+  var integrator = document.getElementsByClassName("vw_f1_integrator");
+  if(integrator.length === 0) {
+    var images = document.getElementsByTagName("img");
+    var $overlay_class = "spin-overlay";
+    var i=0;
+    for (i = 0; i < images.length; i++) {
+      // NGW-2952, NGW-2953: activate spinner also for responsive images
+      if ((Math.max(images[i].width, images[i].height) > 60) || (images[i].getAttribute("data-resp-src") != null)) {
+        var el = document.createElement("div");
+        el.className = $overlay_class;
+        images[i].setAttribute("data-id-overlay", i);
+        el.setAttribute("data-id-overlay", i);
+        el.setAttribute("id", "overlay-id-" + i);
+        //el.setAttribute("height", images[i].height + "px");
+        //el.setAttribute("width", images[i].width + "px");
+        insertAfter(el, images[i]);
+        var spinner = new Spinner(opts).spin(el);
+        //spinner.el = el;
+        if (images[i].complete) {
+            stopSpinner(spinner, i);
+        } else {
+          images[i].addEventListener("load", stopSpinner(spinner, i));
+          images[i].addEventListener("error", stopSpinner(spinner, i));
+        }
+      }
+    }
+  }
+}
+
+//document.addEventListener("load", startSpinner, false);
+//document.addEventListener("DOMContentLoaded", startSpinner, false);
+</script>
+    
+    <script type="text/javascript" src="//nexus.ensighten.com/smartdigital/ngw_au/Bootstrap.js"></script>
+        
+    
+
+
+    
+    
+
+
+
+<title>Privacy Policy</title>
+
+
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+	<meta name="robots" content="noodp,noydir"/>
+	<meta name="robots" content="noindex, follow"/>
+	<meta name="description" content="Click here to view our complete privacy policy.">
+	<meta name="keywords"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+	<meta name="title" content="Privacy Policy"/>
+	
+	
+	
+	
+	
+
+	
+	<meta name="apple-mobile-web-app-capable" content="yes"/>
+	<meta name="apple-touch-fullscreen" content="yes"/>
+
+	
+
+	<meta property="og:title" content="Privacy Policy"/>
+	<meta property="og:description" content="Click here to view our complete privacy policy."/>
+	<meta property="og:image" content="https://www.volkswagen.com.au/content/dam/vw-ngw/vw_pkw/importers/au/logos/Logo_Original.png"/>
+	<meta property="og:type" content="website"/>
+	<meta property="og:url" content="https://www.volkswagen.com.au/content/vw_pkw/importers/au/en/privacy-policy.html"/>
+
+	
+
+	<meta property="twitter:card" content="summary"/>
+	
+	<meta property="twitter:title" content="Privacy Policy"/>
+	<meta property="twitter:description" content="Click here to view our complete privacy policy."/>
+	<meta property="twitter:image" content="https://www.volkswagen.com.au/content/dam/vw-ngw/vw_pkw/importers/au/logos/Logo_Original.png"/>
+
+
+
+<script>
+(function () {
+  // JS detection
+  var node;
+  if (document.getElementsByTagName) {
+    node = document.getElementsByTagName("html")[0];
+    node.className = node.className.replace(/no-js/, "");
+  }
+
+  // Base64 decode
+  window.atob || (window.atob=function(r){var e=e="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";var o=String(r).replace(/=+$/,"");if(o.length%4==1)throw new t("'atob' failed: The string to be decoded is not correctly encoded.");for(var n,a,i=0,c=0,d="";a=o.charAt(c++);~a&&(n=i%4?64*n+a:a,i++%4)?d+=String.fromCharCode(255&n>>(-2*i&6)):0)a=e.indexOf(a);return d});
+
+  // Power layer detection
+  var powerLayerParams = (function (loc) {
+    var regex = /powerLayer=.*/;
+    var hash = loc.hash.match(regex);
+    var selector = loc.href.match(/(share-)([^\/\.]*)=/);
+    if (hash && hash[0]) {
+      return hash[0];
+    } else if (selector && selector[2]) {
+      hash = window.atob(selector[2]);
+      if (regex.test(hash)) {
+        return hash;
+      }
+    }
+  }(window.location));
+  if (powerLayerParams) {
+    document.documentElement.setAttribute("data-power-layer", powerLayerParams);
+  }
+}());
+</script>
+
+<link rel="shortcut icon" href="/etc/clientlibs/vw-ngw/ngw.base.apps/resources/img/favicon.ico">
+
+
+
+    
+<link rel="stylesheet" href="/etc/clientlibs/vw-ngw/ngw.base.apps.min.css" type="text/css">
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+	
+    
+
+
+
+	<meta name="language" content="en_AU"/>
+	
+	<meta name="snippet" content="&lt;h1>Privacy Policy.&lt;/h1>"/>
+	
+	<meta name="VW.gsaTitle" content="Privacy Policy"/>
+	<meta name="VW.breadcrumb" content="en;/content/vw_pkw/importers/au/en.html"/>
+	
+
+
+  </head>
+  <body>
+
+    <div id="vw_page">
+
+      
+      <header id="vw_page_header">
+
+  
+
+<nav id="vw_m502">
+
+  <ul class="vw_m502_sections">
+
+    
+    
+    <li>
+      <div class="vw_m502_btn_icon">
+  <a id="vw_m501_logo" class="vw_logo_m1" href="https://www.volkswagen.com.au/en.html" title="Volkswagen Homepage">
+    <img id="vw_m501_logo_img" src="/content/dam/vw-ngw/vw_pkw/importers/au/logos/Logo_Original.png" alt="Volkswagen Logo" data-logo-src="{
+  &#34;s&#34;:&#34;/content/dam/vw-ngw/vw_pkw/importers/au/logos/mobile_logo.jpg&#34;,
+  &#34;l&#34;:&#34;/content/dam/vw-ngw/vw_pkw/importers/au/logos/Logo_Original.png&#34;
+}"/>
+    
+  </a>
+  
+  <script>
+      document.getElementById('vw_m501_logo_img').setAttribute('src','');
+  </script>
+</div>
+    </li>
+
+    
+    
+      
+      <li class="vw_m502_btn hidden">
+        <div class="vw_m502_btn_icon">
+          <a href="https://www.volkswagen.com.au/en/models.html">
+            
+            
+            
+            <div class="vw_m502_icon_wrapper">                  
+           		<svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 50 30" enable-background="new 0 0 50 30" xml:space="preserve" class="vw_m502_icon">
+<g>
+	<path d="M43.2,15.2v-2.2c0,0-0.3-1-1.7-2.5c-0.8-0.9-1.3-1.2-1.3-1.2L40.6,9l0-0.2c0,0-5.1-1.1-12.5-0.9
+		c-7.5,0.2-11.5,3.9-11.5,3.9s-5.8,0.5-8.5,1.8c-1.1,0.6-1.5,2.5-1.5,2.5l-0.4,0.7v2.6c0,0,1.1,0.8,3.8,0.8c0.1,0,0.2,0,0.3,0
+		c0.4,1.1,1.4,2,2.7,2c1.3,0,2.3-0.8,2.7-2c5.6,0,13.9,0,19.5,0c0.4,1.1,1.4,1.9,2.7,1.9c1.3,0,2.3-0.8,2.7-1.9c0.3,0,0.5,0,0.5,0
+		s2.8-0.3,2.8-1.8c0-1.5,0-2.1,0-2.1L43.2,15.2z"/>
+</g>
+</svg>
+   
+         	</div>
+            
+            
+            <span class="vw_m502_link_label">
+            	
+				Models
+            </span>
+          </a>
+        </div>
+      </li>
+    
+      
+      <li class="vw_m502_btn hidden">
+        <div class="vw_m502_btn_icon">
+          <a href="https://www.volkswagen.com.au/app/configurator/vw-au/en">
+            
+            
+            
+            <div class="vw_m502_icon_wrapper">                  
+           		<svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 50 30" enable-background="new 0 0 50 30" xml:space="preserve" class="vw_m502_icon">
+<path d="M36.3,13.7c-0.3-1-0.4-1.6-0.7-2.6l1.7-3.8c-1.2-1.4-1.3-1.6-2.5-3l-4.1,1.1c-0.9-0.4-1.6-0.7-2.5-1.1l-1.9-3.8
+	c-1.8,0.1-2.1,0.1-3.9,0.1l-1.6,3.9c-0.9,0.5-1.5,0.8-2.4,1.2l-4.1-0.9C13.2,6.3,13.1,6.5,12,8l2,3.7c-0.2,1-0.3,1.7-0.5,2.7
+	l-3.2,2.7c0.5,1.8,0.5,2,1,3.8l4.1,0.8c0.7,0.8,1.1,1.3,1.8,2.1l0.1,4.2c1.7,0.7,1.9,0.8,3.6,1.6l3.2-2.8c1,0,1.7,0,2.7-0.1l3.4,2.6
+	c1.6-0.8,1.8-1,3.4-1.8l-0.2-4.2c0.6-0.8,1-1.4,1.6-2.2l4.1-1c0.3-1.8,0.4-2,0.7-3.8L36.3,13.7z M25,21.9c-3.8,0-6.9-3.1-6.9-6.9
+	c0-3.8,3.1-6.9,6.9-6.9c3.8,0,6.9,3.1,6.9,6.9C31.9,18.8,28.8,21.9,25,21.9z"/>
+</svg>
+   
+         	</div>
+            
+            
+            <span class="vw_m502_link_label">
+            	
+				Configure
+            </span>
+          </a>
+        </div>
+      </li>
+    
+      
+      <li class="vw_m502_btn hidden">
+        <div class="vw_m502_btn_icon">
+          <a href="https://au.volkswagen.com.au/offers-pricing">
+            
+            
+            
+            <div class="vw_m502_icon_wrapper">                  
+           		<svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 50 30" enable-background="new 0 0 50 30" xml:space="preserve" class="vw_m502_icon">
+<path d="M37.5,3.5l-0.9-0.9c-0.2-0.2-0.5-0.3-0.7-0.3l-9.1,1L12.5,17.5c-0.3,0.3-0.3,0.8,0,1l9,9c0.3,0.3,0.8,0.3,1,0l14.2-14.2
+	l1-9.1C37.8,3.9,37.7,3.6,37.5,3.5z M17.3,19.2l9.4-9.4l1,1l-9.4,9.4L17.3,19.2z M20.9,22.8l-1-1l7.3-7.3l1,1L20.9,22.8z M32.9,8.6
+	c-0.8,0-1.5-0.7-1.5-1.5c0-0.8,0.7-1.5,1.5-1.5c0.8,0,1.5,0.7,1.5,1.5C34.4,8,33.7,8.6,32.9,8.6z"/>
+</svg>
+   
+         	</div>
+            
+            
+            <span class="vw_m502_link_label">
+            	
+				Pricing
+            </span>
+          </a>
+        </div>
+      </li>
+    
+      
+      <li class="vw_m502_btn hidden">
+        <div class="vw_m502_btn_icon">
+          <a href="https://www.volkswagen.com.au/en/owners.html">
+            
+            
+            
+            <div class="vw_m502_icon_wrapper">                  
+           		<svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 50 30" enable-background="new 0 0 50 30" xml:space="preserve" class="vw_m502_icon">
+<path d="M34.5,6.6c0.1-0.4,0.1-0.7,0.1-1.1c0-3-2.4-5.4-5.4-5.4c-2.6,0-4.8,1.9-5.3,4.3c-1.2,0.2-2.2,1.2-3.4,3.1
+	c-1.9,3-2,4.6,0.1,6.4l-6.4,10.9l0.4,1.6l1.3-0.3l0.6-0.9l1.1-0.6l0-1.2l1.4-0.4l0-1.3l1.4-0.4l0-1.2l1.1-0.6l0-1.2l1.4-0.4l1.3-1.7
+	c2.3,0.9,3.6,0.1,5.5-2.8C32,9.5,31.6,8,28,5.7c-1-0.6-1.8-1-2.6-1.3c0.4-1.7,2-3,3.8-3c2.2,0,3.9,1.8,3.9,3.9c0,0.2,0,0.3,0,0.5
+	c-0.6-0.2-1.4-0.3-2.3-0.3c0.9,0.8,1.7,1.8,2,3c0.4,1.9-0.5,3.8-1.6,5.5c-0.8,1.3-1.7,2.5-2.9,3.2l0,11.5l1.1,1.1l0.9-0.9l0.1-1.1
+	l0.6-1.1l-0.6-1l1-1.1l-0.6-1.1l1-1l-0.6-1.1l0.6-1l-0.6-1.1l1-1.1l0.2-2.1c2.4-0.3,3.2-1.7,3.3-5.1C35.8,8.8,35.5,7.4,34.5,6.6z
+	 M27.3,8.5c0.2,0.8-0.3,1.7-1.1,1.9c-0.8,0.2-1.7-0.3-1.9-1.1c-0.1-0.4,0-0.9,0.2-1.2c0.3,0.5,0.6,0.9,1,1.3
+	c0.1,0.1,0.3,0.2,0.5,0.2c0.2,0,0.4-0.1,0.5-0.2c0.3-0.3,0.3-0.8,0-1.1C26.3,8,26,7.7,25.8,7.4C26.5,7.4,27.1,7.9,27.3,8.5z"/>
+</svg>
+   
+         	</div>
+            
+            
+            <span class="vw_m502_link_label">
+            	
+				Owners
+            </span>
+          </a>
+        </div>
+      </li>
+    
+      
+      <li class="vw_m502_btn hidden">
+        <div class="vw_m502_btn_icon">
+          <a href="https://www.volkswagen.com.au/en/about.html">
+            
+            
+            
+            <div class="vw_m502_icon_wrapper">                  
+           		<svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 30 30" enable-background="new 0 0 30 30" xml:space="preserve" class="vw_m502_icon">
+<g>
+	<g>
+		<path d="M16.7,21.3v-8.7c0-0.2-0.2-0.4-0.4-0.4h-4.2c-0.2,0-0.4,0.2-0.4,0.4L12,15h1.3v6.3H12c-0.2,0-0.4,0.2-0.4,0.4v1.9
+			c0,0.2,0.2,0.4,0.4,0.4h6c0.2,0,0.4-0.2,0.4-0.4v-1.9c0-0.2-0.2-0.4-0.4-0.4H16.7z"/>
+	</g>
+	<circle cx="14.7" cy="8.4" r="2.4"/>
+</g>
+</svg>
+   
+         	</div>
+            
+            
+            <span class="vw_m502_link_label">
+            	
+				About
+            </span>
+          </a>
+        </div>
+      </li>
+    
+      
+      <li class="vw_m502_btn hidden">
+        <div class="vw_m502_btn_icon">
+          <a href="https://www.volkswagen.com.au/en/ways-to-buy.html">
+            
+            
+            
+            <div class="vw_m502_icon_wrapper">                  
+           		<svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 80 80" enable-background="new 0 0 80 80" xml:space="preserve" class="vw_m502_icon">
+<path d="M58.9,7.8H21.1c-1.9,0-3.4,1.5-3.4,3.4v57.7c0,1.9,1.5,3.4,3.4,3.4h37.7c1.9,0,3.4-1.5,3.4-3.4V11.2
+	C62.2,9.3,60.7,7.8,58.9,7.8z M24.5,14.5h31v14.9h-31V14.5z M32.8,67h-8.4v-8.3h8.4V67z M32.8,55.9h-8.4v-8.3h8.4V55.9z M32.8,44.7
+	h-8.4v-8.3h8.4V44.7z M44.2,67h-8.4v-8.3h8.4V67z M44.2,55.9h-8.4v-8.3h8.4V55.9z M44.2,44.7h-8.4v-8.3h8.4V44.7z M55.6,67h-8.4
+	v-8.3h8.4V67z M55.6,55.9h-8.4v-8.3h8.4V55.9z M55.6,44.7h-8.4v-8.3h8.4V44.7z"/>
+</svg>
+   
+         	</div>
+            
+            
+            <span class="vw_m502_link_label">
+            	
+				Ways to buy
+            </span>
+          </a>
+        </div>
+      </li>
+    
+      
+      <li class="vw_m502_btn hidden">
+        <div class="vw_m502_btn_icon">
+          <a href="http://used.volkswagen.com.au/">
+            
+            
+            
+            <div class="vw_m502_icon_wrapper">                  
+           		<svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 50 30" enable-background="new 0 0 50 30" xml:space="preserve" class="vw_m502_icon">
+<g>
+	<path d="M40,22.6v-1.8c0,0-0.3-0.8-1.4-2c-0.7-0.7-1-1-1-1l0.3-0.3l0-0.2c0,0-4.2-0.9-10.4-0.8c-6.2,0.1-9.5,3.3-9.5,3.3
+		s-4.8,0.4-7,1.5c-0.9,0.5-1.3,2.1-1.3,2.1L9.4,24v2.1c0,0,0.9,0.6,3.2,0.6c0.1,0,0.1,0,0.2,0c0.3,0.9,1.2,1.6,2.2,1.6
+		c1,0,1.9-0.7,2.2-1.6c4.6,0,11.5,0,16.1,0c0.3,0.9,1.2,1.6,2.2,1.6c1,0,1.9-0.7,2.2-1.6c0.3,0,0.4,0,0.4,0s2.3-0.2,2.3-1.5
+		c0-1.3,0-1.8,0-1.8L40,22.6z"/>
+	<path d="M23,15.5l2.4-2.4c0.9,0.5,2,0.8,3.1,0.8c1.6,0,3.2-0.6,4.3-1.8c1.2-1.2,1.8-2.7,1.8-4.4c0-1.6-0.7-3.2-1.8-4.4
+		c-1.2-1.2-2.7-1.8-4.4-1.8c-1.6,0-3.2,0.6-4.3,1.8c-1.2,1.2-1.8,2.7-1.8,4.4c0,1.1,0.3,2.1,0.8,3l-5.1,5.1c-0.5,0.5-0.5,1.3,0,1.9
+		C19.1,17,20.7,16.1,23,15.5z M25.9,5.2c0.7-0.7,1.6-1.1,2.5-1.1c1,0,1.9,0.4,2.6,1.1c0.7,0.7,1.1,1.6,1.1,2.6c0,1-0.4,1.9-1.1,2.6
+		c-0.7,0.7-1.6,1.1-2.5,1.1c-1,0-1.9-0.4-2.6-1.1c-0.7-0.7-1.1-1.6-1.1-2.6C24.8,6.7,25.2,5.8,25.9,5.2z"/>
+</g>
+</svg>
+   
+         	</div>
+            
+            
+            <span class="vw_m502_link_label">
+            	
+				Used Vehicles
+            </span>
+          </a>
+        </div>
+      </li>
+    
+     
+  </ul>
+
+  
+  <div class="hidden vw_m502_repository">
+    <svg role="presentation" class="vw_m502_icon_search"><use xlink:href="#icon-quickaccess-search"></use></svg>
+    <svg role="presentation" class="vw_m502_icon_more"><use xlink:href="#icon-navigation-more"></use></svg>
+    <svg role="presentation" class="vw_m502_icon_burger"><use xlink:href="#icon-navigation-menu"></use></svg>
+    <svg role="presentation" class="vw_m502_icon_close"><use xlink:href="#icon-navigation-close"></use></svg>
+  </div>
+
+  
+  
+  
+
+</nav>
+<a id="vw-back-to-top" href="#vw_page"> 
+	<div>
+		<svg role="presentation">
+			<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-link-back-to-top"></use>
+		</svg>		
+	</div>
+</a>
+<div class="vw_m502_build_version_info" unselectable="on" onselectstart="return false;" onmousedown="return false;">1.3.0.7_0, 2016-11-14 16:21:24</div>
+  <div>
+
+
+
+
+    <div class="vw_no_height">
+
+
+
+<nav class="vw_m502_quick_access container-fluid vw_m502_quick_access__stage   vw_m502_quick_access__inverted ">
+	
+				
+			    <div class="vw_m502_quick_access_row">
+			        <div class="vw_m502_icon_quick_access">
+			            <a href="https://au.volkswagen.com.au/find-dealer">
+			                
+			                
+			                
+			                
+			                    
+			                    <svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 30 30" enable-background="new 0 0 30 30" xml:space="preserve" class="vw_m502_icon">
+<g>
+	<path d="M15.1,12.3c1.8,0,2.9-1.1,2.9-2.9c0-1.8-0.8-3.3-2.9-3.3c-2.2,0-2.9,1.5-2.9,3.3C12.2,11.1,13.3,12.3,15.1,12.3z"/>
+	<path d="M21.3,20.1c0-4.7-1-6.5-4.2-6.9c-0.5,0.4-1.2,0.6-2,0.6c-0.8,0-1.5-0.2-2-0.6c-3.4,0.4-4.4,2.1-4.4,6.9c0,0.2,0,0.3,0,0.5
+		v0.3v2c0,0.3,0.2,0.5,0.4,0.5c0,0,1.4,0.6,6,0.6c4.6,0,5.9-0.6,5.9-0.6c0.2,0,0.4-0.2,0.4-0.5v-2c0-0.3,0-0.4,0-0.4
+		C21.3,20.4,21.3,20.2,21.3,20.1z M15.2,21.2c-0.1,0.1-0.3,0.1-0.4,0l-1-1.1l0.9-5.3H15h0.3l0.9,5.3L15.2,21.2z"/>
+</g>
+</svg>
+
+			                
+			                
+			                <div class="vw_m502_link_label">
+			                    
+			                    Find a Dealer
+			                </div>
+			            </a>
+			        </div>
+			
+			
+			    
+			        <div class="vw_m502_icon_quick_access">
+			            <a href="https://au.volkswagen.com.au/request/download-brochure">
+			                
+			                
+			                
+			                
+			                    
+			                    <svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 30 30" enable-background="new 0 0 30 30" xml:space="preserve" class="vw_m502_icon">
+<path d="M23.2,6.1c-0.3-0.2-0.7-0.2-1,0c0,0-2,1.2-3.7,1.9c-1.4,0.5-3,0.9-3.5,1c-0.5-0.1-2.1-0.5-3.5-1C9.8,7.4,7.8,6.2,7.8,6.1
+	C7.5,6,7.1,6,6.8,6.1C6.5,6.3,6.3,6.6,6.3,7v13c0,0.3,0.2,0.7,0.5,0.8c0.1,0.1,2.1,1.3,4,2.1c1.9,0.8,3.9,1.1,4,1.1l0,0
+	c0.1,0,0.1,0,0.2,0c0.1,0,0.1,0,0.2,0c0.1,0,2.1-0.4,4-1.1c1.9-0.8,3.9-2,4-2.1c0.3-0.2,0.5-0.5,0.5-0.8V7
+	C23.7,6.6,23.5,6.3,23.2,6.1z M8.3,19.4V8.7C9,9.1,9.9,9.5,10.8,9.9c1.2,0.5,2.4,0.8,3.2,1v10.9c-0.7-0.2-1.6-0.4-2.5-0.8
+	C10.3,20.5,9,19.8,8.3,19.4z M21.7,19.4c-0.7,0.4-2,1.1-3.2,1.6c-0.9,0.3-1.8,0.6-2.5,0.8V10.9c0.8-0.2,2.1-0.5,3.2-1
+	c0.9-0.3,1.8-0.8,2.5-1.2V19.4z"/>
+</svg>
+
+			                
+			                
+			                <div class="vw_m502_link_label">
+			                    
+			                    Brochures
+			                </div>
+			            </a>
+			        </div>
+			
+			
+			    
+			        <div class="vw_m502_icon_quick_access">
+			            <a href="https://au.volkswagen.com.au/request/test-drive">
+			                
+			                
+			                
+			                
+			                    
+			                    <svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 30 30" enable-background="new 0 0 30 30" xml:space="preserve" class="vw_m502_icon">
+<g>
+	<path d="M15,6.1c-5,0-9,4-9,8.9s4,8.9,9,8.9c5,0,9-4,9-8.9S20,6.1,15,6.1z M8.3,16.7c-0.1-0.3,0.1-0.6,0.5-0.6c1.2-0.1,3,0,3.8,1
+		c0.9,1.1,1.1,2.9,1.1,4c0,0.3-0.3,0.6-0.6,0.5C10.7,20.9,8.9,19.1,8.3,16.7z M17.2,17.1c0.9-1,2.8-1.1,4-1c0.3,0,0.5,0.3,0.5,0.6
+		c-0.6,2.4-2.5,4.3-4.9,4.9c-0.3,0.1-0.6-0.2-0.6-0.5C16.2,20.1,16.3,18.2,17.2,17.1z M15,8.1c2.9,0,5.3,1.7,6.4,4.2
+		c0.1,0.3-0.1,0.7-0.5,0.6c-1.5-0.2-3.6-0.4-6.1-0.4c-2.4,0-4.4,0.2-5.7,0.4c-0.4,0-0.6-0.3-0.5-0.6C9.7,9.8,12.1,8.1,15,8.1z"/>
+</g>
+</svg>
+
+			                
+			                
+			                <div class="vw_m502_link_label">
+			                    
+			                    Test Drive
+			                </div>
+			            </a>
+			        </div>
+			
+			
+			    </div>
+			
+			    
+    
+
+    <div class="row">
+        
+    </div>
+
+</nav>
+
+    </div>
+
+</div>
+
+</header>
+
+
+      
+      <div></div>
+
+
+      
+      
+
+
+<div id="vw_content" class="container-fluid">
+  <div>
+
+
+<section class="vw_m310_editorial_stage row  " data-contentId="147606117177295756">
+  
+  
+
+  <div class="vw_m310_editorial_stage_bg">
+	  
+	  
+	  
+	  
+	  <div class="vw_m310_editorial_stage_lines container-fluid">
+	    <div class="row">
+        <div class="col-xs-12">
+          
+          <h1 class="vw_m310_editorial_stage_headline ">
+          	
+		  	 
+          </h1>
+        </div>
+	    </div>
+	  </div>
+	</div>  
+
+	
+	<div class="vw_m690_disclaimer_image "></div>
+	  
+	
+	
+</section></div>
+  <div>
+
+
+</div>
+
+  
+  <div class="vw_bg_begin_white">
+    
+
+
+  
+  
+  
+  <div class="container-fluid vw_background vw_m101_container">
+    
+    <section class="vw_m101_copy row vw_refresh vw_m102_copy_2col " data-contentId="147606113761380530">
+
+      
+      <div class="col-xs-12 col-sm-10 ">
+        <h2 class="vw_m021_head_2 vw_m101_head_2_left">
+        	
+        	Privacy Policy. 
+        </h2>
+      </div>
+
+      
+    <div class=" vw_m102_copy_container col-xs-12 col-sm-11">
+      <div class="vw_m025_richtext vw_m022_copy_b1">
+      	  
+          <p><strong>Protecting Your Privacy </strong></p>
+
+<p>This Policy sets out how Volkswagen collects, stores, uses and discloses personal information in accordance with the Australian Privacy Principles (&quot;Principles&quot;) contained in the Privacy Act 1988. </p>
+
+<p>The Principles govern the use of &quot;personal information&quot;, which is information or an opinion about an identified individual or an individual who is reasonable identifiable. It need not matter that the information is correct or not or whether it is recorded in a material form or not. </p>
+
+<p>This privacy policy describes the information that the Privacy Act requires us to communicate to all of our customers. We hope it helps you understand how we handle your personal information and deliver the protection that the Privacy Act affords. Please keep it for future reference.</p>
+
+<p><strong>Volkswagen Group Australia </strong></p>
+
+<p>In this document 'Volkswagen' refers to Volkswagen Group Australia Pty Ltd (ABN 14 093 117 876). Volkswagen distributes and sells a range of vehicles and related products in Australia through its appointed dealer network. </p>
+
+<p><strong>Your personal information </strong></p>
+
+<p>Personal information held by Volkswagen about you, may include:</p>
+
+<ul>
+<li>name; </li>
+<li>gender;</li>
+<li>date of birth; </li>
+<li>address; </li>
+<li>telephone numbers; </li>
+<li>e-mail address;</li>
+<li>purchase details; </li>
+<li>driving licence number and state;</li>
+<li>ABN; </li>
+<li>warranty and service transaction information provided by our dealer network, affiliates or third parties;</li>
+<li>employment application information; and </li>
+<li>any other relevant information. </li>
+</ul>
+
+<p>If you choose not to provide us with your personal information, we may not be able to provide you with the services you require, or the level of service on which we pride ourselves. </p>
+
+<p><strong>How we collect personal information</strong></p>
+
+<p> Volkswagen collects personal information in a number of ways, including: </p>
+
+<ul>
+<li>directly from you, when you provide information by telephone, electronic messages (including email and SMS) or in documents such as 'change of owner details' forms;</li>
+<li>directly from you, via our internet site (requests for information); </li>
+<li>from our dealer network when you purchase a vehicle or have your vehicle repaired;</li>
+<li>from your agents or representatives who act on your behalf; </li>
+<li>from competition entry forms or at our promotional activities or sponsored events; </li>
+<li>directly from you, via our internet site (requests for information); </li>
+<li>from third parties we contract to collect and/or manage data on our behalf; </li>
+<li>from third parties who you have asked or permitted to provide your personal information (including those parties from whom you purchase goods and services); </li>
+<li>from marketing organisations, including through the use of purchased lists;</li>
+<li>from industry databases;</li>
+<li>from publicly available sources such as the Internet and telephone directories; and </li>
+<li>from law enforcement, dispute resolution, statutory and regulatory bodies. </li>
+</ul>
+
+<p><strong>Website cookies </strong></p>
+
+<p>We may collect cookies from you about your visit to our website to help us to improve our website. Cookies are small information files which are sent to your computer’s hard drive or mobile device when you visit a website and it will recognise your device on future visits. For example, we may collect the time of your visit, whether you have visited our website previously, whether you used a search engine to find us and some geographical information. For information on disabling these cookies, please go to the privacy settings section within your browser. </p>
+
+<p>We may also use analytical web tools such as Google Analytics to collect visitor information for us to better understand how to improve our products and services for you. In addition to the session cookie, Google Analytics uses other data collection methods such as appending query strings to an image request. We store the data generated by Google Analytics securely and do not share it with third parties. </p>
+
+<p>We also use other external service providers for the following purposes:</p>
+
+<ul>
+<li>for web hosting services for this website; and/or</li>
+<li>to gather non-personal information (using cookies) in order to evaluate the website’s effectiveness, for example online marketing activities. </li>
+</ul>
+
+<p><strong>How we use your personal information </strong></p>
+
+<p>Your personal information may be used in order to: </p>
+
+<ul>
+<li>provide and market our products and services and those of our related companies and dealerships (whether directly or through our related companies and dealerships);</li>
+<li>communicate to you in relation to our products, services and our promotional activities; </li>
+<li>purchase from you; </li>
+<li>support your purchase through warranty and road-side assistance (whether directly or through our dealerships);</li>
+<li>comply with our legal obligations (i.e. in the event of a Vehicle Safety Recall);</li>
+<li>monitor our performance and to help us manage our services; </li>
+<li>identify and contact individuals who do business with us; </li>
+<li>train our employees, agents, dealers and representatives;</li>
+<li>conduct customer and market research and analytics to improve the quality of our products and services; </li>
+<li>assess and process employment applications and manage employment issues; and</li>
+<li>handle complaints and disputes; and detect, investigating and preventing fraud. </li>
+</ul>
+
+<p>We may contact and communicate with you either via telephone, post, facsimile, email or SMS.</p>
+
+<p><strong>Direct Marketing </strong></p>
+
+<p>We will not direct market to you unless you have been given an opportunity to opt out of receiving future direct marketing communications or unless you have otherwise consented to direct marketing. If you do not want to receive such offers from us or do not want us to disclose your personal information to our related entities or dealerships for marketing purposes, you can opt out at any time by contacting us using our contact details provided below.</p>
+
+<p><strong> When we disclose your personal information </strong></p>
+
+<p>We may disclose your personal information to organisations outside of Volkswagen. These organisations may include:</p>
+
+<ul>
+<li>our appointed dealers; </li>
+<li>outsourced service providers who manage services we provide to you including:</li>
+<li>roadside assistance; </li>
+<li>customer research; </li>
+<li>financial services and insurance; </li>
+<li>mailing systems and direct marketing; and </li>
+<li>market research; </li>
+<li>government, regularity and law enforcement authorities and organisations, as required or authorised by law; </li>
+<li>our related body corporates; </li>
+<li>the agent(s) of any of those entities referred to above; </li>
+<li>your employer (where applicable); and </li>
+<li>our advisors (including legal and accounting advisors). </li>
+</ul>
+
+<p>Those entities are not authorised by us to use personal information for anything other than the purpose for which we supplied that information to them. We may also disclose personal information where you consent to us doing so. That consent may be written, verbal or implied from your conduct. </p>
+
+<p><strong>Disclosure to overseas recipients</strong></p>
+
+<p>Our related entities and some of our service providers (including information technology service providers) may be located overseas and, as a result, personal information collected and held by Volkswagen may be transferred overseas. The countries in which these recipients may be located will vary from time to time, but may include Germany, New Zealand, United Kingdom and the United States of America. </p>
+
+<p><strong>How we hold and store your personal information</strong></p>
+
+<p> Volkswagen may hold your personal information in a number of ways, including: </p>
+
+<ul>
+<li>in our computer systems or databases, which may involve storing data on storage or computer systems provided by third party suppliers;</li>
+<li>in paper records; and/or</li>
+<li>in telephone recordings. Where the information has been collected from our or your agent, or our service providers or dealerships, they may also hold copies of your personal information. </li>
+</ul>
+
+<p>We may combine personal information we receive about you with other information we hold about you. </p>
+
+<p>Volkswagen will store your personal information in a secure environment. It is protected by a combination of physical and technological measures. We have taken all reasonable steps to carefully protect your data from loss, misuse, unauthorised access or disclosure, alteration or destruction. If you want more information about the way we manage the information we hold please contact us as we would be happy to provide you with further information on our processes. Our contact details can be found at the end of this document. </p>
+
+<p><strong>Help us to ensure we hold accurate information </strong></p>
+
+<p>Volkswagen takes reasonable precautions to ensure that the personal information we collect, use and disclose is accurate, complete and up-to-date. However, the accuracy of that information depends to a large extent on the information you provide. We recommend that you:</p>
+
+<ul>
+<li>let us know if there are any errors in your personal information; and</li>
+<li>keep us up to date with changes to your personal information such as your name and address. </li>
+</ul>
+
+<p>You can access your personal information You have a right to access your personal information, subject to some exceptions allowed by law. If you would like to access your information, please let us know. You may be required to put your request in writing for security reasons and in some circumstances we may need to charge a fee for searching for and providing access to your information. </p>
+
+<p><strong>How to contact us </strong></p>
+
+<p>If you wish to notify us of your new contact details, update your personal information, opt out of direct marketing, make a complaint about a breach of privacy or have any questions in relation to the accuracy of your information or privacy, please contact our Information and Privacy Officer by:</p>
+
+<p><strong> Telephone</strong> 1800 060 936 8:30 am – 5:00 pm (AEST) Monday to Friday (excluding NSW Public Holidays)<br />
+</p>
+
+
+<p><strong>Facsimile</strong>   (02) 9742 7280 <br />
+                   Mark to the attention of the 'Information and Privacy Officer'<br />
+<br />
+<strong>Email</strong>         <a href="mailto:privacy@volkswagen.com.au">privacy@volkswagen.com.au</a><br />
+<br />
+<strong>Mail</strong>            Information and Privacy Officer <br />
+                    PO Box 5155, Chullora NSW 2190</p>
+
+<p>Please include the identification number of your vehicle (VIN) in all correspondence. This number is 17 characters long and can normally be found on your registration documents. </p>
+
+<p><strong>Making a Complaint</strong></p>
+
+
+<p> If you believe that we have interfered with your privacy in our handling of your personal information, you may lodge a complaint by emailing <a href="mailto:privacy@volkswagen.com.au">privacy@volkswagen.com.au</a>. </p>
+
+<p>You will need to provide us with details of your complaint and any supporting evidence and/or information. You will receive an acknowledgement from us no later than five business days after receipt of your written complaint.</p>
+
+<p> We will investigate your compliant in accordance with our internal complaints resolution process and determine the steps (if any) that we will undertake to resolve your complaint. We will contact you if we require any additional information from you. You will be sent the final decision in writing no later than 15 business days after you contact us, if we have all the necessary information to make that decision. </p>
+
+
+<p>If you disagree with our decision, you may refer your complaint to the Office of the Australian Information Commissioner by visiting <a href="http://www.oaic.gov.au/" target="_blank">www.oaic.gov.au</a>, calling 1300 363 992 or emailing <a href="mailto:enquiries@oaic.gov.au">enquiries@oaic.gov.au</a>. </p>
+
+<p><strong>Changes to our Privacy Policy</strong> </p>
+
+
+<p>We may make changes to this Privacy Policy from time to time for any reason. We will publish changes to this Privacy Policy on our website: <a href="http://www.volkswagen.com.au/en.html" target="_blank">www.volkswagen.com.au</a>. </p>
+
+<p>Updated 13 October 2016. </p>
+
+
+
+        </div>
+      </div>
+
+      
+    
+
+      
+    
+
+	
+				
+    </section>
+  </div>
+
+
+  </div>
+  
+  
+  <div class="vw_bg_begin_sky_grey">
+
+	
+	
+	
+	
+  
+
+
+
+
+
+</div>
+</div>
+
+
+
+
+
+      
+          
+    <footer class="vw_m520_global_footer">
+	<div class="vw_m520_topbar container-fluid">
+		<div class="row">
+			<a href="#vw_page" title="" class="vw_m520_links_url col-sm-12 col-xs-12 text-right">
+				<span class="vw_m520_topbar_text">
+					Back to the Top
+					<svg role="presentation" class="vw_m520_topbar_icon">
+						<use xlink:href="#icon-link-back-to-top"></use>
+					</svg>
+				</span>
+			</a>
+		</div>
+	</div>
+	
+		
+	
+	<div class="container-fluid">
+		<div class="vw_m520_links row">
+			<div class="col-sm-9 vw_m520_links vw_m520_hide">
+				<div class="vw_m520_links_element col-sm-4">
+					<a class="vw_m520_links_url" href="https://au.volkswagen.com.au/book-service">Book a service</a>
+				</div>
+			
+				<div class="vw_m520_links_element col-sm-4">
+					<a class="vw_m520_links_url" href="https://au.volkswagen.com.au/find-dealer">Find a dealer</a>
+				</div>
+			
+				<div class="vw_m520_links_element col-sm-4">
+					<a class="vw_m520_links_url" href="https://au.volkswagen.com.au/request/dealer-callback">Request a call</a>
+				</div>
+			
+				<div class="vw_m520_links_element col-sm-4">
+					<a class="vw_m520_links_url" href="https://au.volkswagen.com.au/request/test-drive">Test drive</a>
+				</div>
+			
+				<div class="vw_m520_links_element col-sm-4">
+					<a class="vw_m520_links_url" href="https://au.volkswagen.com.au/request/download-brochure">Download a brochure</a>
+				</div>
+			
+				<div class="vw_m520_links_element col-sm-4">
+					<a class="vw_m520_links_url" href="https://www.volkswagen.com.au/en/sitemap.html" target="_blank">Sitemap</a>
+				</div>
+			
+				<div class="vw_m520_links_element col-sm-4">
+					<a class="vw_m520_links_url" href="http://www.volkswagenag.com/" target="_blank">Volkswagen AG</a>
+				</div>
+			
+				<div class="vw_m520_links_element col-sm-4">
+					<a class="vw_m520_links_url" href="http://www.volkswagen.com/" target="_blank">Volkswagen International</a>
+				</div>
+			
+				<div class="vw_m520_links_element col-sm-4">
+					<a class="vw_m520_links_url" href="https://au.volkswagen.com.au/contact-us/">Contact us</a>
+				</div>
+			
+				<div class="vw_m520_links_element col-sm-4">
+					<a class="vw_m520_links_url" href="https://www.volkswagen.com.au/en/about/careers.html">Careers</a>
+				</div>
+			</div>
+			<div class="vw_m520_social_links col-sm-3 col-xs-12 ">
+				<div class="vw_m520_social_element col-sm-12">
+					<a class="vw_m520_links_url " href="https://www.facebook.com/VolkswagenAustralia" target="_blank">
+						
+						
+							<svg role="presentation" class="vw_m520_social_icon">
+								<use xlink:href="#icon-quickaccess-social-facebook"></use>
+							</svg>
+						
+						
+						
+						<span class="vw_m520_hide">Facebook</span>
+					</a>
+				</div>
+			
+				<div class="vw_m520_social_element col-sm-12">
+					<a class="vw_m520_links_url " href="https://www.instagram.com/vwaustralia/" target="_blank">
+						
+						
+						
+							<svg id="Icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" class="vw_m520_social_icon"><title>MA_Icons_Social_160711</title><g id="Instagramm"><path d="M40.23,25.13c4.81,0,5.38,0,7.27.1a10,10,0,0,1,3.34.62,6,6,0,0,1,3.42,3.42,10,10,0,0,1,.62,3.34c0.09,1.9.1,2.47,0.1,7.27s0,5.38-.1,7.27a10,10,0,0,1-.62,3.34,6,6,0,0,1-3.42,3.42,10,10,0,0,1-3.34.62c-1.9.09-2.47,0.1-7.27,0.1s-5.38,0-7.27-.1a10,10,0,0,1-3.34-.62,6,6,0,0,1-3.42-3.42,10,10,0,0,1-.62-3.34c-0.09-1.9-.1-2.47-0.1-7.27s0-5.38.1-7.27a10,10,0,0,1,.62-3.34,6,6,0,0,1,3.42-3.42A10,10,0,0,1,33,25.24c1.9-.09,2.47-0.1,7.27-0.1m0-3.24c-4.89,0-5.5,0-7.42.11a13.21,13.21,0,0,0-4.37.84,9.2,9.2,0,0,0-5.26,5.26,13.21,13.21,0,0,0-.84,4.37c-0.09,1.92-.11,2.53-0.11,7.42s0,5.5.11,7.42a13.21,13.21,0,0,0,.84,4.37,9.2,9.2,0,0,0,5.26,5.26,13.21,13.21,0,0,0,4.37.84c1.92,0.09,2.53.11,7.42,0.11s5.5,0,7.42-.11A13.21,13.21,0,0,0,52,56.95a9.2,9.2,0,0,0,5.26-5.26,13.21,13.21,0,0,0,.84-4.37c0.09-1.92.11-2.53,0.11-7.42s0-5.5-.11-7.42a13.21,13.21,0,0,0-.84-4.37A9.2,9.2,0,0,0,52,22.84,13.21,13.21,0,0,0,47.65,22c-1.92-.09-2.53-0.11-7.42-0.11h0Z"/><path d="M40.23,30.65a9.24,9.24,0,1,0,9.24,9.24A9.24,9.24,0,0,0,40.23,30.65Zm0,15.24a6,6,0,1,1,6-6A6,6,0,0,1,40.23,45.89Z"/><circle cx="49.83" cy="30.28" r="2.16"/></g></svg>
+						
+						
+						<span class="vw_m520_hide">Instagram</span>
+					</a>
+				</div>
+			
+				<div class="vw_m520_social_element col-sm-12">
+					<a class="vw_m520_links_url " href="https://www.youtube.com/user/volkswagenaustralia" target="_blank">
+						
+						
+						
+							<svg id="Icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" class="vw_m520_social_icon"><title>MA_Icons_Social_160711</title><g id="Youtube"><path d="M59.6,32S59.21,29.25,58,28a5.72,5.72,0,0,0-4-1.69c-5.6-.4-14-0.4-14-0.4h0s-8.4,0-14,.4A5.72,5.72,0,0,0,22,28c-1.2,1.21-1.59,4-1.59,4a60.49,60.49,0,0,0-.4,6.47v3A60.5,60.5,0,0,0,20.4,48s0.39,2.76,1.59,4c1.52,1.59,3.52,1.54,4.41,1.71,3.2,0.31,13.6.4,13.6,0.4s8.41,0,14-.42A5.72,5.72,0,0,0,58,52c1.2-1.21,1.59-4,1.59-4a60.58,60.58,0,0,0,.4-6.47v-3A60.58,60.58,0,0,0,59.6,32ZM35.87,45.19V33.95l10.81,5.64Z"/></g></svg>
+						
+						
+						<span class="vw_m520_hide">YouTube</span>
+					</a>
+				</div>
+			
+				<div class="vw_m520_social_element col-sm-12">
+					<a class="vw_m520_links_url " href="https://www.linkedin.com/company/volkswagen-commercial-vehicles---australia" target="_blank">
+						
+						
+						
+							<svg id="Icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" class="vw_m520_social_icon">
+  <title>layout_Icons_Social</title>
+  <path d="M57.0413,19.99926H22.95222A2.92042,2.92042,0,0,0,20,22.88384v34.2305a2.922,2.922,0,0,0,2.95222,2.8864H57.0413A2.92529,2.92529,0,0,0,60,57.11434V22.88384A2.92377,2.92377,0,0,0,57.0413,19.99926ZM31.86311,54.08474H25.92832V34.99515h5.93479v19.0896ZM28.89574,32.3872a3.44069,3.44069,0,1,1,3.43835-3.43976A3.43863,3.43863,0,0,1,28.89574,32.3872ZM54.08689,54.08474H48.15645V44.80121c0-2.2143-.03911-5.06167-3.08315-5.06167-3.08752,0-3.5585,2.41335-3.5585,4.90255v9.44265H35.58435V34.99515h5.69028v2.61039h0.08178A6.23261,6.23261,0,0,1,46.97,34.52239c6.00793,0,7.11686,3.95229,7.11686,9.09248V54.08474Z"/>
+</svg>
+
+						
+						
+						<span class="vw_m520_hide">LinkedIn</span>
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="vw_m520_show vw_m520_other_pages_container row">
+			<svg role="presentation" class="vw_m520_other_pages_icon">
+				<use xlink:href="#icon-arrow-down"></use>
+			</svg>
+			<select name="other_pages" class="vw_m520_other_pages_select col-xs-12">
+				<option value="">Other Company Websites</option>
+				
+					<option value="https://au.volkswagen.com.au/book-service">Book a service</option>
+				
+					<option value="https://au.volkswagen.com.au/find-dealer">Find a dealer</option>
+				
+					<option value="https://au.volkswagen.com.au/request/dealer-callback">Request a call</option>
+				
+					<option value="https://au.volkswagen.com.au/request/test-drive">Test drive</option>
+				
+					<option value="https://au.volkswagen.com.au/request/download-brochure">Download a brochure</option>
+				
+					<option value="https://www.volkswagen.com.au/en/sitemap.html">Sitemap</option>
+				
+					<option value="http://www.volkswagenag.com/">Volkswagen AG</option>
+				
+					<option value="http://www.volkswagen.com/">Volkswagen International</option>
+				
+					<option value="https://au.volkswagen.com.au/contact-us/">Contact us</option>
+				
+					<option value="https://www.volkswagen.com.au/en/about/careers.html">Careers</option>
+				
+			</select>
+		</div>
+		<div class="row">
+			<div class="vw_m520_legal col-xs-12 col-sm-9 col-sm-push-3">
+				
+					<div class="vw_m520_legal_element">
+						<a class="vw_m520_legal_url" href="https://www.volkswagen.com.au/en/legal.html">Legal</a>
+					</div>
+				
+					<div class="vw_m520_legal_element">
+						<a class="vw_m520_legal_url" href="https://www.volkswagen.com.au/en/privacy-policy.html">Privacy Policy</a>
+					</div>
+				
+			</div>
+			<div class="vw_m520_legal_copy col-xs-12 col-sm-3 col-sm-pull-9">
+				<p class="vw_m520_copy_text">© Volkswagen 2017</p>
+			</div>
+		</div>
+		
+		
+		<div class="vw_m520_disc col-xs-12 col-sm-12">
+			<p class="vw_m520_disc_text">
+				
+
+
+<div class="vw_m520_disc_text">
+
+	
+	
+	
+	
+	
+</div>
+
+<br>
+			</p>
+			
+		</div>
+		<div class="vw_m400_powerLayer">
+  <div id="powerLayer" class="vw_powerLayer">
+    <div class="vw_m400_powerLayer_close">
+      <a href="#home" title="Close">
+        <div class="vw_m400_powerLayer_iconWrapper">
+          <svg class="vw_m400_powerLayer_icon" role="">
+            <use xlink:href="#icon-navigation-close"/></svg>
+        </div>
+      </a>
+    </div>
+    <div class="vw_m400_powerLayer_back">
+      <a href="#powerLayer" title="Back">
+        <div class="vw_m400_powerLayer_iconWrapper">
+          <svg class="vw_m400_powerLayer_icon" role="">
+            <use xlink:href="#icon-arrow-left"/></svg>
+        </div>
+      </a>
+    </div>
+    <div class="vw_m400_powerLayer_share vw_hidden">
+      <a title="Share">
+        <div class="vw_m400_powerLayer_iconWrapper">
+          <svg class="vw_m400_powerLayer_icon" role="">
+            <use xlink:href="#icon-quickaccess-share"/></svg>
+        </div>
+      </a>
+    </div>
+    <div class="vw_powerlayer_contentwrapper vw_js_powerLayer vw_powerLayer_white">
+      <div class="vw_powerlayer_content"></div>
+    </div>
+  </div>
+</div>
+	</div>
+</footer>
+
+    </div>
+
+    
+    
+<div></div>
+<div class="vw_svg_injector" data-src="/etc/clientlibs/vw-ngw/ngw.base.apps/resources/img/icons.svg"></div>
+
+    
+
+
+
+    
+<script type="text/javascript" src="/etc/clientlibs/vw-ngw/ngw.base.setup.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+
+// puts config in a separate object to allow for overriding for testing etc
+var vw_config_default = {
+
+  searchCharacters: "(°^!\"§$%&/()=?`´{[]}\\,.-;:_<>|*-+@)áàâäöü",
+
+  trackingApplicationId: "VWCMSD5",
+
+  // time on section for tracking event
+  sectionDisplayPeriod: 400,
+
+  // is publish environment
+  isPublisher: true,
+
+  // if true there'll always be a 'more' button
+  isSearchEnabled: false,
+
+  // search in the menu
+  searchFormAction: "#",
+
+  // search result component (used in ajax call of search input)
+  searchComponentUrl: "/content/vw_pkw/importers/au/en/tools/search/search.html",
+
+  // the max number of buttons to be displayed in bp m1
+  maxButtonsMainMenuM1: 8,
+
+  personalization: {
+      loadTimeout: "500"
+  }, 
+
+  // List of supported browsers
+  supportedBrowsers: {
+    desktop: {
+      chrome: 48,
+      firefox: 44,
+      ie: 10,
+      opera: 35,
+      safari: 9
+    },
+    mobile: {
+      chrome: 48,
+      ie: 10,
+      safari: 9
+    }
+  },
+  
+  debug: false,
+  powerLayerPoolPath: "/content/vw_pkw/importers/au/en/tools/powerlayer/",
+
+  videoPlayerPath: "https://vw-embed.piksel.com/jsapi/1.0/api/5c73afee-f220-11e3-b265-005056865f49/script.js"
+};
+
+// copies over possible overrides
+if ("vw_config" in window) {
+  Object.keys(window.vw_config).forEach(function preserveExistingConfig(key) {
+    "use strict";
+    vw_config_default[key] = window.vw_config[key];
+  });
+}
+
+// generates actual config object
+window.vw_config = vw_config_default;
+
+var jiathis_config = {
+	url: "https://www.volkswagen.com.au/content/vw_pkw/importers/au/en/privacy-policy.html",
+	summary: "",
+	title: "Privacy Policy"
+}
+
+</script>
+
+<script type="text/javascript">
+
+window.vw_i18n = {
+  menu: {
+    more: "More",
+    search: "Search"
+  }
+};
+
+window.parsleyMessages = {}
+window.parsleyMessages.en = {
+  defaultMessage: "This value seems to be invalid.",
+  type: {
+    email:        "This value should be a valid email.",
+    url:          "This value should be a valid url.",
+    number:       "This value should be a valid number.",
+    integer:      "This value should be a valid integer.",
+    digits:       "This value should be digits.",
+    alphanum:     "This value should be alphanumeric."
+  },
+  notblank:       "This value should not be blank.",
+  required:       "This value is required.",
+  pattern:        "This value seems to be invalid.",
+  min:            "This value should be greater than or equal to %s.",
+  max:            "This value should be lower than or equal to %s.",
+  range:          "This value should be between %s and %s.",
+  minlength:      "This value is too short. It should have %s characters or more.",
+  maxlength:      "This value is too long. It should have %s characters or fewer.",
+  length:         "This value length is invalid. It should be between %s and %s characters long.",
+  mincheck:       "You must select at least %s choices.",
+  maxcheck:       "You must select %s choices or fewer.",
+  check:          "You must select between %s and %s choices.",
+  equalto:        "This value should be the same."
+};
+
+</script>
+
+
+
+
+    
+<script type="text/javascript" src="/etc/clientlibs/vw-ngw/ngw.base.apps.min.js"></script>
+
+
+
+
+
+
+
+
+
+  
+  <script>startSpinner();</script>
+  </body>
+</html>

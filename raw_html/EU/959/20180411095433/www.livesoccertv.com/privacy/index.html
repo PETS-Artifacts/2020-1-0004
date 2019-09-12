@@ -1,0 +1,681 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="id" xml:lang="id">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var o=t[n]={exports:{}};e[n][0].call(o.exports,function(t){var o=e[n][1][t];return r(o||t)},o,o.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(e,t,n){function r(){}function o(e,t,n){return function(){return i(e,[f.now()].concat(u(arguments)),t?null:this,n),t?void 0:this}}var i=e("handle"),a=e(2),u=e(3),c=e("ee").get("tracer"),f=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,t){s[t]=o(d+t,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,o="function"==typeof t;return i(l+"tracer",[f.now(),e,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],n),o)try{return t.apply(this,arguments)}catch(e){throw c.emit("fn-err",[arguments,this,e],n),e}finally{c.emit("fn-end",[f.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=o(l+t)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,f.now()])}},{}],2:[function(e,t,n){function r(e,t){var n=[],r="",i=0;for(r in e)o.call(e,r)&&(n[i]=t(r,e[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],3:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,o=n-t||0,i=Array(o<0?0:o);++r<o;)i[r]=e[t+r];return i}t.exports=r},{}],4:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function o(e){function t(e){return e&&e instanceof r?e:e?c(e,u,i):i()}function n(n,r,o,i){if(!d.aborted||i){e&&e(n,r,o);for(var a=t(o),u=m(n),c=u.length,f=0;f<c;f++)u[f].apply(a,r);var p=s[y[n]];return p&&p.push([b,n,r,a]),a}}function l(e,t){v[e]=m(e).concat(t)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(n)}function g(e,t){f(e,function(e,n){t=t||"feature",y[n]=t,t in s||(s[t]=[])})}var v={},y={},b={on:l,emit:n,get:w,listeners:m,context:t,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",c=e("gos"),f=e(2),s={},p={},d=t.exports=o();d.backlog=s},{}],gos:[function(e,t,n){function r(e,t,n){if(o.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[t]=r,r}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){o.buffer([e],r),o.emit(e,t,n)}var o=e("ee").get("handle");t.exports=r,r.ee=o},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=h.info=NREUM.info,t=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return s.abort();f(y,function(t,n){e[t]||(e[t]=n)}),c("mark",["onload",a()+h.offset],null,"api");var n=d.createElement("script");n.src="https://"+e.agent,t.parentNode.insertBefore(n,t)}}function o(){"complete"===d.readyState&&i()}function i(){c("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),c=e("handle"),f=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1071.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=t.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),c("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script>
+<title>Live Soccer TV</title>
+<meta name="keywords" content="sepakbola, sepakbola, sepakbola di tv, sepakbola di TV, siaran sepakbola langsung, siaran langsung sepakbola, skor sepakbola, skor sepakbola, berita sepakbola, berita sepakbola, video sepakbola, video sepakbola, tonton sepakbola, tonton sepakbola, agenda sepakbola, agenda sepakbola, klasemen sepakbola, klasemen sepakbola, hasil sepakbola, hasil sepakbola">
+<meta name="description" content="Live Soccer TV - Daftar TV Sepakbola, Siaran Streaming Resmi, Skor Sepakbola Terkini, Agenda Pertandingan, Klasemen, Hasil Pertandingan, Berita, Pub dan Video Cuplikan">
+<link rel="alternate" hreflang="x-default" href="http://www.livesoccertv.com/privacy/" />
+<link rel="alternate" hreflang="en" href="http://www.livesoccertv.com/privacy/" />
+<link rel="alternate" hreflang="es" href="http://www.livesoccertv.com/es/privacy/" />
+<link rel="alternate" hreflang="fr" href="http://www.livesoccertv.com/fr/privacy/" />
+<link rel="alternate" hreflang="pt" href="http://www.livesoccertv.com/pt/privacy/" />
+<link rel="alternate" hreflang="de" href="http://www.livesoccertv.com/de/privacy/" />
+<link rel="alternate" hreflang="id" href="http://www.livesoccertv.com/id/privacy/" />
+<link rel="alternate" hreflang="it" href="http://www.livesoccertv.com/it/privacy/" />
+<link rel="alternate" hreflang="nl" href="http://www.livesoccertv.com/nl/privacy/" />
+<link rel="alternate" hreflang="ru" href="http://www.livesoccertv.com/ru/privacy/" />
+<link rel="alternate" hreflang="tr" href="http://www.livesoccertv.com/tr/privacy/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="//cdn.livesoccertv.com/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="//cdn.livesoccertv.com/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="//cdn.livesoccertv.com/manifest.json">
+<link rel="mask-icon" href="//cdn.livesoccertv.com/safari-pinned-tab.svg" color="#d21013">
+<meta name="theme-color" content="#ffffff">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script language="JavaScript" src="//cdn.livesoccertv.com/scripts.js?a=66"></script>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+/*
+if(this != top){
+  top.location.href = self.location.href;
+  $(document).ready(function(){$('a').attr('target', '_top');});
+}
+*/
+</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-10308117-1', 'auto', {'allowLinker': true});
+  ga('require', 'linker');
+  ga('linker:autoLink', ['m.livesoccertv.com'] );
+  ga('send', 'pageview');
+</script>
+<link href="//cdn.livesoccertv.com/styles.css?v=65" rel="stylesheet" type="text/css">
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-5993370252466225",
+          enable_page_level_ads: true
+     });
+</script>
+</head>
+<body>
+<div id="body_main">
+<div class="header">
+<h1 title="Live Soccer TV" style="padding-left:20px;"><a href="//www.livesoccertv.com/id/"><img src="//cdn.livesoccertv.com/images/logo55.png" width="116" height="55" border="0" alt="Live Soccer TV" /></a></h1>
+<script language="javascript">
+    <!--
+    $(function(){
+        $(".search").keyup(function() { 
+            var searchid = $(this).val();
+            var dataString = 'search='+ searchid;
+            var lang = $('form[name=searchform]').attr("lang");
+            var posturl = "/include/autocomplete.php";
+            if(lang!='en') posturl = '/'+lang+posturl;
+            if(searchid!='' && searchid.length>2) { // Run search only if more than one character has been submitted
+                $.ajax({
+                type: "POST",
+                url: posturl,
+                data: dataString,
+                cache: false,
+                success: function(html) {
+                    $("#sresult").html(html).show();
+                }
+                });
+            }return false;    
+            });
+            
+            jQuery("#sresult").on("click",function(e){ 
+                var $clicked = $(e.target);
+                var $name = $clicked.find('.name').html();
+                var decoded = $("<div/>").html($name).text();
+                $('#searchid').val(decoded);
+            });
+            jQuery(document).on("click", function(e) { 
+                var $clicked = $(e.target);
+                if (! $clicked.hasClass("search")){
+                jQuery("#sresult").fadeOut(); 
+                }
+            });
+            $('#searchid').click(function(){
+                jQuery("#sresult").fadeIn();
+        });
+    });
+    -->
+	</script>
+<form name="searchform" method="post" action="/id/search/" style="margin:0;padding:0;float:left;" lang="id" onSubmit="if (this.searchid.value.length < 3) {return false;}">
+<input type="text" class="search" id="searchid" name="searchid" autocomplete="off" placeholder="Cari liga, tim, channel..." />
+<input type="submit" value="" class="ssubmit" />
+</form>
+<div id="sresult"></div>
+<span class="icon globe" style="padding:2px 17px 0 0; margin-left:15px;"></span>
+<ul class="lang">
+<li>Bahasa Indonesia &#9662;
+<ul>
+<li><a href="/" onclick="changeLanguage('en');return false;">English</a></li>
+<li><a href="/es/" onclick="changeLanguage('es');return false;">Español</a></li>
+<li><a href="/fr/" onclick="changeLanguage('fr');return false;">Français</a></li>
+<li><a href="/pt/" onclick="changeLanguage('pt');return false;">Português</a></li>
+<li><a href="/de/" onclick="changeLanguage('de');return false;">Deutsch</a></li>
+<li><a href="/it/" onclick="changeLanguage('it');return false;">Italiano</a></li>
+<li><a href="/nl/" onclick="changeLanguage('nl');return false;">Nederlands</a></li>
+<li><a href="/ru/" onclick="changeLanguage('ru');return false;">Русский</a></li>
+<li><a href="/tr/" onclick="changeLanguage('tr');return false;">Türkçe</a></li>
+</ul>
+</li>
+</ul>
+<script language="javascript">
+function setCookie2(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires="+d.toUTCString();
+    document.cookie = cname + "=" + cvalue + "; " + expires + "; domain=.livesoccertv.com; path=/";
+//    document.cookie = cname + "=" + cvalue + "; " + expires;
+} 
+</script>
+<div class="apps">
+<a href="https://itunes.apple.com/us/app/live-soccer-tv-official-multi/id874726939?mt=8" onclick="ga('send','event','App','iOS','Header')" target="_blank"><img src="//cdn.livesoccertv.com/images/icons/appstore40.png" width="135" height="40" border="0" alt="Aplikasi Live Soccer TV untuk iOS" /></a></div>
+<div class="apps"><a href="https://play.google.com/store/apps/details?id=com.livesoccertv&paramLiveSoccerTV.TB" onclick="ga('send','event','App','Android','Header')" target="_blank"><img src="//cdn.livesoccertv.com/images/icons/googleplay40.png" width="135" height="40" border="0" alt="Aplikasi Live Soccer TV untuk Android" /></a></div>
+<div class="apps social"><a href="https://www.facebook.com/LiveSoccerTv.com" onclick="ga('send','event','Social','Facebook','Header')" title="Live Soccer TV Facebook Page" target="_blank"><img src="//cdn.livesoccertv.com/images/icons/facebook40.png" width="40" height="40" border="0" alt="Mengikuti Live Soccer TV di Facebook" /></a></div>
+<div class="apps social" style="padding-left:0;"><a href="https://twitter.com/livesoccertv" onclick="ga('send','event','Social','Twitter','Header')" title="Live Soccer TV on Twitter" "target="_blank"><img src="//cdn.livesoccertv.com/images/icons/twitter40.png" width="40" height="40" border="0" alt="Ikuti Live Soccer TV di Twitter" /></a>
+</div>
+
+<div style="clear:both;"></div>
+</div>
+<div id='div-gpt-ad-1402206170018-10' style='padding-bottom:10px;' align='center'><script type='text/javascript'>googletag.cmd.push(function() { googletag.display('div-gpt-ad-1402206170018-10'); });</script></div>
+<div class="clear" id="catcher"></div>
+<div class="sticky">
+<div id="dropList">
+<ul id="menu">
+<li class="level1-li sub"><a href="//www.livesoccertv.com/id/" id="stickylogo" title="Live Soccer TV"></a></li>
+<li class="level1-li sub"><a class="level1-a" href="/id/schedules/">Pertandingan<!--[if gte IE 7]><!--></a><!--<![endif]-->
+<!--[if lte IE 6]><table><tr><td><![endif]-->
+<div class="listHolder col1">
+<h5>Jadwal Mendatang</h5>
+<div class="listCol">
+<ul>
+<li><a href="/id/schedules/" title="Jadwal Sepakbola Hari Ini">Hari ini</a></li>
+<li><a href="/id/schedules/2018-04-12/" title="Jadwal Sepakbola Besok">Besok</a></li>
+</ul>
+</div>
+<div class="listCol">
+<ul>
+<li><a href="/id/schedules/2018-04-14/" title="Jadwal Sepakbola untuk Sabtu">Sabtu</a></li>
+<li><a href="/id/schedules/2018-04-15/" title="Jadwal Sepakbola untuk Minggu">Minggu</a></li>
+</ul>
+</div>
+<div style="clear:both;"></div>
+<h5>Pilih Hari</h5>
+<div id="header_cal">
+<script type="text/javascript">    
+            var todaydate=new Date()
+            var curmonth=todaydate.getMonth()+1 //get current month (1-12)
+            var curyear=todaydate.getFullYear() //get current year
+            document.write(buildCal(curmonth, curyear, "simple_cal", "month", "daysofweek", "days", 0, "header_cal", "id"));
+            </script>
+</div>
+</div>
+<!--[if lte IE 6]></td></tr></table></a><![endif]-->
+</li>
+<li class="level1-li sub"><a class="level1-a" href="/id/competitions/">Kompetisi<!--[if gte IE 7]><!--></a><!--<![endif]-->
+<!--[if lte IE 6]><table><tr><td><![endif]-->
+<div class="listHolder col2 left1">
+<h5><span class="flag united-states">Amerika Serikat</span></h5><div class="listCol">
+<ul>
+<li><a href="/id/competitions/united-states/major-league-soccer/" class="flag united-states" title="Liga MLS Amerika">Liga MLS Amerika</a></li>
+</ul>
+</div>
+<div class="listCol">
+<ul>
+<li><a href="/id/competitions/united-states/us-open-cup/" class="flag united-states" title="Piala US Open (Piala AS)">Piala US Open (Piala&hellip;</a></li>
+</ul>
+</div>
+<div class="listCol">
+<ul>
+</ul>
+</div>
+<div style="clear:both;"></div>
+<h5>Eropa</h5><div class="listCol">
+<ul>
+<li><a href="/id/competitions/international/uefa-champions-league/" class="flag europe" title="Liga Champions Eropa">Liga Champions Er&hellip;</a></li>
+<li><a href="/id/competitions/international/uefa-europa-league/" class="flag europe" title="Piala UEFA">Piala UEFA</a></li>
+<li><a href="/id/competitions/england/premier-league/" class="flag england" title="Inggris - Liga Premier Inggris">Liga Premier Ingg&hellip;</a></li>
+<li><a href="/id/competitions/spain/primera-division/" class="flag spain" title="Spanyol - Liga Spanyol">Liga Spanyol</a></li>
+<li><a href="/id/competitions/italy/serie-a/" class="flag italy" title="Italia - Liga Italia Serie A">Liga Italia Serie A</a></li>
+</ul>
+</div>
+<div class="listCol">
+<ul>
+<li><a href="/id/competitions/germany/bundesliga/" class="flag germany" title="Jerman - Bundesliga Jerman">Bundesliga Jerman</a></li>
+<li><a href="/id/competitions/france/ligue-1/" class="flag france" title="Perancis - Liga Perancis">Liga Perancis</a></li>
+<li><a href="/id/competitions/portugal/liga-sagres/" class="flag portugal" title="Portugal - Liga Premier Portugal">Liga Premier Port&hellip;</a></li>
+<li><a href="/id/competitions/spain/copa-del-rey/" class="flag spain" title="Spanyol - Copa del Rey">Copa del Rey</a></li>
+</ul>
+</div>
+<div class="listCol">
+<ul>
+<li><a href="/id/competitions/germany/german-cup/" class="flag germany" title="Jerman - Piala Jerman (DFB Pokal)">Piala Jerman (DFB&hellip;</a></li>
+<li><a href="/id/competitions/england/fa-cup/" class="flag england" title="Inggris - Piala FA">Piala FA</a></li>
+<li><a href="/id/competitions/italy/coppa-italia/" class="flag italy" title="Italia - Coppa Italia">Coppa Italia</a></li>
+<li><a href="/id/competitions/portugal/taca-de-portugal/" class="flag portugal" title="Portugal - Piala Portugal">Piala Portugal</a></li>
+</ul>
+</div>
+<div style="clear:both;"></div>
+<h5>Amerika Utara, Tengah dan Selatan</h5><div class="listCol">
+<ul>
+<li><a href="/competitions/international/concacaf-champions-league/" class="flag north-america" title="Liga Champions CONCACAF">Liga Champions CONCA&hellip;</a></li>
+<li><a href="/competitions/international/copa-libertadores/" class="flag south-america" title="Piala Libertadores">Piala Libertadores</a></li>
+</ul>
+</div>
+<div class="listCol">
+<ul>
+<li><a href="/competitions/mexico/primera-division/" class="flag mexico" title="Meksiko - Liga MX Meksiko">Liga MX Meksiko</a></li>
+</ul>
+</div>
+<div class="listCol">
+<ul>
+<li><a href="/competitions/mexico/copa-mexico/" class="flag mexico" title="Meksiko - Piala Meksiko">Piala Meksiko</a></li>
+</ul>
+</div>
+<div style="clear:both;"></div>
+<h5>Kompetisi Lainnya</h5><div class="listCol">
+<ul>
+<li><a href="/id/competitions/international/world-cup/" class="flag world" title="Piala Dunia">Piala Dunia</a></li>
+</ul>
+</div>
+<div class="listCol">
+<ul>
+<li><a href="/id/competitions/international/friendly/" class="flag world" title="Ujicoba">Ujicoba</a></li>
+</ul>
+</div>
+<div class="listCol">
+<ul>
+</ul>
+</div>
+<div style="clear:both;"></div>
+<div class="bottomLine">
+<p><a href="/id/competitions/" title="Seluruh Kompetisi Lainnya">Semua Kompetisi</a></p>
+</div>
+</div>
+<!--[if lte IE 6]></td></tr></table></a><![endif]-->
+</li>
+<li class="level1-li sub"><a class="level1-a" href="#">Tim<!--[if gte IE 7]><!--></a><!--<![endif]-->
+<!--[if lte IE 6]><table><tr><td><![endif]-->
+<div class="listHolder col4 left2">
+<h5>Eropa</h5><div class="listCol listCol2">
+<ul>
+<li><a href="/id/teams/england/arsenal/" class="flag england" title="Arsenal FC">Arsenal</a></li>
+<li><a href="/id/teams/england/chelsea/" class="flag england" title="Chelsea FC">Chelsea</a></li>
+<li><a href="/id/teams/england/liverpool/" class="flag england" title="Liverpool FC">Liverpool</a></li>
+<li><a href="/id/teams/england/manchester-city/" class="flag england" title="Manchester City FC">Manchester City</a></li>
+<li><a href="/id/teams/england/manchester-united/" class="flag england" title="Manchester United FC">Manchester United</a></li>
+<li><a href="/id/teams/england/tottenham-hotspur/" class="flag england" title="Tottenham Hotspur FC">Tottenham Hotspur</a></li>
+<li><a href="/id/teams/england/everton/" class="flag england" title="Everton FC">Everton</a></li>
+</ul>
+</div>
+<div class="listCol listCol2">
+<ul>
+<li><a href="/id/teams/spain/barcelona/" class="flag spain" title="FC Barcelona">Barcelona</a></li>
+<li><a href="/id/teams/spain/real-madrid/" class="flag spain" title="Real Madrid">Real Madrid</a></li>
+<li><a href="/id/teams/spain/atletico-madrid/" class="flag spain" title="Club Atlético de Madrid">Atlético Madrid</a></li>
+<li><a href="/id/teams/germany/bayern-munchen/" class="flag germany" title="FC Bayern München">Bayern München</a></li>
+<li><a href="/id/teams/germany/borussia-dortmund/" class="flag germany" title="BV Borussia 09 Dortmund">Borussia Dortmund</a></li>
+<li><a href="/id/teams/france/psg/" class="flag france" title="Paris Saint-Germain FC">Paris Saint-Germain</a></li>
+<li><a href="/id/teams/france/monaco/" class="flag france" title="Monaco">Monaco</a></li>
+</ul>
+</div>
+<div class="listCol listCol2">
+<ul>
+<li><a href="/id/teams/italy/juventus/" class="flag italy" title="Juventus F.C.">Juventus</a></li>
+<li><a href="/id/teams/italy/inter-milan/" class="flag italy" title="FC Internazionale Milano">Inter Milan</a></li>
+<li><a href="/id/teams/italy/ac-milan/" class="flag italy" title="AC Milan">AC Milan</a></li>
+<li><a href="/id/teams/italy/napoli/" class="flag italy" title="SSC Napoli">Napoli</a></li>
+<li><a href="/id/teams/italy/as-roma/" class="flag italy" title="AS Roma">AS Roma</a></li>
+<li><a href="/id/teams/portugal/benfica-lisbon/" class="flag portugal" title="SL Benfica">Benfica</a></li>
+<li><a href="/id/teams/portugal/fc-porto/" class="flag portugal" title="FC Porto">Porto</a></li>
+</ul>
+</div>
+<div style="clear:both;"></div>
+<h5>Amerika Serikat</h5><div class="listCol listCol2">
+<ul>
+<li><b>Wilayah Timur</b></li>
+<li><span class="grey flag united-states">1</span><a href="/id/teams/united-states/new-york-city/" title="New York City FC - 13 points" style="padding-left:5px;">New York City FC</a></li>
+<li><span class="grey flag united-states">2</span><a href="/id/teams/united-states/atlanta-united/" title="Atlanta United FC - 12 points" style="padding-left:5px;">Atlanta United FC</a></li>
+<li><span class="grey flag united-states">3</span><a href="/id/teams/united-states/new-england-revolution/" title="New England Revolution - 10 points" style="padding-left:5px;">New England Revolu&hellip;</a></li>
+<li><span class="grey flag united-states">4</span><a href="/id/teams/united-states/columbus-crew/" title="Columbus Crew SC - 10 points" style="padding-left:5px;">Columbus Crew SC</a></li>
+<li><span class="grey flag united-states">5</span><a href="/id/teams/united-states/orlando-city/" title="Orlando City SC - 7 points" style="padding-left:5px;">Orlando City SC</a></li>
+<li><span class="grey flag united-states">6</span><a href="/id/teams/united-states/new-york-red-bulls/" title="New York Red Bulls - 6 points" style="padding-left:5px;">New York Red Bulls</a></li>
+<li><span class="grey flag canada">7</span><a href="/id/teams/canada/montreal-impact/" title="Montreal Impact - 6 points" style="padding-left:5px;">Montreal Impact</a></li>
+<li><span class="grey flag united-states">8</span><a href="/id/teams/united-states/philadelphia-union/" title="Philadelphia Union - 5 points" style="padding-left:5px;">Philadelphia Union</a></li>
+</ul>
+</div>
+<div class="listCol listCol2">
+<ul>
+<li><span class="grey flag united-states">9</span><a href="/id/teams/united-states/chicago-fire/" title="Chicago Fire - 4 points" style="padding-left:5px;">Chicago Fire</a></li>
+<li><span class="grey flag canada">10</span><a href="/id/teams/canada/toronto-fc/" title="Toronto FC - 3 points" style="padding-left:5px;">Toronto FC</a></li>
+<li><span class="grey flag united-states">11</span><a href="/id/teams/united-states/dc-united/" title="DC United - 2 points" style="padding-left:5px;">DC United</a></li>
+<li><b>Wilayah Barat</b></li>
+<li><span class="grey flag united-states">1</span><a href="/id/teams/united-states/sporting-kansas-city/" title="Sporting Kansas City - 13 points" style="padding-left:5px;">Sporting Kansas City</a></li>
+<li><span class="grey flag canada">2</span><a href="/id/teams/canada/whitecaps/" title="Vancouver Whitecaps FC - 10 points" style="padding-left:5px;">Vancouver Whitecap&hellip;</a></li>
+<li><span class="grey flag united-states">3</span><a href="/id/teams/united-states/los-angeles-galaxy/" title="LA Galaxy - 7 points" style="padding-left:5px;">LA Galaxy</a></li>
+<li><span class="grey flag united-states">4</span><a href="/id/teams/united-states/real-salt-lake/" title="Real Salt Lake - 7 points" style="padding-left:5px;">Real Salt Lake</a></li>
+</ul>
+</div>
+<div class="listCol listCol2">
+<ul>
+<li><span class="grey flag united-states">5</span><a href="/id/teams/united-states/los-angeles-fc/" title="Los Angeles FC - 6 points" style="padding-left:5px;">Los Angeles FC</a></li>
+<li><span class="grey flag united-states">6</span><a href="/id/teams/united-states/minnesota-stars/" title="Minnesota Stars FC - 6 points" style="padding-left:5px;">Minnesota Stars FC</a></li>
+<li><span class="grey flag united-states">7</span><a href="/id/teams/united-states/fc-dallas/" title="FC Dallas - 6 points" style="padding-left:5px;">FC Dallas</a></li>
+<li><span class="grey flag united-states">8</span><a href="/id/teams/united-states/colorado-rapids/" title="Colorado Rapids - 5 points" style="padding-left:5px;">Colorado Rapids</a></li>
+<li><span class="grey flag united-states">9</span><a href="/id/teams/united-states/houston-dynamo/" title="Houston Dynamo - 4 points" style="padding-left:5px;">Houston Dynamo</a></li>
+<li><span class="grey flag united-states">10</span><a href="/id/teams/united-states/san-jose-earthquakes/" title="San Jose Earthquakes - 4 points" style="padding-left:5px;">San Jose Earthquakes</a></li>
+<li><span class="grey flag united-states">11</span><a href="/id/teams/united-states/portland-timbers/" title="Portland Timbers - 2 points" style="padding-left:5px;">Portland Timbers</a></li>
+<li><span class="grey flag united-states">12</span><a href="/id/teams/united-states/seattle-sounders-fc/" title="Seattle Sounders FC - 0 points" style="padding-left:5px;">Seattle Sounders FC</a></li>
+</ul>
+</div>
+<div style="clear:both;"></div>
+<br />&nbsp;
+</div>
+<!--[if lte IE 6]></td></tr></table></a><![endif]-->
+</li>
+<li class="level1-li sub"><a class="level1-a" href="/id/channels/">Stasiun TV<!--[if gte IE 7]><!--></a><!--<![endif]-->
+<!--[if lte IE 6]><table><tr><td><![endif]-->
+<div class="listHolder col3 left3">
+<h5><span class="flag united-states">Amerika Serikat</span></h5><div class="listCol listCol_ch">
+<ul>
+<li><a href="/id/channels/bein-sport-connect/" class="flag dot" title="beIN SPORTS CONNECT">beIN SPORTS CONNECT</a></li>
+<li><a href="/id/channels/bein-sport-en-espanol/" class="flag dot" title="beIN SPORTS en Español">beIN SPORTS en Español</a></li>
+<li><a href="/id/channels/bein-sport-1-usa/" class="flag dot" title="beIN SPORTS">beIN SPORTS</a></li>
+<li><a href="/id/channels/espn/" class="flag dot" title="ESPN">ESPN</a></li>
+<li><a href="/id/channels/espn-deportes/" class="flag dot" title="ESPN Deportes">ESPN Deportes</a></li>
+<li><a href="/id/channels/espn-deportes-plus-por-espn3/" class="flag dot" title="ESPN Deportes+">ESPN Deportes</a></li>
+<li><a href="/id/channels/espn-app-usa/" class="flag dot" title="ESPN+">ESPN</a></li>
+<li><a href="/id/channels/espn-3/" class="flag dot" title="ESPN3">ESPN3</a></li>
+<li><a href="/id/channels/fox-deportes/" class="flag dot" title="FOX Deportes">FOX Deportes</a></li>
+<li><a href="/id/channels/fox-network/" class="flag dot" title="FOX Network">FOX Network</a></li>
+<li><a href="/id/channels/fox-soccer-match-pass/" class="flag dot" title="FOX Soccer Match Pass">FOX Soccer Match Pass</a></li>
+<li><a href="/id/channels/fox-soccer-plus/" class="flag dot" title="Fox Soccer Plus">Fox Soccer Plus</a></li>
+</ul>
+</div>
+<div class="listCol">
+<ul>
+<li><a href="/id/channels/fox-sports-1-usa/" class="flag dot" title="Fox Sports 1">Fox Sports 1</a></li>
+<li><a href="/id/channels/fox-sports-2-usa/" class="flag dot" title="Fox Sports 2">Fox Sports 2</a></li>
+<li><a href="/id/channels/fubo-tv/" class="flag dot" title="fuboTV">fuboTV</a></li>
+<li><a href="/id/channels/galavision/" class="flag dot" title="Galavision">Galavision</a></li>
+<li><a href="/id/channels/gol-tv-espanol/" class="flag dot" title="GolTV Espanol">GolTV Espanol</a></li>
+<li><a href="/id/channels/gol-tv/" class="flag dot" title="GOLTV">GOLTV</a></li>
+<li><a href="/id/channels/ifollow/" class="flag dot" title="iFollow">iFollow</a></li>
+<li><a href="/id/channels/igol-usa/" class="flag dot" title="iGol">iGol</a></li>
+<li><a href="/id/channels/lifetime-usa/" class="flag dot" title="Lifetime">Lifetime</a></li>
+<li><a href="/id/channels/mls-live-soccer/" class="flag dot" title="MLS Live">MLS Live</a></li>
+<li><a href="/id/channels/msg/" class="flag dot" title="MSG">MSG</a></li>
+<li><a href="/id/channels/msg-go/" class="flag dot" title="MSG GO">MSG GO</a></li>
+</ul>
+</div>
+<div class="listCol">
+<ul>
+<li><a href="/id/channels/nbc-sports-boston/" class="flag dot" title="NBC Sports Boston">NBC Sports Boston</a></li>
+<li><a href="/id/channels/nbc-sports/" class="flag dot" title="NBCSN">NBCSN</a></li>
+<li><a href="/id/channels/rai-italia-america/" class="flag dot" title="Rai Italia America">Rai Italia America</a></li>
+<li><a href="/id/channels/telemundo/" class="flag dot" title="Telemundo">Telemundo</a></li>
+<li><a href="/id/channels/unimas/" class="flag dot" title="UniMás">UniMás</a></li>
+<li><a href="/id/channels/nbc-universo/" class="flag dot" title="UNIVERSO">UNIVERSO</a></li>
+<li><a href="/id/channels/univision-deportes-usa/" class="flag dot" title="Univision Deportes">Univision Deportes</a></li>
+<li><a href="/id/channels/univision/" class="flag dot" title="Univision">Univision</a></li>
+<li><a href="/id/channels/watch-espn/" class="flag dot" title="WatchESPN">WatchESPN</a></li>
+<li><a href="/id/channels/wphl-tv-phl-17/" class="flag dot" title="WPHL-TV PHL17 ">WPHL-TV PHL17</a></li>
+<li><a href="/id/channels/yes-network/" class="flag dot" title="YES Network">YES Network</a></li>
+<li><a href="/id/channels/yes2-usa/" class="flag dot" title="YES2">YES2</a></li>
+</ul>
+</div>
+<div style="clear:both;"></div>
+<div class="bottomLine">
+<p><a href="/id/channels/" title="Seluruh Channel Sepakbola">Semua Stasiun TV</a></p>
+</div>
+</div>
+<!--[if lte IE 6]></td></tr></table></a><![endif]-->
+</li>
+<li class="level1-li sub"><a class="level1-a" href="/id/providers/">Penyedia<!--[if gte IE 7]><!--></a><!--<![endif]-->
+<!--[if lte IE 6]><table><tr><td><![endif]-->
+<div class="listHolder col6 left2">
+<div id="provider"></div>
+<h5>Siaran Langsung Streaming</h5>
+<table border="0" cellspacing="0" cellpadding="0" align="center" style="width:300px;text-align:center;margin:10px 0 0 10px;">
+<tr>
+<td width="33%" valign="middle"><a href="/id/providers/54253/sling-tv/" title="Sling TV"><img src="//cdn.livesoccertv.com/images/providers/us/mini/sling-tv.png" width="50" height="27" alt="Sling TV" /></a></td>
+<td width="33%" valign="middle"><a href="/id/providers/54252/fubo-tv/" title="Fubo TV"><img src="//cdn.livesoccertv.com/images/providers/us/mini/fubo-tv.png" width="50" height="17" alt="Fubo TV" /></a></td>
+<td width="33%" valign="middle"><a href="/id/providers/54257/directv-now/" title="DIRECTV NOW"><img src="//cdn.livesoccertv.com/images/providers/us/mini/directv-now.png" width="40" height="23" alt="DIRECTV NOW" /></a></td>
+</tr>
+<tr>
+<td><a href="/id/providers/54253/sling-tv/" title="Sling TV">Sling TV</a></td>
+<td><a href="/id/providers/54252/fubo-tv/" title="Fubo TV">Fubo TV</a></td>
+<td><a href="/id/providers/54257/directv-now/" title="DIRECTV NOW">DIRECTV NOW</a></td>
+</tr>
+</table>
+<h5>Parabola</h5>
+<table border="0" cellspacing="0" cellpadding="0" align="center" style="width:200px;text-align:center;margin:10px 0 0 10px;">
+<tr>
+<td width="50%" valign="middle"><a href="/id/providers/5/directv-satellite-united-states/" title="DirecTV"><img src="//cdn.livesoccertv.com/images/providers/us/mini/directv-satellite-united-states.png" width="50" height="14" alt="DirecTV" /></a></td>
+<td width="50%" valign="middle"><a href="/id/providers/7/dish-network-satellite-united-states/" title="Dish Network"><img src="//cdn.livesoccertv.com/images/providers/us/mini/dish-network-satellite-united-states.png" width="50" height="22" alt="Dish Network" /></a></td>
+</tr>
+<tr>
+<td><a href="/id/providers/5/directv-satellite-united-states/" title="DirecTV">DirecTV</a></td>
+<td><a href="/id/providers/7/dish-network-satellite-united-states/" title="Dish Network">Dish Network</a></td>
+</tr>
+</table>
+<h5>TV Kabel</h5>
+<div class="listCol listCol_p">
+<ul>
+<li><a href="/id/providers/50986/comcast-cable/" class="flag dot" title="Comcast">Comcast</a></li>
+<li><a href="/id/providers/49811/time-warner-cable-cable/" class="flag dot" title="Time Warner">Time Warner</a></li>
+<li><a href="/id/providers/50968/at-t-u-verse-tv-digital/" class="flag dot" title="AT&T U-Verse">AT&T U-Verse</a></li>
+</ul>
+</div>
+<div class="listCol listCol_p">
+<ul>
+<li><a href="/id/providers/7866/verizon-fios-new-york-plus-digital/" class="flag dot" title="Verizon FiOS">Verizon FiOS</a></li>
+<li><a href="/id/providers/48678/cox-communications-cable/" class="flag dot" title="Cox Communications">Cox Comm.</a></li>
+<li><a href="/id/providers/49365/charter-communications-digital/" class="flag dot" title="Charter Communications">Charter Comm.</a></li>
+</ul>
+</div>
+<div class="listCol listCol_p">
+<ul>
+<li><a href="/id/providers/9059/cablevision-cable/" class="flag dot" title="Cablevision">Cablevision</a></li>
+<li><a href="/id/providers/40464/suddenlink-communications-abilene-cable/" class="flag dot" title="Suddenlink">Suddenlink</a></li>
+<li><a href="/id/providers/31676/mediacom-cable/" class="flag dot" title="Mediacom">Mediacom</a></li>
+</ul>
+</div>
+<div style="clear:both;"></div>
+<h5>Penyedia Siaran lainnya</h5>
+<form name="providers" method="post" id="providers" action="/id/providers/" style="padding:15px 5px 5px 20px;">
+<span class="bold;">Temukan penyedia: </span><input type="text" id="provider" name="provider" size="10" style="padding:3px;" placeholder="Kode wilayah anda" />
+<input type="submit" style="padding:3px;" value="Ajukan" />
+</form>
+<div class="bottomLine">
+<p><a href="/id/providers/" title="Seluruh Penyedia TV">Seluruh Penyedia</a></p>
+</div>
+</div>
+<!--[if lte IE 6]></td></tr></table></a><![endif]-->
+</li>
+<li class="level1-li sub"><a class="level1-a" href="/id/news/">Berita<!--[if gte IE 7]><!--></a><!--<![endif]--></li>
+<li class="level1-li"><a class="level1-a" href="/id/pubs/">Pub</a></li>
+</ul>
+</div>
+
+<div style="clear:both"></div>
+<div id="competitions_bar">
+<ul>
+<li><a href="/id/competitions/united-states/major-league-soccer/" class="flag us-ca" title="Amerika Serikat - MLS">MLS</a></li>
+<li><a href="/id/competitions/united-states/us-open-cup/" class="flag united-states" title="Amerika Serikat - Piala US Open (Piala AS)">Piala US Op</a></li>
+<li><a href="/id/competitions/international/world-cup/" class="flag world" title="Piala Dunia">Piala Dunia</a></li>
+<li><a href="/id/competitions/international/friendly/" class="flag world" title="Ujicoba">Ujicoba</a></li>
+<li><a href="/id/competitions/international/concacaf-champions-league/" class="flag north-america" title="L. Champions">L. Champions</a></li>
+<li><a href="/id/competitions/mexico/primera-division/" class="flag mexico" title="Meksiko - L. MX Meksiko">L. MX Meksiko</a></li>
+<li><a href="/id/competitions/mexico/copa-mexico/" class="flag mexico" title="Meksiko - Piala Meksiko">Piala Meksiko</a></li>
+<li><a href="/id/competitions/international/uefa-champions-league/" class="flag champions" title="L. Champions Eropa">L. Champion</a></li>
+</ul>
+</div>
+<div style="clear:both"></div>
+</div>
+
+<div id="leftcol_white">
+<h1>Kebijakan Privasi Live Soccer TV</h1>
+<b>Pengambilan Data Pribadi</b>
+<p>Live Soccer TV mengambil data pribadi dari formulir Kontak Kami dan opini lainnya. Live Soccer TV akan menggunakan kuki dan tautan yang terlacak pada situs ini dan email-email yang terkirim. Hal ini dilakukan untuk mengetahui efektifitas situs dan pesan-pesan. Live Soccer TV tidak akan menyebarkan data pribadi kepada pihak lain kecuali jika ada izin spesifik dari anda untuk keperluan tersebut.</p>
+<b>Pengumpulan Data</b>
+<p>Kami akan menyebarkan data informasi yang terkumpul - bukan data pribadi individu - kepada para sponsor kami dan sponsor-sponsor yang potensial untuk membantu mereka memahami dan mendukung minat serta tujuan para anggota kami.</p>
+<p>Kami bekerjasama dengan perusahaan periklanan pihak ketiga untuk melayani iklan saat anda mengunjungi situs kami. Perusahaan-perusahaan tersebut akan menggunakan data yang terkumpul (tidak termasuk nama, alamat, email ataupun nomor telpon anda) mengenai kunjungan anda terhadap situs ini maupun situs-situs lainnya untuk menyediakan iklan tentang produk dan layanan yang sesuai dengan minat anda. Jika anda ingin mengetahui lebih lanjut mengenai perihal tersebut diatas serta pilihan untuk tidak mengizinkan penggunaan informasi tentang anda oleh perusahaan-perusahaan diatas, silahkan cek di <a href="https://www.networkadvertising.org/choices/" target="new">http://www.networkadvertising.org/choices/</a>.</p>
+<b>Penggunaan Data</b>
+<p>Data yang terkumpul dari pengguna situs Live Soccer TV akan digunakan untuk memberi informasi kepada anda berita dan kabar terbaru dari Live Soccer TV serta pemberitahuan terhadap hal-hal, program-program maupun penawaran khusus yang menarik bagi anda. Dengan mendaftar melalui email kami, anda telah mengizinkan Live Soccer TV untuk menghubungi anda lewat email.</p>
+<b>Pihak-pihak ketiga dan Situs Tidak Terafiliasi</b>
+<p>Live Soccer TV menggunakan tindakan pencegahan yang diperlukan untuk mengamankan informasi pribadi dan membatasi penggunaan informasi tersebut kepada pihak-pihak ketiga yang kami yakini bisa bertanggung jawab. Namun, kami tidak bertanggung jawab atas kebocoran keamanan atau tindakan pelanggaran lainnya dari pihak-pihak ketiga penerima informasi tersebut. Live Soccer TV juga terhubung dengan sejumlah situs-situs lainnya. Kami tidak bertanggung jawab atas kebijakan internal maupun penggunaan informasi pengguna dari situs yang bersangkutan.</p>
+<p>Pihak ketiga umum, seperti Google, menggunakan kuki untuk melayani iklan berdasarkan data pengunjung terakhir di situs anda. Penggunaan kuki DART oleh Google memungkinkan mereka dan partner yang bersangkutan untuk melayani iklan kepada pengguna situs anda berdasarkan kunjungan mereka ke situs anda dan/ atau ke situs-situs lainnya di Internet. Pengguna dapat menganulir penggunaan kuki DART dengan mengunjungi laman anulir periklanan.</p>
+</div> 
+<div id="rightcol">
+<div id='div-gpt-ad-1402206170018-13' style='margin:10px 0 0 9px;' align='center'><script type='text/javascript'>googletag.cmd.push(function() { googletag.display('div-gpt-ad-1402206170018-13'); });</script></div><div style="padding:10px 0 0 9px;height:100px; width:336px;"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5993370252466225" data-ad-slot="3636511196" data-ad-format="link"></ins></div><script>(adsbygoogle = window.adsbygoogle || []).push({});</script><div style="margin:10px 9px 0 9px;"><a class="twitter-timeline" href="https://twitter.com/LiveSoccerTV" data-widget-id="424556858594971648">Tweets by @LiveSoccerTV</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script></div><div class="section_300red white">
+<h2>Mendaftar Newsletter &raquo;</h2>
+<form style="padding-top:10px;" action="https://livesportinteractive.us13.list-manage.com/subscribe/post?u=8057afd5b5303f909b1b9e472&amp;id=30557d8982" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+<table cellspacing="0" cellpadding="0" border="0"><tr><td width="45">Email: </td><td>
+<input size="12" type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="alamat email" required>
+<div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_8057afd5b5303f909b1b9e472_30557d8982" tabindex="-1" value=""></div>
+</td><td style="padding:4px;"><input type="submit" value="Ajukan" onClick="return checkSubscribeForm(this.form)" id="mc-embedded-subscribe" /></td>
+<td><span id="whysignup" class="lightgrey tiny underline clickable" onclick="this.onclick = null;document.getElementById('mce-EMAIL').onclick = null;document.getElementById('newsletter').style.display='block';">Mengapa Bergabung?</span>
+</td></tr></table>
+<span id="newsletter" style="display:none;">
+<p class="bold">Newsletter Live Soccer TV</p>
+<ul class="small cleanlist">
+<li class="flag item-white">Selalu ikuti daftar mingguan jadwal siaran langsung TV kami</li>
+<li class="flag item-white">Rencanakan untuk seminggu kedepan dan jangan lewatkan pertandingan tim favorit anda!</li>
+<li class="flag item-white">100% bebas gangguan, hadir seminggu sekali (Kamis atau Jumat)</li>
+</ul>
+</span>
+</form>
+</div>
+<div style='background-color:#f6f6f6; margin:10px; padding:5px;'><h2 id="heading" style="margin-top:0;">Pertandingan Pilihan Mendatang &raquo;</h2>
+<a style='color:#005782;text-decoration:none;' href='http://www.livesoccertv.com/match/2534856/southampton-vs-chelsea/'><table width='100%' border='0' celpadding='0' cellspacing='0' style='border-bottom:1px solid #ddd;padding:3px 0 3px 0;'><tr><td width='20'><img src="//cdn.livesoccertv.com/tt//images/teams/england/logos/southampton.png?q=75&w=16" border='0' hspace='5' /></td><td class='f13' width='35%' title='Southampton'>Southampton</td><td class='small grey' width='15%' align='center' title='Southampton vs Chelsea'><span class='ts' dv='1523705400000' df='mmm d' style='text-align:center;'>Apr 14</span><br><span class='ts' dv='1523705400000' df='H:MM'> 7:30</span></td><td align='right' class='f13' width='35%' title='Chelsea'>Chelsea</td><td width='20'><img src="//cdn.livesoccertv.com/tt//images/teams/england/logos/chelsea.png?q=75&w=16" border='0' hspace='5' /></td></tr></table></a><a style='color:#005782;text-decoration:none;' href='http://www.livesoccertv.com/match/2540822/barcelona-vs-valencia/'><table width='100%' border='0' celpadding='0' cellspacing='0' style='border-bottom:1px solid #ddd;padding:3px 0 3px 0;'><tr><td width='20'><img src="//cdn.livesoccertv.com/tt//images/teams/spain/logos/barcelona.png?q=75&w=16" border='0' hspace='5' /></td><td class='f13' width='35%' title='Barcelona'>Barcelona</td><td class='small grey' width='15%' align='center' title='Barcelona vs Valencia'><span class='ts' dv='1523715300000' df='mmm d' style='text-align:center;'>Apr 14</span><br><span class='ts' dv='1523715300000' df='H:MM'>10:15</span></td><td align='right' class='f13' width='35%' title='Valencia'>Valencia</td><td width='20'><img src="//cdn.livesoccertv.com/tt//images/teams/spain/logos/valencia.png?q=75&w=16" border='0' hspace='5' /></td></tr></table></a><a style='color:#005782;text-decoration:none;' href='http://www.livesoccertv.com/match/2534853/liverpool-vs-afc-bournemouth/'><table width='100%' border='0' celpadding='0' cellspacing='0' style='border-bottom:1px solid #ddd;padding:3px 0 3px 0;'><tr><td width='20'><img src="//cdn.livesoccertv.com/tt//images/teams/england/logos/liverpool.png?q=75&w=16" border='0' hspace='5' /></td><td class='f13' width='35%' title='Liverpool'>Liverpool</td><td class='small grey' width='15%' align='center' title='Liverpool vs AFC Bournemouth'><span class='ts' dv='1523723400000' df='mmm d' style='text-align:center;'>Apr 14</span><br><span class='ts' dv='1523723400000' df='H:MM'>12:30</span></td><td align='right' class='f13' width='35%' title='AFC Bournemouth'>AFC Bournemouth</td><td width='20'><img src="//cdn.livesoccertv.com/tt//images/teams/england/logos/bournemouth.png?q=75&w=16" border='0' hspace='5' /></td></tr></table></a><a style='color:#005782;text-decoration:none;' href='http://www.livesoccertv.com/match/2534860/bayern-m-nchen-vs-borussia-mgladbach/'><table width='100%' border='0' celpadding='0' cellspacing='0' style='border-bottom:1px solid #ddd;padding:3px 0 3px 0;'><tr><td width='20'><img src="//cdn.livesoccertv.com/tt//images/teams/germany/logos/bayern-munchen.png?q=75&w=16" border='0' hspace='5' /></td><td class='f13' width='35%' title='Bayern München'>Bayern München</td><td class='small grey' width='15%' align='center' title='Bayern München vs Borussia M' gladbach'><span class='ts' dv='1523723400000' df='mmm d' style='text-align:center;'>Apr 14</span><br><span class='ts' dv='1523723400000' df='H:MM'>12:30</span></td><td align='right' class='f13' width='35%' title='Borussia M' gladbach'>Borussia M'gladbach</td><td width='20'><img src="//cdn.livesoccertv.com/tt//images/teams/germany/logos/borussia-mgladbach.png?q=75&w=16" border='0' hspace='5' /></td></tr></table></a><a style='color:#005782;text-decoration:none;' href='http://www.livesoccertv.com/match/2534855/newcastle-united-vs-arsenal/'><table width='100%' border='0' celpadding='0' cellspacing='0' style='border-bottom:1px solid #ddd;padding:3px 0 3px 0;'><tr><td width='20'><img src="//cdn.livesoccertv.com/tt//images/teams/england/logos/newcastle-united.png?q=75&w=16" border='0' hspace='5' /></td><td class='f13' width='35%' title='Newcastle United'>Newcastle United</td><td class='small grey' width='15%' align='center' title='Newcastle United vs Arsenal'><span class='ts' dv='1523795400000' df='mmm d' style='text-align:center;'>Apr 15</span><br><span class='ts' dv='1523795400000' df='H:MM'> 8:30</span></td><td align='right' class='f13' width='35%' title='Arsenal'>Arsenal</td><td width='20'><img src="//cdn.livesoccertv.com/tt//images/teams/england/logos/arsenal.png?q=75&w=16" border='0' hspace='5' /></td></tr></table></a><a style='color:#005782;text-decoration:none;' href='http://www.livesoccertv.com/match/2534854/manchester-united-vs-west-bromwich-albion/'><table width='100%' border='0' celpadding='0' cellspacing='0' style='border-bottom:1px solid #ddd;padding:3px 0 3px 0;'><tr><td width='20'><img src="//cdn.livesoccertv.com/tt//images/teams/england/logos/manchester-united.png?q=75&w=16" border='0' hspace='5' /></td><td class='f13' width='35%' title='Manchester United'>Manchester United</td><td class='small grey' width='15%' align='center' title='Manchester United vs West Bromwich Albion'><span class='ts' dv='1523804400000' df='mmm d' style='text-align:center;'>Apr 15</span><br><span class='ts' dv='1523804400000' df='H:MM'>11:00</span></td><td align='right' class='f13' width='35%' title='West Bromwich Albion'>West Bromwich Albion</td><td width='20'><img src="//cdn.livesoccertv.com/tt//images/teams/england/logos/west-bromwich-albion.png?q=75&w=16" border='0' hspace='5' /></td></tr></table></a><a style='color:#005782;text-decoration:none;' href='http://www.livesoccertv.com/match/2540818/malaga-vs-real-madrid/'><table width='100%' border='0' celpadding='0' cellspacing='0' style='border-bottom:1px solid #ddd;padding:3px 0 3px 0;'><tr><td width='20'><img src="//cdn.livesoccertv.com/tt//images/teams/spain/logos/malaga.png?q=75&w=16" border='0' hspace='5' /></td><td class='f13' width='35%' title='Málaga'>Málaga</td><td class='small grey' width='15%' align='center' title='Málaga vs Real Madrid'><span class='ts' dv='1523817900000' df='mmm d' style='text-align:center;'>Apr 15</span><br><span class='ts' dv='1523817900000' df='H:MM'>14:45</span></td><td align='right' class='f13' width='35%' title='Real Madrid'>Real Madrid</td><td width='20'><img src="//cdn.livesoccertv.com/tt//images/teams/spain/logos/real-madrid.png?q=75&w=16" border='0' hspace='5' /></td></tr></table></a><a style='color:#005782;text-decoration:none;' href='http://www.livesoccertv.com/match/2540832/celta-de-vigo-vs-barcelona/'><table width='100%' border='0' celpadding='0' cellspacing='0' style='border-bottom:1px solid #ddd;padding:3px 0 3px 0;'><tr><td width='20'><img src="//cdn.livesoccertv.com/tt//images/teams/spain/logos/celta-de-vigo.png?q=75&w=16" border='0' hspace='5' /></td><td class='f13' width='35%' title='Celta de Vigo'>Celta de Vigo</td><td class='small grey' width='15%' align='center' title='Celta de Vigo vs Barcelona'><span class='ts' dv='1523991600000' df='mmm d' style='text-align:center;'>Apr 17</span><br><span class='ts' dv='1523991600000' df='H:MM'>15:00</span></td><td align='right' class='f13' width='35%' title='Barcelona'>Barcelona</td><td width='20'><img src="//cdn.livesoccertv.com/tt//images/teams/spain/logos/barcelona.png?q=75&w=16" border='0' hspace='5' /></td></tr></table></a><a style='color:#005782;text-decoration:none;' href='http://www.livesoccertv.com/match/2962354/afc-bournemouth-vs-manchester-united/'><table width='100%' border='0' celpadding='0' cellspacing='0' style='border-bottom:1px solid #ddd;padding:3px 0 3px 0;'><tr><td width='20'><img src="//cdn.livesoccertv.com/tt//images/teams/england/logos/bournemouth.png?q=75&w=16" border='0' hspace='5' /></td><td class='f13' width='35%' title='AFC Bournemouth'>AFC Bournemouth</td><td class='small grey' width='15%' align='center' title='AFC Bournemouth vs Manchester United'><span class='ts' dv='1524077100000' df='mmm d' style='text-align:center;'>Apr 18</span><br><span class='ts' dv='1524077100000' df='H:MM'>14:45</span></td><td align='right' class='f13' width='35%' title='Manchester United'>Manchester United</td><td width='20'><img src="//cdn.livesoccertv.com/tt//images/teams/england/logos/manchester-united.png?q=75&w=16" border='0' hspace='5' /></td></tr></table></a><a style='color:#005782;text-decoration:none;' href='http://www.livesoccertv.com/match/2540829/real-madrid-vs-athletic-club/'><table width='100%' border='0' celpadding='0' cellspacing='0'><tr><td width='20'><img src="//cdn.livesoccertv.com/tt//images/teams/spain/logos/real-madrid.png?q=75&w=16" border='0' hspace='5' /></td><td class='f13' width='35%' title='Real Madrid'>Real Madrid</td><td class='small grey' width='15%' align='center' title='Real Madrid vs Athletic Club'><span class='ts' dv='1524079800000' df='mmm d' style='text-align:center;'>Apr 18</span><br><span class='ts' dv='1524079800000' df='H:MM'>15:30</span></td><td align='right' class='f13' width='35%' title='Athletic Club'>Athletic Club</td><td width='20'><img src="//cdn.livesoccertv.com/tt//images/teams/spain/logos/athletic-bilbao.png?q=75&w=16" border='0' hspace='5' /></td></tr></table></a></div><script language="javascript">formatTimes();</script><div style="padding:10px 0 0 9px;height:100px; width:336px;"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5993370252466225" data-ad-slot="3178659277" data-ad-format="link"></ins></div><script>(adsbygoogle = window.adsbygoogle || []).push({});</script><div style="background-color:#f3f3f3;text-align:center;border:1px solid #ddd;padding:10px 3px 10px 3px;margin:10px;"><a href="https://play.google.com/store/apps/details?id=com.livesoccertv&paramLiveSoccerTV.TB" onclick="ga('send','event','App','Android','Rightcol')" target="_blank"><img src="http://cdn.livesoccertv.com/images/app-screen.png" width="300" height="300" alt="Aplikasi Live Soccer TV"></a><div class="osans f24" style="color:#034D72;padding:10px 0 5px 0;">Ikuti pertandingan dalam perjalanan</div><div class="osans f18" style="color:#034D72;padding-bottom:5px;">Unduh Aplikasi Live Soccer TV untuk <br><a href="https://itunes.apple.com/us/app/live-soccer-tv-official-multi/id874726939?mt=8" onclick="ga('send','event','App','iOS','Rightcol')" target="_blank"><span class="f30"> iPhone </span></a> dan <a href="https://play.google.com/store/apps/details?id=com.livesoccertv&paramLiveSoccerTV.TB" onclick="ga('send','event','App','Android','Rightcol')" target="_blank"><span class="f30"> Android </span></a></div><a href="https://itunes.apple.com/us/app/live-soccer-tv-official-multi/id874726939?mt=8" onclick="ga('send','event','App','iOS','Rightcol')" target="_blank"><img src="http://cdn.livesoccertv.com/images/icons/appstore40.png" width="135" height="40" border="0" alt="Aplikasi Live Soccer TV untuk iOS" /></a><a href="https://play.google.com/store/apps/details?id=com.livesoccertv&paramLiveSoccerTV.TB" onclick="ga('send','event','App','Android','Rightcol')" target="_blank"><img src="http://cdn.livesoccertv.com/images/icons/googleplay40.png" width="135" height="40" border="0" style="padding-left:20px;" alt="Aplikasi Live Soccer TV untuk Android" /></a></div>
+</div> 
+<div style="clear:both;margin:0;padding:0;"></div>
+<div class="footer">
+<div class="fblock">
+<div class="fheader"><a href="/id/competitions/">Kompetisi</a></div>
+<ul>
+<li><a href="/id/competitions/united-states/major-league-soccer/" title="Liga MLS Amerika">Liga MLS Amerika</a></li>
+<li><a href="/id/competitions/united-states/us-open-cup/" title="Piala US Open (Piala AS)">Piala US Open (Piala&hellip;</a></li>
+<li><a href="/id/competitions/international/uefa-champions-league/" title="Liga Champions Eropa">Liga Champions Eropa</a></li>
+<li><a href="/id/competitions/international/uefa-europa-league/" title="Piala UEFA">Piala UEFA</a></li>
+<li><a href="/id/competitions/england/premier-league/" title="Inggris - Liga Premier Inggris">Liga Premier Inggris</a></li>
+<li><a href="/id/competitions/spain/primera-division/" title="Spanyol - Liga Spanyol">Liga Spanyol</a></li>
+<li><a href="/id/competitions/italy/serie-a/" title="Italia - Liga Italia Serie A">Liga Italia Serie A</a></li>
+<li><a href="/id/competitions/germany/bundesliga/" title="Jerman - Bundesliga Jerman">Bundesliga Jerman</a></li>
+<li><a href="/id/competitions/france/ligue-1/" title="Perancis - Liga Perancis">Liga Perancis</a></li>
+<li><a href="/id/competitions/portugal/liga-sagres/" title="Portugal - Liga Premier Portugal">Liga Premier Portugal</a></li>
+<li><a href="/id/competitions/spain/copa-del-rey/" title="Spanyol - Copa del Rey">Copa del Rey</a></li>
+<li><a href="/id/competitions/germany/german-cup/" title="Jerman - Piala Jerman (DFB Pokal)">Piala Jerman (DFB Po&hellip;</a></li>
+<li><a href="/id/competitions/england/fa-cup/" title="Inggris - Piala FA">Piala FA</a></li>
+<li><a href="/id/competitions/italy/coppa-italia/" title="Italia - Coppa Italia">Coppa Italia</a></li>
+<li><a href="/id/competitions/portugal/taca-de-portugal/" title="Portugal - Piala Portugal">Piala Portugal</a></li>
+<li><a href="/id/competitions/international/world-cup/" title="Piala Dunia">Piala Dunia</a></li>
+<li><a href="/id/competitions/international/friendly/" title="Ujicoba">Ujicoba</a></li>
+<li><a href="/id/competitions/international/concacaf-champions-league/" title="Liga Champions CONCACAF">Liga Champions CONCA&hellip;</a></li>
+<li><a href="/id/competitions/international/copa-libertadores/" title="Piala Libertadores">Piala Libertadores</a></li>
+<li><a href="/id/competitions/mexico/primera-division/" title="Liga MX Meksiko">Liga MX Meksiko</a></li>
+<li><a href="/id/competitions/mexico/copa-mexico/" title="Piala Meksiko">Piala Meksiko</a></li>
+</ul>
+</div>
+<div class="fblock">
+<div class="fheader"><a href="/id/teams/">Tim</a></div>
+<ul>
+<li><a href="/id/teams/england/arsenal/" title="Arsenal FC">Arsenal</a></li>
+<li><a href="/id/teams/england/chelsea/" title="Chelsea FC">Chelsea</a></li>
+<li><a href="/id/teams/england/liverpool/" title="Liverpool FC">Liverpool</a></li>
+<li><a href="/id/teams/england/manchester-united/" title="Manchester United FC">Manchester United</a></li>
+<li><a href="/id/teams/england/everton/" title="Everton FC">Everton</a></li>
+<li><a href="/id/teams/spain/barcelona/" title="FC Barcelona">Barcelona</a></li>
+<li><a href="/id/teams/spain/real-madrid/" title="Real Madrid">Real Madrid</a></li>
+<li><a href="/id/teams/germany/bayern-munchen/" title="FC Bayern München">Bayern München</a></li>
+<li><a href="/id/teams/france/monaco/" title="Monaco">Monaco</a></li>
+<li><a href="/id/teams/italy/juventus/" title="Juventus F.C.">Juventus</a></li>
+<li><a href="/id/teams/italy/ac-milan/" title="AC Milan">AC Milan</a></li>
+<li><a href="/id/teams/italy/as-roma/" title="AS Roma">AS Roma</a></li>
+<div class='bold'>Liga MLS Amerika &#x25BE;</div><li><span class='grey'>1</span> <a href="/id/teams/united-states/new-york-city/" title="New York City FC">New York City</a></li>
+<li><span class='grey'>2</span> <a href="/id/teams/united-states/atlanta-united/" title="Atlanta United FC">Atlanta United</a></li>
+<li><span class='grey'>3</span> <a href="/id/teams/united-states/new-england-revolution/" title="New England Revolution">New England</a></li>
+<li><span class='grey'>4</span> <a href="/id/teams/united-states/columbus-crew/" title="Columbus Crew SC">Columbus Crew</a></li>
+<li><span class='grey'>5</span> <a href="/id/teams/united-states/orlando-city/" title="Orlando City SC">Orlando City SC</a></li>
+<li><span class='grey'>6</span> <a href="/id/teams/united-states/new-york-red-bulls/" title="New York Red Bulls">New York RB</a></li>
+<li><span class='grey'>7</span> <a href="/id/teams/canada/montreal-impact/" title="Montreal Impact">Montreal Impact</a></li>
+<li><span class='grey'>8</span> <a href="/id/teams/united-states/philadelphia-union/" title="Philadelphia Union">Philadelphia Union</a></li>
+<li><span class='grey'>9</span> <a href="/id/teams/united-states/chicago-fire/" title="Chicago Fire">Chicago Fire</a></li>
+<li><span class='grey'>10</span> <a href="/id/teams/canada/toronto-fc/" title="Toronto FC">Toronto FC</a></li>
+<li><span class='grey'>11</span> <a href="/id/teams/united-states/dc-united/" title="DC United">DC United</a></li>
+<li><span class='grey'>1</span> <a href="/id/teams/united-states/sporting-kansas-city/" title="Sporting Kansas City">Sporting KC</a></li>
+<li><span class='grey'>2</span> <a href="/id/teams/canada/whitecaps/" title="Vancouver Whitecaps FC">Vancouver Whitecaps</a></li>
+<li><span class='grey'>3</span> <a href="/id/teams/united-states/los-angeles-galaxy/" title="LA Galaxy">LA Galaxy</a></li>
+<li><span class='grey'>4</span> <a href="/id/teams/united-states/real-salt-lake/" title="Real Salt Lake">Real Salt Lake</a></li>
+<li><span class='grey'>5</span> <a href="/id/teams/united-states/los-angeles-fc/" title="Los Angeles FC">Los Angeles FC</a></li>
+<li><span class='grey'>6</span> <a href="/id/teams/united-states/minnesota-stars/" title="Minnesota Stars FC">Minnesota United</a></li>
+<li><span class='grey'>7</span> <a href="/id/teams/united-states/fc-dallas/" title="FC Dallas">Dallas</a></li>
+<li><span class='grey'>8</span> <a href="/id/teams/united-states/colorado-rapids/" title="Colorado Rapids">Colorado Rapids</a></li>
+<li><span class='grey'>9</span> <a href="/id/teams/united-states/houston-dynamo/" title="Houston Dynamo">Houston Dynamo</a></li>
+<li><span class='grey'>10</span> <a href="/id/teams/united-states/san-jose-earthquakes/" title="San Jose Earthquakes">SJ Earthquakes</a></li>
+<li><span class='grey'>11</span> <a href="/id/teams/united-states/portland-timbers/" title="Portland Timbers">Portland Timbers</a></li>
+<li><span class='grey'>12</span> <a href="/id/teams/united-states/seattle-sounders-fc/" title="Seattle Sounders FC">Seattle Sounders FC</a></li>
+</ul>
+</div>
+<div class="fblock">
+<div class="fheader"><a href="/id/channels/">Stasiun TV</a></div>
+<ul>
+<li><a href="/id/channels/fubo-tv/" title="fuboTV">fuboTV</a></li>
+<li><a href="/id/channels/fox-network/" title="FOX Network">FOX Network</a></li>
+<li><a href="/id/channels/espn/" title="ESPN">ESPN</a></li>
+<li><a href="/id/channels/bein-sport-1-usa/" title="beIN SPORTS">beIN SPORTS</a></li>
+<li><a href="/id/channels/fox-soccer-plus/" title="Fox Soccer Plus">Fox Soccer Plus</a></li>
+<li><a href="/id/channels/espn-3/" title="ESPN3">ESPN3</a></li>
+<li><a href="/id/channels/espn-deportes/" title="ESPN Deportes">ESPN Deportes</a></li>
+<li><a href="/id/channels/nbc-sports/" title="NBCSN">NBCSN</a></li>
+<li><a href="/id/channels/fox-sports-1-usa/" title="Fox Sports 1">Fox Sports 1</a></li>
+<li><a href="/id/channels/fox-sports-2-usa/" title="Fox Sports 2">Fox Sports 2</a></li>
+<li><a href="/id/channels/espn-deportes-plus-por-espn3/" title="ESPN Deportes+">ESPN Deportes</a></li>
+<li><a href="/id/channels/bein-sport-en-espanol/" title="beIN SPORTS en Español">beIN SPORTS en Español</a></li>
+<li><a href="/id/channels/gol-tv/" title="GOLTV">GOLTV</a></li>
+<li><a href="/id/channels/fox-deportes/" title="FOX Deportes">FOX Deportes</a></li>
+<li><a href="/id/channels/bein-sport-connect/" title="beIN SPORTS CONNECT">beIN SPORTS CONNECT</a></li>
+<li><a href="/id/channels/univision-deportes-usa/" title="Univision Deportes">Univision Deportes</a></li>
+<li><a href="/id/channels/watch-espn/" title="WatchESPN">WatchESPN</a></li>
+<li><a href="/id/channels/telemundo/" title="Telemundo">Telemundo</a></li>
+<li><a href="/id/channels/yes-network/" title="YES Network">YES Network</a></li>
+<li><a href="/id/channels/nbc-universo/" title="UNIVERSO">UNIVERSO</a></li>
+<li><a href="/id/channels/galavision/" title="Galavision">Galavision</a></li>
+<li><a href="/id/channels/univision/" title="Univision">Univision</a></li>
+<li><a href="/id/channels/unimas/" title="UniMás">UniMás</a></li>
+<li><a href="/id/channels/mls-live-soccer/" title="MLS Live">MLS Live</a></li>
+<li><a href="/id/channels/wphl-tv-phl-17/" title="WPHL-TV PHL17 ">WPHL-TV PHL17</a></li>
+<li><a href="/id/channels/yes2-usa/" title="YES2">YES2</a></li>
+<li><a href="/id/channels/nbc-sports-boston/" title="NBC Sports Boston">NBC Sports Boston</a></li>
+<li><a href="/id/channels/igol-usa/" title="iGol">iGol</a></li>
+<li><a href="/id/channels/ifollow/" title="iFollow">iFollow</a></li>
+<li><a href="/id/channels/gol-tv-espanol/" title="GolTV Espanol">GolTV Espanol</a></li>
+<li><a href="/id/channels/lifetime-usa/" title="Lifetime">Lifetime</a></li>
+<li><a href="/id/channels/msg/" title="MSG">MSG</a></li>
+<li><a href="/id/channels/espn-app-usa/" title="ESPN+">ESPN</a></li>
+<li><a href="/id/channels/fox-soccer-match-pass/" title="FOX Soccer Match Pass">FOX Soccer Match Pass</a></li>
+<li><a href="/id/channels/msg-go/" title="MSG GO">MSG GO</a></li>
+<li><a href="/id/channels/rai-italia-america/" title="Rai Italia America">Rai Italia America</a></li>
+</ul>
+</div>
+<style type="text/css">.fblock { width:180px; float:left; } </style>
+<div class="fblock">
+<div class="fheader"><a href="/id/providers/">Penyedia TV</a></div>
+<ul>
+<li><a href="/id/providers/54253/sling-tv/" title="Sling TV">Sling TV</a></li>
+<li><a href="/id/providers/54252/fubo-tv/" title="Fubo TV">Fubo TV</a></li>
+<li><a href="/id/providers/54257/directv-now//" title="DirecTV NOW">DirecTV NOW</a></li>
+<li><a href="/id/providers/5/directv-satellite-united-states/" title="DirecTV">DirecTV</a></li>
+<li><a href="/id/providers/7/dish-network-satellite-united-states/" title="Dish Network">Dish Network</a></li>
+<li><a href="/id/providers/50986/comcast-cable/" title="Comcast">Comcast</a></li>
+<li><a href="/id/providers/49811/time-warner-cable-cable/" title="Time Warner">Time Warner</a></li>
+<li><a href="/id/providers/50968/at-t-u-verse-tv-digital/" title="AT&T U-Verse">AT&T U-Verse</a></li>
+<li><a href="/id/providers/7866/verizon-fios-new-york-plus-digital/" title="Verizon FiOS">Verizon FiOS</a></li>
+<li><a href="/id/providers/48678/cox-communications-cable/" title="Cox Communications">Cox Comm.</a></li>
+<li><a href="/id/providers/49365/charter-communications-digital/" title="Charter Communications">Charter Comm.</a></li>
+<li><a href="/id/providers/9059/cablevision-cable/" title="Cablevision">Cablevision</a></li>
+<li><a href="/id/providers/40464/suddenlink-communications-abilene-cable/" title="Suddenlink">Suddenlink</a></li>
+<li><a href="/id/providers/31676/mediacom-cable/" title="Mediacom">Mediacom</a></li>
+</ul>
+</div>
+<div class="fblock">
+<div class="fheader">Live Soccer TV</div>
+<ul>
+<li><a href="/id/app/">Aplikasi Live Soccer TV</a></li>
+<li><a href="/id/advertising/">Iklan</a></li>
+<li><a href="/id/privacy/">Privasi</a></li>
+<li><a href="/id/disclaimer/">Pernyataan Penyangkalan</a></li>
+<li><a href="/id/careers/">Karir & Program Magang</a></li>
+<li><a href="/id/contact/">Hubungi Kami</a></li>
+<br />
+<li><a href="http://www.livefootballtv.com">Sepakbola Amerika</a></li>
+<li><a href="http://www.liverugbytv.com">Rugbi</a></li>
+<li><a href="http://www.livecricketcentral.com">Kriket</a></li>
+</ul>
+</div>
+<div style="clear:both;"></div>
+<div align="center" style="padding-top:20px;">&copy; 2005-2018 Live Soccer TV</div>
+<div style="clear:both;"></div>
+</div> 
+<div id="tz_offset"></div>
+<script type="text/javascript">
+var d = new Date()
+var offset = -d.getTimezoneOffset()/60;	
+
+if (window.XMLHttpRequest) { // code for IE7+, Firefox, Chrome, Opera, Safari
+	xmlhttp=new XMLHttpRequest();
+} else { // code for IE6, IE5
+	xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+}
+
+xmlhttp.onreadystatechange=function() {
+	if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+		document.getElementById("tz_offset").innerHTML=xmlhttp.responseText;
+	}
+}
+// xmlhttp.open("GET","/include/tz_offset.php?tz_offset="+offset,true);
+// xmlhttp.send();
+
+</script>
+</div> 
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"4645340463","applicationID":"13658840","transactionName":"b1FXbBcAWhYCW0NYWVYbYEoMTkQXCk5WUk8VRFpUDAJNSxNQRw==","queueTime":0,"applicationTime":24,"atts":"QxZUGl8aSRg=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>

@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>OnlyFans</title>
+<meta name=description content="OnlyFans">
+<meta name=keywords content="OnlyFans">
+<meta property=og:site_name content=OnlyFans>
+<meta property=og:url content="https://onlyfans.com/privacy">
+<meta property=og:title content="OnlyFans">
+<meta property=og:description content="OnlyFans">
+<meta property=og:image content="https://onlyfans.com/theme/onlyfans/images/fb_logo.png">
+			<script>
+		if (window != window.top) {
+			top.location.href = document.location.href;
+		}
+	</script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-116416068-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-116416068-1');
+</script>
+
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+<link rel="shortcut icon" href="/theme/onlyfans/favicon.ico" type=image/x-icon>
+<link rel=icon href="/theme/onlyfans/favicon.ico" type=image/x-icon>
+<link rel=apple-touch-icon href="/theme/onlyfans/images/i/apple-icon-57x57.png">
+<link href=https://fonts.googleapis.com/icon?family=Material+Icons rel=stylesheet>
+<link href=https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,600i,700,800|Roboto:300,400,700 rel=stylesheet>
+<link href=https://use.fontawesome.com/47fce547b0.css rel=stylesheet>
+
+	<link rel="stylesheet" type="text/css" href="/css/6188b4cb84d55e96912c1e4762e4e3af.css" />
+
+<script src="/theme/common/assets/jquery/js/jquery-1.11.3.min.js"></script>
+<script>
+	var USERID = 0;
+	var USERUNIQ = '';
+	var POST_MEDIA_CONFIG = {"types":["gif","photo","video","stream","audio"],"ext":{"gif":"gif","photo":"jpe?g|gif|png","video":"mp4|moo?v|m4v|mpe?g|wmv|avi","stream":"stream","audio":"mp3"},"count":{"gif":1,"photo":20,"video":1,"stream":1,"audio":1},"params":{"stream":{"server":"stream.onlyfans.com"}},"prefix":"https:\/\/media.onlyfans.com"};
+	var POSTS = [];
+	var LOOKATUSER = 0;
+	var CHATS_IN_PAGE = false;
+	var RECAPTCHA_PUBLIC = '6LfVUxkUAAAAAFwy-qwWGqKNhT1vqmYF-9ULPAWz';
+	var CAN_PAY_STRIPE = false;
+	var CAN_PAY_SECURIONPAY = false;
+	var UNSUBSCRIBE_REASONS = [{"id":"1","name":"Low posting frequency","active":"1"},{"id":"2","name":"Private messages not replied","active":"1"},{"id":"3","name":"No longer want to be subscribed","active":"1"},{"id":"4","name":"Subscription price too high","active":"1"},{"id":"5","name":"Will re-subscribe later","active":"1"}];
+</script>
+<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+<script type="text/javascript">
+	Stripe.setPublishableKey('pk_live_arSt7jAeOvDqe1pIKHErLSip');
+</script>
+<script>
+	function stripe3DSecure(customer, amount, success_callback) {
+		GlobalStripeSuccess3DSecureCallback = success_callback;
+		Stripe.source.create({
+			type: 'three_d_secure',
+			amount: amount,
+			currency: "usd",
+			three_d_secure: {
+				customer: customer
+			},
+			redirect: {
+				return_url: 'https://onlyfans.com/stripe3ds.html'
+			}
+		}, stripe3DSecureResponseHandler);
+	}
+
+	function stripe3DSecureResponseHandler(status, response) {
+		if (response.error) {
+			var message = response.error.message;
+			alert("Unexpected 3DS source creation response status: " + status + ". Error: " + message);
+			return;
+		}
+
+		// check the 3DS source's status
+		if (response.status == 'chargeable') {
+			alert("This card does not support 3D Secure authentication, but liability will be shifted to the card issuer.");
+			return;
+		} else if (response.status != 'pending') {
+			alert("Unexpected 3D Secure status: " + response.status);
+			return;
+		}
+
+		// start polling the source (to detect the change from pending
+		// to either chargeable or failed)
+		Stripe.source.poll(
+				response.id,
+				response.client_secret,
+				stripe3DSStatusChangedHandler
+				);
+
+		// open the redirect URL in an iframe
+		// (in this example we're using Featherlight for convenience,
+		// but this is of course not a requirement)
+		hidePreloader();
+		$.featherlight({
+			iframe: response.redirect.url,
+			iframeWidth: $(window).width() * 0.75,
+			iframeHeight: $(window).height() * 0.75
+		});
+
+//		console.log(response);
+	}
+
+	function stripe3DSStatusChangedHandler(status, source) {
+		if (source.status == 'chargeable') {
+			$.featherlight.current().close();
+			Stripe.source.cancelPoll(source.id);
+			GlobalStripeSuccess3DSecureCallback(source.id);
+		} else if (source.status == 'failed') {
+			$.featherlight.current().close();
+			var msg = '3D Secure authentication failed.';
+			alert(msg);
+		} else if (source.status != 'pending') {
+			$.featherlight.current().close();
+			var msg = "Unexpected 3D Secure status: " + source.status;
+			alert(msg);
+		}
+	}
+
+</script>
+<script type="text/javascript" src="/theme/common/securionpay/securionpay.js"></script>
+
+<script type="text/javascript">
+	// This is required to identify your account
+	Securionpay.setPublicKey('pk_live_tHxz1MnE66sarkLtjgWQCtvF');
+</script>
+<script>
+	function securion3DSecure(card, amount, success_callback) {
+		GlobalSecurionSuccess3DSecureCallback = success_callback;
+		SecurionPay.verifyThreeDSecure({
+			amount: amount,
+			currency: 'USD',
+			card: card
+		}, verifyThreeDSecureCallback);
+	}
+
+	function verifyThreeDSecureCallback(token) {
+		if (typeof token === 'undefined') {
+			// Display error message
+			alert('Unknown error');
+		} else {
+			if (token.error) {
+				alert(token.error.message);
+			} else {
+				GlobalSecurionSuccess3DSecureCallback(token.id);
+			}
+		}
+	}
+</script>
+	</head>
+
+	<body id="page_page">
+		<header id="site_header" class="pages_site_header">
+
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-2 col-xs-6">
+				<a href="/" id="logo">
+					<img src="/theme/onlyfans/images/pages-logo.png">
+				</a>
+			</div>
+			<div class="col-sm-10 col-xs-6">
+				<button type="button" class="btn btn-default navbar-toggle collapsed visible-xs" data-toggle="collapse" data-target="#topmenu-collapse" aria-expanded="false">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<div class="collapse navbar-collapse visible-sm visible-md visible-lg" id="topmenu-collapse">
+					<nav class="top_nav pull-right">
+							<a href="/how/" >How it works</a>
+	<a href="/faq/" >FAQs</a>
+	<a href="/partners/" >Partners</a>
+	<a href="/contacts/" >Contact</a>
+	<a href="/terms/" >Terms</a>
+	<a href="/privacy/" class="active">Privacy</a>
+											</nav>
+				</div>
+			</div>
+		</div>
+	</div>
+</header>		<main id="content">
+			<div class="container">
+	<h1 class="title">Privacy Policy</h1>
+	<p>(Last amended: 08/15/17)</p>
+<p> </p>
+<p>Contents: </p>
+<div class="page" title="Page 2">
+<div class="layoutArea">
+<div class="column">
+<ol><li>
+<p>About </p>
+</li>
+<li>
+<p>Introduction </p>
+</li>
+<li>
+<p>Children Under the Age of 18 </p>
+</li>
+<li>
+<p>Information We Collect</p>
+</li>
+<li>
+<p>Cookies</p>
+</li>
+<li>
+<p>How We Use Your Information</p>
+</li>
+<li>
+<p>Disclosure of Your Information</p>
+</li>
+<li>
+<p>Accessing and Correcting Your Information </p>
+</li>
+<li>
+<p>Security </p>
+</li>
+<li>
+<p>Changes to the Policy </p>
+</li>
+<li>
+<p>Contact Information </p>
+</li>
+</ol></div>
+</div>
+</div>
+<p> </p>
+<p><strong>1. About </strong></p>
+<p>1.1 This Privacy Policy (<strong>Policy</strong>) explains how information about you is collected, used and disclosed by Fenix international limited ("<strong>OnlyFans</strong>") when you (the <strong>User</strong>) use <a href="http://www.onlyfans.com">www.onlyfans.com</a> (our <strong>Website</strong>) or our mobile applications, or when you otherwise interact with us.</p>
+<p>1.2 We respect your privacy and are committed to protecting it through our compliance with this Policy.</p>
+<p>1.3 We reserve the right to make changes to this Policy at any time. <br /><br /></p>
+<p><strong>2. Introduction</strong></p>
+<p>2.1  This Policy describes the types of information we may collect from you or that you may provide when you visit the Website and our practices for collecting, using, maintaining, protecting, and disclosing that information. <br />2.2  This Policy applies to information we collect: </p>
+<ul><li>2.2.1 on the Website; </li>
+<li>2.2.2 in email, text, and other electronic messages between you and us; </li>
+<li>2.2.3 through mobile and desktop applications you download from the Website, which provide dedicated non-browser-based interaction between you and the Website; and </li>
+<li>2.2.4 when you interact with our advertising and applications on third-party websites and services, if those applications or advertising include links to this policy.</li>
+</ul><p>2.3 It does not apply to information collected by:</p>
+<ul><li>2.3.1 us offline or through any other means, including on any other website operated by us or any third party (including our affiliates and subsidiaries); or </li>
+<li>2.3.2 any third party (including our affiliates and subsidiaries), including through any application or content (including advertising) that may link to or be accessible from or on the Website.</li>
+</ul><p>2.4  Please read this Policy carefully to understand our policies and practices regarding your information and how we will treat it.</p>
+<p>2.5  If you do not agree with our policies and practices, your choice is not to use our Website. By accessing or using this Website, you agree to this Policy.</p>
+<p>2.6 The Policy may change from time to time. Your continued use of this Website after we make changes is deemed to be acceptance of those changes, so please check the Policy periodically for updates.<br /><br /></p>
+<p><strong>3. Children Under the Age of 18</strong></p>
+<p>3.1 The Website is not intended for children under 18 years of age. No one under age 18 may provide any information to or on the Website.</p>
+<p>3.2 We do not knowingly collect personal information from children under 18. If you are under 18, do not use or provide any information on this Website or on or through any of its features/register on the Website, make any purchases through the Website, use any of the interactive or public comment features of this Website or provide any information about yourself to us, including your name, address, telephone number, email address, or any screen name or username you may use.</p>
+<p>3.3 If we learn we have collected or received personal information from a child under 18, we will delete that information.</p>
+<p>3.4 If you believe we might have any information from or about a child under 18, please contact us at <a href="mailto:support@onlyfans.com">support@onlyfans.com</a>.<br /><a href="mailto:support@onlyfans.com."><br /></a><br /><strong>4. Information We Collect</strong></p>
+<p>4.1 We collect information when a User creates an account. The types of information we collect include your username, password, email address, financial information and any other information you choose to provide within the Settings page.</p>
+<p>4.2 OnlyFans does not own the User content you upload. However, when you upload User content to OnlyFans, we collect, process and store the contents (such as photos and videos) on our servers. We cannot prevent your paying subscribers ("Fans") from making copies of your posts or messages (e.g. taking screenshots).</p>
+<p>4.3 When you access or use OnlyFans, we also collect:</p>
+<ul><li>4.3.1 information about the User content you upload, including the time, date, sender and recipient of the post; </li>
+<li>4.3.2 information about your use of our Website, including your browser type and language, access times, pages viewed and your IP address; and </li>
+<li>4.3.3 information about the computer or device you use to access OnlyFans, including the hardware model, operating system and version, MAC address, unique device identifier, phone number, International Mobile Equipment Identity ("IMEI") and mobile network information. If you are using the mobile application, we may access your device's native image storage applications, to allow you to post or edit User content via the mobile application. <br /><br /></li>
+</ul><p><strong>5. Cookies</strong> </p>
+<p>5.1 We use various technologies to collect information, including sending cookies to you. Cookies are small data files stored on your hard drive or in device memory that help us to improve OnlyFans.com and your experience. </p>
+<p>5.2 Some content or applications, including advertisements, on the Website are served by third-parties, including advertisers, ad networks and servers, content providers, and application providers. These third parties may use cookies alone or in conjunction with web beacons or other tracking technologies to collect information about you when you use the Website. The information they collect may be associated with your personal information or they may collect information, including personal information, about your online activities over time and across different websites and other online services. They may use this information to provide you with interest-based (behavioral) advertising or other targeted content.</p>
+<p>5.3 We do not control these third parties’ tracking technologies or how they may be used. If you have any questions about an advertisement or other targeted content, you should contact the responsible provider directly.</p>
+<p>5.4 We use the following cookies:</p>
+<ul><li>5.4.1 <span style="text-decoration:underline;">Strictly necessary cookies</span>. These are cookies that are required for the operation of the Website. They include, for example, cookies that enable you to log into secure areas of the Website, use a shopping cart or make use of e-billing services;</li>
+<li>5.4.2 <span style="text-decoration:underline;">Analytical/performance cookies</span>. They allow us to recognise and count the number of visitors and to see how visitors move around the Website when they are using it. This helps us to improve the way the Website works, for example, by ensuring that Users are finding what they are looking for easily;</li>
+<li>5.4.3 <span style="text-decoration:underline;">Functionality cookies</span>. These are used to recognise you when you return to the Website. This enables us to personalise our content for you, greet you by name and remember your preferences (for example, your choice of language or region);</li>
+<li>5.4.4 <span style="text-decoration:underline;">Targeting cookies</span>. These cookies record your visit to the Website, the pages you have visited and the links you have followed. We will use this information to make the Website and the advertising displayed on it more relevant to your interests. We may also share this information with third parties for this purpose.</li>
+</ul><p><br />5.5  You can block cookies by activating the setting on your browser that allows you to refuse the setting of all or some cookies. However, if you use your browser settings to block all cookies (including essential cookies) you may not be able to access all or parts of the Website. <br /><br /></p>
+<p><strong>6. How We Use Your Information</strong></p>
+<p>6.1 We may use this information about you to:</p>
+<ul><li>6.1.1 provide, maintain and improve the Website, including to provide additional features and content for your messages;</li>
+<li>6.1.2 provide and deliver the products and services you request, process transactions and send you related information;</li>
+<li>6.1.3 respond to your feedback, questions and provide customer service;</li>
+<li>6.1.4 send you technical notices, updates, security alerts and support and administrative messages;</li>
+<li>6.1.5 communicate with you about products, services, offers, updates and promotions offered by OnlyFans;</li>
+<li>6.1.6 monitor and analyze trends, usage and activities in connection with OnlyFans;</li>
+<li>6.1.7 personalize and improve OnlyFans and provide suggestions or features that match user profiles or interests;</li>
+<li>6.1.8 detect, investigate and/or prevent fraudulent, unauthorized or illegal activity; and</li>
+<li>6.1.9 carry out any other purpose for which the information was collected.<br /><br /></li>
+</ul><p><strong>7. Disclosure of Your Information</strong></p>
+<p>7.1 We may disclose personal information that we collect or you provide as described in this Policy to: </p>
+<ul><li>7.1.1 our subsidiaries and affiliates; </li>
+<li>7.1.2 contractors, service providers, and other third parties we use to support our business; </li>
+<li>7.1.3 a buyer or other successor in the event of a merger, divestiture, restructuring, reorganization, dissolution, or other sale or transfer of some or all of our assets, whether as a going concern or as part of bankruptcy, liquidation, or similar proceeding, in which personal information held by us about our Users is among the assets transferred; </li>
+<li>7.1.4 fulfill the purpose for which you provide it; and </li>
+<li>7.1.5 comply with any other purpose disclosed by us when you provide the information. </li>
+</ul><p>7.2 We may also disclose your personal information to comply with any court order, law, or legal process, including to respond to any government or regulatory request.<br /><br /></p>
+<p><strong>8. Accessing and Correcting Your Information </strong></p>
+<p>8.1 You can review and change your personal information at any time by accessing the 'Settings' page on the Website or by sending us an email at support@onlyfans.com to request access to, correct or delete any personal information that you have provided to us. <br /><br /></p>
+<p><strong>9. Security</strong></p>
+<p>9.1 We take reasonable measures to help protect information about you from loss, theft, misuse and unauthorized access, disclosure, alteration and destruction. </p>
+<p>9.2  All information you provide to us is stored on our secure servers behind firewalls. Any payment transactions will be encrypted.</p>
+<p>9.3  The safety and security of your information also depends on you. Where we have given you (or where you have chosen) a password for access to certain parts of our Website, you are responsible for keeping this password confidential. We ask you not to share your password with anyone. We urge you to be careful about giving out information in public areas of the Website like message boards. The information you share in public areas may be viewed by any User of the Website.</p>
+<p><strong>10. Changes to the Policy</strong></p>
+<p>10.1  We post any changes we make to the Policy on this page. If we make material changes to how we treat our Users’ personal information, we will notify you.</p>
+<p>10.2  The date the Policy was last revised is identified at the top of the page. You are responsible for ensuring we have an up-to-date active and deliverable email address for you, and for periodically visiting our Website and the Policy to check for any changes. <br /><br /></p>
+<p><strong>11. Contact Information</strong></p>
+<p>11.1 To ask questions or comment about this Policy and our privacy practices, contact us at <a href="mailto:support@onlyfans.com">support@onlyfans.com</a>. </p>
+<p>11.2 If you wish to delete your account, please contact support at <a href="mailto:support@onlyfans.com">support@onlyfans.com</a>. </p></div>
+		</main>
+		<div class="footer_wrapper">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-3 col-xs-12">
+						<div class="copyright">©2016 Onlyfans</div>
+						<ul class="social_guest">
+	<li><a href="//twitter.com/OnlyFansApp" target="_blank"><i class="fa fa-twitter"></i></a></li>
+	<li><a href="//instagram.com/onlyfansofficial" target="_blank"><i class="fa fa-instagram"></i></a></li>
+</ul>
+						<div class="visible-xs">
+							<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#footer_menu_mobile" aria-expanded="false">
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+							<div class="footer_menu_mobile collapse" id="footer_menu_mobile">
+								<footer id="footer">
+	<menu class="footer_nav">
+					<li><a href="/how/">How it works</a></li>
+					<li><a href="/faq/">FAQs</a></li>
+					<li><a href="/partners/">Partners</a></li>
+					<li><a href="/contacts/">Contact</a></li>
+					<li><a href="/terms/">Terms</a></li>
+					<li><a href="/privacy/">Privacy</a></li>
+					<!--<li><a href='#contactModal' data-toggle='modal' class='hidden-lg'>Contact Us</a></li>-->
+	</menu>
+</footer>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-9 col-xs-12 hidden-xs">
+						<footer id="footer">
+	<menu class="footer_nav">
+					<li><a href="/how/">How it works</a></li>
+					<li><a href="/faq/">FAQs</a></li>
+					<li><a href="/partners/">Partners</a></li>
+					<li><a href="/contacts/">Contact</a></li>
+					<li><a href="/terms/">Terms</a></li>
+					<li><a href="/privacy/">Privacy</a></li>
+					<!--<li><a href='#contactModal' data-toggle='modal' class='hidden-lg'>Contact Us</a></li>-->
+	</menu>
+</footer>
+					</div>
+				</div>
+			</div>
+		</div>
+		<iframe id="iframe" name="iframe" style="display: none;"></iframe>
+
+<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="dialog" class="modal fade" style="display: none;">
+	<div class="modal-dialog modal-sm">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+				<h4 class="modal-title"></h4>
+			</div>
+			<div class="modal-body">
+				<div class="dialog_message"></div>
+				<div class="dialog_form"></div>
+			</div>
+			<div class="modal-footer"></div>
+		</div>
+	</div>
+</div>
+
+
+	
+<div class="global_preloader"></div>
+<button class="btn_up"><i class="fa fa-angle-up"></i></button>
+<script src="/theme/common/assets/jwplayer-7.10.7/jwplayer.js"></script>
+<script>jwplayer.key = "gLB1DPyCMGHsce92gogpb/DieSKCvn0ijd/Sfw==";</script>
+	<script type="text/javascript" src="/js/6025562702480da04ddf29dc5398fdc0.js"></script>
+<script src=//cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js></script>
+<script type="text/javascript" src="/theme/common/assets/printfingerjs2/printfinger2.min.js"></script>
+<!--<script type="text/javascript" src="/theme/common/agora/vendor/socket.io.js"></script>
+<script type="text/javascript" src="/theme/common/agora/vendor/adapter.js"></script>
+<script type="text/javascript" src="/theme/common/agora/AgoraRTCSDK-1.8.1.js"></script>-->
+
+<script src="//www.youtube.com/iframe_api"></script>
+<script>
+	function onYouTubeIframeAPIReady() {
+		(function ($) {
+			$('.popup-youtube').on('click', function () {
+				$.magnificPopup.open({
+					type: 'inline',
+					items: '',
+					midClick: true,
+					inline: {
+						markup: '<div class="mfp-iframe-scaler">' +
+								'<div class="mfp-close"></div>' +
+								'<div id="player"></div>' +
+								'</div>'
+					},
+					mainClass: 'mfp-iframe-holder',
+					callbacks: {
+						open: function () {
+							opened();
+						}
+					}
+				});
+			});
+		})(jQuery)
+	}
+	var magnificPopup = jQuery.magnificPopup.instance,
+			player;
+	function opened() {
+		player = new YT.Player('player', {
+			height: '720',
+			width: '1280',
+			videoId: 'bfvgSIt4Ii0',
+			events: {
+				'onReady': onPlayerReady,
+				'onStateChange': onPlayerStateChange
+			}
+		});
+	}
+	function onPlayerReady(event) {
+		event.target.playVideo();
+	}
+	function onPlayerStateChange(event) {
+		if (event.data == YT.PlayerState.ENDED) {
+			magnificPopup.close();
+		}
+	}
+</script>
+
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+  <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+  <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+	</body>
+</html>

@@ -1,0 +1,906 @@
+
+
+
+
+Page Not Found - Sesame Street
+
+
+
+
+
+
+
+
+
+
+/**
+ * HTML element names for the search form, the spellchecking suggestion, and the
+ * cluster suggestions. The search form must have the following input elements:
+ * "q" (for search box), "site", "client".
+ * @type {string}
+ */
+var ss_form_element = 'globalSearchFm'; // search form
+
+/**
+ * Name of search suggestion drop down.
+ * @type {string}
+ */
+var ss_popup_element = 'search_suggest'; // search suggestion drop-down
+
+/**
+ * Types of suggestions to include.  Just one options now, but reserving the
+ * code for more types
+ *   g - suggest server
+ * Array sequence determines how different suggestion types are shown.
+ * Empty array would effectively turn off suggestions.
+ * @type {object}
+ */
+var ss_seq = [ 'g' ];
+
+/**
+ * Suggestion type name to display when there is only one suggestion.
+ * @type {string}
+ */
+var ss_g_one_name_to_display = "Suggestion";
+
+/**
+ * Suggestion type name to display when there are more than one suggestions.
+ * @type {string}
+ */
+var ss_g_more_names_to_display = "Suggestions";
+
+/**
+ * The max suggestions to display for different suggestion types.
+ * No-positive values are equivalent to unlimited.
+ * For key matches, -1 means using GSA default (not tagging numgm parameter),
+ * 0 means unlimited.
+ * Be aware that GSA has a published max limit of 10 for key matches.
+ * @type {number}
+ */
+var ss_g_max_to_display = 5;
+
+/**
+ * The max suggestions to display for all suggestion types.
+ * No-positive values are equivalent to unlimited.
+ * @type {number}
+ */
+var ss_max_to_display = 5;
+
+/**
+ * Idling interval for fast typers.
+ * @type {number}
+ */
+var ss_wait_millisec = 300;
+
+/**
+ * Delay time to avoid contention when drawing the suggestion box by various
+ * parallel processes.
+ * @type {number}
+ */
+var ss_delay_millisec = 30;
+
+/**
+ * Host name or IP address of GSA.
+ * Null value can be used if the JS code loads from the GSA.
+ * For local test, use null if there is a &lt;base> tag pointing to the GSA,
+ * otherwise use the full GSA host name
+ * @type {string}
+ */
+var ss_gsa_host = null; //Don't configure the gsa host since we're proxying through Liferay
+
+/**
+ * Constant that represents legacy output format.
+ * @type {string}
+ */
+var SS_OUTPUT_FORMAT_LEGACY = 'legacy';
+
+/**
+ * Constant that represents OpenSearch output format.
+ * @type {string}
+ */
+var SS_OUTPUT_FORMAT_OPEN_SEARCH = 'os';
+
+/**
+ * Constant that represents rich output format.
+ * @type {string}
+ */
+var SS_OUTPUT_FORMAT_RICH = 'rich';
+
+/**
+ * What suggest request API to use.
+ *   legacy - use current protocol in 6.0
+ *            Request: /suggest?token=&lt;query>&amp;max_matches=&lt;num>&amp;use_similar=0
+ *            Response: [ "&lt;term 1>", "&lt;term 2>", ..., "&lt;term n>" ]
+ *                   or
+ *                      [] (if no result)
+ *   os -     use OpenSearch protocol
+ *            Request: /suggest?q=&lt;query>&amp;max=&lt;num>&amp;site=&lt;collection>&amp;client=&lt;frontend>&amp;access=p&amp;format=os
+ *            Response: [
+ *                        "&lt;query>",
+ *                        [ "&lt;term 1>", "&lt;term 2>", ... "&lt;term n>" ],
+ *                        [ "&lt;content 1>", "&lt;content 2>", ..., "&lt;content n>" ],
+ *                        [ "&lt;url 1>", "&lt;url 2>", ..., "&lt;url n>" ]
+ *                      ] (where the last two elements content and url are optional)
+ *                   or
+ *                      [ &lt;query>, [] ] (if no result)
+ *   rich -   use rich protocol from search-as-you-type
+ *            Request: /suggest?q=&lt;query>&amp;max=&lt;num>&amp;site=&lt;collection>&amp;client=&lt;frontend>&amp;access=p&amp;format=rich
+ *            Response: {
+ *                        "query": "&lt;query>",
+ *                        "results": [
+ *                          { "name": "&lt;term 1>", "type": "suggest", "content": "&lt;content 1>", "style": "&lt;style 1>", "moreDetailsUrl": "&lt;url 1>" },
+ *                          { "name": "&lt;term 2>", "type": "suggest", "content": "&lt;content 2>", "style": "&lt;style 2>", "moreDetailsUrl": "&lt;url 2>" },
+ *                          ...,
+ *                          { "name": "&lt;term n>", "type": "suggest", "content": "&lt;content n>", "style": "&lt;style n>", "moreDetailsUrl": "&lt;url n>" }
+ *                        ]
+ *                      } (where type, content, style, moreDetailsUrl are optional)
+ *                   or
+ *                      { "query": &lt;query>, "results": [] } (if no result)
+ * If unspecified or null, using legacy protocol.
+ * @type {string}
+ */
+var ss_protocol = SS_OUTPUT_FORMAT_RICH;
+
+/**
+ * Whether to allow non-query suggestion items.
+ * Setting it to false can bring results from "os" and "rich" responses into
+ * backward compatible with "legacy".
+ * @type {boolean}
+ */
+var ss_allow_non_query = true;
+
+/**
+ * Default title text when the non-query suggestion item does not have a useful
+ * title.
+ * The default display text should be internalionalized.
+ * @type {string}
+ */
+var ss_non_query_empty_title = "No Title";
+
+/**
+ * Whether debugging is allowed.  If so, toggle with F2 key.
+ * @type {boolean}
+ */
+var ss_allow_debug = false;
+
+/**
+ * Global variable to hold the base URL to the suggested search. 
+ */
+var ss_base_url = '';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	// <![CDATA[
+		var Liferay = {
+			Browser: {
+				acceptsGzip: function() {
+					return false;
+				},
+				getMajorVersion: function() {
+					return 0.0;
+				},
+				getRevision: function() {
+					return "";
+				},
+				getVersion: function() {
+					return "";
+				},
+				isAir: function() {
+					return false;
+				},
+				isChrome: function() {
+					return false;
+				},
+				isFirefox: function() {
+					return false;
+				},
+				isGecko: function() {
+					return false;
+				},
+				isIe: function() {
+					return false;
+				},
+				isIphone: function() {
+					return false;
+				},
+				isLinux: function() {
+					return false;
+				},
+				isMac: function() {
+					return false;
+				},
+				isMobile: function() {
+					return false;
+				},
+				isMozilla: function() {
+					return false;
+				},
+				isOpera: function() {
+					return false;
+				},
+				isRtf: function() {
+					return false;
+				},
+				isSafari: function() {
+					return false;
+				},
+				isSun: function() {
+					return false;
+				},
+				isWap: function() {
+					return false;
+				},
+				isWapXhtml: function() {
+					return false;
+				},
+				isWebKit: function() {
+					return false;
+				},
+				isWindows: function() {
+					return false;
+				},
+				isWml: function() {
+					return false;
+				}
+			},
+
+			Data: {
+				isCustomizationView: function() {
+					return false;
+				},
+
+				notices: [
+					null
+
+					
+
+					
+				]
+			},
+
+			ThemeDisplay: {
+				getCDNDynamicResourcesHost: function() {
+					return "";
+				},
+				getCDNHost: function() {
+					return "";
+				},
+				getCompanyId: function() {
+					return "10095";
+				},
+				getCompanyGroupId: function() {
+					return "31771535";
+				},
+				getUserId: function() {
+					return "10097";
+				},
+
+				
+
+				getDoAsUserIdEncoded: function() {
+					return "";
+				},
+				getPlid: function() {
+					return "24951";
+				},
+
+				
+					getLayoutId: function() {
+						return "233";
+					},
+					getLayoutURL: function() {
+						return "http://www.sesamestreet.org/oops";
+					},
+					isPrivateLayout: function() {
+						return "false";
+					},
+					getParentLayoutId: function() {
+						return "283";
+					},
+				
+
+				getScopeGroupId: function() {
+					return "10171";
+				},
+				getScopeGroupIdOrLiveGroupId: function() {
+					return "10171";
+				},
+				getParentGroupId: function() {
+					return "10171";
+				},
+				isImpersonated: function() {
+					return false;
+				},
+				isSignedIn: function() {
+					return false;
+				},
+				getDefaultLanguageId: function() {
+					return "en_US";
+				},
+				getLanguageId: function() {
+					return "en_US";
+				},
+				isAddSessionIdToURL: function() {
+					return false;
+				},
+				isFreeformLayout: function() {
+					return false;
+				},
+				isStateExclusive: function() {
+					return false;
+				},
+				isStateMaximized: function() {
+					return false;
+				},
+				isStatePopUp: function() {
+					return false;
+				},
+				getPathContext: function() {
+					return "";
+				},
+				getPathImage: function() {
+					return "/image";
+				},
+				getPathJavaScript: function() {
+					return "/html/js";
+				},
+				getPathMain: function() {
+					return "/c";
+				},
+				getPathThemeImages: function() {
+					return "http://www.sesamestreet.org/sesamestreet-theme/images";
+				},
+				getPathThemeRoot: function() {
+					return "/sesamestreet-theme/";
+				},
+				getURLControlPanel: function() {
+					return "/group/control_panel?doAsGroupId=10171&refererPlid=24951";
+				},
+				getURLHome: function() {
+					return "http://www.sesamestreet.org/web/guest";
+				},
+				getSessionId: function() {
+					return "E62094E23B945240BB7A903E1031516B.sol-ord-lfe02";
+				},
+				getPortletSetupShowBordersDefault: function() {
+					return true;
+				}
+			},
+
+			PropsValues: {
+				NTLM_AUTH_ENABLED: false
+			}
+		};
+
+		var themeDisplay = Liferay.ThemeDisplay;
+
+		
+
+		Liferay.AUI = {
+			getBaseURL: function() {
+				return 'http://www.sesamestreet.org/html/js/aui/';
+			},
+			getCombine: function() {
+				return true;
+			},
+			getComboPath: function() {
+				return '/combo/?browserId=other&minifierType=&languageId=en_US&b=6110&t=1460548891000&p=/html/js&';
+			},
+			getFilter: function() {
+				
+					
+						return {
+							replaceStr: function(match, fragment, string) {
+								return fragment + 'm=' + (match.split('/html/js')[1] || '');
+							},
+							searchExp: '(\\?|&)/([^&]+)'
+						};
+					
+					
+					
+				
+			},
+			getJavaScriptRootPath: function() {
+				return '/html/js';
+			},
+			getLangPath: function () {
+				return 'aui_lang.jsp?browserId=other&themeId=sesamestreet_WAR_sesamestreettheme&colorSchemeId=newSS&minifierType=js&languageId=en_US&b=6110&t=1460548891000';
+			},
+			getRootPath: function() {
+				return '/html/js/aui/';
+			}
+		};
+
+		window.YUI_config = {
+			base: Liferay.AUI.getBaseURL(),
+			comboBase: Liferay.AUI.getComboPath(),
+			fetchCSS: true,
+			filter: Liferay.AUI.getFilter(),
+			root: Liferay.AUI.getRootPath(),
+			useBrowserConsole: false
+		};
+
+		
+
+		Liferay.currentURL = '\x2fcontent\x2fprivacy-policyyour-california-privacy-rights';
+		Liferay.currentURLEncoded = '%2Fcontent%2Fprivacy-policyyour-california-privacy-rights';
+	// ]]>
+
+
+
+	// <![CDATA[
+		
+
+			
+
+			
+				Liferay.Portlet.list = ['56_INSTANCE_jt03','56_INSTANCE_5613','56_INSTANCE_1aOL','56_INSTANCE_Acls','56_INSTANCE_d7Un','56_INSTANCE_1v3x','56_INSTANCE_DyGn'];
+			
+		
+
+		
+
+		
+	// ]]>
+
+
+		var _gaq = _gaq || [];
+
+		_gaq.push(['_setAccount', 'UA-4680963-1']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+			var ga = document.createElement('script');
+
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+
+			ga.setAttribute('async', 'true');
+
+			document.documentElement.firstChild.appendChild(ga);
+		})();
+	
+
+
+	/* <![CDATA[ */
+		
+	/* ]]> */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PJP379');
+
+
+
+
+
+
+
+
+
+
+
+window.viewportUnitsBuggyfill.init();
+
+
+
+EVENTS
+THE STORE
+TOOL KITS
+RECIPES CRAFTS THE SHOW SESAME GO
+
+
+
+
+Home
+Games 
+Videos
+ArtMaker
+Muppets
+Playlists
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	function setHiddenSearchField() {
+		var searchField = jQuery(".search input.search_field");
+		var searchFieldHidden = jQuery(".search input.search_field_hidden");
+		searchFieldHidden.val(searchField.val());
+	}
+
+	
+		jQuery(function(){
+
+			var initCapabilitiesInputInSearchForm = function(){
+				sw.testCapabilities();
+
+				var capabilities = sw.capabilities;
+
+				var capabilitiesJson = jQuery.toJSON(capabilities);
+
+				jQuery("#device_capabilities").val(capabilitiesJson);
+			};
+
+			// load sw.js lib (if needed)
+			if(typeof sw == 'undefined') {
+
+				jQuery.ajax({
+							dataType: "script",
+							cache: true,
+							url: "/ump-portlet/js/sw/sw.js"
+						})
+						.done(function(script, textStatus) {
+
+								initCapabilitiesInputInSearchForm();
+							});
+
+			} else {
+
+				initCapabilitiesInputInSearchForm();
+			}
+		});
+	
+
+
+	if(window.location.href.indexOf("art") > -1) {
+		$("#item_2").removeClass("selected");
+		}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ Oops Oops! We can’t find that page. Please check that the address is correct, or visit our homepage to look for something else.   Home       
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Produced by:
+
+
+
+With Support From:
+
+
+
+
+
+
+
+
+
+
+Watch
+PBS Local Stations
+Youtube
+Sesame Go
+Podcasts
+
+
+Shop
+Store
+Apps & eBooks
+Live Events
+iTunes
+
+
+Follow
+Facebook
+Twitter
+Tumblr
+YouTube
+Instagram
+Vine
+Pinterest
+
+
+About
+Sesame Workshop
+Contact Us
+FAQ
+Terms of Use
+Privacy Policy/Your California Privacy Rights
+
+
+
+
+
+
+
+
+Helping kids grow smarter, stronger, and kinder.
+
+
+© 2016 Sesame Workshop
+
+
+
+
+
+	jQuery.getScript((document.location.protocol=="https:"?"https://sb":"http://b")+".scorecardresearch.com/beacon.js",  function(script, textStatus, quXHR){
+
+		COMSCORE.beacon({c1:2,c2:6765265,c3:"",c4:"",c5:"",c6:"",c15:""});
+
+	});
+
+
+
+
+
+
+
+
+
+
+// <![CDATA[
+
+	Liferay.Util.addInputFocus();
+
+	
+		Liferay.Portlet.runtimePortletIds = ['103'];
+	
+
+	
+
+	
+		
+		
+
+			
+
+			
+		
+	
+
+// ]]>
+
+
+// <![CDATA[
+
+				Liferay.Portlet.onLoad(
+					{
+						canEditTitle: false,
+						columnPos: 0,
+						isStatic: 'end',
+						namespacedId: 'p_p_id_103_',
+						portletId: '103',
+						refreshURL: '\x2fc\x2fportal\x2frender_portlet\x3fp_l_id\x3d24951\x26p_p_id\x3d103\x26p_p_lifecycle\x3d0\x26p_t_lifecycle\x3d0\x26p_p_state\x3dnormal\x26p_p_mode\x3dview\x26p_p_col_id\x3d\x26p_p_col_pos\x3d0\x26p_p_col_count\x3d0\x26p_p_isolated\x3d1\x26currentURL\x3d\x252Fcontent\x252Fprivacy-policyyour-california-privacy-rights'
+					}
+				);
+			
+				Liferay.Portlet.onLoad(
+					{
+						canEditTitle: false,
+						columnPos: 0,
+						isStatic: 'end',
+						namespacedId: 'p_p_id_56_INSTANCE_1aOL_',
+						portletId: '56_INSTANCE_1aOL',
+						refreshURL: '\x2fc\x2fportal\x2frender_portlet\x3fp_l_id\x3d24951\x26p_p_id\x3d56_INSTANCE_1aOL\x26p_p_lifecycle\x3d0\x26p_t_lifecycle\x3d0\x26p_p_state\x3dnormal\x26p_p_mode\x3dview\x26p_p_col_id\x3dcolumn-3\x26p_p_col_pos\x3d0\x26p_p_col_count\x3d1\x26p_p_isolated\x3d1\x26currentURL\x3d\x252Fcontent\x252Fprivacy-policyyour-california-privacy-rights'
+					}
+				);
+			
+				Liferay.Portlet.onLoad(
+					{
+						canEditTitle: false,
+						columnPos: 0,
+						isStatic: 'end',
+						namespacedId: 'p_p_id_56_INSTANCE_1v3x_',
+						portletId: '56_INSTANCE_1v3x',
+						refreshURL: '\x2fc\x2fportal\x2frender_portlet\x3fp_l_id\x3d24951\x26p_p_id\x3d56_INSTANCE_1v3x\x26p_p_lifecycle\x3d0\x26p_t_lifecycle\x3d0\x26p_p_state\x3dnormal\x26p_p_mode\x3dview\x26p_p_col_id\x3dcolumn-6\x26p_p_col_pos\x3d0\x26p_p_col_count\x3d1\x26p_p_isolated\x3d1\x26currentURL\x3d\x252Fcontent\x252Fprivacy-policyyour-california-privacy-rights'
+					}
+				);
+			
+				Liferay.Portlet.onLoad(
+					{
+						canEditTitle: false,
+						columnPos: 0,
+						isStatic: 'end',
+						namespacedId: 'p_p_id_56_INSTANCE_5613_',
+						portletId: '56_INSTANCE_5613',
+						refreshURL: '\x2fc\x2fportal\x2frender_portlet\x3fp_l_id\x3d24951\x26p_p_id\x3d56_INSTANCE_5613\x26p_p_lifecycle\x3d0\x26p_t_lifecycle\x3d0\x26p_p_state\x3dnormal\x26p_p_mode\x3dview\x26p_p_col_id\x3dcolumn-2\x26p_p_col_pos\x3d0\x26p_p_col_count\x3d1\x26p_p_isolated\x3d1\x26currentURL\x3d\x252Fcontent\x252Fprivacy-policyyour-california-privacy-rights'
+					}
+				);
+			
+				Liferay.Portlet.onLoad(
+					{
+						canEditTitle: false,
+						columnPos: 0,
+						isStatic: 'end',
+						namespacedId: 'p_p_id_56_INSTANCE_Acls_',
+						portletId: '56_INSTANCE_Acls',
+						refreshURL: '\x2fc\x2fportal\x2frender_portlet\x3fp_l_id\x3d24951\x26p_p_id\x3d56_INSTANCE_Acls\x26p_p_lifecycle\x3d0\x26p_t_lifecycle\x3d0\x26p_p_state\x3dnormal\x26p_p_mode\x3dview\x26p_p_col_id\x3dcolumn-4\x26p_p_col_pos\x3d0\x26p_p_col_count\x3d1\x26p_p_isolated\x3d1\x26currentURL\x3d\x252Fcontent\x252Fprivacy-policyyour-california-privacy-rights'
+					}
+				);
+			
+				Liferay.Portlet.onLoad(
+					{
+						canEditTitle: false,
+						columnPos: 0,
+						isStatic: 'end',
+						namespacedId: 'p_p_id_56_INSTANCE_DyGn_',
+						portletId: '56_INSTANCE_DyGn',
+						refreshURL: '\x2fc\x2fportal\x2frender_portlet\x3fp_l_id\x3d24951\x26p_p_id\x3d56_INSTANCE_DyGn\x26p_p_lifecycle\x3d0\x26p_t_lifecycle\x3d0\x26p_p_state\x3dnormal\x26p_p_mode\x3dview\x26p_p_col_id\x3dcolumn-7\x26p_p_col_pos\x3d0\x26p_p_col_count\x3d1\x26p_p_isolated\x3d1\x26currentURL\x3d\x252Fcontent\x252Fprivacy-policyyour-california-privacy-rights'
+					}
+				);
+			
+				Liferay.Portlet.onLoad(
+					{
+						canEditTitle: false,
+						columnPos: 0,
+						isStatic: 'end',
+						namespacedId: 'p_p_id_56_INSTANCE_d7Un_',
+						portletId: '56_INSTANCE_d7Un',
+						refreshURL: '\x2fc\x2fportal\x2frender_portlet\x3fp_l_id\x3d24951\x26p_p_id\x3d56_INSTANCE_d7Un\x26p_p_lifecycle\x3d0\x26p_t_lifecycle\x3d0\x26p_p_state\x3dnormal\x26p_p_mode\x3dview\x26p_p_col_id\x3dcolumn-5\x26p_p_col_pos\x3d0\x26p_p_col_count\x3d1\x26p_p_isolated\x3d1\x26currentURL\x3d\x252Fcontent\x252Fprivacy-policyyour-california-privacy-rights'
+					}
+				);
+			
+				Liferay.Portlet.onLoad(
+					{
+						canEditTitle: false,
+						columnPos: 0,
+						isStatic: 'end',
+						namespacedId: 'p_p_id_56_INSTANCE_jt03_',
+						portletId: '56_INSTANCE_jt03',
+						refreshURL: '\x2fc\x2fportal\x2frender_portlet\x3fp_l_id\x3d24951\x26p_p_id\x3d56_INSTANCE_jt03\x26p_p_lifecycle\x3d0\x26p_t_lifecycle\x3d0\x26p_p_state\x3dnormal\x26p_p_mode\x3dview\x26p_p_col_id\x3dcolumn-1\x26p_p_col_pos\x3d0\x26p_p_col_count\x3d1\x26p_p_isolated\x3d1\x26currentURL\x3d\x252Fcontent\x252Fprivacy-policyyour-california-privacy-rights'
+					}
+				);
+			AUI().use('aui-base', 'liferay-menu', 'liferay-notice', 'liferay-poller', function(A) {(function() {
+	Liferay.Util.addInputType();
+
+	Liferay.Portlet.ready(
+		function(portletId, node) {
+			Liferay.Util.addInputType(node);
+		}
+	);
+})();(function() {
+	new Liferay.Menu();
+
+	var liferayNotices = Liferay.Data.notices;
+
+	for (var i = 1; i < liferayNotices.length; i++) {
+		new Liferay.Notice(liferayNotices[i]);
+	}
+
+	
+})();});
+// ]]>
+
+
+
+		// <![CDATA[
+			
+
+			
+		// ]]>
+	
+

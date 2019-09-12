@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html id="GimmeApp" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o||n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({1:[function(e,n,t){function r(){}function o(e,n,t){return function(){return i(e,[c.now()].concat(u(arguments)),n?null:this,t),n?void 0:this}}var i=e("handle"),a=e(2),u=e(3),f=e("ee").get("tracer"),c=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,n){s[n]=o(d+n,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,o="function"==typeof n;return i(l+"tracer",[c.now(),e,t],r),function(){if(f.emit((o?"":"no-")+"fn-start",[c.now(),r,o],t),o)try{return n.apply(this,arguments)}finally{f.emit("fn-end",[c.now()],t)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=o(l+n)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,c.now()])}},{}],2:[function(e,n,t){function r(e,n){var t=[],r="",i=0;for(r in e)o.call(e,r)&&(t[i]=n(r,e[r]),i+=1);return t}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],3:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(o<0?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=r},{}],4:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function o(e){function n(e){return e&&e instanceof r?e:e?f(e,u,i):i()}function t(t,r,o,i){if(!d.aborted||i){e&&e(t,r,o);for(var a=n(o),u=m(t),f=u.length,c=0;c<f;c++)u[c].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function l(e,n){v[e]=m(e).concat(n)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(t)}function g(e,n){c(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var v={},y={},b={on:l,emit:t,get:w,listeners:m,context:n,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",f=e("gos"),c=e(2),s={},p={},d=n.exports=o();d.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(o.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){o.buffer([e],r),o.emit(e,n,t)}var o=e("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!x++){var e=h.info=NREUM.info,n=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();c(y,function(n,t){e[n]||(e[n]=t)}),f("mark",["onload",a()+h.offset],null,"api");var t=d.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function o(){"complete"===d.readyState&&i()}function i(){f("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),f=e("handle"),c=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1044.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=n.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),f("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+    
+            <meta property="fb:app_id" content="1934117796908125" data-version="2.11" data-utok="utok" data-crawl-url="http://crawl.gimmenetwork.com">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="http://intellitest.me/en/data-protection">
+        <meta property="og:title" content="Intellitest.me - Get what you want!">
+        <meta property="og:description" content="Find the best IQ tests on Intellitest.me">
+        <meta property="og:image" content="http://intellitest.me/assets/img/intellitest.me/logo-big.png">
+        <meta property="og:image:width" content="800">
+        <meta property="og:image:height" content="420">
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="//intellitest.me/assets/favicons/intellitest.me/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="//intellitest.me/assets/favicons/intellitest.me/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="//intellitest.me/assets/favicons/intellitest.me/favicon-16x16.png">
+    <link rel="manifest" href="//intellitest.me/assets/favicons/intellitest.me/manifest.json">
+    <link rel="mask-icon" href="//intellitest.me/assets/favicons/intellitest.me/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="theme-color" content="#ffffff">
+
+    <title>Intellitest.me</title>
+
+                        
+<link rel="stylesheet" href="/assets/vendor/semantic-ui/2.2.x/components/reset.css?v=1515491822">
+<link rel="stylesheet" href="/assets/vendor/semantic-ui/2.2.x/components/container.css?v=1515491822">
+<link rel="stylesheet" href="/assets/vendor/semantic-ui/2.2.x/components/grid.css?v=1515491822">
+<link rel="stylesheet" href="/assets/vendor/semantic-ui/2.2.x/components/message.css?v=1515491822">
+<link rel="stylesheet" href="/assets/vendor/semantic-ui/2.2.x/components/button.css?v=1515491822">
+<link rel="stylesheet" href="/assets/vendor/semantic-ui/2.2.x/components/card.css?v=1515491822">
+<link rel="stylesheet" href="/assets/vendor/semantic-ui/2.2.x/components/ad.css?v=1515491822">
+<link rel="stylesheet" href="/assets/vendor/semantic-ui/2.2.x/components/icon.css?v=1515491822">
+<link rel="stylesheet" href="/assets/vendor/semantic-ui/2.2.x/components/flag.css?v=1515491822">
+<link rel="stylesheet" href="/assets/vendor/semantic-ui/2.2.x/components/transition.css?v=1515491822">
+<link rel="stylesheet" href="/assets/vendor/semantic-ui/2.2.x/components/dropdown.css?v=1515491822">
+<link rel="stylesheet" href="/assets/vendor/semantic-ui/2.2.x/components/modal.css?v=1515491822">
+<link rel="stylesheet" href="/assets/vendor/semantic-ui/2.2.x/components/dimmer.css?v=1515491822">
+<link rel="stylesheet" href="/assets/app.min.css?v=1515491822">
+<link rel="stylesheet" href="/assets/devices/desktop.min.css?v=1515491822">
+            
+            <!-- CODE HEADER //-->
+        
+<!-- Header Code -->
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WP65QX');</script>
+<!-- End Google Tag Manager -->
+<!-- outbrain_pixel -->
+<script data-obct type="text/javascript">
+  /** DO NOT MODIFY THIS CODE**/
+  !function(_window, _document) {
+    var OB_ADV_ID='00258ff7ec1325fadea1ec38a3eade567f';
+    if (_window.obApi) {var toArray = function(object) {return Object.prototype.toString.call(object) === '[object Array]' ? object : [object];};_window.obApi.marketerId = toArray(_window.obApi.marketerId).concat(toArray(OB_ADV_ID));return;}
+    var api = _window.obApi = function() {api.dispatch ? api.dispatch.apply(api, arguments) : api.queue.push(arguments);};api.version = '1.1';api.loaded = true;api.marketerId = OB_ADV_ID;api.queue = [];var tag = _document.createElement('script');tag.async = true;tag.src = '//amplify.outbrain.com/cp/obtp.js';tag.type = 'text/javascript';var script = _document.getElementsByTagName('script')[0];script.parentNode.insertBefore(tag, script);}(window, document);
+obApi('track', 'PAGE_VIEW');
+</script>
+<!--BEGIN FIRSTIMPRESSION TAG -->
+<script data-cfasync='false' type='text/javascript'>
+	window.apd_options = { 'websiteId': 7003, 'runFromFrame': false };
+	(function() {
+		var w = window.apd_options.runFromFrame ? window.top : window;
+		if(window.apd_options.runFromFrame && w!=window.parent) w=window.parent;
+		if (w.location.hash.indexOf('apdAdmin') != -1){if(typeof(Storage) !== 'undefined') {w.localStorage.apdAdmin = 1;}}
+		var adminMode = ((typeof(Storage) == 'undefined') || (w.localStorage.apdAdmin == 1));
+		w.apd_options=window.apd_options;
+		var apd = w.document.createElement('script'); apd.type = 'text/javascript'; apd.async = true;
+		apd.src = '//' + (adminMode ? 'cdn' : 'ecdn') + '.firstimpression.io/' + (adminMode ? 'fi.js?id=' + window.apd_options.websiteId : 'fi_client.js') ;
+		var s = w.document.getElementsByTagName('head')[0]; s.appendChild(apd);
+	})();</script>
+<!-- END FIRSTIMPRESSION TAG -->
+    </head>
+<body class="intellitest-theme new-theme">
+
+    <!-- CODE BODY START //-->
+    
+<!-- Body Start Code -->
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WP65QX"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+
+<div class="">
+
+    
+
+    
+<header class="data-protection-header ">
+    <div class="ui container">
+        
+
+        <div class="brand">
+            <a href="/en"><img src="/assets/img/intellitest.me/logo.png"></a>
+        </div>
+
+        
+                    <div class="social gimmemore-social">
+                
+    <div class="fb-like"
+         data-href="https://www.facebook.com/intellitestme-1023087981167172/"
+         data-layout="button"
+         data-action="like"
+         data-size="large"
+         data-show-faces="true"
+         data-share="false">
+    </div>
+
+<div class="lang-select-container ui dropdown">
+    <span class="text">Select Language</span>
+    <div class="menu">
+        <div class="item" data-value="/en">English</div>
+        <div class="item" data-value="/de">Deutsch</div>
+    </div>
+</div>
+            </div>
+            </div>
+</header>
+
+
+    
+<div class="ui container">
+    
+    <div class="ui grid">
+    <div class="one column row">
+        <div class="column content-container">
+            <h1>Data protection</h1>
+
+            <p>We, 360 Digital Starters GmbH (hereinafter referred to as “360 DS”), are the operator of the web pages available at videoquizstar.com, mobilequizstar.com, quizriddle.com, quiz-facts.com and intellitest.me and the free services offered on the site. We are the responsible entity for collecting, processing and using personal details as defined by the Federal Data Protection Act (BDSG). The provisions of the Telemedia Act (TMG) also apply as well as further relevant statutory regulations relating to data protection.</p>
+            <p>The protection of your personal data collected, processed and used when you visit our website is a matter of great concern to us.</p>
+            <p>Your details will be protected in compliance with statutory regulations. Below you will find information on what details are recorded when you visit our website and how they are used:</p>
+            <h4>1. Collection, storage and use of your personal data</h4>
+            <p>a) When you visit our website and use the free services offered on our web pages, our servers will temporarily save every request in a logfile. The following data are registered and stored by us without any involvement from you: the IP address of the requesting PC:</p>
+            <ul>
+                <li>the date and time of access;</li>
+                <li>the name and URL of the file called up;</li>
+                <li>the website from which the file is accessed;</li>
+                <li>the operating system of your PC and the browser you are using;</li>
+                <li>the name of your internet access provider</li>
+            </ul>
+            <p>These data are collected and processed with the aim of enabling our website to be used (connecting to it), guaranteeing long-term system security and stability, enabling the network infrastructure to be administered from a technical viewpoint and our services to be optimised; they are also used for internal, statistical purposes.</p>
+            <p>Your IP address will only be evaluated in the event of attacks on our network infrastructure as well as for statistical purposes.</p>
+            <p>In addition, we use cookies and web analysis services when people visit our website. See Clauses 3 and 4 of this data protection declaration for this. b) If you register on our website and/or register to take part in sweepstakes on our website, we will collect the following data:</p>
+            <ul>
+                <li>Surname, first name</li>
+                <li>Address:</li>
+                <li>Email address</li>
+                <li>Date of birth</li>
+            </ul>
+            <p>These data are collected, stored and used to enable us to offer certain functions in our service (rankings, high score rankings, user competitions, etc.) and for statistical purposes. In the case of sweepstakes, your data are also collected, stored and processed to guarantee the services required to run the sweepstakes/raffle; these services are in some cases assigned to third parties. We will pass on your personal data for advertising and marketing purposes, in particular for market research and to draw up customer profiles, to suppliers of further offers and services as well as to service providers operating in this sphere if you have given your explicit consent for such activity at the appropriate point when registering for our services and/or sweepstakes. If you have given your explicit consent, we will also collect and use your e-mail address to send you our regular newsletter to the e-mail address specified and to provide you with promotional information. You can cancel the newsletter at any time by clicking on a link at the end of it.</p>
+            <p>Your personal data will not be passed to third parties for any other purposes.</p>
+            <p><strong>c) Registration through social networks</strong></p>
+            <p><strong>aa) Registration with Facebook Connect</strong></p>
+            <p>We also offer you the chance to register for our service with the Facebook Connect plug-in which is provided by Facebook Inc., 1601 S. California Ave, Palo Alto, CA 94304 USA (“Facebook”). Further registration is therefore not possible. To register, you will be transferred to the Facebook page where you can log in with your user data. This will create a link between your Facebook profile and our service. As a result of the link, Facebook Inc. will automatically transfer the following information: e-mail address, date of birth, name, and gender. Of these data, we only use your name, your e-mail address, your date of birth, and gender. Please take further information on Facebook Connect and privacy settings from the data protection information and terms of use of Facebook Inc.</p>
+            <p>bb) Registration with Google+ (Google+ Connect) We also offer you the option of registering for our service with the Google+ Connect plug-in provided by Google Inc., 1600 Amphitheatre Parkway, Mountain View, CA 94043, United States, (“Google”). Further registration is therefore not possible. To register, you will be transferred to the Google page where you can log in with your user data. This will create a link between your Google+ profile and our service. As a result of the link, Google Inc. will automatically transfer the following information: e-mail address Of these data, we only use your e-mail address, your date of birth. Please take further information on Google+ Connect and privacy settings from the data protection information and terms of use of Google Inc.</p>
+            <h4>2. Objection</h4>
+            <p>You can object to the use and transmission of your personal data at any time. To do so, please refer to our contact address in Clause 6.</p>
+            <h4>3. Cookies / Google Adsense</h4>
+            <p><strong>a) Cookies in general</strong></p>
+            <p>Cookies can make it easier, more pleasant and more practical to use our website during your visit. Cookies are alphanumeric information files which your web browser automatically saves to your computer’s hard drive when you visit our website.</p>
+            <p>For example, we use cookies to enable us to identify you as a user. Personal details are not collected through the use of cookies.</p>
+            <p>Most browsers accept cookies without any need for the explicit agreement of the user visiting the website. However, your browser can be set in such a way that no cookies are stored on your computer or you are notified of any new cookies.</p>
+            <p>The deactivation of cookies may mean that not all functions of our website are usable.</p>
+            <p><strong>b) Google AdSense</strong></p>
+            <p>Our website uses Google AdSense, a service for including Google advertisements. Google AdSense also uses cookies as well as so-called web beacons (invisible graphic images). These web beacons enable information such as the visitor traffic to our offering to be evaluated. The information generated by cookies and web beacons on the use of our website (including the IP addresses of users) and the delivery of advertising formats is transmitted to a Google server in USA and stored there. This information can be passed on by Google to its contractual partners. However, Google will not combine your IP address with other details stored about you. You can also deactivate Adsense cookies as described above. Deactivating Adsense cookies may mean that you are not able to use all the functions of our website. By using this website you hereby agree that Google may process the data collected about you in the manner described above and for the aforementioned purpose.</p>
+            <h4>4. Web analysis services</h4>
+            <p>We use the web analysis service, Google Analytics, for the purpose of designing and continually optimising our pages in order to meet requirements. Pseudonymised user profiles are created in this connection and cookies used (see Clause 3). The information generated by the cookie on your use of this website such as</p>
+            <ul>
+                <li>browser type/version;</li>
+                <li>operating system used;</li>
+                <li>referrer URL (site previously visited);</li>
+                <li>host name of the PC accessing the content (IP address);</li>
+                <li>time of server request</li>
+            </ul>
+            <p>is transmitted to servers in USA and stored there. The information is used to evaluate use of the website, to compile reports on website activities and to provide further services linked to use of the website and internet usage for the purposes of market research and to help us design these web pages to meet requirements. Google may also transmit this information to third parties if this is a statutory requirement or if third parties process the data on Google’s behalf.</p>
+            <p>On no account will the IP address be linked to other details relating to the user. The IP addresses are anonymised making it impossible to identify their users (IP masking).</p>
+            <p>The user can prevent the installation of cookies by selecting the appropriate settings in his browser software (see Clause 3); however please note that in this case it may not be possible to use the full functionality of our website.</p>
+            <p>The user can object at any time to the creation of user profiles. The contact details given in Clause 6. can be used to communicate your objection. Alternatively, please follow the instructions at:<a href="http://tools.google.com/dlpage/gaoptout?hl=de">http://tools.google.com/dlpage/gaoptout?hl=de</a>.
+            </p>
+            <h4>5. Social networks</h4>
+            <p>You will also find so-called “social plug-ins” on our website. These are functions of the particular social network through which you can, for example, share content from our offering with your friends on social media or recommend such content to them.</p>
+            <p>We use the following social plug-ins:</p>
+            <p><strong>a) Facebook</strong></p>
+            <p>We use plug-ins from the social network Facebook. You can find the link to Facebook’s data protection declaration here: Data protection information from Facebook.
+                <a href="https://www.facebook.com/about/privacy/">https://www.facebook.com/about/privacy/</a></p>
+            <p><strong>b) Google+</strong></p>
+            <p>We use plug-ins from the social network Google+ which is operated by Google. You can find the link to Google’s data protection declaration here: Data protection information from Google.<a href="http://www.google.com/intl/de/policies/privacy/">http://www.google.com/intl/de/policies/privacy/</a>
+            </p>
+            <p><strong>c) Twitter</strong></p>
+            <p>We use plug-ins from the social network Twitter which is operated by Twitter Inc., 795 Folsom St., Suite 600, San Francisco, CA 94107, USA (“Twitter”). You can find the link to Twitter’s data protection declaration here: Data protection information from Twitter.
+                <a href="https://twitter.com/privacy">https://twitter.com/privacy</a></p>
+            <p><strong>d) Pinterest</strong></p>
+            <p>We use plug-ins from the social network Pinterest which is operated by Pinterest Inc., 635 High Street, Palo Alto, CA, USA (“Pinterest”). You can find the link to Pinterest’s data protection declaration here: Data protection information from Pinterest.
+                <a href="http://about.pinterest.com/privacy/">http://about.pinterest.com/privacy/</a></p>
+            <p><strong>e) Youtube</strong></p>
+            <p>We use plug-ins from the Youtube website which is operated by Google. You can find the link to Youtube’s data protection declaration here: Data protection information from Youtube.<a href="http://www.google.com/intl/de/policies/privacy/">http://www.google.com/intl/de/policies/privacy/</a>
+            </p>
+            <p><strong>f) Instagram</strong></p>
+            <p>We use plug-ins from the social network Instagram which is operated by Instagram, LLC Instagram Inc., 1601 Willow Road, Menlo Park, CA 94025, USA (“Instagram”). You can find the link to Instagram’s data protection declaration here: Data protection information from Instagram.<a href="http://instagram.com/about/legal/privacy/">http://instagram.com/about/legal/privacy/</a> If you do not want social networks to collect details about you through active plug-ins, you can either deactivate the social plug-ins with a simple click on our website or select the “Disable third-party cookies” function in your browser settings. The browser will then not send any cookies to the server in the case of content embedded by other suppliers. However, with this setting it is possible that other cross-domain functions also will not work besides the plug-ins.
+            </p>
+            <h4>6. Information, rectification, correction and deletion of data</h4>
+            <p>You have a right of information with regard to the personal data stored about you and the right to correct false data as well as to block and delete them. To obtain information on your personal data, to ask for incorrect data to be corrected or blocked or deleted as well as for more detailed questions on the use of your personal data, please contact:</p>
+            <p>E-mail: <a href="mailto:privacy@digitalstarters.com">privacy@digitalstarters.com</a></p>
+            <p>You can have your personal data deleted at any time. This can be done by sending a corresponding request by email to
+                <a href="mailto:privacy@digitalstarters.com">privacy@digitalstarters.com</a>. Please note that if you have your personal details deleted, it will not be possible to take advantage of our services or not to their full extent.
+            </p>
+            <p>Revision of data protection declaration: October 4th, 2017</p>
+        </div>
+    </div>
+</div></div>
+    <footer>
+        <div class="ui container">
+            <div class="wrap">
+                <div class="content">
+                                            <a href="/en">Home</a>
+                                            <a href="/en/imprint">Imprint</a>
+                                            <a href="/en/terms">Terms</a>
+                                            <a href="/en/data-protection">Data protection</a>
+                                    </div>
+
+                <div class="disclaimer">Disclaimer: our content is created for the purpose of fun and entertainment only. Please don't use Intellitest.me to make important life decisions and remember that it is intended purely for fun.</div>
+                <div class="copyright">© 2018&nbsp;Intellitest.me</div>
+            </div>
+        </div>
+    </footer>
+
+    </div>
+
+            
+<script type="text/javascript" src="/assets/vendor/jquery/3.2.x/jquery.min.js?v=1515491822"></script>
+<script type="text/javascript" src="/assets/vendor/js-cookie/2.1.3/js.cookie.min.js?v=1515491822"></script>
+<script type="text/javascript" src="/assets/vendor/qwest/qwest-4.4.5.min.js?v=1515491822"></script>
+<script type="text/javascript" src="/assets/vendor/bitracking/bitracking.min.js?v=1515491822"></script>
+<script type="text/javascript" src="/assets/vendor/semantic-ui/2.2.x/components/transition.js?v=1515491822"></script>
+<script type="text/javascript" src="/assets/vendor/semantic-ui/2.2.x/components/dropdown.js?v=1515491822"></script>
+<script type="text/javascript" src="/assets/vendor/semantic-ui/2.2.x/components/modal.js?v=1515491822"></script>
+<script type="text/javascript" src="/assets/vendor/semantic-ui/2.2.x/components/dimmer.js?v=1515491822"></script>
+<script type="text/javascript" src="/assets/vendor/facebook-molo/facebook-molo.min.js?v=1515491822"></script>
+<script type="text/javascript" src="/assets/app.min.js?v=1515491822"></script>
+    
+
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"436df8162f","applicationID":"75492293","transactionName":"Z1IBZUtUCEBQB0NdX14YNkNQGg9dVQFPGkBYRw==","queueTime":0,"applicationTime":37,"atts":"SxUCEwNOG04=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>

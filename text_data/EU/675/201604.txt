@@ -1,0 +1,1132 @@
+
+
+
+
+
+  
+
+
+
+Privacy Policy - FC-Moto English
+
+
+(function(require){
+
+function config(a,b){config._(config.c[a]||(config.c[a]={}),b)}config.c=require.config=require.config||{};config._=function(a,b){for(var c in b)b[c]instanceof Object?config._(a[c]||(a[c]={}),b[c]):a[c]=b[c]};
+
+
+config("jquery/canvas/canvastext", {
+  fontRoot: ["", "WebRoot", "FCMotoDB", "45F8", "AE52", "2E16", "03A8", "A375", "51A9", "90B2", "CBA2"].join("/")
+});
+
+config("ep", {
+  baseUrl: ["http:", "", "www.fc-moto.de", "epages", "fcm.sf", "en_GB", ""].join("/"),
+  canonicalUrl: 'http://www.fc-moto.de/Privacy-Policy',
+  objectId: '3757784',
+  viewAction: 'View',
+  storeFrontUrl: ["http:", "", "www.fc-moto.de", "epages", "fcm.sf"].join("/"),
+  requestProtocolAndServer: '',
+  webUrj: ["http:", "", "www.fc-moto.de", "epages", "fcm.sf", "?ObjectPath=", "Shops", "10207048", "Categories", "PrivacyPolicy"].join("/"),
+  webUrlSsl: ["https:", "", "www.fc-moto.de", "epages", "fcm.sf", "?ObjectPath=", "Shops", "10207048", "Categories", "PrivacyPolicy"].join("/")
+});
+
+}(require));
+
+
+
+
+var jq = jQuery.noConflict();
+require(["jquery/metaparse", "de_epages/design/inc/sf-initialize", "de_epages/externalcontent/dojogadgetfix"]);
+
+
+require(["ep/sslswitch"], function(){
+  
+});
+
+<!--
+var WebGains = {
+
+  gup: function(name) {
+    name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+
+    regexS = "[\\?&]"+name+"=([^&#]*)";
+    regex = new RegExp(regexS);
+    results = regex.exec(location.href);
+
+    if (results == null) {
+      return "";
+    } else {
+      return results[1];
+    }
+  }
+};
+
+jQuery.ready({
+  plugin: ['jQuery.cookie'],
+  DOM: true
+}, function($) {
+  var source = WebGains.gup("source");
+  var source2 = WebGains.gup("Source");
+
+  if (source.indexOf("webgains") >= 0) {
+    jq.cookie('AffiliateSource', source, { expires: 30, path: '/'});
+  }
+  
+  if (source.indexOf("CON") >= 0) {
+    jq.cookie('AffiliateSource', source, { expires: 30, path: '/'});
+  }
+  if (source2.indexOf("CON") >= 0) {
+    jq.cookie('AffiliateSource', source2, { expires: 30, path: '/'});
+  }
+});
+//-->
+(function(a){var d=document,c=d.createElement("script");c.async=!0,c.defer=!0,c.src=a,d.getElementsByTagName("head")[0].appendChild(c)})((iatDev=(window.location.href.indexOf("iatDev=1")>-1||document.cookie.indexOf("iatDev=1")>-1),"//"+(window.location.protocol=="http:"&&!iatDev?"h":"")+"fp.gdmdigital.com/391579.js?r="+Math.random()*1e16+"&m=992&a=391579"+(iatDev?"&d=1":"")))
+
+require([
+  "jquery",
+  "ep/sslswitch",
+  "util/base64",
+  'util/storage'
+], function($, ep, base64, storage){
+
+  var stored = storage.localStorage('Catalog::ProductLastViewed.list') || {},
+    get =  '' ;
+
+  if( get ){
+    stored = $.extend(
+      stored,
+      base64.decode(get)
+    );
+  }
+
+
+
+  
+
+  var tstampMap = [],
+    tstampHash = {},
+    image =  undefined;
+
+  
+
+
+  for( var i in stored ){
+    var tstamp = stored[i].tstamp;
+    tstampMap.push( tstamp );
+    tstampHash[ tstamp ] = stored[i];
+  }
+
+  tstampMap = tstampMap.sort().reverse(); // sort timestamp array;
+  var store = {};
+  for( var i=0,iLength=Math.min(tstampMap.length,10) ; i<iLength ; i++ ) {
+    var product = tstampHash[ tstampMap[i] ];
+    store[ product.id ] = product;
+  }
+
+  $(window)
+    .on( 'beforeunload', function(){      // register new item on unload
+      storage.localStorage( 'Catalog::ProductLastViewed.list', store );
+    });
+
+  // attach stored data on switch to ssl mode
+  ep.sslSwitch.addHandle(function( event, form ){
+    $('<input type="hidden">')
+      .attr({
+        name: 'ProductLastViewed',
+        value: base64.encode(store)
+      })
+      .appendTo(form);
+  });
+});
+<!--
+var ZanoxAG = {
+
+  gup: function(name) {
+    name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+
+    regexS = "[\\?&]"+name+"=([^&#]*)";
+    regex = new RegExp(regexS);
+    results = regex.exec(location.href);
+
+    if (results == null) {
+      return "";
+    } else {
+      return results[1];
+    }
+  }
+};
+//-->
+
+
+window.offscreenBuffering = true;
+try{
+  window.onerrorbak = window.onerror;
+  window.onerror = function(){
+    return true;
+  };
+}
+catch(e){
+}
+
+
+
+  
+    
+    window.criteo_q = window.criteo_q || []; 
+    window.criteo_q.push(
+      { event: "setAccount", account: 3901 }, 
+      
+      { event: "setSiteType", type: "d" }, 
+      
+      
+      
+      
+      
+    );
+    
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  function GetPixiDeliveryPeriod(ProductID, WebPath, ProductDeliveryPeriod, ManufacturerDeliveryPeriod, StockLevelAlert, MinOrder, ShopStockLevel, AvaibilyText){
+    //var BaseURL         = "https://www.fc-moto.de";
+    var BaseURL           = "http://www.fc-moto.de";
+    var AjaxURL           = BaseURL + WebPath + "/stockstate_" + ProductID + ".json?PreventCache=" + Date.now();
+    var LowOnStockAction  = 0;
+    
+    if(ShopStockLevel > 0){ return; }
+    if(ManufacturerDeliveryPeriod == ''){ return; } 
+    if(ProductDeliveryPeriod == ''){ return; }
+    if(AvaibilyText == ''){ return; }
+    
+    jQuery.ajax({      
+      type: 'GET',
+      async: false,
+      url: AjaxURL,
+      dataType: 'json',
+      success: function(data) {
+        if(data.InternalStock <= 0 && data.ExternalStock > 0){
+          ChangeDeliveryPeriod(ProductID, ProductDeliveryPeriod, ManufacturerDeliveryPeriod, AvaibilyText);        
+        }
+
+        var TrafficLight = ChangeTrafficLight(ProductID, data.AvailableStock, StockLevelAlert, MinOrder);        
+
+        ChangeMicroDataAvailability(ProductID, data.AvailableStock, StockLevelAlert, MinOrder, LowOnStockAction);
+        
+        if(LowOnStockAction == 2 && TrafficLight == "ProductOutStockIcon") {
+          ChangeBasketButton(ProductID, 0);        
+        }else{
+          ChangeBasketButton(ProductID, 1);        
+        }
+      }
+    });
+  
+    return;
+  }
+  
+  function ChangeMicroDataAvailability(ProductID, ProductStock, StockLevelAlert, MinOrder, LowOnStockAction)
+  {
+    var MContainer  = jq('#MicroDataAvailability_' + ProductID);
+    var Link        = 'http://schema.org/';
+    
+    if(ProductStock < MinOrder){
+      if(LowOnStockAction == '3'){
+        Link = Link + 'OutOfStock';
+      }else if(LowOnStockAction == '2'){
+        Link = Link + 'OutOfStock';
+      }else if(LowOnStockAction == '1'){
+        Link = Link + 'PreOrder';        
+      }else{
+        Link = Link + 'PreOrder';
+      }
+    }else if(StockLevelAlert != -1 && ProductStock < StockLevelAlert){
+      Link = Link + 'InStock';    
+    }else{
+      Link = Link + 'InStock';    
+    }
+    
+    jq('#MicroDataAvailability_22004829').attr('href', Link);
+  
+    return;  
+  }
+
+
+  function ChangeBasketButton(ProductID, State){
+    var BContainer  = jq('#BasketLink_' + ProductID);
+    
+    if(State == 0){
+      BContainer.addClass('HideElement');      
+    }else{
+      BContainer.removeClass('HideElement');     
+    }
+    
+    return;  
+  }
+  
+  function ChangeTrafficLight(ProductID, ProductStock, StockLevelAlert, MinOrder){
+    var TraficLight = "";
+    var IContainer  = jq('#DeliverPeriodDisplay_' + ProductID + ' p i'); 
+    
+    if(ProductStock < MinOrder){ 
+      TraficLight = "ProductOutStockIcon"; 
+    }else if(StockLevelAlert != -1 && ProductStock < StockLevelAlert){
+      TraficLight = "ProductWarnStockIcon";    
+    }else{
+      TraficLight = "ProductOnStockIcon";          
+    } 
+    
+    IContainer.removeClass("ProductOutStockIcon");
+    IContainer.removeClass("ProductWarnStockIcon"); 
+    IContainer.removeClass("ProductOnStockIcon");
+    IContainer.addClass(TraficLight);
+    
+    return TraficLight;
+  }  
+  
+  function ChangeDeliveryPeriod(ProductID, ProductDeliveryPeriod, ManufacturerDeliveryPeriod, AvaibilyText){
+    var PContainer      = jq('#DeliverPeriodDisplay_' + ProductID + ' p');
+ 
+    if(ProductDeliveryPeriod.length > 0 && ManufacturerDeliveryPeriod.length > 0 && AvaibilyText.length > 1){
+      AvaibilyText = AvaibilyText.replace(ProductDeliveryPeriod, ManufacturerDeliveryPeriod);
+      AvaibilyText = '<i class="Icon"></i> ' + AvaibilyText;
+      
+      PContainer.html(AvaibilyText);          
+    }    
+    
+    return;  
+  }
+
+
+
+
+
+      /* if IE 10 */
+      @import url('/WebRoot/StoreTypes/6.16.1/Store/lib/de_epages/design/style-ie.css') screen and (-ms-high-contrast: active), (-ms-high-contrast: none);
+    
+
+
+
+#janolaw-paragraph {
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    margin: 25px 4px 4px 8px;
+}
+
+#janolaw-adress {
+    font-size: 11px;
+    margin: 8px 4px 4px 8px;
+}
+
+#janolaw-block {
+    font-size: 11px;
+    margin: 8px 4px 4px 8px;
+}
+
+#janolaw-footer {
+    font-size: 11px;
+    margin: 25px 4px 4px 8px;
+}
+
+.janolaw-absatz {
+    font-size: 11px;
+    margin: 8px 4px 4px 8px;        
+}
+
+.janolaw-text {
+    font-size: 11px;
+    margin: 8px 4px 4px 8px;
+}
+
+
+try{
+  window.onerror = window.onerrorbak;
+}
+catch(e){
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+(function(win){
+  if( !jQuery.fn.jquerysdk ){
+    jQuery.noConflict(true);
+
+    var $ = jQuery,
+      noConflict = $.config.noConflict;
+
+    if( !noConflict ){
+      win.$ = $;
+    }
+    else if( typeof noConflict == 'string' ){
+      win[ noConflict ] = $;
+    }
+  }
+  
+    try{
+      win.onerror = function() {
+        return true;
+      };
+    }
+    catch(e){
+    }
+  
+})(window);
+
+
+
+
+
+
+
+
+
+
+
+
+
+	                                            
+
+	                                            
+
+	                                            
+
+
+
+
+
+
+
+
+Home
+Imprint
+
+T&C
+
+Contact
+Ordering information
+Affiliate program
+Jobs
+Dealer
+About FC-Moto
+
+
+
+
+
+
+
+
+
+
+
+Product search
+
+
+
+
+
+
+
+
+
+
+
+
+
+            jQuery.ready("de_epages.remotesearch.ui.suggest",function($){
+              de_epages("#RemoteSearchSuggest5704E3354DEBAE5AD03E")
+                .remotesearchUiSuggest({
+                  required: true,
+                  suggestUrl: "/rs/product/FCMotoDB/459DB3A3-3EFD-5C90-20EE-51A990B2C47B/suggest/jsonp?lang=en",
+                  showError: false
+                });
+            });
+            
+
+
+
+
+
+
+
+
+Home
+
+
+Hot Deals
+
+
+Leather Suits
+
+
+Leather Jackets
+
+
+Textile Jackets
+
+
+Pants
+
+
+Jerseys
+
+
+Kids
+
+
+Helmets
+
+
+Gloves
+
+
+Boots
+
+
+Underwear
+
+
+Protections
+
+
+Goggles
+
+
+Rainwear
+
+
+Bags
+
+
+Motorcycle Parts
+
+
+Accessories
+
+
+Navigation Systems
+
+
+Communication Systems
+
+
+Cameras
+
+
+Gift Coupons
+
+
+Casual Clothing
+
+
+Snowmobile
+
+
+Bicycle
+
+
+Outdoor
+
+
+Ski
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Currency selection
+
+
+EUR
+GBP
+USD
+JPY
+AUD
+CAD
+CHF
+SEK
+NZD
+DKK
+NOK
+ARS
+BRL
+MXN
+RUB
+CNY
+
+
+
+
+
+
+Basket
+
+
+                    Your basket is empty.
+                  
+
+
+
+
+
+Sign in
+
+
+
+
+
+
+
+
+
+E-mail address
+
+
+
+
+
+Password
+
+
+
+
+Sign in
+
+
+
+Forgot your password?
+Register
+
+
+
+
+
+
+
+
+  
+
+	DISCOUNT
+
+
+
+
+
+
+
+
+
+    
+
+	Top Brands
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+	SALE %
+
+
+
+
+
+
+
+
+
+
+
+  
+
+	comming soon
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+Privacy Policy
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+Copyright © 2003-2013 FC-Moto.de :: Privacy policy 
+
+	 
+ Our Marks: AGV Airoh Arai Alpinestars Arlen Ness Bandit Berik Caberg Craft Daytona FOX HJC Icon KBC Marushin MOMO 
+
+GoPro Nolan  Oneal Roof Revit Puma Schuberth Spyke SPIDI SIDI SHARK SHOEI Suomy LS2 Uvex X-Lite Xena SCOTT
+
+	 
+
+Motorrad | Motorradmarkt | MotoGP | Motocross | Fahrrad| FC
+
+
+
+
+
+
+
+IXS Lenja - FC-Moto English
+
+
+
+
+
+<!--
+jQuery.ready({
+	  plugin: ['jQuery.cookie'],
+	  DOM: true
+	}, function($) {
+  var zanpid = ZanoxAG.gup('zanpid');
+
+  if  (document.cookie == '' && zanpid.length == 0) {
+    zanpid = '';
+  }
+
+  if (zanpid.length > 0) {
+    jq.cookie('AffiliateSource', 'zanox'+zanpid, { expires: 30, path: '/'});
+
+    if  (document.cookie == '') {
+     $('<input>').attr('type', 'hidden').attr('name', 'zanpid').attr('value', zanpid).appendTo('form');
+
+     $('a').each(function() {
+       var href = $(this).attr('href');
+       var sep = (href.indexOf('?') > -1) ? '&' : '?';
+
+       $(this).attr('href', href + sep + 'zanpid=' + zanpid);
+     });
+    }
+  }
+});
+-->
+
+require(["jquery", "util/storage", "$ready!"], function ($, storage) {
+  // remove all selected products on logout
+  var $LogoutNodes = $('a[href*="ChangeAction=Logout"]');
+  
+  $LogoutNodes.each(function (event){
+    $(this).on('click', function (event){
+      storage.sessionStorage('Product::ProductComparison', null);
+    });
+  });
+});
+
+require(['jquery', '$ready!'], function ($) {
+	var createGadgets = function(){
+		// Constants.
+		var gNodeType = 'div',
+			gClassName = 'ep-gadget',
+			gDataName = gClassName,
+			gFolder = 'ui',
+			// Gadget nodes in DOM.
+			$gNodes = $(gNodeType + '.' + gClassName);
+
+		if ($gNodes.length) {
+			// Go go gadgets.
+			$gNodes.each(function () {
+				var $this = $(this),
+					data = $this.data(gDataName);
+				require([['de_epages', data.cartridge, gFolder, data.alias].join('/')], function ($) {
+					$this[data.cartridge + gFolder.charAt(0).toUpperCase() + gFolder.slice(1) + data.alias.charAt(0).toUpperCase() + data.alias.slice(1)](data.options);
+					
+				});
+
+			});
+		}
+	};
+
+	createGadgets();
+	$('body').on('updatepreview', createGadgets);
+
+});
+
+
+
+
+
+
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  
+  ga('create', 'UA-45623427-1', 'auto');  // Replace with your property ID.
+  ga('require', 'displayfeatures');
+  ga('set', 'anonymizeIp', true);   
+  ga('set', 'dimension1', "");
+  ga('set', 'dimension2', "other"); 
+  ga('set', 'dimension3', "");  
+  ga('send', 'pageview');
+
+
+
+
+
+
+jQuery.ready('jQuery.i18n', function ($) {
+  var isActive = {},
+      $gadgets = $('.ep-gadget'),
+      $otherbuttonsDivs;
+
+  $otherbuttonsDivs = $gadgets.filter(function () {
+    var data = $(this).data('epGadget');
+    // Set *isActive* properties.
+    data && (isActive[data.alias] = true);
+    // Filter *otherbuttons*.
+    return (data.alias === 'otherbuttons');
+  });
+
+  // Facebook.
+  if (isActive['facebook']) {
+    window.fbAsyncInit = function () {
+      FB.init();
+    };
+    $.ajax({
+      dataType : 'script',
+      url : '//connect.facebook.net/' + $.i18n.settings.region.replace(/-/,'_') + '/all.js',
+      cache : true
+    }).done(function () {
+      // Like.
+      FB.Event.subscribe('edge.create', function (targetUrl) {
+        ga('send', 'social', 'facebook', 'like', targetUrl); 
+      });
+      // Unlike.
+      FB.Event.subscribe('edge.remove', function (targetUrl) {
+        ga('send', 'social', 'facebook', 'unlike', targetUrl);
+      });
+      // Share.
+      FB.Event.subscribe('message.send', function (targetUrl) {
+        ga('send', 'social', 'facebook', 'send', targetUrl);
+      });
+    });
+  }
+
+  // Twitter.
+  if (isActive['twitter']) {
+    var regex = new RegExp('[\\?&#]' + 'url' + '=([^&#]*)');
+    $.ajax({
+      dataType : 'script',
+      url : '//platform.twitter.com/widgets.js',
+      cache : true
+    }).done(function () {
+      twttr.ready(function (twttr) {
+        // Tweet.
+        twttr.events.bind('tweet', function (event) {
+          var targetUrl = '';
+          if (event.target && event.target.nodeName == 'IFRAME') {
+            var params = regex.exec(event.target.src);
+            params = params || [0,''];
+            ga('send', 'social', 'twitter', 'tweet', unescape(params[1]));           
+          }
+        });
+        // Follow.
+        twttr.events.bind('follow', function (event) {
+          ga('send', 'social', 'twitter', 'follow', event.data.user_id);         
+        });
+      });
+    });
+  }
+
+  // Otherbuttons.
+  if (isActive['otherbuttons']) {
+    $otherbuttonsDivs.on('click', 'img', function (event) {
+      ga('send', 'social', 'event.target && event.target.alt', 'click');
+    });
+  }
+});
+
+
+
+
+  /* <![CDATA[ */
+  var google_conversion_id = 1070800967;
+  var google_conversion_label = "8oVYCPertQQQx8DM_gM";
+  var google_custom_params = window.google_tag_params;
+  var google_remarketing_only = true;
+  /* ]]> */
+
+
+
+
+
+
+
+
+
+
+        window._zx = window._zx || [];
+        window._zx.push({"id":"15D8727C2CFFB5BE433D"});
+        (function(d) {
+          var s = d.createElement("script"); s.async = true;
+          s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//static.zanox.com/scripts/zanox.js";
+          var a = d.getElementsByTagName("script")[0]; a.parentNode.insertBefore(s, a);
+        }(document));
+      
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+    <html lang="en">
+    <head>
+        <meta charset="utf-8"><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var o=t[n]={exports:{}};e[n][0].call(o.exports,function(t){var o=e[n][1][t];return r(o||t)},o,o.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(e,t,n){function r(){}function o(e,t,n){return function(){return i(e,[f.now()].concat(u(arguments)),t?null:this,n),t?void 0:this}}var i=e("handle"),a=e(2),u=e(3),c=e("ee").get("tracer"),f=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,t){s[t]=o(d+t,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,o="function"==typeof t;return i(l+"tracer",[f.now(),e,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],n),o)try{return t.apply(this,arguments)}catch(e){throw c.emit("fn-err",[arguments,this,e],n),e}finally{c.emit("fn-end",[f.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=o(l+t)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,f.now()])}},{}],2:[function(e,t,n){function r(e,t){var n=[],r="",i=0;for(r in e)o.call(e,r)&&(n[i]=t(r,e[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],3:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,o=n-t||0,i=Array(o<0?0:o);++r<o;)i[r]=e[t+r];return i}t.exports=r},{}],4:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function o(e){function t(e){return e&&e instanceof r?e:e?c(e,u,i):i()}function n(n,r,o,i){if(!d.aborted||i){e&&e(n,r,o);for(var a=t(o),u=m(n),c=u.length,f=0;f<c;f++)u[f].apply(a,r);var p=s[y[n]];return p&&p.push([b,n,r,a]),a}}function l(e,t){v[e]=m(e).concat(t)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(n)}function g(e,t){f(e,function(e,n){t=t||"feature",y[n]=t,t in s||(s[t]=[])})}var v={},y={},b={on:l,emit:n,get:w,listeners:m,context:t,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",c=e("gos"),f=e(2),s={},p={},d=t.exports=o();d.backlog=s},{}],gos:[function(e,t,n){function r(e,t,n){if(o.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[t]=r,r}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){o.buffer([e],r),o.emit(e,t,n)}var o=e("ee").get("handle");t.exports=r,r.ee=o},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=h.info=NREUM.info,t=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return s.abort();f(y,function(t,n){e[t]||(e[t]=n)}),c("mark",["onload",a()+h.offset],null,"api");var n=d.createElement("script");n.src="https://"+e.agent,t.parentNode.insertBefore(n,t)}}function o(){"complete"===d.readyState&&i()}function i(){c("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),c=e("handle"),f=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1071.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=t.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),c("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script><script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","errorBeacon":"bam.nr-data.net","licenseKey":"402233fafd","applicationID":"2504657","transactionName":"ZVMEYUVTXhYFV00MVlwZIEBZUUQMC1oWFVhVUxUbQVtVEhcOSRdcUVkLRVhBVQE=","queueTime":3,"applicationTime":60,"agent":""}</script>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta name="google-site-verification" content="XtWjUHvM7oew3FDT0CkZqFzXpUsCNGiPfsE7UZL2y9Y" />
+        
+
+    <title>Photocrowd Terms &amp; Conditions | Photocrowd Photo Competitions &amp; Community Site</title>
+    <meta name="Description" content="Welcome to your new favourite photo community. Be inspired, get your work seen, and win prizes in our daily photo competitions.">
+    
+
+
+<link rel="stylesheet" href="https://static.photocrowd.com/CACHE/css/ac2f65804f26.css" type="text/css" />
+
+    
+
+        <link rel="icon" type="image/png" href="https://static.photocrowd.com/v2/images/favicon.png" />
+
+        <link rel="apple-touch-icon" sizes="114x114" href="https://static.photocrowd.com/v2/images/apple-touch-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="https://static.photocrowd.com/v2/images/apple-touch-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="https://static.photocrowd.com/v2/images/apple-touch-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="https://static.photocrowd.com/v2/images/apple-touch-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="https://static.photocrowd.com/v2/images/apple-touch-icon-180x180.png">
+
+        
+
+        
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-42803410-1');
+
+ga('set', 'transport', 'beacon');
+
+
+
+ga('set', 'dimension1', 'Visitor');
+ga('set', 'dimension2', 'Anonymous');
+
+
+ga('set', 'contentGroup1', 'Precomposed');
+window.gaBasePageGroup = 'Precomposed';
+
+
+
+ga('set', 'contentGroup2', 'Terms');
+
+
+var pixelRatio = (window.devicePixelRatio >= 2) ? "high" : "normal";
+ga('set', 'dimension3', pixelRatio);
+ga('set', 'dimension4', '||');
+
+
+
+window.gaProcesses = {};
+
+
+ga('send', 'pageview');
+
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+        
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+
+fbq('init', '1725502214430065');
+fbq('track', 'PageView');
+
+
+
+</script>
+
+<noscript>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1725502214430065&ev=PageView&noscript=1" />
+
+
+
+</noscript>
+
+
+    </head>
+
+
+    <body class="terms-page">
+
+        
+
+
+
+
+
+<header id="header" class="main-header  ">
+
+    <nav class="main-header__nav">
+        <a class="main-header__logo main-header__item main-header__item--with-hover main-header__icon " href="/"></a>
+
+        
+            <span>
+                <a href="#" class="main-header__item main-header__item--with-hover main-header__item--with-caret " data-header-link="enter">Contests</a>
+                <ul class="main-header__menu" data-header-menu="enter">
+                    
+                    <li class="main-header__menu__item">
+                        <a class="main-header__menu__link " href="/photo-competitions/all-photo-contests/">
+                            
+                                Free photo contests
+                            
+                        </a>
+                    </li>
+                    <li class="main-header__menu__item">
+                        <a class="main-header__menu__link " href="/photo-competitions/premium-photo-contests/">Premium contests</a>
+                    </li>
+                    <li class="main-header__menu__item">
+                        <a class="main-header__menu__link " href="/photo-competitions/community-photo-contests/">Community contests</a>
+                    </li>
+                </ul>
+            </span>
+            <a href="/photo-competitions/rate/" class="main-header__item main-header__item--with-hover ">Rate<span class="main-header__photos-text">photos</span></a>
+            <span class="main-header__explore">
+                <a href="#" class="main-header__item main-header__item--with-hover main-header__item--with-caret " data-header-link="explore">Explore</a>
+                <ul class="main-header__menu" data-header-menu="explore">
+                    <li class="main-header__menu__item">
+                        <a class="main-header__menu__link " href="/photos/">Best photos</a>
+                    </li>
+                    <li class="main-header__menu__item">
+                        <a class="main-header__menu__link " href="/photos/?ordering=newest">Newest photos</a>
+                    </li>
+                    <li class="main-header__menu__item">
+                        <a class="main-header__menu__link " href="/photo-competitions/winners/">Winners</a>
+                    </li>
+                    <li class="main-header__menu__item">
+                        <a class="main-header__menu__link " href="/photo-competitions/expert-reviews/">Expert reviews</a>
+                    </li>
+                </ul>
+            </span>
+            <a href="/photographer-community/" class="main-header__item main-header__item--with-hover main-header__leaderboard ">Leaderboard</a>
+            
+
+        
+    </nav>
+
+    
+
+        <div class="main-header__item main-header__search main-header__search--main">
+            <a href="#" class="main-header__search__open main-header__icon"></a>
+            <form onsubmit="return submitSearch()" class="main-header__search__form">
+                <input type="text" id="main-search" class="main-header__search__input" placeholder="Search"  />
+                <input type="submit" class="main-header__search__submit" value="Search" />
+            </form>
+            <a href="#" class="main-header__search__close main-header__icon"></a>
+        </div>
+
+    
+
+    <div class="main-header__actions">
+        
+            
+            <div class="main-header__item main-header__sign-in">
+                <a href="/accounts/login" class="main-header__btn main-header__btn--white">Sign in</a>
+            </div>
+            <div class="main-header__item main-header__join ">
+                <a href="/accounts/register?process_start=header&message=join" class="btn sign-up main-header__btn">Join</a>
+            </div>
+            
+        
+
+        
+        <span class="main-header__more-menu">
+            <a href="#" class="main-header__item main-header__item--with-hover main-header__more main-header__icon" data-header-link="more"></a>
+            <ul class="main-header__menu main-header__menu--right" data-header-menu="more">
+                <li class="main-header__menu__item main-header__menu__item--row">
+                    <span class="main-header__menu__section">
+                        <a class="main-header__menu__link main-header__menu__link--normal-weight " href="/support/">Help</a>
+                        <a class="main-header__menu__link main-header__menu__link--normal-weight " href="/blog/">Blog</a>
+                        
+                            <a class="main-header__menu__link main-header__menu__link--normal-weight " href="/upgrade/?process_start=main-header-more-menu-pricing">Pricing</a>
+                        
+                        <a class="main-header__menu__link main-header__menu__link--normal-weight " href="/about/">About Photocrowd</a>
+                        <a class="main-header__menu__link main-header__menu__link--normal-weight " href="/about/founders/">Supporters</a>
+                        <a class="main-header__menu__link main-header__menu__link--normal-weight main-header__menu__link--active" href="/terms/">Terms and Privacy</a>
+                    </span>
+                </li>
+                <li class="main-header__menu__item main-header__menu__item--white">
+                    <div class="main-header__item main-header__item--left-align social">
+                        <span class="main-header__social-text">We’re also on</span>
+                        <a class="instagram-link social-link social-link--small" href="http://www.instagram.com/photocrowd/" target="_blank"></a>
+                        <a class="twitter-link social-link social-link--small" href="https://twitter.com/photocrowd" target="_blank"></a>
+                        <a class="facebook-link social-link social-link--small" href="https://www.facebook.com/photocrowd" target="_blank"></a>
+                    </div>
+                </li>
+            </ul>
+        </span>
+
+        <span class="main-header__mobile-menu">
+            <a href="#" class="main-header__item main-header__item--uppercase main-header__item--with-hover" data-header-link="mobile-menu">Menu</a>
+            <ul class="main-header__menu main-header__menu--right main-header__mobile-menu__menu" data-header-menu="mobile-menu">
+                <li class="main-header__menu__item">
+                    <a href="#" class="main-header__menu__link main-header__menu__link--with-caret " data-header-sub-link="mobile-explore">Explore</a>
+                    <ul class="main-header__sub-menu" data-header-sub-menu="mobile-explore">
+                        <li class="main-header__sub-menu__item">
+                            <a class="main-header__sub-menu__link " href="/photos/">Best photos</a>
+                        </li>
+                        <li class="main-header__sub-menu__item">
+                            <a class="main-header__sub-menu__link " href="/photos/?ordering=newest">Newest photos</a>
+                        </li>
+                        <li class="main-header__sub-menu__item">
+                            <a class="main-header__sub-menu__link " href="/photo-competitions/winners/">Winners</a>
+                        </li>
+                        <li class="main-header__sub-menu__item">
+                            <a class="main-header__sub-menu__link " href="/photo-competitions/expert-reviews/">Expert reviews</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="main-header__menu__item">
+                    <a href="/photographer-community/" class="main-header__menu__link ">Leaderboard</a>
+                </li>
+                <li class="main-header__menu__item">
+                    <a href="#" class="main-header__menu__link main-header__menu__link--with-caret main-header__menu__link--active main-header__menu__link--with-caret--active" data-header-sub-link="mobile-more">About</a>
+                    <ul class="main-header__sub-menu" data-header-sub-menu="mobile-more">
+                        <li class="main-header__sub-menu__item">
+                            <a class="main-header__sub-menu__link " href="/support/">Help</a>
+                        </li>
+                        <li class="main-header__sub-menu__item">
+                            <a class="main-header__sub-menu__link " href="/blog/">Blog</a>
+                        </li>
+                        
+                            <li class="main-header__sub-menu__item">
+                                <a class="main-header__sub-menu__link " href="/upgrade/?process_start=main-header-more-menu-pricing">Pricing</a>
+                            </li>
+                        
+                        <li class="main-header__sub-menu__item">
+                            <a class="main-header__sub-menu__link " href="/about/">About Photocrowd</a>
+                        </li>
+                        <li class="main-header__sub-menu__item">
+                            <a class="main-header__sub-menu__link " href="/about/founders/">Supporters</a>
+                        </li>
+                        <li class="main-header__sub-menu__item">
+                            <a class="main-header__sub-menu__link main-header__sub-menu__link--active" href="/terms/">Terms and Privacy</a>
+                        </li>
+                        <li class="main-header__menu__item">
+                            <div class="main-header__item social">
+                                <span class="main-header__social-text">We’re also on</span>
+                                <a class="instagram-link social-link social-link--small" href="http://www.instagram.com/photocrowd/" target="_blank"></a>
+                                <a class="twitter-link social-link social-link--small" href="https://twitter.com/photocrowd" target="_blank"></a>
+                                <a class="facebook-link social-link social-link--small" href="https://www.facebook.com/photocrowd" target="_blank"></a>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+                <li class="main-header__menu__item main-header__menu__item--white">
+                    <div class="main-header__item main-header__item--mobile main-header__search">
+                        <form onsubmit="return submitSearch()" class="main-header__search__form">
+                            <input type="text" id="mobile-search" class="main-header__search__input" placeholder="Search"  />
+                            <input type="submit" class="main-header__search__submit" value="Search" />
+                        </form>
+                    </div>
+                    
+                        <div class="main-header__item main-header__item--mobile main-header__authentication">
+                            <a href="/accounts/login" class="main-header__btn main-header__btn--half-mobile main-header__btn--white">Sign in</a>
+                            <a href="/accounts/register?process_start=header&message=join" class="btn sign-up main-header__btn main-header__btn--half-mobile">Join</a>
+                        </div>
+                    
+                </li>
+            </ul>
+        </span>
+        
+
+    </div>
+
+</header>
+
+
+
+
+
+
+        
+
+<section class="section section--image section--image--terms section--fixed">
+    <div class="section__content">
+        <h1 class="heading heading--title-large">Terms & Conditions</h1>
+    </div>
+    <a class="section__photo-credit" href="/markmaguire/">Mark Maguire</a>
+</section>
+
+<section class="legal-content">
+    <div class="container">
+        <p>You may also want to take a look at our <a href="/privacy">Privacy Policy</a></p>
+<p>The Photocrowd.com website is an online community which enables photographers, graphic artists and others to post Content (as defined below), share comments, opinions and ideas, promote their work, participate in contests and promotions, and access and/or purchase services from time to time made available on the site (“Services”). Services include, but are not limited to, any service and/or Content we make available to or perform for you, as well as the offering of any materials displayed, transmitted or performed on the site or through the Services. Content (“Content”) includes, but is not limited to text, user comments, messages, information, data, graphics, news articles, photographs, images, illustrations, videos and software.  The following outlines the terms under which you may use the Photocrowd.com website and Services.</p>
+<h2 id="1-acceptance-of-terms">1. ACCEPTANCE OF TERMS</h2>
+<div class="panel">
+<p>Before using any of our Services, you should read these terms and conditions (the “Terms”) carefully. By signing up for our Services you will be deemed to have read, understood and agreed to them. We’d also recommend that you read our Privacy Policy, which describes how we’ll deal with your personal information. Photocrowd.com is operated by Photocrowd Limited, which is based in the UK. When accessing and using this website you are agreeing to the Terms set out below. By registering, you agree that you have fully understood these Terms, that you have the right, authority and capacity to enter this agreement, and that you acknowledge it to be legally binding between you and us. Photocrowd.com reserves the right to change these Terms. The most recent Terms can always be found at this page. If you do not agree to these Terms, please do not use Photocrowd.com and the Services we offer, and do not register for a Photocrowd.com account. If you have any questions, please contact us before using our website. Your continued use of Photocrowd.com implies your acceptance of any changes that we make to these Terms.</p>
+
+</div><h2 id="2-create-a-username-and-password">2. CREATE A USERNAME AND PASSWORD</h2>
+<div class="panel">
+<p>A condition of using our Services is the creation of an account with a username and password, and to provide accurate registration information. Failure to do so constitutes a breach of these Terms, which may result in immediate suspension or termination of your account. You may not use the name of another person or entity as your username or one that is not lawfully available for use, a name or trade mark that is subject to any rights of another person or entity other than you without appropriate authorization, or a name that is otherwise offensive, vulgar or obscene. You are responsible for maintaining the confidentiality of your password and are solely responsible for all activities resulting from the use of your password and conducted through your account.  Services are available only to individuals who are either: (i) at least 18 years old, or (ii) at least 13 years old, and who are authorized to access our website by a parent or legal guardian. If you have authorized a minor to use our website, you are responsible for the online conduct of such minor, and the consequences of any misuse of the website by the minor. You represent and warrant that have given full and accurate information at account creation including a valid email address and that you will keep that information up to date at all times. </p>
+
+</div><h2 id="3-responsibility-for-content-and-service-changes">3. RESPONSIBILITY FOR CONTENT AND SERVICE CHANGES</h2>
+<div class="panel">
+<p>Our website contains user-generated Content that may depict subject matters not appropriate for all (for example, nudity). Photocrowd.com cannot filter and monitor the Content created and viewed by its users and does not assume responsibility for this Content. If you are 13 or over, but below 18 years old, please do not use or register with Photocrowd.com unless you have been given permission by a parent or legal guardian. Photocrowd.com reserves the right to: (a) change, modify or discontinue some or all of the Services offered on this website, (b) restrict the availability of Services, (c) deny users access to Services, (d) restrict the number of Services available to individual users, (e) charge fees on using the service, (f) offer individual service levels to individual users, and (g) remove an upload facility or any user Content at any time at its sole discretion, all without prior notice or liability. Photocrowd.com is also not liable for modifications, suspension or discontinuance of the Services caused by third parties. The Photocrowd.com website should not be relied upon as a sole point of storage of your Content.</p>
+
+</div><h2 id="4-what-you-are-not-allowed-to-do">4. WHAT YOU ARE NOT ALLOWED TO DO</h2>
+<div class="panel">
+<p>You may not use the Photocrowd.com Services to upload, transmit or share any Content which:</p>
+<p>•   does not comply with these Terms<br>
+•   unlawfully infringes the intellectual property rights or other rights of third parties, including, but not limited to, trade marks, copyright, trade secrets, patents, publicity rights or privacy rights<br>
+•   includes sexually explicit images or other Content which is offensive or harmful to minors or harasses, threatens, embarrasses or causes distress, unwanted attention or discomfort upon any other person<br>
+•   includes any unlawful, harmful, threatening, abusive, harassing, defamatory, vulgar, obscene, or hateful material, including but not limited to material based on a person's race, national origin, ethnicity, religion, gender, sexual orientation, or disablement <br>
+•   makes use of a false name or identity or a name or identity that you are not entitled or authorized to use<br>
+•   contains any unsolicited advertising, promotional materials, or other forms of solicitation<br>
+•   contravenes any applicable law or government regulation in the jurisdiction where you use our Services<br>
+•   creates or submits unwanted email or comments to any Photocrowd.com users.<br></p>
+<p>You agree not to engage in any of the following behaviour on Photocrowd.com:</p>
+<p>•   To abuse, harass, threaten, impersonate or intimidate other users of the site<br>
+•   To post or transmit, or cause to be posted or transmitted, any communication or solicitation designed or intended to obtain password, account, or private information from any other Photocrowd.com user<br>
+•   To create multiple accounts <br>
+•   To use any automated means, with the exception of accessing RSS feeds, to access the Site for any purpose without our express written permission. Additionally, you agree that you will not: (i) take any action that imposes, or may impose in our sole discretion an unreasonable or disproportionately large load on our infrastructure; (ii) interfere or attempt to interfere with the proper working of the Site or any activities conducted on the Site; or (iii) bypass any measures we may use to prevent or restrict access to the Site<br>
+•   To artificially inﬂate or alter ratings, comments, or any other Service or for the purpose of giving or receiving money or other compensation in exchange for ratings or for participating in any other organized effort that in any way artificially alters the results of Services<br>
+•   To promote or sell Content of another person<br>
+•   To sell or otherwise transfer your profile<br></p>
+<p>Violation of any of these conditions will result in the termination of your Photocrowd.com account. While Photocrowd.com prohibits such conduct and Content on its site, you understand and agree that Photocrowd.com cannot be responsible for the Content posted or behaviour on its website by others and you nonetheless may be exposed to such materials and/or behaviour and that you use the Photocrowd.com service at your own risk</p>
+
+</div><h2 id="5-what-we-can-do-with-uploaded-content">5. WHAT WE CAN DO WITH UPLOADED CONTENT</h2>
+<div class="panel">
+<p>Photocrowd.com seeks no ownership of the Content submitted to the website and respects and supports the rights of the creator and/or owner. Copyright remains with the image creator and/or owner at all times and you retain all rights to the Content that you previously enjoyed.
+However, by submitting Content to our website you represent and warrant to Photocrowd.com that you are the original photographer of, and accordingly all rights, including copyright in and to the Content are owned by you or you have the permission of the copyright holder and that Photocrowd.com is free to use the Content as provided in these Terms without obtaining permission or a licence from any third party. By uploading your Content to the Photocrowd.com website you agree that we may:</p>
+<p>•   use, reproduce, distribute and display the Content,  within the scope of the various functionalities of our website and Services from time to time, including without limitation  making it available for sharing with other users and on other platforms and through other channels;<br>
+•   permit any partner that operates a photo challenge in conjunction with us to use Content submitted for such challenge for any purpose, as long as the challenge is referenced in any such use;<br>
+•   with your express consent, grant rights of use to third parties (each a “Customer”) in respect of the Content, including by way of licensing stock image electronic downloads and sales of physical articles, items and merchandise containing the Content including without limitation prints, posters and wall products (“Products”) ;<br>
+•   if you have consented to rights of use to your Content being granted to Customers in accordance with the above, appoint third party distributors or agents to facilitate the same and sublicence the Content to such parties;<br>
+•   include the Content in marketing material sent to other platforms and channels in conjunction with challenges;<br>
+•   advertise and promote our Services using the Content; <br>
+•   enable you to purchase Products containing your Content from the site, using our preferred providers, with all such purchases benefitting from a 30-day money back guarantee; and<br>
+•   use the Content for such other purposes as we may from time to time reasonably determine.</p>
+<p>These rights of use will last for the period during which the Content is posted on the Photocrowd.com website and will automatically terminate upon the removal of the Content from the website, except as set out in clause 10.</p>
+<p>We can:</p>
+<p>•   alter the Content including any cropping, manipulation, combining and creation of derivative images providing such alteration is not pornographic, defamatory or otherwise unlawful;<br>
+•   add, amend or delete any captions, keywording or information supplied to us relating to the Content, including but not limited to, permissions, tags, descriptions, number of people, date taken, location and usernames (“Metadata”) for any Content for any reason;<br>
+•   from time to time grant to the operators of public search engines permission to use search engines or search spiders to copy Content for the sole purpose of creating publicly available searchable indices of the Content; <br>
+•   attach reasonable, non-offensive comments and critiques of the Content, both from other users and judging experts, without your prior consent; <br>
+•   make no representation and warranty that Content posted on our website will not be unlawfully copied without your or our consent;<br>
+•   remove or disallow any Content that has been submitted at our discretion; and<br>
+•   categorise the Content, for example into commercial and editorial, at its sole discretion.</p>
+<p>You will be asked for your consent to grant rights of use to Customers at the time of uploading the Content or may agree to the same subsequently or withdraw consent that you have already given (provided that any such withdrawal will not affect any rights of use then granted).  If you do so consent (i) your Content will be supplied on a non exclusive basis and you may therefore sell it in any other way you wish, and (ii) we will have flexibility to agree with the Customer the price, format, scope and type of use granted and any restrictions at our discretion and the rights of use granted will include all rights in the Content held by you in all media and formats either current or yet to be developed. </p>
+<p>You further represent and warrant that: </p>
+<p>•   if you have consented to rights of use to your Content being granted to Customers in accordance with the above, you hold all necessary releases and clearances relating to the Content, including, without limitation, from identifiable individuals or owners of products or property depicted and/or original clients for whom the Content may have been created and you must make the same available to us if so requested;  <br>
+•   you will honestly and accurately state whether binding and enforceable model and/or property and/or other releases exist in respect of the Content;<br>
+•   you have the right to enter into these Terms and to grant to Photocrowd.com the usage rights referred to above, and that no further permissions are required from, nor payments required to be made to, any other person in connection with the use by Photocrowd.com of the Content;<br>
+•   the Content does not defame any person and does not infringe upon the copyright, moral rights, publicity rights, privacy rights or any other right of any person, or violate any law or government regulation in the jurisdiction where you use our Services;<br>
+•   you are solely and exclusively responsible for all Content  that you submit, process or handle by use of our Services.  You acknowledge that we do not and cannot review all Content uploaded and are not responsible for the Content. Where we make available Content this should be considered only as a courtesy and does not limit your responsibility for the same;<br>
+•   you will ensure that all Metadata is factually correct and and will remain accurate and up to date;<br>
+•   you are not entitled to use our website and Services in any way that may overload, disturb, harm, inactivate or impair them, or use them in any way that may lead to transfer, distribution or uploading of software or material containing harmful code, such as virus, time bombs, cancelbots, worms, Trojan horses, espionage software or other potentially harmful software, material or information;<br>
+•   there are and will be no claims by any other party in connection with the use or reproduction of any of the Content;<br>
+•   the Content was not photographed in any place where photography for commercial gain is forbidden, e.g. some museums, art galleries and other public or private buildings or areas.</p>
+<p>We will endeavour to:</p>
+<p>•   include your copyright information embedded within all copies of Content on our website; and<br>
+•   include a link back to your original Content when that Content is shared or other attribution but this will not apply to stock image electronic downloads;<br>
+but cannot guarantee this in any instance, and will not be held liable in the event of a failure to do so.</p>
+
+</div><h2 id="6-competitions-and-prizes">6. COMPETITIONS AND PRIZES</h2>
+<div class="panel">
+<p>When you upload Content for entry into one of our photo challenges, the Photocrowd.com team may, after the closing date for the relevant challenge, act as resident judges and experts to determine a shortlist of finalists. This shortlist of finalists will then be provided to any guest or external judge/expert (as advertised in the relevant challenge) to select the winner and runners up of the relevant competition. In all cases the published rules of the challenge will apply and the judge’s decision is final and binding.  After expert judging (or crowd voting, as the case may be) to select winners has finished, the prize winners will be notified  by email to the winning user’s email account. To be confirmed as a winner and to be awarded the prize, the winning user may be required to confirm full legal ownership of the winning Content and, where applicable, that the winning Content was first created during the relevant challenge period. Should a prize notification or prize addressed to a particular user be returned as undeliverable, we will not resend the notice (whether by the same or another method), research the user's address or make any further attempts at delivery or contact. Where a winner's shipping address is located in a country or area designated by Photocrowd.com, in its sole discretion, as undeliverable, we reserve the right to provide a cash payment sent via PayPal or voucher of equal value to the advertised prize instead of the specific advertised prize. Prizes are not transferable.
+Winners will be announced after the confirmation required above is received and the respective winner(s) are confirmed. Photocrowd.com reserves the right to announce prize winners collectively, one at a time, or in any order or clusters as it deems appropriate, in its discretion, except that the winner of expert-judged or crowd-rated prizes will be announced within thirty (30) days of the date on which the confirmation required above is received from the winner. The dispatch of prizes to winners will be the sole responsibility of  the prize sponsor. Prizes are subject to change at any time without notice in the sole discretion of Photocrowd.com or the challenge sponsor. 
+By entering into any Photocrowd.com photo challenge, each user releases and holds harmless Photocrowd.com, and any participating prize providers (as well as any of their respective parent companies, subsidiaries, affiliates, directors, officers, employees and agencies), against any and all claims, demands and liabilities arising out of or relating to the challenge, the user's participation in the challenge and/or any challenge-related activity, including, without limitation, from the winner's use or misuse of a prize or any portion thereof. Prizewinners assume all liability for any injury or damage caused, or claimed to be caused, by participation in any Photocrowd.com competition and/or use/redemption of any prize.  We will not be liable for the actions or omissions of third party challenge sponsors or organisers, even if the challenge  is promoted on our website. </p>
+
+</div><h2 id="7-infringement-of-intellectual-property-rights">7. INFRINGEMENT OF INTELLECTUAL PROPERTY RIGHTS</h2>
+<div class="panel">
+<p>If you believe that your work has been copied in a way that constitutes copyright infringement, or that your intellectual property rights have been otherwise violated, please provide Photocrowd.com with the following information and we will investigate promptly:</p>
+<p>•   an electronic or physical signature of the owner or person authorized to act on behalf of the owner of the copyright or other intellectual property right<br>
+•   a description of the copyrighted work or other intellectual property that you claim has been infringed<br>
+•   a description of where the material that you claim is infringing is located on the site, with enough detail that we may find it on the website (in most circumstances, we will need a URL)<br>
+•   your address, telephone number and email address<br>
+•   a statement by you that you have a good faith belief that the disputed use is not authorised by the copyright or intellectual property owner, its agent or the law<br>
+•   a statement by you that the above information is accurate and that you are the copyright or intellectual property owner or authorised to act on their behalf.</p>
+
+</div><h2 id="8-if-you-breach-these-terms">8. IF YOU BREACH THESE TERMS</h2>
+<div class="panel">
+<p>You agree to indemnify and hold harmless Photocrowd.com and its directors, officers, employees and agents from and against all claims, losses, expenses, damages and costs resulting from or arising out of: (a) your breach of these Terms, (b) any Content posted by you on the Photocrowd.com website, (c) use of the Photocrowd.com Services by you or any person using your username and/or password, and (d) any violation by you of any rights of a third party.</p>
+
+</div><h2 id="9-our-liabilities">9. OUR LIABILITIES</h2>
+<div class="panel">
+<p>In no event shall Photocrowd.com be liable in contract, tort or otherwise with respect to the Photocrowd.com website, our Services or the Content: (a) for any lost profits,  loss of business, loss of data, unauthorised access to data or deficient data secrecy in connection with the transfer of information via the Internet, or for any misuse of Content published on our website or any other special, incidental or consequential costs, losses or damage of any kind whatsoever, (b) to provide substitute goods or services, except as provided for in these Terms, or (c) for any direct damages in excess of any subscription price paid by the user that is the subject of the claim to use the Photocrowd.com Services.  The terms of this clause shall not prevent any liability or claim for death or bodily injury nor any claim arising from wilful default or gross negligence on our part. </p>
+<p>We undertake from time to time to use reasonable efforts to give you access to our website and Services.  We reserve the right to, at our sole discretion and when we deem necessary due to technical, operational, maintenance or security reasons, take measures which may affect the accessibility of our website and Services.  Due to the nature of Internet and server provision, downtime and lost transmissions may occur and accordingly we will have no liability to you for the loss of any Content or for any deterioration or damage to any Content or any failure of our website or Services.</p>
+
+</div><h2 id="10-ending-this-agreement">10. ENDING THIS AGREEMENT</h2>
+<div class="panel">
+<p>Photocrowd.com may terminate or suspend any and all of its Services and/or your Photocrowd.com account immediately, without prior notice or liability, for any reason whatsoever, including without limitation if you breach these Terms. Upon termination of your account, your right to use the Services will immediately cease.  You can terminate your Photocrowd.com account at any time by giving notice to us to that effect. All provisions of the Terms which by their nature should survive termination shall survive termination, including, without limitation, ownership provisions, warranties, indemnities and limitations of liability. Upon termination of your account we will  use all reasonable endeavours to remove all Content posted to your account.  If Content is removed, then any third party uses then existing will still remain and we will still be able to grant rights of use for: (i) Content relating to a specific use that has already been downloaded by a Customer for the purpose of such specific use prior to removal, or in respect of which we had entered into negotiations with any Customer prior to the date of removal, for a period of one year following removal, (ii) Content that is being re-used by a Customer, if we reasonably believe that the re-use is the same or very closely similar to the previous use.  In addition, where Content has been entered in a challenge and been given an award or an expert image review, a copy of that will be retained on the site as part of the archive for that photo challenge, or in connection with the expert image review. You will ensure that following termination you will not enter into any arrangement which conflicts with any rights of use granted by us.</p>
+
+</div><h2 id="11-changing-these-terms">11. CHANGING THESE TERMS</h2>
+<div class="panel">
+<p>Photocrowd.com reserves the right, at its sole discretion, to modify or replace these Terms at any time. If the alterations constitute a material change to the Terms, we will notify you by posting an announcement on the Photocrowd.com website. What constitutes a material change will be determined by us. You shall be responsible for reviewing and becoming familiar with any such modifications. Using any service or viewing any Content following notification of a material change to the Terms shall constitute your acceptance of the Terms as modified.</p>
+
+</div><h2 id="12-third-parties-using-our-services-or-website">12. THIRD PARTIES USING OUR SERVICES OR WEBSITE</h2>
+<div class="panel">
+<p>We may from time to time permit third parties and entities (“Third Party Users”) to use our website as a platform to create their own groups of users, invite others to join them, run their own contests and assignments (“Challenges’) and to direct users to the Third Party User’s sales channels.  In such cases you acknowledge that:</p>
+<p>•   any permission to use our website or Services is not to be taken as a recommendation or endorsement regarding any activities carried out by the Third Party Users;  <br>
+•   we are not responsible or liable for the actions and omissions of any Third Party Users but we undertake to investigate any reported problems.  </p>
+<p>If you are a Third Party User you will:</p>
+<p>•   be bound by all applicable obligations set out in these Terms and in Photocrowd.com’s Privacy Policy;<br>
+•   be solely responsible and liable for your acts or omissions;<br>
+•   be bound by such rules as we may from time to time specify;<br>
+•    not act in such a way to bring us or our website or Services into disrepute;<br> 
+•   act fairly and honestly in all your interactions with users at all times;<br>
+•   indemnify and hold harmless Photocrowd.com and its directors, officers, employees and agents from and against all claims, losses, expenses, damages and costs resulting from or arising out of (a) your breach of these Terms, (b) any Content posted by users on the Photocrowd.com website, (c) your use of the Photocrowd.com website or Services, and (d) any violation by you of any rights of a third party;.<br>
+•    not have the right to use Content submitted by a user or member of your group, except as agreed by the user or member when making any submission. </p>
+
+</div><h2 id="13-payments-and-commission">13. PAYMENTS AND COMMISSION</h2>
+<div class="panel">
+<p>Where you have consented to the grant of rights of use in and to the Content to Customers we will account to you for any net royalties.  'Net royalties' means the gross income derived from the exploitation of the grant of use, less (i) our commission, at the rates advised to you from time to time, (ii) any amounts deducted by agents, distributors or sub-licensees (if applicable), (iii) any costs of sales, such as payment to third party printers, and (iv) sales tax (if applicable).  The net royalties you receive may vary depending on the subscription tier that you purchase.  Where you change subscription tiers it may take a little time to put the new royalty rate in place.  Arrangements for payment of any amounts due to you will be as advised to you from time to time.</p>
+
+</div><h2 id="14-promotions">14. PROMOTIONS</h2>
+<div class="panel">
+<p>You agree that we have the right to use your Content fully or partially for promotional reasons and in promotional/marketing material and activity without charge or prior consent or approval from you at our sole discretion and to distribute and redistribute your Content to other parties, websites, applications, and other entities, provided we use reasonable endeavours to ensure that such Content is attributed to you in accordance with the information submitted to us by you. You agree that any such promotional activities may be carried out by us notwithstanding the earlier termination of the contract for any reason and notwithstanding the removal of Content where that Content has already been selected for use in advertising and promotional activity in accordance with this clause. </p>
+
+</div><h2 id="15-subscriptions-and-billing">15. SUBSCRIPTIONS AND BILLING</h2>
+<div class="panel">
+<p>We offer the facility to sign up to a number of subscription plans, including plans with differing tiers, conditions, limitations and features or for you to enter into individual photo challenges on payment of a fee. You can sign up to such plans or find specific details regarding your subscription or our pricing on our website. We reserve the right to modify, terminate or otherwise amend our offered pricing and subscription plans from time to time. You can upgrade, downgrade or cancel your subscription plan using your online account on the website. If you are signing up to a subscription plan or paying a fee you must provide us with or use a current, valid, accepted method of payment, as may be advised by us from time to time ("Payment Method"). We will bill the subscription or any other fee, and any applicable taxes such as value added tax, to your Payment Method. You must cancel your subscription before it renews each subscription period in order to avoid billing of the next period's subscription fees to your Payment Method. Where you change your plan during a subscription period, we may bill you any difference between the subscription fee for your old and new plans for the remainder of that period. The amount billed for the subscribed plan is a recurring amount which will only be varied in the event that you change your plan or we adjust the prices. Where the applicable subscription fee is varied, you authorise us to charge your Payment Method for such varied amounts. We reserve the right to adjust pricing for our Service in our sole discretion. Any price changes will take effect no earlier than 30 days following notice to you. Subject to an initial 14-day cooling off period within which you will receive a full refund in the event of cancellation (except when rating has already commenced in respect of a photo challenge that you have entered), all payments are nonrefundable and there are no refunds or credits for partially used periods.</p>
+
+</div><h2 id="16-specific-terms-applicable-to-customers">16. SPECIFIC TERMS APPLICABLE TO CUSTOMERS</h2>
+<div class="panel">
+<p>In addition to the other terms set out above, if you are a Customer purchasing a licence to Content from us you agree that:</p>
+<p>•   you will have a non-exclusive (unless otherwise stated by us), non-sublicensable and non-assignable right to reproduce the Content solely in the manner and for the purpose  specified in our invoice/sales note set out in the invoice, including the use, medium, period of time, territory and any other restrictions;<br>
+•   you must comply with any of our policies regarding altering, cropping or manipulating Content, as advised to you or as set out on our website;<br>
+•   no ownership or copyright in any Content shall pass to you and you will not remove any notice of copyright, trademark or other propriety right from anywhere on the Content;<br>
+•   we do not warrant the accuracy of the captioning, keywording or any other information associated with the Content;<br>
+•   you may not use the Content in a pornographic, defamatory, fraudulent, lewd, obscene or otherwise illegal manner, including but not limited to infringing any third party intellectual property or privacy rights, whether directly or in context or by juxtaposition with other materials;<br>
+•   if any Content is reproduced by you for editorial purposes (i.e. for any non-promotional purpose) you must include a copyright/credit attribution as advised by us;<br>
+•   you will examine the Content for possible defects (whether digital or otherwise) before sending it for reproduction.  If you notify us within 30 days of a defect in Content materials or workmanship you are entitled to another digital copy of the Content free from defect or a refund of the Licence Fee paid by you at our option but otherwise we make no other warranty, express or implied;<br>
+•   we give no representations or warranties whatsoever as to the existence of any releases, such as a model or property release or any other release of a third party right or other permission which it is necessary or desirable to obtain, in respect of the Content (“Releases”).  We give no representations or warranties whatsoever with respect to the use of names, trade marks, logos, uniforms, registered or copyrighted designs or artistic works depicted in any Content, and you must satisfy yourself that all Releases as may be required for reproduction of the Content have been secured, you are solely responsible for obtaining all such Releases and the rights granted to you are conditional in each case on your obtaining them. If you are unsure as to whether any Releases are needed for your Content usage, then it is your responsibility to consult with relevant parties. You will not rely upon any representation or warranty given by our employees or representatives save as set out in these Terms.<br>
+•   the fee charged to you depends on the nature of the rights granted. You agree to notify us in the event that you desire to expand the usage for the Content and pay any additional fee. Use of any Content in a manner not specifically authorised under the terms set out in our invoice/sales note or elsewhere in these Terms constitutes a breach of these Terms and an infringement of copyright.<br>
+•   the Content may not be sublicensed, resold or otherwise made available for use or distribution separately or detached from a product or web page. For example, the Content may be used as an integral part of a web page design, but may not be made available for downloading separately or in a format designed or intended for permanent storage or re-use by website users. Similarly, your customers may be provided with copies of the Content as an integral part of work product, but may not be provided with the Content or permitted to use the Content separately<br>
+•   where you purchase Products from the site the purchase will be subject to the following additional terms and conditions:<br>
+To order a product you will need to follow the ordering procedures set out on our order page. Details of our prices for the Products, and the procedures for payment and delivery are displayed on our web site.  Any times or dates stated on our web site for delivery are estimates only. We or our providers will make all reasonable effort to deliver goods within the time specified, but do not accept liability for any failure to deliver within that time.  You must pay by the designated payment method at the time of order. The price of any Product is the price in force at the date and time of your order. We may change the price of any Product before you place an order. We try to ensure that our prices displayed on our web site are accurate but the price on your order may need to be validated by us as part of the acceptance procedure. We will inform you if a Product’s correct price is higher than that stated in your order and you may cancel the order and decide whether or not to order the product at the correct price.  In addition to the price we will set out delivery costs and applicable taxes.  We are entitled to refuse any order placed by you. If your order is accepted, we or our provider will confirm acceptance to you by online electronic means (‘Confirmation’) to the email address you have given us on registration or on ordering. The order will then be fulfilled by the date set out in the Confirmation or, if the Confirmation does not contain such a date, within 30 days.  If the Product you ordered is unavailable, we may provide to you a substitute of an equivalent quality and price.  You may return any Products you have purchased within 30 days of delivery for any reason (including if you simply change your mind). To do so you must notify us in writing or other durable medium (including email) within those 30 days. You will then be entitled to a refund from us, which will be paid as soon as possible, but in any event within 30 days. You must arrange for and pay the costs of returning the Products tous or our provider.  While in your possession, you must keep any Products you intend to return to us in good condition.  Except as set out in this contract, all warranties, conditions, terms and undertakings, express or implied, whether by statute, common law, custom, trade usage, course of dealings or otherwise (including without limitation as to quality, performance or fitness or suitability for purpose) in respect of any Products are excluded to the fullest extent permitted by law.</p>
+
+</div><h2 id="17-self-billing-for-uk-value-added-tax-vat-registered-users">17. SELF BILLING FOR UK VALUE ADDED TAX (VAT) REGISTERED USERS</h2>
+<div class="panel">
+<p>If we implement self billing for UK VAT registered users the following terms and conditions will apply:</p>
+<p>You must inform us whether you are registered for VAT and must inform us if at any time the position changes including any change in your VAT registered status, a change of your VAT number or if you sell all or part of your business.  Where you are UK VAT registered, you agree that we will self bill you.  We will issue self-billed invoices to you for all Taxable Supplies made to us by you (Taxable Supplies is defined by HM Customs &amp; Excise as all goods and services which are VAT rated). The self-billed invoices will include your name, address and VAT number, together with all other details that constitute a full VAT invoice.  Our VAT number is 192435401 and we will agree new terms for self billing with you if our VAT number changes and we will inform you if the self-billed invoices are outsourced to a third party.  If it is subsequently found that you were not VAT registered or have failed to provide accurate and current information relating to your VAT status, then you shall immediately on demand by us repay to us any VAT paid over incorrectly (together with any associated interest and penalties incurred by us).  We may recover by debiting your account any money due to us in respect of tax and any associated interest or penalties.</p>
+
+</div><h2 id="18-final-points">18. FINAL POINTS</h2>
+<div class="panel">
+<p>No person who is not a party to these Terms may enforce them and any legislation according rights to third parties shall not apply. No agency, partnership, joint venture, or employment is created as a result of these Terms and you do not have any authority of any kind to bind Photocrowd.com in any respect whatsoever. The failure of either party to exercise in any respect any right provided for in these Terms shall not be deemed a waiver of that right or any further rights. Photocrowd.com shall not be liable for any failure to perform its obligations in these Terms where such failure results from any cause beyond Photocrowd.com’s reasonable control, including, without limitation, mechanical, electronic or communications failure or degradation. If any provision of the Terms is found to be unenforceable or invalid, that provision shall be limited or eliminated to the minimum extent necessary so that these Terms shall otherwise remain in full force and effect and enforceable. Photocrowd.com may transfer or assign these Terms and its rights and obligations under them without consent but you may only transfer or assign the same with our prior written consent. The Terms shall be governed by and construed in accordance with the laws of England and Wales and the courts of England and Wales shall have exclusive jurisdiction to hear and settle any disputes. Both parties agree that these Terms represent the full mutual understanding of the parties and supersede all and any previous written and oral agreements, communications and other understandings relating to the subject matter of these Terms, and that all modifications must be in a writing signed by both parties, except as otherwise provided above.  Any notice under these Terms may be sent electronically to the email address notified by each party to the other and will be deemed to have been received on the expiration of 48 hours after service. We will handle and process your personal data in accordance with our <a href="/privacy">Privacy Policy</a> and all applicable data protection and privacy laws.</p>
+
+</div><h2 id="how-to-contact-us">How to contact us</h2>
+<div class="panel">
+<p>If you have any questions about our terms and conditions, please contact us by email at the following address:</p>
+<p><a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#112;&#104;&#111;&#116;&#111;&#99;&#114;&#111;&#119;&#100;&#46;&#99;&#111;&#109;">&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#112;&#104;&#111;&#116;&#111;&#99;&#114;&#111;&#119;&#100;&#46;&#99;&#111;&#109;</a></p>
+<p>You may also want to take a look at our <a href="/privacy">Privacy Policy</a></p>
+</div>
+    </div>
+</section>
+
+
+        
+
+
+<script src="https://js.stripe.com/v3/"></script>
+
+
+<script type="text/javascript" src="https://static.photocrowd.com/bundles/js/polyfills-20a6e44b3f640e377010.js" ></script>
+
+
+<script type="text/javascript" src="https://static.photocrowd.com/bundles/js/common-4ad347ee99d41ad4757a.js" ></script>
+
+
+<script type="text/javascript" src="https://static.photocrowd.com/bundles/js/global-e6439d21829d7379a150.js" ></script>
+
+<script>
+    if (typeof $.fn.makeSharingListFancy === 'undefined') {
+        throw new Error('Our script file did not load');
+    }
+</script>
+
+
+<script>
+/* eslint-disable */
+(function(a){if(window.filepicker){return}var b=a.createElement("script");b.type="text/javascript";b.async=!0;b.src=("https:"===a.location.protocol?"https:":"http:")+"//api.filestackapi.com/filestack.js";var c=a.getElementsByTagName("script")[0];c.parentNode.insertBefore(b,c);var d={};d._queue=[];var e="pick,pickMultiple,pickAndStore,read,write,writeUrl,export,convert,store,storeUrl,remove,stat,setKey,constructWidget,makeDropPane".split(",");var f=function(a,b){return function(){b.push([a,arguments])}};for(var g=0;g<e.length;g++){d[e[g]]=f(e[g],d._queue)}window.filepicker=d})(document);
+/* eslint-enable */
+</script>
+
+<script>
+    if (typeof filepicker !== 'undefined') {
+        filepicker.setKey('Ak5p21cjRSGOA8IaFK2Ztz');
+    }
+
+    var submitSearch = function() { // eslint-disable-line no-unused-vars
+        var searchUrl = '/search/photos/PLACEHOLDERQUERYVALUE/';
+        var query = $('#main-search').val();
+        if (query.trim()) {
+            searchUrl = searchUrl.replace('PLACEHOLDERQUERYVALUE', encodeURIComponent(query));
+            window.location.href = searchUrl;
+        }
+        return false;
+    };
+</script>
+
+
+    <script>
+
+        $(function() {
+            $('a[href^="#"]').on('click', function(e) {
+                e.preventDefault();
+
+                var target = this.hash;
+
+                if (target) {
+                    var $target = $(target);
+
+                    $('html, body').stop().animate({
+                        scrollTop: $target.offset().top,
+                    }, 500, 'swing', function() {
+                        window.location.hash = target;
+                    });
+                }
+            });
+        });
+
+        var target = window.location.hash;
+        if (target) {
+            var $target = $(target);
+            if ($target.length) {
+                $target.addClass('active');
+                $target.next().slideToggle();
+                var targetTop = $target.offset().top;
+                targetTop -= 150;
+                document.body.scrollTop = targetTop;
+                document.documentElement.scrollTop = targetTop;
+            }
+        }
+
+        $('.accordian h2').click(function(e) {
+            e.preventDefault();
+            $(this).toggleClass('active');
+            $(this).next().slideToggle();
+        });
+    </script>
+    </body>
+</html>

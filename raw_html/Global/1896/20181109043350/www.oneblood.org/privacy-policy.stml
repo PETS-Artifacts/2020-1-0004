@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+<!--[if IE 8 ]><html lang="en" class="no-js ie8"></html><![endif]-->
+<!--[if IE 9 ]><html lang="en" class="no-js ie9"></html><![endif]-->
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="description" content="OneBlood">
+        <meta name="author" content="OneBlood">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var o=t[n]={exports:{}};e[n][0].call(o.exports,function(t){var o=e[n][1][t];return r(o||t)},o,o.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(e,t,n){function r(){}function o(e,t,n){return function(){return i(e,[f.now()].concat(u(arguments)),t?null:this,n),t?void 0:this}}var i=e("handle"),a=e(2),u=e(3),c=e("ee").get("tracer"),f=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,t){s[t]=o(d+t,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,o="function"==typeof t;return i(l+"tracer",[f.now(),e,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],n),o)try{return t.apply(this,arguments)}catch(e){throw c.emit("fn-err",[arguments,this,e],n),e}finally{c.emit("fn-end",[f.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=o(l+t)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,f.now()])}},{}],2:[function(e,t,n){function r(e,t){var n=[],r="",i=0;for(r in e)o.call(e,r)&&(n[i]=t(r,e[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],3:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,o=n-t||0,i=Array(o<0?0:o);++r<o;)i[r]=e[t+r];return i}t.exports=r},{}],4:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function o(e){function t(e){return e&&e instanceof r?e:e?c(e,u,i):i()}function n(n,r,o,i){if(!d.aborted||i){e&&e(n,r,o);for(var a=t(o),u=m(n),c=u.length,f=0;f<c;f++)u[f].apply(a,r);var p=s[y[n]];return p&&p.push([b,n,r,a]),a}}function l(e,t){v[e]=m(e).concat(t)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(n)}function g(e,t){f(e,function(e,n){t=t||"feature",y[n]=t,t in s||(s[t]=[])})}var v={},y={},b={on:l,emit:n,get:w,listeners:m,context:t,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",c=e("gos"),f=e(2),s={},p={},d=t.exports=o();d.backlog=s},{}],gos:[function(e,t,n){function r(e,t,n){if(o.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[t]=r,r}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){o.buffer([e],r),o.emit(e,t,n)}var o=e("ee").get("handle");t.exports=r,r.ee=o},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=h.info=NREUM.info,t=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return s.abort();f(y,function(t,n){e[t]||(e[t]=n)}),c("mark",["onload",a()+h.offset],null,"api");var n=d.createElement("script");n.src="https://"+e.agent,t.parentNode.insertBefore(n,t)}}function o(){"complete"===d.readyState&&i()}function i(){c("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),c=e("handle"),f=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1071.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=t.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),c("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script>
+        <meta name="viewport" content="width=device-width initial-scale=1">
+        <meta name="format-detection" content="telephone=no">
+        <title>
+            Privacy Policy
+        </title>
+        <meta name="keywords" content="oneblood,use,site,web,information,terms,privacy,complaint,invalid,unenforceable">
+        <meta content="Solodev" name="author">
+        <meta name="description" content="This privacy notice discloses OneBlood s privacy practices for our web site: Information Collection, Use, and Sharing If you read or download information, we.">
+        <meta name="title" content="Privacy Policy">
+        <meta name="https" content="0">
+        <meta name="DC.Date" content="2016-11-02T17:13:28-04:00">
+        <link rel="canonical" href="http://www.oneblood.org/privacy-policy.stml">
+        <meta content="http://www.oneblood.org/privacy-policy.stml" property="og:url">
+        <meta content="website" property="og:type">
+        <meta content="Privacy Policy" property="og:title">
+        <meta content="This privacy notice discloses OneBlood s privacy practices for our web site: Information Collection, Use, and Sharing If you read or download information, we." property="og:description">
+        <meta property="og:site_name" content="www.oneblood.org">
+        <meta property="og:locale" content="en_US">
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:site" content="">
+        <meta name="twitter:title" content="Privacy Policy">
+        <meta name="twitter:description" content="This privacy notice discloses OneBlood s privacy practices for our web site: Information Collection, Use, and Sharing If you read or download information, we.">
+        <meta name="twitter:image" content="">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <script type="text/javascript">
+<!--
+        function highlight(blank) {}
+        function openWindow(windowSrc, windowName, height, width) {
+        params = "height="+height+",width="+width+",scrollbars,resizable";
+        newwin = window.open(windowSrc,windowName,params);
+        }
+        function mt(name,domain,subject,body) {
+        var relocation;
+        relocation = "mailto:" + name + "@" + domain;
+        if(subject) {relocation = relocation + "?subject=" + subject;}
+        if(body && subject) {relocation = relocation + "&body=" + body;}
+        if(body && !subject) {relocation = relocation + "?body=" + body;}
+        location.href = relocation;
+        }
+        var pageName = '';
+        var pageId = '351';
+        function updateContent(){}
+        function setWait(){}
+        //-->
+        </script>
+        <style type="text/css">
+.fullscreen { display: ; } 
+        </style>
+        <style type="text/css">
+body { padding:0; margin:0; }
+        </style>
+        <meta content="152927984855022" property="fb:page_id">
+        <meta content="#da532c" name="msapplication-TileColor">
+        <meta content="/_resources/favicons/mstile-144x144.png" name="msapplication-TileImage">
+        <meta content="/_resources/favicons/browserconfig.xml" name="msapplication-config">
+        <meta content="#ffffff" name="theme-color">
+        <link href="/core/fileparse.php/21/urlt/apple-touch-icon-57x57.png" rel="apple-touch-icon" sizes="57x57">
+        <link href="/core/fileparse.php/21/urlt/apple-touch-icon-60x60.png" rel="apple-touch-icon" sizes="60x60">
+        <link href="/core/fileparse.php/21/urlt/apple-touch-icon-72x72.png" rel="apple-touch-icon" sizes="72x72">
+        <link href="/core/fileparse.php/21/urlt/apple-touch-icon-76x76.png" rel="apple-touch-icon" sizes="76x76">
+        <link href="/core/fileparse.php/21/urlt/apple-touch-icon-114x114.png" rel="apple-touch-icon" sizes="114x114">
+        <link href="/core/fileparse.php/21/urlt/apple-touch-icon-120x120.png" rel="apple-touch-icon" sizes="120x120">
+        <link href="/core/fileparse.php/21/urlt/apple-touch-icon-144x144.png" rel="apple-touch-icon" sizes="144x144">
+        <link href="/core/fileparse.php/21/urlt/apple-touch-icon-152x152.png" rel="apple-touch-icon" sizes="152x152">
+        <link href="/core/fileparse.php/21/urlt/apple-touch-icon-180x180.png" rel="apple-touch-icon" sizes="180x180">
+        <link href="/core/fileparse.php/21/urlt/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png">
+        <link href="/core/fileparse.php/21/urlt/favicon-194x194.png" rel="icon" sizes="194x194" type="image/png">
+        <link href="/core/fileparse.php/21/urlt/favicon-96x96.png" rel="icon" sizes="96x96" type="image/png">
+        <link href="/core/fileparse.php/21/urlt/android-chrome-192x192.png" rel="icon" sizes="192x192" type="image/png">
+        <link href="/core/fileparse.php/21/urlt/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png">
+        <link href="/core/fileparse.php/21/urlt/manifest.json" rel="manifest">
+        <link color="#AB182C" href="/core/fileparse.php/21/urlt/safari-pinned-tab.svg" rel="mask-icon">
+        <link href="/core/fileparse.php/21/urlt/favicon.ico" rel="shortcut icon">
+        <link href="/_resources/css/bootstrap-min.css" rel="stylesheet" type="text/css">
+        <link href="/_resources/css/font-awesome-min.css" rel="stylesheet" type="text/css">
+        <link href="/_resources/css/style.css" rel="stylesheet" type="text/css">
+        <link href="/_resources/css/style-sd.css?cache=082818" rel="stylesheet" type="text/css">
+        <link href="/_resources/css/mobile-styles.css" rel="stylesheet" type="text/css">
+        <link href="/_resources/css/landing.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="/_resources/js/flowplayer7/skin/skin.css" type="text/css">
+    </head>
+    <body class="cssAnimate">
+        <!-- Google Tag Manager -->
+        <script type="text/javascript">
+(function (w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-PPVF3T2');
+        </script><!-- End Google Tag Manager -->
+        <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PPVF3T2" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript><!-- End Google Tag Manager (noscript) -->
+        <!-- Facebook Pixel Code -->
+        <!-- <script>
+! function(f, b, e, v, n, t, s) {
+  if (f.fbq) return;
+  n = f.fbq = function() {
+    n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+  };
+  if (!f._fbq) f._fbq = n;
+  n.push = n;
+  n.loaded = !0;
+  n.version = '2.0';
+  n.queue = [];
+  t = b.createElement(e);
+  t.async = !0;
+  t.src = v;
+  s = b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t, s)
+}(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1672727003051049');
+fbq('track', "PageView");
+</script> -->
+        <!-- <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1672727003051049&ev=PageView&noscript=1" /></noscript> -->
+        <!-- End Facebook Pixel Code -->
+        <!--<link href="https://www.oneblood.org/" hreflang="en-us" rel="alternate">-->
+        <script src="https://use.typekit.net/jch3tjj.js" type="text/javascript">
+</script><script type="text/javascript">
+try {
+            Typekit.load({
+                async: true
+            });
+        } catch (e) {}
+        </script><!--[if lt IE 9]>
+<script src="/_resources/js/html5shiv-min.js"></script>
+<script src="/_resources/js/respond-min.js"></script>
+<script src="/_resources/js/es5-shim-min.js"></script>
+<![endif]-->
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js" type="text/javascript">
+</script><script src="/_resources/js/jquery-paginate.min.js" type="text/javascript">
+</script>
+        <div class="ct-page-wrapper" id="ct-js-wrapper">
+            <div class="bottom-fixed_button btn hidden-xl hidden-lg hidden-md">
+                <a class="textWhite" href="/donate-now/">Donate Now</a>
+            </div><!-- Navigation-->
+            <div class="dynamicDiv" id="dd.0.0">
+                <nav class="ct-nav" data-nav-status="toggle">
+                    <div class="navbar">
+                        <div class="container">
+                            <div class="navbar-header">
+                                <a onclick="documentTrack('/');" href="/" class="navbar-brand"><img alt="Logo" src="/_resources/images/logo.png"></a>
+                            </div>
+                            <div class="navbar-content">
+                                <button class="navbar-close" type="button"><span class="bar-1">&nbsp;</span><span class="bar-2">&nbsp;</span><span class="bar-3">&nbsp;</span></button>
+                                <ul class="topbar list-inline">
+                                    <li>
+                                        <ul class="list-inline list-unstyled app-buttons">
+                                            <li>
+                                                <a onclick="documentTrack('/app/');" href="/app/"><i class="fa fa-android"></i></a>
+                                            </li>
+                                            <li>
+                                                <a onclick="documentTrack('/app/');" href="/app/"><i class="fa fa-apple"></i></a>
+                                            </li><!--<li><a onclick=documentTrack('/app/'); onclick=documentTrack('/app/'); href="/app/">Try Our App</a></li>-->
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <ul class="ct-socials list-inline list-unstyled">
+                                            <li class="ct-socials__itemfacebook">
+                                                <a onclick="documentTrack('//www.facebook.com/myoneblood');" href="//www.facebook.com/myoneblood" target="_blank"><i class="fa fa-facebook"></i></a>
+                                            </li>
+                                            <li class="ct-socials__itemtwitter">
+                                                <a onclick="documentTrack('//twitter.com/my1blood');" href="//twitter.com/my1blood" target="_blank"><i class="fa fa-twitter"></i></a>
+                                            </li>
+                                            <li class="ct-socials__itemyoutube">
+                                                <a onclick="documentTrack('//www.youtube.com/user/OneBloodVideos?feature=mhee');" href="//www.youtube.com/user/OneBloodVideos?feature=mhee" target="_blank"><i class="fa fa-youtube"></i></a>
+                                            </li>
+                                            <li class="ct-socials__iteminstagram">
+                                                <a onclick="documentTrack('//instagram.com/myoneblood/');" href="//instagram.com/myoneblood/" target="_blank"><i class="fa fa-instagram"></i></a>
+                                            </li>
+                                            <li class="ct-socials__itempinterest">
+                                                <a onclick="documentTrack('//www.pinterest.com/myoneblood/');" href="//www.pinterest.com/myoneblood/" target="_blank"><i class="fa fa-pinterest"></i></a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="navbar-btn">
+                                        <!-- navbar-btn dropdown -->
+                                        <a onclick="documentTrack('/donor-portal/login.stml');" href="/donor-portal/login.stml"><img alt="Locker" src="/_resources/images/lock-white.png"><span>Donor Login</span></a> <!--  class="dropdown-toggle" data-toggle="dropdown" -->
+                                         <!--
+
+         <ul class="dropdown-menu">
+              <li>
+                <div class="container">
+                  <div class="row text-center">
+                    <div class="col-md-5 col-left">
+                                            <form class="login" method="post" id="topNavLoginForm">
+                      <input id="forwardToTopNav" name="forwardToTopNav" type="hidden" value="/donor-portal/index.stml">
+                        <span class="dropdown-header">DONOR LOGIN</span>
+                          <div class="form-group">
+                            <label class="sr-only" for="topHoverLogin">Email Address / Username / Donor ID</label>
+                                                        <input id="topHoverLogin" name="login" placeholder="Enter Email Address / Username / Donor ID" required="required" type="text">
+                          </div>
+                          <div class="form-group">
+                            <label class="sr-only" for="topHoverLoginPassword">Password</label>
+                            <input id="topHoverLoginPassword" name="password" placeholder="Password" required="required" type="password">
+                          </div>
+                          <a onclick=documentTrack('/donor-portal/forgot-password.stml'); onclick=documentTrack('/donor-portal/forgot-password.stml'); class="form-forgot" href="/donor-portal/forgot-password.stml">Forgot your password?</a>
+                                                <div class="form-right">
+                                                      <button class="btn btn-default btn-sm has-spinner" id="topNavLoginFormSubmit" type="submit">
+                            <span class="spinner"><i class="fa fa-refresh fa-spin"></i></span>  Login
+                            </button>
+                                                    </div>
+                      </form>
+                    </div>
+                    <div class="col-md-3 col-center">
+                      <div class="register"><span class="dropdown-header">Activate Account</span><span class="register-text">If you've already donated with OneBlood and would like to activate your online account and access your information, click here...</span><a onclick=documentTrack('/donor-portal/activate-account.stml'); onclick=documentTrack('/donor-portal/activate-account.stml'); class="btn btn-default btn-sm" href="/donor-portal/activate-account.stml">Activate</a>
+                      </div>
+                    </div>
+                    <div class="col-md-3 col-right">
+                      <div class="register"><span class="dropdown-header">New to Oneblood?</span><span class="register-text">If you have never donated with OneBlood and want to schedule an appointment, click here...<br/>&nbsp;</span><a onclick=documentTrack('/donor-portal/registration.stml'); onclick=documentTrack('/donor-portal/registration.stml'); class="btn btn-default btn-sm" href="/donor-portal/registration.stml">Register</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+
+
+-->
+                                    </li>
+                                    <li class="navbar-btn">
+                                        <a onclick="documentTrack('https://donor.oneblood.org/coordinator/auth/signin');" href="https://donor.oneblood.org/coordinator/auth/signin"><img alt="Locker" src="/_resources/images/lock-white.png"><span>Chairperson Login</span></a>
+                                    </li>
+                                    <li>
+                                        <a onclick="documentTrack('/careers/');" href="/careers/">Careers</a>
+                                    </li>
+                                    <li>
+                                        <a onclick="documentTrack('/contact/');" href="/contact/">Contact Us</a>
+                                    </li>
+                                    <li class="search-li">
+                                        <form action="/search.stml" class="ct-search form-group">
+                                            <label class="sr-only" for="topbar-search">Search...</label> <input class="form-control required" id="topbar-search" name="search" placeholder="Search..." required="required" type="search"> <button type="submit"><i class="fa fa-search"></i></button>
+                                        </form>
+                                    </li>
+                                </ul>
+                                <ul class="navbar navbar-nav">
+                                    <li class="dropdown" role="presentation">
+                                        <a aria-expanded="false" aria-haspopup="true" class="dropdown-toggle" data-toggle="dropdown" href="#" onclick="location.href = '/i-am-oneblood/'" role="button">I am Oneblood</a>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <div class="container">
+                                                    <div class="row">
+                                                        <div class="col-md-4">
+                                                            <ul class="dropdown-list">
+                                                                <!-- <li><a onclick=documentTrack('/i-am-oneblood/i-am-oneblood-featured-story.stml'); onclick=documentTrack('/i-am-oneblood/i-am-oneblood-featured-story.stml'); href="/i-am-oneblood/i-am-oneblood-featured-story.stml">Featured Story</a></li> -->
+                                                                <li>
+                                                                    <a onclick="documentTrack('/i-am-oneblood/testimonials.stml');" href="/i-am-oneblood/testimonials.stml">Testimonials</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a onclick="documentTrack('/i-am-oneblood/video-gallery.stml');" href="/i-am-oneblood/video-gallery.stml">Video Gallery</a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <ul class="dropdown-list">
+                                                                <li>
+                                                                    <a onclick="documentTrack('/i-am-oneblood/share-your-story.stml');" href="/i-am-oneblood/share-your-story.stml">Share Your Story</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a onclick="documentTrack('/i-am-oneblood/news-team.stml');" href="/i-am-oneblood/news-team.stml">Our News Team</a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <a onclick="documentTrack('/i-am-oneblood/share-your-story.stml');" href="/i-am-oneblood/share-your-story.stml"><img alt="Dropdown Image" src="/_resources/images/content/featured-story-cta.png"></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown" role="presentation">
+                                        <a aria-expanded="false" aria-haspopup="true" class="dropdown-toggle" data-toggle="dropdown" href="#" onclick="location.href = '/about-donating/'" role="button">About Donating</a>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <div class="container">
+                                                    <div class="row">
+                                                        <div class="col-md-4">
+                                                            <ul class="dropdown-list">
+                                                                <li>
+                                                                    <a onclick="documentTrack('/about-donating/blood-donor-basics/');" href="/about-donating/blood-donor-basics/">Blood donor basics</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a onclick="documentTrack('/about-donating/target-your-type/');" href="/about-donating/target-your-type/">Target your Type</a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <ul class="dropdown-list">
+                                                                <li>
+                                                                    <a onclick="documentTrack('/about-donating/blood-donor-basics/donation-methods/');" href="/about-donating/blood-donor-basics/donation-methods/">Donation Methods</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a onclick="documentTrack('/about-donating/blood-donor-basics/can-i-donate/');" href="/about-donating/blood-donor-basics/can-i-donate/">Can I Donate?</a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <a onclick="documentTrack('/about-donating/blood-donor-basics/');" href="/about-donating/blood-donor-basics/"><img alt="Dropdown Image" src="/_resources/images/content/dropdown-image.png"></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown" role="presentation">
+                                        <a aria-expanded="false" aria-haspopup="true" class="dropdown-toggle" data-toggle="dropdown" href="#" onclick="location.href = '/host-a-blood-drive/'" role="button">Host a blood drive</a>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <div class="container">
+                                                    <div class="row">
+                                                        <div class="col-md-4">
+                                                            <ul class="dropdown-list">
+                                                                <li>
+                                                                    <a onclick="documentTrack('/host-a-blood-drive/');" href="/host-a-blood-drive/">About Hosting</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a onclick="documentTrack('/host-a-blood-drive/#host-separator');" href="/host-a-blood-drive/#host-separator">Submit Hosting Form</a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <ul class="dropdown-list">
+                                                                <li>
+                                                                    <a onclick="documentTrack('https://donor.oneblood.org/coordinator/auth/signin');" target="_blank" href="https://donor.oneblood.org/coordinator/auth/signin">Chairperson Login</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a onclick="documentTrack('/pintsizehero');" href="/pintsizehero">Pint Size Hero Program</a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <a onclick="documentTrack('/host-a-blood-drive/');" href="/host-a-blood-drive/"><img alt="Dropdown Image" src="/_resources/images/content/dropdown-image3.png"></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </li><!--                  
+            <li class="dropdown" role="presentation"><a aria-expanded="false" aria-haspopup="true" class="dropdown-toggle" data-toggle="dropdown" onclick="location.href = '/promotions-rewards/'" role="button">Promotions &amp; Rewards</a>
+            </li>
+            -->
+                                    <li class="dropdown" role="presentation">
+                                        <a aria-expanded="false" aria-haspopup="true" class="dropdown-toggle" data-toggle="dropdown" href="#" onclick="location.href = '/promotions-rewards/'" role="button">Promotions &amp; Rewards</a>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <div class="container">
+                                                    <div class="row">
+                                                        <div class="col-md-4">
+                                                            <ul class="dropdown-list">
+                                                                <li>
+                                                                    <a onclick="documentTrack('/promotions-rewards/');" href="/promotions-rewards/">Promotions Search</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a onclick="documentTrack('/promotions-rewards/#section');" href="/promotions-rewards/#section">Rewards Store</a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <ul class="dropdown-list">
+                                                                <li>
+                                                                    <a onclick="documentTrack('/promotions-rewards/#milestones-promo');" href="/promotions-rewards/#milestones-promo">Milestone Store</a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <a onclick="documentTrack('/host-a-blood-drive/');" href="/host-a-blood-drive/"><img alt="Dropdown Image" src="/_resources/images/content/gift-cards.jpg"></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="navbar-btn donate-now-btn">
+                                        <a onclick="documentTrack('/donate-now/');" href="/donate-now/">Donate Now</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </nav><script type="text/javascript">
+$('#topNavLoginFormSubmit').click(function (event) {
+                // for enabling spinner thing and disable inputs
+                $(this).toggleClass('active');
+                $('#topHoverLoginPassword').attr('readonly', true);
+                $('#topHoverLogin').attr('readonly', true);
+
+
+                $.post('/rest/edonor/authenticate', $('#topNavLoginForm').serialize()).done(function (data) {
+                if (data) {
+                // console.log(data);
+                //obj = JSON && JSON.parse(data) || $.parseJSON(data);
+                if (data.status === 'fail') {
+                // Enabling inputs and toggling spinner
+                $('#topNavLoginFormSubmit').toggleClass('active');
+                $('#topHoverLoginPassword').attr('readonly', false);
+                $('#topHoverLogin').attr('readonly', false);
+                alert('Email Password combination not recognized.');
+                } else if (data.status === 'ok') {
+                window.location = $('#forwardToTopNav').val();
+                }
+                }
+                });
+                event.preventDefault();
+                });
+                </script>
+            </div><!-- Navigation-->
+            <!-- header homepage -->
+            <div class="dynamicDiv" id="dd.0.1"></div><!-- header homepage -->
+            <main>
+                <div class="dynamicDiv" id="dd.0.2">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-9 col-sm-8 col-lg-push-3 col-sm-push-4 content-padding">
+                                <div class="content">
+                                    <div class="row">
+                                        <div class="col-md-8 main-title">
+                                            <h1>
+                                                Privacy Policy
+                                            </h1>
+                                        </div>
+                                        <div class="col-md-4 share-section hidden-print">
+                                            <div class="nav-section-right">
+                                                <span>Share</span>
+                                                <ul class="socials socials--type3">
+                                                    <li class="facebook">
+                                                        <a onclick="documentTrack('//www.facebook.com/sharer/sharer.php?u=https://www.oneblood.org%2Fprivacy-policy.stml');" href="//www.facebook.com/sharer/sharer.php?u=https://www.oneblood.org%2Fprivacy-policy.stml" target="_blank"><i class="fa fa-facebook"></i></a>
+                                                    </li>
+                                                    <li class="twitter">
+                                                        <a onclick="documentTrack('//twitter.com/intent/tweet?text=Privacy+Policy&amp;url=https://www.oneblood.org%2Fprivacy-policy.stml');" href="//twitter.com/intent/tweet?text=Privacy+Policy&amp;url=https://www.oneblood.org%2Fprivacy-policy.stml" target="_blank"><i class="fa fa-twitter"></i></a>
+                                                    </li>
+                                                    <li class="gmail">
+                                                        <a onclick="documentTrack('//plus.google.com/share?url=https://www.oneblood.org%2Fprivacy-policy.stml');" href="//plus.google.com/share?url=https://www.oneblood.org%2Fprivacy-policy.stml" target="_blank"><i class="fa fa-google-plus"></i></a>
+                                                    </li>
+                                                    <li class="pinterest">
+                                                        <a onclick="documentTrack('//www.pinterest.com/pin/create/button/');" data-pin-custom="true" data-pin-do="buttonBookmark" href="//www.pinterest.com/pin/create/button/" style="cursor: pointer;" target="_blank"><i class="fa fa-pinterest"></i></a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div><!-- Breadcrumb -->
+                                    <div class="dynamicDiv" id="dd.0.2.0">
+                                        <div class="nav-section hidden-print">
+                                            <ul class="breadcrumb breadcrumb-primary hidden-print">
+                                                <li>
+                                                    <a onclick="documentTrack('/');" class="fileTrail" href="/">Home</a>
+                                                </li>
+                                                <li style="list-style: none">
+                                                    <i class="fa fa-angle-double-right"></i>
+                                                </li>
+                                                <li class="fileTrailCurrent active">Privacy Policy
+                                                </li>
+                                            </ul>
+                                            <div class="clearfix"></div>
+                                            <div class="breadcrumb-underline">
+                                                <hr>
+                                            </div>
+                                        </div>
+                                    </div><!-- Breadcrumb -->
+                                    <div class="dynamicDiv" id="dd.0.2.1">
+                                        <p>
+                                            This privacy notice discloses OneBlood’s privacy practices for our web site:
+                                        </p>
+                                        <h3>
+                                            Information Collection, Use, and Sharing
+                                        </h3>
+                                        <p>
+                                            If you read or download information, we automatically collect and store:
+                                        </p>
+                                        <ul>
+                                            <li>the requested web page
+                                            </li>
+                                            <li>the domain from which you access the Internet&nbsp;
+                                            </li>
+                                            <li>the date and time you access our site
+                                            </li>
+                                            <li>status of the request (e.g. success or failure)
+                                            </li>
+                                            <li>the type and version of your web browser (Firefox, Explorer, etc.)
+                                            </li>
+                                            <li>the operating system (Windows, Mac, Unix, etc.) of the machine running the web browser
+                                            </li>
+                                        </ul>
+                                        <p>
+                                            OneBlood will not obtain any other personally identifying information about you when you visit our site, unless you choose to provide such information to us. Any information you provide to us is securely stored within the OneBlood private network. Unless you ask us not to, we may contact you via email in the future to tell you about OneBlood activities, opportunities to donate blood in your area or changes to this privacy policy. We will not share your information with any third party outside of our organization, other than as necessary to fulfill a request you make, such as scheduling an appointment to give blood. Any other dissemination of information will require your prior consent.
+                                        </p>
+                                        <h3>
+                                            Surveys &amp; Contests
+                                        </h3>
+                                        <p>
+                                            From time-to-time, our site requests information by survey or contest. Participation in these surveys or contests is completely voluntary and you may choose whether to participate and, therefore, disclose this information. Information requested may include contact information (such as name and mailing address), and demographic information (such as zip code, age level). Contact information will be used to notify the winners and award contest prizes. Survey information will be used for purposes of monitoring or improving the use and satisfaction of this site.
+                                        </p>
+                                        <h3>
+                                            Your Access to and Control Over Information
+                                        </h3>
+                                        <p>
+                                            You may opt out of any future contacts from us at any time. You can also do the following at any time by contacting us.<br>
+                                            - See what data we have about you, if any.<br>
+                                            - Change/correct any data we have about you.<br>
+                                            - Have us delete any data we have about you.<br>
+                                            - Express any concern you have about our use of your data.
+                                        </p>
+                                        <h3>
+                                            No Professional Advice
+                                        </h3>
+                                        <p>
+                                            The content on this Web site is intended to be a general information resource in regard to the subject matter covered, but is provided solely on an “as is” and “as available” basis as noted on these Terms of Use. You are encouraged to confirm the information contained herein with other sources, and to review the information carefully with your professional healthcare provider. Any information supplied through theOneBlood Web site by any employee or agent of OneBlood, whether by telephone, e-mail, letter, facsimile or other form of communication, is for informational purposes or general guidance on the use of the Web site, and does not constitute medical, legal, or other professional advice. Health-related information provided through the Web site is not a substitute for medical advice, and it is important that you not make medical decisions without first consulting your personal physician or other healthcare professional. If you desire or need such services or advice, you should consult a professional healthcare provider. You should not construe OneBlood’s publication of this content as an endorsement by OneBlood of the views expressed herein, or any warranty or guarantee of any strategy, recommendation, treatment, action, or application of medication or preparation made by the author of the content.
+                                        </p>
+                                        <h3>
+                                            Links &amp; Disclaimer
+                                        </h3>
+                                        <p>
+                                            Our web site has links to other organizations with their permission. Upon leaving the OneBlood web site, you are subject to the privacy policy of the new site. OneBlood is not responsible for nor can control the availability or content of the websites being linked to. We encourage our users to be aware when they leave our site and to read the privacy statements of any other site that collects personally identifiable information. All content on this web site is provided to you on an “as is” “as available” basis without warranty of any kind either express or implied, including but not limited to any implied warranties of merchantability, fitness for a particular purpose, accuracy, and non-infringement. OneBlood makes no warranty as to the accuracy, completeness, currency, or reliability of any content available through this web site. You are responsible for verifying any information before relying on it. Use of the web site and the content available on the web site is at your sole risk. OneBlood makes no representations or warranties that use of the web site will be uninterrupted or error-free. You are responsible for taking all necessary precautions to ensure that any content you may obtain from the web site is free of viruses. We cannot and do not guarantee or warrant against errors, omissions, delays, interruptions or losses, including loss of data. Anyone accessing this site assumes the entire cost of all necessary computer or network servicing, repair or correction. Under no circumstances will OneBlood be liable for any special or consequential damages that result from the use of, or inability to use, the OneBlood Web site.
+                                        </p>
+                                        <h3>
+                                            Termination/Modification of Terms of Use
+                                        </h3>
+                                        <p>
+                                            OneBlood &nbsp;reserves the right, in its sole discretion to terminate or revise this Terms of Use at any time without prior notice. You are bound by any such revisions or termination and should therefore periodically visit this page to review the then-current Terms of Use to which you are bound.
+                                        </p>
+                                        <h3>
+                                            Severability
+                                        </h3>
+                                        <p>
+                                            If any provision of these Terms of Use is held invalid or unenforceable by any court of competent jurisdiction, the other provisions of these Terms of Use shall remain in full force and effect. Any provision of these Terms of Use held invalid or unenforceable only in part or degree will remain in full force and effect to the extent not held invalid or unenforceable. The parties further agree to replace such invalid or unenforceable provision of these Terms of Use with a valid and enforceable provision that will achieve, to the extent possible, the economic, business and other purposes of such invalid or unenforceable provision.
+                                        </p>
+                                        <h3>
+                                            Concerns? Complaints
+                                        </h3>
+                                        <p>
+                                            If you believe your privacy has been violated, you may file a complaint with OneBlood on our confidential compliance and privacy hotline at 1-407-226-3888. You will not be penalized or retaliated against in any way for making a complaint to OneBlood.
+                                        </p>
+                                    </div>
+                                    <div class="dynamicDiv" id="dd.0.2.2"></div>
+                                    <div class="dynamicDiv" id="dd.0.2.3"></div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-sm-4 col-lg-pull-9 col-sm-pull-8">
+                                <div class="ct-aside">
+                                    <!-- LeftNav -->
+                                    <!-- /privacy-policy.stml -->
+                                    <h2 class="panel-header leftNav-title">
+                                        <a onclick="documentTrack('/');" href="/"><span class="inner">OneBlood</span></a>
+                                    </h2>
+                                    <div class="dynamicDiv" id="dd.0.2.4">
+                                        <ul class="nav">
+                                            <li>
+                                                <a onclick="documentTrack('/about/');" href="/about/" data-module-object-id="1" data-id="64" data-layout="basic" data-levels="1">About</a>
+                                            </li>
+                                            <li>
+                                                <a onclick="documentTrack('/about-donating/');" href="/about-donating/" data-module-object-id="1" data-id="42" data-layout="basic" data-levels="1">About Donating</a>
+                                            </li>
+                                            <li>
+                                                <a onclick="documentTrack('/careers/');" href="/careers/" data-module-object-id="1" data-id="74" data-layout="basic" data-levels="1">Careers &amp; Volunteer</a>
+                                            </li>
+                                            <li>
+                                                <a onclick="documentTrack('/contact/');" href="/contact/" data-module-object-id="1" data-id="62" data-layout="basic" data-levels="1">Contact</a>
+                                            </li>
+                                            <li>
+                                                <a onclick="documentTrack('/donate-now/');" href="/donate-now/" data-module-object-id="1" data-id="60" data-layout="basic" data-levels="1">Donate Now</a>
+                                            </li>
+                                            <li>
+                                                <a onclick="documentTrack('/host-a-blood-drive/');" href="/host-a-blood-drive/" data-module-object-id="1" data-id="54" data-layout="basic" data-levels="1">Host A Blood Drive</a>
+                                            </li>
+                                            <li>
+                                                <a onclick="documentTrack('/i-am-oneblood/');" href="/i-am-oneblood/" data-module-object-id="1" data-id="209" data-layout="basic" data-levels="1">I Am OneBlood</a>
+                                            </li>
+                                            <li>
+                                                <a onclick="documentTrack('/media/');" href="/media/" data-module-object-id="1" data-id="76" data-layout="basic" data-levels="1">Media</a>
+                                            </li>
+                                            <li>
+                                                <a onclick="recordOutboundLink(this,'Outbound_Links','medical.oneblood.org/');" href="http://medical.oneblood.org/" data-module-object-id="6" data-id="1" data-layout="basic" data-levels="1">Medical/Technical Site</a>
+                                            </li>
+                                            <li>
+                                                <a onclick="documentTrack('/my-account.stml');" href="/my-account.stml" data-module-object-id="2" data-id="359" data-layout="basic" data-levels="1">My Account | OneBlood</a>
+                                            </li>
+                                            <li class="navHighlight">
+                                                <a onclick="documentTrack('/privacy-policy.stml');" href="/privacy-policy.stml" data-module-object-id="2" data-id="351" data-layout="basic" data-levels="1">Privacy Policy</a>
+                                            </li>
+                                            <li>
+                                                <a onclick="documentTrack('/promotions-rewards/');" href="/promotions-rewards/" data-module-object-id="1" data-id="58" data-layout="basic" data-levels="1">Promotions &amp; Rewards</a>
+                                            </li>
+                                            <li>
+                                                <a onclick="documentTrack('/special-donations/');" href="/special-donations/" data-module-object-id="1" data-id="78" data-layout="basic" data-levels="1">Special Donations</a>
+                                            </li>
+                                            <li>
+                                                <a onclick="documentTrack('/justonemore/');" href="/justonemore/" data-module-object-id="1" data-id="1308" data-layout="basic" data-levels="1">Target Your Type®</a>
+                                            </li>
+                                            <li>
+                                                <a onclick="documentTrack('/pulsedonors/');" href="/pulsedonors/" data-module-object-id="1" data-id="1489" data-layout="basic" data-levels="1">Target Your Type®</a>
+                                            </li>
+                                            <li>
+                                                <a onclick="documentTrack('/app/');" href="/app/" data-module-object-id="1" data-id="1485" data-layout="basic" data-levels="1">Target Your Type®</a>
+                                            </li>
+                                        </ul>
+                                        <div class="dynamicDiv" id="dd.0.2.4.0"></div>
+                                    </div><!-- LeftNav -->
+                                    <!-- Quick Links -->
+                                    <div class="dynamicDiv" id="dd.0.2.5">
+                                        <!-- <h2>Quick Links</h2> -->
+                                    </div><!-- Quick Links -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix">
+                        &nbsp;
+                    </div>
+                    <section class="article-section">
+                        <div class="container">
+                            <h2>
+                                How You Can Help
+                            </h2><!-- <p>Learn more about giving blood and then put your power to save lives into action</p> -->
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div onclick="location.href = '/about-donating/blood-donor-basics/index.stml'">
+                                        <article class="ct-article">
+                                            <div class="ct-article__image hidden-print">
+                                                <img alt="Blood Donor Basics" src="/_resources/images/content/article-1.jpg">
+                                            </div>
+                                            <h3 class="ct-article__header">
+                                                Blood Donor Basics
+                                            </h3>
+                                            <p class="ct-article__content">
+                                                Your health is important to us, and we want to help you maintain it.
+                                            </p><!-- <a onclick=documentTrack('/why-donate/blood-donor-basics/'); href="/why-donate/blood-donor-basics/">Learn More<i class="fa fa-caret-right"></i></a> -->
+                                        </article>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div onclick="location.href = '/host-a-blood-drive/'">
+                                        <article class="ct-article">
+                                            <div class="ct-article__image hidden-print">
+                                                <img alt="Blood Donation FAQs" src="/_resources/images/content/article-2.jpg">
+                                            </div>
+                                            <h3 class="ct-article__header">
+                                                Hosting a Blood Drive
+                                            </h3>
+                                            <p class="ct-article__content">
+                                                Your help as our community partner is essential to the blood supply.
+                                            </p><!-- <a onclick=documentTrack('/why-donate/blood-donor-basics/faqs.stml'); href="/why-donate/blood-donor-basics/faqs.stml">Learn More<i class="fa fa-caret-right"></i></a> -->
+                                        </article>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div onclick="location.href = '/about-donating/blood-donor-basics/donation-methods/'">
+                                        <article class="ct-article">
+                                            <div class="ct-article__image hidden-print">
+                                                <img alt="Donation Methods" src="/_resources/images/content/article-3.jpg">
+                                            </div>
+                                            <h3 class="ct-article__header">
+                                                Donation Methods
+                                            </h3>
+                                            <p class="ct-article__content">
+                                                Let your blood type lead the way to donate your powerful lifesaving gift.
+                                            </p><!-- <a onclick=documentTrack('/why-donate/target-your-type/donation-methods/'); href="/why-donate/target-your-type/donation-methods/">Learn More<i class="fa fa-caret-right"></i></a> -->
+                                        </article>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div onclick="location.href = '/i-am-oneblood/share-your-story.stml'">
+                                        <article class="ct-article">
+                                            <div class="ct-article__image hidden-print">
+                                                <img alt="Donation Methods" src="/_resources/images/content/article-4.jpg">
+                                            </div>
+                                            <h3 class="ct-article__header">
+                                                Share Your Story
+                                            </h3>
+                                            <p class="ct-article__content">
+                                                Help your community understand the impact blood donation has.
+                                            </p><!-- <a onclick=documentTrack('/why-donate/target-your-type/donation-methods/'); href="/why-donate/target-your-type/donation-methods/">Learn More<i class="fa fa-caret-right"></i></a> -->
+                                        </article>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section><!-- JavaScripts -->
+                    <script src="//assets.pinterest.com/js/pinit.js" type="text/javascript">
+</script>
+                </div>
+                <div class="dynamicDiv" id="dd.0.3"></div>
+                <div class="dynamicDiv" id="dd.0.4"></div>
+            </main><!-- Footer-->
+            <footer class="ct-footer hidden-print">
+                <div class="container">
+                    <div class="row hidden-xs">
+                        <div class="col-md-3 col-sm-6 column-1">
+                            <h5>
+                                <a onclick="documentTrack('/about/');" href="/about/">About</a>
+                            </h5>
+                            <ul class="list-unstyled">
+                                <li>
+                                    <a onclick="documentTrack('/about/our-footprint/mission.stml');" href="/about/our-footprint/mission.stml">Mission, Vision and Values</a>
+                                </li>
+                                <li>
+                                    <a onclick="documentTrack('/about/our-footprint/service-area.stml');" href="/about/our-footprint/service-area.stml">Service Area</a>
+                                </li>
+                                <li>
+                                    <a onclick="documentTrack('/about/our-footprint/hospitals-we-serve.stml');" href="/about/our-footprint/hospitals-we-serve.stml">Hospitals We Serve</a>
+                                </li>
+                                <li>
+                                    <a onclick="documentTrack('/about/our-footprint/affiliations.stml');" href="/about/our-footprint/affiliations.stml">Affiliations</a>
+                                </li>
+                                <li>
+                                    <a onclick="recordOutboundLink(this,'Outbound_Links','medical.oneblood.org/education/bbt-sbb-school-application-forms.stml');" href="http://medical.oneblood.org/education/bbt-sbb-school-application-forms.stml" target="_blank">SBB/BBT Programs</a>
+                                </li>
+                            </ul>
+                            <h5>
+                                <a onclick="documentTrack('/about/leadership/');" href="/about/leadership/">Leadership</a>
+                            </h5>
+                            <ul class="list-unstyled">
+                                <li>
+                                    <a onclick="documentTrack('/about/leadership/board-of-directors.stml');" href="/about/leadership/board-of-directors.stml">Board of Directors</a>
+                                </li>
+                            </ul>
+                            <h5>
+                                <a onclick="documentTrack('/about/financials-governance/');" href="/about/financials-governance/">Governance &amp; Financials</a>
+                            </h5>
+                            <ul class="list-unstyled">
+                                <li>
+                                    <a onclick="documentTrack('/about/financials-governance/governing-documents.stml');" href="/about/financials-governance/governing-documents.stml">Governing Documents</a>
+                                </li>
+                                <li>
+                                    <a onclick="documentTrack('/about/financials-governance/financial-documents.stml');" href="/about/financials-governance/financial-documents.stml">Financial Documents</a>
+                                </li>
+                                <li>
+                                    <a onclick="documentTrack('/about/donor-bill-of-rights.stml');" href="/about/donor-bill-of-rights.stml">Donor Bill Of Rights</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-3 col-sm-6 column-2">
+                            <h5>
+                                <a onclick="documentTrack('/careers/');" href="/careers/">Careers</a>
+                            </h5>
+                            <ul class="list-unstyled">
+                                <li>
+                                    <a onclick="documentTrack('/careers/employee-benefits.stml');" href="/careers/employee-benefits.stml">Employee Benefits</a>
+                                </li>
+                                <li>
+                                    <a onclick="documentTrack('/careers/medtechjobs.stml');" href="/careers/medtechjobs.stml">Med Tech &amp; RN Benefits</a>
+                                </li>
+                            </ul>
+                            <h5>
+                                <a onclick="documentTrack('/special-donations/');" href="/special-donations/">Special Services</a>
+                            </h5>
+                            <ul class="list-unstyled">
+                                <li>
+                                    <a onclick="documentTrack('/special-donations/autologous-donations.stml');" href="/special-donations/autologous-donations.stml">Autologous Donations</a>
+                                </li>
+                                <li>
+                                    <a onclick="documentTrack('/special-donations/directed-donations.stml');" href="/special-donations/directed-donations.stml">Directed Donations</a>
+                                </li>
+                                <li>
+                                    <a onclick="documentTrack('/special-donations/therapeutic-apheresis.stml');" href="/special-donations/therapeutic-apheresis.stml">Therapeutic Apheresis</a>
+                                </li>
+                                <li>
+                                    <a onclick="documentTrack('/special-donations/bone-marrow.stml');" href="/special-donations/bone-marrow.stml">Bone Marrow</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="clearfix visible-sm"></div>
+                        <div class="col-md-3 col-sm-6 column-3">
+                            <h5>
+                                <a onclick="documentTrack('/media/');" href="/media/">Media</a>
+                            </h5>
+                            <ul class="list-unstyled">
+                                <li>
+                                    <a onclick="documentTrack('/media/press-releases/');" href="/media/press-releases/">Press Releases</a>
+                                </li>
+                                <li>
+                                    <a onclick="documentTrack('/media/blog/');" href="/media/blog/">Blog</a>
+                                </li>
+                                <li>
+                                    <a onclick="documentTrack('/media/social-stream.stml');" href="/media/social-stream.stml">Social Stream</a>
+                                </li>
+                                <li>
+                                    <a onclick="documentTrack('/media/graphic-standards.stml');" href="/media/graphic-standards.stml">Graphic Standards, Logos &amp; Images</a>
+                                </li>
+                                <li>
+                                    <a onclick="documentTrack('/media/media-inquiries.stml');" href="/media/media-inquiries.stml">Media Inquiries</a>
+                                </li>
+                            </ul><a onclick="documentTrack('tel:18889366283');" href="tel:18889366283"><span class="h4">1.888.9.DONATE (936.6283)</span></a>
+                            <div class="ct-footer__socials">
+                                <span>Join The Conversation</span>
+                                <ul class="list-unstyled list-inline">
+                                    <li>
+                                        <a onclick="documentTrack('//www.facebook.com/myoneblood/');" href="//www.facebook.com/myoneblood/" target="_blank"><i class="fa fa-facebook-square"></i></a>
+                                    </li>
+                                    <li>
+                                        <a onclick="documentTrack('//instagram.com/myoneblood/');" href="//instagram.com/myoneblood/" target="_blank"><i class="fa fa-instagram"></i></a>
+                                    </li>
+                                    <li>
+                                        <a onclick="documentTrack('//twitter.com/my1blood/');" href="//twitter.com/my1blood/" target="_blank"><i class="fa fa-twitter"></i></a>
+                                    </li>
+                                    <li>
+                                        <a onclick="documentTrack('//www.youtube.com/user/OneBloodVideos?feature=mhee');" href="//www.youtube.com/user/OneBloodVideos?feature=mhee" target="_blank"><i class="fa fa-youtube"></i></a>
+                                    </li>
+                                    <li>
+                                        <a onclick="documentTrack('//www.pinterest.com/myoneblood/');" href="//www.pinterest.com/myoneblood/" target="_blank"><i class="fa fa-pinterest"></i></a>
+                                    </li>
+                                </ul>
+                            </div><a onclick="documentTrack('/about-donating/target-your-type/');" href="/about-donating/target-your-type/"><img alt="Target Your Type" class="ct-footer__target" src="/_resources/images/content/target.png"></a>
+                        </div>
+                        <div class="col-md-3 col-sm-6 column-4">
+                            <address class="address">
+                                <span class="address__header">Main Campuses:</span> <span>St. Petersburg</span>10100 Dr. Martin Luther King Jr. St. N.<br>
+                                St. Petersburg, Florida 33716 <span>Tallahassee</span>1731 Riggins Road<br>
+                                Tallahassee, FL 32308 <span>Orlando</span>8669 Commodity Circle<br>
+                                Orlando, Florida 32819 <span>Ft. Lauderdale</span>3000 W Cypress Creek Road<br>
+                                Fort Lauderdale, FL 33309 <span>Jacksonville</span>7595 Centurion Pkwy.<br>
+                                Jacksonville, FL 32256
+                            </address>
+                        </div>
+                    </div>
+                    <div class="row hidden-sm hidden-md hidden-lg hidden-xl px-4">
+                        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="headingOne">
+                                    <h4 class="panel-title">
+                                        <a onclick="documentTrack('#collapseOne');" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">About</a>
+                                    </h4>
+                                </div>
+                                <div id="collapseOne" class="panel-collapse collapse text-white" role="tabpanel" aria-labelledby="headingOne">
+                                    <div class="panel-body">
+                                        <ul class="list-unstyled">
+                                            <li>
+                                                <a onclick="documentTrack('/about/our-footprint/mission.stml');" href="/about/our-footprint/mission.stml">Mission, Vision and Values</a>
+                                            </li>
+                                            <li>
+                                                <a onclick="documentTrack('/about/our-footprint/service-area.stml');" href="/about/our-footprint/service-area.stml">Service Area</a>
+                                            </li>
+                                            <li>
+                                                <a onclick="documentTrack('/about/our-footprint/hospitals-we-serve.stml');" href="/about/our-footprint/hospitals-we-serve.stml">Hospitals We Serve</a>
+                                            </li>
+                                            <li>
+                                                <a onclick="documentTrack('/about/our-footprint/affiliations.stml');" href="/about/our-footprint/affiliations.stml">Affiliations</a>
+                                            </li>
+                                            <li>
+                                                <a onclick="recordOutboundLink(this,'Outbound_Links','medical.oneblood.org/education/bbt-sbb-school-application-forms.stml');" href="http://medical.oneblood.org/education/bbt-sbb-school-application-forms.stml" target="_blank">SBB/BBT Programs</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="headingTwo">
+                                    <h4 class="panel-title">
+                                        <a onclick="documentTrack('#collapseTwo');" class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Leadership</a>
+                                    </h4>
+                                </div>
+                                <div id="collapseTwo" class="panel-collapse collapse text-black" role="tabpanel" aria-labelledby="headingTwo">
+                                    <div class="panel-body">
+                                        <ul class="list-unstyled">
+                                            <li>
+                                                <a onclick="documentTrack('/about/leadership/board-of-directors.stml');" href="/about/leadership/board-of-directors.stml">Board of Directors</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="headingSix">
+                                    <h4 class="panel-title">
+                                        <a onclick="documentTrack('#collapseSix');" class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix">Governance &amp; Financials</a>
+                                    </h4>
+                                </div>
+                                <div id="collapseSix" class="panel-collapse collapse text-black" role="tabpanel" aria-labelledby="headingSix">
+                                    <div class="panel-body">
+                                        <ul class="list-unstyled">
+                                            <li>
+                                                <a onclick="documentTrack('/about/financials-governance/governing-documents.stml');" href="/about/financials-governance/governing-documents.stml">Governing Documents</a>
+                                            </li>
+                                            <li>
+                                                <a onclick="documentTrack('/about/financials-governance/financial-documents.stml');" href="/about/financials-governance/financial-documents.stml">Financial Documents</a>
+                                            </li>
+                                            <li>
+                                                <a onclick="documentTrack('/about/donor-bill-of-rights.stml');" href="/about/donor-bill-of-rights.stml">Donor Bill Of Rights</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="headingThree">
+                                    <h4 class="panel-title">
+                                        <a onclick="documentTrack('#collapseThree');" class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Careers</a>
+                                    </h4>
+                                </div>
+                                <div id="collapseThree" class="panel-collapse collapse text-black" role="tabpanel" aria-labelledby="headingThree">
+                                    <div class="panel-body">
+                                        <ul class="list-unstyled">
+                                            <li>
+                                                <a onclick="documentTrack('/careers/employee-benefits.stml');" href="/careers/employee-benefits.stml">Employee Benefits</a>
+                                            </li>
+                                            <li>
+                                                <a onclick="documentTrack('/careers/medtechjobs.stml');" href="/careers/medtechjobs.stml">Med Tech &amp; RN Benefits</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="headingFour">
+                                    <h4 class="panel-title">
+                                        <a onclick="documentTrack('#collapseFour');" class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">Media</a>
+                                    </h4>
+                                </div>
+                                <div id="collapseFour" class="panel-collapse collapse text-black" role="tabpanel" aria-labelledby="headingFour">
+                                    <div class="panel-body">
+                                        <ul class="list-unstyled">
+                                            <li>
+                                                <a onclick="documentTrack('/media/press-releases/');" href="/media/press-releases/">Press Releases</a>
+                                            </li>
+                                            <li>
+                                                <a onclick="documentTrack('/media/blog/');" href="/media/blog/">Blog</a>
+                                            </li>
+                                            <li>
+                                                <a onclick="documentTrack('/media/social-stream.stml');" href="/media/social-stream.stml">Social Stream</a>
+                                            </li>
+                                            <li>
+                                                <a onclick="documentTrack('/media/graphic-standards.stml');" href="/media/graphic-standards.stml">Graphic Standards, Logos &amp; Images</a>
+                                            </li>
+                                            <li>
+                                                <a onclick="documentTrack('/media/media-inquiries.stml');" href="/media/media-inquiries.stml">Media Inquiries</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="headingFive">
+                                    <h4 class="panel-title">
+                                        <a onclick="documentTrack('#collapseFive');" class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">Special Services</a>
+                                    </h4>
+                                </div>
+                                <div id="collapseFive" class="panel-collapse collapse text-black" role="tabpanel" aria-labelledby="headingFive">
+                                    <div class="panel-body">
+                                        <ul class="list-unstyled">
+                                            <li>
+                                                <a onclick="documentTrack('/special-donations/autologous-donations.stml');" href="/special-donations/autologous-donations.stml">Autologous Donations</a>
+                                            </li>
+                                            <li>
+                                                <a onclick="documentTrack('/special-donations/directed-donations.stml');" href="/special-donations/directed-donations.stml">Directed Donations</a>
+                                            </li>
+                                            <li>
+                                                <a onclick="documentTrack('/special-donations/therapeutic-apheresis.stml');" href="/special-donations/therapeutic-apheresis.stml">Therapeutic Apheresis</a>
+                                            </li>
+                                            <li>
+                                                <a onclick="documentTrack('/special-donations/bone-marrow.stml');" href="/special-donations/bone-marrow.stml">Bone Marrow</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div><a onclick="documentTrack('tel:18889366283');" href="tel:18889366283"><span class="h4">1.888.9.DONATE (936.6283)</span></a>
+                            <div class="ct-footer__socials">
+                                <span>Join The Conversation</span>
+                                <ul class="list-unstyled list-inline">
+                                    <li>
+                                        <a onclick="documentTrack('//www.facebook.com/myoneblood/');" href="//www.facebook.com/myoneblood/" target="_blank"><i class="fa fa-facebook-square"></i></a>
+                                    </li>
+                                    <li>
+                                        <a onclick="documentTrack('//instagram.com/myoneblood/');" href="//instagram.com/myoneblood/" target="_blank"><i class="fa fa-instagram"></i></a>
+                                    </li>
+                                    <li>
+                                        <a onclick="documentTrack('//twitter.com/my1blood/');" href="//twitter.com/my1blood/" target="_blank"><i class="fa fa-twitter"></i></a>
+                                    </li>
+                                    <li>
+                                        <a onclick="documentTrack('//www.youtube.com/user/OneBloodVideos?feature=mhee');" href="//www.youtube.com/user/OneBloodVideos?feature=mhee" target="_blank"><i class="fa fa-youtube"></i></a>
+                                    </li>
+                                    <li>
+                                        <a onclick="documentTrack('//www.pinterest.com/myoneblood/');" href="//www.pinterest.com/myoneblood/" target="_blank"><i class="fa fa-pinterest"></i></a>
+                                    </li>
+                                </ul>
+                            </div><a onclick="documentTrack('/about-donating/target-your-type/');" href="/about-donating/target-your-type/"><img alt="Target Your Type" class="ct-footer__target" src="/_resources/images/content/target.png"></a>
+                            <div class="col-md-3 col-sm-6 column-4">
+                                <address class="address">
+                                    <span class="address__header">Main Campuses:</span> <span>St. Petersburg</span>10100 Dr. Martin Luther King Jr. St. N.<br>
+                                    St. Petersburg, Florida 33716 <span>Tallahassee</span>1731 Riggins Road<br>
+                                    Tallahassee, FL 32308 <span>Orlando</span>8669 Commodity Circle<br>
+                                    Orlando, Florida 32819 <span>Ft. Lauderdale</span>3000 W Cypress Creek Road<br>
+                                    Fort Lauderdale, FL 33309 <span>Jacksonville</span>7595 Centurion Pkwy.<br>
+                                    Jacksonville, FL 32256
+                                </address>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ct-footer__copyright">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-3 column-left">
+                                <span>All Rights Reserved. © 2018 OneBlood.</span>
+                            </div>
+                            <div class="col-md-4 col-sm-9 column-center-left">
+                                <ul class="list-unstyled list-inline">
+                                    <li>
+                                        <a onclick="documentTrack('/privacy-policy.stml');" href="/privacy-policy.stml">Privacy Policy</a>
+                                    </li>
+                                    <li>
+                                        <a onclick="recordOutboundLink(this,'Outbound_Links','medical.oneblood.org/');" href="http://medical.oneblood.org/" target="_blank">Med/Tech Site</a>
+                                    </li>
+                                    <li>
+                                        <a onclick="documentTrack('https://mail.oneblood.org/owa/auth/logon.aspx?replaceCurrent=1&amp;url=https%3a%2f%2fmail.oneblood.org%2fowa%2f');" href="https://mail.oneblood.org/owa/auth/logon.aspx?replaceCurrent=1&amp;url=https%3a%2f%2fmail.oneblood.org%2fowa%2f" target="_blank">OneBlood Employee Email Access</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="clearfix visible-sm"></div>
+                            <div class="col-md-3 col-sm-6 column-center-right">
+                                <span><a onclick="documentTrack('https://www.digitalus.com/');" href="https://www.digitalus.com/" target="_blank">Web Design</a> by DigitalUs on <a onclick="documentTrack('https://www.solodev.com/');" href="https://www.solodev.com/" target="_blank">Solodev CMS</a></span>
+                            </div>
+                            <div class="col-md-2 col-sm-6 column-right">
+                                <a onclick="documentTrack('#');" href="#" data-scroll="up" class="scroll-top"><span>Back to the Top</span> <i class="fa fa-chevron-up"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div><!-- Mobile Menu //-->
+        <div class="ct-mobile-menu active">
+            <div class="ct-mobile-menu__content hidden-print">
+                <form action="/search.stml" class="ct-search form-group">
+                    <label class="sr-only" for="mobile-search">Search...</label> <input class="form-control" id="mobile-search" name="search" placeholder="Search..." required="required" type="search"> <button type="submit"><i class="fa fa-search"></i></button>
+                </form>
+                <ul class="ct-mobile-menu__top ct-mobile-menu__top-login">
+                    <li class="dropdown navbar-btn navbar-btn-donor-login8">
+                        <a onclick="documentTrack('/donor-portal/login.stml');" href="/donor-portal/login.stml"><img alt="Locker" src="/_resources/images/lock-white.png"> <span>Donor Login</span></a>
+                    </li>
+                    <li class="dropdown navbar-btn navbar-btn-donor-login8">
+                        <a onclick="documentTrack('https://donor.oneblood.org/coordinator/auth/signin');" href="https://donor.oneblood.org/coordinator/auth/signin"><img alt="Locker" src="/_resources/images/lock-white.png"> <span>Chairperson Login</span></a>
+                    </li>
+                </ul>
+                <ul class="ct-mobile-menu__nav">
+                    <li class="dropdown" role="presentation">
+                        <a onclick="documentTrack('/i-am-oneblood/');" href="/i-am-oneblood/">I Am OneBlood</a>
+                    </li>
+                    <li class="dropdown" role="presentation">
+                        <a onclick="documentTrack('/about-donating/');" href="/about-donating/">About Donating</a>
+                    </li>
+                    <li class="dropdown" role="presentation">
+                        <a onclick="documentTrack('/host-a-blood-drive/');" href="/host-a-blood-drive/">Host a Blood Drive</a>
+                    </li>
+                    <li class="dropdown" role="presentation">
+                        <a onclick="documentTrack('/promotions-rewards/');" href="/promotions-rewards/">Promotions &amp; Rewards</a>
+                    </li>
+                    <li class="navbar-btn">
+                        <a onclick="documentTrack('/donate-now/');" href="/donate-now/">Donate Now</a>
+                    </li>
+                </ul>
+                <ul class="ct-mobile-menu__top">
+                    <li>
+                        <a onclick="documentTrack('/about/');" href="/about/">About</a>
+                    </li>
+                    <li>
+                        <a onclick="documentTrack('/careers/');" href="/careers/">Careers</a>
+                    </li>
+                    <li>
+                        <a onclick="documentTrack('/contact/');" href="/contact/">Contact us</a>
+                    </li>
+                    <li>
+                        <a onclick="documentTrack('/media/');" href="/media/">Media</a>
+                    </li>
+                    <li>
+                        <ul class="ct-socials list-inline list-unstyled">
+                            <li class="ct-socials__itemfacebook">
+                                <a onclick="documentTrack('//www.facebook.com/myoneblood/');" href="//www.facebook.com/myoneblood/" target="_blank"><i class="fa fa-facebook"></i></a>
+                            </li>
+                            <li class="ct-socials__itemtwitter">
+                                <a onclick="documentTrack('//twitter.com/my1blood/');" href="//twitter.com/my1blood/" target="_blank"><i class="fa fa-twitter"></i></a>
+                            </li>
+                            <li class="ct-socials__itemyoutube">
+                                <a onclick="documentTrack('//www.youtube.com/user/OneBloodVideos?feature=mhee');" href="//www.youtube.com/user/OneBloodVideos?feature=mhee" target="_blank"><i class="fa fa-youtube"></i></a>
+                            </li>
+                            <li class="ct-socials__iteminstagram">
+                                <a onclick="documentTrack('//instagram.com/myoneblood/');" href="//instagram.com/myoneblood/" target="_blank"><i class="fa fa-instagram"></i></a>
+                            </li>
+                            <li class="ct-socials__itempinterest">
+                                <a onclick="documentTrack('//www.pinterest.com/myoneblood/');" href="//www.pinterest.com/myoneblood/" target="_blank"><i class="fa fa-pinterest"></i></a>
+                            </li>
+                        </ul>
+                    </li><!--<li>
+        <ul class="list-inline list-unstyled app-buttons">
+          <li><a onclick=documentTrack('/donor-space/'); href="/donor-space/"><i class="fa fa-android"></i></a></li>
+          <li><a onclick=documentTrack('/donor-space/'); href="/donor-space/"><i class="fa fa-apple"></i></a></li>
+          <li><a onclick=documentTrack('/donor-space/'); href="/donor-space/">Try Our App</a></li>
+        </ul>
+      </li>-->
+                </ul>
+            </div>
+        </div>
+        <div class="privacy-banner" style="border-top: 2px solid #ab182c;">
+            <div>
+                <p>
+                    We use cookies to provide and improve our services. By using our site, you consent to cookies. <a onclick="documentTrack('#');" class="banner-accept" href="#" style="background: #ab182c">Accept</a> <a onclick="documentTrack('/privacy-policy.stml');" class="banner-learn" href="/privacy-policy.stml">Learn more</a>
+                </p>
+            </div>
+        </div><!-- JavaScripts-->
+        <script src="/_resources/js/oneblood-min.js" type="text/javascript">
+</script><!-- <script src="/_resources/js/selectize-min.js"></script> -->
+        <script src="/_resources/js/main.js" type="text/javascript">
+</script><script src="/_resources/js/flowplayer7/flowplayer-min.js" type="text/javascript">
+</script><script src="/_resources/js/flowplayer7/flowplayer-hlsjs-min.js" type="text/javascript">
+</script><script type="text/javascript">
+            //google analytics for flowplayer
+                    flowplayer.conf.analytics = "UA-38070033-1";
+                    flowplayer.conf.key = "$646997638995930";
+        </script><script src="/_resources/js/main-sd.js" type="text/javascript">
+</script>
+    <script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"b59a36cebf","applicationID":"42016830","transactionName":"NlMDY0oADEICAUVbXg8ZNEVRThJDChRQUUhMRg5bUQIbHxAWXF4=","queueTime":0,"applicationTime":418,"atts":"GhQAFQIaH0w=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>

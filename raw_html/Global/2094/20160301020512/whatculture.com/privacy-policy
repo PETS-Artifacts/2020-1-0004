@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8"><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"VgEDUF9aGwcAXFhbBQc="};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o||e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({QJf3ax:[function(t,e){function n(){}function r(t){function e(t){return t&&t instanceof n?t:t?a(t,i,o):o()}function s(n,r,o){t&&t(n,r,o);for(var i=e(o),a=f(n),s=a.length,c=0;s>c;c++)a[c].apply(i,r);return i}function c(t,e){d[t]=f(t).concat(e)}function f(t){return d[t]||[]}function u(){return r(s)}var d={};return{on:c,emit:s,create:u,listeners:f,context:e,_events:d}}function o(){return new n}var i="nr@context",a=t("gos");e.exports=r()},{gos:"7eSDFh"}],ee:[function(t,e){e.exports=t("QJf3ax")},{}],3:[function(t){function e(t){try{i.console&&console.log(t)}catch(e){}}var n,r=t("ee"),o=t(1),i={};try{n=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(i.console=!0,-1!==n.indexOf("dev")&&(i.dev=!0),-1!==n.indexOf("nr_dev")&&(i.nrDev=!0))}catch(a){}i.nrDev&&r.on("internal-error",function(t){e(t.stack)}),i.dev&&r.on("fn-err",function(t,n,r){e(r.stack)}),i.dev&&(e("NR AGENT IN DEVELOPMENT MODE"),e("flags: "+o(i,function(t){return t}).join(", ")))},{1:25,ee:"QJf3ax"}],4:[function(t){function e(t,e,n,i,a){try{f?f-=1:r("err",[a||new UncaughtException(t,e,n)])}catch(c){try{r("ierr",[c,(new Date).getTime(),!0])}catch(u){}}return"function"==typeof s?s.apply(this,o(arguments)):!1}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function n(t){r("err",[t,(new Date).getTime()])}var r=t("handle"),o=t(6),i=t("ee"),a=t("loader"),s=window.onerror,c=!1,f=0;a.features.err=!0,t(5),window.onerror=e;try{throw new Error}catch(u){"stack"in u&&(t(1),t(2),"addEventListener"in window&&t(3),a.xhrWrappable&&t(4),c=!0)}i.on("fn-start",function(){c&&(f+=1)}),i.on("fn-err",function(t,e,r){c&&(this.thrown=!0,n(r))}),i.on("fn-end",function(){c&&!this.thrown&&f>0&&(f-=1)}),i.on("internal-error",function(t){r("ierr",[t,(new Date).getTime(),!0])})},{1:11,2:10,3:8,4:12,5:3,6:26,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],5:[function(t){if(window.addEventListener){var e=t("handle"),n=t("ee");t(1),window.addEventListener("click",function(){e("inc",["ck"])},!1),window.addEventListener("hashchange",function(){e("inc",["hc"])},!1),n.on("pushState-start",function(){e("inc",["ps"])})}},{1:9,ee:"QJf3ax",handle:"D5DuLP"}],6:[function(t){t("loader").features.ins=!0},{loader:"G9z0Bl"}],7:[function(t){function e(){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var n=t("ee"),r=t("handle"),o=t(1),i=t(2);t("loader").features.stn=!0,t(3);var a=Event;n.on("fn-start",function(t){var e=t[0];e instanceof a&&(this.bstStart=Date.now())}),n.on("fn-end",function(t,e){var n=t[0];n instanceof a&&r("bst",[n,e,this.bstStart,Date.now()])}),o.on("fn-start",function(t,e,n){this.bstStart=Date.now(),this.bstType=n}),o.on("fn-end",function(t,e){r("bstTimer",[e,this.bstStart,Date.now(),this.bstType])}),i.on("fn-start",function(){this.bstStart=Date.now()}),i.on("fn-end",function(t,e){r("bstTimer",[e,this.bstStart,Date.now(),"requestAnimationFrame"])}),n.on("pushState-start",function(){this.time=Date.now(),this.startPath=location.pathname+location.hash}),n.on("pushState-end",function(){r("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),"addEventListener"in window.performance&&(window.performance.clearResourceTimings?window.performance.addEventListener("resourcetimingbufferfull",function(){r("bstResource",[window.performance.getEntriesByType("resource")]),window.performance.clearResourceTimings()},!1):window.performance.addEventListener("webkitresourcetimingbufferfull",function(){r("bstResource",[window.performance.getEntriesByType("resource")]),window.performance.webkitClearResourceTimings()},!1)),document.addEventListener("scroll",e,!1),document.addEventListener("keypress",e,!1),document.addEventListener("click",e,!1)}},{1:11,2:10,3:9,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],8:[function(t,e){function n(t){for(var e=t;e&&!e.hasOwnProperty("addEventListener");)e=Object.getPrototypeOf(e);e&&r(e)}function r(t){a.inPlace(t,["addEventListener","removeEventListener"],"-",o)}function o(t){return t[1]}var i=t("ee").create(),a=t(1)(i),s=t("gos");e.exports=i,r(window),"getPrototypeOf"in Object?(n(document),n(XMLHttpRequest.prototype)):XMLHttpRequest.prototype.hasOwnProperty("addEventListener")&&r(XMLHttpRequest.prototype),i.on("addEventListener-start",function(t){if(t[1]){var e=t[1];if("function"==typeof e){var n=s(e,"nr@wrapped",function(){return a(e,"fn-",null,e.name||"anonymous")});this.wrapped=t[1]=n}else"function"==typeof e.handleEvent&&a.inPlace(e,["handleEvent"],"fn-")}}),i.on("removeEventListener-start",function(t){var e=this.wrapped;e&&(t[1]=e)})},{1:27,ee:"QJf3ax",gos:"7eSDFh"}],9:[function(t,e){var n=t("ee").create(),r=t(1)(n);e.exports=n,r.inPlace(window.history,["pushState","replaceState"],"-")},{1:27,ee:"QJf3ax"}],10:[function(t,e){var n=t("ee").create(),r=t(1)(n);e.exports=n,r.inPlace(window,["requestAnimationFrame","mozRequestAnimationFrame","webkitRequestAnimationFrame","msRequestAnimationFrame"],"raf-"),n.on("raf-start",function(t){t[0]=r(t[0],"fn-")})},{1:27,ee:"QJf3ax"}],11:[function(t,e){function n(t,e,n){t[0]=i(t[0],"fn-",null,n)}function r(t,e,n){this.method=n,this.timerDuration="number"==typeof t[1]?t[1]:0,t[0]=i(t[0],"fn-",this,n)}var o=t("ee").create(),i=t(1)(o);e.exports=o,i.inPlace(window,["setTimeout","setImmediate"],"setTimer-"),i.inPlace(window,["setInterval"],"setInterval-"),i.inPlace(window,["clearTimeout","clearImmediate"],"clearTimeout-"),o.on("setInterval-start",n),o.on("setTimer-start",r)},{1:27,ee:"QJf3ax"}],12:[function(t,e){function n(){f.inPlace(this,l,"fn-",o)}function r(t,e){f.inPlace(e,["onreadystatechange"],"fn-",o)}function o(t,e){return e}function i(t,e){for(var n in t)e[n]=t[n];return e}var a=t("ee").create(),s=t(1),c=t(2),f=c(a),u=c(s),d=window.XMLHttpRequest,l=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"];e.exports=a,window.XMLHttpRequest=function(t){var e=new d(t);try{a.emit("new-xhr",[e],e),e.hasOwnProperty("addEventListener")&&u.inPlace(e,["addEventListener","removeEventListener"],"-",o),e.addEventListener("readystatechange",n,!1)}catch(r){try{a.emit("internal-error",[r])}catch(i){}}return e},i(d,XMLHttpRequest),XMLHttpRequest.prototype=d.prototype,f.inPlace(XMLHttpRequest.prototype,["open","send"],"-xhr-",o),a.on("send-xhr-start",r),a.on("open-xhr-start",r)},{1:8,2:27,ee:"QJf3ax"}],13:[function(t){function e(t){var e=this.params,r=this.metrics;if(!this.ended){this.ended=!0;for(var o=0;u>o;o++)t.removeEventListener(f[o],this.listener,!1);if(!e.aborted){if(r.duration=(new Date).getTime()-this.startTime,4===t.readyState){e.status=t.status;var i=this.lastSize||n(t);if(i&&(r.rxSize=i),this.sameOrigin){var s=t.getResponseHeader("X-NewRelic-App-Data");s&&(e.cat=s.split(", ").pop())}}else e.status=0;r.cbTime=this.cbTime,c.emit("xhr-done",[t],t),a("xhr",[e,r,this.startTime])}}}function n(t){var e=t.responseType,n="arraybuffer"===e||"blob"===e||"json"===e?t.response:t.responseText;return r(n)}function r(t){if("string"==typeof t&&t.length)return t.length;if("object"!=typeof t)return void 0;if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if("undefined"!=typeof FormData&&t instanceof FormData)return void 0;try{return JSON.stringify(t).length}catch(e){return void 0}}function o(t,e){var n=s(e),r=t.params;r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.sameOrigin=n.sameOrigin}var i=t("loader");if(i.xhrWrappable){var a=t("handle"),s=t(2),c=t("ee"),f=["load","error","abort","timeout"],u=f.length,d=t(1),l=t(3),p=window.XMLHttpRequest;i.features.xhr=!0,t(5),t(4),c.on("new-xhr",function(t){var n=this;n.totalCbs=0,n.called=0,n.cbTime=0,n.end=e,n.ended=!1,n.xhrGuids={},n.lastSize=0,l&&(l>34||10>l)||window.opera||t.addEventListener("progress",function(t){n.lastSize=t.loaded},!1)}),c.on("open-xhr-start",function(t){this.params={method:t[0]},o(this,t[1]),this.metrics={}}),c.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),c.on("send-xhr-start",function(t,e){var n=this.metrics,o=t[0],i=this;if(n&&o){var a=r(o);a&&(n.txSize=a)}this.startTime=(new Date).getTime(),this.listener=function(t){try{"abort"===t.type&&(i.params.aborted=!0),("load"!==t.type||i.called===i.totalCbs&&(i.onloadCalled||"function"!=typeof e.onload))&&i.end(e)}catch(n){try{c.emit("internal-error",[n])}catch(r){}}};for(var s=0;u>s;s++)e.addEventListener(f[s],this.listener,!1)}),c.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),c.on("xhr-load-added",function(t,e){var n=""+d(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),c.on("xhr-load-removed",function(t,e){var n=""+d(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),c.on("addEventListener-end",function(t,e){e instanceof p&&"load"===t[0]&&c.emit("xhr-load-added",[t[1],t[2]],e)}),c.on("removeEventListener-end",function(t,e){e instanceof p&&"load"===t[0]&&c.emit("xhr-load-removed",[t[1],t[2]],e)}),c.on("fn-start",function(t,e,n){e instanceof p&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=(new Date).getTime()))}),c.on("fn-end",function(t,e){this.xhrCbStart&&c.emit("xhr-cb-time",[(new Date).getTime()-this.xhrCbStart,this.onload,e],e)})}},{1:"XL7HBI",2:14,3:16,4:12,5:8,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],14:[function(t,e){e.exports=function(t){var e=document.createElement("a"),n=window.location,r={};e.href=t,r.port=e.port;var o=e.href.split("://");!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=e.hostname||n.hostname,r.pathname=e.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname);var i=!e.protocol||":"===e.protocol||e.protocol===n.protocol,a=e.hostname===document.domain&&e.port===n.port;return r.sameOrigin=i&&(!e.hostname||a),r}},{}],15:[function(t,e){function n(t){return function(){r(t,[(new Date).getTime()].concat(i(arguments)))}}var r=t("handle"),o=t(1),i=t(2);"undefined"==typeof window.newrelic&&(newrelic=window.NREUM);var a=["setPageViewName","addPageAction","setCustomAttribute","finished","addToTrace","inlineHit","noticeError"];o(a,function(t,e){window.NREUM[e]=n("api-"+e)}),e.exports=window.NREUM},{1:25,2:26,handle:"D5DuLP"}],16:[function(t,e){var n=0,r=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);r&&(n=+r[1]),e.exports=n},{}],gos:[function(t,e){e.exports=t("7eSDFh")},{}],"7eSDFh":[function(t,e){function n(t,e,n){if(r.call(t,e))return t[e];var o=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:o,writable:!0,enumerable:!1}),o}catch(i){}return t[e]=o,o}var r=Object.prototype.hasOwnProperty;e.exports=n},{}],D5DuLP:[function(t,e){function n(t,e,n){return r.listeners(t).length?r.emit(t,e,n):void(r.q&&(r.q[t]||(r.q[t]=[]),r.q[t].push(e)))}var r=t("ee").create();e.exports=n,n.ee=r,r.q={}},{ee:"QJf3ax"}],handle:[function(t,e){e.exports=t("D5DuLP")},{}],XL7HBI:[function(t,e){function n(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:i(t,o,function(){return r++})}var r=1,o="nr@id",i=t("gos");e.exports=n},{gos:"7eSDFh"}],id:[function(t,e){e.exports=t("XL7HBI")},{}],G9z0Bl:[function(t,e){function n(){if(!h++){var t=p.info=NREUM.info,e=f.getElementsByTagName("script")[0];if(t&&t.licenseKey&&t.applicationID&&e){s(d,function(e,n){t[e]||(t[e]=n)});var n="https"===u.split(":")[0]||t.sslForHttp;p.proto=n?"https://":"http://",a("mark",["onload",i()]);var r=f.createElement("script");r.src=p.proto+t.agent,e.parentNode.insertBefore(r,e)}}}function r(){"complete"===f.readyState&&o()}function o(){a("mark",["domContent",i()])}function i(){return(new Date).getTime()}var a=t("handle"),s=t(1),c=window,f=c.document;t(2);var u=(""+location).split("?")[0],d={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-852.min.js"},l=window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&!/CriOS/.test(navigator.userAgent),p=e.exports={offset:i(),origin:u,features:{},xhrWrappable:l};f.addEventListener?(f.addEventListener("DOMContentLoaded",o,!1),c.addEventListener("load",n,!1)):(f.attachEvent("onreadystatechange",r),c.attachEvent("onload",n)),a("mark",["firstbyte",i()]);var h=0},{1:25,2:15,handle:"D5DuLP"}],loader:[function(t,e){e.exports=t("G9z0Bl")},{}],25:[function(t,e){function n(t,e){var n=[],o="",i=0;for(o in t)r.call(t,o)&&(n[i]=e(o,t[o]),i+=1);return n}var r=Object.prototype.hasOwnProperty;e.exports=n},{}],26:[function(t,e){function n(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(0>o?0:o);++r<o;)i[r]=t[e+r];return i}e.exports=n},{}],27:[function(t,e){function n(t){return!(t&&"function"==typeof t&&t.apply&&!t[i])}var r=t("ee"),o=t(1),i="nr@original",a=Object.prototype.hasOwnProperty,s=!1;e.exports=function(t){function e(t,e,r,a){function nrWrapper(){var n,i,s,c;try{i=this,n=o(arguments),s="function"==typeof r?r(n,i):r||{}}catch(u){d([u,"",[n,i,a],s])}f(e+"start",[n,i,a],s);try{return c=t.apply(i,n)}catch(l){throw f(e+"err",[n,i,l],s),l}finally{f(e+"end",[n,i,c],s)}}return n(t)?t:(e||(e=""),nrWrapper[i]=t,u(t,nrWrapper),nrWrapper)}function c(t,r,o,i){o||(o="");var a,s,c,f="-"===o.charAt(0);for(c=0;c<r.length;c++)s=r[c],a=t[s],n(a)||(t[s]=e(a,f?s+o:o,i,s))}function f(e,n,r){if(!s){s=!0;try{t.emit(e,n,r)}catch(o){d([o,e,n,r])}s=!1}}function u(t,e){if(Object.defineProperty&&Object.keys)try{var n=Object.keys(t);return n.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(r){d([r])}for(var o in t)a.call(t,o)&&(e[o]=t[o]);return e}function d(e){try{t.emit("internal-error",e)}catch(n){}}return t||(t=r),e.inPlace=c,e.flag=i,e}},{1:26,ee:"QJf3ax"}]},{},["G9z0Bl",4,13,7,6,5]);</script>
+	<title>WhatCulture.com - Privacy Policy</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	
+	
+	<link rel="shortcut icon" href="//cdn2.whatculture.com/favicon.ico">
+	<link type="text/plain" rel="author" href="http://whatculture.com/humans.txt">
+	<link rel="manifest" href="http://whatculture.com/manifest.json">
+
+	<link rel="apple-touch-icon" href="//cdn1.whatculture.com/wp-content/themes/wc/assets/images/apple-touch/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="//cdn1.whatculture.com/wp-content/themes/wc/assets/images/apple-touch/apple-touch-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="//cdn1.whatculture.com/wp-content/themes/wc/assets/images/apple-touch/apple-touch-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="//cdn1.whatculture.com/wp-content/themes/wc/assets/images/apple-touch/apple-touch-icon-152x152.png">
+
+	<link href="//fonts.googleapis.com/css?family=Montserrat:400,700|Open+Sans:400,700" rel="stylesheet">
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+
+	<link rel="stylesheet" href="//cdn3.whatculture.com/wp-content/themes/wc/assets/css/styles.css?e5206cba">
+	<link rel="stylesheet" href="//cdn2.whatculture.com/wp-content/themes/wc/assets/css/colours.css?094cbef8">
+
+	
+	<meta property="fb:app_id" content="218242584878315">
+
+	
+	<script src="//cdn3.whatculture.com/wp-content/themes/wc/assets/js/require.min.js?3f7412da"></script>
+
+	<!-- Google Analytics -->
+	<script>
+		var _gaq = [
+			['_setDomainName', 'whatculture.com'],
+			['_setAccount', 'UA-266438-5'],
+			['_setAllowAnchor', true],
+			['_trackPageview']
+		];
+	</script>
+	<script>require('//www.google-analytics.com/ga.js');</script>
+	<!-- End Google Analytics -->
+
+	<!-- WhatCulture Analytics -/->
+	<script src="http://analytics.whatculture.com/hello.js"></script>
+	<script>if(window._Hello) _Hello.trackPageView();</script>
+	<!-/- End WhatCulture Analytics -->
+
+	<script>require('http://tags.evolvemediallc.com/websites/evolve_tags/13657');</script>
+
+	<!--[if lt IE 9]>
+	<script src="//cdn2.whatculture.com/wp-content/themes/wc/assets/js/html5shiv.min.js?9483c717"></script>
+	<![endif]-->
+
+	<!-- WP Head -->
+
+	<link rel='stylesheet' id='paimages-image-css-css'  href='http://whatculture.com/wp-content/plugins/acf-field-paimages/acf_field_paimages.css?ver=122c7a18' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-polls-css'  href='http://whatculture.com/wp-content/plugins/wp-polls/polls-css.css?ver=2.72' type='text/css' media='all' />
+<style id='wp-polls-inline-css' type='text/css'>
+.wp-polls .pollbar {
+	margin: 1px;
+	font-size: 8px;
+	line-height: 10px;
+	height: 10px;
+	background: #cc3333;
+	border: 1px solid #cc3333;
+}
+
+</style>
+<script type='text/javascript' src='http://whatculture.com/wp-includes/js/jquery/jquery.js?ver=1.11.3'></script>
+<script type='text/javascript' src='http://whatculture.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.2.1'></script>
+<link rel='https://api.w.org/' href='http://whatculture.com/wp-json/' />
+<link rel="canonical" href="http://whatculture.com/privacy-policy" />
+<link rel='shortlink' href='http://whatculture.com/?p=88199' />
+<link rel="alternate" type="application/json+oembed" href="http://whatculture.com/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fwhatculture.com%2Fprivacy-policy" />
+<link rel="alternate" type="text/xml+oembed" href="http://whatculture.com/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fwhatculture.com%2Fprivacy-policy&#038;format=xml" />
+
+	<!-- End WP Head -->
+
+	<script src="//cdn1.whatculture.com/wp-content/themes/wc/assets/js/bxslider.min.js?2516cc24"></script>
+	<script src="//cdn2.whatculture.com/wp-content/themes/wc/assets/js/infinite_scroll.min.js?989792e8"></script>
+	<script src="//cdn3.whatculture.com/wp-content/themes/wc/assets/js/tiny_nav.min.js?681c4657"></script>
+	<script src="//cdn2.whatculture.com/wp-content/themes/wc/assets/js/main.min.js?fab5719f"></script>
+
+</head>
+<body class="wccs-film">
+
+	<div class="pagewrap fullwidth">
+		<div id="menu-left">
+			<ul>
+	<li class="home"><a href="/">Home</a></li>
+	<li class="film"><a href="#">Film<i class="fa fa-caret-down"></i><i class="fa fa-caret-up"></i></a></li>
+	<li class="gaming"><a href="#">Gaming<i class="fa fa-caret-down"></i><i class="fa fa-caret-up"></i></a></li>
+	<li class="tv"><a href="#">TV<i class="fa fa-caret-down"></i><i class="fa fa-caret-up"></i></a></li>
+	<li class="music"><a href="#">Music<i class="fa fa-caret-down"></i><i class="fa fa-caret-up"></i></a></li>
+	<li class="sport"><a href="#">Sport<i class="fa fa-caret-down"></i><i class="fa fa-caret-up"></i></a></li>
+	<li class="offbeat"><a href="#">Offbeat<i class="fa fa-caret-down"></i><i class="fa fa-caret-up"></i></a></li>
+	<li class="wwe"><a href="#">WWE<i class="fa fa-caret-down"></i><i class="fa fa-caret-up"></i></a></li>
+	<li class="other"><a href="#">Other<i class="fa fa-caret-down"></i><i class="fa fa-caret-up"></i></a></li>
+</ul>
+		</div>
+
+		<div id="wrapper">
+			<header id="header" class="clearfix">
+				<div class="head-line">
+	<div class="popular">Popular<i class="fa fa-caret-down"></i>
+		<ul>
+						<li>
+				<a href="http://whatculture.com/wwe/7-wrestlers-expected-to-leave-wwe-after-wrestlemania-32.php">
+					<img width="100" height="60" src="http://cdn3.whatculture.com/wp-content/uploads/2016/02/IcgAK5Gd-100x60.jpg" class="attachment-smallthumb size-smallthumb wp-post-image" alt="wwe.com" srcset="http://cdn3.whatculture.com/wp-content/uploads/2016/02/IcgAK5Gd-200x120.jpg 200w, http://cdn3.whatculture.com/wp-content/uploads/2016/02/IcgAK5Gd-100x60.jpg 100w" sizes="(max-width: 100px) 100vw, 100px" />					<span>7 Wrestlers Expected To Leave WWE After WrestleMania 32</span>
+				</a>
+			</li>
+						<li>
+				<a href="http://whatculture.com/wwe/10-reasons-roman-reigns-will-eventually-get-over-in-wwe.php">
+					<img width="100" height="60" src="http://cdn3.whatculture.com/wp-content/uploads/2016/02/hT5Pov7A-100x60.jpg" class="attachment-smallthumb size-smallthumb wp-post-image" alt="wwe.com" srcset="http://cdn3.whatculture.com/wp-content/uploads/2016/02/hT5Pov7A-200x120.jpg 200w, http://cdn3.whatculture.com/wp-content/uploads/2016/02/hT5Pov7A-100x60.jpg 100w" sizes="(max-width: 100px) 100vw, 100px" />					<span>10 Reasons Roman Reigns Will Eventually Get Over In WWE</span>
+				</a>
+			</li>
+						<li>
+				<a href="http://whatculture.com/wwe/10-booking-steps-for-shane-mcmahon-vs-the-undertaker.php">
+					<img width="100" height="60" src="http://cdn3.whatculture.com/wp-content/uploads/2016/02/6yUA1abE-100x60.jpg" class="attachment-smallthumb size-smallthumb wp-post-image" alt="wwe.com" srcset="http://cdn3.whatculture.com/wp-content/uploads/2016/02/6yUA1abE-200x120.jpg 200w, http://cdn3.whatculture.com/wp-content/uploads/2016/02/6yUA1abE-100x60.jpg 100w" sizes="(max-width: 100px) 100vw, 100px" />					<span>10 Booking Steps For Shane McMahon Vs The Undertaker</span>
+				</a>
+			</li>
+						<li>
+				<a href="http://whatculture.com/wwe/10-ways-to-save-wwe-wrestlemania-32.php">
+					<img width="100" height="60" src="http://cdn3.whatculture.com/wp-content/uploads/2016/02/60rezGMS-100x60.jpg" class="attachment-smallthumb size-smallthumb wp-post-image" alt="WWE.com" srcset="http://cdn3.whatculture.com/wp-content/uploads/2016/02/60rezGMS-200x120.jpg 200w, http://cdn3.whatculture.com/wp-content/uploads/2016/02/60rezGMS-100x60.jpg 100w" sizes="(max-width: 100px) 100vw, 100px" />					<span>10 Ways WWE Can Save WrestleMania 32</span>
+				</a>
+			</li>
+						<li>
+				<a href="http://whatculture.com/wwe/10-reasons-wwe-booked-dean-ambrose-vs-brock-lesnar.php">
+					<img width="100" height="60" src="http://cdn3.whatculture.com/wp-content/uploads/2016/02/HyEaGFwJ-100x60.jpg" class="attachment-smallthumb size-smallthumb wp-post-image" alt="wwe.com" srcset="http://cdn3.whatculture.com/wp-content/uploads/2016/02/HyEaGFwJ-200x120.jpg 200w, http://cdn3.whatculture.com/wp-content/uploads/2016/02/HyEaGFwJ-100x60.jpg 100w" sizes="(max-width: 100px) 100vw, 100px" />					<span>10 Reasons WWE Booked Dean Ambrose Vs Brock Lesnar</span>
+				</a>
+			</li>
+						<li>
+				<a href="http://whatculture.com/wwe/10-wild-wrestlemania-32-predictions-that-could-come-true.php">
+					<img width="100" height="60" src="http://cdn3.whatculture.com/wp-content/uploads/2016/02/klawiP4C-100x60.png" class="attachment-smallthumb size-smallthumb wp-post-image" alt="WWE.com" srcset="http://cdn3.whatculture.com/wp-content/uploads/2016/02/klawiP4C-200x120.png 200w, http://cdn3.whatculture.com/wp-content/uploads/2016/02/klawiP4C-100x60.png 100w" sizes="(max-width: 100px) 100vw, 100px" />					<span>10 Wild WrestleMania 32 Predictions That Could Come True</span>
+				</a>
+			</li>
+						<li>
+				<a href="http://whatculture.com/wwe/10-reasons-shane-mcmahon-vs-the-undertaker-is-a-mistake.php">
+					<img width="100" height="60" src="http://cdn3.whatculture.com/wp-content/uploads/2016/02/RlMgnf7N-100x60.jpg" class="attachment-smallthumb size-smallthumb wp-post-image" alt="wwe.com" srcset="http://cdn3.whatculture.com/wp-content/uploads/2016/02/RlMgnf7N-200x120.jpg 200w, http://cdn3.whatculture.com/wp-content/uploads/2016/02/RlMgnf7N-100x60.jpg 100w" sizes="(max-width: 100px) 100vw, 100px" />					<span>10 Reasons Shane McMahon Vs The Undertaker Is A Mistake</span>
+				</a>
+			</li>
+						<li>
+				<a href="http://whatculture.com/wwe/10-rules-wwe-must-follow-for-a-new-brand-extension.php">
+					<img width="100" height="60" src="http://cdn3.whatculture.com/wp-content/uploads/2015/10/cY6FPRnN-100x60.jpg" class="attachment-smallthumb size-smallthumb wp-post-image" alt="WWE.com" srcset="http://cdn3.whatculture.com/wp-content/uploads/2015/10/cY6FPRnN-200x120.jpg 200w, http://cdn3.whatculture.com/wp-content/uploads/2015/10/cY6FPRnN-100x60.jpg 100w" sizes="(max-width: 100px) 100vw, 100px" />					<span>10 Rules WWE Must Follow For A New Brand Extension</span>
+				</a>
+			</li>
+					</ul>
+	</div>
+
+	<div class="profile"><i class="fa fa-user"></i>
+		<ul>
+					<li><a href="/wp-login.php" rel="nofollow">Login</a></li>
+			<li><a href="/about-us" rel="nofollow">About Us</a></li>
+			<li><a href="/contact-us" rel="nofollow">Contact</a></li>
+			<li><a href="/advertising">Advertising</a></li>
+				</ul>
+	</div>
+
+		<a class="action" href="/create"><i class="fa fa-pencil fa-fw"></i>compose an article &amp; get paid</a>
+	</div>
+
+<div class="container">
+		<a href="/" id="logo" title="whatculture">whatculture</a>
+	
+	<div class="banner mobile-no">
+			</div>
+</div>
+			</header>
+
+			<div class="header mobile-only">
+				<div class="menu-trigger"><i class="fa fa-bars fa-2x"></i></div>
+<a href="/" id="logo-mobile" title="whatculture">WhatCulture</a>
+<div class="right-side">
+	<div class="search">
+		<i class="fa fa-search"></i>
+		<form method="get" action="/">
+			<fieldset>
+				<input name="s" type="text">
+				<button class="btn" type="submit">Search</button>
+			</fieldset>
+		</form>
+	</div>
+	<div class="profile">
+		<i class="fa fa-user"></i>
+		<ul>
+							<li><a href="/wp-login.php" rel="nofollow">Login</a></li>
+				<li><a href="/about-us" rel="nofollow">About Us</a></li>
+				<li><a href="/contact-us" rel="nofollow">Contact</a></li>
+				<li><a href="/advertising">Advertising</a></li>
+					</ul>
+	</div>
+	<div class="star">
+		<i class="fa fa-star fa-fw"></i>
+		<div class="popular">
+			<ul>
+									<li>
+						<a href="http://whatculture.com/wwe/7-wrestlers-expected-to-leave-wwe-after-wrestlemania-32.php">
+							<img width="100" height="60" src="http://cdn3.whatculture.com/wp-content/uploads/2016/02/IcgAK5Gd-100x60.jpg" class="attachment-smallthumb size-smallthumb wp-post-image" alt="wwe.com" srcset="http://cdn3.whatculture.com/wp-content/uploads/2016/02/IcgAK5Gd-200x120.jpg 200w, http://cdn3.whatculture.com/wp-content/uploads/2016/02/IcgAK5Gd-100x60.jpg 100w" sizes="(max-width: 100px) 100vw, 100px" />							<span>7 Wrestlers Expected To Leave WWE After WrestleMania 32</span>
+						</a>
+					</li>
+									<li>
+						<a href="http://whatculture.com/wwe/10-reasons-roman-reigns-will-eventually-get-over-in-wwe.php">
+							<img width="100" height="60" src="http://cdn3.whatculture.com/wp-content/uploads/2016/02/hT5Pov7A-100x60.jpg" class="attachment-smallthumb size-smallthumb wp-post-image" alt="wwe.com" srcset="http://cdn3.whatculture.com/wp-content/uploads/2016/02/hT5Pov7A-200x120.jpg 200w, http://cdn3.whatculture.com/wp-content/uploads/2016/02/hT5Pov7A-100x60.jpg 100w" sizes="(max-width: 100px) 100vw, 100px" />							<span>10 Reasons Roman Reigns Will Eventually Get Over In WWE</span>
+						</a>
+					</li>
+									<li>
+						<a href="http://whatculture.com/wwe/10-booking-steps-for-shane-mcmahon-vs-the-undertaker.php">
+							<img width="100" height="60" src="http://cdn3.whatculture.com/wp-content/uploads/2016/02/6yUA1abE-100x60.jpg" class="attachment-smallthumb size-smallthumb wp-post-image" alt="wwe.com" srcset="http://cdn3.whatculture.com/wp-content/uploads/2016/02/6yUA1abE-200x120.jpg 200w, http://cdn3.whatculture.com/wp-content/uploads/2016/02/6yUA1abE-100x60.jpg 100w" sizes="(max-width: 100px) 100vw, 100px" />							<span>10 Booking Steps For Shane McMahon Vs The Undertaker</span>
+						</a>
+					</li>
+									<li>
+						<a href="http://whatculture.com/wwe/10-ways-to-save-wwe-wrestlemania-32.php">
+							<img width="100" height="60" src="http://cdn3.whatculture.com/wp-content/uploads/2016/02/60rezGMS-100x60.jpg" class="attachment-smallthumb size-smallthumb wp-post-image" alt="WWE.com" srcset="http://cdn3.whatculture.com/wp-content/uploads/2016/02/60rezGMS-200x120.jpg 200w, http://cdn3.whatculture.com/wp-content/uploads/2016/02/60rezGMS-100x60.jpg 100w" sizes="(max-width: 100px) 100vw, 100px" />							<span>10 Ways WWE Can Save WrestleMania 32</span>
+						</a>
+					</li>
+									<li>
+						<a href="http://whatculture.com/wwe/10-reasons-wwe-booked-dean-ambrose-vs-brock-lesnar.php">
+							<img width="100" height="60" src="http://cdn3.whatculture.com/wp-content/uploads/2016/02/HyEaGFwJ-100x60.jpg" class="attachment-smallthumb size-smallthumb wp-post-image" alt="wwe.com" srcset="http://cdn3.whatculture.com/wp-content/uploads/2016/02/HyEaGFwJ-200x120.jpg 200w, http://cdn3.whatculture.com/wp-content/uploads/2016/02/HyEaGFwJ-100x60.jpg 100w" sizes="(max-width: 100px) 100vw, 100px" />							<span>10 Reasons WWE Booked Dean Ambrose Vs Brock Lesnar</span>
+						</a>
+					</li>
+									<li>
+						<a href="http://whatculture.com/wwe/10-wild-wrestlemania-32-predictions-that-could-come-true.php">
+							<img width="100" height="60" src="http://cdn3.whatculture.com/wp-content/uploads/2016/02/klawiP4C-100x60.png" class="attachment-smallthumb size-smallthumb wp-post-image" alt="WWE.com" srcset="http://cdn3.whatculture.com/wp-content/uploads/2016/02/klawiP4C-200x120.png 200w, http://cdn3.whatculture.com/wp-content/uploads/2016/02/klawiP4C-100x60.png 100w" sizes="(max-width: 100px) 100vw, 100px" />							<span>10 Wild WrestleMania 32 Predictions That Could Come True</span>
+						</a>
+					</li>
+									<li>
+						<a href="http://whatculture.com/wwe/10-reasons-shane-mcmahon-vs-the-undertaker-is-a-mistake.php">
+							<img width="100" height="60" src="http://cdn3.whatculture.com/wp-content/uploads/2016/02/RlMgnf7N-100x60.jpg" class="attachment-smallthumb size-smallthumb wp-post-image" alt="wwe.com" srcset="http://cdn3.whatculture.com/wp-content/uploads/2016/02/RlMgnf7N-200x120.jpg 200w, http://cdn3.whatculture.com/wp-content/uploads/2016/02/RlMgnf7N-100x60.jpg 100w" sizes="(max-width: 100px) 100vw, 100px" />							<span>10 Reasons Shane McMahon Vs The Undertaker Is A Mistake</span>
+						</a>
+					</li>
+									<li>
+						<a href="http://whatculture.com/wwe/10-rules-wwe-must-follow-for-a-new-brand-extension.php">
+							<img width="100" height="60" src="http://cdn3.whatculture.com/wp-content/uploads/2015/10/cY6FPRnN-100x60.jpg" class="attachment-smallthumb size-smallthumb wp-post-image" alt="WWE.com" srcset="http://cdn3.whatculture.com/wp-content/uploads/2015/10/cY6FPRnN-200x120.jpg 200w, http://cdn3.whatculture.com/wp-content/uploads/2015/10/cY6FPRnN-100x60.jpg 100w" sizes="(max-width: 100px) 100vw, 100px" />							<span>10 Rules WWE Must Follow For A New Brand Extension</span>
+						</a>
+					</li>
+							</ul>
+		</div>
+	</div>
+</div>
+			</div>
+
+			<div class="container">
+				<nav id="menu">
+	<ul>
+		<li class="film">
+			<a href="/film">Film</a>
+
+			<div class="dropdown">
+				<div class="col-1">
+					<ul>
+						<li><a href="/film"><i class="fa fa-film fa-fw"></i>Home</a>
+						<li><a href="/film/most-read"><i class="fa fa-bar-chart-o fa-fw"></i>Most Read</a>
+						<li><a href="/film/features"><i class="fa fa-list fa-fw"></i>Lists</a>
+						<li><a href="/film/news"><i class="fa fa-pencil fa-fw"></i>News</a>
+						<li><a href="/film/reviews"><i class="fa fa-star fa-fw"></i>Reviews</a>
+						<li><a href="/film/videos"><i class="fa fa-video-camera fa-fw"></i>Videos</a>
+					</ul>
+				</div>
+				<div class="col-2">
+					<h3>Top Movies</h3>
+					<ul>
+						<li><a href="/topic/avengers-age-of-ultron">Avengers: Age Of Ultron</a></li>
+						<li><a href="/topic/batman-v-superman-dawn-of-justice">Batman V Superman</a></li>
+						<li><a href="/topic/james-bond">Bond 24</a></li>
+						<li><a href="/topic/fifty-shades-of-grey">Fifty Shades Of Grey</a></li>
+						<li><a href="/topic/jurassic-world">Jurassic World</a></li>
+						<li><a href="/topic/star-wars">Star Wars: Episode VII</a></li>
+					</ul>
+				</div>
+				<div class="col-3">
+					<h3>Don't Miss</h3>
+					<ul>
+												<li>
+							<a href="http://whatculture.com/film/20-awesome-2015-movies-you-mightve-missed.php">
+								<img width="100" height="60" src="http://cdn3.whatculture.com/wp-content/uploads/2016/02/ufP4B7wd-100x60.jpg" class="attachment-smallthumb size-smallthumb wp-post-image" alt="Studiocanal" srcset="http://cdn3.whatculture.com/wp-content/uploads/2016/02/ufP4B7wd-200x120.jpg 200w, http://cdn3.whatculture.com/wp-content/uploads/2016/02/ufP4B7wd-100x60.jpg 100w" sizes="(max-width: 100px) 100vw, 100px" />								20 Awesome 2015 Movies You Might've Missed							</a>
+						</li>
+												<li>
+							<a href="http://whatculture.com/film/8-great-characters-foxs-marvel-movies-have-completely-screwed-up.php">
+								<img width="100" height="60" src="http://cdn3.whatculture.com/wp-content/uploads/2016/02/OsSZt1DQ-100x60.jpg" class="attachment-smallthumb size-smallthumb wp-post-image" alt="20th Century Fox" srcset="http://cdn3.whatculture.com/wp-content/uploads/2016/02/OsSZt1DQ-200x120.jpg 200w, http://cdn3.whatculture.com/wp-content/uploads/2016/02/OsSZt1DQ-100x60.jpg 100w" sizes="(max-width: 100px) 100vw, 100px" />								8 Great Characters Fox's Marvel Movies Have Completely Screwed Up							</a>
+						</li>
+												<li>
+							<a href="http://whatculture.com/film/9-harsh-truths-dc-need-to-face-about-their-upcoming-movies.php">
+								<img width="100" height="60" src="http://cdn3.whatculture.com/wp-content/uploads/2016/02/hnx6UjTc-100x60.jpg" class="attachment-smallthumb size-smallthumb wp-post-image" alt="Warner Bros./DC" srcset="http://cdn3.whatculture.com/wp-content/uploads/2016/02/hnx6UjTc-200x120.jpg 200w, http://cdn3.whatculture.com/wp-content/uploads/2016/02/hnx6UjTc-100x60.jpg 100w" sizes="(max-width: 100px) 100vw, 100px" />								9 Harsh Truths DC Need To Face About Their Upcoming Movies							</a>
+						</li>
+											</ul>
+				</div>
+			</div>
+		</li>
+
+		<li class="gaming">
+			<a href="/gaming">Gaming</a>
+
+			<div class="dropdown">
+				<div class="col-1">
+					<ul>
+						<li><a href="/gaming"><i class="fa fa-gamepad fa-fw"></i>Home</a>
+						<li><a href="/gaming/most-read"><i class="fa fa-bar-chart-o fa-fw"></i>Most Read</a>
+						<li><a href="/gaming/features"><i class="fa fa-list fa-fw"></i>Lists</a>
+						<li><a href="/gaming/news"><i class="fa fa-pencil fa-fw"></i>News</a>
+						<li><a href="/gaming/reviews"><i class="fa fa-star fa-fw"></i>Reviews</a>
+						<li><a href="/gaming/videos"><i class="fa fa-video-camera fa-fw"></i>Videos</a>
+					</ul>
+				</div>
+				<div class="col-2">
+					<h3>Top Games</h3>
+					<ul>
+						<li><a href="/topic/batman-arkham-knight">Batman Arkham Knight</a></li>
+						<li><a href="/topic/the-elder-scrolls-vi">Elder Scrolls VI</a></li>
+						<li><a href="/topic/fallout-4">Fallout 4</a></li>
+						<li><a href="/topic/fifa-15">FIFA 15</a></li>
+						<li><a href="/topic/grand-theft-auto-vi">GTA VI</a></li>
+						<li><a href="/topic/metal-gear-solid-v">Metal Gear Solid V</a></li>
+						<li><a href="/topic/wwe-2k15">WWE 2K15</a></li>
+					</ul>
+				</div>
+				<div class="col-3">
+					<h3>Don't Miss</h3>
+					<ul>
+												<li>
+							<a href="http://whatculture.com/gaming/15-brutally-difficult-video-games-that-totally-broke-you-2.php">
+								<img width="100" height="60" src="http://cdn3.whatculture.com/wp-content/uploads/2016/02/liaECbIs-100x60.jpg" class="attachment-smallthumb size-smallthumb wp-post-image" alt="Tecmo" srcset="http://cdn3.whatculture.com/wp-content/uploads/2016/02/liaECbIs-200x120.jpg 200w, http://cdn3.whatculture.com/wp-content/uploads/2016/02/liaECbIs-100x60.jpg 100w" sizes="(max-width: 100px) 100vw, 100px" />								15 Brutally Difficult Video Games That Totally Broke You							</a>
+						</li>
+												<li>
+							<a href="http://whatculture.com/gaming/10-hotly-anticipated-2016-video-games-you-should-be-worried-about.php">
+								<img width="100" height="60" src="http://cdn3.whatculture.com/wp-content/uploads/2016/02/xLRzJYhg-100x60.jpg" class="attachment-smallthumb size-smallthumb wp-post-image" alt="IO Interactive/Remedy/Naughty Dog" srcset="http://cdn3.whatculture.com/wp-content/uploads/2016/02/xLRzJYhg-200x120.jpg 200w, http://cdn3.whatculture.com/wp-content/uploads/2016/02/xLRzJYhg-100x60.jpg 100w" sizes="(max-width: 100px) 100vw, 100px" />								10 Hotly-Anticipated 2016 Video Games You Should Be Worried About							</a>
+						</li>
+												<li>
+							<a href="http://whatculture.com/gaming/10-annoying-things-that-are-ruining-video-games.php">
+								<img width="100" height="60" src="http://cdn3.whatculture.com/wp-content/uploads/2016/02/wMmqAWH0-100x60.jpg" class="attachment-smallthumb size-smallthumb wp-post-image" alt="Square Enix" srcset="http://cdn3.whatculture.com/wp-content/uploads/2016/02/wMmqAWH0-200x120.jpg 200w, http://cdn3.whatculture.com/wp-content/uploads/2016/02/wMmqAWH0-100x60.jpg 100w" sizes="(max-width: 100px) 100vw, 100px" />								10 Annoying Things That Are Ruining Video Games							</a>
+						</li>
+											</ul>
+				</div>
+			</div>
+		</li>
+
+		<li class="tv">
+			<a href="/tv">TV</a>
+
+			<div class="dropdown">
+				<div class="col-1">
+					<ul>
+						<li><a href="/tv"><i class="fa fa-desktop fa-fw"></i>Home</a>
+						<li><a href="/tv/most-read"><i class="fa fa-bar-chart-o fa-fw"></i>Most Read</a>
+						<li><a href="/tv/features"><i class="fa fa-list fa-fw"></i>Lists</a>
+						<li><a href="/tv/news"><i class="fa fa-pencil fa-fw"></i>News</a>
+						<li><a href="/tv/reviews"><i class="fa fa-star fa-fw"></i>Reviews</a>
+						<li><a href="/tv/videos"><i class="fa fa-video-camera fa-fw"></i>Videos</a>
+					</ul>
+				</div>
+				<div class="col-2">
+					<h3>Top TV Shows</h3>
+					<ul>
+						<li><a href="/topic/doctor-who">Doctor Who</a></li>
+						<li><a href="/topic/game-of-thrones">Game Of Thrones</a></li>
+						<li><a href="/topic/breaking-bad">Breaking Bad</a></li>
+						<li><a href="/topic/dexter">Dexter</a></li>
+						<li><a href="/topic/the-walking-dead">Walking Dead</a></li>
+					</ul>
+				</div>
+				<div class="col-3">
+					<h3>Don't Miss</h3>
+					<ul>
+												<li>
+							<a href="http://whatculture.com/tv/10-episodes-that-made-you-quit-your-favourite-tv-shows.php">
+								<img width="100" height="60" src="http://cdn3.whatculture.com/wp-content/uploads/2016/02/FeWsqNT8-100x60.jpg" class="attachment-smallthumb size-smallthumb wp-post-image" alt="ABC" srcset="http://cdn3.whatculture.com/wp-content/uploads/2016/02/FeWsqNT8-200x120.jpg 200w, http://cdn3.whatculture.com/wp-content/uploads/2016/02/FeWsqNT8-100x60.jpg 100w" sizes="(max-width: 100px) 100vw, 100px" />								10 Episodes That Made You Quit Your Favourite TV Shows							</a>
+						</li>
+												<li>
+							<a href="http://whatculture.com/tv/the-walking-dead-season-6-7-things-you-might-have-missed-in-episode-9.php">
+								<img width="100" height="60" src="http://cdn3.whatculture.com/wp-content/uploads/2016/02/0tyLw72I-100x60.png" class="attachment-smallthumb size-smallthumb wp-post-image" alt="AMC" srcset="http://cdn3.whatculture.com/wp-content/uploads/2016/02/0tyLw72I-200x120.png 200w, http://cdn3.whatculture.com/wp-content/uploads/2016/02/0tyLw72I-100x60.png 100w" sizes="(max-width: 100px) 100vw, 100px" />								The Walking Dead Season 6: 7 Things You Might Have Missed In Episode 9							</a>
+						</li>
+												<li>
+							<a href="http://whatculture.com/tv/the-walking-dead-season-6-8-things-you-might-have-missed-in-episode-10.php">
+								<img width="100" height="60" src="http://cdn3.whatculture.com/wp-content/uploads/2016/02/i1UBc9Fz-100x60.jpg" class="attachment-smallthumb size-smallthumb wp-post-image" alt="Gene Page/AMC" srcset="http://cdn3.whatculture.com/wp-content/uploads/2016/02/i1UBc9Fz-200x120.jpg 200w, http://cdn3.whatculture.com/wp-content/uploads/2016/02/i1UBc9Fz-100x60.jpg 100w" sizes="(max-width: 100px) 100vw, 100px" />								The Walking Dead Season 6: 8 Things You Might Have Missed In Episode 10							</a>
+						</li>
+											</ul>
+				</div>
+			</div>
+		</li>
+
+		<li class="music">
+			<a href="/music">Music</a>
+
+			<div class="dropdown">
+				<div class="col-1">
+					<ul>
+						<li><a href="/music"><i class="fa fa-music fa-fw"></i>Home</a>
+						<li><a href="/music/most-read"><i class="fa fa-bar-chart-o fa-fw"></i>Most Read</a>
+						<li><a href="/music/features"><i class="fa fa-list fa-fw"></i>Lists</a>
+						<li><a href="/music/news"><i class="fa fa-pencil fa-fw"></i>News</a>
+						<li><a href="/music/reviews"><i class="fa fa-star fa-fw"></i>Reviews</a>
+						<li><a href="/music/videos"><i class="fa fa-video-camera fa-fw"></i>Videos</a>
+					</ul>
+				</div>
+				<div class="col-2">
+					<h3>Top Artists</h3>
+					<ul>
+						<li><a href="/topic/alter-bridge">Alter Bridge</a>
+						<li><a href="/topic/kanye-west">Kanye West</a>
+						<li><a href="/topic/katy-perry">Katy Perry</a>
+						<li><a href="/topic/lady-gaga">Lady Gaga</a>
+						<li><a href="/topic/metallica">Metallica</a>
+					</ul>
+				</div>
+				<div class="col-3">
+					<h3>Don't Miss</h3>
+					<ul>
+												<li>
+							<a href="http://whatculture.com/music/10-stoner-rock-bands-you-need-to-hear-in-2016.php">
+								<img width="100" height="60" src="http://cdn3.whatculture.com/wp-content/uploads/2016/02/FAdoa7nb-100x60.jpg" class="attachment-smallthumb size-smallthumb wp-post-image" alt="Wikimedia Commons" srcset="http://cdn3.whatculture.com/wp-content/uploads/2016/02/FAdoa7nb-200x120.jpg 200w, http://cdn3.whatculture.com/wp-content/uploads/2016/02/FAdoa7nb-100x60.jpg 100w" sizes="(max-width: 100px) 100vw, 100px" />								10 Stoner Rock Bands You Need To Hear In 2016							</a>
+						</li>
+												<li>
+							<a href="http://whatculture.com/music/15-most-underrated-bands-of-the-90s.php">
+								<img width="100" height="60" src="http://cdn3.whatculture.com/wp-content/uploads/2016/02/0NKBZwqF-100x60.jpg" class="attachment-smallthumb size-smallthumb wp-post-image" alt="Wikimedia" srcset="http://cdn3.whatculture.com/wp-content/uploads/2016/02/0NKBZwqF-200x120.jpg 200w, http://cdn3.whatculture.com/wp-content/uploads/2016/02/0NKBZwqF-100x60.jpg 100w" sizes="(max-width: 100px) 100vw, 100px" />								15 Most Underrated Bands Of The 90s							</a>
+						</li>
+												<li>
+							<a href="http://whatculture.com/music/radiohead-predicting-every-track-on-the-new-album.php">
+								<img width="100" height="60" src="http://cdn3.whatculture.com/wp-content/uploads/2016/02/CUelXOoj-100x60.jpg" class="attachment-smallthumb size-smallthumb wp-post-image" alt="© Francesco Dabbicco/Demotix/Corbis" srcset="http://cdn3.whatculture.com/wp-content/uploads/2016/02/CUelXOoj-200x120.jpg 200w, http://cdn3.whatculture.com/wp-content/uploads/2016/02/CUelXOoj-100x60.jpg 100w" sizes="(max-width: 100px) 100vw, 100px" />								Radiohead: Predicting Every Track On The New Album							</a>
+						</li>
+											</ul>
+				</div>
+			</div>
+		</li>
+
+		<li class="offbeat">
+			<a href="/offbeat">Offbeat</a>
+
+			<div class="dropdown">
+				<div class="col-1">
+					<ul>
+						<li><a href="/offbeat"><i class="fa fa-coffee fa-fw"></i>Home</a>
+						<li><a href="/offbeat/most-read"><i class="fa fa-bar-chart-o fa-fw"></i>Most Read</a>
+						<li><a href="/offbeat/features"><i class="fa fa-list fa-fw"></i>Lists</a>
+						<li><a href="/offbeat/videos"><i class="fa fa-video-camera fa-fw"></i>Funny Videos</a>
+					</ul>
+				</div>
+				<div class="col-2">
+					<h3>Lists</h3>
+					<ul>
+						<li><a href="/offbeat/27-incredibly-helpful-life-hacks-didnt-know-needed.php">27 Incredible Lifehacks</a>
+						<li><a href="/offbeat/15-things-wont-believe-banned-around-world.php">15 Banned Things</a>
+						<li><a href="/offbeat/23-problems-only-bar-staff-would-understand.php">Bar Staff Problems</a>
+						<li><a href="/offbeat/22-problems-call-centre-workers-will-understand.php">Call Centre Problems</a>
+						<li><a href="/offbeat/35-false-facts-wrongly-believe-1.php">35 False "Facts"</a>
+					</ul>
+				</div>
+				<div class="col-3">
+					<h3>Don't Miss</h3>
+					<ul>
+												<li>
+							<a href="http://whatculture.com/offbeat/10-unbelievable-stories-about-area-51.php">
+								<img width="100" height="60" src="http://cdn3.whatculture.com/wp-content/uploads/2016/02/Fvw3d09s-100x60.jpg" class="attachment-smallthumb size-smallthumb wp-post-image" alt="tumblr" srcset="http://cdn3.whatculture.com/wp-content/uploads/2016/02/Fvw3d09s-200x120.jpg 200w, http://cdn3.whatculture.com/wp-content/uploads/2016/02/Fvw3d09s-100x60.jpg 100w" sizes="(max-width: 100px) 100vw, 100px" />								10 Unbelievable Stories About Area 51							</a>
+						</li>
+												<li>
+							<a href="http://whatculture.com/science/13-real-places-that-look-like-straight-up-fantasy-worlds.php">
+								<img width="100" height="60" src="http://cdn3.whatculture.com/wp-content/uploads/2016/02/JX1C2oU5-100x60.jpg" class="attachment-smallthumb size-smallthumb wp-post-image" alt="Wikipedia" srcset="http://cdn3.whatculture.com/wp-content/uploads/2016/02/JX1C2oU5-200x120.jpg 200w, http://cdn3.whatculture.com/wp-content/uploads/2016/02/JX1C2oU5-100x60.jpg 100w" sizes="(max-width: 100px) 100vw, 100px" />								13 Real Places That Look Like Straight Up Fantasy Worlds							</a>
+						</li>
+												<li>
+							<a href="http://whatculture.com/offbeat/15-reasons-you-wish-you-were-from-yorkshire.php">
+								<img width="100" height="60" src="http://cdn3.whatculture.com/wp-content/uploads/2016/02/OjlPuzUV-100x60.jpg" class="attachment-smallthumb size-smallthumb wp-post-image" alt="Wikimedia Commons" srcset="http://cdn3.whatculture.com/wp-content/uploads/2016/02/OjlPuzUV-200x120.jpg 200w, http://cdn3.whatculture.com/wp-content/uploads/2016/02/OjlPuzUV-100x60.jpg 100w" sizes="(max-width: 100px) 100vw, 100px" />								15 Reasons You Wish You Were From Yorkshire							</a>
+						</li>
+											</ul>
+				</div>
+			</div>
+		</li>
+
+		<li class="sport">
+			<a href="/sport">Sport</a>
+
+			<div class="dropdown">
+				<div class="col-1">
+					<ul>
+						<li><a href="/sport"><i class="fa fa-trophy fa-fw"></i>Home</a>
+						<li><a href="/sport"><i class="fa fa-trophy fa-fw"></i>NFL</a>
+						<li><a href="/ufc"><img src="//cdn3.whatculture.com/wp-content/themes/wc/assets/images/ufc-ico.png"></a></li>
+						<li><a href="/sport/most-read"><i class="fa fa-bar-chart-o fa-fw"></i>Most Read</a>
+						<li><a href="/sport/features"><i class="fa fa-list fa-fw fa-fw"></i>Lists</a>
+						<li><a href="/sport/news"><i class="fa fa-pencil fa-fw"></i>News</a>
+					</ul>
+				</div>
+				<div class="col-2">
+					<h3>Top Teams</h3>
+					<ul>
+						<li><a href="/football/team/newcastle">Newcastle</a></li>
+						<li><a href="/football/team/sunderland">Sunderland</a></li>
+						<li><a href="/football/team/man-utd">Man Utd</a></li>
+						<li><a href="/football/team/chelsea">Chelsea</a></li>
+						<li><a href="/football/team/arsenal">Arsenal </a></li>
+						<li><a href="/football/team/liverpool">Liverpool</a></li>
+						<li><a href="/football/team/man-city">Man City</a></li>
+						<li><a href="/football/team/tottenham">Tottenham</a></li>
+						<li><a href="/football/team/aston-villa">Aston Villa</a></li>
+						<li><a href="/football/team/leicester">Leicester</a></li>
+						<li><a href="/football/team/everton">Everton</a></li>
+						<li><a href="/football/team/west-ham">West Ham</a></li>
+						<li><a href="/football/team/southampton">Southampton</a></li>
+						<li><a href="/football/team/crystal-palace">Crystal Palace</a></li>
+						<li><a href="/football/team/swansea">Swansea</a></li>
+						<li><a href="/football/team/west-brom">West Brom</a></li>
+						<li><a href="/football/team/stoke">Stoke</a></li>
+						<li><a href="/football/team/watford">Watford</a></li>
+						<li><a href="/football/team/bournemouth">Bournemouth</a></li>
+						<li><a href="/football/team/norwich">Norwich</a></li>
+					</ul>
+				</div>
+				<div class="col-3">
+					<h3>Don't Miss</h3>
+					<ul>
+												<li>
+							<a href="http://whatculture.com/wwe/9-things-nobody-wants-to-admit-about-cm-punks-ufc-debut.php">
+								<img width="100" height="60" src="http://cdn3.whatculture.com/wp-content/uploads/2016/02/omVlHPnE-100x60.jpg" class="attachment-smallthumb size-smallthumb wp-post-image" alt="Instagram" srcset="http://cdn3.whatculture.com/wp-content/uploads/2016/02/omVlHPnE-200x120.jpg 200w, http://cdn3.whatculture.com/wp-content/uploads/2016/02/omVlHPnE-100x60.jpg 100w" sizes="(max-width: 100px) 100vw, 100px" />								9 Things Nobody Wants To Admit About CM Punk's UFC Debut							</a>
+						</li>
+												<li>
+							<a href="http://whatculture.com/sport/evertons-200405-champions-league-qualifying-squad-where-are-they-now.php">
+								<img width="100" height="60" src="http://cdn3.whatculture.com/wp-content/uploads/2016/02/m0Muv1ES-100x60.jpg" class="attachment-smallthumb size-smallthumb wp-post-image" alt="© firoz ahmed/Demotix/Corbis" srcset="http://cdn3.whatculture.com/wp-content/uploads/2016/02/m0Muv1ES-200x120.jpg 200w, http://cdn3.whatculture.com/wp-content/uploads/2016/02/m0Muv1ES-100x60.jpg 100w" sizes="(max-width: 100px) 100vw, 100px" />								Everton’s 2004/05 Champions League Qualifying Squad – Where Are They Now?							</a>
+						</li>
+												<li>
+							<a href="http://whatculture.com/sport/14-well-known-footballers-who-now-play-in-the-chinese-super-league.php">
+								<img width="100" height="60" src="http://cdn3.whatculture.com/wp-content/uploads/2016/02/gSQJLwrn-100x60.jpg" class="attachment-smallthumb size-smallthumb wp-post-image" alt="© Marcio Machado/ZUMA Press/Corbis" srcset="http://cdn3.whatculture.com/wp-content/uploads/2016/02/gSQJLwrn-200x120.jpg 200w, http://cdn3.whatculture.com/wp-content/uploads/2016/02/gSQJLwrn-100x60.jpg 100w" sizes="(max-width: 100px) 100vw, 100px" />								14 Well-Known Footballers Who Now Play In The Chinese Super League							</a>
+						</li>
+											</ul>
+				</div>
+			</div>
+		</li>
+
+		<li class="wwe">
+			<a href="/wwe">WWE</a>
+
+			<div class="dropdown">
+				<div class="col-1">
+					<ul>
+						<li><a href="/wwe"><i class="fa fa-hand-o-right fa-fw"></i>Home</a>
+						<li><a href="/wwe/news"><i class="fa fa-info fa-fw"></i>News</a>
+						<li><a href="/wwe/news"><i class="fa fa-youtube fa-fw"></i>Videos</a>
+						<li><a href="/wwe/features"><i class="fa fa-list fa-fw fa-fw"></i>Lists</a>
+						<li><a href="/wwe/most-read"><i class="fa fa-bar-chart-o fa-fw"></i>Most Read</a>
+						<li><a href="/ufc"><img src="//cdn3.whatculture.com/wp-content/themes/wc/assets/images/ufc-ico.png"></a></li>
+					</ul>
+				</div>
+				<div class="col-2">
+					<h3>Superstars</h3>
+					<ul>
+						<li><a href="/topic/brock-lesnar">Brock Lesnar</a>
+						<li><a href="/topic/cm-punk">CM Punk</a>
+						<li><a href="/topic/daniel-bryan">Daniel Bryan</a>
+						<li><a href="/topic/john-cena">John Cena</a>
+						<li><a href="/topic/sting">Sting</a>
+						<li><a href="/topic/the-undertaker">The Undertaker</a>
+						<li><a href="/topic/triple-h">Triple H</a>
+					</ul>
+				</div>
+				<div class="col-3">
+					<h3>Don't Miss</h3>
+					<ul>
+												<li>
+							<a href="http://whatculture.com/wwe/43-wtf-moments-from-wwe-fastlane.php">
+								<img width="100" height="60" src="http://cdn3.whatculture.com/wp-content/uploads/2016/02/Lz6KfTbk-100x60.jpg" class="attachment-smallthumb size-smallthumb wp-post-image" alt="WWE.com" srcset="http://cdn3.whatculture.com/wp-content/uploads/2016/02/Lz6KfTbk-200x120.jpg 200w, http://cdn3.whatculture.com/wp-content/uploads/2016/02/Lz6KfTbk-100x60.jpg 100w" sizes="(max-width: 100px) 100vw, 100px" />								43 WTF Moments From WWE Fastlane							</a>
+						</li>
+												<li>
+							<a href="http://whatculture.com/wwe/10-reasons-why-wwe-fastlane-2016-truly-utterly-sucked.php">
+								<img width="100" height="60" src="http://cdn3.whatculture.com/wp-content/uploads/2016/02/GbSDuanJ-100x60.jpg" class="attachment-smallthumb size-smallthumb wp-post-image" alt="WWE.com" srcset="http://cdn3.whatculture.com/wp-content/uploads/2016/02/GbSDuanJ-200x120.jpg 200w, http://cdn3.whatculture.com/wp-content/uploads/2016/02/GbSDuanJ-100x60.jpg 100w" sizes="(max-width: 100px) 100vw, 100px" />								10 Reasons Why WWE Fastlane 2016 Truly, Utterly Sucked							</a>
+						</li>
+												<li>
+							<a href="http://whatculture.com/wwe/36-wtf-moments-from-wwe-raw-feb-22.php">
+								<img width="100" height="60" src="http://cdn3.whatculture.com/wp-content/uploads/2016/02/7YX08oQW-100x60.jpg" class="attachment-smallthumb size-smallthumb wp-post-image" alt="WWE.COM" srcset="http://cdn3.whatculture.com/wp-content/uploads/2016/02/7YX08oQW-200x120.jpg 200w, http://cdn3.whatculture.com/wp-content/uploads/2016/02/7YX08oQW-100x60.jpg 100w" sizes="(max-width: 100px) 100vw, 100px" />								36 WTF Moments From WWE Raw (Feb 22)							</a>
+						</li>
+											</ul>
+				</div>
+			</div>
+		</li>
+
+		<li class="other">
+			<a href="#"><i class="fa fa-caret-down"></i> <i class="fa fa-bars"></i></a>
+
+			<ul>
+				<li><a href="/arts">Arts</a></li>
+				<li><a href="/books">Books</a></li>
+				<li><a href="/comics">Comics</a></li>
+				<li><a href="/food">Food</a></li>
+				<li><a href="/history">History</a></li>
+				<li><a href="/science">Science</a></li>
+				<li><a href="/technology">Technology</a></li>
+				<li><a href="/ufc">UFC</a></li>
+				<li><a href="/careers" class="dark">Careers / Jobs</a></li>
+				<li><a href="/comps" class="dark">Competitions</a></li>
+				<li><a href="/contact-us" class="dark">Contact Us</a></li>
+			</ul>
+		</li>
+	</ul>
+
+	<form method="get" action="/">
+		<input name="s" placeholder="search..." type="text">
+		<button type="submit"><i class="fa fa-search"></i></button>
+	</form>
+</nav>
+<div id="content">
+	<div class="main-content visible">
+				<div class="entry">
+			<h2>Privacy Policy</h2>
+
+			<p><strong>What information do we collect?</strong></p>
+<p>We (whatculture.com) collect information from you when you register on our site, subscribe to our newsletter, respond to a survey or fill out a form.</p>
+<p>When ordering or registering on our site, as appropriate, you may be asked to enter your: name, e-mail address, mailing address or phone number. You may, however, visit our site anonymously.</p>
+<p>Google, as a third party vendor, uses cookies to serve ads on your site. Google&#8217;s use of the DART cookie enables it to serve ads to your users based on their visit to your sites and other sites on the Internet. Users may opt out of the use of the DART cookie by visiting the Google ad and content network privacy policy..</p>
+<p><strong>What do we use your information for?</strong></p>
+<p>Any of the information we collect from you may be used in one of the following ways:</p>
+<p>; To personalize your experience<br />
+(your information helps us to better respond to your individual needs)</p>
+<p>; To improve our website<br />
+(we continually strive to improve our website offerings based on the information and feedback we receive from you)</p>
+<p>; To administer a contest, promotion, survey or other site feature</p>
+<p>; To send periodic emails</p>
+<p>The email address you provide for order processing, will only be used to send you information and updates pertaining to your order.</p>
+<p>Note: If at any time you would like to unsubscribe from receiving future emails, we include detailed unsubscribe instructions at the bottom of each email.</p>
+<p><strong>How do we protect your information?</strong></p>
+<p>We implement a variety of security measures to maintain the safety of your personal information when you enter, submit, or access your personal information.</p>
+<p>We offer the use of a secure server. All supplied sensitive/credit information is transmitted via Secure Socket Layer (SSL) technology and then encrypted into our Database to be only accessed by those authorized with special access rights to our systems, and are required to?keep the information confidential.</p>
+<p>After a transaction, your private information (credit cards, social security numbers, financials, etc.) will not be stored on our servers.</p>
+<p><strong>Do we use cookies?</strong></p>
+<p>Yes (Cookies are small files that a site or its service provider transfers to your computers hard drive through your Web browser (if you allow) that enables the sites or service providers systems to recognize your browser and capture and remember certain information</p>
+<p>We use cookies to understand and save your preferences for future visits.</p>
+<p><strong>Do we disclose any information to outside parties?</strong></p>
+<p>We do not sell, trade, or otherwise transfer to outside parties your personally identifiable information. This does not include trusted third parties who assist us in operating our website, conducting our business, or servicing you, so long as those parties agree to keep this information confidential. We may also release your information when we believe release is appropriate to comply with the law, enforce our site policies, or protect ours or others rights, property, or safety. However, non-personally identifiable visitor information may be provided to other parties for marketing, advertising, or other uses.</p>
+<p><strong>Third party links</strong></p>
+<p>Occasionally, at our discretion, we may include or offer third party products or services on our website. These third party sites have separate and independent privacy policies. We therefore have no responsibility or liability for the content and activities of these linked sites. Nonetheless, we seek to protect the integrity of our site and welcome any feedback about these sites.</p>
+<p>We allow third party companies to serve ads and/or collect certain anonymous information when you visit our Web site. These companies may use non-personally identifiable information (e.g. click stream information, browser type, time and date, subject of advertisements clicked or scrolled over) during your visits to this and other Web sites in order to provide advertisements about goods and services likely to be of greater interest to you.</p>
+<p>These companies typically use a cookie or third party web beacon to collect this information. To learn more about this behavioral advertising practice visit the NAI at http://www.networkadvertising.org. To opt-out of this type of advertising, you can visit http://www.aboutads.info/choices.</p>
+<p><strong>Childrens Online Privacy Protection Act Compliance</strong></p>
+<p>We are in compliance with the requirements of COPPA (Childrens Online Privacy Protection Act), we do not collect any information from anyone under 13 years of age. Our website, products and services are all directed to people who are at least 13 years old or older.</p>
+<p><strong>Online Privacy Policy Only</strong></p>
+<p>This online privacy policy applies only to information collected through our website and not to information collected offline.</p>
+<p><strong>Your Consent</strong></p>
+<p>By using our site, you consent to our online privacy policy.</p>
+<p><strong>Changes to our Privacy Policy</strong></p>
+<p>If we decide to change our privacy policy, we will post those changes on this page, and/or update the Privacy Policy modification date below.</p>
+<p>This policy was last modified on 13th July 2011</p>
+<p><strong>Contacting Us</strong></p>
+<p>If there are any questions regarding this privacy policy you may contact us using the information below.</p>
+<p>editor [at] whatculture.com</p>
+<p>0191 211 1965</p>
+		</div>
+			</div>
+
+	<div id="sidebar">
+	
+	<div class="widget popular">
+		<div class="widget-title"><h3>Quick Links</h3></div>
+		<ul class="fa-ul quick-links">
+			<li><a href="/about-us"><i class="fa-li fa fa-question-circle"></i> About Us</a></li>
+			<li><a href="/advertising"><i class="fa-li fa fa-rocket"></i> Advertise</a></li>
+			<li><a href="/careers"><i class="fa-li fa fa-users"></i> Careers / Jobs</a></li>
+			<li><a href="/contact-us"><i class="fa-li fa fa-envelope"></i> Contact</a></li>
+			<li><a href="/privacy-policy"><i class="fa-li fa fa-lock"></i> Privacy / Cookies</a></li>
+			<li><a href="/write"><i class="fa-li fa fa-pencil"></i> Write For Us</a></li>
+		</ul>
+	<script>
+	jQuery(function($){
+       $("a").each(function(){
+               if ($(this).attr("href") == window.location.pathname){
+                       $(this).addClass("selected");
+               }
+       });
+	});
+	</script>
+	</div>
+
+	<div class="widget side-social">
+	<ul>
+		<li class="facebook">
+			<a href="https://www.facebook.com/whatculture">
+				<span class="top">
+					<i class="fa fa-facebook"></i> 56,953				</span>
+				<span class="bottom">
+					Follow WhatCulture on Facebook <i class="fa fa-chevron-right"></i>
+				</span>
+			</a>
+		</li>
+		<li class="twitter">
+			<a href="https://twitter.com/whatculture">
+				<span class="top">
+					<i class="fa fa-twitter"></i> 20,291				</span>
+				<span class="bottom">
+					Follow WhatCulture on Twitter <i class="fa fa-chevron-right"></i>
+				</span>
+			</a>
+		</li>
+	</ul>
+</div>
+</div></div>
+
+
+			
+			
+			<footer id="footer">
+				<div class="col col-1">
+					<h3>about whatculture<span>.com</span></h3>
+					<ul>
+						<li>Delivering passionate and comprehensive entertainment coverage to millions of users world-wide each month.</li>
+						<li>Seen on Sky News; featured in The Guardian, NY Times, The Independent and more.</li>
+						<li>40,000+ articles posted by thousands of contributors spanning the entire cultural spectrum.</li>
+					</ul>
+				</div>
+				<div class="col col-2">
+					<h3>quick links</h3>
+					<ul>
+						<li><a href="/wp-login.php"><i class="fa fa-user"></i>Login</a></li>
+						<li><a href="/careers">Careers</a></li>
+						<li><a href="/advertising" rel="nofollow">Advertise</a></li>
+						<li><a href="/contact-us" rel="nofollow">Contact</a> / <a href="/about-us" rel="nofollow">About</a></li>
+						<li><a href="/privacy-policy" rel="nofollow">Privacy / Cookies</a><br /><br /></li>
+					</ul>
+					<a class="btn-write" href="/write"><i class="fa fa-pencil"></i>write &amp; earn!</a>
+				</div>
+				<div class="col col-3">
+					<h3>Connect</h3>
+					<div class="social">
+						<div class="item">
+							<a href="https://www.facebook.com/whatculture">
+								<img src="//cdn2.whatculture.com/wp-content/themes/wc/assets/images/ico_fb.png" class="ico" alt="WhatCulture on Facebook">
+							</a>
+							<p>56,953 fans</p>
+						</div>
+						<div class="item">
+							<a href="https://twitter.com/whatculture">
+								<img src="//cdn2.whatculture.com/wp-content/themes/wc/assets/images/ico_tw.png" class="ico" alt="WhatCulture on Twitter">
+							</a>
+							<p>20,291 followers</p>
+						</div>
+					</div>
+				</div>
+			</footer>
+
+					</div>
+	</div>
+</div>
+
+<!-- WP Footer -->
+
+<script type='text/javascript'>
+/* <![CDATA[ */
+var pollsL10n = {"ajax_url":"http:\/\/whatculture.com\/wp-admin\/admin-ajax.php","text_wait":"Your last request is still being processed. Please wait a while ...","text_valid":"Please choose a valid poll answer.","text_multiple":"Maximum number of choices allowed: ","show_loading":"0","show_fading":"1"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://whatculture.com/wp-content/plugins/wp-polls/polls-js.js?ver=2.72'></script>
+<script type='text/javascript' src='http://whatculture.com/wp-includes/js/wp-embed.min.js?ver=4.4.2'></script>
+
+<!-- End WP Footer -->
+
+<!-- EvolveMedia -->
+<div id="evolve_footer"></div>
+<!-- End EvolveMedia -->
+
+
+
+
+
+
+
+
+
+
+<!-- Remarketing for Google Display Network -->
+<script>require('//stats.g.doubleclick.net/dc.js');</script>
+<!-- End Remarketing -->
+
+<!-- QUANTCAST -->
+<script>var _qevents = [{qacct: 'p-_yjQvdqxK4uE1'}];</script>
+<script>require('http://edge.quantserve.com/quant.js');</script>
+<!-- END QUANTCAST -->
+
+<!-- VisualDNA -->
+<script>var VDNA = {queue: [{apiKey: 'w00tmedia1396451261203', method: 'reportPageView'}]};</script>
+<script>require('//a1.vdna-assets.com/analytics.js');</script>
+<!-- End VisualDNA -->
+
+<!-- ScorecardResearch -->
+<script>var _comscore = _comscore || []; _comscore.push({c1: '2', c2: '6036161'});</script>
+<script>require('http://b.scorecardresearch.com/beacon.js');</script>
+<!-- End ScorecardResearch -->
+
+
+
+
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"180829e00b","applicationID":"4089926","transactionName":"NVIHZhcFW0BYUBIPXQwYJFERDVpdFkMHAVc=","queueTime":0,"applicationTime":627,"atts":"GRUQEF8fSB8bUkRcSR9K","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>

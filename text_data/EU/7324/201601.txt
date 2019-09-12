@@ -1,0 +1,86 @@
+Single Sign On & Token Based Authentication - Auth0var abExperiments = [];
+var _prum = [['id', '51728c93abe53d0c08000000'],
+             ['mark', 'firstbyte', (new Date()).getTime()]];
+(function() {
+    var s = document.getElementsByTagName('script')[0]
+      , p = document.createElement('script');
+    p.async = 'async';
+    p.src = '//rum-static.pingdom.net/prum.min.js';
+    s.parentNode.insertBefore(p, s);
+})();
+!function(){
+var metricsLib = window.metricsLib = window.metricsLib || [];
+
+// A list of the methods in metrics.js to stub.
+metricsLib.methods = [
+  'segment',
+  'track',
+  'setUserId',
+  'identify',
+  'alias',
+  'page',
+  'getData',
+  'ready',
+  'traits'
+];
+
+metricsLib.factory = function(method){
+  return function(){
+    var args = Array.prototype.slice.call(arguments);
+    args.unshift(method);
+    metricsLib.push(args);
+    return metricsLib;
+  };
+};
+
+for (var i = 0; i < metricsLib.methods.length; i++) {
+  var key = metricsLib.methods[i];
+  metricsLib[key] = metricsLib.factory(key);
+}
+
+metricsLib.load = function(segmentKey, dwhEndpoint){
+  if(null != window.Auth0Metrics){
+    window.metricsLib = new Auth0Metrics(segmentKey, dwhEndpoint, 'website');
+  }else{
+    var script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.async = true;
+    script.src = ('https:' === document.location.protocol
+      ? 'https://' : 'http://')
+      + 'cdn.auth0.com/js/m/metrics-1.min.js';
+    script.onerror = function(){
+      console.error("No metrics");
+    }
+
+    script.onload = function(){
+      // Grab analytics and make it private
+      window.metricsLib = new Auth0Metrics(segmentKey, dwhEndpoint, 'website');
+    }
+
+    var first = document.getElementsByTagName('script')[0];
+    first.parentNode.insertBefore(script, first);
+  }
+};
+
+var SEGMENT_KEY = "aaB6w2BsRwUcGbRSUY7X22FPAa1NL3BL";
+var DWH_ENDPOINT = "https://dwh-tracking.it.auth0.com/dwh-metrics";
+
+if (DWH_ENDPOINT) {
+  //- We should catch for an undefined DWH_ENDPOINT
+  metricsLib.load(SEGMENT_KEY, DWH_ENDPOINT);
+} else {
+  console.error("DWH_ENDPOINT must be defined for tracking to work.")
+}
+
+}();
+try {
+  window.abTestingLib.load({ experiments: abExperiments || [] });
+} catch (e) {
+  null !== console && console.log('Error initializing ABTesting lib. ABTesting will be disabled');
+}
+var LOCK_CONFIG = {
+  AUTH0_CLIENT_ID: "zEYfpoFzUMEzilhkHilcWoNkrFfJ3hAI",
+  AUTH0_DOMAIN: "auth0.auth0.com",
+  AUTH0_CALLBACK_URL: "https://manage.auth0.com/callback"
+};ProductPricingWhy Auth0How It WorksCompanyAbout UsBlogJobsSecurityAvailability & TrustSecurityWhite HatLearnHelp & SupportDocumentationOpen SourceExtendLockWordPressAPI ExplorerContactEmail Us10777 Main StreetSuite 204Bellevue, WA   98004Sales+1 (888) 235-2699+1 (425) 312-6521Support+1 (425) 559-9554Privacy PolicyTerms of Service© 2013-2016 Auth0 Inc. All Rights Reserved.window.jQuery || document.write('<script src="/lib/vendor/libs/jquery.min.js">\x3C/script>')
+require('./lib/boot')

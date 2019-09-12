@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"VQYDVFRTCBAHXFNXDgMD"};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o||e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(t,e,n){function r(t){try{c.console&&console.log(t)}catch(e){}}var o,i=t("ee"),a=t(15),c={};try{o=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(c.console=!0,o.indexOf("dev")!==-1&&(c.dev=!0),o.indexOf("nr_dev")!==-1&&(c.nrDev=!0))}catch(s){}c.nrDev&&i.on("internal-error",function(t){r(t.stack)}),c.dev&&i.on("fn-err",function(t,e,n){r(n.stack)}),c.dev&&(r("NR AGENT IN DEVELOPMENT MODE"),r("flags: "+a(c,function(t,e){return t}).join(", ")))},{}],2:[function(t,e,n){function r(t,e,n,r,o){try{d?d-=1:i("err",[o||new UncaughtException(t,e,n)])}catch(c){try{i("ierr",[c,(new Date).getTime(),!0])}catch(s){}}return"function"==typeof f&&f.apply(this,a(arguments))}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function o(t){i("err",[t,(new Date).getTime()])}var i=t("handle"),a=t(16),c=t("ee"),s=t("loader"),f=window.onerror,u=!1,d=0;s.features.err=!0,t(1),window.onerror=r;try{throw new Error}catch(l){"stack"in l&&(t(8),t(7),"addEventListener"in window&&t(5),s.xhrWrappable&&t(9),u=!0)}c.on("fn-start",function(t,e,n){u&&(d+=1)}),c.on("fn-err",function(t,e,n){u&&(this.thrown=!0,o(n))}),c.on("fn-end",function(){u&&!this.thrown&&d>0&&(d-=1)}),c.on("internal-error",function(t){i("ierr",[t,(new Date).getTime(),!0])})},{}],3:[function(t,e,n){t("loader").features.ins=!0},{}],4:[function(t,e,n){function r(t){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var o=t("ee"),i=t("handle"),a=t(8),c=t(7),s="learResourceTimings",f="addEventListener",u="resourcetimingbufferfull",d="bstResource",l="resource",p="-start",h="-end",m="fn"+p,w="fn"+h,v="bstTimer",y="pushState";t("loader").features.stn=!0,t(6);var g=NREUM.o.EV;o.on(m,function(t,e){var n=t[0];n instanceof g&&(this.bstStart=Date.now())}),o.on(w,function(t,e){var n=t[0];n instanceof g&&i("bst",[n,e,this.bstStart,Date.now()])}),a.on(m,function(t,e,n){this.bstStart=Date.now(),this.bstType=n}),a.on(w,function(t,e){i(v,[e,this.bstStart,Date.now(),this.bstType])}),c.on(m,function(){this.bstStart=Date.now()}),c.on(w,function(t,e){i(v,[e,this.bstStart,Date.now(),"requestAnimationFrame"])}),o.on(y+p,function(t){this.time=Date.now(),this.startPath=location.pathname+location.hash}),o.on(y+h,function(t){i("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),f in window.performance&&(window.performance["c"+s]?window.performance[f](u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["c"+s]()},!1):window.performance[f]("webkit"+u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["webkitC"+s]()},!1)),document[f]("scroll",r,{passive:!0}),document[f]("keypress",r,!1),document[f]("click",r,!1)}},{}],5:[function(t,e,n){function r(t){for(var e=t;e&&!e.hasOwnProperty(u);)e=Object.getPrototypeOf(e);e&&o(e)}function o(t){c.inPlace(t,[u,d],"-",i)}function i(t,e){return t[1]}var a=t("ee").get("events"),c=t(17)(a,!0),s=t("gos"),f=XMLHttpRequest,u="addEventListener",d="removeEventListener";e.exports=a,"getPrototypeOf"in Object?(r(document),r(window),r(f.prototype)):f.prototype.hasOwnProperty(u)&&(o(window),o(f.prototype)),a.on(u+"-start",function(t,e){var n=t[1],r=s(n,"nr@wrapped",function(){function t(){if("function"==typeof n.handleEvent)return n.handleEvent.apply(n,arguments)}var e={object:t,"function":n}[typeof n];return e?c(e,"fn-",null,e.name||"anonymous"):n});this.wrapped=t[1]=r}),a.on(d+"-start",function(t){t[1]=this.wrapped||t[1]})},{}],6:[function(t,e,n){var r=t("ee").get("history"),o=t(17)(r);e.exports=r,o.inPlace(window.history,["pushState","replaceState"],"-")},{}],7:[function(t,e,n){var r=t("ee").get("raf"),o=t(17)(r),i="equestAnimationFrame";e.exports=r,o.inPlace(window,["r"+i,"mozR"+i,"webkitR"+i,"msR"+i],"raf-"),r.on("raf-start",function(t){t[0]=o(t[0],"fn-")})},{}],8:[function(t,e,n){function r(t,e,n){t[0]=a(t[0],"fn-",null,n)}function o(t,e,n){this.method=n,this.timerDuration="number"==typeof t[1]?t[1]:0,t[0]=a(t[0],"fn-",this,n)}var i=t("ee").get("timer"),a=t(17)(i),c="setTimeout",s="setInterval",f="clearTimeout",u="-start",d="-";e.exports=i,a.inPlace(window,[c,"setImmediate"],c+d),a.inPlace(window,[s],s+d),a.inPlace(window,[f,"clearImmediate"],f+d),i.on(s+u,r),i.on(c+u,o)},{}],9:[function(t,e,n){function r(t,e){d.inPlace(e,["onreadystatechange"],"fn-",c)}function o(){var t=this,e=u.context(t);t.readyState>3&&!e.resolved&&(e.resolved=!0,u.emit("xhr-resolved",[],t)),d.inPlace(t,w,"fn-",c)}function i(t){v.push(t),h&&(g=-g,b.data=g)}function a(){for(var t=0;t<v.length;t++)r([],v[t]);v.length&&(v=[])}function c(t,e){return e}function s(t,e){for(var n in t)e[n]=t[n];return e}t(5);var f=t("ee"),u=f.get("xhr"),d=t(17)(u),l=NREUM.o,p=l.XHR,h=l.MO,m="readystatechange",w=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],v=[];e.exports=u;var y=window.XMLHttpRequest=function(t){var e=new p(t);try{u.emit("new-xhr",[e],e),e.addEventListener(m,o,!1)}catch(n){try{u.emit("internal-error",[n])}catch(r){}}return e};if(s(p,y),y.prototype=p.prototype,d.inPlace(y.prototype,["open","send"],"-xhr-",c),u.on("send-xhr-start",function(t,e){r(t,e),i(e)}),u.on("open-xhr-start",r),h){var g=1,b=document.createTextNode(g);new h(a).observe(b,{characterData:!0})}else f.on("fn-end",function(t){t[0]&&t[0].type===m||a()})},{}],10:[function(t,e,n){function r(t){var e=this.params,n=this.metrics;if(!this.ended){this.ended=!0;for(var r=0;r<d;r++)t.removeEventListener(u[r],this.listener,!1);if(!e.aborted){if(n.duration=(new Date).getTime()-this.startTime,4===t.readyState){e.status=t.status;var i=o(t,this.lastSize);if(i&&(n.rxSize=i),this.sameOrigin){var a=t.getResponseHeader("X-NewRelic-App-Data");a&&(e.cat=a.split(", ").pop())}}else e.status=0;n.cbTime=this.cbTime,f.emit("xhr-done",[t],t),c("xhr",[e,n,this.startTime])}}}function o(t,e){var n=t.responseType;if("json"===n&&null!==e)return e;var r="arraybuffer"===n||"blob"===n||"json"===n?t.response:t.responseText;return h(r)}function i(t,e){var n=s(e),r=t.params;r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.sameOrigin=n.sameOrigin}var a=t("loader");if(a.xhrWrappable){var c=t("handle"),s=t(11),f=t("ee"),u=["load","error","abort","timeout"],d=u.length,l=t("id"),p=t(14),h=t(13),m=window.XMLHttpRequest;a.features.xhr=!0,t(9),f.on("new-xhr",function(t){var e=this;e.totalCbs=0,e.called=0,e.cbTime=0,e.end=r,e.ended=!1,e.xhrGuids={},e.lastSize=null,p&&(p>34||p<10)||window.opera||t.addEventListener("progress",function(t){e.lastSize=t.loaded},!1)}),f.on("open-xhr-start",function(t){this.params={method:t[0]},i(this,t[1]),this.metrics={}}),f.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),f.on("send-xhr-start",function(t,e){var n=this.metrics,r=t[0],o=this;if(n&&r){var i=h(r);i&&(n.txSize=i)}this.startTime=(new Date).getTime(),this.listener=function(t){try{"abort"===t.type&&(o.params.aborted=!0),("load"!==t.type||o.called===o.totalCbs&&(o.onloadCalled||"function"!=typeof e.onload))&&o.end(e)}catch(n){try{f.emit("internal-error",[n])}catch(r){}}};for(var a=0;a<d;a++)e.addEventListener(u[a],this.listener,!1)}),f.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),f.on("xhr-load-added",function(t,e){var n=""+l(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),f.on("xhr-load-removed",function(t,e){var n=""+l(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),f.on("addEventListener-end",function(t,e){e instanceof m&&"load"===t[0]&&f.emit("xhr-load-added",[t[1],t[2]],e)}),f.on("removeEventListener-end",function(t,e){e instanceof m&&"load"===t[0]&&f.emit("xhr-load-removed",[t[1],t[2]],e)}),f.on("fn-start",function(t,e,n){e instanceof m&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=(new Date).getTime()))}),f.on("fn-end",function(t,e){this.xhrCbStart&&f.emit("xhr-cb-time",[(new Date).getTime()-this.xhrCbStart,this.onload,e],e)})}},{}],11:[function(t,e,n){e.exports=function(t){var e=document.createElement("a"),n=window.location,r={};e.href=t,r.port=e.port;var o=e.href.split("://");!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=e.hostname||n.hostname,r.pathname=e.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname);var i=!e.protocol||":"===e.protocol||e.protocol===n.protocol,a=e.hostname===document.domain&&e.port===n.port;return r.sameOrigin=i&&(!e.hostname||a),r}},{}],12:[function(t,e,n){function r(){}function o(t,e,n){return function(){return i(t,[(new Date).getTime()].concat(c(arguments)),e?null:this,n),e?void 0:this}}var i=t("handle"),a=t(15),c=t(16),s=t("ee").get("tracer"),f=NREUM;"undefined"==typeof window.newrelic&&(newrelic=f);var u=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(u,function(t,e){f[e]=o(d+e,!0,"api")}),f.addPageAction=o(d+"addPageAction",!0),f.setCurrentRouteName=o(d+"routeName",!0),e.exports=newrelic,f.interaction=function(){return(new r).get()};var p=r.prototype={createTracer:function(t,e){var n={},r=this,o="function"==typeof e;return i(l+"tracer",[Date.now(),t,n],r),function(){if(s.emit((o?"":"no-")+"fn-start",[Date.now(),r,o],n),o)try{return e.apply(this,arguments)}finally{s.emit("fn-end",[Date.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,e){p[e]=o(l+e)}),newrelic.noticeError=function(t){"string"==typeof t&&(t=new Error(t)),i("err",[t,(new Date).getTime()])}},{}],13:[function(t,e,n){e.exports=function(t){if("string"==typeof t&&t.length)return t.length;if("object"==typeof t){if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if(!("undefined"!=typeof FormData&&t instanceof FormData))try{return JSON.stringify(t).length}catch(e){return}}}},{}],14:[function(t,e,n){var r=0,o=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);o&&(r=+o[1]),e.exports=r},{}],15:[function(t,e,n){function r(t,e){var n=[],r="",i=0;for(r in t)o.call(t,r)&&(n[i]=e(r,t[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],16:[function(t,e,n){function r(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(o<0?0:o);++r<o;)i[r]=t[e+r];return i}e.exports=r},{}],17:[function(t,e,n){function r(t){return!(t&&t instanceof Function&&t.apply&&!t[a])}var o=t("ee"),i=t(16),a="nr@original",c=Object.prototype.hasOwnProperty,s=!1;e.exports=function(t,e){function n(t,e,n,o){function nrWrapper(){var r,a,c,s;try{a=this,r=i(arguments),c="function"==typeof n?n(r,a):n||{}}catch(f){l([f,"",[r,a,o],c])}u(e+"start",[r,a,o],c);try{return s=t.apply(a,r)}catch(d){throw u(e+"err",[r,a,d],c),d}finally{u(e+"end",[r,a,s],c)}}return r(t)?t:(e||(e=""),nrWrapper[a]=t,d(t,nrWrapper),nrWrapper)}function f(t,e,o,i){o||(o="");var a,c,s,f="-"===o.charAt(0);for(s=0;s<e.length;s++)c=e[s],a=t[c],r(a)||(t[c]=n(a,f?c+o:o,i,c))}function u(n,r,o){if(!s||e){var i=s;s=!0;try{t.emit(n,r,o)}catch(a){l([a,n,r,o])}s=i}}function d(t,e){if(Object.defineProperty&&Object.keys)try{var n=Object.keys(t);return n.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(r){l([r])}for(var o in t)c.call(t,o)&&(e[o]=t[o]);return e}function l(e){try{t.emit("internal-error",e)}catch(n){}}return t||(t=o),n.inPlace=f,n.flag=a,n}},{}],ee:[function(t,e,n){function r(){}function o(t){function e(t){return t&&t instanceof r?t:t?s(t,c,i):i()}function n(n,r,o){if(!l.aborted){t&&t(n,r,o);for(var i=e(o),a=h(n),c=a.length,s=0;s<c;s++)a[s].apply(i,r);var f=u[y[n]];return f&&f.push([g,n,r,i]),i}}function p(t,e){v[t]=h(t).concat(e)}function h(t){return v[t]||[]}function m(t){return d[t]=d[t]||o(n)}function w(t,e){f(t,function(t,n){e=e||"feature",y[n]=e,e in u||(u[e]=[])})}var v={},y={},g={on:p,emit:n,get:m,listeners:h,context:e,buffer:w,abort:a,aborted:!1};return g}function i(){return new r}function a(){(u.api||u.feature)&&(l.aborted=!0,u=l.backlog={})}var c="nr@context",s=t("gos"),f=t(15),u={},d={},l=e.exports=o();l.backlog=u},{}],gos:[function(t,e,n){function r(t,e,n){if(o.call(t,e))return t[e];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return t[e]=r,r}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],handle:[function(t,e,n){function r(t,e,n,r){o.buffer([t],r),o.emit(t,e,n)}var o=t("ee").get("handle");e.exports=r,r.ee=o},{}],id:[function(t,e,n){function r(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:a(t,i,function(){return o++})}var o=1,i="nr@id",a=t("gos");e.exports=r},{}],loader:[function(t,e,n){function r(){if(!b++){var t=g.info=NREUM.info,e=d.getElementsByTagName("script")[0];if(setTimeout(f.abort,3e4),!(t&&t.licenseKey&&t.applicationID&&e))return f.abort();s(v,function(e,n){t[e]||(t[e]=n)}),c("mark",["onload",a()],null,"api");var n=d.createElement("script");n.src="https://"+t.agent,e.parentNode.insertBefore(n,e)}}function o(){"complete"===d.readyState&&i()}function i(){c("mark",["domContent",a()],null,"api")}function a(){return(new Date).getTime()}var c=t("handle"),s=t(15),f=t("ee"),u=window,d=u.document,l="addEventListener",p="attachEvent",h=u.XMLHttpRequest,m=h&&h.prototype;NREUM.o={ST:setTimeout,CT:clearTimeout,XHR:h,REQ:u.Request,EV:u.Event,PR:u.Promise,MO:u.MutationObserver},t(12);var w=""+location,v={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1016.min.js"},y=h&&m&&m[l]&&!/CriOS/.test(navigator.userAgent),g=e.exports={offset:a(),origin:w,features:{},xhrWrappable:y};d[l]?(d[l]("DOMContentLoaded",i,!1),u[l]("load",r,!1)):(d[p]("onreadystatechange",o),u[p]("onload",r)),c("mark",["firstbyte",a()],null,"api");var b=0},{}]},{},["loader",2,10,4,3]);</script>
+<meta name="generator" content="Drupal 7 (http://drupal.org)" />
+<link rel="canonical" href="https://www.splcenter.org/privacy-policy-terms" />
+<link rel="shortlink" href="https://www.splcenter.org/privacy-policy-terms" />
+<meta property="og:site_name" content="Southern Poverty Law Center" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.splcenter.org/privacy-policy-terms" />
+<meta property="og:title" content="Privacy Policy &amp; Terms" />
+<meta property="og:image" content="https://www.splcenter.org/sites/default/files/10426930_10152512727559700_2647771730634151427_n.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:creator" content="@splcenter" />
+<meta name="twitter:creator:id" content="65698096" />
+<meta name="twitter:url" content="https://www.splcenter.org/privacy-policy-terms" />
+<meta name="twitter:title" content="Privacy Policy &amp; Terms" />
+  <title>Privacy Policy & Terms | Southern Poverty Law Center</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <link rel="shortcut icon" href="/profiles/splc/themes/custom/splc/images/favicon.ico">
+  <link type="text/css" rel="stylesheet" href="https://www.splcenter.org/sites/default/files/css/css_xE-rWrJf-fncB6ztZfd2huxqgxu4WO-qwma6Xer30m4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://www.splcenter.org/sites/default/files/css/css_Dx7oqAVlRBb9yLyHErj9NpI34Ky_zX9QLpM_yhpAKdw.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://www.splcenter.org/sites/default/files/css/css_ly7GeFZqlE7svqWvH-hh4lj9WsGapxjFFBCdJKUjsTM.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://www.splcenter.org/sites/default/files/css/css_pgcJqTq1BuUGh-MPVHo8BmLw5Vixu2Yjh224d5f-Hxg.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://www.splcenter.org/sites/default/files/css/css_6RZPAfOvhycNNPA7BXNLL3B4QKw06i1Kai0A2T8Uugg.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://www.splcenter.org/sites/default/files/css/css_Xi-nzzgUtSBNIGQIc3k9No6Hm49oB_GIa9Fu9Z67ORs.css" media="print" />
+  <link rel="stylesheet" type="text/css" href="//cloud.typography.com/71500/671746/css/fonts.css" />
+</head>
+<body class="html not-front not-logged-in no-sidebars page-node page-node- page-node-10490 node-type-page role-anonymous-user with-subnav page-privacy-policy-terms section-privacy-policy-terms" >
+  <div id="skip" class="element-invisible">
+    <a href="#content">Jump to Navigation</a>
+  </div>
+    <div id="page" class="page with-navigation">
+
+  <section id="site-search">
+    <div class="container">
+      <form action="/resources" method="get">
+        <input type="text" name="keyword" value="" placeholder="  Search splcenter.org">
+      </form>
+      <button class="close-button"></button>
+    </div>
+  </section>
+  <!-- ______________________ HEADER _______________________ -->
+
+      <img id='print-logo' src="https://www.splcenter.org/profiles/splc/themes/custom/splc/logo.png" alt="Home"/>
+      
+
+  <header id="header">
+            <div id="logo-container" class="container">
+      <a href="/" title="Home" rel="home" id="logo">
+        <!--<img src="https://www.splcenter.org/profiles/splc/themes/custom/splc/logo.png" alt="Home"/>-->
+      </a>
+      </div>
+      <a class="search-toggle"><span>Search</span></a>
+      <a class="nav-toggle"><span>Menu</span></a>
+      
+            <div id="main-navigation">
+          <div id="block-menu_block-1" class="block block-menu-block block-odd first clearfix">
+  <div class="block-inner">
+
+            
+
+    <div class="content" >
+      <div class="menu-block-wrapper menu-block-1 menu-name-main-menu parent-mlid-0 menu-level-1">
+  <ul class="menu"><li class="first expanded menu-mlid-747 what-we-do mid-747"><a href="/what-we-do">What We Do</a><ul class="menu"><li class="first leaf has-children menu-mlid-751 fighting-hate mid-751"><a href="/fighting-hate">Fighting Hate</a></li>
+<li class="leaf has-children menu-mlid-752 teaching-tolerance mid-752"><a href="/teaching-tolerance">Teaching Tolerance</a></li>
+<li class="leaf menu-mlid-753 seeking-justice mid-753"><a href="/seeking-justice">Seeking Justice</a></li>
+<li class="last leaf has-children menu-mlid-940 civil-rights-memorial mid-940"><a href="/civil-rights-memorial">Civil Rights Memorial</a></li>
+</ul></li>
+<li class="expanded menu-mlid-748 our-issues mid-748"><a href="/issues">Our Issues</a><ul class="menu"><li class="first leaf menu-mlid-782 hate-extremism mid-782"><a href="/issues/hate-and-extremism">Hate &amp; Extremism</a></li>
+<li class="leaf menu-mlid-783 children-s-rights mid-783"><a href="/issues/childrens-rights">Children&#039;s Rights</a></li>
+<li class="leaf has-children menu-mlid-788 immigrant-justice mid-788"><a href="/issues/immigrant-justice">Immigrant Justice</a></li>
+<li class="leaf has-children menu-mlid-785 lgbt-rights mid-785"><a href="/issues/lgbt-rights">LGBT Rights</a></li>
+<li class="leaf menu-mlid-943 economic-justice mid-943"><a href="/issues/economic-justice">Economic Justice</a></li>
+<li class="last leaf menu-mlid-784 criminal-justice-reform mid-784"><a href="/issues/mass-incarceration">Criminal Justice Reform</a></li>
+</ul></li>
+<li class="expanded menu-mlid-1197 resources mid-1197"><a href="/resources">Resources</a><ul class="menu"><li class="first leaf menu-mlid-1198 case-docket mid-1198"><a href="/seeking-justice/case-docket">Case Docket</a></li>
+<li class="leaf menu-mlid-869 extremist-files mid-869"><a href="/fighting-hate/extremist-files">Extremist Files</a></li>
+<li class="leaf menu-mlid-1080 hatewatch mid-1080"><a href="https://www.splcenter.org/hatewatch">Hatewatch</a></li>
+<li class="leaf menu-mlid-1195 intelligence-report mid-1195"><a href="/intelligence-report">Intelligence Report</a></li>
+<li class="leaf menu-mlid-962 publications mid-962"><a href="/resources?f%5B0%5D=splc_resource_types%3APublication">Publications</a></li>
+<li class="last leaf menu-mlid-1193 hate-incidents mid-1193"><a href="/fighting-hate/hate-incidents">Hate Incidents</a></li>
+</ul></li>
+<li class="leaf menu-mlid-750 hate-map mid-750"><a href="/hate-map">Hate Map</a></li>
+<li class="leaf menu-mlid-1194 hatewatch mid-1194"><a href="/hatewatch">Hatewatch</a></li>
+<li class="leaf menu-mlid-1068 donate mid-1068"><a href="https://donate.splcenter.org/sslpage.aspx?pid=463" class="donate-on-scroll animated">Donate</a></li>
+<li class="last leaf menu-mlid-1216 search mid-1216"><a href="/resources" class="search-toggle-on-scroll">Search</a></li>
+</ul></div>
+    </div>
+
+  </div>
+</div> <!-- /block-inner /block -->      </div>
+      
+            <div id="secondary-nav">
+        <div class="mobile-giving">
+          <a class="donate" href="https://donate.splcenter.org/sslpage.aspx?pid=463">Donate</a>
+          <a class="ways-to-give" href="/splc/membership">Ways to Give</a>
+        </div>
+          <div id="block-menu_block-2" class="block block-menu-block block-odd first clearfix">
+  <div class="block-inner">
+
+            
+
+    <div class="content" >
+      <div class="menu-block-wrapper menu-block-2 menu-name-menu-secondary parent-mlid-0 menu-level-1">
+  <ul class="menu"><li class="first leaf menu-mlid-754 facebook mid-754"><a href="https://www.facebook.com/SPLCenter" target="_blank">Facebook</a></li>
+<li class="leaf menu-mlid-755 twitter mid-755"><a href="https://twitter.com/splcenter" target="_blank">Twitter</a></li>
+<li class="leaf menu-mlid-1196 news mid-1196"><a href="/news">News</a></li>
+<li class="leaf has-children menu-mlid-757 about-us mid-757"><a href="/about">About Us</a></li>
+<li class="leaf menu-mlid-758 ways-to-give mid-758"><a href="/membership">Ways to Give</a></li>
+<li class="last leaf menu-mlid-759 donate mid-759"><a href="http://donate.splcenter.org/page.aspx?pid=463">Donate</a></li>
+</ul></div>
+    </div>
+
+  </div>
+</div> <!-- /block-inner /block -->      </div>
+        </header> <!-- /header -->
+
+<!-- ______________________ MAIN _______________________ -->
+
+
+
+  
+  <!-- BANNER -->
+  <section id="banner">
+    <!-- PAGE TITLE -->
+                <!-- BANNER CONTENT -->
+      </section>
+  <!-- /BANNER -->
+
+  
+  
+  
+  
+  <!-- Main Content-->
+  <section id="main-content">
+    <div class="container">
+              <div class="tabs"></div>
+      
+      
+      <div id="content-area">
+          <div id="block-system-main" class="block block-system block-odd first clearfix">
+  <div class="block-inner">
+
+            
+
+    <div class="content" >
+      <article id="node-10490" class="node node-page node-odd">
+
+  
+  <div class="content">
+    <header class="group-header"><div class="group-text-wrapper field-group-div"><div class="field field-name-title-field field-type-text field-label-hidden">
+    <div class="field-items">
+                <div class="field-item even "><h1 class="page-title">Privacy Policy &amp; Terms</h1>
+</div>
+      </div>
+</div>
+<div class="field field-name-field-addthis field-type-addthis field-label-hidden">
+    <div class="field-items">
+                <div class="field-item even "><div class="addthis_toolbox addthis_default_style  " addthis:title="Privacy Policy &amp;amp; Terms - Southern Poverty Law Center" addthis:url="https://www.splcenter.org/privacy-policy-terms"><a href="#" class="addthis_button_facebook"></a>
+<a href="#" class="addthis_button_twitter"></a>
+</div>
+</div>
+      </div>
+</div>
+</div></header><div class="addthis-body-wrapper"><div class="field field-name-body field-type-text-with-summary field-label-hidden">
+    <div class="field-items">
+                <div class="field-item even "><p><a href="#terms"><em>Skip to Terms &amp; Conditions</em></a></p>
+<p>This Privacy Policy sets forth the practices in effect at the Southern Poverty Law Center to protect the privacy of its website visitors and financial supporters, as well as recipients of its print publications. This Policy also outlines how you can update your information or receive additional information.</p>
+<p><strong>Protecting your information</strong><br />
+The SPLC uses electronic security systems to protect any records containing personal identifying information and limits the number of people who have access to such information. Business partners with whom the SPLC may share personal information during the course of usual business must abide by confidentiality agreements, which forbid the disclosure of any personal identifying information to additional parties.</p>
+<p><strong>Online Giving</strong><br />
+The SPLC's online donation process occurs in a secure portion of the SPLCenter.org website. Submissions are encrypted and secure from outside users via Secure Sockets Layer (SSL) software, the industry standard for secure online transactions. All personal information - including credit card number, name, and address - is encrypted so it cannot be read as it travels over the Internet.</p>
+<p>The SPLC wants you to have positive experiences at its websites - SPLCenter.org and Tolerance.org - and to understand your privacy rights while on its websites. If you do not agree with the terms outlined below, do not access the SPLC's websites.</p>
+<p><strong>Non-Personal Identifying Information</strong><br />
+The SPLC collects and uses non-personal identifying information, including IP addresses and web server log files. It also uses "cookies," small pieces of information used to identify individual computers accessing a website.</p>
+<p>The SPLC uses this information only in the aggregate. It does not combine non-personal identifying information with personal identifying information, commonly known as "online profiling." At no time is personal information stored in a cookie.</p>
+<p>The SPLC collects non-personal identifying information from websites in the aggregate. It uses this information to assess aggregate visitor volume and interest, i.e. which site pages are being visited most frequently.</p>
+<p>The SPLC shares aggregated, non-identifying, demographic information about the websites' usage with its sponsors and partners. For example, the SPLC might disclose to its donors that 1,000,000 people visited SPLCenter.org in a given year.</p>
+<p><strong>Personal Identifying Information</strong><br />
+If you voluntarily provide personal identifying information (such as a first and last name, physical address including a street name, e-mail address, etc.) through online forms, the SPLC will collect and retain this information.</p>
+<p>The personal identifying information will be used to establish the identity of account holders in order to respond to inquiries or to deliver requested information or services. For example, if you subscribe to one of the SPLC's e-newsletters, the SPLC will store your name and e-mail address and send the requested e-newsletters to the e-mail address.</p>
+<p>The SPLC does not make personal identifying information gathered on its websites available to other organizations, but may share information with business partners, in the usual course of business. For example, the SPLC may use a third-party vendor to electronically distribute its e-newsletters. In order to send the e-newsletters, the SPLC must share the e-mail address of subscribers with the vendor. Vendors that provide such services are obligated only to use this information for the purposes for which the SPLC directs them to use it; namely, providing services directly for the SPLC.</p>
+<p><strong>Protecting Children's Privacy</strong><br />
+On web pages that are directed toward children under the age of 13, the SPLC limits its collection of information to non-personal identifying information, such as first name, grade, hometown and state, in an effort to comply voluntarily with the Children's Online Privacy Protection Act.</p>
+<p>The SPLC does not knowingly collect and retain personal identifying information from persons under the age of 13 and has safeguards in place to attempt to ensure it does not inadvertently collect and retain such information.</p>
+<p>The SPLC strongly urges children to check with their parents before entering information on its websites, and it urges parents to discuss with their children restrictions concerning the online release of personal identifying information to anyone they do not know.</p>
+<p><strong>Links</strong></p>
+<p>This policy applies only to the SPLCenter.org and Tolerance.org domains. The SPLC does not control the privacy policies of other websites to which the SPLC might link.</p>
+<p>The Southern Poverty Law Center is committed to maintaining the confidence and trust of its financial supporters.</p>
+<p>The SPLC collects the personal information that supporters provide. After someone donates to the SPLC, his or her information is added to the SPLC's membership list. The SPLC uses this information to keep donors informed about the progress of its programs through print and online mailings and to encourage donors' continued financial support of its work.</p>
+<p>The SPLC shares donor information with business partners as required in the usual course of business. For example, the SPLC may use a vendor to assist in the generation and distribution of written communications to donors.</p>
+<p>The SPLC makes its membership list available to reputable charities and businesses whose information we believe may be of interest to our members. Our ability to share your name with other entities will help build our supporter base. Sharing our list with others is the most cost-efficient way to find new supporters. We hope you agree. The option is yours. If you do not want your name used in this fashion, please let us know. You may contact us via this website by using our contact form. Please include your full name and address with your request.</p>
+<p>As part of its public service, the SPLC publishes and distributes magazines, handbooks and multimedia kits to help equip teachers, human rights workers, law enforcement and others with tools and resources to promote tolerance in their communities. This portion of the Privacy Policy outlines the SPLC's privacy practices that relate to people who receive those products.</p>
+<p>In order to receive SPLC products, an individual must provide personal identifying information (such as a first and last name, physical address including a street name, e-mail address, etc.) The SPLC will collect and retain this information.</p>
+<p>The SPLC does not make the personal identifying information of people who order its products available to other organizations.</p>
+<p>The personal identifying information is used to establish the identity of recipients, deliver requested products to recipients and make recipients aware of additional or new SPLC products that might interest them. In order to evaluate the usefulness of its materials, the SPLC may also contact, by phone, e-mail or regular mail, persons who have ordered its products.</p>
+<p>The SPLC may share information with business partners in the usual course of business. For example, the Center may use a vendor to help distribute products.</p>
+<p>The SPLC does not disclose individual order histories, but may disclose aggregated order histories for its products. For example, the SPLC would not disclose that "John Doe ordered a copy of this magazine", but could disclose that 300,000 copies of that magazine were ordered.</p>
+<p>For more information, contact:</p>
+<p>Privacy Coordinator<br />
+Southern Poverty Law Center<br />
+400 Washington Avenue<br />
+Montgomery, AL 36104</p>
+<p>In the event that this Privacy Policy changes, the SPLC will post an updated policy on this page.</p>
+<p><a name="terms" id="terms"> </a></p>
+<h2><a name="terms" id="terms">Terms &amp; Conditions</a></h2>
+<p>This User Agreement governs the use of the Southern Poverty Law Center’s (“SPLC”) websites (the “Websites”) and is binding on all persons, entities, or computer programs that access the Websites (the “Users”).</p>
+<p>Please read this User Agreement carefully. You can access this User Agreement any time in the footer of the splcenter.org home page. Your access, visitation and/or use of the Websites will constitute your agreement to this User Agreement. If you do not agree with the terms and conditions of this User Agreement, you may not access, visit and/or use the Websites.</p>
+<p>The User Agreement may be modified from time to time; the date of the most recent revisions will appear on this page, so check back often. Continued access of the Websites by you will constitute your acceptance of any changes or revisions to the User Agreement.</p>
+<p><strong>User-Generated Content AND USER RESPONSIBILITIES</strong></p>
+<p>Some areas of the Websites allow Users to post content such as comments, questions, and other content or information (“User-Generated Content”).  The SPLC uses Disqus as its vendor to provide a platform for User-Generated Content on the Websites.  Any User-Generated Content available on the Websites is hosted on one of Disqus’s websites and in turn embedded on the Websites.  Users posting via Disqus’s platform are subject to Disqus’s Terms of Service available at <a href="http://help.disqus.com/customer/portal/articles/466260-terms-of-service">http://help.disqus.com/customer/portal/articles/466260-terms-of-service</a>.  In addition to this User Agreement, you agree that any User-Generated Content that you post on the Websites is governed by and will abide by the Terms of Service provided by Disqus.  In the event that Disqus’s Terms of Service conflict with this User Agreement, this User Agreement prevails in governing the relationship between You and the SPLC.   </p>
+<p>Additionally, you agree not to engage in any of the following prohibited activities or behaviors:</p>
+<ul><li>impersonate, imitate or pretend to be somebody else, by setting up different accounts/profiles, or falsely state, represent, or imply any affiliation, association, or connection with a person or entity when using the Websites;</li>
+<li>post, upload, transmit, send or otherwise make available on or through the Websites any content that constitutes junk mail, spam, pyramid schemes, chain letters, phishing, advertising, and/or commercial offers;</li>
+<li>use any language that is, or post, upload, transmit, send or otherwise make available on or through the Websites any User-Generated Content about a person or group that is violent or that victimizes, degrades, defiles or disparages any person or group based on race, color, religion, national origin, ancestry, citizenship status, physical or mental disability, sex, sexual orientation, gender identity and expression, age, medical condition, or veteran status or otherwise engage in what we deem to be racism, sexism, ageism, religious intolerance, bigotry, ethnic slurs, or homophobia;</li>
+<li>use any language, or post, upload, transmit, send or otherwise make available on or through the Websites any User-Generated Content that may or is intended to enable, authorize, instruct, encourage, assist, suggest, or promote activities that incite violence, constitute a criminal offense, give rise to civil liability, or otherwise violate any local, state, federal, provincial, national, international, or foreign law, rule or regulation, including without limitation libel, child pornography, fraud, or invasion of privacy;</li>
+<li>stalk others on or through the Websites, or using information obtained on or through the Websites;</li>
+<li>disrupt, overwhelm, attack, hack, destroy, damage, disable, impair, repossess, alter, tamper or interfere with the Websites, including without limitation any content, communications, messaging, programming, hardware, functionality, or features on our networks, servers or databases, or impede or interfere with others' access, visitation, and/or use of the Websites, in any way or by any means, whether remotely or by access to our personal property, premises, or otherwise, including, without limitation, by using administrator passwords or by masquerading as an administrator while using the Websites or otherwise; or</li>
+<li>post, upload, transmit, send or otherwise make available on or through the Websites any software disabling devices, time bombs, Trojan horses, cancelbots, viruses, worms, bugs, corrupted files, spyware, adware, malware, malicious programs or code, or devices or defects of similar nature.</li>
+</ul><p>CAUTION: ANY ATTEMPT TO DO ANY OF THE FOREGOING PROHIBITED ACTS, OR TO OTHERWISE UNDERMINE THE OPERATION OF THE WEBSITES, MAY BE A VIOLATION OF CRIMINAL AND CIVIL LAW. SHOULD SUCH AN ATTEMPT BE MADE, WE RESERVE THE RIGHT, IN ADDITION TO OUR OTHER REMEDIES, TO SEEK DAMAGES (INCLUDING WITHOUT LIMITATION ATTORNEYS' FEES) FROM ANY SUCH INDIVIDUAL OR ENTITY TO THE FULLEST EXTENT PERMITTED BY LAW, INCLUDING CRIMINAL PROSECUTION.</p>
+<p><strong>Copyright Policy</strong></p>
+<p>Reporting Claims of Copyright Infringement</p>
+<p>We take claims of copyright infringement seriously. The copyright policy applicable to User-Generated Content is available through SPLC’s vendor, Disqus, at <a href="http://help.disqus.com/customer/portal/articles/466260-terms-of-service">http://help.disqus.com/customer/portal/articles/466260-terms-of-service</a>.  As stated in Disqus’s policies, if you believe any User-Generated Content on the Websites infringe your copyright, you may request removal of those materials (or access thereto) from the Websites by submitting written notification to Disqus in accordance with the Online Copyright Infringement Liability Limitation Act of the Digital Millennium Copyright Act (17 U.S.C. § 512) ("DMCA").  The procedures for submitting a notice to Disqus under the DMCA are outlined in Disqus’s Terms of Service available at <a href="http://help.disqus.com/customer/portal/articles/466260-terms-of-service">http://help.disqus.com/customer/portal/articles/466260-terms-of-service</a>.</p>
+<p><strong>SPLC assumes no liability for User-Generated Content</strong></p>
+<p>The SPLC has a right, but not a duty, to monitor, edit, and delete User-Generated Content.  SPLC takes no responsibility and assumes no liability for any User-Generated Content that you or any other User or third party posts or sends over the Websites. You shall be solely responsible for your User-Generated Content and the consequences of posting or publishing it, and you agree that we are only acting as a passive conduit for your online distribution and publication of your User-Generated Content. You understand and agree that you may be exposed to User-Generated Content that is inaccurate, objectionable, inappropriate for children, or otherwise unsuited to your purpose, and you agree that SPLC shall not be liable for any damages you allege to incur as a result of content on the Websites, including any User-Generated Content.</p>
+<p><strong>Monitoring </strong></p>
+<p>We may monitor activity on the Websites to foster compliance with the User Agreement. You hereby specifically agree to such monitoring. Nevertheless, we do not make any representations, warranties or guarantees that: (1) the Websites, or any portion thereof, will be monitored for accuracy or unacceptable use, (2) apparent statements of fact will be authenticated, or (3) we will take any specific action (or any action at all) in the event of a challenge or dispute regarding compliance or non-compliance with the Agreement. We generally do not pre-screen User-Generated Content before it is posted, uploaded, transmitted, sent or otherwise made available on or through the Websites by Users, so you may be exposed to User-Generated Content that is offensive, and/or inappropriate, including User-Generated Content that violates the User Agreement.</p>
+<p><strong>Editing, Additions and Deletions</strong></p>
+<p>We reserve the right, but undertake no duty, in our sole discretion, with or without notice, to review, edit, move, add, delete, or otherwise change any features, functionality, and/or User-Generated Content available on or through, or downloadable from, the Websites.  Even after User-Generated Content is removed from the Websites, whether such removal or deletion is by you or by us, copies of that User-Generated Content may be retained and/or remain viewable by us, our licensors, vendors, service providers and/or other third parties, including other users.</p>
+<p><strong>The SPLC is not responsible for the consequences of your User-Generated Content</strong></p>
+<p>Please be aware that any User-Generated Content you disclose in publicly accessible portions of the Websites may be available to other users, so you should be mindful of personally identifiable information and sensitive content you may wish to post. WE ARE NOT RESPONSIBLE FOR THE CONSEQUENCES OF CONTENT OR PERSONALLY IDENTIFIABLE INFORMATION YOU POST, UPLOAD, TRANSMIT, SEND OR OTHERWISE MAKE AVAILABLE ON THE WEBSITES. </p>
+<p><strong>The SPLC can use User-Generated Content for any purpose</strong></p>
+<p>By posting, uploading, transmitting, sending or otherwise making available User-Generated Content, or engaging in any other form of communication with us (on or through the Websites or otherwise) you irrevocably grant us a royalty-free, perpetual, non-exclusive, unrestricted, worldwide right and license to copy, reproduce, modify, edit, crop, alter, revise, adapt, translate, enhance, reformat, remix, rearrange, resize, create derivative works of, move, remove, delete, erase, reverse-engineer, store, cache, aggregate, publish, post, display, distribute, broadcast, perform, transmit, rent, sell, share, sublicense, syndicate, or otherwise provide to others, use, or change all such User-Generated Content and communications, in any medium (now in existence or hereinafter developed) and for any purpose, including commercial purposes, and to authorize others to do so. Among other things, this means that we may use any ideas, suggestions, developments, and/or inventions that you post, upload, transmit, send or otherwise make available in any manner as we see fit without any compensation or attribution to you.</p>
+<p><strong>SPLC Property and Attribution</strong></p>
+<p>Southern Poverty Law Center, SPLC, the SPLC logo, Teaching Tolerance, Hatewatch, Intelligence Project, Mixitup, The March Continues and the design of the Websites are trademarks or trade dress of SPLC, and may not be used without express written permission from SPLC, other than for attribution.<br />
+ <br />
+All trademarks not owned by SPLC that appear on the Websites are the property of their respective owners, who may or may not be affiliated with, connected to, or sponsored by SPLC.</p>
+<p><strong>Privacy</strong></p>
+<p>We care about the privacy of our Users. You understand that by using the Websites you consent to the collection, use and disclosure of your personally identifiable information and aggregate data as set forth in our Privacy Policy <a href="http://www.splcenter.org/node/7">http://www.splcenter.org/node/7</a>.</p>
+<p><strong>Third-Party Links</strong></p>
+<p>The Websites may contain links to third-party websites, advertisers, services, special offers, or other events or activities that are not owned or controlled by SPLC. SPLC does not endorse or assume any responsibility for any such third-party sites, information, materials, products, or services. If you access a third party website from the Websites, you do so at your own risk, and you understand that this User Agreement and SPLC’s Privacy Policy do not apply to your use of such sites. You expressly relieve SPLC from any and all liability arising from your use of any third-party website, service, or content. </p>
+<p><strong>Breach of the Agreement</strong></p>
+<p>If you breach, violate, fail to follow, or act inconsistently with the rules, restrictions, limitations, terms and/or conditions that apply to the Websites, whether listed in this User Agreement, the Privacy Policy, posted at various points in the Websites, or otherwise communicated to users of the Websites (collectively, the "Agreement"), we may terminate, discontinue, suspend, and/or restrict your account/profile, your ability to access, visit, and/or use the Websites or any portion thereof, with or without notice, in addition to our other remedies. We reserve the right, in addition to our other remedies, to take any technical, legal, and/or other action(s) that we deem necessary and/or appropriate, with or without notice, to prevent violations and enforce the Agreement and remediate any purported violations. You acknowledge and agree that we have the right hereunder to an injunction without posting a bond to stop or prevent a breach or violation of your obligations under the Agreement.</p>
+<p><strong>Disputes and Jurisdiction</strong></p>
+<p>The Websites are based in the United States. The websites are not designed, customized or intended for, or directed to, any other country. Those who choose to access, visit and/or use the Websites do so on their own initiative and are responsible for compliance with local laws, if and to the extent local laws are applicable. We make no representation, warranty or guarantee that the Websites or content available on or through the Websites are appropriate, available, or legal in any particular geographic location.</p>
+<p>In any dispute between us, your sole remedy is to stop using the Websites. This includes any dispute related to or arising out of: (i) rules, restrictions, limitations, terms and conditions that apply to the Websites, whether listed in this User Agreement and Privacy Policy, through Disqus’s incorporated Terms of Service, posted at various points in the Websites, or otherwise communicated to you, including our enforcement, non-enforcement, or application of any such rules; (ii) any of our policies and/or practices, including our enforcement, non-enforcement, or application of any such policies and/or practices; (iii) any content available on or through the Websites, or any edits, deletions, additions, or other changes thereto; or (iv) your ability or inability to access, visit and/or use portions of the Websites, or the Websites as a whole, or features, functionality, and/or content available on or through the Websites.</p>
+<p>You agree that in the event of any dispute between us, you will first contact us and make a good faith sustained effort to resolve the dispute before resorting to more formal means of resolution, including without limitation any court action. In the event of any court action, all disputes will be resolved individually, without resort to any class action. Furthermore, you agree that any cause of action must commence within one (1) year after the underlying issue first arose; otherwise, you waive any right to bring such cause of action and such cause of action is permanently barred.</p>
+<p><strong>Governing Law.</strong></p>
+<p>You agree that: (i) the Websites shall be deemed solely based in Alabama; and (ii) the Websites shall be deemed passive ones that do not give rise to personal jurisdiction over SPLC, either specific or general, in jurisdictions other than Alabama. This User Agreement shall be governed by the internal substantive laws of the State of Alabama, without respect to its conflict of laws principles. The application of the United Nations Convention on Contracts for the International Sale of Goods is expressly excluded. You agree to submit to the personal jurisdiction of a state or federal court located in Montgomery County, Alabama for any claims.</p>
+<p>ALL CLAIMS MUST BE BROUGHT IN THE PARTY’S INDIVIDUAL CAPACITY, AND NOT AS A PLAINTIFF OR CLASS MEMBER IN ANY PURPORTED CLASS OR REPRESENTATIVE PROCEEDING. YOU AGREE THAT, BY ENTERING INTO THESE TERMS, YOU ARE WAIVING THE RIGHT TO PARTICIPATE IN A CLASS ACTION.</p>
+<p>If for any reason a court of competent jurisdiction finds any provision of the Agreement, or portion thereof, to be invalid or unenforceable, that provision or portion will be enforced to the maximum extent permissible so as to effect the intent of the parties, and the remainder of the Agreement will continue to be valid and enforceable in full force and effect.</p>
+<p><strong>Indemnity</strong></p>
+<p>You agree to defend, indemnify and hold harmless SPLC and its subsidiaries, agents, licensors, managers, and other affiliated companies, and their employees, contractors, agents, officers and directors, from and against any and all claims, damages, obligations, losses, liabilities, costs or debt, and expenses (including but not limited to attorney’s fees) arising from: (i) your use of and access to the Websites, including any data or content transmitted or received by you; (ii) your violation of any provision of the Agreement; (iii) your violation of any third-party right, including without limitation any right of privacy, Intellectual Property Rights, or claims for libel; (iv) your violation of any applicable law, rule or regulation; (v) any claim or damages that arise as a result of any of your User-Generated Content or any that is submitted via your account; or (vi) any other party’s access and use of the Websites with your unique username, password or other appropriate security code.</p>
+<p><strong>No Warranty and Limitation of Liability</strong></p>
+<p>THE WEBSITES ARE PROVIDED ON AN “AS IS” AND “AS AVAILABLE” BASIS. USE OF THE WEBSITES IS AT YOUR OWN RISK. TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, THE WEBSITES ARE PROVIDED WITHOUT WARRANTIES OF ANY KIND, WHETHER EXPRESS OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT. WITHOUT LIMITING THE FOREGOING, SPLC, ITS SUBSIDIARIES, AND ITS LICENSORS DO NOT WARRANT THAT THE CONTENT IS ACCURATE, RELIABLE OR CORRECT; THAT THE WEBSITES WILL MEET YOUR REQUIREMENTS; THAT THE WEBSITES WILL BE AVAILABLE AT ANY PARTICULAR TIME OR LOCATION, UNINTERRUPTED OR SECURE; THAT ANY DEFECTS OR ERRORS WILL BE CORRECTED; OR THAT THE WEBSITES ARE FREE OF VIRUSES OR OTHER HARMFUL COMPONENTS. ANY CONTENT DOWNLOADED OR OTHERWISE OBTAINED THROUGH THE USE OF THE WEBSITES IS DOWNLOADED AT YOUR OWN RISK AND YOU WILL BE SOLELY RESPONSIBLE FOR ANY DAMAGE TO YOUR COMPUTER SYSTEM OR LOSS OF DATA THAT RESULTS FROM SUCH DOWNLOAD OR YOUR USE OF THE WEBSITES.</p>
+<p>TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL SPLC, ITS AFFILIATES, AGENTS, DIRECTORS, EMPLOYEES, OR LICENSORS BE LIABLE FOR ANY DIRECT, INDIRECT, PUNITIVE, INCIDENTAL, SPECIAL, CONSEQUENTIAL OR EXEMPLARY DAMAGES, INCLUDING WITHOUT LIMITATION DAMAGES FOR LOSS OF PROFITS, GOODWILL, USE, DATA OR OTHER INTANGIBLE LOSSES, THAT RESULT FROM THE USE OF, OR INABILITY TO USE, THE WEBSITES. UNDER NO CIRCUMSTANCES WILL SPLC BE RESPONSIBLE FOR ANY DAMAGE, LOSS OR INJURY RESULTING FROM HACKING, TAMPERING OR OTHER UNAUTHORIZED ACCESS OR USE OF THE WEBSITES OR YOUR ACCOUNT OR THE INFORMATION CONTAINED THEREIN.</p>
+<p>TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, SPLC ASSUMES NO LIABILITY OR RESPONSIBILITY FOR ANY (I) ERRORS, MISTAKES, OR INACCURACIES OF CONTENT; (II) PERSONAL INJURY OR PROPERTY DAMAGE, OF ANY NATURE WHATSOEVER, RESULTING FROM YOUR ACCESS TO OR USE OF OUR WEBSITES; (III) ANY UNAUTHORIZED ACCESS TO OR USE OF OUR SECURE SERVERS AND/OR ANY AND ALL PERSONAL INFORMATION STORED THEREIN; (IV) ANY INTERRUPTION OR CESSATION OF TRANSMISSION TO OR FROM THE WEBSITES; (V) ANY BUGS, VIRUSES, TROJAN HORSES, OR THE LIKE THAT MAY BE TRANSMITTED TO OR THROUGH OUR WEBSITES BY ANY THIRD PARTY; (VI) ANY ERRORS OR OMISSIONS IN ANY CONTENT OR FOR ANY LOSS OR DAMAGE INCURRED AS A RESULT OF THE USE OF ANY CONTENT POSTED, EMAILED, TRANSMITTED, OR OTHERWISE MADE AVAILABLE THROUGH THE WEBSITES; AND/OR (VII) USER-GENERATED CONTENT OR THE DEFAMATORY, OFFENSIVE, OR ILLEGAL CONDUCT OF ANY THIRD PARTY. IN NO EVENT SHALL SPLC, ITS AFFILIATES, AGENTS, DIRECTORS, EMPLOYEES, SUPPLIERS, OR LICENSORS BE LIABLE TO YOU FOR ANY CLAIMS, PROCEEDINGS, LIABILITIES, OBLIGATIONS, DAMAGES, LOSSES OR COSTS IN AN AMOUNT EXCEEDING GREATER THAN EITHER (A) THE AMOUNT YOU PAID TO SPLC HEREUNDER OR (B) 1 DOLLAR.</p>
+<p>THIS LIMITATION OF LIABILITY SECTION APPLIES WHETHER THE ALLEGED LIABILITY IS BASED ON CONTRACT, TORT, NEGLIGENCE, STRICT LIABILITY, OR ANY OTHER BASIS, EVEN IF SPLC HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. THE FOREGOING LIMITATION OF LIABILITY SHALL APPLY TO THE FULLEST EXTENT PERMITTED BY LAW IN THE APPLICABLE JURISDICTION.</p>
+<p>SOME STATES DO NOT ALLOW THE EXCLUSION OF IMPLIED WARRANTIES OR THE EXCLUSION OR LIMITATION OF INCIDENTAL OR CONSEQUENTIAL DAMAGES, SO THE ABOVE LIMITATIONS OR EXCLUSIONS MAY NOT APPLY TO YOU. THESE TERMS GIVE YOU SPECIFIC LEGAL RIGHTS, AND YOU MAY ALSO HAVE OTHER RIGHTS WHICH VARY FROM STATE TO STATE. THE DISCLAIMERS, EXCLUSIONS, AND LIMITATIONS OF LIABILITY UNDER THESE TERMS WILL NOT APPLY TO THE EXTENT PROHIBITED BY APPLICABLE LAW.</p>
+<p>The Websites are controlled and operated from its facilities in the United States. SPLC makes no representations that the Websites are appropriate or available for use in other locations. Those who access or use the Websites from other jurisdictions do so at their own volition and are entirely responsible for compliance with all applicable United States and local laws and regulations.</p>
+<p><strong>Assignment</strong></p>
+<p>These Terms, and any rights and licenses granted hereunder, may not be transferred or assigned by you, but may be assigned by SPLC without restriction. Any attempted transfer or assignment in violation hereof shall be null and void.</p>
+</div>
+      </div>
+</div>
+</div>  </div> <!-- /content -->
+
+  
+      <div class="links">
+          </div> <!-- /links -->
+  
+  </article> <!-- /article #node -->    </div>
+
+  </div>
+</div> <!-- /block-inner /block -->      </div>
+    </div>
+  </section> <!-- /main -->
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  <!-- ______________________ FOOTER _______________________ -->
+
+    <footer id="footer">
+    <div class="container">
+        <div id="block-menu_block-4" class="block block-menu-block block-odd first clearfix">
+  <div class="block-inner">
+
+            
+
+    <div class="content" >
+      <div class="menu-block-wrapper menu-block-4 menu-name-menu-social parent-mlid-0 menu-level-1">
+  <ul class="menu"><li class="first leaf menu-mlid-760 home mid-760"><a href="/">Home</a></li>
+<li class="leaf menu-mlid-761 facebook mid-761"><a href="https://www.facebook.com/SPLCenter" target="_blank">Facebook</a></li>
+<li class="last leaf menu-mlid-762 twitter mid-762"><a href="https://twitter.com/splcenter" target="_blank">Twitter</a></li>
+</ul></div>
+    </div>
+
+  </div>
+</div> <!-- /block-inner /block --><div id="block-splc_common-splc_address" class="block block-splc-common block-even clearfix">
+  <div class="block-inner">
+
+            
+
+    <div class="content" >
+      <div id=footer-address-block-title>The Southern Poverty Law Center</div><div id=footer-address-block-text><p>400 Washington Avenue</p><p>Montgomery, AL 36104</p></div>    </div>
+
+  </div>
+</div> <!-- /block-inner /block --><div id="block-bean-footer---civil-rights-memorial-c" class="block block-bean block-odd bean-action-image-7 clearfix">
+  <div class="block-inner">
+
+            
+
+    <div class="content" >
+      <div class="entity entity-bean bean-action clearfix">
+
+  <div class="content">
+    <div class="field field-name-title-field field-type-text field-label-hidden">
+    <div class="field-items">
+                <div class="field-item even "><a href="/civil-rights-memorial">The Civil Rights Memorial Center</a></div>
+      </div>
+</div>
+<div class="field field-name-field-link field-type-link-field field-label-hidden">
+    <div class="field-items">
+                <div class="field-item even "><a href="/civil-rights-memorial">Learn More</a></div>
+      </div>
+</div>
+  </div>
+</div>
+    </div>
+
+  </div>
+</div> <!-- /block-inner /block --><div id="block-menu_block-5" class="block block-menu-block block-even clearfix">
+  <div class="block-inner">
+
+            
+
+    <div class="content" >
+      <div class="menu-block-wrapper menu-block-5 menu-name-menu-footer-about-us parent-mlid-0 menu-level-1">
+  <ul class="menu"><li class="first last expanded active-trail menu-mlid-763 about-us mid-763"><a href="/about" class="active-trail">About Us</a><ul class="menu"><li class="first leaf menu-mlid-932 our-history mid-932"><a href="/our-history" title="A history of protecting society’s most vulnerable.">Our History</a></li>
+<li class="leaf menu-mlid-764 board-of-directors mid-764"><a href="/about/board">Board of Directors</a></li>
+<li class="leaf menu-mlid-765 senior-program-staff mid-765"><a href="/about/staff">Senior Program Staff</a></li>
+<li class="leaf menu-mlid-767 careers mid-767"><a href="https://careers-splcenter.icims.com/jobs/intro?hashed=-435709784&amp;mobile=false&amp;width=663&amp;height=500&amp;bga=true&amp;needsRedirect=false&amp;jan1offset=-360&amp;jun1offset=-300">Careers</a></li>
+<li class="leaf active-trail active menu-mlid-952 privacy-terms mid-952"><a href="/privacy-policy-terms" class="active-trail active">Privacy &amp; Terms</a></li>
+<li class="last leaf menu-mlid-1001 contact-us mid-1001"><a href="/contact-us">Contact Us</a></li>
+</ul></li>
+</ul></div>
+    </div>
+
+  </div>
+</div> <!-- /block-inner /block --><div id="block-menu_block-7" class="block block-menu-block block-odd clearfix">
+  <div class="block-inner">
+
+            
+
+    <div class="content" >
+      <div class="menu-block-wrapper menu-block-7 menu-name-menu-footer-state-offices parent-mlid-0 menu-level-1">
+  <ul class="menu"><li class="first last expanded menu-mlid-768 state-offices mid-768"><a href="/state-offices">State Offices</a><ul class="menu"><li class="first leaf menu-mlid-772 alabama mid-772"><a href="/state-offices/alabama">Alabama</a></li>
+<li class="leaf menu-mlid-769 florida mid-769"><a href="/state-offices/florida">Florida</a></li>
+<li class="leaf menu-mlid-771 louisiana mid-771"><a href="/state-offices/louisiana">Louisiana</a></li>
+<li class="last leaf menu-mlid-770 mississippi mid-770"><a href="/state-offices/mississippi">Mississippi</a></li>
+</ul></li>
+</ul></div>
+    </div>
+
+  </div>
+</div> <!-- /block-inner /block --><div id="block-menu_block-8" class="block block-menu-block block-even clearfix">
+  <div class="block-inner">
+
+            
+
+    <div class="content" >
+      <div class="menu-block-wrapper menu-block-8 menu-name-menu-footer-support-us parent-mlid-0 menu-level-1">
+  <ul class="menu"><li class="first last expanded menu-mlid-773 support-us mid-773"><a href="/support-us">Support Us</a><ul class="menu"><li class="first leaf menu-mlid-950 friends-of-the-center mid-950"><a href="/support-us/friends-center">Friends of the Center</a></li>
+<li class="leaf menu-mlid-951 planned-giving mid-951"><a href="/support-us/planned-giving">Planned Giving</a></li>
+<li class="leaf menu-mlid-776 employer-matching mid-776"><a href="/support-us/employer-matching">Employer Matching</a></li>
+<li class="leaf menu-mlid-998 gifts-of-stock-and-securities mid-998"><a href="/support-us/gifts-stock-and-securities">Gifts of Stock and Securities</a></li>
+<li class="leaf has-children menu-mlid-775 other-ways-of-giving mid-775"><a href="/support-us/other-ways-of-giving">Other Ways of Giving</a></li>
+<li class="leaf menu-mlid-774 donor-resources mid-774"><a href="/support-us/donor-resources">Donor Resources</a></li>
+<li class="last leaf menu-mlid-999 store mid-999"><a href="http://splcenter.spreadshirt.com/">Store</a></li>
+</ul></li>
+</ul></div>
+    </div>
+
+  </div>
+</div> <!-- /block-inner /block --><div id="block-menu_block-6" class="block block-menu-block block-odd clearfix">
+  <div class="block-inner">
+
+            
+
+    <div class="content" >
+      <div class="menu-block-wrapper menu-block-6 menu-name-menu-footer-resources parent-mlid-0 menu-level-1">
+  <ul class="menu"><li class="first last expanded menu-mlid-1217 resources mid-1217"><a href="/resources">Resources</a><ul class="menu"><li class="first leaf menu-mlid-1218 news mid-1218"><a href="/news">News</a></li>
+<li class="leaf menu-mlid-1219 case-docket mid-1219"><a href="/seeking-justice/case-docket">Case Docket</a></li>
+<li class="leaf menu-mlid-780 extremist-files mid-780"><a href="/fighting-hate/extremist-files">Extremist Files</a></li>
+<li class="leaf menu-mlid-1220 hatewatch mid-1220"><a href="/hatewatch">Hatewatch</a></li>
+<li class="leaf menu-mlid-1221 intelligence-report mid-1221"><a href="/intelligence-report">Intelligence Report</a></li>
+<li class="leaf menu-mlid-954 publications mid-954"><a href="/resources?f%5B0%5D=splc_resource_types%3APublication">Publications</a></li>
+<li class="leaf menu-mlid-1070 law-enforcement mid-1070"><a href="https://www.splcenter.org/fighting-hate/law-enforcement-resources">Law Enforcement</a></li>
+<li class="last leaf menu-mlid-1083 selma-the-bridge-to-the-ballot mid-1083"><a href="http://selma.splcenter.org/">Selma: The Bridge to the Ballot</a></li>
+</ul></li>
+</ul></div>
+    </div>
+
+  </div>
+</div> <!-- /block-inner /block -->    </div>
+  </footer> <!-- /footer -->
+  
+</div> <!-- /page -->
+
+<!-- Facebook Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','//connect.facebook.net/en_US/fbevents.js');
+
+fbq('init', '1573526829544063');
+fbq('track', "PageView");</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1090704804315664&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Facebook Pixel Code -->
+<!-- Start Alexa Certify Javascript -->
+<script type="text/javascript">
+  _atrk_opts = { atrk_acct:"lPTIn1QolK10uW", domain:"splcenter.org",dynamic: true};
+  (function() { var as = document.createElement('script'); as.type = 'text/javascript'; as.async = true; as.src = "https://d31qbv1cthcecs.cloudfront.net/atrk.js"; var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(as, s); })();
+</script>
+<noscript><img src="https://d5nxst8fruw4z.cloudfront.net/atrk.gif?account=lPTIn1QolK10uW" style="display:none" height="1" width="1" alt="" /></noscript>
+<!-- End Alexa Certify Javascript -->
+<!-- Start AdRoll SmartPixel -->
+<script type="text/javascript">
+  adroll_adv_id = "SAY56NCUG5GG7NSP5MIP2Y";
+  adroll_pix_id = "KC55UN2YNVAE5DOHMVXRNP";
+  /* OPTIONAL: provide email to improve user identification */
+  /* adroll_email = "username@example.com"; */
+  (function () {
+    var _onload = function(){
+      if (document.readyState && !/loaded|complete/.test(document.readyState)){setTimeout(_onload, 10);return}
+      if (!window.__adroll_loaded){__adroll_loaded=true;setTimeout(_onload, 50);return}
+      var scr = document.createElement("script");
+      var host = (("https:" == document.location.protocol) ? "https://s.adroll.com" : "http://a.adroll.com");
+      scr.setAttribute('async', 'true');
+      scr.type = "text/javascript";
+      scr.src = host + "/j/roundtrip.js";
+      ((document.getElementsByTagName('head') || [null])[0] ||
+      document.getElementsByTagName('script')[0].parentNode).appendChild(scr);
+    };
+    if (window.addEventListener) {window.addEventListener('load', _onload, false);}
+    else {window.attachEvent('onload', _onload)}
+  }());
+</script>
+<!-- End AdRoll SmartPixel -->
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+window.jQuery || document.write("<script src='/profiles/splc/modules/contrib/jquery_update/replace/jquery/1.10/jquery.min.js'>\x3C/script>")
+//--><!]]>
+</script>
+<script type="text/javascript" src="https://www.splcenter.org/sites/default/files/js/js_aczm2rRgH_slWBPnvD3KMrK7rwa1i99HOq8IUAb99Co.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+window.jQuery.ui || document.write("<script src='/profiles/splc/modules/contrib/jquery_update/replace/ui/ui/minified/jquery-ui.min.js'>\x3C/script>")
+//--><!]]>
+</script>
+<script type="text/javascript" src="https://www.splcenter.org/sites/default/files/js/js_Xk8TsyNfILciPNmQPp9sl88cjH71DQWyeHE0MB62KO4.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+document.createElement( "picture" );
+//--><!]]>
+</script>
+<script type="text/javascript" src="https://www.splcenter.org/sites/default/files/js/js_8TSRfsrjgysiLEQT4sOjXt5pfO9O1K-jvBsFs8jaulw.js"></script>
+<script type="text/javascript" src="https://www.splcenter.org/sites/default/files/js/js_0vivohqxz9B_1Gz9UzDm6MkJFoOmJyaLbQCkGz7w-VA.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","//www.google-analytics.com/analytics.js","ga");ga("create", "UA-29086802-2", {"cookieDomain":"auto"});ga("require", "linkid", "linkid.js");ga("set", "anonymizeIp", true);ga("send", "pageview");
+//--><!]]>
+</script>
+<script type="text/javascript" src="https://www.splcenter.org/sites/default/files/js/js_BQVhLSjCia9PR9cLi_v2vTQxhY0Zp90Z8AhQRvv9yMw.js"></script>
+<script type="text/javascript" src="https://www.splcenter.org/sites/default/files/js/js_Wrhi8x-29RVyUKcxe_hShut0IgnVTMVj-vdlvmGMlbg.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"splc","theme_token":"F_QecLk5_gFHkCR9821I4Dl2-q4CwXKwpeV5Regbi3U","jquery_version":"1.10","js":{"\/\/ajax.googleapis.com\/ajax\/libs\/jquery\/1.10.2\/jquery.min.js":1,"0":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"\/\/ajax.googleapis.com\/ajax\/libs\/jqueryui\/1.10.2\/jquery-ui.min.js":1,"1":1,"misc\/ajax.js":1,"profiles\/splc\/modules\/contrib\/jquery_update\/js\/jquery_update.js":1,"2":1,"profiles\/splc\/modules\/contrib\/picture\/picturefill2\/picturefill.min.js":1,"profiles\/splc\/modules\/contrib\/picture\/picture.min.js":1,"profiles\/splc\/modules\/contrib\/extlink\/extlink.js":1,"profiles\/splc\/modules\/contrib\/linkit\/js\/linkit.js":1,"profiles\/splc\/libraries\/colorbox\/jquery.colorbox-min.js":1,"profiles\/splc\/modules\/contrib\/colorbox\/js\/colorbox.js":1,"profiles\/splc\/modules\/contrib\/colorbox\/styles\/plain\/colorbox_style.js":1,"profiles\/splc\/libraries\/jstorage\/jstorage.min.js":1,"misc\/progress.js":1,"profiles\/splc\/modules\/contrib\/linkit\/editors\/ckeditor\/linkitDialog.js":1,"profiles\/splc\/libraries\/jquery-migrate\/jquery-migrate-1.2.1.min.js":1,"profiles\/splc\/libraries\/modernizr\/modernizr-min.js":1,"profiles\/splc\/modules\/contrib\/google_analytics\/googleanalytics.js":1,"3":1,"profiles\/splc\/modules\/contrib\/field_group\/field_group.js":1,"profiles\/splc\/modules\/contrib\/addthis\/addthis.js":1,"profiles\/splc\/themes\/custom\/splc\/js\/jquery.matchHeight.js":1,"profiles\/splc\/themes\/custom\/splc\/js\/waypoints.min.js":1,"profiles\/splc\/themes\/custom\/splc\/js\/scripts.js":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"misc\/ui\/jquery.ui.core.css":1,"misc\/ui\/jquery.ui.theme.css":1,"misc\/ui\/jquery.ui.button.css":1,"misc\/ui\/jquery.ui.resizable.css":1,"misc\/ui\/jquery.ui.dialog.css":1,"profiles\/splc\/modules\/contrib\/date\/date_api\/date.css":1,"profiles\/splc\/modules\/contrib\/date\/date_popup\/themes\/datepicker.1.7.css":1,"modules\/field\/theme\/field.css":1,"modules\/node\/node.css":1,"profiles\/splc\/modules\/contrib\/picture\/picture_wysiwyg.css":1,"modules\/user\/user.css":1,"profiles\/splc\/modules\/contrib\/extlink\/extlink.css":1,"profiles\/splc\/modules\/contrib\/views\/css\/views.css":1,"profiles\/splc\/modules\/contrib\/ckeditor\/css\/ckeditor.css":1,"profiles\/splc\/modules\/contrib\/entity_embed\/css\/entity_embed.css":1,"profiles\/splc\/modules\/contrib\/colorbox\/styles\/plain\/colorbox_style.css":1,"profiles\/splc\/modules\/contrib\/ctools\/css\/ctools.css":1,"profiles\/splc\/themes\/custom\/splc\/font-icon\/css\/splc-icons.css":1,"profiles\/splc\/themes\/custom\/splc\/css\/style.css":1,"profiles\/splc\/themes\/custom\/splc\/css\/animated.css":1,"profiles\/splc\/themes\/custom\/splc\/css\/print.css":1}},"colorbox":{"opacity":"0.85","current":"{current} of {total}","previous":"\u00ab Prev","next":"Next \u00bb","close":"Close","maxWidth":"98%","maxHeight":"98%","fixed":true,"mobiledetect":true,"mobiledevicewidth":"480px"},"linkit":{"autocompletePath":"https:\/\/www.splcenter.org\/linkit\/autocomplete\/___profile___?s=","dashboardPath":"\/linkit\/dashboard\/","currentInstance":{}},"extlink":{"extTarget":"_blank","extClass":0,"extLabel":"(link is external)","extImgClass":0,"extSubdomains":1,"extExclude":"","extInclude":"","extCssExclude":"","extCssExplicit":"","extAlert":0,"extAlertText":"This link will take you to an external web site.","mailtoClass":"mailto","mailtoLabel":"(link sends e-mail)"},"googleanalytics":{"trackOutbound":1,"trackMailto":1,"trackDownload":1,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc(x|m)?|dot(x|m)?|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt(x|m)?|pot(x|m)?|pps(x|m)?|ppam|sld(x|m)?|thmx|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls(x|m|b)?|xlt(x|m)|xlam|xml|z|zip","trackColorbox":1},"currentPath":"node\/10490","currentPathIsAdmin":false,"field_group":{"div":"full","html5":"full"},"addthis":{"async":0,"domready":1,"widget_url":"\/\/s7.addthis.com\/js\/300\/addthis_widget.js","addthis_config":{"pubid":"ra-5537d90a568d2d37","services_compact":"more","services_exclude":"","data_track_clickback":true,"ui_508_compliant":true,"ui_click":false,"ui_cobrand":"","ui_delay":0,"ui_header_background":"","ui_header_color":"","ui_open_windows":false,"ui_use_css":false,"ui_use_addressbook":false,"ui_language":"en"},"addthis_share":{"templates":{"twitter":"{{title}} {{url}} "}}}});
+//--><!]]>
+</script>
+    <script>
+    $$ = jQuery;
+    var scriptContainer = $$('#dafscript-container');
+    if (scriptContainer.length > 0) {
+      $$('#dafscript-container').append($$('#dafdirectdiv'));
+      $$('.section-support-us .field-name-body p').wrapAll('<div class="left"></div>');
+    }
+  </script>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"fc705f2434","applicationID":"7825924","transactionName":"Nl1XNkBVV0RXBRcLXA8XdAFGXVZZGQgMBlY+SFQFV2tPXlMR","queueTime":0,"applicationTime":199,"atts":"GhpUQAhPREo=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>

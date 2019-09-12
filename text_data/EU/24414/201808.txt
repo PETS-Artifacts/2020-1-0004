@@ -1,0 +1,171 @@
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+Privacy policy
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Ru | En
+
+
+
+
+
+
+ 
+
+
+ 
+
+
+
+
+  (?)
+
+Вход
+Нет аккаунта?   Зарегистрируйтесь
+
+ $( document ).ready(function() {
+$('#YumUserLogin_password').keypress(function (e) {
+  if (e.which == 13) {
+    $('#user-fastlogin-form .btn-fastlogin').click();
+  }
+});
+
+$('#YumUserLogin_username').keypress(function (e) {
+  if (e.which == 13) {
+    $('#user-fastlogin-form .btn-fastlogin').click();
+  }
+});
+});
+
+ 
+ 
+
+
+
+
+
+
+
+
+
+(function (d, w, c) {
+    (w[c] = w[c] || []).push(function() {
+        try {
+            var yaParams = {'ID': '' };
+            w.yaCounter23660218 = new Ya.Metrika({id:23660218,
+                    webvisor:true,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true,
+                    });
+                    
+                     w.yaCounter23660218.params(yaParams);
+
+        } catch(e) { }
+    });
+
+    var n = d.getElementsByTagName("script")[0],
+        s = d.createElement("script"),
+        f = function () { n.parentNode.insertBefore(s, n); };
+    s.type = "text/javascript";
+    s.async = true;
+    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+    if (w.opera == "[object Opera]") {
+        d.addEventListener("DOMContentLoaded", f, false);
+    } else { f(); }
+})(document, window, "yandex_metrika_callbacks");
+
+
+
+
+
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-51753646-1', 'socialchance.ru');
+  ga('send', 'pageview');
+
+
+
+<!--
+document.write("<a href='http://www.liveinternet.ru/click' "+
+"target=_blank><img src='//counter.yadro.ru/hit?t13.2;r"+
+escape(document.referrer)+((typeof(screen)=="undefined")?"":
+";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?
+screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+
+";"+Math.random()+
+"' alt='' title='LiveInternet: показано число просмотров за 24"+
+" часа, посетителей за 24 часа и за сегодня' "+
+"border='0' width='88' height='31'><\/a>")
+//-->
+
+
+
+
+
+
+
+
+/*<![CDATA[*/
+jQuery('body').popover({'selector':'a[rel=popover]'});
+jQuery('body').tooltip({'selector':'a[rel=tooltip]'});
+jQuery(function($) {
+	jQuery('body').on('click','#yt0',function(){jQuery.ajax({'type':'POST','data':jQuery("#user-fastlogin-form").serialize()+"&isAjaxRequest=1",'beforeSend':function(){ 
+	                                           
+	                                           
+	                                             $("#username").attr("disabled",true);
+	            },'complete':function(){ 
+	                                             $("#YumUserLogin_password").val("");
+	                                             $("#login").attr("disabled",false);
+	                                        },'success':function(data){  
+	                                            var obj = jQuery.parseJSON(data); 
+	                                            // View login errors!
+	          
+	                                 
+	                                             if(obj.login == "success"){
+	                                         $("#user_login_form").html("<h4>Login Successful! Please Wait...</h4>");
+	                                       parent.location.href = "/";
+	                                      }
+	          else{
+	        
+	            $("#YumUserLogin_username").addClass("err-fl-input");
+	            $("#YumUserLogin_password").addClass("err-fl-input");
+	         
+	                                               
+	                                             }
+	 
+	                                        },'url':'/user/auth/login','cache':false});return false;});
+});
+/*]]>*/
+
+
+ 

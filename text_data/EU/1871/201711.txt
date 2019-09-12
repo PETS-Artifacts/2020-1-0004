@@ -1,0 +1,174 @@
+Kiwi.com | Privacy Policy
+		window.SP_TRACK_PERF = {
+			beginJs: (new Date()).valueOf()
+		}
+		window.SP_PAGE_VIEW_ID = "ypncr"
+		function GET_SESSION_ID() {
+			var sessionId
+			if (navigator.cookieEnabled) {
+			if (window.sessionStorage) {
+			sessionId = window.sessionStorage.getItem("sessionId")
+			if (!sessionId) {
+			//- Do not use "node-uuid" as it causes browserify to include browserify-crypto in bundle.js and it's about 250kB
+			//- Math.random() is good enough for session id
+			sessionId = Math.random().toString(36).substring(8)
+			try {
+			window.sessionStorage.setItem("sessionId", sessionId)
+		} catch (e) {
+			console.error(e)
+		}
+			}
+		} else {
+			sessionId = "session-storage-disabled"
+		}
+			} else {
+			sessionId = "cookies-disabled"
+		}
+			return sessionId
+		}
+
+		function GET_PARAMETER_BY_NAME(name) {
+			name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]")
+			var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+				results = regex.exec(location.search)
+			return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "))
+		}
+
+		if ("production" !== "development") {
+			(function () {
+				if (typeof window !== "undefined" && window.XMLHttpRequest && "withCredentials" in new XMLHttpRequest()) {
+					var req = new XMLHttpRequest()
+					req.open("POST", "https://logg.kiwi.com/logmole", true)
+					req.withCredentials = false // withCredentials cannot be modified until after calling .open on Android and Mobile Safari
+					req.setRequestHeader("Content-type", "text/plain") // Actually JSON, but need to be set to plain to avoid OPTIONS request
+					req.send(JSON.stringify({
+						userId: "e0542b21-034b-475c-8a9a-0f168d883f2e",
+						event: "Html loaded",
+						properties: {
+							"@timestamp": new Date().toISOString(),
+							"@deeplinkId": GET_PARAMETER_BY_NAME("deeplinkId"),
+							"@sessionId": GET_SESSION_ID(),
+							"@pageViewId": window.SP_PAGE_VIEW_ID,
+							"@pageName": "privacy",
+							"@abVersion": "undefined",
+							"@module": "content",
+							userAgent: window.navigator.userAgent,
+							appCodeName: window.navigator.appCodeName,
+							appName: window.navigator.appName,
+							appVersion: window.navigator.appVersion,
+							cookieEnabled: window.navigator.cookieEnabled,
+							language: window.navigator.language,
+							onLine: window.navigator.onLine,
+							platform: window.navigator.platform
+						}
+					}))
+				}
+			})()
+		}
+	
+	window.SP_GLOBALS = JSON.parse(document.head.dataset.spGlobals)
+const sentryUrl = window.SP_GLOBALS.IS_STAGING
+		? "https://f93e120fbc024618815b2da199dd140f@sentry.skypicker.com/33"
+		: "https://8c1d6e0513ab43d9b33be84a13946d5a@sentry.skypicker.com/71"
+	Raven.config(sentryUrl, {
+		release: window.SP_GLOBALS.RELEASE_INFO.branch_slug,
+		whitelistUrls: [/\.kiwi\.com\/scripts/, /manage\.kayak\.com\/scripts/, /kiwi\.wowair\.com\/scripts/],
+		tags: { module: "content", pageName: "privacy"}
+	}).install()var _LTracker=_LTracker||[];_LTracker.push({logglyKey:"ccbeb7fc-b4f8-4fed-bf50-14548bc1c143",sendConsoleErrors:true});!function(){if("search"===window.SP_GLOBALS.SKYPICKER_PAGE_NAME){var t=document.createElement("script");t.type="text/javascript",window.xcntr=escape(document.referrer),t.async=!0,t.src=("https:"===document.location.protocol?"https:":"http:")+"//x.cnt.my/async/track/?r="+Math.random();var e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(t,e)}}();!function(e,n,t,c,o,a,f){e.fbq||(o=e.fbq=function(){o.callMethod?o.callMethod.apply(o,arguments):o.queue.push(arguments)},e._fbq||(e._fbq=o),o.push=o,o.loaded=!0,o.version="2.0",o.queue=[],a=n.createElement(t),a.async=!0,a.src=c,f=n.getElementsByTagName(t)[0],f.parentNode.insertBefore(a,f))}(window,document,"script","//connect.facebook.net/en_US/fbevents.js"),fbq("init","1114853088560745"),fbq("track","PageView");!function(i,e){function t(t){return function(){var n=arguments;if("initialize"==t&&n&&n[0].modify&&n[0].modify.overlay&&"loading"==e.readyState){var o="__inf__overlay__";e.write('<div id="'+o+'" style="position:absolute;background:#fff;left:0;top:0;width:100%;height:100%;z-index:1000000"></div>'),setTimeout(function(){var t=e.getElementById(o);t&&e.body.removeChild(t),i.infinario.__=!0},n[0].modify.delay||500)}this._.push([t,arguments])}}if(!i.infinario){var n,o,a="initialize identify update track trackLink trackEnhancedEcommerce getHtml showHtml showBanner showForm ping getAbTest getRecommendation".split(" "),r=e.createElement("script"),d="https:"===e.location.protocol?"https:":"http:";for(i.infinario={_:[]},o=0;o<a.length;o++)n=a[o],i.infinario[n]=t(n);r.type="text/javascript",r.async=!0,r.src=d+"//skypicker-api.infinario.com/js/infinario-1.7.min.js",e.getElementsByTagName("head")[0].appendChild(r)}}(window,document),window.infinario.initialize({target:"//skypicker-api.infinario.com",token:"5072b5a0-3fcf-11e5-9a77-b083fedeedd8",customer:window.SP_GLOBALS.SKYPICKER_VISITOR_UNIQID,lazy_merge:!0,ping:{properties:{affilID:window.SP_GLOBALS.SKYPICKER_AFFILIATE||""}}});For full functionality of this site it is necessary to enable JavaScript.
+Here are the instructions how to enable JavaScript in your web browser.AboutAboutProductPeopleCompany infoPartnershipJobsPrivacy Policy
+
+General Provisions
+
+Parties. This Privacy Policy (“Policy”) is an agreement on the rules for and the terms and conditions of personal data protection between us, Kiwi.com s.r.o., ID No. 29352886, with registered office at Palachovo náměstí 797/4, Starý Lískovec, Post Code 625 00 Brno, registered in the Companies Register administrated by the Regional Court of Brno, section C, file no. 74565, Tax ID No. CZ29352886 (“We”), and you as our customer (“You”).
+Definition of Terms. The capitalized terms listed below and used throughout this Policy have the following meanings:
+                
+Agreement means the service Agreement that You conclude with Us by booking Your selected flight, completing the information required in the online form on Our website, accepting Our Terms and Conditions and making payment of the full price with a payment card or by another online payment method. This Policy forms an integral part of the Agreement. 
+Personal Data means the information about You, or other passengers travelling with You, if any, that You provide to Us so that We can enter into the Agreement with You and provide to You Our services under the Agreement. Personal Data include Your full name, date of birth, citizenship (nationality), travel document data, the number of items of Your baggage, insurance policy data, data pertaining to the other passengers travelling with You, Your email address, telephone number and payment card data. The provision of Personal Data by You to Us is voluntary. 
+
+
+
+
+Purpose of Personal Data Processing
+
+We collect, process and store Your Personal Data for the sole purpose of concluding the Agreement with You and delivering to You the ordered services; these include, especially, the brokering of a contract of air carriage and for the provision of the related services between You and a selected carrier.
+            
+
+
+Personal Data Protection
+
+Under the Agreement, We will collect, process and store Your Personal Data for the purposes stated in Article 2 above and within the extent and under the conditions set forth below.
+In the collection, processing and storage of Your Personal Data, We will comply with all applicable laws and regulations, especially Czech Act No. 101/2000 Sb., on Personal Data Protection, as amended (“Personal Data Protection Act”), Directive 2002/58/EC of the European Parliament and of the Council of 12 July 2002 concerning the processing of personal data and the protection of privacy in the electronic communications sector (“Directive on privacy and electronic communications”), Directive 95/46/EC of the European Parliament and of the Council of 24 October 1995 on the protection of individuals with regard to the processing of personal data and on the free movement of such data and Directive 2000/31/EC of the European Parliament and of the Council of 8 June 2000 on certain legal aspects of information society services, in particular electronic commerce, in the Internal Market (“Directive on electronic commerce”).
+Under the Agreement, and to make the delivery of Our services possible, We will disclose Your Personal Data to the air carriers with which You, through Our brokerage services, enter into a contract of carriage and whose identity will be made known to You before You enter into the agreement with Us; and to other third party service providers whose services we use in order to deliver You Our services. This means that Your Personal Data may be disclosed to selected carriers in EU member countries and to selected carriers outside the EU member countries. By entering into the Agreement with Us, You acknowledge such a disclosure. Each selected carrier will treat Your Personal Data in accordance with its own privacy policy (which is published on every carrier’s website). Disclosure of Personal Data to other service providers will be done in accordance with the applicable Personal Data laws and regulations.
+If You conclude the Agreement with Us for the benefit of third parties (i.e. whenever You buy tickets for persons other than Yourself), You acknowledge that You have been authorized by such third parties to provide Us with their personal data.
+In addition, We may collect, process and store Personal Data for the dissemination of commercial communications by electronic transmission in accordance with Act No. 480/2004 Sb., on Certain Information Society Services, and in accordance with Directive on electronic commerce, until such time that You notify Us to the effect that You no longer wish to receive such information from Us.
+We shall process Your Personal Data under the following conditions:
+                
+We will collect, process and store Personal Data in a manual and/or automated (with the use of computer technology) manner within the extent of the Personal Data that You have provided to Us (see Article 1.2.2);
+We will collect, process and store Personal Data to the extent necessary to accomplish the Purpose of Personal Data Processing (see Article 2) and in conformity with that purpose;
+In the collection, processing and storage of Personal Data, We take care to ensure protection against interference with Your privacy;
+We undertake to adopt all reasonable measures to prevent any accidental or unauthorized access to the Personal Data that We collect and to ensure that we remain in full compliance with all the requirements on personal data processing prescribed by the Personal Data Protection Act;
+Personal Data are processed by Our employees or by persons in analogical relations who are bound to keep Personal Data confidential even after termination of their legal relationship with Us;
+We may associate Personal Data with other personal data but We undertake not to mutually associate any personal data that were obtained for different purposes.
+
+
+
+
+
+Your Rights
+
+As far as the processing of Your Personal Data is concerned, You may exercise all the rights that You are granted under the Personal Data Protection Act. This means in particular, without limitation, that
+                
+You are entitled to request information from Us regarding the processing by Us of Your Personal Data. We will provide You with the information within the extent and under the conditions as prescribed by the Personal Data Protection Act without delay. Under the Personal Data Protection Act, We may charge You a reasonable fee for the requested provision of such information which is not to exceed the necessary cost of the provision of the information;
+if You find out or have reasons to believe that We process Your Personal Data in a manner inconsistent with the protection of Your privacy or the law, including if You find out that Your Personal Data is inaccurate with respect to the purpose of its processing, You can
+                        
+request an explanation;
+request rectification (in ways such as in particular, without limitation, blocking, correction, addition to or destruction of Personal Data).
+
+If Your request is legitimate, We will rectify any defects without delay. 
+
+
+
+
+
+Time of Processing / Personal Data Destruction
+
+We will collect, process and store all Your Personal Data - that You have provided Us with under this Policy - in accordance with this Policy and for the purpose stated in Article 2 above and for the time necessary to accomplish the Purpose of Personal Data Processing in accordance with Article 2.
+On Your request in accordance with Article 4.1.2.2 above, or after the purpose for the processing no longer exists, We will destroy Your Personal Data.
+
+
+Final Provisions
+
+This Policy forms an integral part of Kiwi.com s.r.o.’s Terms and Conditions as published on our website.
+
+
+ CompanyTerms & ConditionsKiwi.com GuaranteePrivacy PolicyPress KitSecurityPlatformAboutProductPeopleCompany infoPartnershipJobsFeaturesLive ChatSign in / RegisterTop Routes
+	window.__INITIAL_STATE__ = JSON.parse(document.body.dataset.reduxState)
+	window.SP_GLOBALS.SKYPICKER_TRANSLATIONS = {}
+	window.SP_GLOBALS.SKYPICKER_CURRENCIES = window.__INITIAL_STATE__["currencies"]
+if("serviceWorker"in navigator){navigator.serviceWorker.getRegistrations().then(function(registrations){registrations.forEach(function(r){r.unregister()})})}window.getEnvParameter=function(name){var match=new RegExp(name+"="+"(.+?)(\\?|&|$)","i").exec(location.href);if(!match&&name==="fallback"){match=new RegExp(name+"="+"(.+?)(\\?|&|$)","i").exec(document.referrer)}return match?decodeURI(match[1]):undefined};var forceVariant=window.getEnvParameter("forceVariant");if(window.cxApi){if(typeof forceVariant!="undefined"){window.cxApi.setChosenVariation(parseInt(forceVariant,10));window.EXPERIMENT_VARIANT=parseInt(forceVariant,10)}else{window.EXPERIMENT_VARIANT=window.cxApi.chooseVariation()}}else{if(typeof forceVariant!="undefined"){window.EXPERIMENT_VARIANT=parseInt(forceVariant,10)}else{window.EXPERIMENT_VARIANT=0}}
+	(function (i, s, o, g, r, a, m) {
+			i['GoogleAnalyticsObject'] = r;
+			i[r] = i[r] || function () {
+				(i[r].q = i[r].q || []).push(arguments)
+			}, i[r].l = 1 * new Date();
+			a = s.createElement(o),
+					m = s.getElementsByTagName(o)[0];
+			a.async = 1;
+			a.src = g;
+			m.parentNode.insertBefore(a, m)
+		})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+		ga('create', 'UA-29345084-1', 'auto');
+		ga('set', 'dimension1', window.SP_GLOBALS.RELEASE_INFO.ab_version);
+		ga('set', 'dimension2', window.SP_GLOBALS.RELEASE_INFO.last_commit);
+		ga('set', 'dimension3', window.SP_GLOBALS.RELEASE_INFO.branch);
+		ga('set', 'dimension4', window.SP_GLOBALS.RELEASE_INFO.release_time);
+		ga('set', 'dimension5', "fetchClient");
+		ga('set', 'dimension6', "recordingNothing");
+		ga('set', 'dimension7', "paymentCardWithoutFee");
+		ga('set', 'dimension8', "cheaperOptionCard");
+		ga('set', 'dimension9', "abandonmentModalDisabled");
+		ga('set', 'dimension10', "abandonmentModalTrainsEnabled");
+		ga('set', 'contentGroup1', "privacy");
+		ga('require', 'ecommerce');
+		ga('send', 'pageview');
+window.dataLayer=[{uid:window.SP_GLOBALS.SKYPICKER_VISITOR_UNIQID,lang:window.SP_GLOBALS.SKYPICKER_LNG,currency:window.SP_GLOBALS.SKYPICKER_CURRENCY,ab_tesing:window.window.SP_GLOBALS.RELEASE_INFO.ab_version}],function(e,a,n,t,w){e[t]=e[t]||[],e[t].push({"gtm.start":(new Date).getTime(),event:"gtm.js"});var i=a.getElementsByTagName(n)[0],o=a.createElement(n),r="dataLayer"!==t?"&l="+t:"";o.async=!0,o.src="//www.googletagmanager.com/gtm.js?id="+w+r,i.parentNode.insertBefore(o,i)}(window,document,"script","dataLayer","GTM-KPB9P5");

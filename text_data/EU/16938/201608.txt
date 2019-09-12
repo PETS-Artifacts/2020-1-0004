@@ -1,0 +1,444 @@
+
+
+
+
+TalkMarkets - privacypolicy
+
+
+
+
+
+
+
+
+
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');  ga('create', 'UA-43159334-1', 'talkmarkets.com');  ga('send', 'pageview');
+h = document.getElementsByTagName('html')[0]; h.className += navigator.appName == "Microsoft Internet Explorer" ? ' ie' : ' no-ie';
+
+
+
+            var _comscore = _comscore || [];
+            _comscore.push({ c1: "2", c2: "16807273" });
+            (function () {
+                var s = document.createElement("script"), el = document.getElementsByTagName("script")[0]; s.async = true;
+                s.src = (document.location.protocol == "https:" ? "https://sb" : "http://b") + ".scorecardresearch.com/beacon.js";
+                el.parentNode.insertBefore(s, el);
+            })();
+        
+
+
+
+
+
+
+
+
+
+        CK_EDITOR_IMAGE_URL = "/admin/ckeditor/images";
+        CK_EDITOR_FILE_URL = "/admin/ckeditor/files";
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+
+
+
+
+
+
+
+
+
+
+
+Login
+Register
+
+
+
+                        Sign up with
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+                function LoginWithFacebook() {
+                    var url = $('#FacebookLoginAuthorizationUrl').val();
+                    OpenFacebookPopup(url);
+                }
+            
+
+
+    .ui-autocomplete-category
+    {
+        font-weight: bold;
+        padding: .2em .4em;
+        margin: .8em 0 .2em;
+        line-height: 1.5;
+    }
+
+    body select#searchOption
+    {
+        border: 1px solid #BBBBBB;
+        border-radius: 0 0 0 0;
+        font-size: 11px;
+        height: 26px;
+        line-height: 26px !important;
+        margin: 0;
+        padding: 3px;
+        position: relative;
+        top: 3px;
+        width: 108px;
+    }
+
+
+
+US Stocks
+Contributors
+Users
+Keywords
+
+
+
+
+
+
+
+    $(document).ready(function () {        
+        var timer = null;
+
+        $('#636078604028009818_searchButton').click(function () {
+            if ($('#searchOption').find('option:selected').val() == '5') {
+                window.location.href = '/search?tab=General&searchQuery=' + $('#636078604028009818_searchQuery').val();
+            } else {
+                $('#636078604028009818_searchQuery').keyup();
+            }
+        });
+        
+        $.widget("custom.catcomplete", $.ui.autocomplete, {
+            _renderMenu: function (ul, items) {
+                var self = this,
+		        currentCategory = "";
+                $.each(items, function (index, item) {
+                    if (item.category != currentCategory) {
+                        ul.append("<li class='ui-autocomplete-category'>" + item.category + "</li>");
+                        currentCategory = item.category;
+                    }
+                    self._renderItem(ul, item);
+                });
+            }
+        });
+
+        $('#636078604028009818_searchQuery').keyup(function (e) {
+
+            if (e.which < 37 || e.which > 40 || e.which == undefined) {//ignore arrow keys or search is initialized from the search button
+
+                if ($('#searchOption').find('option:selected').val() != '5') {
+                    if ($.trim($('#636078604028009818_searchQuery').val()) != "") {
+                        $('#636078604028009818_searchQuery').css("background", "white url('/images/ui-anim_basic_16x16.gif') 90% center no-repeat");
+                        clearTimeout(timer);
+                        timer = setTimeout(LoadSymbols, 500);
+                    } else {
+                        $('#636078604028009818_searchQuery').css("background", "white");
+                    }
+                }
+                else {
+                    $('ul[role="listbox"][aria-activedescendant="ui-active-menuitem"]').html('');
+                }
+            }
+        });
+
+        function LoadSymbols() {
+
+            var searchQuery = $.trim($('#636078604028009818_searchQuery').val());
+
+            if (searchQuery != "") {
+                $.getJSON("/admin/search/GetSearchResults?value=" + searchQuery + "&selectedOption=" + $('#searchOption').find('option:selected').val(), function (data) {
+                    if ($('#searchOption').find('option:selected').val() != '5')
+                    {
+                        $('#636078604028009818_searchQuery').css("background", "white");
+                        $("#636078604028009818_searchQuery").catcomplete({
+                            delay: 0,
+                            source: data,
+                            minLength : 0,
+                            select: function (event, ui) { window.location.href = "http://" + ui.item.url; }
+                        });
+
+                        $('#636078604028009818_searchQuery').css("background", "white");
+
+                        $('#636078604028009818_searchQuery').catcomplete("search", "");
+                    }
+                    else{
+                        //window.location.href = '/search?tab=General&searchQuery=' + $('#636078604028009818_searchQuery').val();
+                        $('ul[role="listbox"][aria-activedescendant="ui-active-menuitem"]').html('');
+                    }
+                });
+            }
+
+        }
+
+        $('#searchOption').change(function () {
+            var placeholder = $(this).find('option:selected').attr('data-placeholder');
+            $('.holder').attr('placeHolder', placeholder);
+        });
+
+    });
+
+
+
+
+
+
+
+
+    .admin-body .wrapper {
+        padding: 112px 3px 0 !important;
+    }
+
+    .admin-body .dashboard-left-menu ul li a {
+        padding: 10px 35px !important;
+    }
+
+
+
+
+
+Home
+
+
+My Dashboard
+
+
+Portfolio
+
+
+Social
+
+
+My Network
+
+
+Research Marketplace
+
+
+
+
+
+
+    $(document).on({
+        mouseenter: function () {
+            $('.dropdown-hover-menu').addClass('open');
+        },
+        mouseleave: function () {
+            //window.setTimeout(function () {
+            $('.dropdown-hover-menu').removeClass('open');
+            //}, 100);
+        }
+    }, 'li.dropdown-hover');
+
+    //$(document).on('mouseover', '.dropdown-hover-menu li', function (e) {
+    //    $(this).parents('.dropdown-hover-menu').addClass('open');
+    //});
+
+    $(document).ready(function () {
+
+        if ($(window).height() > $('html').height()) {
+            $('.footer-border').css({ 'position': 'fixed', 'bottom': '0', 'width': '100%' });
+        }
+
+        if (window.ga != null) {
+            $('button[data-tm-login]').click(function () {
+                window.ga('send', 'event', 'UsersActivity', 'Login');
+            });
+
+            $('button[data-tm-register]').click(function () {
+                window.ga('send', 'event', 'UsersActivity', 'Register');
+            });
+        }
+    });
+
+    $(document).on('click', 'a[data-tm-approve-remove-connection]', function (ev) {
+        ev.preventDefault();
+        var clickedLink = $(this);
+        var parentDiv = $(clickedLink).parent();
+        if (parentDiv.length > 0) {
+            var notificationID = 0;
+            var notificationCreatorEl = $(parentDiv).find('a[data-tm-notification-creator]');
+
+            if (notificationCreatorEl.length > 0) {
+                notificationID = $(notificationCreatorEl).attr('data-notification-id');
+                var notificationCreatorUserName = $(notificationCreatorEl).text();
+                var notificationCreatorUserProfileUrl = $(notificationCreatorEl).attr('href');
+
+                $.post(clickedLink.attr('href') + '&notificationID=' + notificationID, function (data) {
+                    if (data.success) {
+                        var actionType = data.action;
+                        var approveActionType = 1;
+                        var removeRequestActionType = 4;
+                        var blockRequestActionType = 3;
+
+                        if(clickedLink.attr('data-tm-from-notifications-view') == undefined) {
+                            var notificationsWrap = $('div.dropdown.notifications-wrap');
+                            $(notificationsWrap).addClass('open');
+                        }
+
+                        var currentUnreadNotificationsWrap = $('#notifications-number');
+                        var currentUnreadNotifications = $(currentUnreadNotificationsWrap).text();
+
+                        var notificationsText = $('#notifications-number').text();
+
+                        if(notificationsText == '' || notificationsText == '1') {
+                            $('#notifications-number').text('');
+                        }
+                        else {
+                            $('#notifications-number').text(parseInt(currentUnreadNotifications) - 1);
+                        }
+
+                        if(actionType == approveActionType)
+                        {
+                            $(parentDiv).html('<a href="' + notificationCreatorUserProfileUrl + '">' + notificationCreatorUserName
+                                + '</a> is now your connection');
+                        }
+                        else if(actionType == removeRequestActionType)
+                        {
+                            $(parentDiv).html('You have removed the Connection Request from <a href="'
+                                + notificationCreatorUserProfileUrl + '">' + notificationCreatorUserName);
+                        }
+                        else if(actionType == blockRequestActionType)
+                        {
+                            $(parentDiv).html('You have blocked the user <a href="'
+                                + notificationCreatorUserProfileUrl + '">' + notificationCreatorUserName);
+                        }
+                    }
+                });
+            }
+        }
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+##COPYRIGHT##
+
+About TalkMarkets | 
+		Advertising | 
+		Privacy | 
+		Terms | 
+		Help
+
+
+
+
+
+
+
+
+Copyright © 2016 TalkMarkets.com. All rights reserved.
+
+                 | Apply to Become a Contributor
+
+
+
+About Us |
+    Terms of Use |
+    Privacy Policy |
+    Disclaimer |
+    Contact Us |
+
+
+Follow us: 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            $(document).ready(function () {
+                    
+                var BlockedUserIDsFromHomepage = [''];
+                var BlockedUserIDsFromFeeds = [''];
+                var currentUserId = '0';
+
+                InitSignalR('-1', currentUserId, BlockedUserIDsFromHomepage, BlockedUserIDsFromFeeds, null);
+                
+
+            });
+        
+
+                adroll_adv_id = "EG6OOE6TN5DINEMKDZD423";
+                adroll_pix_id = "I54EQX2UHBC2LMUHPFZAJ7";
+                (function () {
+                    var oldonload = window.onload;
+                    window.onload = function () {
+                        __adroll_loaded = true;
+                        var scr = document.createElement("script");
+                        var host = (("https:" == document.location.protocol) ? "https://s.adroll.com" : "http://a.adroll.com");
+                        scr.setAttribute('async', 'true');
+                        scr.type = "text/javascript";
+                        scr.src = host + "/j/roundtrip.js";
+                        ((document.getElementsByTagName('head') || [null])[0] ||
+                         document.getElementsByTagName('script')[0].parentNode).appendChild(scr);
+                        if (oldonload) { oldonload() }
+                    };
+                }());
+            
+
+

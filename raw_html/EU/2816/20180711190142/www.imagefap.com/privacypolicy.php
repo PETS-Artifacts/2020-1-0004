@@ -1,0 +1,810 @@
+<html>
+<head><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"UAcEV1VSGwIIUlJRDwY="};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o||e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(t,e,n){function r(t){try{c.console&&console.log(t)}catch(e){}}var o,i=t("ee"),a=t(12),c={};try{o=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(c.console=!0,o.indexOf("dev")!==-1&&(c.dev=!0),o.indexOf("nr_dev")!==-1&&(c.nrDev=!0))}catch(s){}c.nrDev&&i.on("internal-error",function(t){r(t.stack)}),c.dev&&i.on("fn-err",function(t,e,n){r(n.stack)}),c.dev&&(r("NR AGENT IN DEVELOPMENT MODE"),r("flags: "+a(c,function(t,e){return t}).join(", ")))},{}],2:[function(t,e,n){function r(t,e,n,r,c){try{p?p-=1:o(c||new UncaughtException(t,e,n),!0)}catch(f){try{i("ierr",[f,s.now(),!0])}catch(d){}}return"function"==typeof u&&u.apply(this,a(arguments))}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function o(t,e){var n=e?null:s.now();i("err",[t,n])}var i=t("handle"),a=t(13),c=t("ee"),s=t("loader"),f=t("gos"),u=window.onerror,d=!1,l="nr@seenError",p=0;s.features.err=!0,t(1),window.onerror=r;try{throw new Error}catch(h){"stack"in h&&(t(5),t(4),"addEventListener"in window&&t(3),s.xhrWrappable&&t(6),d=!0)}c.on("fn-start",function(t,e,n){d&&(p+=1)}),c.on("fn-err",function(t,e,n){d&&!n[l]&&(f(n,l,function(){return!0}),this.thrown=!0,o(n))}),c.on("fn-end",function(){d&&!this.thrown&&p>0&&(p-=1)}),c.on("internal-error",function(t){i("ierr",[t,s.now(),!0])})},{}],3:[function(t,e,n){function r(t){for(var e=t;e&&!e.hasOwnProperty(u);)e=Object.getPrototypeOf(e);e&&o(e)}function o(t){c.inPlace(t,[u,d],"-",i)}function i(t,e){return t[1]}var a=t("ee").get("events"),c=t(15)(a,!0),s=t("gos"),f=XMLHttpRequest,u="addEventListener",d="removeEventListener";e.exports=a,"getPrototypeOf"in Object?(r(document),r(window),r(f.prototype)):f.prototype.hasOwnProperty(u)&&(o(window),o(f.prototype)),a.on(u+"-start",function(t,e){var n=t[1],r=s(n,"nr@wrapped",function(){function t(){if("function"==typeof n.handleEvent)return n.handleEvent.apply(n,arguments)}var e={object:t,"function":n}[typeof n];return e?c(e,"fn-",null,e.name||"anonymous"):n});this.wrapped=t[1]=r}),a.on(d+"-start",function(t){t[1]=this.wrapped||t[1]})},{}],4:[function(t,e,n){var r=t("ee").get("raf"),o=t(15)(r),i="equestAnimationFrame";e.exports=r,o.inPlace(window,["r"+i,"mozR"+i,"webkitR"+i,"msR"+i],"raf-"),r.on("raf-start",function(t){t[0]=o(t[0],"fn-")})},{}],5:[function(t,e,n){function r(t,e,n){t[0]=a(t[0],"fn-",null,n)}function o(t,e,n){this.method=n,this.timerDuration=isNaN(t[1])?0:+t[1],t[0]=a(t[0],"fn-",this,n)}var i=t("ee").get("timer"),a=t(15)(i),c="setTimeout",s="setInterval",f="clearTimeout",u="-start",d="-";e.exports=i,a.inPlace(window,[c,"setImmediate"],c+d),a.inPlace(window,[s],s+d),a.inPlace(window,[f,"clearImmediate"],f+d),i.on(s+u,r),i.on(c+u,o)},{}],6:[function(t,e,n){function r(t,e){d.inPlace(e,["onreadystatechange"],"fn-",c)}function o(){var t=this,e=u.context(t);t.readyState>3&&!e.resolved&&(e.resolved=!0,u.emit("xhr-resolved",[],t)),d.inPlace(t,w,"fn-",c)}function i(t){g.push(t),h&&(b?b.then(a):v?v(a):(E=-E,O.data=E))}function a(){for(var t=0;t<g.length;t++)r([],g[t]);g.length&&(g=[])}function c(t,e){return e}function s(t,e){for(var n in t)e[n]=t[n];return e}t(3);var f=t("ee"),u=f.get("xhr"),d=t(15)(u),l=NREUM.o,p=l.XHR,h=l.MO,m=l.PR,v=l.SI,y="readystatechange",w=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],g=[];e.exports=u;var x=window.XMLHttpRequest=function(t){var e=new p(t);try{u.emit("new-xhr",[e],e),e.addEventListener(y,o,!1)}catch(n){try{u.emit("internal-error",[n])}catch(r){}}return e};if(s(p,x),x.prototype=p.prototype,d.inPlace(x.prototype,["open","send"],"-xhr-",c),u.on("send-xhr-start",function(t,e){r(t,e),i(e)}),u.on("open-xhr-start",r),h){var b=m&&m.resolve();if(!v&&!m){var E=1,O=document.createTextNode(E);new h(a).observe(O,{characterData:!0})}}else f.on("fn-end",function(t){t[0]&&t[0].type===y||a()})},{}],7:[function(t,e,n){function r(t){var e=this.params,n=this.metrics;if(!this.ended){this.ended=!0;for(var r=0;r<d;r++)t.removeEventListener(u[r],this.listener,!1);if(!e.aborted){if(n.duration=a.now()-this.startTime,4===t.readyState){e.status=t.status;var i=o(t,this.lastSize);if(i&&(n.rxSize=i),this.sameOrigin){var s=t.getResponseHeader("X-NewRelic-App-Data");s&&(e.cat=s.split(", ").pop())}}else e.status=0;n.cbTime=this.cbTime,f.emit("xhr-done",[t],t),c("xhr",[e,n,this.startTime])}}}function o(t,e){var n=t.responseType;if("json"===n&&null!==e)return e;var r="arraybuffer"===n||"blob"===n||"json"===n?t.response:t.responseText;return h(r)}function i(t,e){var n=s(e),r=t.params;r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.sameOrigin=n.sameOrigin}var a=t("loader");if(a.xhrWrappable){var c=t("handle"),s=t(8),f=t("ee"),u=["load","error","abort","timeout"],d=u.length,l=t("id"),p=t(11),h=t(10),m=window.XMLHttpRequest;a.features.xhr=!0,t(6),f.on("new-xhr",function(t){var e=this;e.totalCbs=0,e.called=0,e.cbTime=0,e.end=r,e.ended=!1,e.xhrGuids={},e.lastSize=null,p&&(p>34||p<10)||window.opera||t.addEventListener("progress",function(t){e.lastSize=t.loaded},!1)}),f.on("open-xhr-start",function(t){this.params={method:t[0]},i(this,t[1]),this.metrics={}}),f.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),f.on("send-xhr-start",function(t,e){var n=this.metrics,r=t[0],o=this;if(n&&r){var i=h(r);i&&(n.txSize=i)}this.startTime=a.now(),this.listener=function(t){try{"abort"===t.type&&(o.params.aborted=!0),("load"!==t.type||o.called===o.totalCbs&&(o.onloadCalled||"function"!=typeof e.onload))&&o.end(e)}catch(n){try{f.emit("internal-error",[n])}catch(r){}}};for(var c=0;c<d;c++)e.addEventListener(u[c],this.listener,!1)}),f.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),f.on("xhr-load-added",function(t,e){var n=""+l(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),f.on("xhr-load-removed",function(t,e){var n=""+l(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),f.on("addEventListener-end",function(t,e){e instanceof m&&"load"===t[0]&&f.emit("xhr-load-added",[t[1],t[2]],e)}),f.on("removeEventListener-end",function(t,e){e instanceof m&&"load"===t[0]&&f.emit("xhr-load-removed",[t[1],t[2]],e)}),f.on("fn-start",function(t,e,n){e instanceof m&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=a.now()))}),f.on("fn-end",function(t,e){this.xhrCbStart&&f.emit("xhr-cb-time",[a.now()-this.xhrCbStart,this.onload,e],e)})}},{}],8:[function(t,e,n){e.exports=function(t){var e=document.createElement("a"),n=window.location,r={};e.href=t,r.port=e.port;var o=e.href.split("://");!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=e.hostname||n.hostname,r.pathname=e.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname);var i=!e.protocol||":"===e.protocol||e.protocol===n.protocol,a=e.hostname===document.domain&&e.port===n.port;return r.sameOrigin=i&&(!e.hostname||a),r}},{}],9:[function(t,e,n){function r(){}function o(t,e,n){return function(){return i(t,[f.now()].concat(c(arguments)),e?null:this,n),e?void 0:this}}var i=t("handle"),a=t(12),c=t(13),s=t("ee").get("tracer"),f=t("loader"),u=NREUM;"undefined"==typeof window.newrelic&&(newrelic=u);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],l="api-",p=l+"ixn-";a(d,function(t,e){u[e]=o(l+e,!0,"api")}),u.addPageAction=o(l+"addPageAction",!0),u.setCurrentRouteName=o(l+"routeName",!0),e.exports=newrelic,u.interaction=function(){return(new r).get()};var h=r.prototype={createTracer:function(t,e){var n={},r=this,o="function"==typeof e;return i(p+"tracer",[f.now(),t,n],r),function(){if(s.emit((o?"":"no-")+"fn-start",[f.now(),r,o],n),o)try{return e.apply(this,arguments)}catch(t){throw s.emit("fn-err",[arguments,this,t],n),t}finally{s.emit("fn-end",[f.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,e){h[e]=o(p+e)}),newrelic.noticeError=function(t){"string"==typeof t&&(t=new Error(t)),i("err",[t,f.now()])}},{}],10:[function(t,e,n){e.exports=function(t){if("string"==typeof t&&t.length)return t.length;if("object"==typeof t){if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if(!("undefined"!=typeof FormData&&t instanceof FormData))try{return JSON.stringify(t).length}catch(e){return}}}},{}],11:[function(t,e,n){var r=0,o=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);o&&(r=+o[1]),e.exports=r},{}],12:[function(t,e,n){function r(t,e){var n=[],r="",i=0;for(r in t)o.call(t,r)&&(n[i]=e(r,t[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],13:[function(t,e,n){function r(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(o<0?0:o);++r<o;)i[r]=t[e+r];return i}e.exports=r},{}],14:[function(t,e,n){e.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],15:[function(t,e,n){function r(t){return!(t&&t instanceof Function&&t.apply&&!t[a])}var o=t("ee"),i=t(13),a="nr@original",c=Object.prototype.hasOwnProperty,s=!1;e.exports=function(t,e){function n(t,e,n,o){function nrWrapper(){var r,a,c,s;try{a=this,r=i(arguments),c="function"==typeof n?n(r,a):n||{}}catch(f){l([f,"",[r,a,o],c])}u(e+"start",[r,a,o],c);try{return s=t.apply(a,r)}catch(d){throw u(e+"err",[r,a,d],c),d}finally{u(e+"end",[r,a,s],c)}}return r(t)?t:(e||(e=""),nrWrapper[a]=t,d(t,nrWrapper),nrWrapper)}function f(t,e,o,i){o||(o="");var a,c,s,f="-"===o.charAt(0);for(s=0;s<e.length;s++)c=e[s],a=t[c],r(a)||(t[c]=n(a,f?c+o:o,i,c))}function u(n,r,o){if(!s||e){var i=s;s=!0;try{t.emit(n,r,o,e)}catch(a){l([a,n,r,o])}s=i}}function d(t,e){if(Object.defineProperty&&Object.keys)try{var n=Object.keys(t);return n.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(r){l([r])}for(var o in t)c.call(t,o)&&(e[o]=t[o]);return e}function l(e){try{t.emit("internal-error",e)}catch(n){}}return t||(t=o),n.inPlace=f,n.flag=a,n}},{}],ee:[function(t,e,n){function r(){}function o(t){function e(t){return t&&t instanceof r?t:t?s(t,c,i):i()}function n(n,r,o,i){if(!l.aborted||i){t&&t(n,r,o);for(var a=e(o),c=h(n),s=c.length,f=0;f<s;f++)c[f].apply(a,r);var d=u[w[n]];return d&&d.push([g,n,r,a]),a}}function p(t,e){y[t]=h(t).concat(e)}function h(t){return y[t]||[]}function m(t){return d[t]=d[t]||o(n)}function v(t,e){f(t,function(t,n){e=e||"feature",w[n]=e,e in u||(u[e]=[])})}var y={},w={},g={on:p,emit:n,get:m,listeners:h,context:e,buffer:v,abort:a,aborted:!1};return g}function i(){return new r}function a(){(u.api||u.feature)&&(l.aborted=!0,u=l.backlog={})}var c="nr@context",s=t("gos"),f=t(12),u={},d={},l=e.exports=o();l.backlog=u},{}],gos:[function(t,e,n){function r(t,e,n){if(o.call(t,e))return t[e];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return t[e]=r,r}var o=Object.prototype.hasOwnProperty;e.exports=r},{}],handle:[function(t,e,n){function r(t,e,n,r){o.buffer([t],r),o.emit(t,e,n)}var o=t("ee").get("handle");e.exports=r,r.ee=o},{}],id:[function(t,e,n){function r(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:a(t,i,function(){return o++})}var o=1,i="nr@id",a=t("gos");e.exports=r},{}],loader:[function(t,e,n){function r(){if(!b++){var t=x.info=NREUM.info,e=l.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(t&&t.licenseKey&&t.applicationID&&e))return u.abort();f(w,function(e,n){t[e]||(t[e]=n)}),s("mark",["onload",a()+x.offset],null,"api");var n=l.createElement("script");n.src="https://"+t.agent,e.parentNode.insertBefore(n,e)}}function o(){"complete"===l.readyState&&i()}function i(){s("mark",["domContent",a()+x.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(c=Math.max((new Date).getTime(),c))-x.offset}var c=(new Date).getTime(),s=t("handle"),f=t(12),u=t("ee"),d=window,l=d.document,p="addEventListener",h="attachEvent",m=d.XMLHttpRequest,v=m&&m.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:m,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var y=""+location,w={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1071.min.js"},g=m&&v&&v[p]&&!/CriOS/.test(navigator.userAgent),x=e.exports={offset:c,now:a,origin:y,features:{},xhrWrappable:g};t(9),l[p]?(l[p]("DOMContentLoaded",i,!1),d[p]("load",r,!1)):(l[h]("onreadystatechange",o),d[h]("onload",r)),s("mark",["firstbyte",c],null,"api");var b=0,E=t(14)},{}]},{},["loader",2,7]);</script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="RATING" content="RTA-5042-1996-1400-1577-RTA" />
+<link rel="meta" href="http://www.imagefap.com/labels.rdf" type="application/rdf+xml" title="ICRA labels" />
+<meta http-equiv="pics-Label" content='(pics-1.1 "http://www.icra.org/pics/vocabularyv03/" l gen true for "http://www.imagefap.com" r (n 3 s 3 v 2 l 3 oa 2 ob 0 oc 0 od 0 oe 0 of 0 og 0 oh 0 c 3) gen true for "http://www.imagefap.com" r (n 3 s 3 v 2 l 3 oa 2 ob 0 oc 0 od 0 oe 0 of 0 og 0 oh 0 c 3))' />
+	<meta name="keywords" content="porn, free porn, sex, free sex, free porn pics, free sex pics, adult pics, amateur porn, anal pics, big dicks, big tits, ebony, hot blondes, blowjob, hot brunettes, nude celebs, pussy close up, creampie, cumshot, group sex, orgy, handjob, hardcore, interracial sex, latina porn, lesbians, mature porn, oral sex, shemales, gay, pornstars, pussy, teen porn, upskirt, imagefap, imagefap.com, nude teens, teen sex, hardcore sex, xxx adult pics, porn pictures, group sex pics, hardcore pics, porn pics, teen hardcore, free xxx pics, sex pics, fuck, gay pics" />
+	
+<title>Privacy Policy</title>
+
+	
+<script>
+	var POPUP_SELECTIVE_MODE =  true;
+
+	function _setCookie(c_name, value, exseconds) {
+			var exdate = new Date( (new Date().getTime()) + (parseInt(exseconds) * 1000) );
+			var c_value = escape(value) + ((exseconds == null) ? "" : "; expires=" + exdate.toUTCString());
+			document.cookie = c_name + "=" + c_value + ";domain=." +
+				location.hostname.split('.').reverse()[1] + "." +
+				location.hostname.split('.').reverse()[0] + "; path=/";
+		};
+
+	function _getCookie(c_name) {
+			var i, x, y, ARRcookies = document.cookie.split(";");
+			for (i = 0; i < ARRcookies.length; i++) {
+				x = ARRcookies[i].substr(0, ARRcookies[i].indexOf("="));
+				y = ARRcookies[i].substr(ARRcookies[i].indexOf("=") + 1);
+				x = x.replace(/^\s+|\s+$/g, "");
+				if (x == c_name) {
+					return unescape(y)
+				}
+			}
+		};
+
+	function _unsetCookie(c_name) {
+		document.cookie = c_name + "=; expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=." +
+		location.hostname.split('.').reverse()[1] + "." +
+		location.hostname.split('.').reverse()[0] + "; path=/";
+	};
+
+	// we assume that AdBlocker is TURNED ON
+	_setCookie('AdBlockerState', 'on', 1800);
+
+	function checkIsChrome() {
+		var isChromium = window.chrome,
+			winNav = window.navigator,
+			vendorName = winNav.vendor,
+			isOpera = winNav.userAgent.indexOf("OPR") > -1,
+			isIEedge = winNav.userAgent.indexOf("Edge") > -1,
+			isIOSChrome = winNav.userAgent.match("CriOS");
+		if (isIOSChrome) {
+			return true;
+		} else if (
+			isChromium !== null &&
+			typeof isChromium !== "undefined" &&
+			vendorName === "Google Inc." &&
+			isOpera === false &&
+			isIEedge === false
+		) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+</script>
+
+<script type="text/javascript">
+			
+	var exoUrl = 'https://tsyndicate.com/api/v1/direct/83cfa8aa57a543fe97ecdd52e14ea261?categories=&p1=';
+	var bbH = 'https://tsyndicate.com/api/v1/direct/83cfa8aa57a543fe97ecdd52e14ea261?categories=&p1=';
+</script>
+	<script type="text/javascript" src="//www.imagefap.com/combine.php?type=js&str=jquery.1.4.2.js"></script><script type="text/javascript" src="//www.imagefap.com/combine.php?type=js&str=jquery.scroll-follow.js,jquery.cookie.js,jquery.scrollTo-min.js,jquery.validate.js,tools.js,jquery.rating.js,jquery.tools.overlay.js,jquery.tools.toolbox.expose.js,019ce.js,adsmanager.js,facets.js,12398.js?a=20180221"></script><script type="text/javascript" src="http://www.imagefap.com/jscripts/ad_loader.js"></script>
+
+
+<link rel="stylesheet" href="//www.imagefap.com/style.css?param=20" type="text/css" />
+<!--[if IE]><link rel="stylesheet" href="http://www.imagefap.com/style.ie.css" type="text/css" /><![endif]-->
+
+<style>
+
+div.changeCat {
+     color: #001177;
+     background-color: #ffffff;
+     cursor: pointer;
+}
+div.changeCat:hover {
+     color: #ffffff;
+     font-weight: bold;
+     background-color: #3366cc;
+     cursor: pointer;
+}
+
+</style>
+
+
+
+
+
+
+<script type="text/javascript" src="http://ads.exoclick.com/ad_track.js"></script>
+
+</head>
+<body style=""  leftmargin="0"  marginheight="0" marginwidth="0" topmargin="0">
+
+
+
+
+
+<div id="share">
+	<div class="content">
+		<div class="head">
+			<input type="button" class="fr" value="X" onClick="share.close();">
+			Share this picture
+		</div>
+		<div class="body">
+						<table border=0 cellpadding=5 cellspacing=5>
+				<tr><td>HTML</td><td><input id="img_link_html" onClick='highlight(this);' type=text size=35 value=""></td></tr>
+				<tr><td>Forum</td><td><input id="img_link_forum" onClick='highlight(this);' type=text size=35 value=""></td></tr>
+				<tr><td>IM</td><td><input id="img_link_im" onClick='highlight(this);' type=text size=35 value=""></td></tr>
+			</table>
+
+			<div class="hr"></div>
+
+						<form id="share_form">
+				<b>Recommend this picture to your friends:</b><BR>
+				Enter email addresses or ImageFap usernames, separated by a comma:<BR><BR>
+				<input type="text" name="share_who" id="share_who" size=46 value=""><BR><BR>
+
+									Your name or username: <input type="text" name="share_usr" id="share_usr"><BR>
+					Your e-mail: <input type="text" name="share_eml" id="share_eml"><BR>
+								<div id="cf">
+					<li id="cf_img"><a href="#" onClick="return captch.refresh();"><img src="/img/z.gif" height=25 width=63 id="captcha"></a></li>
+					<li>Enter Code:<BR><input type="text" name="share_captcha" id="share_captcha" maxlength=4 size=4 value=""></li>
+					<li id="cf_report"><input type="button" onClick="share.send();" value="Share!"></li>
+				</div>
+				<div id="cf_loading">Sending your request...</div>
+				<br class="cb">
+			</form>
+
+			<div class="hr"></div>
+
+								</div>
+	</div>
+</div>
+
+
+<div class="tnaBarBlueWrap">
+    <div class="tnaBarBlue">
+        <span class="decor"></span>
+        <strong><span>T&#39;nAflix</span> network :</strong>
+        <ul>
+            <li><a href="http://www.tnaflix.com" rel="nofollow" title="free porn"><span class="TFicon">T&#39;nAflix</span></a></li>
+            <li><a href="http://www.empflix.com/" rel="nofollow" title="sex"><span class="EFicon">Empflix</span></a></li>
+            <li><a href="http://www.pornwall.com/" rel="nofollow" title="porn"><span class="PWicon">Pornwall</span></a></li>
+            <li><a href="http://www.wankspider.com/" rel="nofollow" title="porn search"><span class="WSicon">Wankspider</span></a></li>
+            <li><a href="http://www.moviefap.com/" rel="nofollow" title="porn movies"><span class="MFicon">MovieFap</span></a></li>
+        </ul>
+    </div>
+</div>
+
+<center>
+
+<table class="no-popunder" width="1000" border="0" cellspacing="0" cellpadding="0">
+<tr style="height: 60px;">
+	<td width="120" style="background-color: #ffffff;">
+		<a title="ImageFap.com" href="http://www.imagefap.com/index.php">
+		<img alt="ImageFap.com" src="//www.imagefap.com/img/logo.gif" border=0></a>
+
+		<img id="adserver" name="adserver" width=0 height=0 border=0>
+	</td>
+	<td style="background-color: #ffffff;">
+		<form action="/gallery.php" method="POST">
+		<table><tr><td width="300" style="background: #ffffff;">
+		<input class="input" size=25 type="text" name="search" value="">
+		<input class="input" type="submit" name="submit" value="Search!">
+		</td>
+		<td style="background-color: #ffffff;">
+			
+		</td>
+		</tr>
+		</table>
+		</form>
+	</td>
+	<td rowspan="1" style="background-color: #ffffff;">
+					<table><tr>
+				<td colspan="2" style="background: #ffffff;">
+					You are not signed in
+				</td>
+			</tr>
+			<tr>
+				<td width="35" style="background: #ffffff;">
+					<a href="http://www.imagefap.com/login.php"><img src="//www.imagefap.com/img/button_signin.jpg" border="0"></a>
+				</td><td style="background: #ffffff;">
+					<a href="http://www.imagefap.com/signup.php"><img src="//www.imagefap.com/img/button_register.jpg" border="0"></a>
+				</td>
+			</tr></table>
+			</td>
+</tr>
+<tr>
+	<td colspan="3" style="background-color: #ffffff;">
+		<table cellpadding="0" cellspacing="1" height="25" width="100%" border="0" style='margin-top: 0px; margin-bottom: 1px; background: transparent'>
+		<tr>
+
+		<td class="mnu0"><a class="darklink" href="http://www.imagefap.com/"><b>Home</b></a></td><td class="mnusep2">|</td>
+		<td class="mnu0"><a class="darklink" href="http://www.imagefap.com/categories.php"><b>Categories</b></a></td><td class="mnusep2">|</td>
+		<td class="mnu0"><a class="darklink" href="http://www.imagefap.com/gallery.php"><b>Galleries</b></a></td><td class="mnusep2">|</td>
+		<td class="mnu0"><a class="darklink" href="http://www.imagefap.com/browse-video.php"><b>Videos</b></a></td><td class="mnusep2">|</td>
+				<td class="mnu0"><a class="darklink" href="http://www.imagefap.com/random.php"><b>Random</b></a>
+		</td><td class="mnusep2">|</td>
+				<td class="mnu0"><a class="darklink" href="http://www.imagefap.com/latest.php"><b>Blogs</b></a></td><td class="mnusep2">|</td>
+		<td class="mnu0"><a class="darklink" href="http://www.imagefap.com/profiles.php"><b>Members</b></a></td><td class="mnusep2">|</td>
+		<td class="mnu0"><a class="darklink" href="http://www.imagefap.com/clubs.php"><b>Clubs</b></a></td><td class="mnusep2">|</td>
+						<td class="mnu0"><a class="darklink" target="_blank" href="http://www.imagefap.com/forum/"><b>Forum</b></a></td><td class="mnusep2">|</td>
+		<td class="mnu0"><a class="darklink" href="http://up.imagefap.com/upload.php"><b>Upload</b></a></td>
+
+		
+		<td class="mnusep2">|</td>
+		<td class="mnu0"><a class="darklink" style="white-space: nowrap;" target="_blank" href="http://bongacams.com/track?c=589498" rel="nofollow"><b style="color: #FF0000;">Live Sex</b></a></td>
+		
+		<td width="100%" align="right" style="background: #ffffff;">
+		</td>
+		</tr>
+		</table>
+
+	</td>
+</tr>
+</table>
+
+<div style="background: #cccccc; height: 1px;"></div>
+<br/>
+
+<table  class=mainouter width=1000 border="0" cellspacing="0" cellpadding="0">
+    <tr>
+        <td  align=center class=outer style="padding-top: 20px; padding-bottom: 20px">
+
+            <table  class=mainouter  cellpadding=0><tr>
+
+                <td  valign="top">
+                    <div id="main" style="padding-left: 19px;">
+
+                                                                        <div id="top_announce" class="announceBox">
+		                    <div class="close">
+			                    <a href="#" onClick="return announce.close();">Close</a>
+		                    </div>
+
+		                    <div class="pad">
+			                    <b>Announcements from our admins</b>
+			                    				                    				                    <a target="_blank" href="http://www.imagefap.com/forum/viewtopic.php?f=18&t=15780">Jun  6, 2018 - Qtox - No longer allowed</a><BR>
+			                    				                    				                    <a target="_blank" href="http://www.imagefap.com/forum/viewtopic.php?f=18&t=14892">Jun 24, 2017 - Turn off your Ad Block Plus for a better experience</a><BR>
+			                    				                    					                    <a href="http://www.imagefap.com/forum/viewforum.php?f=18" target="_blank" style="float:right;">View all announces</a>
+				                    				                    <a target="_blank" href="http://www.imagefap.com/forum/viewtopic.php?f=18&t=12388">Jan 16, 2015 - What is or isn't permitted on imagefap</a><BR>
+			                    		                    </div>
+	                    </div>
+                        
+
+												                                                     
+                                                    
+                        
+                        <center>
+
+                        	                    
+                        		                			            
+                        <div>
+					    
+					    											<script type="text/javascript">Buu.addZone({"type": "banner", "width":"728","height":"90","idzone":"346722"});</script><script type="text/javascript" src="//cdn.trafficstars.com/sdk/v1/bi.js" data-ts-width="728" data-ts-height="90" data-ts-spot="df9d20555bd7476bb4d06378cd86d0b6" data-ts-categories="" async defer></script>            				                            <script>
+                            
+                                $(window).load(function()
+                                {
+//                                    var adHTML = "";
+//                                    adsManager.add('#a1', adHTML);
+                                });
+                            
+                            </script>
+
+					    				        </div>
+			            		                		                <BR>
+
+                    	<table width="750" border=0 cellspacing=0 cellpadding=5>
+<tr>
+<td style="background: url(img/win-fff.gif) #3366cc no-repeat left top;"><font face=verdana color=white size=4><b>Privacy Policy</b></font><BR><BR>
+<table width="100%" cellspacing=0 cellpadding=6>
+<tr>
+<td bgcolor="#FFFFFF">
+
+	<p style="line-height: 1.2; margin-top: 0pt; margin-bottom: 18.75pt; text-align: center; border-bottom: solid #dedede 0.75pt; background-color: #ffffff; padding: 0pt 0pt 8pt 0pt;"><span style="font-size: 15pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Privacy Policy</span></p>
+	<p style="line-height: 1.295; margin-top: 0pt; margin-bottom: 0pt; background-color: #ffffff;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Youngtek Solutions Limited (the &ldquo;Company&rdquo;) operates the &nbsp;free web site ImageFap.com (the &ldquo;Site&rdquo;) - an adult web site with streaming video and pictures. </span></p>
+	<p style="line-height: 1.295; margin-top: 0pt; margin-bottom: 0pt; background-color: #ffffff;">&nbsp;</p>
+	<p style="line-height: 1.295; margin-top: 0pt; margin-bottom: 0pt; background-color: #ffffff;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Youngtek Solutions Limited are a Controller of the personal data regarding the General Data Protection Regulation 2016/679 GDPR.</span></p>
+	<p style="line-height: 1.295; margin-top: 0pt; margin-bottom: 0pt; background-color: #ffffff;">&nbsp;</p>
+	<p style="line-height: 1.295; margin-top: 0pt; margin-bottom: 0pt; background-color: #ffffff;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">The Company wants to assure you that we respect your privacy because we know that trust is the key to any successful relationship. The following Privacy Policy describes the Company&rsquo;s commitment to protect your personal information.</span></p>
+	<p style="line-height: 1.2; margin-top: 12pt; margin-bottom: 12pt; text-align: justify; background-color: #ffffff;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Youngtek Solutions Limited policy are comply with the General Data Protection Regulation 2016/679 GDPR</span></p>
+	<p style="line-height: 1.295; margin-top: 0pt; margin-bottom: 6pt; text-align: justify;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Regulation (EU) 2016/679 (General Data Protection Regulation) replaces Data Protection Directive 95/46. It has direct effect and implies a change in the legislation of the Member States in the field of personal data protection. Its purpose is to protect the "rights and freedoms" of individuals and to ensure that personal data are not processed without their knowledge and, where possible, processed with their consent.</span></p>
+	<p style="line-height: 1.2; margin-top: 12pt; margin-bottom: 12pt; text-align: justify; background-color: #ffffff;"><strong><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">SCOPE</span></strong></p>
+	<p style="line-height: 1.295; margin-top: 0pt; margin-bottom: 6pt; text-align: justify;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Material scope &ndash; GDPR applies to the processing of personal data wholly or in part by automatic means and to the processing of personal data (for example, manually and on paper) by other means, which are part of a personal data record or which are intended to form part of a personal data record.</span></p>
+	<p style="line-height: 1.295; margin-top: 0pt; margin-bottom: 6pt; text-align: justify;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Territorial scope - The rules of the GDPR will apply to all data controllers established in the EU who process personal data of individuals in the context of their activities. It will also apply to non-EU administrators who process personal data in order to offer goods and services or observe the behavior of data subjects who are resident in the EU.</span></p>
+	<p style="line-height: 1.2; margin-top: 12pt; margin-bottom: 12pt; text-align: justify; background-color: #ffffff;"><strong><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">DEFINITION:</span></strong></p>
+	<p style="line-height: 1.295; margin-top: 0pt; margin-bottom: 6pt; text-align: justify;"><strong><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Personal data</span></strong><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;"> means any information relating to an identified or identifiable natural person (&lsquo;data subject&rsquo;); an identifiable natural person is one who can be identified, directly or indirectly, in particular by reference to an identifier such as a name, an identification number, location data, an online identifier or to one or more factors specific to the physical, physiological, genetic, mental, economic, cultural or social identity of that natural person; </span></p>
+	<p style="line-height: 1.295; margin-top: 0pt; margin-bottom: 6pt; text-align: justify;"><strong><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Special categories of personal data</span></strong><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;"> means personal data revealing racial or ethnic origin, political opinions, religious or philosophical beliefs or membership of trade unions and the processing of genetic data, biometrics for unique identifying an individual, data concerning health or data on the sexual life of an individual or sexual orientation.</span></p>
+	<p style="line-height: 1.295; margin-top: 0pt; margin-bottom: 6pt; text-align: justify;"><strong><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Processing</span></strong><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;"> means any operation or set of operations which is performed on personal data or on sets of personal data, whether or not by automated means, such as collection, recording, organization, structuring, storage, adaptation or alteration, retrieval, consultation, use, disclosure by transmission, dissemination or otherwise making available, alignment or combination, restriction, erasure or destruction;</span></p>
+	<p style="line-height: 1.295; margin-top: 0pt; margin-bottom: 6pt; text-align: justify;"><strong><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Controller </span></strong><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">means the natural or legal person, public authority, agency or other body which, alone or jointly with others, determines the purposes and means of the processing of personal data; where the purposes and means of such processing are determined by Union or Member State law, the controller or the specific criteria for its nomination may be provided for by Union or Member State law; </span></p>
+	<p style="line-height: 1.295; margin-top: 0pt; margin-bottom: 6pt; text-align: justify;"><strong><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Processor</span></strong><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;"> means a natural or legal person, public authority, agency or other body which processes personal data on behalf of the controller;</span></p>
+	<p style="line-height: 1.295; margin-top: 0pt; margin-bottom: 6pt; text-align: justify;"><strong><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Data subject</span></strong><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;"> means any natural person who is the subject of personal data stored by the Controller (Administrator). </span></p>
+	<p style="line-height: 1.295; margin-top: 0pt; margin-bottom: 6pt; text-align: justify;"><strong><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Consent </span></strong><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">of the data subject means any freely given, specific, informed and unambiguous indication of the data subject's wishes by which he or she, by a statement or by a clear affirmative action, signifies agreement to the processing of personal data relating to him or her; </span></p>
+	<p style="line-height: 1.295; margin-top: 0pt; margin-bottom: 6pt; text-align: justify;"><strong><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Profiling</span></strong><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;"> means any form of automated processing of personal data consisting of the use of personal data to evaluate certain personal aspects relating to a natural person, in particular to analyze or predict aspects concerning that natural person's performance at work, economic situation, health, personal preferences, interests, reliability, behavior, location or movements; </span></p>
+	<p style="line-height: 1.295; margin-top: 0pt; margin-bottom: 6pt; text-align: justify;"><strong><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Personal data breach</span></strong><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;"> means a breach of security leading to the accidental or unlawful destruction, loss, alteration, unauthorized disclosure of, or access to, personal data transmitted, stored or otherwise processed; </span></p>
+	<p style="line-height: 1.295; margin-top: 0pt; margin-bottom: 6pt; text-align: justify;"><strong><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Main place of establishment</span></strong><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;"> - the EU controller's headquarters will be the place where he takes the basic decisions about the purpose and means of his data processing activities. For personal data processors, its main place of establishment in the EU will be its administrative center.</span></p>
+	<p style="line-height: 1.295; margin-top: 0pt; margin-bottom: 6pt; text-align: justify;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">If the controller is based outside the EU, he must appoint a representative in the jurisdiction where the administrator works to act on behalf of the controller and deal with supervisors. (Article 4 (16) of the GDPR) </span></p>
+	<p style="line-height: 1.295; margin-top: 0pt; margin-bottom: 6pt; text-align: justify;"><strong><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Recipient</span></strong><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;"> means a natural or legal person, public authority, agency or another body, to which the personal data are disclosed, whether a third party or not. However, public authorities which may receive personal data in the framework of a particular inquiry in accordance with Union or Member State law shall not be regarded as recipients; the processing of those data by those public authorities shall be in compliance with the applicable data protection rules according to the purposes of the processing;</span></p>
+	<p style="line-height: 1.295; margin-top: 0pt; margin-bottom: 6pt; text-align: justify;"><strong><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Third party</span></strong><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;"> means a natural or legal person, public authority, agency or body other than the data subject, controller, processor and persons who, under the direct authority of the controller or processor, are authorized to process personal data;</span></p>
+	<p style="line-height: 1.2; margin-top: 12pt; margin-bottom: 12pt; text-align: justify; background-color: #ffffff;"><strong><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">PRINCIPLES OF DATA PROTECTION</span></strong></p>
+	<p style="line-height: 1.295; margin-top: 0pt; margin-bottom: 6pt; text-align: justify;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">All processing of personal data are in accordance with the data protection principles referred to in Article 5 of GDRP (EU) 2016/679. The policies and procedures of Youngtek Solutions Limited aim to ensure compliance with these principles.</span></p>
+	<p style="line-height: 1.295; margin-top: 0pt; margin-bottom: 6pt; text-align: justify;"><em><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Personal data be processed lawfully, in good faith and transparently</span></em></p>
+	<p style="line-height: 1.295; margin-top: 0pt; margin-bottom: 6pt; text-align: justify;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Lawfulness - Identify a legal basis before it can process personal data. They are often referred to as "grounds for processing", such as "consent".</span></p>
+	<p style="line-height: 1.295; margin-top: 0pt; margin-bottom: 6pt; text-align: justify;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Fairness - in order for the processing to be in good faith, the data controller must provide certain information to the data subjects as far as is practicable. This applies irrespective of whether personal data is obtained directly from data subjects or from other sources.</span></p>
+	<p style="line-height: 1.295; margin-top: 0pt; margin-bottom: 6pt; text-align: justify;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Regulation (EU) 2016/679 increases the requirements for what information should be available to data subjects that are covered by the "transparency" requirement.</span></p>
+	<p style="line-height: 1.295; margin-top: 0pt; margin-bottom: 6pt; text-align: justify;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Transparency - The GDPR includes rules on the provision of confidential information to data subjects in Articles 12, 13 and 14 of the GDPR. They are detailed and specific, emphasizing that Privacy Policys are understandable and accessible. Information must be communicated to the data subject in comprehensible form using clear and comprehensible language.</span></p>
+	<p>&nbsp;</p>
+	<p style="line-height: 1.295; margin-top: 0pt; margin-bottom: 6pt; text-align: justify;"><em><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Personal data may only be collected for specific, explicit and legitimate purposes</span></em></p>
+	<p style="line-height: 1.295; margin-top: 0pt; margin-bottom: 6pt; text-align: justify;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Data obtained for specific purposes should not be used for a purpose that differs from those officially announced to the supervisory body as part of the Youngtek Solutions Limited Data Processing (Article 30 GDPR).</span></p>
+	<p style="line-height: 1.295; margin-top: 0pt; margin-bottom: 6pt; text-align: justify;"><em><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Personal data must be adequate, relevant, limited to what is necessary for their processing for the purpose. (Principle of minimum necessary)</span></em></p>
+	<p>&nbsp;</p>
+	<ul style="margin-top: 0pt; margin-bottom: 0pt;">
+		<li style="list-style-type: disc; font-size: 9pt; font-family: 'Noto Sans Symbols'; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Data Protection Officer (DPO) is responsible for ensuring that Youngtek Solutions Limited does not collect information that is not strictly necessary for the purpose for which it was received.</span></li>
+		<li style="list-style-type: disc; font-size: 9pt; font-family: 'Noto Sans Symbols'; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">The Data Protection Officer (DPO) will ensure that on an annual basis all data collection methods are reviewed by (internal audit / external experts) to ensure that the collected data continues to be adequate, relevant, are not excessive.</span></li>
+	</ul>
+	<p>&nbsp;</p>
+	<ol style="margin-top: 0pt; margin-bottom: 0pt;">
+		<li style="list-style-type: decimal; font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Personal data must be accurate and up-to-date at all times, and the necessary efforts are made to enable deletion or correction immediately (within the framework of possible technical solutions)</span></li>
+	</ol>
+	<p>&nbsp;</p>
+	<ul style="margin-top: 0pt; margin-bottom: 0pt;">
+		<li style="list-style-type: disc; font-size: 9pt; font-family: 'Noto Sans Symbols'; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">The data stored by the data controller should be reviewed and updated as necessary. Data should not be stored in cases where it is unlikely to be accurate.</span></li>
+		<li style="list-style-type: disc; font-size: 9pt; font-family: 'Noto Sans Symbols'; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">The Data Protection Officer is responsible for ensuring that all staff are trained in the importance of accurate data collection and maintenance.</span></li>
+	</ul>
+	<p>&nbsp;</p>
+	<ul style="margin-top: 0pt; margin-bottom: 0pt;">
+		<li style="list-style-type: disc; font-size: 9pt; font-family: 'Noto Sans Symbols'; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">It is also the duty of the data subject to declare that the data he transmits for storage by Youngtek Solutions Limited are accurate and up-to-date. Completing a form from the data subject to the administrator will include a statement that the data contained therein is accurate at the filing date.</span></li>
+		<li style="list-style-type: disc; font-size: 9pt; font-family: 'Noto Sans Symbols'; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Employees / employees (clients / others) should be required to notify Youngtek Solutions Limited of any change in circumstances in order to update the records of personal data. Instructions and rules for updating the records are contained (here). The responsibility of Youngtek Solutions Limited is to ensure that any change of circumstances notification is recorded and action is taken.</span></li>
+		<li style="list-style-type: disc; font-size: 9pt; font-family: 'Noto Sans Symbols'; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">The Data Protection Officer is responsible for ensuring that appropriate procedures and policies are in place to maintain the accuracy and timeliness of personal data, taking into account the volume of data collected, the speed at which it can change, other relevant factors.</span></li>
+		<li style="list-style-type: disc; font-size: 9pt; font-family: 'Noto Sans Symbols'; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">At least annually, the Data Protection Officer will review the storage times of all personal data handled by Youngtek Solutions Limited, referring to the inventory of the data and will identify all data that are no longer required in the context of the registered objective. These data will be reliably destroyed in accordance with the administrator's procedures and rules.</span></li>
+		<li style="list-style-type: disc; font-size: 9pt; font-family: 'Noto Sans Symbols'; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">The Data Protection Officer (DPO) is responsible for complying with data r requests within one month, which can be extended by a further two months If the Youngtek Solutions Limited decides not to comply with the request, the Data Protection Officer must respond to the data subject in order to explain his / her reasons and to inform him / her of the right to complain and the supervisory authority and to seek redress.</span></li>
+		<li style="list-style-type: disc; font-size: 9pt; font-family: 'Noto Sans Symbols'; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">The Data Protection Officer is responsible for taking appropriate measures in cases where third party organizations have inaccurate or outdated personal data to inform them that the information is inaccurate or obsolete and is not used to make decisions about individuals to inform the parties concerned; and to forward any correction of personal data to third countries where necessary.</span></li>
+	</ul>
+	<ol style="margin-top: 0pt; margin-bottom: 0pt;">
+		<li style="list-style-type: decimal; font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Personal data must be stored in such a form that the data subject can only be identified for as long as is necessary for the processing.</span></li>
+	</ol>
+	<p>&nbsp;</p>
+	<ul style="margin-top: 0pt; margin-bottom: 0pt;">
+		<li style="list-style-type: disc; font-size: 9pt; font-family: 'Noto Sans Symbols'; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">When personal data is retained after the processing date, it will be stored appropriately (minimized, encrypted, aliased) to protect the identity of the data subject in case of data breaches.</span></li>
+	</ul>
+	<p>&nbsp;</p>
+	<ol style="margin-top: 0pt; margin-bottom: 0pt;">
+		<li style="list-style-type: decimal; font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Personal data are processed in a way that ensures appropriate security (Article 24, Article 32 of the GDPR)</span></li>
+	</ol>
+	<p style="line-height: 1.295; margin-top: 0pt; margin-bottom: 6pt; text-align: justify;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">The Data Protection Officer will carry out an impact assessment (risk assessment) taking into account all circumstances related to data management or processing operations by Youngtek Solutions Limited .</span></p>
+	<p style="line-height: 1.295; margin-top: 0pt; margin-bottom: 6pt; text-align: justify;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">In determining the suitability of the processing, the Data Protection Officer should also examine the extent of any damage or loss that may be caused to individuals (eg staff or customers) if a security breach occurs, as is the case and any likely damage to the reputation of the controller, including a possible loss of customer confidence.</span></p>
+	<p style="line-height: 1.295; margin-top: 0pt; margin-bottom: 6pt; text-align: justify;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">When assessing appropriate technical measures, the Data Protection Officer will consider the following:</span></p>
+	<ul style="margin-top: 0pt; margin-bottom: 0pt;">
+		<li style="list-style-type: disc; font-size: 9pt; font-family: 'Noto Sans Symbols'; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Password protection;</span></li>
+		<li style="list-style-type: disc; font-size: 9pt; font-family: 'Noto Sans Symbols'; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Automatic locking of idle workstations in the network;</span></li>
+		<li style="list-style-type: disc; font-size: 9pt; font-family: 'Noto Sans Symbols'; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Removing access rights for USB and other removable storage media;</span></li>
+		<li style="list-style-type: disc; font-size: 9pt; font-family: 'Noto Sans Symbols'; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Antivirus software and firewalls;</span></li>
+		<li style="list-style-type: disc; font-size: 9pt; font-family: 'Noto Sans Symbols'; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Access rights based on roles, including those of assigned temporary staff</span></li>
+		<li style="list-style-type: disc; font-size: 9pt; font-family: 'Noto Sans Symbols'; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Protect devices that leave the organization's premises, such as laptops or others;</span></li>
+		<li style="list-style-type: disc; font-size: 9pt; font-family: 'Noto Sans Symbols'; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Security of local and wide-area networks;</span></li>
+		<li style="list-style-type: disc; font-size: 9pt; font-family: 'Noto Sans Symbols'; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Enhanced privacy practices such as pseudonymization and anonymization</span></li>
+		<li style="list-style-type: disc; font-size: 9pt; font-family: 'Noto Sans Symbols'; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Identification of appropriate international security standards appropriate for Youngtek Solutions Limited </span></li>
+	</ul>
+	<p style="line-height: 1.295; margin-top: 0pt; margin-bottom: 6pt; text-indent: -18pt; text-align: justify; padding: 0pt 0pt 0pt 18pt;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">When assessing the appropriate organizational measures, the Data Protection Officer will consider the following:</span></p>
+	<ul style="margin-top: 0pt; margin-bottom: 0pt;">
+		<li style="list-style-type: disc; font-size: 9pt; font-family: 'Noto Sans Symbols'; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Levels of appropriate training in Youngtek Solutions Limited </span></li>
+	</ul>
+	<ul style="margin-top: 0pt; margin-bottom: 0pt;">
+		<li style="list-style-type: disc; font-size: 9pt; font-family: 'Noto Sans Symbols'; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Measures that take into account staff reliability (for example, appraisal assessments, recommendations, etc.);</span></li>
+		<li style="list-style-type: disc; font-size: 9pt; font-family: 'Noto Sans Symbols'; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Inclusion of data protection in employment contracts;</span></li>
+		<li style="list-style-type: disc; font-size: 9pt; font-family: 'Noto Sans Symbols'; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Identification of disciplinary measures for violations with regard to data processing;</span></li>
+		<li style="list-style-type: disc; font-size: 9pt; font-family: 'Noto Sans Symbols'; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Regularly inspect staff for compliance with relevant security standards;</span></li>
+		<li style="list-style-type: disc; font-size: 9pt; font-family: 'Noto Sans Symbols'; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Control of physical access to electronic and paper-based records;</span></li>
+		<li style="list-style-type: disc; font-size: 9pt; font-family: 'Noto Sans Symbols'; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Store the database paper in lockable wall cabinets;</span></li>
+		<li style="list-style-type: disc; font-size: 9pt; font-family: 'Noto Sans Symbols'; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Restricting the use of portable electronic devices outside the workplace;</span></li>
+		<li style="list-style-type: disc; font-size: 9pt; font-family: 'Noto Sans Symbols'; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Limiting employee use of personal devices in the workplace;</span></li>
+		<li style="list-style-type: disc; font-size: 9pt; font-family: 'Noto Sans Symbols'; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Accepting clear rules for creating and using passwords;</span></li>
+		<li style="list-style-type: disc; font-size: 9pt; font-family: 'Noto Sans Symbols'; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Regular backup of personal data and physical storage of media with copies outside the office;</span></li>
+		<li style="list-style-type: disc; font-size: 9pt; font-family: 'Noto Sans Symbols'; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Imposition of contractual obligations on counterparty organizations to take appropriate security measures when transferring data outside the EU.</span></li>
+	</ul>
+	<p style="line-height: 1.295; margin-top: 0pt; margin-bottom: 6pt; text-align: justify;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">These controls are selected based on the identified personal data risks as well as the potential for damage to the data subjects who are being processed.</span></p>
+	<p style="line-height: 1.2; margin-top: 0pt; margin-bottom: 6pt; text-indent: -36pt; text-align: justify; padding: 0pt 0pt 0pt 36pt;"><em><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Compliance with the principle of accountability</span></em></p>
+	<p style="line-height: 1.295; margin-top: 0pt; margin-bottom: 6pt; text-indent: -18pt; text-align: justify; padding: 0pt 0pt 0pt 18pt;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Regulation (EU) 2016/679 includes provisions that promote accountability and manageability and complement transparency requirements. The principle of accountability in Art. 5, par. 2 requires the controller to prove that he adheres to the other principles in the GDPR and explicitly states that this is his responsibility.</span></p>
+	<p style="line-height: 1.2; margin-top: 0pt; margin-bottom: 6pt; text-indent: -36pt; text-align: justify; padding: 0pt 0pt 0pt 36pt;"><strong><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">RIGHTS OF DATA SUBJECTS</span></strong></p>
+	<ol>
+		<li style="line-height: 1.295; margin-top: 0pt; margin-bottom: 6pt; text-align: justify;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;"> Data subjects have the following rights in respect of the processing of data and the data recorded for them:</span></li>
+	</ol>
+	<ul style="margin-top: 0pt; margin-bottom: 0pt;">
+		<li style="list-style-type: disc; font-size: 9pt; font-family: 'Noto Sans Symbols'; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Make requests to verify that personal data associated with it is being processed and, if so, to access the data, as well as information on who the recipients of that data are.</span></li>
+		<li style="list-style-type: disc; font-size: 9pt; font-family: 'Noto Sans Symbols'; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Request a copy of their personal data from the controller (administrator);</span></li>
+		<li style="list-style-type: disc; font-size: 9pt; font-family: 'Noto Sans Symbols'; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Ask the controller (administrator) to correct personal data when they are inaccurate and when they are no longer up to date;</span></li>
+		<li style="list-style-type: disc; font-size: 9pt; font-family: 'Noto Sans Symbols'; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Require the controller (administrator) to delete personal data (right to be forgotten);</span></li>
+		<li style="list-style-type: disc; font-size: 9pt; font-family: 'Noto Sans Symbols'; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Ask the controller (administrator) &nbsp;to limit the processing of personal data, in which case the data will be stored but not processed;</span></li>
+		<li style="list-style-type: disc; font-size: 9pt; font-family: 'Noto Sans Symbols'; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">To object to the processing of his or her personal data;</span></li>
+		<li style="list-style-type: disc; font-size: 9pt; font-family: 'Noto Sans Symbols'; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">To object to the processing of personal data relating to him / her for direct marketing purposes.</span></li>
+		<li style="list-style-type: disc; font-size: 9pt; font-family: 'Noto Sans Symbols'; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Appeal to a supervisor if he / she believes that any of the GDPR provisions is violated;</span></li>
+		<li style="list-style-type: disc; font-size: 9pt; font-family: 'Noto Sans Symbols'; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Request and be given personal data in a structured, widely used and machine-readable format (data portability);</span></li>
+		<li style="list-style-type: disc; font-size: 9pt; font-family: 'Noto Sans Symbols'; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Withdraw your consent to the processing of personal data at any time with a separate request addressed to the administrator;</span></li>
+		<li style="list-style-type: disc; font-size: 9pt; font-family: 'Noto Sans Symbols'; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Not subject to automated decisions affecting him to a significant extent without human interference;</span></li>
+		<li style="list-style-type: disc; font-size: 9pt; font-family: 'Noto Sans Symbols'; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Oppose automated profiling, which happens without its consent;</span></li>
+	</ul>
+	<p>&nbsp;</p>
+	<p style="line-height: 1.2; margin-top: 0pt; margin-bottom: 6pt; text-indent: -36pt; text-align: justify; padding: 0pt 0pt 0pt 36pt;"><strong><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Consent</span></strong></p>
+	<ol>
+		<li style="line-height: 1.295; margin-top: 0pt; margin-bottom: 8pt; text-indent: -18pt; text-align: justify; padding: 0pt 0pt 0pt 18pt;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;"> Under consent, Youngtek Solutions Limited &nbsp;understand any free expression, specific, informed and unambiguous indication of the will of the data subject, by means of a statement or a clear confirmation action, which expresses its consent to the processing of the related personal data. The data subject may withdraw his / her consent at any time.</span></li>
+		<li style="line-height: 1.295; margin-top: 0pt; margin-bottom: 8pt; text-indent: -18pt; text-align: justify; padding: 0pt 0pt 0pt 18pt;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;"> &nbsp;Youngtek Solutions Limited understands "consent" only in cases where the data subject has been fully informed of the planned processing and has expressed his / her consent and without exerting pressure on it. Consent obtained under pressure or on the basis of misleading information will not be a valid basis for the processing of personal data.</span></li>
+		<li style="line-height: 1.295; margin-top: 0pt; margin-bottom: 8pt; text-indent: -18pt; text-align: justify; padding: 0pt 0pt 0pt 18pt;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;"> &nbsp;Consent cannot be inferred from the absence of a reply to a message to the data subject. There must be active communication between the controller and the subject for consent. The administrator must be able to demonstrate that consent has been received for the processing operations.</span></li>
+	</ol>
+	<ol style="margin-top: 0pt; margin-bottom: 0pt;">
+		<li style="list-style-type: upper-roman; font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre; margin-left: -18pt;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">4. For specific categories of data, explicit consent in writing to obtain consent to the processing of personal data of data subjects shall be obtained unless there is an alternative legal basis for processing.</span></li>
+		<li style="list-style-type: upper-roman; font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre; margin-left: -18pt;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">5. In most cases, the consent for the processing of personal and special categories of data is routinely obtained from Youngtek Solutions Limited , using standard documents for consent (please specify) when a new client signs a contract or when recruiting new staff, etc.</span></li>
+		<li style="list-style-type: upper-roman; font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre; margin-left: -18pt;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">6. When Youngtek Solutions Limited processes personal data of children, permission must be obtained from parents exercising parenting rights (parents, guardians, etc.). This requirement applies to children under the age of 16 (unless the Member State has provided for a lower age limit, which may not be less than 13 years).</span></li>
+	</ol>
+	<ol style="margin-top: 0pt; margin-bottom: 0pt;">
+		<li style="list-style-type: decimal; font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Data security</span></li>
+	</ol>
+	<ol>
+		<li style="line-height: 1.295; margin-top: 0pt; margin-bottom: 6pt; text-align: justify;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;"> All employees are responsible for ensuring the security in the storage of the data they are responsible for and which Youngtek Solutions Limited, holds and that the data are safely stored and not disclosed under any circumstances of third parties, unless the Youngtek Solutions Limited has given such rights to that third party by entering into a contract / confidentiality clause (please indicate here if you have any such).</span></li>
+		<li style="line-height: 1.295; margin-top: 0pt; margin-bottom: 6pt; text-align: justify;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;"> All personal data must be accessible only to those who need it and access can only be granted in accordance with established access control rules. All personal data must be treated with the utmost certainty and must be kept:</span></li>
+	</ol>
+	<ul style="margin-top: 0pt; margin-bottom: 0pt;">
+		<li style="list-style-type: disc; font-size: 9pt; font-family: 'Noto Sans Symbols'; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">in a self-contained room with controlled access; and / or in a locked cabinet or in the filing cabinet; and / or</span></li>
+		<li style="list-style-type: disc; font-size: 9pt; font-family: 'Noto Sans Symbols'; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">if computerized, password protected in accordance with internal requirements set out in organizational and technical measures to control access to information (eg access control rules); and / or</span></li>
+		<li style="list-style-type: disc; font-size: 9pt; font-family: 'Noto Sans Symbols'; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Stored on portable computer media that are protected in accordance with organizational and technical measures to control access to information.</span></li>
+	</ul>
+	<ol start="3">
+		<li style="line-height: 1.295; margin-top: 0pt; margin-bottom: 6pt; text-align: justify;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;"> Establish an organization to ensure that computer screens and terminals cannot be viewed by anyone other than the authorized employees of Youngtek Solutions Limited. All employees are required to be trained and accept the relevant contractual clauses / declaration of compliance with the organizational and technical measures of access as well as the rules for the locking of workstations before being given access to information of any kind.</span></li>
+		<li style="line-height: 1.295; margin-top: 0pt; margin-bottom: 6pt; text-align: justify;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;"> Paper-based records should not be left where they can be accessed by unauthorized persons and cannot be removed from the designated office premises without explicit permission. As soon as paper documents are no longer required for ongoing customer support work, they must be destroyed in accordance with the established procedure / rules and the relevant protocol.</span></li>
+		<li style="line-height: 1.295; margin-top: 0pt; margin-bottom: 6pt; text-align: justify;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;"> The processing of personal data "outside the office" represents a potentially greater risk of loss, theft or violation of personal data. The staff must be specifically authorized to process data outside the controller's premises.</span></li>
+	</ol>
+	<p style="line-height: 1.295; margin-top: 0pt; margin-bottom: 6pt; text-align: justify;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Site&rdquo; .com recognizes that its customers, visitors, users, and others who use &ldquo;Site&rdquo; value their privacy. This Privacy Policy details important information regarding the use and disclosure of user information collected on the &ldquo;Site&rdquo;. We provide this Privacy Policy to help you make an informed decision about whether to use or continue using our site.</span></p>
+	<p style="line-height: 1.295; margin-top: 0pt; margin-bottom: 6pt; text-align: justify;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Please note that any video, image, or other content posted at the direction of users onto the &ldquo;Site&rdquo; becomes published content and is not considered personally identifiable information subject to this Privacy Policy.</span></p>
+	<p style="line-height: 1.295; margin-top: 0pt; margin-bottom: 6pt; text-align: justify;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">The Information that &ldquo;Site&rdquo; Collects</span></p>
+	<ul>
+		<li style="line-height: 1.295; margin-top: 0pt; margin-bottom: 6pt; text-align: justify;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">User-provided information: You provide certain personally identifiable information (such as your name and email address) to &ldquo;Site&rdquo; when choosing to participate in various activities on the Site such as uploading videos or posting messages.</span></li>
+		<li style="line-height: 1.295; margin-top: 0pt; margin-bottom: 6pt; text-align: justify;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Cookies Information: When you visit the &ldquo;Site&rdquo;, we may send one or more cookies - a small text file containing a string of alphanumeric characters - to your computer that uniquely identifies your browser. &ldquo;Site&rdquo; uses both session cookies and persistent cookies. A persistent cookie remains after you close your browser. Persistent cookies may be used by your browser on subsequent visits to the site. Persistent cookies can be removed by following your web browser help file directions. A session cookie is temporary and disappears after you close your browser. You can reset your web browser to refuse all cookies or to indicate when a cookie is being sent. However, some features of the &ldquo;Site&rdquo; may not function properly if the ability to accept cookies is disabled.</span></li>
+		<li style="line-height: 1.295; margin-top: 0pt; margin-bottom: 6pt; text-align: justify;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Log File Information: When you use the &ldquo;Site&rdquo;, our servers automatically record certain information that your web browser sends whenever you visit any website. These server logs may include information such as your web request, Internet Protocol ("IP") address, browser type, browser language, referring / exit pages and URLs, platform type, number of clicks, domain names, landing pages, pages viewed and the order of those pages, the amount of time spent on particular pages, the date and time of your request, and one or more cookies that may uniquely identify your browser.</span></li>
+	</ul>
+	<p><br /><br /><br /></p>
+	<p style="line-height: 1.295; margin-top: 0pt; margin-bottom: 6pt; text-align: justify;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">The Way &ldquo;Site&rdquo; &nbsp;Retains Information</span></p>
+	<p style="line-height: 1.295; margin-top: 0pt; margin-bottom: 6pt; text-align: justify;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">To preserve the integrity of website databases, &ldquo;Site&rdquo; Video&rsquo;s procedure is to retain information submitted by members for an indefinite length of time. By submitting information to &ldquo;Site&rdquo;, you are consenting to store that information indefinitely.</span></p>
+	<p style="line-height: 1.295; margin-top: 0pt; margin-bottom: 6pt; text-align: justify;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">The Way &ldquo;Site&rdquo; Uses Information</span></p>
+	<ul>
+		<li style="line-height: 1.295; margin-top: 0pt; margin-bottom: 6pt; text-align: justify;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">If you submit personally identifiable information to us through the &ldquo;Site&rdquo;, then we use your personal information to operate, maintain, and provide to you the features and functionality of the site.</span></li>
+		<li style="line-height: 1.295; margin-top: 0pt; margin-bottom: 6pt; text-align: justify;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Any personal information or video content that you voluntarily disclose online (on discussion boards, in messages and chat areas, within your public profile page, etc.) becomes publicly available and can be collected and used by others. Your account name (not your email address) is displayed to other users when you upload videos or send messages through the &ldquo;Site&rdquo;, and other users can contact you through messages and comments. Any videos that you submit to the &ldquo;Site&rdquo; may be redistributed through the Internet and other media channels, and may be viewed by the general public.</span></li>
+		<li style="line-height: 1.295; margin-top: 0pt; margin-bottom: 6pt; text-align: justify;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">We do not use your email address or other personally identifiable information to send commercial or marketing messages without your consent or except as part of a specific program or feature for which you will have the ability to opt-in or opt-out. We may, however, use your email address without further consent for non-marketing or administrative purposes.</span></li>
+	</ul>
+	<p style="line-height: 1.295; margin-top: 0pt; margin-bottom: 6pt; text-align: justify;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">When &ldquo;Site&rdquo; Discloses Information</span></p>
+	<ul>
+		<li style="line-height: 1.295; margin-top: 0pt; margin-bottom: 6pt; text-align: justify;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">We provide personally identifiable information and non-personally-identifiable information to our subsidiaries, affiliated companies, or other businesses or persons for the purpose of processing such information on our behalf. We require that these parties agree to process such information in compliance with our privacy policy, and we use reasonable efforts to limit their use of such information and to use other appropriate confidentiality and security measures.</span></li>
+		<li style="line-height: 1.295; margin-top: 0pt; margin-bottom: 6pt; text-align: justify;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">We do not share your personally identifiable information (such as name or email address) with other, third-party companies for their commercial or marketing use without your consent or except as part of a specific program or feature for which you will have the ability to opt-in or opt-out.</span></li>
+		<li style="line-height: 1.295; margin-top: 0pt; margin-bottom: 6pt; text-align: justify;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">We may release personally identifiable information and/or non-personally-identifiable information if required to do so by law, or in the good-faith belief that such action is necessary to comply with state and federal laws (such as U.S. Copyright Law) or respond to a court order, subpoena, or search warrant.</span></li>
+		<li style="line-height: 1.295; margin-top: 0pt; margin-bottom: 6pt; text-align: justify;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">&ldquo;Site&rdquo; &nbsp;also reserves the right to disclose personally identifiable information and/or non-personally-identifiable information that, in good faith, is appropriate or necessary to enforce our terms of use, take precautions against liability, to investigate and defend itself against any third-party claims or allegations, to assist government enforcement agencies, to protect the security or integrity of our web site, and to protect the rights, property, or personal safety of &ldquo;Site&rdquo;, our users or others.</span></li>
+	</ul>
+	<p style="line-height: 1.295; margin-top: 0pt; margin-bottom: 6pt; text-align: justify;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Our Commitment to Legal-Age Usage</span></p>
+	<p style="line-height: 1.295; margin-top: 0pt; margin-bottom: 6pt; text-align: justify;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Protecting children from adult content is especially important. For that reason, &ldquo;Site&rdquo; &nbsp;does not knowingly collect or maintain personally identifiable information or non-personally-identifiable information on the &ldquo;Site&rdquo; &nbsp;web site from persons under 18 years of age, and no part of our website is directed to persons under 18, or legal age according to state law. If you are under 18 years of age, then please do not use or access the &ldquo;Site&rdquo; &nbsp;web site at any time or in any manner. If &ldquo;Site&rdquo; learns that personally identifiable information of persons under 18 years of age has been collected, appropriate steps will be taken to delete this information.</span></p>
+	<p style="line-height: 1.295; margin-top: 0pt; margin-bottom: 6pt; text-align: justify;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">In the Event of Merger, Sale, or Bankruptcy</span></p>
+	<p style="line-height: 1.295; margin-top: 0pt; margin-bottom: 6pt; text-align: justify;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">In the event that &ldquo;Site&rdquo; &nbsp;is acquired by or merged with a third party entity, we reserve the right, in any of these circumstances, to transfer or assign the information we have collected from our users as part of such merger, acquisition, sale, or other change of control. In the unlikely event of our bankruptcy, insolvency, reorganization, receivership, or assignment for the benefit of creditors, or the application of laws or equitable principles affecting creditors' rights generally, we may not be able to control how your personal information is treated, transferred, or used.</span></p>
+	<p style="line-height: 1.295; margin-top: 0pt; margin-bottom: 6pt; text-align: justify;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Changes and updates to this Privacy Policy</span></p>
+	<p style="line-height: 1.295; margin-top: 0pt; margin-bottom: 6pt; text-align: justify;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">This Privacy Policy may be revised periodically and users are encouraged to review it periodically to stay aware of any changes. Your continued use of the &ldquo;Site&rdquo; constitutes your agreement to this Privacy Policy and any future revisions.</span></p>
+	<p>&nbsp;</p>
+	<p style="line-height: 1.295; margin-top: 0pt; margin-bottom: 6pt; text-align: justify;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Controller: Youngtek Solutions Limited ID 220270</span></p>
+	<p style="line-height: 1.295; margin-top: 0pt; margin-bottom: 6pt; text-align: justify;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Address Alvonos 1 Maria House Nicosia 1075 Cyprus</span></p>
+	<p style="line-height: 1.295; margin-top: 0pt; margin-bottom: 6pt; text-align: justify;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">E-mail &nbsp;support@imagefap.com</span></p>
+	<p style="line-height: 1.295; margin-top: 0pt; margin-bottom: 6pt; text-align: justify;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Telephone +852-81 777 604</span></p>
+	<p style="line-height: 1.295; margin-top: 0pt; margin-bottom: 6pt; text-align: justify;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Internet site www.imagefap.com</span></p>
+	<p style="line-height: 1.295; margin-top: 0pt; margin-bottom: 6pt; text-align: justify;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Response person for GDPR (DPO) John Fischer</span></p>
+	<p style="line-height: 1.295; margin-top: 0pt; margin-bottom: 6pt; text-align: justify;"><span style="font-size: 9pt; font-family: Rambla; color: #666666; background-color: transparent; font-weight: 400; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;">Date of update May, 25, 2018</span></p>
+</td>
+</tr>
+</table>
+</td></tr></table>
+
+<BR><BR>
+
+
+</td>
+
+    <td>
+        
+                        <span>
+                            <div  style="vertical-align: text-top; text-align: center; width: 310px">
+            	<div id="cntZZ">
+		            <div class="asfa21 a23asf"></div>
+			<script type="text/javascript">Buu.addZone({"type": "banner", "width":"300","height":"250","idzone":"346738"});</script><script type="text/javascript" src="//cdn.trafficstars.com/sdk/v1/bi.js" data-ts-width="300" data-ts-height="250" data-ts-spot="4d2ed379737441bcb4cb57b6eca8eb12" data-ts-categories="" async defer></script>
+            <div class="asfa2a1 a353asf"></div>
+			<script type="text/javascript">Buu.addZone({"type": "banner", "width":"300","height":"250","idzone":"346750"});</script><script type="text/javascript" src="//cdn.trafficstars.com/sdk/v1/bi.js" data-ts-width="300" data-ts-height="250" data-ts-spot="e76b08b3e3e74047aae3aa32a639dce9" data-ts-categories="" async defer></script>
+				
+			</div>
+                    </span>
+                            </div>
+            	</div>
+    </td>
+
+</tr>
+</table>
+
+<td align="top" valign=top>
+</td>
+</tr>
+
+</table>
+<center>
+
+
+			<script type="text/javascript">
+						
+						if (typeof POPUP_SELECTIVE_MODE != "undefined" && POPUP_SELECTIVE_MODE == true && checkIsChrome()) {
+							window.dataPopUnder = {
+								spot:"83cfa8aa57a543fe97ecdd52e14ea261",
+								categories:"",
+								mode: "selective",
+								"ignore-filter": "tnaBarBlueWrap, no-popunder"
+							};
+						} else {
+							window.dataPopUnder = {
+								spot:"83cfa8aa57a543fe97ecdd52e14ea261",
+								categories:""
+							};
+						}
+						
+			
+					    (function(e) {
+					        function g() {
+					            this.init()
+					        }
+					
+					        function h() {
+					            this.init()
+					        }
+					        var f = e.dataPopUnder;
+					        "undefined" == typeof Array.prototype.indexOf && (Array.prototype.indexOf = function(a, b) {
+					            for (var c = b || 0, d = this.length; c < d; c++)
+					                if (this[c] === a) return c;
+					            return -1
+					        });
+					        Function.prototype.bind || (Function.prototype.bind = function(a) {
+					            if ("function" !== typeof this) throw new TypeError("Function.prototype.bind - what is trying to be bound is not callable");
+					            var b = Array.prototype.slice.call(arguments, 1),
+					                c = this,
+					                d = function() {},
+					                e = function() {
+					                    return c.apply(this instanceof d && a ? this : a, b.concat(Array.prototype.slice.call(arguments)))
+					                };
+					            d.prototype = this.prototype;
+					            e.prototype = new d;
+					            return e
+					        });
+					        g.prototype = {
+					            cookieExpires: 6,
+					            cookieExpiresCategories: 12,
+					            cookieName: "ts_popunder",
+					            setting: {
+					                params: ["domain=" + location.host || "", "rnd=" + Math.random()]
+					            },
+					            mainWindow: top != self && "string" == typeof top.document.location.toString() ? top : self,
+					            init: function() {
+					                var a = f || this.eachScript();
+					                a && (f ? this.copySetting() : this.setBannerSettings(a), this.formatSetBannerSettings(), this.addEvent("click", document,
+					                    this.showPopUnder.bind(this)))
+					            },
+					            showPopUnder: function(a) {
+					                this.clickEvent = a || e.event;
+					                var b = this.clickEvent.target || this.clickEvent.srcElement,
+					                    c = b.href && this.getStringFormat(b.href.split("/"));
+					                if (this.doNotShow(b)) return !1;
+					                this.setUrl(c);
+					                this.userAgent.ios && this.userAgent.safari && this.userAgent.mobile && 1E3 < parseInt(this.userAgent.version, 10) ? (this.openWindow(a), this.mainWindow.location = b.getAttribute("href")) : this.openTab()
+					            },
+					            openTab: function() {
+					                var a = this.clickEvent,
+					                    b = a.target || a.srcElement,
+					                    c = 0;
+					                a.preventDefault();
+					                if ("a" !== b.nodeName.toLowerCase())
+					                    for (; b.parentNode && 4 >= c++ && "html" !== b.nodeName.toLowerCase() && (b = b.parentNode, "a" !== b.nodeName.toLowerCase() || "" === b.href););
+					                this.userAgent.winphone ? this.mobileTab(b) : this.desktopTab(b);
+					                this.mainWindow.location = this.url
+					            },
+					            mobileTab: function(a) {
+					                var b = document.createElement("a");
+					                b.href = a.href || this.mainWindow.location;
+					                b.setAttribute("target", "_blank");
+					                try {
+					                    var c = new MouseEvent("click", {
+					                        view: e,
+					                        bubbles: !0,
+					                        cancelable: !0
+					                    })
+					                } catch (d) {
+					                    c = document.createEvent("MouseEvents"), c.initMouseEvent("click", !0, !0, e, 0, 0, 0, 0, 0, !0, !1, !1, !1, 0, null)
+					                }
+					                b.dispatchEvent(c)
+					            },
+					            desktopTab: function(a) {
+					                var b = e.open(a.href || this.mainWindow.location, "_blank");
+					                b ? (b.focus(), this.setCookie(this.cookieName, 1, this.cookieExpires)) : this.url = a.href || this.mainWindow.location
+					            },
+					            copySetting: function() {
+					                var a;
+					                for (a in f) {
+					                    var b = f[a]; - 1 != a.indexOf("param") ? this.setting.params.push(a + "=" + b) : this.setting[a] = b
+					                }
+					            },
+					            doNotShow: function(a) {
+					                var b = this.isSelectiveTarget(a),
+					                    c = parseInt(this.userAgent.version, 10);
+					                return null !== this.getCookie(this.cookieName) ||
+					                    "selective" === this.setting.mode && !b || !b || !!a.getAttribute("target") || this.userAgent.chrome && !this.userAgent.edge && 41 < c && 49 > c && !b
+					            },
+					            eachScript: function() {
+					                var a = document.getElementsByTagName("script"),
+					                    b;
+					                if (0 < a.length)
+					                    for (var c = 0; c < a.length; c++) {
+					                        var d = this.getAttr(a[c], "data-ts-spot");
+					                        var e = this.getAttr(a[c], "data-ts-width");
+					                        var k = this.getAttr(a[c], "data-ts-height");
+					                        var f = this.getAttr(a[c], "data-ts-redirect");
+					                        !d && !f || e || k || (b = a[c])
+					                    }
+					                return b
+					            },
+					            setBannerSettings: function(a) {
+					                a = a.attributes;
+					                var b, c;
+					                for (c in a)
+					                    if ((b =
+					                            "object" === typeof a[c] && a[c].name) && -1 != b.indexOf("data-ts")) {
+					                        b = b.replace("data-ts-", "");
+					                        var d = a[c].value; - 1 != b.indexOf("param") ? this.setting.params.push(b + "=" + d) : this.setting[b] = d
+					                    }
+					            },
+					            formatSetBannerSettings: function() {
+					                this.setting.categories || (this.setting.categories = this.getMetaWords());
+					                this.setting["ignore-filter"] && (this.setting["ignore-filter"] = this.setting["ignore-filter"].replace(/\s+/g, "").split(","));
+					                this.setting.redirect && (this.setting.redirect = this.formatRedirectURL(this.setting.redirect))
+					            },
+					            formatRedirectURL: function(a) {
+					                /^(f|ht)tps?:\/\//i.test(a) ? "/" !== a.slice(-1) && (a += "/") : a = "http://" + a;
+					                return a
+					            },
+					            setUrl: function(a) {
+					                this.url = this.getRedirectUrl() + "?&" + this.setting.params.join("&") + this.getPositionCursor() + this.getBrowserSize() + "&adb=1&categories=" + this.getCategories(a)
+					            },
+					            getBrowserSize: function() {
+					                var a = "",
+					                    b = this.getWindowWidth(),
+					                    c = this.getWindowHeight();
+					                b && c && (a = "&w=" + b + "&h=" + c);
+					                return a
+					            },
+					            getCategories: function(a) {
+					                var b = this.setting.categories;
+					                !b && a ? b = a : b || (b = this.getCookie("categories"));
+					                return b ? (this.setCookie("categories", b, this.cookieExpiresCategories), this.setting.categories = b) : ""
+					            },
+					            getRedirectUrl: function() {
+					                var a = this.setting.redirect && 0 <= this.setting.redirect.indexOf("{spot}") && this.setting.redirect.replace("{spot}", this.setting.spot);
+					                return a ? a : (this.setting.redirect || this.getDomain()) + this.setting.spot
+					            },
+					            isSelectiveTarget: function(a) {
+					                for (var b = a.tagName.toLowerCase(); b && "body" !== b;) {
+					                    if ("a" === b) return !0;
+					                    a = a.parentNode;
+					                    b = a.tagName && a.tagName.toLowerCase()
+					                }
+					                return !1
+					            },
+					            getAttr: function(a,
+					                b) {
+					                var c = a.getAttribute && a.getAttribute(b) || null;
+					                if (!c && "function" !== typeof a)
+					                    for (var d = a.attributes, e = d.length, f = 0; f < e; f++) d[f].nodeName === b && (c = d[f].nodeValue);
+					                return c
+					            },
+					            getMetaWords: function() {
+					                for (var a = document.getElementsByTagName("meta"), b = a.length, c = 0, d = ""; c < b;) {
+					                    if ("description" === a[c].getAttribute("name") || "keywords" === a[c].getAttribute("name")) d += a[c].getAttribute("content").replace(/[^\w\s]/gi, " ").replace(/(\b(\w{1,2})\b(\s|$))/g, "");
+					                    c++
+					                }
+					                d.length || (d = this.getStringFormat(e.location.pathname.split("/")));
+					                return d
+					            },
+					            getStringFormat: function(a) {
+					                a = a && a[a.length - 1].split(/[?#]/)[0];
+					                return (a = (a = !!a && a.replace(/(x?html?)$/gi, "").match(/([a-zA-Z]+)/g)) && a.join(" ").replace(/(\b(\w{1,2})\b(\s|$))/g, "")) || ""
+					            },
+					            addEvent: function(a, b, c) {
+					                if (b.addEventListener) b.addEventListener(a, c, !1);
+					                else if (b.attachEvent) return b.attachEvent("on" + a, c)
+					            },
+					            getDomain: function() {
+					                return "//" + (this.setting["web-socket"] || "rotator.trafficstars.com") + "/api/v1/direct/"
+					            },
+					            getPositionCursor: function() {
+					                var a = document.documentElement,
+					                    b = this.clickEvent;
+					                return "&x=" + (b.pageX || b.clientX + (a.scrollLeft ? a.scrollLeft : document.body.scrollLeft)) + "&y=" + (b.pageY || b.clientY + (a.scrollTop ? a.scrollTop : document.body.scrollTop))
+					            },
+					            setCookie: function(a, b, c) {
+					                c = (new Date((new Date).getTime() + 36E5 * c)).toGMTString();
+					                document.cookie = a + "=" + b + "; expires=" + c + (this.setting["cookie-domain"] ? "; domain=" + this.setting["cookie-domain"] : "") + "; path=/"
+					            },
+					            getCookie: function(a) {
+					                return (a = document.cookie.match("(^|;) ?" + a + "=([^;]*)(;|$)")) ? decodeURIComponent(a[2]) : null
+					            },
+					            getWindowWidth: function() {
+					                var a =
+					                    0;
+					                "number" == typeof e.innerWidth ? a = e.innerWidth : document.documentElement && document.documentElement.clientWidth ? a = document.documentElement.clientWidth : document.body && document.body.clientWidth && (a = document.body.clientWidth);
+					                return a
+					            },
+					            getWindowHeight: function() {
+					                var a = 0;
+					                "number" == typeof e.innerHeight ? a = e.innerHeight : document.documentElement && document.documentElement.clientHeight ? a = document.documentElement.clientHeight : document.body && document.body.clientHeight && (a = document.body.clientHeight);
+					                return a
+					            },
+					            userAgent: function() {
+					                var a = navigator.userAgent.toLowerCase(),
+					                    b = {
+					                        webkit: /webkit/gi.test(a),
+					                        mozilla: /mozilla/gi.test(a) && !/(compatible|webkit)/.test(a),
+					                        chrome: /chrome/gi.test(a),
+					                        maxthon: /maxthon/gi.test(a),
+					                        samsung: /samsungbrowser/gi.test(a),
+					                        msie: /msie/gi.test(a) && !/opera/.test(a),
+					                        firefox: /firefox/gi.test(a),
+					                        safari: /safari/gi.test(a) && !/chrome/.test(a),
+					                        opera: /opera|opr/gi.test(a),
+					                        macosx: /mac os x/gi.test(a),
+					                        windows: /Windows NT/gi.test(a),
+					                        ios: /iphone|ipad/gi.test(a),
+					                        crios: /crios/gi.test(a),
+					                        android: /android/gi.test(a),
+					                        mobile: /mobile/gi.test(a) || /tablet/gi.test(a),
+					                        winphone: /windows phone/gi.test(a),
+					                        edge: /Edge/gi.test(a)
+					                    };
+					                b.version = b.safari ? (a.match(/.+?(?:on|ri)[\/: ]([\d.]+)/) || [])[1] : (a.match(/.+(?:ox|me|ra|ie|opr)[\/: ]([\d.]+)/) || [])[1];
+					                return b
+					            }()
+					        };
+					        h.prototype = {
+					            CDN_URL: "//cdn.trafficstars.com/sdk/v1/p.js",
+					            init: function() {
+					                this.insertScript(this.CDN_URL)
+					            },
+					            createScript: function() {
+					                var a = document.createElement("script");
+					                a.type = "text/javascript";
+					                return a
+					            },
+					            insertScript: function(a) {
+					                var b = this.createScript();
+					                b.src =
+					                    a;
+					                this.addEvent("error", b, this.initTabUnder.bind(this));
+					                document.body.appendChild(b)
+					            },
+					            initTabUnder: function() {
+					                new g
+					            },
+					            addEvent: function(a, b, c) {
+					                if (b.addEventListener) b.addEventListener(a, c, !1);
+					                else if (b.attachEvent) return b.attachEvent("on" + a, c)
+					            }
+					        };
+					        new h
+					    })(window);
+			</script>
+		<script type="text/javascript">Buu.serve({"script_url":"/combine.php?type=js&str=jquery.scroll-follow.js,jquery.cookie.js,jquery.scrollTo-min.js,jquery.validate.js,tools.js,jquery.rating.js,jquery.tools.overlay.js,jquery.tools.toolbox.expose.js,019ce.js,gallerificPlus.js,gallery.js,adsmanager.js,facets.js,12398.js?a=3&st66652fem8qr5g2l8kwcoljd0n.js"});</script>
+
+<script>
+	function gaLoaded(e) {
+		var tstImage = new Image();
+		tstImage.src = '/images/' + (e.type=='load' ? 'no' : 'yes') + '.gif?r='+Math.floor(Math.random()*1000000000);
+	}
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.onload=a.onerror=gaLoaded;m.parentNode.insertBefore(a,m);
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	
+	ga('create', 'UA-767989-1', {'sampleRate': 1});
+	ga('send', 'pageview');
+</script>
+
+
+
+<center>
+<BR><BR>
+<a href="http://www.imagefap.com/contact.php"><b>Contact us</b></a> -
+<a href="http://www.imagefap.com/faq.php"><b>FAQ</b></a> - <a href="http://www.asacp.org/page.php?content=report"><b>ASACP</b></a> - <a href="http://www.imagefap.com/dmca.php" target="_blank"><b>DMCA</b></a> - <a href="http://www.imagefap.com/privacypolicy.php" target="_blank"><b>Privacy Policy</b></a> - <a href="http://www.imagefap.com/termsofservice.php" target="_blank"><b>Terms of Service</b></a> - <a href="http://www.imagefap.com/2257.php" target="_blank"><b>2257</b></a>
+
+
+<BR><BR>
+<a href="http://www.rtalabel.org/"><img src="/img/88x31_RTA_b.gif" border=0></a>
+<a href="http://www.icra.org/sitelabel"><img src="/img/icra_sb.gif" border=0></a>
+<BR><BR>
+<i><font color="#AAAAAA">Served by www3.imagefap.com<BR>Generated 06:24:46</font></i>
+<BR>
+</center>
+
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"cb21ff2afc","applicationID":"1863387","transactionName":"MwEDMUsFDBZZUBZZWwpLNBdQSxIXUUUDU00UCw0MWh1MFVBD","queueTime":0,"applicationTime":8,"ttGuid":"","agentToken":"","userAttributes":"","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+
+</html>

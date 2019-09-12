@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://www.facebook.com/2008/fbml" xmlns:og="http://opengraphprotocol.org/schema/" xmlns:ef="http://www.eventfinda.co.nz/ns#">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge"><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"VgQAUFJaGwIGXVhSDgE="};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o||e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({QJf3ax:[function(t,e){function n(){}function r(t){function e(t){return t&&t instanceof n?t:t?a(t,i,o):o()}function u(n,r,o){t&&t(n,r,o);for(var i=e(o),a=l(n),s=a.length,f=0;s>f;f++)a[f].apply(i,r);var u=c[v[n]];return u&&u.push([y,n,r,i]),i}function d(t,e){m[t]=l(t).concat(e)}function l(t){return m[t]||[]}function p(t){return f[t]=f[t]||r(u)}function h(t,e){s(t,function(t,n){e=e||"feature",v[n]=e,e in c||(c[e]=[])})}var m={},v={},y={on:d,emit:u,get:p,listeners:l,context:e,buffer:h};return y}function o(){return new n}var i="nr@context",a=t("gos"),s=t(1),c={},f={},u=e.exports=r();u.backlog=c},{1:21,gos:"7eSDFh"}],ee:[function(t,e){e.exports=t("QJf3ax")},{}],3:[function(t){function e(t){try{i.console&&console.log(t)}catch(e){}}var n,r=t("ee"),o=t(1),i={};try{n=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(i.console=!0,-1!==n.indexOf("dev")&&(i.dev=!0),-1!==n.indexOf("nr_dev")&&(i.nrDev=!0))}catch(a){}i.nrDev&&r.on("internal-error",function(t){e(t.stack)}),i.dev&&r.on("fn-err",function(t,n,r){e(r.stack)}),i.dev&&(e("NR AGENT IN DEVELOPMENT MODE"),e("flags: "+o(i,function(t){return t}).join(", ")))},{1:21,ee:"QJf3ax"}],4:[function(t){function e(t,e,n,i,a){try{f?f-=1:r("err",[a||new UncaughtException(t,e,n)])}catch(c){try{r("ierr",[c,(new Date).getTime(),!0])}catch(u){}}return"function"==typeof s?s.apply(this,o(arguments)):!1}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function n(t){r("err",[t,(new Date).getTime()])}var r=t("handle"),o=t(6),i=t("ee"),a=t("loader"),s=window.onerror,c=!1,f=0;a.features.err=!0,t(3),window.onerror=e;try{throw new Error}catch(u){"stack"in u&&(t(4),t(5),"addEventListener"in window&&t(1),a.xhrWrappable&&t(2),c=!0)}i.on("fn-start",function(){c&&(f+=1)}),i.on("fn-err",function(t,e,r){c&&(this.thrown=!0,n(r))}),i.on("fn-end",function(){c&&!this.thrown&&f>0&&(f-=1)}),i.on("internal-error",function(t){r("ierr",[t,(new Date).getTime(),!0])})},{1:5,2:8,3:3,4:7,5:6,6:22,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],5:[function(t,e){function n(t){for(var e=t;e&&!e.hasOwnProperty("addEventListener");)e=Object.getPrototypeOf(e);e&&r(e)}function r(t){a.inPlace(t,["addEventListener","removeEventListener"],"-",o)}function o(t){return t[1]}var i=t("ee").get("events"),a=t(1)(i),s=t("gos");e.exports=i,r(window),"getPrototypeOf"in Object?(n(document),n(XMLHttpRequest.prototype)):XMLHttpRequest.prototype.hasOwnProperty("addEventListener")&&r(XMLHttpRequest.prototype),i.on("addEventListener-start",function(t){if(t[1]){var e=t[1];if("function"==typeof e){var n=s(e,"nr@wrapped",function(){return a(e,"fn-",null,e.name||"anonymous")});this.wrapped=t[1]=n}else"function"==typeof e.handleEvent&&a.inPlace(e,["handleEvent"],"fn-")}}),i.on("removeEventListener-start",function(t){var e=this.wrapped;e&&(t[1]=e)})},{1:23,ee:"QJf3ax",gos:"7eSDFh"}],6:[function(t,e){var n=t("ee").get("raf"),r=t(1)(n);e.exports=n,r.inPlace(window,["requestAnimationFrame","mozRequestAnimationFrame","webkitRequestAnimationFrame","msRequestAnimationFrame"],"raf-"),n.on("raf-start",function(t){t[0]=r(t[0],"fn-")})},{1:23,ee:"QJf3ax"}],7:[function(t,e){function n(t,e,n){t[0]=i(t[0],"fn-",null,n)}function r(t,e,n){this.method=n,this.timerDuration="number"==typeof t[1]?t[1]:0,t[0]=i(t[0],"fn-",this,n)}var o=t("ee").get("timer"),i=t(1)(o);e.exports=o,i.inPlace(window,["setTimeout","setImmediate"],"setTimer-"),i.inPlace(window,["setInterval"],"setInterval-"),i.inPlace(window,["clearTimeout","clearImmediate"],"clearTimeout-"),o.on("setInterval-start",n),o.on("setTimer-start",r)},{1:23,ee:"QJf3ax"}],8:[function(t,e){function n(t,e){e=e||this;var n=i.context(e);e.readyState>3&&!n.resolved&&(n.resolved=!0,i.emit("xhr-resolved",[],e));try{c.inPlace(e,l,"fn-",r)}catch(o){}}function r(t,e){return e}function o(t,e){for(var n in t)e[n]=t[n];return e}var i=t("ee").get("xhr"),a=t(1),s=t(2),c=s(i),f=s(a),u=NREUM.o,d=u.XHR,l=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout","onreadystatechange"];e.exports=i,window.XMLHttpRequest=function(t){var e=new d(t);try{i.emit("new-xhr",[e],e),e.hasOwnProperty("addEventListener")&&f.inPlace(e,["addEventListener","removeEventListener"],"-",r),e.addEventListener("readystatechange",n,!1)}catch(o){try{i.emit("internal-error",[o])}catch(a){}}return e},o(d,XMLHttpRequest),XMLHttpRequest.prototype=d.prototype,c.inPlace(XMLHttpRequest.prototype,["open","send"],"-xhr-",r),i.on("send-xhr-start",n),i.on("open-xhr-start",n)},{1:5,2:23,ee:"QJf3ax"}],9:[function(t){function e(t){var e=this.params,r=this.metrics;if(!this.ended){this.ended=!0;for(var o=0;u>o;o++)t.removeEventListener(f[o],this.listener,!1);if(!e.aborted){if(r.duration=(new Date).getTime()-this.startTime,4===t.readyState){e.status=t.status;var i=n(t,this.lastSize);if(i&&(r.rxSize=i),this.sameOrigin){var s=t.getResponseHeader("X-NewRelic-App-Data");s&&(e.cat=s.split(", ").pop())}}else e.status=0;r.cbTime=this.cbTime,c.emit("xhr-done",[t],t),a("xhr",[e,r,this.startTime])}}}function n(t,e){var n=t.responseType;if("json"===n&&null!==e)return e;var o="arraybuffer"===n||"blob"===n||"json"===n?t.response:t.responseText;return r(o)}function r(t){if("string"==typeof t&&t.length)return t.length;if("object"!=typeof t)return void 0;if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if("undefined"!=typeof FormData&&t instanceof FormData)return void 0;try{return JSON.stringify(t).length}catch(e){return void 0}}function o(t,e){var n=s(e),r=t.params;r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.sameOrigin=n.sameOrigin}var i=t("loader");if(i.xhrWrappable){var a=t("handle"),s=t(2),c=t("ee"),f=["load","error","abort","timeout"],u=f.length,d=t(1),l=t(3),p=window.XMLHttpRequest;i.features.xhr=!0,t(5),t(4),c.on("new-xhr",function(t){var n=this;n.totalCbs=0,n.called=0,n.cbTime=0,n.end=e,n.ended=!1,n.xhrGuids={},n.lastSize=null,l&&(l>34||10>l)||window.opera||t.addEventListener("progress",function(t){n.lastSize=t.loaded},!1)}),c.on("open-xhr-start",function(t){this.params={method:t[0]},o(this,t[1]),this.metrics={}}),c.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),c.on("send-xhr-start",function(t,e){var n=this.metrics,o=t[0],i=this;if(n&&o){var a=r(o);a&&(n.txSize=a)}this.startTime=(new Date).getTime(),this.listener=function(t){try{"abort"===t.type&&(i.params.aborted=!0),("load"!==t.type||i.called===i.totalCbs&&(i.onloadCalled||"function"!=typeof e.onload))&&i.end(e)}catch(n){try{c.emit("internal-error",[n])}catch(r){}}};for(var s=0;u>s;s++)e.addEventListener(f[s],this.listener,!1)}),c.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),c.on("xhr-load-added",function(t,e){var n=""+d(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),c.on("xhr-load-removed",function(t,e){var n=""+d(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),c.on("addEventListener-end",function(t,e){e instanceof p&&"load"===t[0]&&c.emit("xhr-load-added",[t[1],t[2]],e)}),c.on("removeEventListener-end",function(t,e){e instanceof p&&"load"===t[0]&&c.emit("xhr-load-removed",[t[1],t[2]],e)}),c.on("fn-start",function(t,e,n){e instanceof p&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=(new Date).getTime()))}),c.on("fn-end",function(t,e){this.xhrCbStart&&c.emit("xhr-cb-time",[(new Date).getTime()-this.xhrCbStart,this.onload,e],e)})}},{1:"XL7HBI",2:10,3:12,4:8,5:5,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],10:[function(t,e){e.exports=function(t){var e=document.createElement("a"),n=window.location,r={};e.href=t,r.port=e.port;var o=e.href.split("://");!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=e.hostname||n.hostname,r.pathname=e.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname);var i=!e.protocol||":"===e.protocol||e.protocol===n.protocol,a=e.hostname===document.domain&&e.port===n.port;return r.sameOrigin=i&&(!e.hostname||a),r}},{}],11:[function(t,e){function n(t,e){return function(){r(t,[(new Date).getTime()].concat(i(arguments)),null,e)}}var r=t("handle"),o=t(1),i=t(2);"undefined"==typeof window.newrelic&&(newrelic=NREUM);var a=["setPageViewName","addPageAction","setCustomAttribute","finished","addToTrace","inlineHit"],s=["addPageAction"],c="api-";o(a,function(t,e){newrelic[e]=n(c+e,"api")}),o(s,function(t,e){newrelic[e]=n(c+e)}),e.exports=newrelic,newrelic.noticeError=function(t){"string"==typeof t&&(t=new Error(t)),r("err",[t,(new Date).getTime()])}},{1:21,2:22,handle:"D5DuLP"}],12:[function(t,e){var n=0,r=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);r&&(n=+r[1]),e.exports=n},{}],gos:[function(t,e){e.exports=t("7eSDFh")},{}],"7eSDFh":[function(t,e){function n(t,e,n){if(r.call(t,e))return t[e];var o=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:o,writable:!0,enumerable:!1}),o}catch(i){}return t[e]=o,o}var r=Object.prototype.hasOwnProperty;e.exports=n},{}],handle:[function(t,e){e.exports=t("D5DuLP")},{}],D5DuLP:[function(t,e){function n(t,e,n,o){r.buffer([t],o),r.emit(t,e,n)}var r=t("ee").get("handle");e.exports=n,n.ee=r},{ee:"QJf3ax"}],XL7HBI:[function(t,e){function n(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:i(t,o,function(){return r++})}var r=1,o="nr@id",i=t("gos");e.exports=n},{gos:"7eSDFh"}],id:[function(t,e){e.exports=t("XL7HBI")},{}],G9z0Bl:[function(t,e){function n(){if(!h++){var t=p.info=NREUM.info,e=f.getElementsByTagName("script")[0];if(t&&t.licenseKey&&t.applicationID&&e){s(d,function(e,n){t[e]||(t[e]=n)});var n="https"===u.split(":")[0]||t.sslForHttp;p.proto=n?"https://":"http://",a("mark",["onload",i()],null,"api");var r=f.createElement("script");r.src=p.proto+t.agent,e.parentNode.insertBefore(r,e)}}}function r(){"complete"===f.readyState&&o()}function o(){a("mark",["domContent",i()],null,"api")}function i(){return(new Date).getTime()}var a=t("handle"),s=t(1),c=window,f=c.document;NREUM.o={ST:setTimeout,XHR:c.XMLHttpRequest,REQ:c.Request,EV:c.Event,PR:c.Promise,MO:c.MutationObserver},t(2);var u=(""+location).split("?")[0],d={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-885.min.js"},l=window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&!/CriOS/.test(navigator.userAgent),p=e.exports={offset:i(),origin:u,features:{},xhrWrappable:l};f.addEventListener?(f.addEventListener("DOMContentLoaded",o,!1),c.addEventListener("load",n,!1)):(f.attachEvent("onreadystatechange",r),c.attachEvent("onload",n)),a("mark",["firstbyte",i()],null,"api");var h=0},{1:21,2:11,handle:"D5DuLP"}],loader:[function(t,e){e.exports=t("G9z0Bl")},{}],21:[function(t,e){function n(t,e){var n=[],o="",i=0;for(o in t)r.call(t,o)&&(n[i]=e(o,t[o]),i+=1);return n}var r=Object.prototype.hasOwnProperty;e.exports=n},{}],22:[function(t,e){function n(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(0>o?0:o);++r<o;)i[r]=t[e+r];return i}e.exports=n},{}],23:[function(t,e){function n(t){return!(t&&"function"==typeof t&&t.apply&&!t[i])}var r=t("ee"),o=t(1),i="nr@original",a=Object.prototype.hasOwnProperty,s=!1;e.exports=function(t){function e(t,e,r,a){function nrWrapper(){var n,i,s,c;try{i=this,n=o(arguments),s="function"==typeof r?r(n,i):r||{}}catch(u){d([u,"",[n,i,a],s])}f(e+"start",[n,i,a],s);try{return c=t.apply(i,n)}catch(l){throw f(e+"err",[n,i,l],s),l}finally{f(e+"end",[n,i,c],s)}}return n(t)?t:(e||(e=""),nrWrapper[i]=t,u(t,nrWrapper),nrWrapper)}function c(t,r,o,i){o||(o="");var a,s,c,f="-"===o.charAt(0);for(c=0;c<r.length;c++)s=r[c],a=t[s],n(a)||(t[s]=e(a,f?s+o:o,i,s))}function f(e,n,r){if(!s){s=!0;try{t.emit(e,n,r)}catch(o){d([o,e,n,r])}s=!1}}function u(t,e){if(Object.defineProperty&&Object.keys)try{var n=Object.keys(t);return n.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(r){d([r])}for(var o in t)a.call(t,o)&&(e[o]=t[o]);return e}function d(e){try{t.emit("internal-error",e)}catch(n){}}return t||(t=r),e.inPlace=c,e.flag=i,e}},{1:22,ee:"QJf3ax"}]},{},["G9z0Bl",4,9]);</script>
+<title>Privacy Policy - Eventfinda</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noarchive">
+<meta name="title" content="Privacy Policy" />
+<meta name="description" content="  We built Eventfinda to make it easy to share information with your friends and people around  you. We understand you may not want to share personal" />
+<meta name="keywords" content="nz events, entertainment, new zealand event, music festivals, concerts, shows, live events directory, gatherings, sports, cultural events calendar, live gigs, school holidays, sports, theatre, expo" />
+<meta name="language" content="en" />
+<meta name="robots" content="index, follow" />
+<link rel="stylesheet" type="text/css" media="screen" href="http://cdn.eventfinda.co.nz/css/thickbox.css?o429sy" />
+<link rel="stylesheet" type="text/css" media="all" href="http://cdn.eventfinda.co.nz/css/bootstrap.css?o429sy" />
+<link rel="stylesheet" type="text/css" media="screen" href="http://cdn.eventfinda.co.nz/css/jquery.smartbanner.css?o429sy" />
+
+<link rel="stylesheet" type="text/css" media="all" href="http://cdn.eventfinda.co.nz/css/font-awesome/css/font-awesome.min.css?o429sy" />
+<link rel="stylesheet" type="text/css" media="all" href="http://cdn.eventfinda.co.nz/css/eventfinda.css?o429sy" />
+
+
+
+<!--[if lt IE 9]>
+  <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="//oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+  <link href="http://cdn.eventfinda.co.nz/cross-domain/respond-proxy.html" id="respond-proxy" rel="respond-proxy">
+  <link href="/cross-domain/respond.proxy.gif" id="respond-redirect" rel="respond-redirect">
+  <script src="/cross-domain/respond.proxy.js"></script>
+<![endif]-->
+
+<meta name="theme-color" content="#2d196f">
+<link rel="apple-touch-icon-precomposed" href="http://cdn.eventfinda.co.nz/images/mobile/logo-57x57.png">
+<link rel="apple-touch-icon" href="http://cdn.eventfinda.co.nz/images/mobile/logo-57x57.png" />
+<link rel="apple-touch-icon" sizes="72x72" href="http://cdn.eventfinda.co.nz/images/mobile/logo-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="http://cdn.eventfinda.co.nz/images/mobile/logo-114x114.png">
+<link rel="shortcut icon" href="http://cdn.eventfinda.co.nz/images/mobile/logo-57x57.png">
+<link rel="shortcut icon" href="/favicon.ico?o429sy" type="image/x-icon">
+<link title="Eventfinda" rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml">
+<script type="text/javascript" src="http://cdn.eventfinda.co.nz/js/jquery.js?o429sy"></script>
+<script type="text/javascript" src="http://cdn.eventfinda.co.nz/js/breakpoints.js?o429sy"></script>
+
+
+
+
+<meta name="verify-v1" content="Hi6WUtnV18Vdj0OhYfp2FP+dDuXy5ipxx99Zqs9uBTQ=">
+  <meta name="google-site-verification" content="NE99lwFw1WzgssZc9y_wuWsu7D-8IvbH89JsgfAC7IA">
+  <meta name="google-site-verification" content="M_uco-VqQr6Zaz8k4JqHnCFQumuzF28m1I4Ci0aRATA">
+
+<meta property="og:site_name" content="Eventfinda">
+<meta property="fb:app_id" content="68198298108">
+<meta name="google-play-app" content="app-id=nz.co.eventfinda">
+
+  
+  <script type="text/javascript"><!--
+  //<![CDATA[
+
+    var _gaq = _gaq || [];
+    var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+    _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+    _gaq.push(['_setAccount', 'UA-329403-1']);
+      _gaq.push(['_setDomainName', '.eventfinda.co.nz']);
+      _gaq.push(['_setAllowLinker', true]);
+  
+    _gaq.push(['_setCustomVar', 1, 'Logged In User', 'No']);
+    _gaq.push(['_setCustomVar', 2, 'Page Type', '(not set)']);
+
+    _gaq.push(['_setCustomVar', 3, 'Category', '(not set)']);
+
+    _gaq.push(['_setCustomVar', 4, 'Location', '(not set)']);
+
+          _gaq.push(['_trackPageview']);
+    
+    _gaq.push(['_trackPageLoadTime']);
+
+          
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+  /**
+   * For us to add custom events
+   * 
+   * add following attributes to button
+   * class='js-ga-click-trak' data-ga-category='...' data-ga-action='...' 
+   * 
+   * @param {type} param
+   */  
+  jQuery(document).ready(function($) {
+     var addGAEvent = function($this) {
+         var category = $this.attr('data-ga-category');
+         var action   = $this.attr('data-ga-action');
+         _gaq.push(['_trackEvent', category, action]);
+     };
+
+     $('.js-ga-click-trak').on('click', function() {
+         addGAEvent($(this));
+     });
+  });
+
+  //]]> -->
+  </script>
+  <script type="text/javascript" src="http://cdn.eventfinda.co.nz/js/ga_social_tracking.js"></script>
+
+</head>
+  <body onclick="bodyClick();" class="countryNZ  notAuthenticated">
+  
+  
+    
+    <!-- COPYRIGHT EFFECTIVE MEASURE -->
+<script type="text/javascript">
+(function() {
+var em = document.createElement('script'); em.type = 'text/javascript'; em.async = true;
+em.src = ('https:' == document.location.protocol ? 'https://nz-ssl' : 'http://nz-cdn') + '.effectivemeasure.net/em.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(em, s);
+})();
+</script>
+<noscript>
+<img src="//nz.effectivemeasure.net/em_image" alt="" style="position:absolute; left:-5px;" />
+</noscript>      
+      <div id="fb-root"></div>
+<script type="text/javascript">//<![CDATA[
+  var fb_init_callbacks = new Array()
+  window.fbAsyncInit = function() {
+    FB.init({appId: '68198298108', status: true, cookie: true, xfbml: true});
+    for (var i = 0; i < fb_init_callbacks.length; i++) {
+      fb_init_callbacks[i]();
+    }
+    
+      
+      _ga.trackFacebook(); // Google Analytics tracking
+      };
+  (function() {
+    var e = document.createElement('script'); e.async = true;
+    e.src = document.location.protocol +
+      '//connect.facebook.net/en_US/all.js';
+    document.getElementById('fb-root').appendChild(e);
+  }());
+
+//]]></script>  
+  <noscript><div id="noscriptPadding"></div></noscript>
+  
+      <script type="text/javascript">//<![CDATA[
+    var _efT = new Array;
+  function _efC(t, i) {
+   if (typeof(_efT[t]) != 'object') _efT[t] = new Array; _efT[t].push(i);
+  }
+    //]]></script>
+
+  
+<div class="wrapper advert header-advert">
+  <div class="container text-center">
+          <div class="js-leader-board">
+                   <div id="jsTopAdvertisement" class="module advert advert-leaderboard">
+  <script type='text/javascript'><!--//<![CDATA[
+    if (breakPoints.isVisibleXs()) {
+      var load = true;
+      var zone = 123;
+      $('.js-leader-board').addClass('hidden-lg hidden-md hidden-sm');
+    } else {
+      var load = (breakPoints.isHiddenSm());
+      var zone = 87;
+      $('.js-leader-board').addClass('hidden-sm hidden-xs');
+    }
+    
+    if (load && zone) {
+       var m3_u = (location.protocol=='https:'?'https://ads.eventfinda.co.nz/www/delivery/ajs.php':'http://ads.eventfinda.co.nz/www/delivery/ajs.php');
+       var m3_r = Math.floor(Math.random()*99999999999);
+       if (!document.MAX_used) document.MAX_used = ',';
+       document.write ("<scr"+"ipt type='text/javascript' src='"+m3_u);
+       document.write ("?zoneid=" + zone);
+       document.write ('&amp;cb=' + m3_r);
+       if (document.MAX_used != ',') document.write ("&amp;exclude=" + document.MAX_used);
+       document.write (document.charset ? '&amp;charset='+document.charset : (document.characterSet ? '&amp;charset='+document.characterSet : ''));
+       document.write ("&amp;loctags=");
+       document.write ("&amp;cattags=");
+       document.write ("&amp;loc=" + escape(window.location));
+       if (document.referrer) document.write ("&amp;referer=" + escape(document.referrer));
+       if (document.context) document.write ("&context=" + escape(document.context));
+       if (document.mmm_fo) document.write ("&amp;mmm_fo=1");
+       document.write ("'><\/scr"+"ipt>");
+    }
+  //]]>-->
+  </script>
+  <noscript><a href='http://ads.eventfinda.co.nz/www/delivery/ck.php?n=acf78549&amp;cb=INSERT_RANDOM_NUMBER_HERE' target='_blank'><img src='http://ads.eventfinda.co.nz/www/delivery/avw.php?zoneid=87&amp;cb=INSERT_RANDOM_NUMBER_HERE&amp;n=acf78549' border='0' alt='' /></a></noscript>
+</div><!-- end module -->              </div>
+        
+  </div><!-- end container -->
+</div><!-- end wrapper -->
+
+<div class="navbar" role="navigation">
+  <div class="container">
+        <!-- Brand and search -->
+    <div class="row">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="fa fa-bars"></span>
+      </button>      
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".user-menu">
+        <span class="sr-only">Toggle user menu</span>
+        <span class="fa fa-user"></span>
+      </button>
+            <a href="http://www.eventfinda.co.nz/" class="navbar-brand " title="eventfinda.co.nz - What's on in New Zealand">
+        <img alt="Eventfinda.co.nz" title="Eventfinda.co.nz" src="http://cdn.eventfinda.co.nz/images/global/logo.png?v=o429sy">
+      </a>
+      <form method="get" id="mastheadSearch" class="navbar-form" accept-charset="UTF-8" action="/search">
+        <div class="input-group">
+          <input name="q" id="mastheadSearchInput" class="form-control" type="text" value="" title="Search" placeholder="Search">
+          <span class="input-group-btn">
+            <a href="#" id="mastheadSearchSubmit" class="btn btn-primary"><span class="fa fa-search"></span></a>
+          </span><!-- end input-group-btn -->
+        </div><!-- end input-group -->
+        <input class="offScreen" type="submit" value="Search" />
+      </form>
+      <a href="/add-event" title="List your event" class="btn btn-primary navbar-btn navbar-right hidden-xs hidden-sm btn-list-event">Create Event</a>
+        <!--<ul class="top-nav-user-options ">-->
+  
+  <div class="btn-group dropdown btn-group-my-eventfinda user-menu" id="jsMembersMenu">
+    <button id="jsMembersMenuButton" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+      My Eventfinda <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu">
+      <li><a href="/members">My Eventfinda</a></li>
+      
+              <li><a href="/members/tickets">My Tickets</a></li>
+              
+              <li><a href="http://pro.eventfinda.co.nz">Eventfinda Pro</a></li>
+            
+      <li role="separator" class="divider"></li>
+      <li class="loading jsMembersMenuAuthLoading"><span class="fa fa-spin fa-refresh"></span> Loading...</li>
+      
+    </ul>
+  </div>
+  
+
+
+
+    </div><!-- end row -->
+    
+    <!-- primary navigation -->
+    <div class="row">
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav navbar-left">
+          <li class="first ">
+      <a href="/"><span>Home</span></a>
+    </li>
+          <li class="">
+      <a href="/whatson/events/feilding"><span>Find Events</span></a>
+    </li>
+          <li class="">
+      <a href="/concerts-gig-guide/events/feilding"><span>Concerts &amp; Gigs</span></a>
+    </li>
+          <li class="">
+      <a href="/tours"><span>Tours</span></a>
+    </li>
+          <li class="">
+      <a href="/tickets"><span>Tickets</span></a>
+    </li>
+          <li class="">
+      <a href="/artists"><span>Artists</span></a>
+    </li>
+          <li class="">
+      <a href="/venues/feilding/all"><span>Venues</span></a>
+    </li>
+          <li class="">
+      <a href="/news"><span>News</span></a>
+    </li>
+  </ul>        <ul class="nav navbar-nav navbar-right location-menu">
+          <li class="country">
+            <a href="#none" data-toggle="modal" data-target="#modal-choose-location">
+              New Zealand            </a>
+          </li>
+          <li class="separator">/</li>
+                                  <li class="location">
+              <a href="#none" data-toggle="modal" data-target="#modal-choose-location">
+                Feilding              </a>  
+            </li>
+                  </ul><!-- end nav-location -->
+      </div><!-- end navbar-collapse / primary navigation -->
+    </div><!-- end row -->
+  </div><!-- end container -->
+</div><!-- end navbar -->
+
+<!-- Breadcrumbs and Site Stats -->
+<div class="wrapper sub-navbar hidden-xs hidden-sm">
+  <div class="container">
+          <div class="row">
+  <ol class="breadcrumb pull-left">
+    <li id="home"><a href="/"><span class="icon">Home</span></a></li>
+                                    <li class="navCurrent"><span>Privacy Policy</span></li>
+                   
+  </ol>
+  <ul class="list-inline pull-right">
+  <li>
+    632,455 members 
+  </li>
+  <li>
+    255,276 events published 
+  </li>
+</ul>
+          </div><!-- end row -->      </div><!-- end container -->
+</div><!-- end sub-navbar -->  
+  <!-- BODY WRAPPER -->
+  <div id="pageWrapper" class="wrapper content ">
+    <div class="container" >
+      <div id="y7adRICH" class="y7adRICH"></div>
+      <div id="y7adRICH1" class="y7adRICH1"></div>
+                  <div class="row">
+  <div class="col-md-3">
+    <div class="module about-us">
+  <ul class="nav nav-pills nav-stacked">
+                  <li><a href="/about/about-us">About Us</a></li>
+                        <li><a href="/about/ads">Advertising For Agencies</a></li>
+                        <li><a href="/about/advertising-for-promoters-and-event-organisers">Advertising for Promoters and Event Organisers</a></li>
+                        <li><a href="/about/contact-us">Contact Us</a></li>
+                        <li><a href="/about/content-syndication-partners">Content Syndication Partners</a></li>
+                        <li><a href="/about/ticketing-services">Event Ticketing</a></li>
+                        <li><a href="/about/ticket-outlets">Eventfinda Ticket Outlets</a></li>
+                        <li><a href="/about/help">Help and Support</a></li>
+                        <li><a href="/about/list-events">List Your Events</a></li>
+                        <li><a href="/about/brand-guidelines">Logo Downloads &amp; Brand Guidelines</a></li>
+                        <li><a href="/about/mch-partnership">MCH Partnership</a></li>
+                        <li><a href="/about/terms-of-service">Terms Of Service</a></li>
+                        <li><a href="/about/ticket-purchase-terms-policies">Ticket Purchase Terms &amp; Conditions</a></li>
+            </ul>
+</div><!-- end module -->  </div><!-- end col -->
+  <div class="col-md-9">
+    <article class="article-generic">
+      <div class="page-header">
+        <h1>Privacy Policy</h1>
+      </div><!-- end pag-header -->
+              <p>We built Eventfinda to make it easy to share information with your friends and people around  you. We understand you may not want to share personal details; that is why we   give you control of your information. Registration requires you to choose a   username, home region and email address. Your email address is never displayed   to anyone on the site. Your email address may be dislayed in emails if you use   Eventfinda to connect with other people, like when sending friend invites.   Other personal details will only be displayed if you fill them in - the nature   of social networking websites means your details will be visible to others -   but only the details you choose to supply.</p>  <p>Should you want your details removed completely from the Eventfinda Network   there is a simple 'cancel my account' feature in your profile settings on any   web site in the Eventfinda Network. Cancelling your account will completely   remove your personal details from the Eventfinda Network database. By using   or accessing any site in the Eventfinda Network, you are accepting the   practices described in this Privacy Policy.</p>  The Information We Collect  <p>When you visit an Eventfinda Network web site you provide us with two types   of information: personal information you knowingly choose to disclose that is   collected by us and web site use information collected by us as you interact   with our Web Site.</p>  <p>When you register with an Eventfinda Network web site, you provide us with   certain personal information, such as your email address and any other personal   or preference information that you provide to us.</p>  <p>When you enter an Eventfinda Network website we collect your browser   type and IP address. This information is gathered for all Eventfinda Network   visitors. In addition, we store certain information from your browser using   &quot;cookies.&quot; A cookie is a piece of data stored on the user's computer tied to   information about the user. We use session ID cookies to confirm that users   are logged in. These cookies terminate once the user closes the browser. As an   option chosen by you when logging in we use a persistent cookie that stores   your login to make it easier for you to login when you come back to   Eventfinda. You can remove or block this cookie using the settings in your   browser if you want to disable this convenience feature.</p>  <p>You post Content (as defined in the Eventfinda Network Terms of Service) on   the Site(s) at your own risk. Please be aware that no security measures are   perfect or impenetrable. We cannot control the actions of other Users with   whom you may choose to share your pages and information. Therefore, we cannot   and do not guarantee that Content you post on the Site will not be viewed by   unauthorised persons. We are not responsible for circumvention of any privacy   settings or security measures contained on the Site. You understand and   acknowledge that, even after removal, copies of Content may remain viewable in   cached and archived pages or if other Users have copied or stored your Content.</p>  <p>Any improper collection or misuse of information provided on the Eventfinda   Network is a violation of the Eventfinda Network Terms of Service and should   be reported to support at eventfinda dot co dot nz.</p>  <p>If you choose to use our invitation service to tell a friend about our site,   we will ask you for your friend's email address. We will automatically send   your friend a one-time email inviting him or her to visit the site. Eventfinda   Network web sites stors this information to send this one-time email, to   register a friend connection if your invitation is accepted, and to track the   success of our referral program.</p>  <p>We may occasionally use your email address to send you notifications   regarding new services offered by the Eventfinda Network that we think you   may find valuable.</p>  Links To Other Web Sites  <p>Eventfinda Network websites contain links to other websites. We are   of course not responsible for the privacy practices of other web sites. We   encourage our users to be aware when they leave our site to read the privacy   statements of each and every web site that collects personally identifiable   information. This Privacy Policy applies solely to information collected by   Eventfinda Network websites.</p>  Third Party Advertising  <p>Advertisements that appear on the Eventfinda Network are sometimes delivered   (or &quot;served&quot;) directly to users by third party advertisers. They automatically   receive your IP address when this happens. These third party advertisers may   also download cookies to your computer, or use other technologies such as   JavaScript and &quot;web beacons&quot; (also known as &quot;1x1 gifs&quot;) to measure the   effectiveness of their ads and to personalize advertising content. Doing this   allows the advertising network to recognize your computer each time they send   you an advertisement in order to measure the effectiveness of their ads and to   personalize advertising content. In this way, they may compile information   about where individuals using your computer or browser saw their advertisements   and determine which advertisements are clicked. Eventfinda does not have   access to or control the cookies that may be placed by the third party   advertisers. Third party advertisers have no access to your contact information   stored on the Eventfinda Network unless you choose to share it with them.</p>  <p>This privacy policy covers the use of cookies by the Eventfinda Network and   does not cover the use of cookies or other tracking technologies by any of its   advertisers.</p>  Changing or Removing Information  <p>Access and control over personal information on the Eventfinda Network is   readily available through the profile editing tools on all Eventfinda Network   web sites, including eventfinda.co.nz. Eventfinda Network   users may modify or delete any of their profile information at any time by   logging into their account. Information will be updated immediately. Individuals   who wish to cancel their Eventfinda Network account may do  at any time.   Removed information may persist in backup copies for a reasonable period of   time but will not be generally available to members of Eventfinda.</p>  <p>Your use of the Eventfinda Network, and any disputes arising from it, is   subject to this Privacy Policy as well as our Terms of Service and all of its   dispute resolution provisions including arbitration, limitation on damages and   choice of law. We reserve the right to change our Privacy Policy and our Terms  of Service at any time. We encourage you to refer to this policy on an ongoing   basis so that you understand our current privacy policy. Unless stated   otherwise, our current privacy policy applies to all information that we have   about you and your account.</p>  <p>If you have any questions about this privacy policy, please contact us through the&nbsp;<a href="http://support.eventfinda.co.nz" title="Eventfinda Support Help Centre">Help Centre</a>.</p>    </article>
+  </div><!-- end col -->
+</div><!-- end row -->                        </div><!-- end container -->
+  </div><!-- end wrapper -->
+  
+  <div class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-2">
+        <ul class="list-unstyled">
+          <li class="parent"><a href="/">Home</a></li>
+                      <li><a href="/members">My Eventfinda</a></li>
+                    <li><a href="/artists">Artists</a></li>
+          <li><a href="/venues">Venues</a></li>
+                      <li><a href="/tickets">Tickets</a></li>
+                    <li><a href="/news">News</a></li>
+          <li><a href="/add-event">Create Event</a></li>
+          <li><a href="/search">Search</a></li>
+        </ul>      
+      </div><!-- end col -->
+      <div class="col-md-2">
+        <ul class="list-unstyled">
+          <li class="parent"><a href="/whatson/events/new-zealand">Events</a></li>
+                              <li><a href="/concerts-gig-guide/events/new-zealand">Concerts &amp; Gig Guide</a></li>
+                    <li><a href="/exhibitions/events/new-zealand">Exhibitions</a></li>
+                    <li><a href="/lifestyle/events/new-zealand">Festivals &amp; Lifestyle</a></li>
+                    <li><a href="/arts/events/new-zealand">Performing Arts</a></li>
+                    <li><a href="/sports/events/new-zealand">Sports &amp; Outdoors</a></li>
+                    <li><a href="/workshops-conferences-classes/events/new-zealand">Workshops, Conferences &amp; Classes</a></li>
+                  </ul>
+      </div><!-- end col -->
+      <div class="col-md-2">
+        <ul class="list-unstyled">
+                  <li class="parent"><a href="/about/about-us">About Us</a></li>
+                  <li ><a href="/about/mch-partnership">MCH Partnership</a></li>
+                  <li ><a href="/about/privacy-policy">Privacy Policy</a></li>
+                  <li ><a href="/about/terms-of-service">Terms Of Service</a></li>
+                  <li ><a href="/about/ticket-purchase-terms-policies">Ticket Purchase Terms &amp; Conditions</a></li>
+                          <li><a href="/api/v2/index">Developer API</a></li>
+                </ul>
+      </div><!-- end col -->
+      <div class="col-md-2">
+        <ul class="list-unstyled">
+                                <li class="parent"><a href="http://support.eventfinda.co.nz">FAQ &amp; Support</a></li>
+            <li><a href="http://support.eventfinda.co.nz/hc/en-gb/categories/200198384-For-Consumers">Account Support</a></li>
+            <li><a href="http://support.eventfinda.co.nz/hc/en-gb/categories/200195160-For-Event-Promoters">Help Listing Events</a></li>
+            <li><a href="http://start.eventfinda.co.nz">Event Ticketing</a></li>
+            <li><a href="http://start.eventfinda.co.nz/premium-advertising.php">Advertising for Promoters &amp; Event Organisers</a></li>
+            <li><a href="http://support.eventfinda.co.nz/hc/en-gb/articles/202919120-How-to-reach-New-Zealand-s-best-online-audience">Advertising for Agencies</a></li>
+            <li><a href="/about/ticket-outlets">Eventfinda Ticket Outlets</a></li>
+                  </ul>
+      </div><!-- end col -->
+      <div class="col-md-2 hidden-xs hidden-sm">
+                <ul class="list-unstyled">
+          <li class="parent">Social</li>
+                      <li><a target="_blank" class="no_overlay" href="https://www.facebook.com/EventfindaNZ">Facebook</a></li>
+                                <li><a target="_blank" class="no_overlay" href="http://twitter.com/EventfindaNZ">Twitter</a></li>
+                                                              <li><a target="_blank" class="no_overlay"  href="http://instagram.com/eventfindanz">Instagram</a></li>
+                  </ul>
+      </div><!-- end col -->
+            <div class="col-md-2 hidden-xs hidden-sm">  
+        <ul class="list-unstyled">
+            <li class ="parent">Eventfinda Network</li>
+            <li><a href="http://start.eventfinda.co.nz/" rel="nofollow">Eventfinda Services</a></li>
+            <li><a href="http://www.eventfinda.co.nz/" rel="nofollow">Eventfinda New Zealand</a></li>
+            <li><a href="http://www.eventfinda.com.au" rel="nofollow">Eventfinda Australia</a></li>
+                        <li><a href="http://www.eventfinda.sg/" rel="nofollow">Eventfinda Singapore</a></li>
+            <li><a href="http://www.eventfinda.at/" rel="nofollow">Eventfinda Austria</a></li>
+        </ul>
+      </div><!-- end col -->
+    </div><!-- end row -->
+    <hr />
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <p>Copyright &copy; 2005&ndash;2016 Eventfinda Limited</p>
+      </div><!-- end col -->
+    </div><!-- end row -->
+  </div><!-- end container -->
+</div><!-- end footer -->  
+    
+            <div id="jsModalRegistration" class="modal modal-login fade in" >
+    <div class="modal-overlay"></div>
+  <div class="modal-wrapper">
+    <a class="closeButton" href="#none"></a>
+    <div class="form modal-register">
+        <div class="modalMessage">
+                  <h3>Enter your email address</h3>
+                                      </div>
+      <form class="modal_form modal_form_facebook" method="post" action="/register">                  <input type="hidden" name="redirect" id="redirect" value="/about/privacy-policy" />                <fieldset>
+          <div class="formSectionWrapper">
+                          <div class="form-field">
+                <label for="facebook">Use your Facebook account:</label>
+                <div class="input-field">
+                  <a href="/login-facebook-link/redirect_uri/%2Fabout%2Fprivacy-policy" class="btn btn-lg btn-block btn-facebook js-ga-click-trak" data-ga-category='fb-login' data-ga-action='click' title="Register on Eventfinda using your Facebook account"><span class="fa fa-facebook-square"></span>Connect with Facebook</a>
+                   
+                </div>
+              </div>
+              <div class="form-field">
+                <p class="modal-or">or</p>
+              </div>
+                        <div class="form-field">
+              <label for="email">Email Address:</label>              <div class="input-field">
+                <input type="text" name="email" id="email" value="" class="input-text" />              </div>
+                <div id="email_status" 
+       class="input-status-wrapper">
+  </div>
+
+<script type="text/javascript">
+//<![CDATA[
+  $(document).ready(
+    function () {
+
+      $('#email_status').parents('.formRow, .form-row, .form-field').addClass('');
+      
+      $('#email').bind('blur', 
+        function () {
+          $.ajax( {
+                    type: 'POST', 
+                    dataType: 'html', 
+                    data: 'value=' + escape($('#email').val()).replace('+', '%2B') 
+                      + '&field=email'
+                                                                ,
+                    url: '/register/check',
+                    success: function (i, textStatus, jqXHR) { 
+                      var field = $('#email_status').parents('.formRow:first, .form-row:first, .form-field:first');
+
+                      if (i.indexOf("validation-incorrect") >= 0) {
+                        $('#email_status').html(i);
+                        $(field).addClass("error");
+                        $(field).removeClass("success");
+                      } else if (i.indexOf("validation-correct") >= 0) {   
+                        $(field).removeClass("error");
+                        $(field).addClass("success");
+                      }
+
+                      if (jqXHR.getResponseHeader('X-Eventfinder-Activated')) {
+                        $login_form = $('#jsModalRegistration form');
+
+                        if ($login_form.length > 0 && typeof(jsModalRegistrationLoginModeFunc) == 'function') {
+                          if (jqXHR.getResponseHeader('X-Eventfinder-Registered-Fb')) {
+                                                        return true;
+                          } else {
+                            if (jsModalRegistrationLoginModeFunc($login_form)) {
+                              return true;
+                            }
+                          }
+                        }
+                      }
+
+                    }
+                  }
+          ) 
+        }
+      );   
+    }
+  );
+//]]>
+</script>
+            </div>
+            <div class="form-field jsPassword" style="display:none">
+              <label for="password">Password:</label>              <div class="input-field">
+                <input type="password" name="password" id="password" value="" class="input-text" disabled="disabled" />              </div>
+            </div>
+            <div class="form-field jsPassword" style="display:none">
+              <div class="input-field">
+                <input type="checkbox" name="remember_me" id="remember_me" value="1" checked="checked" />                <label for="remember_me" class="login-remember">Remember me on this computer</label>              </div>
+              <div class="clear"></div>
+            </div>
+                        <div class="submit-wrapper">
+              <input type="submit" name="commit" value="Continue &hellip;" class="btn btn-block btn-lg btn-primary" />              <p class="forgot-password jsPassword" style="display:none"><a class="jsResetPassword" href="/forgot-password">Forgotten your password?</a></p>
+            </div>
+          </div>
+        </fieldset>
+      </form>
+      <p class="login-terms">Continuing confirms your acceptance of our <a target="_blank" rel="nofollow" href="/about/terms-of-service">terms of service</a>.</p>
+        </div>
+  </div>
+      </div>      
+  <div id="modal-choose-location" class="modal modal-choose-location fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 class="modal-title" id="myModalLabel">Choose your location</h3>
+      </div><!-- end modal-header -->
+      <div class="modal-body">
+        <ul class="nav nav-pills">
+                                                  <li class="active">
+                <a href="#none" rel="nofollow"><span class="icon icon-nzl"></span>New Zealand</a>
+              </li>
+                                                              <li class="">
+                <a href="http://www.eventfinda.com.au?from_country=nz" rel="nofollow"><span class="icon icon-aus"></span>Australia</a>
+              </li>
+                                                              <li class="">
+                <a href="http://www.eventfinda.sg?from_country=nz" rel="nofollow"><span class="icon icon-sga"></span>Singapore</a>
+              </li>
+                                                              <li class="">
+                <a href="http://www.wohintipp.at?from_country=nz" rel="nofollow"><span class="icon icon-aut"></span>Austria</a>
+              </li>
+                              </ul>
+        <div class="location-select-wrapper" id="jsNationSelect">
+          
+    <ul class="location-select">
+  <li >
+    <a href="/change-location?pref_location_id=-1">
+      <span class="fa fa-square-o blue"></span><strong>New Zealand</strong>
+    </a>
+    <ul>     
+                              <li>
+          <a href="/change-location?pref_location_id=7051">
+            <span class="fa fa-square-o blue"></span><strong>Whangarei</strong>
+          </a>
+        </li>
+                              <li>
+          <a href="/change-location?pref_location_id=2">
+            <span class="fa fa-square-o blue"></span><strong>Auckland</strong>
+          </a>
+        </li>
+                              <li>
+          <a href="/change-location?pref_location_id=42">
+            <span class="fa fa-square-o blue"></span><strong>Hamilton</strong>
+          </a>
+        </li>
+                              <li>
+          <a href="/change-location?pref_location_id=57">
+            <span class="fa fa-square-o blue"></span><strong>Rotorua</strong>
+          </a>
+        </li>
+                              <li>
+          <a href="/change-location?pref_location_id=67">
+            <span class="fa fa-square-o blue"></span><strong>Napier</strong>
+          </a>
+        </li>
+                              <li>
+          <a href="/change-location?pref_location_id=83">
+            <span class="fa fa-square-o blue"></span><strong>Palmerston North</strong>
+          </a>
+        </li>
+                              <li>
+          <a href="/change-location?pref_location_id=363">
+            <span class="fa fa-square-o blue"></span><strong>Wellington</strong>
+          </a>
+        </li>
+                              <li>
+          <a href="/change-location?pref_location_id=59">
+            <span class="fa fa-square-o blue"></span><strong>Tauranga</strong>
+          </a>
+        </li>
+                              <li>
+          <a href="/change-location?pref_location_id=110">
+            <span class="fa fa-square-o blue"></span><strong>Christchurch</strong>
+          </a>
+        </li>
+                              <li>
+          <a href="/change-location?pref_location_id=126">
+            <span class="fa fa-square-o blue"></span><strong>Dunedin</strong>
+          </a>
+        </li>
+                              <li class="selected">
+          <a href="/change-location?pref_location_id=7543">
+            <span class="fa fa-check-square green"></span><strong>Feilding</strong>
+          </a>
+        </li>
+          </ul>
+  </li>
+</ul>
+
+<script>
+  $(document).ready(function(){
+    $('#jsNationSelect a').click(function(){
+      
+      $('#modal-choose-location').modal('hide');
+
+      $('#region img').show();
+    })
+  });
+</script>
+        </div><!-- end location-select-wrapper -->
+      </div><!-- end modal-body -->
+    </div><!-- end modal-content -->
+  </div><!-- end modal-dialog -->
+</div><!-- end modal -->  
+
+  
+  
+
+<div id="pageAlertWrapper" class="ticketingTimer" style="display:none;">
+  <div id="pageAlertInner">
+    <div id="pageAlertContent" class="cartAlertContent">
+      <div class="cartAlert">
+        <h3 class="cartHeader jsCartHeader">
+          <span class="fa fa-shopping-cart"></span>
+          <span class="cartHeaderText">Shopping Cart</span>
+        </h3>
+        <div class="jsTimeRemaining" style="display:none;">
+          <span id="countDown"></span> 
+          <span id="countDownText">Plenty of time to complete your purchase.</span>
+        </div>
+        <div class="cartSummary">
+          <p>
+            <strong class="jsNbTickets">0 items</strong>
+            &ndash; <span class="jsValue">$0</span>
+          </p>
+          <a href="#none" class="jsPaymentUrl btn btn-default"><span class="fa fa-shopping-cart"></span>View Cart</a>
+        </div><!-- end cartSummary -->
+      </div><!-- end cart alert -->
+    </div>
+  </div>
+</div>
+<script type="text/javascript">//<![CDATA[
+  $(function() {
+    var cookie = $.cookie('_ticketinfo');
+    cookie = $.parseJSON(cookie);
+    var is_updating_cookie = false;
+    var has_updated_cookie = false;
+    
+              var in_purchase_process = false;
+          
+        var display_header = function() {
+
+      if (cookie && cookie.nb_tickets > 0) {
+        $('#pageAlertWrapper .jsNbTickets').html(__('{nb_tickets} items', { 'nb_tickets': cookie.nb_tickets}));
+        $('#pageAlertWrapper .jsValue').html(__('${value}', { 'value': _format_currency(cookie.value)}));
+        $('#pageAlertWrapper .jsPaymentUrl').attr('href', cookie.payment_url);
+
+        if (!$('#pageAlertWrapper.ticketingTimer').is(':visible')) {
+          $('body').animate({ paddingTop: 50 }, 300, null, function() {
+            $('#pageAlertWrapper.ticketingTimer').show();
+          });
+        }
+      }
+    };
+
+    var hide_header = function() {
+      
+      if ($('#pageAlertWrapper.ticketingTimer').is(':visible')) {
+        $('body').animate({ paddingTop: 0 }, 300, null, function() {
+          $('#pageAlertWrapper.ticketingTimer').hide();
+          $('.jsTimeRemaining').hide();
+          $('.jsCartHeader').show();
+        });
+      }
+    };
+
+
+    var show_timer = 300000;
+    var show_notice = Math.floor(show_timer / 2);
+    var show_warning = Math.floor(show_timer / 3);
+
+        var update_cookie = function(cookie) {
+
+      cookie = $.cookie('_ticketinfo');
+      cookie = $.parseJSON(cookie);
+
+      if (cookie && typeof(cookie.nb_tickets) !== 'undefined') {
+        
+        cookie.expire_time = cookie.expire_time + cookie.client_clock_delta;
+      } else {
+        cookie = false;
+      }
+      
+      return cookie;
+    };
+    
+    var update_cookie_from_server = function(cookie) {
+      if (!is_updating_cookie && typeof(cookie.info_url) !== 'undefined') {
+        is_updating_cookie = true;
+        $.get(cookie.info_url + '?client_time=' + Math.floor(new Date().getTime()/1000)); 
+      }
+    }
+
+    var ticketingTimer = function() {
+
+      cookie = update_cookie(cookie);
+      var re_run = 10000;
+      if (cookie) {
+        
+        var time_remaining = (cookie.expire_time * 1000) - new Date().getTime();
+        
+        re_run = time_remaining > 300000 ? 10000 : 1000;
+
+        var minutes = new Number(time_remaining/60000 - 0.5).toFixed(0);
+        var seconds = new Number((time_remaining/1000)%60 - 0.5).toFixed(0);
+
+        if (seconds.length == 1) seconds = '0' + seconds;
+        if (seconds <= 0) seconds = '00';
+        if (minutes <= 0) minutes = '0';
+
+        $('#countDown').text(minutes + ':' + seconds);
+
+        if (time_remaining > show_timer) {
+          if (in_purchase_process) {
+            hide_header();
+          }
+        } else {
+          
+          update_cookie_from_server(cookie);
+          $('.jsTimeRemaining').show();
+          $('.jsCartHeader').hide();
+
+          display_header();
+
+          if (time_remaining < 0) {
+            $('#pageAlertInner').css('background-color', 'red');
+            $('#countDownText').html(__('Sorry, your purchase has timed out. <a href="{url}">Start again?</a>', { 'url': cookie.reset_url}));
+
+            $.removeCookie('_ticketinfo', { path: '/' });
+            //window.location = cookie.reset_url;
+
+            return;
+          } else if (time_remaining < show_warning) {
+            $('#pageAlertInner').css('background-color', '#f26522');
+            $('#countDownText').text(__('Quick! Time is running out to complete your purchase.', {}));
+          } else if (time_remaining < show_notice) {
+            $('#countDownText').text(__('Please complete your purchase soon.', {}));
+          }
+
+        }
+      } else {
+        hide_header();
+      }
+
+      setTimeout(ticketingTimer, re_run);
+    }
+
+    ticketingTimer();
+    if (!in_purchase_process) {
+      display_header();
+    }
+    
+  });
+//]]></script>
+  <!--[if lt IE 8 ]>
+  <div id="pageAlertWrapper" class="noscript">
+    <div id="pageAlertInner">
+      <div id="pageAlertContent">
+        <p>
+          Eventfinda does not support your version of IE. <a target="_blank" href="http://windows.microsoft.com/ie">Upgrade to the current version</a>.        </p>
+      </div>
+    </div>
+  </div>
+<![endif]-->
+<noscript>
+  <div id="pageAlertWrapper" class="noscript">
+    <div id="pageAlertInner">
+      <div id="pageAlertContent">
+        <p>
+                      Eventfinda works best with JavaScript enabled                  </p>
+      </div>
+    </div>
+  </div>
+</noscript>
+
+<script type="text/javascript" src="http://cdn.eventfinda.co.nz/js/eventfinder.js?o429sy"></script>
+<script type="text/javascript" src="http://cdn.eventfinda.co.nz/js/thickbox.js?o429sy"></script>
+<script type="text/javascript" src="http://cdn.eventfinda.co.nz/js/bootstrap.min.js?o429sy"></script>
+  
+  <!-- Place this tag after the last +1 button tag. -->
+  <script type="text/javascript">
+    (function() {
+      var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+      po.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+    })();
+  </script>
+
+  <script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
+  
+  <script>
+    _ga.trackTwitter();
+  </script>
+
+<!-- START Nielsen//NetRatings SiteCensus V5.2 -->
+<!-- COPYRIGHT 2006 Nielsen//NetRatings -->
+<script type="text/javascript">
+  /* <![CDATA[ */ 
+  var _rsCI="nz-apn";
+  var _rsCG="nzeventfinder";
+  var _rsDN="//secure-nz.imrworldwide.com/";
+  var _rsCC=0;
+  var _rsSE=0;
+  var _rsSM=0;
+  /* ]]> */ 
+</script>
+<script type="text/javascript" src="//secure-nz.imrworldwide.com/v52.js"></script>
+<noscript>
+  <div><img src="//secure-nz.imrworldwide.com/cgi-bin/m?ci=nz-apn&amp;cg=nzeventfinder" alt=""/></div>
+</noscript>
+<!-- END Nielsen//NetRatings SiteCensus V5.2 -->
+
+
+
+    <script type="text/javascript">//<![CDATA[
+    var _efUrl = 'http://www.eventfinda.co.nz/t.gif?s=1';
+  var _efUrlSize = _efUrl.length;
+  for (var i in _efT) if (_efT[i].length > 0 && typeof(_efT[i]) != 'function') _efUrl += '&'+i+'='+_efT[i].join(':');
+  if (_efUrl.length > _efUrlSize) {
+   _efUrl += '&r='+Math.floor(Math.random()*999999); document.write('<img src="'+_efUrl+'" width="1" height="1"  class="tracking-stats-image" />');
+  }
+    //]]></script>
+
+<script type="text/javascript">//<![CDATA[
+var _efUrl = 'http://www.eventfinda.co.nz/t.gif?s=1&t=l';
+var _efUrlSize = _efUrl.length;
+var typeRegex = /\bjsEfType(\d+)\b/;
+var _efT = new Array;
+
+var $efJ = jQuery;
+$efJ('.jsEfTL').each(function() {
+  var i = $efJ(this).val();
+  var t = (typeRegex.exec($efJ(this).prop('class')))[1];
+  if (typeof(_efT[t]) != 'object') _efT[t] = new Array; _efT[t].push(i);
+
+});
+for (var i in _efT) if (_efT[i].length > 0 && typeof(_efT[i]) != 'function') _efUrl += '&'+i+'='+_efT[i].join(':');
+if (_efUrl.length > _efUrlSize) {
+ _efUrl += '&r='+Math.floor(Math.random()*999999); 
+ document.write('<img src="'+_efUrl+'" width="1" height="1" class="tracking-stats-image" />');
+}
+
+//]]></script>
+
+
+ 
+<script type="text/javascript">//<![CDATA[
+document.getElementsByTagName('html')[0].style.display='block';
+//]]></script>
+
+  
+  
+
+  <script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"bf7256f622","applicationID":"1699090,1699091,1699092","transactionName":"ZFRbY0tZX0MEUEIMXV0eekJKTF5dSlZQKFdHUANeV1xUSA==","queueTime":0,"applicationTime":122,"atts":"SBNMFQNDTBxHUhRfSU5M","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>
